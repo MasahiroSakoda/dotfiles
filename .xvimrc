@@ -1,0 +1,15 @@
+" display settings
+set ruler
+set cursorline
+
+" search settings
+set incsearch
+set hlsearch
+
+" case settings
+set ignorecase
+set smartcase
+
+" pasteboard settings
+set pasteboard
+

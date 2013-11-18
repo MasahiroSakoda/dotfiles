@@ -1,0 +1,8 @@
+set kanji-code utf-8
+set editing-mode vi
+set meta-flag on
+set convert-meta off
+set input-meta on
+set output-meta on
+set completion-ignore-case on
+set enable-keypad on

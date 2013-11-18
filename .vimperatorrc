@@ -1,0 +1,81 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymap settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap H gT
+noremap L gt
+noremap h <A-Left>
+noremap l <A-Right>
+noremap <BS> <A-Left>
+
+noremap j 3j
+noremap k 3k
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Browser primary settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+set titlestring=FireFox
+
+set complete=tsl
+set suggestengines=google
+set focuscontent
+set autocomplete
+set nobeep
+set ignorecase
+set newtab=all
+set noscrollbars
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+set hlsearch
+set wildoptions=auto
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Hint settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+highlight Hint font-family:monospace; font-size:10pt; line-height:1.1; color:black; background-color:#ccf; border-color:ButtonShadow; border-width:1px; border-style:solid; padding:0;
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Firefox about:config settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Close download window when download complete
+set! browser.download.manager.closeWhenDone=true
+" Delete download history when Firefox quit
+set! browser.download.manager.retention=1
+" Hide tab close buttons
+set! browser.tabs.closeButton=2
+" Enable debug mode
+set! browser.dom.window.dump.enabled=true
+" Load tab when tab selected
+set! browser.sessionstore.restore_on_demand=true
+
+set! browser.cache.disk.enable=false
+set! browser.cache.memory.enable=true
+set! browser.cache.memoty.capacity=-1
+
+" Release memoty when Firefox window minimized
+set! config.trim_on_minimize=true
+" Disable Javascript resizing
+set! dom.disable_window_move_resize=true
+" Delay time for addons install
+set! security.dialog_enable_delay=0
+" Disable page access key
+set! ui.key.generalAccessKey=0
+
+
+" ignore resizing javascript
+set! dom.disable_window_move_resize=true
+" ignore statusbar operation from javascript
+set! dom.event.contextmenu.enabled=false
+
+" optimize memory cache when application minimized
+set! config.trim_on_minimize=true
+
+" set addon install delay time
+set! security.dialog_enable_delay=0
+" delete download history when Firefox quit
+set! browser.download.manager.retention=1
+
+echo .vimperatorrc sourced.
+
