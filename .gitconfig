@@ -15,12 +15,22 @@
     br   = branch -ar
 
 [color]
-    ui   = auto
-    diff = auto
+    ui          = auto
+    diff        = auto
+    status      = auto
+    branch      = auto
+    grep        = auto
+    interactive = auto
 
 [color "diff"]
     meta = blue bold
     flag = cyan
     old  = red
     new  = green
+
+[diff]
+    patience = true
+
+[push]
+    default = simple
 
