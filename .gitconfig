@@ -1,0 +1,26 @@
+[include]
+    path = ~/.gitconfig.local
+
+[core]
+    pager  = lv -c
+    editor = vi
+
+[alias]
+    co   = checkout
+    ci   = commit
+    d    = colordiff
+    loga = log --graph --decorate=full
+    lg   = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
+    st   = status
+    br   = branch -ar
+
+[color]
+    ui   = auto
+    diff = auto
+
+[color "diff"]
+    meta = blue bold
+    flag = cyan
+    old  = red
+    new  = green
+
