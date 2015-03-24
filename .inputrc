@@ -6,3 +6,7 @@ set input-meta on
 set output-meta on
 set completion-ignore-case on
 set enable-keypad on
+
+$if mysql
+  set editing-mode vi
+$endif
