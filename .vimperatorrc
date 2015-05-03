@@ -1,21 +1,34 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymap settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
-noremap H gT
-noremap L gt
-noremap h <A-Left>
-noremap l <A-Right>
-noremap <BS> <A-Left>
+nnoremap H gT
+nnoremap L gt
+nnoremap h <A-Left>
+nnoremap l <A-Right>
+nnoremap <BS> <A-Left>
 
-noremap j 3j
-noremap k 3k
+nnoremap j 3<C-e>
+nnoremap k 3<C-y>
+
+nnoremap U :u<Space>
+
+nnoremap <C-h> :tabmove! -1<CR>
+nnoremap <C-l> :tabmove! +1<CR>
+
+nnoremap ,es :set encoding=Shift_JIS<CR>
+nnoremap ,ec :set encoding=EUC-JP<CR>
+nnoremap ,eu :set encoding=UTF-8<CR>
+nnoremap ,ei :set encodeing=ISO-2022-JP<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
 set titlestring=FireFox
+set visualbell
 
-set complete=tsl
+set gui=addons,nomenu,tas,nonavigation
+set complete=sl
+set defserach=google
 set suggestengines=google
 set focuscontent
 set autocomplete
@@ -23,6 +36,10 @@ set nobeep
 set ignorecase
 set newtab=all
 set noscrollbars
+set notabnumbers
+hi ErrorMsg color:white; background-color: #ec6aa1;
+
+colorscheme solarized_dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Search settings
@@ -34,7 +51,11 @@ set wildoptions=auto
 " Hint settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
-highlight Hint font-family:monospace; font-size:10pt; line-height:1.1; color:black; background-color:#ccf; border-color:ButtonShadow; border-width:1px; border-style:solid; padding:0;
+" highlight Hint font-family:monospace; font-size:10pt; line-height:1.1; color:black; background-color:#ccf; border-color:ButtonShadow; border-width:1px; border-style:solid; padding:0;
+highlight Hint font-family: Arial; font-size: 21px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
+highlight HintElem color: gray; background-color: #a1e4e6;
+highlight HintActive color: black; background-color: #ff8700;
+highlight ErrorMsg color:white; background-color: #ec6aa1;
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Firefox about:config settings
@@ -50,9 +71,14 @@ set! browser.dom.window.dump.enabled=true
 " Load tab when tab selected
 set! browser.sessionstore.restore_on_demand=true
 
+set! browser.tabs.autoHide=false
+
 set! browser.cache.disk.enable=false
 set! browser.cache.memory.enable=true
 set! browser.cache.memoty.capacity=-1
+
+set! network.http.pipelining.maxrequests=8
+set! network.http.max-connections-per-server=32
 
 " Release memoty when Firefox window minimized
 set! config.trim_on_minimize=true
@@ -62,10 +88,9 @@ set! dom.disable_window_move_resize=true
 set! security.dialog_enable_delay=0
 " Disable page access key
 set! ui.key.generalAccessKey=0
+set! ui.key.contentAccessKey=0
 
 
-" ignore resizing javascript
-set! dom.disable_window_move_resize=true
 " ignore statusbar operation from javascript
 set! dom.event.contextmenu.enabled=false
 
@@ -77,5 +102,13 @@ set! security.dialog_enable_delay=0
 " delete download history when Firefox quit
 set! browser.download.manager.retention=1
 
+set! browser.sessionstore.max_tabs_undo=100
+
 echo .vimperatorrc sourced.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <c-j> :googleselect<CR>
+nnoremap <c-k> :googleselect back<CR>
 
