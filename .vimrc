@@ -75,33 +75,102 @@ au WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 " Neobundle settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('vim_starting')
+  set nocompatible
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'VimClojure'
+call neobundle#begin(expand('~/.vim/bundle'))
+let g:neobundle_default_git_protocol='https'
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+"""""""""""""""""""""""""
+" Color
+"""""""""""""""""""""""""
+NeoBundle 'nanotech/jellybeans.vim'
+
+"""""""""""""""""""""""""
+" Shell
+"""""""""""""""""""""""""
 NeoBundle 'Shougo/vimshell'
 
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+"""""""""""""""""""""""""
+" Async Process
+"""""""""""""""""""""""""
+NeoBundle 'Shougo/vimproc', {
+  \ 'build': {
+  \ 'windows': 'make -f make_mingw32.mak',
+  \ 'cygwin' : 'make -f make_cygwin.mak',
+  \ 'mac'    : 'make -f make_mac.mak',
+  \ 'unix'   : 'make -f make_unix.mak',
+  \ },
+\ }
 
-NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'taichouchou2/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'msanders/cocoa.vim'
+"""""""""""""""""""""""""
+" Completion
+"""""""""""""""""""""""""
+if has('lua')
+  NeoBundleLazy 'Shougo/neocomplete.vim', {
+    \ 'depends' : 'Shougo/vimproc',
+    \ 'autoload' : {'insert': 1,}
+  \ }
+endif
+
+" neocomplete {{{
+let g:neocomplete#enable_at_startup               = 1
+let g:neocomplete#auto_completion_start_length    = 3
+let g:neocomplete#enable_ignore_case              = 1
+let g:neocomplete#enable_smart_case               = 1
+let g:neocomplete#enable_camel_case               = 1
+let g:neocomplete#use_vimproc                     = 1
+let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+let g:neocomplete#enable_fuzzy_completion         = 1
+let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+" }}}
 
 NeoBundle 'Townk/vim-autoclose'
+NeoBundleLazy 'tpope/vim-endwise', {
+  \ 'autoload' : { 'insert' : 1,}}
+
+NeoBundle 'AndrewRadev/switch.vim'
+" switch {{{
+nmap + :Switch<CR>
+nmap - :Switch<CR>
+" }}}
+
+"""""""""""""""""""""""""
+" Programming Language
+"""""""""""""""""""""""""
+" Ruby on Rails
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'scrooloose/syntastic'
+
+" Ruby
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+  \ 'autoload' : {'filetypes' : ['ruby', 'eruby']}}
+
+" HTML5/CSS3
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'tpope/vim-haml'
+
+" JavaScript
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'moll/vim-node'
+
+NeoBundleCheck
+
+call neobundle#end()
 
 filetype plugin indent on
-filetype indent on
 syntax on
+
+" colorscheme jellybeans
 
 " comp setting
 let g:neocomplcache_enable_at_startup = 1
