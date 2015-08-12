@@ -47,6 +47,7 @@ set focuscontent
 set autocomplete
 set nobeep
 set ignorecase
+set smartcase
 set newtab=all
 set noscrollbars
 set notabnumbers
