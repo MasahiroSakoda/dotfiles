@@ -1,6 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymap settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymaps for Scroll Moving
 nnoremap H gT
 nnoremap L gt
 nnoremap h <A-Left>
@@ -10,15 +11,27 @@ nnoremap <BS> <A-Left>
 nnoremap j 3<C-e>
 nnoremap k 3<C-y>
 
-nnoremap U :u<Space>
-
 nnoremap <C-h> :tabmove! -1<CR>
 nnoremap <C-l> :tabmove! +1<CR>
 
+" Change encoding
 nnoremap ,es :set encoding=Shift_JIS<CR>
 nnoremap ,ec :set encoding=EUC-JP<CR>
 nnoremap ,eu :set encoding=UTF-8<CR>
 nnoremap ,ei :set encodeing=ISO-2022-JP<CR>
+
+" Load ~/.vimperatorrc configuration
+map R :source ~/.vimperatorrc<CR>
+
+" Show closed tab
+nnoremap U :u<Space>
+
+" Keymap for Google Search
+nnoremap s :tabopen<Space>google<Space>
+
+" Google Search for selected part
+nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
+vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
@@ -34,6 +47,7 @@ set focuscontent
 set autocomplete
 set nobeep
 set ignorecase
+set smartcase
 set newtab=all
 set noscrollbars
 set notabnumbers
@@ -52,7 +66,8 @@ set wildoptions=auto
 """""""""""""""""""""""""""""""""""""""""""""""""""
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
 " highlight Hint font-family:monospace; font-size:10pt; line-height:1.1; color:black; background-color:#ccf; border-color:ButtonShadow; border-width:1px; border-style:solid; padding:0;
-highlight Hint font-family: Arial; font-size: 21px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
+
+highlight Hint font-family: Menlo; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #33cccc;
 highlight HintElem color: gray; background-color: #a1e4e6;
 highlight HintActive color: black; background-color: #ff8700;
 highlight ErrorMsg color:white; background-color: #ec6aa1;

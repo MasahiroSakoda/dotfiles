@@ -1,0 +1,2 @@
+[install, update]:       --no-rdoc --no-ri
+[search, specification]: --remote
