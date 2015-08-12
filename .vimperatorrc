@@ -20,6 +20,9 @@ nnoremap ,ec :set encoding=EUC-JP<CR>
 nnoremap ,eu :set encoding=UTF-8<CR>
 nnoremap ,ei :set encodeing=ISO-2022-JP<CR>
 
+" Load ~/.vimperatorrc configuration
+map R :source ~/.vimperatorrc<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
