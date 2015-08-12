@@ -29,6 +29,10 @@ nnoremap U :u<Space>
 " Keymap for Google Search
 nnoremap s :tabopen<Space>google<Space>
 
+" Google Search for selected part
+nmap S <C-c>:tabopen<Space>google<Space><C-v><CR>
+vmap S <C-c><Esc><Esc>:tabopen<Space>google<Space><C-v><CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
