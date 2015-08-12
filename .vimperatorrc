@@ -26,6 +26,9 @@ map R :source ~/.vimperatorrc<CR>
 " Show closed tab
 nnoremap U :u<Space>
 
+" Keymap for Google Search
+nnoremap s :tabopen<Space>google<Space>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
