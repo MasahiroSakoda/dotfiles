@@ -23,6 +23,9 @@ nnoremap ,ei :set encodeing=ISO-2022-JP<CR>
 " Load ~/.vimperatorrc configuration
 map R :source ~/.vimperatorrc<CR>
 
+" Show closed tab
+nnoremap U :u<Space>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Browser primary settings
 """""""""""""""""""""""""""""""""""""""""""""""""""
