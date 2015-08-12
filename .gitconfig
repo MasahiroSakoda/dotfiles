@@ -1,36 +1,38 @@
 [include]
-    path = ~/.gitconfig.local
+	path = .gitconfig.local
+[credential]
+	helper = /opt/boxen/bin/boxen-git-credential
 
 [core]
-    pager  = lv -c
-    editor = vi
-
-[alias]
-    co   = checkout
-    ci   = commit
-    d    = colordiff
-    loga = log --graph --decorate=full
-    lg   = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
-    st   = status
-    br   = branch -ar
+	excludesfile = ${HOME}/.gitignore
+	pager = lv -c
+	editor = vi
 
 [color]
-    ui          = auto
-    diff        = auto
-    status      = auto
-    branch      = auto
-    grep        = auto
-    interactive = auto
-
+	ui = auto
+	diff = auto
 [color "diff"]
-    meta = blue bold
-    flag = cyan
-    old  = red
-    new  = green
+	meta = blue bold
+	flag = cyan
+	old = red
+	new = green
 
-[diff]
-    patience = true
+[alias]
+	co = checkout
+	ci = commit
+	d = colordiff
+	loga = log --graph --decorate=full
+	lg = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d'
+	st = status
+	br = branch -ar
 
-[push]
-    default = simple
-
+[hub]
+	protocol = https
+[merge]
+	ff = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
