@@ -143,6 +143,9 @@ nmap + :Switch<CR>
 nmap - :Switch<CR>
 " }}}
 
+" Vimperator
+NeoBundle 'superbrothers/vim-vimperator'
+
 """""""""""""""""""""""""
 " Programming Language
 """""""""""""""""""""""""
