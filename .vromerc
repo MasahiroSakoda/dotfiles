@@ -1,0 +1,11 @@
+map j 5j
+map k 5k
+
+map h H
+map l L
+
+map L gt
+map H gT
+
+set disable_autofocus
+set hintkeys=hjklasdfgyuiopqwertnmzxcvb
