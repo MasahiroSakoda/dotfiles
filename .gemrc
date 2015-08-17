@@ -1,2 +1,4 @@
-[install, update]:       --no-document
-[search, specification]: --remote
+install: --no-document
+update:  --no-document
+search:        --remote
+specification: --remote
