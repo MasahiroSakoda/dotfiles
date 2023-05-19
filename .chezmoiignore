@@ -3,3 +3,5 @@ README.md
 Makefile
 
 .DS_Store
+
+packages/nvim/.config/nvim/lazy-lock.json
