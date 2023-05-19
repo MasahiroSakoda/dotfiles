@@ -1,0 +1,20 @@
+# -*-mode:sh-*- vim:ft=sh
+#!/usr/bin/env bash
+
+set -e
+
+{{ template "script_darwin_only" . }}
+{{ template "script_eval_brew" . }}
+{{ template "script_sudo" . }}
+
+PKG_DIR="${HOME}/.config/homebrew"
+
+# Install Homebrew
+if ! command -v brew > /dev/null 2>&1 && [ -f "$HOME/.config/homebrew/Brewfile" ]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Install Homebrew packages
+  brew bundle -v --no-lock --file="${PKG_DIR}/Brewfile"
+  brew bundle -v --no-lock --file="${PKG_DIR}/Caskfile"
+  brew bundle -v --no-lock --file="${PKG_DIR}/Masfile"
+fi
