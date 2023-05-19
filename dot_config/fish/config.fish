@@ -18,6 +18,9 @@ set -gx CPPFLAGS "-I/usr/local/opt/libffi/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/libffi/lib/pkgconfig"
 set -gx RUBY_CFLAGS "-Wno-error=implicit-function-declaration"
 
+# ripgrep config
+set -gx RIPGREP_CONFIG_PATH "~/.config/rg/ripgreprc"
+
 # Theme configuration for bobthefish
 set -g theme_title_display_process yes
 set -g theme_show_exit_status yes
