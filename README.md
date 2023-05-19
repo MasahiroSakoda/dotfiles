@@ -48,10 +48,4 @@ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/master/boot
 ```
 
 ## ToDo
-* .ssh
-* .vscode
-* .gemrc
-* .tigrc
-
-* Update management
-* install global tools (e.g. neovim via pip/gem)
+See [TODO.md](https://github.com/MasahiroSakoda/dotfiles/blob/main/TODO.md)
