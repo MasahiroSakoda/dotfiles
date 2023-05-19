@@ -38,8 +38,8 @@ $ make deploy
 ```
 
 ## Package Management
-* [Homebrew](https://github.com/Homebrew/brew) with [Brewfile](https://github.com/MasahiroSakoda/dotfiles/blog/main/etc/macos/Brewfile)
-* [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) with [Caskfile](https://github.com/MasahiroSakoda/dotfiles/blog/main/etc/macos/Caskfile)
+* [Homebrew](https://github.com/Homebrew/brew) with [Brewfile](https://github.com/MasahiroSakoda/dotfiles/blog/main/dot_config/homebrew/Brewfile.tmpl)
+* [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) with [Caskfile](https://github.com/MasahiroSakoda/dotfiles/blog/main/dot_config/homebrew/Caskfile.tmpl)
 * App Store apps with [mas](https://github.com/mas-cli/mas)
 
 ## Installation
