@@ -1,0 +1,44 @@
+# -*-mode:sh-*- vim:ft=sh
+#!/usr/bin/env bash
+
+set -e
+
+{{ template "script_darwin_only" . }}
+{{ template "script_sudo" . }}
+
+# Check for Xcode Command Line Tools and install them if not present
+xcode-select -p &>/dev/null
+if [ $? -ne 0 ]; then
+  echo "Installing Xcode Command Line Tools ..."
+  xcode-select --install
+else
+  ignored "XCode Command Line Tools already installed"
+fi
+
+# Accept Xcode license
+xcode_version=`xcodebuild -version | grep '^Xcode\s' | sed -E 's/^Xcode[[:space:]]+([0-9\.]+)/\1/'`
+accepted_license_version=`defaults read /Library/Preferences/com.apple.dt.Xcode 2> /dev/null | grep IDEXcodeVersionForAgreedToGMLicense | cut -d '"' -f 2`
+if [ "$xcode_version" != "$accepted_license_version" ]; then
+  sudo xcodebuild -license accept
+fi
+
+{{- if eq .chezmoi.arch "arm64" }}
+# Check that Rosetta 2 is installed
+pgrep -q oahd
+if [ $? -ne 0 ]; then
+  echo "Installing Rosetta 2"
+  sudo softwareupdate --install-rosetta --agree-to-license
+else
+  echo "Rosetta2 already installed"
+fi
+{{ end }}
+
+# Check and install any remaining software updates.
+echo "Checking for software updates:"
+if softwareupdate -l 2>&1 | grep -q "No new software available."; then
+  echo "Ok"
+else
+  echo "Installing software updates:"
+  sudo softwareupdate --install --all
+  echo "Ok"
+fi
