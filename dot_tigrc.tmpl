@@ -1,0 +1,25 @@
+# Encoding
+set line-graphics = utf-8
+
+# Display
+## Color
+color  diff-header       default magenta
+color  diff-chunk        black   white
+set diff-highlight = true
+set refresh-mode = auto
+
+## Line Number
+set editor-line-number     = yes
+set blob-view-line-number  = yes
+set blame-view-line-number = yes
+set tab-size = 4
+set ignore-space = at-eol
+set ignore-case = true
+set split-view-height = 80%
+
+# Keybind
+bind generic g      move-first-line
+bind generic G      move-last-line
+bind generic E      view-grep
+bind main    G      move-last-line
+bind main    <Esc>g :toggle commit-title-graph
