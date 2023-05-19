@@ -1,0 +1,19 @@
+# -*-mode:sh-*- vim:ft=sh
+#!/usr/bin/env bash
+
+set -e
+
+{{ template "script_darwin_only" }}
+{{ template "script_sudo" }}
+
+# Change default shell
+if ! ggrep --fixed-strings "$(which fish)" /etc/shells ; then
+  which fish | sudo tee -a /etc/shells
+fi
+
+if [[ "$SHELL" != "$(which fish)" ]] ; then
+  sudo chsh -s "$(which fish)"
+fi
+
+# Install/Update fish shell plugin
+fisher update
