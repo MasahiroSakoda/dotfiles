@@ -21,12 +21,6 @@ Bootstrap scripts & build macOS development environment
 * Performance Monitor: [bottom](https://github.com/ClementTsang/bottom)
 * Keyboard Mapping: [Karabiner-Elements](https://karabiner-elements.pqrs.org/)
 
-# TODO
-* .ssh
-* .vscode
-* .gemrc
-* .tigrc
-
 ## Usage
 ##### Install Homebrew packages
 ```
@@ -54,5 +48,10 @@ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/master/boot
 ```
 
 ## ToDo
+* .ssh
+* .vscode
+* .gemrc
+* .tigrc
+
 * Update management
 * install global tools (e.g. neovim via pip/gem)
