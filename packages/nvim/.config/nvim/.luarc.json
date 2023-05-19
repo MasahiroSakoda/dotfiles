@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "LuaJIT",
+    "special": {
+      "require": "require"
+    }
+  },
+  "diagnostics": {
+    "enable": true,
+    "globals": [
+      "vim",
+      "describe", "pending", "it",
+      "before_each", "after_each",
+      "setup", "teardown", "finally",
+      "lfs",
+      "_G"
+    ]
+  },
+  "workspace": {
+    "library": [
+      "runtime/lua",
+      "${3rd}/lfs/library"
+    ],
+    "maxPreload": 2000,
+    "preloadFileSize": 1000,
+    "checkThirdParty": false
+  },
+  "telemetry": {
+    "enable": false
+  },
+  "completion": {
+    "enable": true,
+    "autoRequire": true,
+    "callSnippet": "Both",
+    "keywordSnippet": "Both",
+    "showParams": true,
+    "showWord": "Enable",
+    "postfix": "@"
+  }
+}
