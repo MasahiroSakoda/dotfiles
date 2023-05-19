@@ -1,0 +1,36 @@
+# Mac App Store
+brew "mas"
+
+## Window Management
+mas "Moom", id: 419330170
+
+## ToyViewer
+mas "ToyViewer", id: 414298354
+
+## Pushbullet
+## mas "Pushbullet", id: 948415170
+
+## Archive
+mas "Keka",           id: 470158793
+mas "The Unarchiver", id: 425424353
+mas "WinArchiver",    id: 414855915
+
+## SNS
+mas "Twitter", id: 1482454543
+mas "LINE",    id: 539883307
+
+## Language
+mas "LanguageTranslator",   id: 1218781096
+mas "App Language Chooser", id: 451732904
+
+## Office
+mas "Pages",   id: 409201541
+mas "Numbers", id: 409203825
+
+mas "Pocket", id: 568494494
+
+## Web browser plugin
+mas "Vimari", id: 1480933944
+
+## Amphetamine
+mas "Amphetamine", id: 937984704
