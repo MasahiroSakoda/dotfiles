@@ -5,6 +5,8 @@ set -x LC_CTYPE ja_JP.UTF-8
 # Path Configuration
 set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin /usr/local/opt/bison/bin $PATH
 
+set -gx EDITOR nvim
+
 # GNU binutils
 set -gx LDFLAGS "-L/usr/local/opt/binutils/lib"
 set -gx CPPFLAGS "-I/usr/local/opt/binutils/include"
