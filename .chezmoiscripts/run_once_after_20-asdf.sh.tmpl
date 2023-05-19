@@ -1,5 +1,5 @@
-# -*-mode:sh-*- vim:ft=sh
 #!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
 
 set -e
 
@@ -18,8 +18,3 @@ for PLUGIN in ${PLUGINS}; do
   fi
   echo "$(${PLUGIN} --version)"
 done
-
-{{- if eq .chezmoi.os "darwin" }}
-{{- else if eq .chezmoi.os "linux" }}
-# TODO: Config for Linux environment
-{{- end }}
