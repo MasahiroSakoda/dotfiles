@@ -1,0 +1,7 @@
+{{- $osid := .chezmoi.os -}}
+
+[data]
+    osid = {{ $osid | quote }}
+
+[edit]
+    command = "nvim"
