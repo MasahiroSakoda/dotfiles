@@ -1,0 +1,48 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dcolor\x3dfg\x3a\x23f8f8f2\x2cbg\x3a\x23282a36\x2chl\x3a\x23bd93f9\x20\x2d\x2dcolor\x3dfg\x2b\x3a\x23f8f8f2\x2cbg\x2b\x3a\x2344475a\x2chl\x2b\x3a\x23bd93f9\x20\x2d\x2dcolor\x3dinfo\x3a\x23ffb86c\x2cprompt\x3a\x2350fa7b\x2cpointer\x3a\x23ff79c6\x20\x2d\x2dcolor\x3dmarker\x3a\x23ff79c6\x2cspinner\x3a\x23ffb86c\x2cheader\x3a\x236272a4
+SETUVAR FZF_DISABLE_KEYBINDINGS:0
+SETUVAR --export FZF_LEGACY_KEYBINDINGS:0
+SETUVAR FZF_PREVIEW_DIR_CMD:ls
+SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
+SETUVAR FZF_TMUX_HEIGHT:40\x25
+SETUVAR __fish_initialized:3400
+SETUVAR _fisher_archmagees_2F_swift_2D_fish_2D_completion_files:\x7e/\x2econfig/fish/completions/swift\x2efish
+SETUVAR _fisher_dracula_2F_fish_files:\x7e/\x2econfig/fish/themes/Dracula\x20Official\x2etheme\x1e\x7e/\x2econfig/fish/conf\x2ed/dracula\x2efish
+SETUVAR _fisher_franciscolourenco_2F_done_files:\x7e/\x2econfig/fish/conf\x2ed/done\x2efish
+SETUVAR _fisher_jethrokuan_2F_fzf_files:\x7e/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_open\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_laughedelic_2F_brew_2D_completions_files:\x7e/\x2econfig/fish/completions/brew\x2efish
+SETUVAR _fisher_oh_2D_my_2D_fish_2F_theme_2D_bobthefish_files:\x7e/\x2econfig/fish/functions/__bobthefish_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/__bobthefish_display_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/__bobthefish_glyphs\x2efish\x1e\x7e/\x2econfig/fish/functions/bobthefish_display_colors\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_greeting\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_mode_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_right_prompt\x2efish\x1e\x7e/\x2econfig/fish/functions/fish_title\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eoh\x2dmy\x2dfish/theme\x2dbobthefish\x1ejethrokuan/fzf\x1edracula/fish\x1efranciscolourenco/done\x1earchmagees/swift\x2dfish\x2dcompletion\x1ejorgebucaran/autopair\x2efish\x1elaughedelic/brew\x2dcompletions
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR fish_color_autosuggestion:555\x1ebrblack
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:blue
+SETUVAR fish_color_comment:red
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:green
+SETUVAR fish_color_error:brred
+SETUVAR fish_color_escape:brcyan
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:brcyan
+SETUVAR fish_color_param:cyan
+SETUVAR fish_color_quote:yellow
+SETUVAR fish_color_redirection:cyan\x1e\x2d\x2dbold
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d111
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
+SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/usr/local/opt/binutils/bin
