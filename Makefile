@@ -40,6 +40,6 @@ asdf:
 	@echo "asdf script successfully finished!!"
 
 deploy:
-	@echo "Installing asdf..."
+	@echo "Creating symbolic links"
 	./scripts/deploy.sh
-	@echo "asdf script successfully finished!!"
+	@echo "deploy script successfully finished!!"
