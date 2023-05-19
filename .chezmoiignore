@@ -1,7 +1,20 @@
+# -*-mode:gitignore-*- vim:ft=gitignore
+
+# ~/.local/share/chezmoi/.chezmoiignore
+# =============================================================================
+# Read by chezmoi when choosing repository files to copy to home directory.
+#
+# This list defines globs to ignore, and supports Go's text/template language.
+# See https://www.chezmoi.io/docs/reference/#chezmoiignore
+
 LICENSE
 README.md
 Makefile
 
-.DS_Store
+# Ignore non-macOS files.
+{{ if ne .chezmoi.os "darwin" -}}
+{{- end }}
 
-packages/nvim/.config/nvim/lazy-lock.json
+# Ignore non-Windows files.
+{{ if ne .chezmoi.os "windows" -}}
+{{- end }}
