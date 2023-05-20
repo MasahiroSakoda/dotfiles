@@ -11,6 +11,8 @@ LICENSE
 README.md
 Makefile
 
+key.txt.age
+
 # Ignore non-macOS files.
 {{ if ne .chezmoi.os "darwin" -}}
 {{- end }}

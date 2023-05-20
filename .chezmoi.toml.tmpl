@@ -2,5 +2,11 @@
 
 {{- $osid := .chezmoi.os -}}
 
+encryption = "age"
+
 [data]
     osid = {{ $osid | quote }}
+
+[age]
+    identity  = "~/key.txt"
+    recipient = "age1ta9k8zuu93qfz8dpea8umdf7kfafr3ggl2uze33qn60xu2rx83uqupj22t"
