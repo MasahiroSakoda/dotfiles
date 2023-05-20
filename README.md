@@ -1,10 +1,20 @@
 # dotfiles
 Bootstrap scripts & build macOS development environment
 
-![last commit](https://img.shields.io/github/last-commit/MasahiroSakoda/dotfiles)
-![commit activity](https://img.shields.io/github/languages/top/MasahiroSakoda/dotfiles)
-![license](https://img.shields.io/github/license/MasahiroSakoda/dotfiles)
+![platform](https://img.shields.io/badge/Platform-macOS-blue.svg)
+[![chezmoi][chezmoi-badge]][chezmoi-website]
+[![license][license-badge]][license-file]
+[![commit activity](https://img.shields.io/github/commit-activity/m/MasahiroSakoda/dotfiles)](https://github.com/MasahiroSakoda/dotfiles/graphs/commit-activity)
+
+[chezmoi-website]: https://github.com/twpayne/chezmoi
+[chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
+[license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
+[license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
+
+[![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
 [![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
+
+
 ---
 
 ## Features
