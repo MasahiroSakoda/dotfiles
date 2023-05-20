@@ -21,7 +21,7 @@ set -gx PKG_CONFIG_PATH "/usr/local/opt/libffi/lib/pkgconfig"
 set -gx RUBY_CFLAGS "-Wno-error=implicit-function-declaration"
 
 # ripgrep config
-set -gx RIPGREP_CONFIG_PATH "~/.config/rg/ripgreprc"
+# set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
 # Theme configuration for bobthefish
 set -g theme_title_display_process yes
