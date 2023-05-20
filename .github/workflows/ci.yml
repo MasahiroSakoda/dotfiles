@@ -1,0 +1,22 @@
+---
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NO_INSTALL: 1
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+        - macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dotfiles
+        run: ./install.sh
