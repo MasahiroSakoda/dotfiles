@@ -7,14 +7,15 @@ PLUGINS="python ruby nodejs deno"
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  if asdf plugin | rg ${PLUGIN} >/dev/null; then
+  if asdf plugin-list | rg ${PLUGIN} >/dev/null; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
-    asdf plugin add ${PLUGIN}
+    asdf plugin-add ${PLUGIN}
     # Install latest version
     asdf install ${PLUGIN} latest
     asdf global ${PLUGIN}
     echo "${PLUGIN} installed to $(which ${PLUGIN})"
   fi
-  echo "$(${PLUGIN} --version)"
 done
+
+asdf current
