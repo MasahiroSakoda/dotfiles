@@ -10,19 +10,22 @@ Bootstrap scripts & build macOS development environment
 [chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
 [license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
 [license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
-
 [![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
 [![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
-
-
 ---
+
+## Contents
+* [Features](#features)
+* [Environment](#Environment)
+* [Installation](#Installation)
+* [ToDo](#ToDo)
 
 ## Features
 * One Line Install
 * dotfiles management using [chezmoi](https://github.com/twpayne/chezmoi)
 * LSP & DAP Configuration for NeoVim
 
-## Components
+## Environment
 * Shell: [Fish](https://github.com/fish-shell/fish-shell)
 * Package Management: [Homebrew](https://brew.sh)
   * [Brewfile](https://github.com/MasahiroSakoda/dotfiles/blob/main/dot_config/homebrew/Brewfile.tmpl)
