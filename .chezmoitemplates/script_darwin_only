@@ -1,5 +1,4 @@
 # -*-mode:sh-*- vim:ft=sh
-#!/usr/bin/env bash
 
 {{ if ne .chezmoi.os "darwin" }}
 exit 0
