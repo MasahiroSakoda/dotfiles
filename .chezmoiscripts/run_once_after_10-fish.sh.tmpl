@@ -3,17 +3,23 @@
 
 set -e
 
-{{ template "script_darwin_only" }}
-{{ template "script_sudo" }}
+{{ template "script_darwin_only" . }}
+{{ template "script_sudo" . }}
 
 # Change default shell
-if ! ggrep --fixed-strings "$(which fish)" /etc/shells ; then
-  which fish | sudo tee -a /etc/shells
+FISH_PATH=$(which fish)
+
+if ! grep -q "${FISH_PATH}" /etc/shells ; then
+  echo "${FISH_PATH}" | sudo tee -a /etc/shells
 fi
 
-if [[ "$SHELL" != "$(which fish)" ]] ; then
-  sudo chsh -s "$(which fish)"
+if [[ "$SHELL" != "${FISH_PATH}" ]] ; then
+  sudo chsh -s "${FISH_PATH}"
 fi
 
 # Install/Update fish shell plugin
-fisher update
+if ! [ -e "$HOME/.config/fish/functions/fisher.fish" ]; then
+  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+fi
+
+fish -c fisher update
