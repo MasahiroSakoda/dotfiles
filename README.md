@@ -1,6 +1,9 @@
 # dotfiles
 Bootstrap scripts & build macOS development environment
 
+---
+[![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
+
 ## Features
 * One Line Install
 * dotfiles management using [chezmoi](https://github.com/twpayne/chezmoi)
