@@ -25,7 +25,7 @@ Bootstrap scripts & build macOS development environment
 
 ## Installation
 ```
-curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/install.sh | bash
 ```
 
 ## ToDo
