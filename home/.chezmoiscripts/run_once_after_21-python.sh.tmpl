@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
+
+set -e
+
+# Upgrade pip
+python -m pip install --upgrade pip pipx pynvim
+pipx install poetry
+pipx install neovim
