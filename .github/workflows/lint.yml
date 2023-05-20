@@ -5,18 +5,14 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**.sh'
 
 jobs:
   shellcheck:
     name: 'ShellCheck'
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
     - uses: 'actions/checkout@v3'
     - name: 'Run shellcheck'
       uses: 'azohra/shell-linter@master'
-      with:
-        path: '*.sh'
       env:
-        SHELLCHECK_OPTS: '-x'
+        SHELLCHECK_OPTS: -P **/*.sh
