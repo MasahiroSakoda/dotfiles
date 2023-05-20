@@ -1,25 +1,25 @@
 local filetypes = require("user.filetypes")
 return {
-	------------------------------------------------------------------------
-	-- Libraries
-	------------------------------------------------------------------------
-	{ "nvim-lua/plenary.nvim" },
-	{ "kkharji/sqlite.lua" },
+  ------------------------------------------------------------------------
+  -- Libraries
+  ------------------------------------------------------------------------
+  { "nvim-lua/plenary.nvim" },
+  { "kkharji/sqlite.lua" },
   { "tzachar/fuzzy.nvim" },
-	{ "MunifTanjim/nui.nvim" },
+  { "MunifTanjim/nui.nvim" },
   { "kyazdani42/nvim-web-devicons" },
-	{ "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
+  { "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
   { "nathom/filetype.nvim",   config = function() require("core.filetype") end },
 
-	------------------------------------------------------------------------
-	-- Vim
-	------------------------------------------------------------------------
+  ------------------------------------------------------------------------
+  -- Vim
+  ------------------------------------------------------------------------
   { "vim-jp/vimdoc-ja", ft = "help" },
-	{ "dstein64/vim-startuptime", cmd = "StartupTime" },
+  { "dstein64/vim-startuptime", cmd = "StartupTime" },
   { "jghauser/mkdir.nvim" },
   { "rcarriga/nvim-notify",    event = "VeryLazy", config = function() require("ui.notify") end },
   { "akinsho/toggleterm.nvim", cmd = "ToggleTerm", config = function() require("ui.toggleterm") end },
-	{
+  {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "kyazdani42/nvim-web-devicons" },
     event  = "BufWinEnter",
@@ -29,23 +29,23 @@ return {
   { "kevinhwang91/nvim-bqf",     ft = "qf", config = function() require("user.quickfix.bqf") end },
   { "gabrielpoca/replacer.nvim", ft = "qf" },
 
-	------------------------------------------------------------------------
-	-- Appearance
-	------------------------------------------------------------------------
-	-- Colorscheme changer
+  ------------------------------------------------------------------------
+  -- Appearance
+  ------------------------------------------------------------------------
+  -- Colorscheme changer
   { "folke/styler.nvim", cmd = "Styler", config = function() require("ui.styler") end },
   -- colorscheme
-	{ "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
-	{ "folke/tokyonight.nvim" },
+  { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
+  { "folke/tokyonight.nvim" },
   { "rebelot/kanagawa.nvim" },
 
-	{
+  {
     "NvChad/nvim-colorizer.lua", -- Color code viewer
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.colorizer") end,
   },
 
-	{
+  {
     "lukas-reineke/indent-blankline.nvim", -- Indent guides
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.indent-blankline") end,
@@ -64,21 +64,21 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.scrollbar") end,
   },
-	{
+  {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "kyazdani42/nvim-web-devicons" },
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.bufferline") end,
   },
-	{
+  {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "kyazdani42/nvim-web-devicons" },
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
-	{
-		"nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
-		branch = "v2.x",
+  {
+    "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
+    branch = "v2.x",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "kkharji/sqlite.lua",
@@ -86,17 +86,17 @@ return {
     },
     cmd    = "Neotree",
     config = function() require("ui.neo-tree") end,
-	},
-	{
+  },
+  {
     "lewis6991/gitsigns.nvim", -- Git integration
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.gitsigns") end,
   },
 
-	------------------------------------------------------------------------
-	-- Editor Helper
-	------------------------------------------------------------------------
-	{
+  ------------------------------------------------------------------------
+  -- Editor Helper
+  ------------------------------------------------------------------------
+  {
     "folke/which-key.nvim", -- Shortcut / Keymap
     event = "VeryLazy",
     config = function()
@@ -115,7 +115,7 @@ return {
     cmd = { "HopWord", "HopLine", "HopAnywhere", "HopAnywhereCurrentLine", "HopPattern" },
     config = function() require("ui.hop") end,
   },
-	{
+  {
     "windwp/nvim-autopairs", -- autopair: like if/end
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
@@ -170,8 +170,8 @@ return {
     cmd    = { "DapInstall", "DapUninstall" },
     config = function() require("dap.config.mason-dap") end,
   },
-	-- Status GUI for LSP
-	{ "j-hui/fidget.nvim", event = "LspAttach", config = function() require("lsp.config.fidget") end },
+  -- Status GUI for LSP
+  { "j-hui/fidget.nvim", event = "LspAttach", config = function() require("lsp.config.fidget") end },
   {
     "folke/trouble.nvim", -- Display diagnostics
     dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -179,10 +179,10 @@ return {
     config = function() require("lsp.config.trouble") end,
   },
 
-	------------------------------------------------------------------------
-	-- Completion
-	------------------------------------------------------------------------
-	{
+  ------------------------------------------------------------------------
+  -- Completion
+  ------------------------------------------------------------------------
+  {
     "hrsh7th/nvim-cmp", -- Completion Engine
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
@@ -228,18 +228,18 @@ return {
   ------------------------------------------------------------------------
   -- DAP: Debug Adapter Protocol
   ------------------------------------------------------------------------
-	{
+  {
     "mfussenegger/nvim-dap",
     dependencies = {
       { "theHamsta/nvim-dap-virtual-text", config = function() require("dap.config.virtual_text") end },
-	    { "rcarriga/nvim-dap-ui",            config = function() require("dap.config.ui") end },
+      { "rcarriga/nvim-dap-ui",            config = function() require("dap.config.ui") end },
     },
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
     config = function() require("dap.config") end,
   },
   { "jbyuki/one-small-step-for-vimkind", ft = "lua",        config = function() require("dap.adapters.lua") end },
-	{ "leoluz/nvim-dap-go",                ft = "go",         config = function() require("dap.adapters.go") end },
-	{ "mfussenegger/nvim-dap-python",      ft = "python",     config = function() require("dap.adapters.python") end },
+  { "leoluz/nvim-dap-go",                ft = "go",         config = function() require("dap.adapters.go") end },
+  { "mfussenegger/nvim-dap-python",      ft = "python",     config = function() require("dap.adapters.python") end },
 
   {
     "microsoft/vscode-js-debug",
@@ -252,10 +252,10 @@ return {
     config = function() require("dap.adapters.javascript") end,
   },
 
-	------------------------------------------------------------------------
-	-- Treesitter: Language Parser / Syntax highlighter
-	------------------------------------------------------------------------
-	{
+  ------------------------------------------------------------------------
+  -- Treesitter: Language Parser / Syntax highlighter
+  ------------------------------------------------------------------------
+  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       {
@@ -267,7 +267,7 @@ return {
       { "RRethy/nvim-treesitter-endwise" },
       { "mrjones2014/nvim-ts-rainbow" },
       { "windwp/nvim-ts-autotag", ft = filetypes.autotag },
-	    { "andymass/vim-matchup" },
+      { "andymass/vim-matchup" },
     },
     build  = function()
       if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end
@@ -300,13 +300,13 @@ return {
     config = function() require("todo-comments").setup() end,
   },
 
-	------------------------------------------------------------------------
-	-- Telescope: Fuzzy Finder
-	------------------------------------------------------------------------
-	{
+  ------------------------------------------------------------------------
+  -- Telescope: Fuzzy Finder
+  ------------------------------------------------------------------------
+  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-	    "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
     },
     cmd    = "Telescope",
@@ -323,8 +323,8 @@ return {
   { "nvim-telescope/telescope-dap.nvim", config = function() require("user.telescope.dap") end },
 
   ------------------------------------------------------------------------
-	-- AI Assistant
-	------------------------------------------------------------------------
+  -- AI Assistant
+  ------------------------------------------------------------------------
   {
     "jackMort/ChatGPT.nvim", -- ChatGPT client
     dependencies = {
@@ -366,11 +366,11 @@ return {
     config = function() require("ai.nvim-gpt") end,
   },
 
-	------------------------------------------------------------------------
-	-- Others
-	------------------------------------------------------------------------
-	{ "tyru/open-browser.vim", cmd = { "OpenBrowser", "OpenBrowserSearch" } },
-	{
+  ------------------------------------------------------------------------
+  -- Others
+  ------------------------------------------------------------------------
+  { "tyru/open-browser.vim", cmd = { "OpenBrowser", "OpenBrowserSearch" } },
+  {
     "tyru/open-browser-github.vim",
     dependencies = { "tyru/open-browser.vim" },
     cmd = { "OpenGithubProject", "OpenGithubFile", "OpenGithubIssue", "OpenGithubCommit", "OpenGithubPullReq" },
@@ -381,11 +381,11 @@ return {
 
   { "vim-denops/denops.vim" },
   -- Markdown Previewer
-	{
-		"kat0h/bufpreview.vim",
-		dependencies = { "vim-denops/denops.vim" },
-		build = "deno task prepare",
-		ft    = "markdown",
-		cmd   = "PreviewMarkdown",
-	},
+  {
+    "kat0h/bufpreview.vim",
+    dependencies = { "vim-denops/denops.vim" },
+    build = "deno task prepare",
+    ft    = "markdown",
+    cmd   = "PreviewMarkdown",
+  },
 }
