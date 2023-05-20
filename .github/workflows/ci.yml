@@ -1,14 +1,12 @@
----
 name: ci
 
 on:
   push:
     branches:
       - main
-
-env:
-  NO_INSTALL: 1
-
+  pull_request:
+    branches:
+      - main
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -19,4 +17,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dotfiles
-        run: ./install.sh
+        run: bash -c ./install.sh
