@@ -19,4 +19,4 @@ else
 fi
 
 # exec: replace current process with chezmoi init
-exec "$chezmoi" init --verbose --apply git@github.com:MasahiroSakoda/dotfiles.git
+exec "$chezmoi" init --verbose --apply MasahiroSakoda
