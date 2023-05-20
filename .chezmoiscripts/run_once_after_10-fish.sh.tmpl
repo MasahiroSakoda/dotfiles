@@ -19,7 +19,5 @@ fi
 
 # Install/Update fish shell plugin
 if ! [ -e "$HOME/.config/fish/functions/fisher.fish" ]; then
-  curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+  fish -c "curl -sL https://git.io/fisher | source && fisher update"
 fi
-
-fish -c fisher update
