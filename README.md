@@ -1,8 +1,11 @@
 # dotfiles
 Bootstrap scripts & build macOS development environment
 
----
+![last commit](https://img.shields.io/github/last-commit/MasahiroSakoda/dotfiles)
+![commit activity](https://img.shields.io/github/languages/top/MasahiroSakoda/dotfiles)
+![license](https://img.shields.io/github/license/MasahiroSakoda/dotfiles)
 [![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
+---
 
 ## Features
 * One Line Install
