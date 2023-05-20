@@ -5,7 +5,9 @@ set -x LC_CTYPE ja_JP.UTF-8
 # Path Configuration
 set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin /usr/local/opt/bison/bin $PATH
 
+# Editor
 set -gx EDITOR nvim
+set -gx VISUAL $EDITOR
 
 # XDG paths
 set -gx XDG_BIN_HOME $HOME/.local/bin
