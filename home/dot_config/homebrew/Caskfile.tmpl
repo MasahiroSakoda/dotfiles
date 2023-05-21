@@ -1,5 +1,7 @@
 # -*-mode:ruby-*- vim:ft=ruby
 
+{{ if eq .chezmoi.os "darwin" }}
+
 # Homwbrew Cask
 tap "Homebrew/cask"
 tap "Homebrew/cask-versions"
@@ -115,3 +117,5 @@ cask "transmission"
 
 cask "dropbox"
 cask "franz"
+
+{{ end }}
