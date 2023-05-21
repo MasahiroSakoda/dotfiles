@@ -7,6 +7,7 @@ return {
   filetypes = { "yaml", "yml", "yaml.docker-compose" },
   settings  = {
     yaml = {
+      keyOrdering = false,
       schemaStore = {
         enable = true,
         url = "https://www.schemastore.org/api/json/catalog.json",
