@@ -76,3 +76,4 @@ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/instal
 ## ToDo
 * [ ] VSCode support
 * [ ] Cross platform support
+* [ ] activate switching for personal/work usage
