@@ -1,32 +1,21 @@
-[include]
-  path = ~/.config/git/config.local
+# -*-mode:gitconfig-*- vim:ft=gitconfig
 
-[user]
-  name  = MasahiroSakoda
-  email = thunderbird.m.s@gmail.com
+[include]
+  path = conf.d/alias.conf
+  path = conf.d/delta.conf
+  path = conf.d/lfs.conf
+  path = conf.d/gist.conf
+  path = conf.d/user.conf
 
 [core]
   editor       = nvim
-  exclusive    = ${HOME}/.gitignore
-	excludesfile = $HOME/.gitignore_global
+	excludesfile = ${XDG_CONFIG_HOME}/git/ignore
 
 [color]
   ui = true
   diff = auto
   status = auto
   branch = auto
-
-[alias]
-	br   = branch
-	co   = checkout
-	sw   = switch
-	swc  = switch -c
-	cm   = commit
-	s    = status
-	st   = status
-	df   = diff
-	gr   = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-	lg = log --graph --all
 
 [init]
 	defaultBranch = main
@@ -37,28 +26,3 @@
 [merge]
   branchdesc = true
   log = true
-
-[pager]
-	diff   = delta
-	log    = delta
-	reflog = delta
-	show   = delta
-
-[delta]
-	syntax-theme = Dracula
-	navigate     = true
-	side-by-side = true
-	line-numbers = true
-	line-numbers-left-format  = ""
-	line-numbers-right-format = "|"
-	plus-style   = "syntax #012800"
-	minus-style  = "syntax #340001"
-
-[interactive]
-	diffFilter = delta --color-only
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
