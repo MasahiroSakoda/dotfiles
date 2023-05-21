@@ -62,4 +62,5 @@ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/instal
 ```
 
 ## ToDo
-See [TODO.md](https://github.com/MasahiroSakoda/dotfiles/blob/main/TODO.md)
+* [ ] VSCode support
+* [ ] Cross platform support
