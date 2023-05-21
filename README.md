@@ -1,19 +1,29 @@
-# dotfiles
-Bootstrap scripts & build macOS development environment
+<div align="center">
+  <p>&nbsp;</p>
 
-![platform](https://img.shields.io/badge/Platform-macOS-blue.svg)
-[![chezmoi][chezmoi-badge]][chezmoi-website]
-[![license][license-badge]][license-file]
-[![commit activity](https://img.shields.io/github/commit-activity/m/MasahiroSakoda/dotfiles)](https://github.com/MasahiroSakoda/dotfiles/graphs/commit-activity)
+  <img
+    src="https://raw.githubusercontent.com/jglovier/dotfiles-logo/main/dotfiles-logo-icon.png"
+    height="100px"
+  />
 
-[chezmoi-website]: https://github.com/twpayne/chezmoi
-[chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
-[license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
-[license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
+  <h1>dotfiles</h1>
+  <img src="https://img.shields.io/badge/macOS-%23.svg?style=flat-square&logo=apple&color=000000&logoColor=white" />
+  <p>Bootstrap & build macOS development environment</p>
 
-[![Codacy Security Scan](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml)
-[![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
-[![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
+  [![chezmoi][chezmoi-badge]][chezmoi-website]
+  [![license][license-badge]][license-file]
+  [![commit activity](https://img.shields.io/github/commit-activity/m/MasahiroSakoda/dotfiles)](https://github.com/MasahiroSakoda/dotfiles/graphs/commit-activity)
+
+  [chezmoi-website]: https://github.com/twpayne/chezmoi
+  [chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
+  [license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
+  [license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
+
+  [![Codacy Security Scan](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml)
+  [![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
+  [![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
+</div>
+
 ---
 
 ## Contents
@@ -23,7 +33,7 @@ Bootstrap scripts & build macOS development environment
 * [ToDo](#ToDo)
 
 ## Features
-* One Line Install
+* [One Line Install](#Installation)
 * dotfiles management using [chezmoi](https://github.com/twpayne/chezmoi)
 
 ## Environment
