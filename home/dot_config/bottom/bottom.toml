@@ -1,0 +1,61 @@
+[flags]
+basic = false
+rate  = 500
+hide_time = false
+
+# CPU
+current_usage = true
+hide_avg_cpu = false
+
+# Process
+group_processes = false
+
+# Memory
+mem_as_value = true
+enable_gpu_memory = true
+
+# Search
+case_sensitive = false
+regex = false
+
+# Graph
+dot_marker = false
+hide_table_gap = true
+
+# layouts
+[[row]]
+  [[row.child]]
+  ratio = 3
+  type  = "cpu"
+  [[row.child]]
+  type  = "temp"
+  [[row.child]]
+  ratio = 2
+  type  = "mem"
+[[row]]
+  [[row.child]]
+  ratio = 2
+  type  = "net"
+  [[row.child]]
+  ratio = 2
+  type  = "disk"
+  [[row.child]]
+  ratio = 1
+  type  = "battery"
+[[row]]
+  ratio = 2
+  [[row.child]]
+  type  = "proc"
+  default=true
+
+[colors]
+avg_cpu_color="Red"
+border_color="White"
+graph_color="Gray"
+highlighted_border_color="LightMagenta"
+selected_bg_color="Magenta"
+selected_text_color="Black"
+table_header_color="Blue"
+text_color="White"
+widget_title_color="Cyan"
+
