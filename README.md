@@ -10,6 +10,8 @@ Bootstrap scripts & build macOS development environment
 [chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
 [license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
 [license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
+
+[![Codacy Security Scan](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml)
 [![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
 [![lint](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/lint.yml)
 ---
