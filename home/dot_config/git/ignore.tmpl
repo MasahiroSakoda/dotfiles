@@ -1,2 +1,9 @@
-.DS_Store
+# -*-mode:gitignore-*- vim:ft=gitignore
 
+{{ template common/Vim.gitignore }}
+
+{{ if (eq .chezmoi.os "darwin" ) }}
+{{ template darwin/macOS.gitignore }}
+{{ else if (eq .chezmoi.os "linux") }}
+{{ template linux/Linux.gitignore }}
+{{ end }}
