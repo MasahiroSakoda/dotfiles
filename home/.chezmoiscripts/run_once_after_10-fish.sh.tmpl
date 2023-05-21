@@ -3,7 +3,7 @@
 
 set -e
 
-{{ template "common/script_sudo" }}
+{{ template "common/script_sudo" . }}
 
 # Change default shell
 FISH_PATH=$(which fish)

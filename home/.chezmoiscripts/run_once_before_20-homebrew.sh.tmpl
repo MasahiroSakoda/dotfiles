@@ -3,8 +3,8 @@
 
 set -e
 
-{{ template "common/script_eval_brew"  }}
-{{ template "common/script_sudo" }}
+{{ template "common/script_eval_brew" . }}
+{{ template "common/script_sudo" . }}
 
 PKG_DIR="${HOME}/.config/homebrew"
 
