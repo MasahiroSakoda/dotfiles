@@ -1,0 +1,10 @@
+# --style "numbers,changes,header"
+--style="full"
+--color="auto"
+--theme="Monokai Extended Bright"
+
+--map-syntax .dockerignore:'Git Ignore'
+--map-syntax .eslintignore:'Git Ignore'
+--map-syntax .eslintrc:JSON
+--map-syntax .lua-format:YAML
+--map-syntax .luacheckrc:Lua
