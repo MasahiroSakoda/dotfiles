@@ -16,4 +16,7 @@ if ! command -v brew > /dev/null 2>&1 && [ -f "$HOME/.config/homebrew/Brewfile" 
   brew bundle -v --no-lock --file="${PKG_DIR}/Brewfile"
   brew bundle -v --no-lock --file="${PKG_DIR}/Caskfile"
   brew bundle -v --no-lock --file="${PKG_DIR}/Masfile"
+
+  brew services start yabai
+  brew services start skhd
 fi
