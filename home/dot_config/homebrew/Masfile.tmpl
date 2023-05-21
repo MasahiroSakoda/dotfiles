@@ -1,5 +1,7 @@
 # -*-mode:ruby-*- vim:ft=ruby
 
+{{ if eq .chezmoi.os "darwin" }}
+
 # Mac App Store
 brew "mas"
 
@@ -30,3 +32,5 @@ mas "Vimari", id: 1480933944
 
 ## Amphetamine
 mas "Amphetamine", id: 937984704
+
+{{ end }}
