@@ -35,7 +35,7 @@ telescope.setup({
       "build/", "dist/",
       "build/", "%.o", "%.out", "%.a", "%.d", "%.so",        -- Binary
       "%.tar", "%.tar.gz", "%.zip", "%.rar", "%.7z", -- Archives
-      "^./.git/", ".github/", ".gitignore", -- Git
+      "^./.git/", ".gitignore", -- Git
       "%.otf", "%.ttf", "%.woff", ".fonts", -- font
       "%.ico", "%.svg", -- Icon
       "^.idea/", "^.vscode/", -- IDE
