@@ -3,8 +3,8 @@
 
 set -e
 
-{{ template "script_darwin_only" . }}
-{{ template "script_sudo" . }}
+{{ template "darwin/script_darwin_only" }}
+{{ template "common/script_sudo" }}
 
 # Check for Xcode Command Line Tools and install them if not present
 xcode-select -p &>/dev/null

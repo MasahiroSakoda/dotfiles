@@ -3,8 +3,8 @@
 
 set -e
 
-{{ template "script_darwin_only" . }}
-{{ template "script_sudo" . }}
+{{ template "darwin/script_darwin_only" }}
+{{ template "common/script_sudo" }}
 
 # Keyboard
 defaults write -g KeyRepeat -int 1
