@@ -133,10 +133,11 @@ Other Homebrew packages: [Brewfile](https://github.com/MasahiroSakoda/dotfiles/b
 
 #### asdf
 Programming language version management tool
-* [asdf-python](https://github.com/asdf-community/asdf-python)
-* [asdf-ruby](https://github.com/asdf-vm/asdf-ruby)
-* [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-* [asdf-deno](https://github.com/asdf-community/asdf-deno)
+* [`asdf-python`](https://github.com/asdf-community/asdf-python)
+  * [`Poetry`](https://github.com/python-poetry/poetry)
+* [`asdf-ruby`](https://github.com/asdf-vm/asdf-ruby)
+* [`asdf-nodejs`](https://github.com/asdf-vm/asdf-nodejs)
+* [`asdf-deno`](https://github.com/asdf-community/asdf-deno)
 
 ### Homebrew cask packages
 | Package            | Category               | Configuration file |

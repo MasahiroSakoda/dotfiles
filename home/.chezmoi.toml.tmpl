@@ -1,11 +1,22 @@
 # -*-mode:conf-toml-*- vim:ft=toml
+# file: home/.chezmoi.toml.tmpl
 
 {{- $osid := .chezmoi.os -}}
 
 encryption = "age"
+format = "json"
+color = "on"
 
 [data]
     osid = {{ $osid | quote }}
+
+[diff]
+    format = "git"
+    pager = "delta"
+
+[merge]
+    command = "nvim"
+    args = "-d"
 
 [age]
     identity  = "~/key.txt"
