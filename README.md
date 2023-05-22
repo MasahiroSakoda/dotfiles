@@ -42,24 +42,24 @@
 * dotfiles management using [chezmoi](https://github.com/twpayne/chezmoi)
 
 ## Getting Started
-```
+```bash
 $ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/install.sh | bash
 ```
 
 ## Usage
 
 ### Configure dotfiles
-```
+```bash
 $ chezmoi edit $DOTFILES
 ```
 
 ### Apply changes
-```
+```bash
 $ chezmoi apply
 ```
 
 ### Update
-```
+```bash
 $ chezmoi diff
 $ chezmoi update
 ```
