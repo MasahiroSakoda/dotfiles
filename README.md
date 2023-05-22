@@ -153,6 +153,7 @@ Other Homebrew cask packages: [Caskfile](https://github.com/MasahiroSakoda/dotfi
 See [Masfile](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Masfile.tmpl)
 
 ## ToDo
+* [ ] Fix script attributes in `.chezmoiscripts`
 * [ ] VSCode support
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
