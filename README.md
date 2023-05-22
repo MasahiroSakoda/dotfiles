@@ -84,7 +84,7 @@ Other Homebrew packages: [Brewfile](https://github.com/MasahiroSakoda/dotfiles/b
 * Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
 
-<a href="img/NeoVim-LSP.png"><img src="img/NeoVim-LSP.png" align="right" width="500px" /></a>
+<a href="img/NeoVim-LSP.png" target="_blank"><img src="img/NeoVim-LSP.png" align="right" width="350px" /></a>
 * Builtin LSP with [**`mason.nvim`**](https://github.com/williamboman/mason.nvim), [**`mason-lspconfig`**](https://github.com/williamboman/mason-lspconfig.nvim), [**`null-ls.nvim`**](https://github.com/jose-elias-alvarez/null-ls.nvim)
   * `Lua`, `VimScript`
   * `Bash`
@@ -98,7 +98,7 @@ Other Homebrew packages: [Brewfile](https://github.com/MasahiroSakoda/dotfiles/b
   * `GraphQL`
   * `Dockerfile`
 
-<a href="img/NeoVim-DAP.png"><img src="img/NeoVim-DAP.png" align="right" width="500px" /></a>
+<a href="img/NeoVim-DAP.png" target="_blank"><img src="img/NeoVim-DAP.png" align="right" width="350px" /></a>
 * DAP with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
   * `Lua`: [**`one-small-step-for-vimkind`**](https://github.com/jbyuki/one-small-step-for-vimkind)
   * `Python`: [**`nvim-dap-python`**](https://github.com/mfussenegger/nvim-dap-python)
@@ -114,7 +114,7 @@ Other Homebrew packages: [Brewfile](https://github.com/MasahiroSakoda/dotfiles/b
   * [**vint**](https://github.com/Vimjas/vint): `VimScript` linter
   * [**cmakelint**](https://github.com/cmake-lint/cmake-lint): `CMake` linter
 
-<a href="img/NeoVim-mason.nvim.png"><img src="img/NeoVim-mason.nvim.png" align="right" width="500px" /></a>
+<a href="img/NeoVim-mason.nvim.png" target="_blank"><img src="img/NeoVim-mason.nvim.png" align="right" width="350px" /></a>
 * Formatter support
   * [**beautysh**](https://github.com/lovesegfault/beautysh): `sh`, `bash`, `zsh` formatter
   * [**black**](https://pypi.org/project/black/): Fast `Python` formatter
