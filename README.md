@@ -149,8 +149,8 @@ Programming language version management tool
 | Package            | Category               | Configuration file |
 | ------------------ | ---------------------- | ------------------ |
 | [**Karabiner-Elements**](https://github.com/pqrs-org/Karabiner-Elements) | Keyboard customization | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
-| [**yabai**](https://github.com/koekeishiya/yabai)              | Window Manager         | [~/.config/yabai/yabairc](https://github.com/MasahiroSakoda/dotfiles/blob/main/dot_config/yabai/yabairc) |
-| [**skhd**](https://github.com/koekeishiya/skhd)               | Hotkey daemon          | [~/.config/skhd/skhdrc](https://github.com/MasahiroSakoda/dotfiles/blob/main/dot_config/skhd/skhdrc) |
+| [**yabai**](https://github.com/koekeishiya/yabai)              | Window Manager         | [~/.config/yabai/yabairc](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/yabai/executable_yabairc) |
+| [**skhd**](https://github.com/koekeishiya/skhd)               | Hotkey daemon          | [~/.config/skhd/skhdrc](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/skhd/executable_skhdrc) |
 | [**sketchybar**](https://github.com/FelixKratz/SketchyBar)         | Status bar             | [~/.config/sketchybar/sketchybarrc](https://github.com/MasahiroSakoda/dotfiles/blob/main/dot_config/sketchybar/sketchybarrc) |
 
 Other Homebrew cask packages: [Caskfile](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Caskfile.tmpl)
