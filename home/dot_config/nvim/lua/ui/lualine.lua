@@ -37,7 +37,7 @@ lualine.setup {
     lualine_a = { { "mode", icon = { "", color = { fg = "#000000" } } } },
     lualine_b = { "branch", "diff" },
     lualine_c = {
-      -- { "filename", icon = { "", color = { fg = "#FFFFFF" } } },
+      { "filename", icon = { "", color = { fg = "#FFFFFF" } } },
       { "diagnostics", source = "nvim-lsp" },
       { function() return navic.get_location() end, cond = function() return navic.is_available() end },
     },
