@@ -64,8 +64,8 @@ abbr -a czad chezmoi add
 abbr -a czat chezmoi add --template
 
 ## remove
-abbr -a czr chazmoi remove
-abbr -a czrf chazmoi remove --force
+abbr -a czr chezmoi remove
+abbr -a czrf chezmoi remove --force
 
 ## edit
 abbr -a cze chezmoi edit
