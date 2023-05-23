@@ -12,6 +12,9 @@ LICENSE
 README.md
 install.sh
 
+# macOS flies
+.DS_Store
+
 # NeoVim files
 lazy-lock.json
 
