@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
+
+set -e
+
+# tmux plugin manager
+if [ ! -e "$HOME/.local/share/tmux/tpm" ]; then
+  info "Installing tmux plugin manager"
+  mkdir -p "$HOME/.local/share/tmux"
+  git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/tpm
+else
+  info "Updating tmux plugin manager"
+  pushd "$HOME/.local/share/tmux/tpm" > /dev/null
+  git pull
+  popd > /dev/null
+fi
