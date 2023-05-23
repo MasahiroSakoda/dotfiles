@@ -16,7 +16,7 @@ install.sh
 .DS_Store
 
 # NeoVim files
-lazy-lock.json
+.config/nvim/lazy-lock.json
 
 key.txt.age
 
