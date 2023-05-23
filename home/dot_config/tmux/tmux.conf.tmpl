@@ -1,0 +1,78 @@
+# -*-mode:sh-*- vim:ft=sh
+
+# -----------------------------------------------------------------------------
+# General
+# -----------------------------------------------------------------------------
+# color
+set -g default-terminal "screen-256color"
+set -ag terminal-overrides ",alacritty:RGB"
+
+# activate mouse
+set -g mouse on
+
+# focus events enabled for terminals that support them
+set -g focus-events on
+
+# Fix window title for SSH sessions
+set -g set-titles on
+set -g set-titles-string "#W [#U@#h]"
+
+# Start numbering at one for easier switching
+set -g base-index 1
+set -g renumber-windows on
+setw -g pane-base-index 1
+
+# 24h > 12h
+setw -g clock-mode-style 24
+
+# Prefix key
+unbind C-b
+set -g prefix C-s
+
+# -----------------------------------------------------------------------------
+# Status
+# -----------------------------------------------------------------------------
+# left stataus: Pane number
+set-option -g status-left '#H:[#P]'
+# right status: WiFi, Battery, Time
+set-option -g status-right '#(wifi) #(battery --tmux) [%Y-%m-%d(%a) %H:%M]'
+#
+set-option -g status-justify centre
+
+# -----------------------------------------------------------------------------
+# Keybind
+# -----------------------------------------------------------------------------
+# Vi keybind on copy mode
+setw -g mode-keys vi
+setw -g xterm-keys on
+
+# and HJKL for resizing
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Easy to detach
+bind C-d detach-client
+
+# Jump to pane
+bind C-g display-panes
+bind g display-panes
+set -g display-panes-time 4000
+
+bind y setw synchronize-panes
+
+# -----------------------------------------------------------------------------
+# Plugin
+# -----------------------------------------------------------------------------
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'arcticicestudio/nord-tmux'
+
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_show_sync_mode 'on'
+
+# run '~/.config/tmux/tpm/tpm'
+run "$TMUX_PLUGIN_MANAGER_PATH/tpm"
