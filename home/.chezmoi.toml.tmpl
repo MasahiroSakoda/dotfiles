@@ -3,12 +3,16 @@
 
 {{- $osid := .chezmoi.os -}}
 
+{{- $isLaptop := promptBoolOnce . "isLaptop" "Is this a laptop" -}}
+
 encryption = "age"
 format = "json"
 color = "on"
 
 [data]
     osid = {{ $osid | quote }}
+    terminalFont = "JetBrainsMono Nerd Font Mono"
+    terminalFontSize = {{ if $isLaptop -}} 8 {{- else -}} 12 {{- end }}
 
 [edit]
     command = "nvim"
