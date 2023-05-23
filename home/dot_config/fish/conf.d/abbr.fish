@@ -47,13 +47,17 @@ abbr -a dcd docker-compose down
 
 # chezmoi
 abbr -a cz chezmoi
+abbr -a czd "chezmoi diff | bat"
+abbr -a czD chezmoi doctor
+abbr -a czu chezmoi update
+abbr -a czap chezmoi apply
 
 ## init
 abbr -a czi chezmoi init
 abbr -a czia chezmoi init --apply
 
 ## add
-abbr -a cza chezmoi add
+abbr -a czad chezmoi add
 abbr -a czat chezmoi add --template
 
 ## remove
@@ -63,11 +67,6 @@ abbr -a czrf chazmoi remove --force
 ## edit
 abbr -a cze chezmoi edit
 abbr -a czea chezmoi edit --apply
-
-abbr -a czd "chezmoi diff | bat"
-abbr -a czD chezmoi doctor
-abbr -a czu chezmoi update
-abbr -a czA chezmoi apply
 
 # Homebrew
 abbr -a b brew
