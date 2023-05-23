@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
+
+set -e
+
+# Install Alacritty theme
+if [ ! -e "$HOME/.config/alacritty/themes" ]; then
+  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+else
+  pushd "$HOME/.config/alacritty/themes" > /dev/null
+  git pull
+  popd > /dev/null
+fi
