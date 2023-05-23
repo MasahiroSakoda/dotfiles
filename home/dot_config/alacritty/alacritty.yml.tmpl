@@ -5,7 +5,7 @@ shell:
   args:
     - --login
     - --command
-    - "tmux attach || tmux"
+    - 'tmux a -t default || tmux new -s default\; source ~/.config/tmux/default.session.conf'
 env:
   TERM: alacritty
 import:
