@@ -1,3 +1,6 @@
+# Fish
+abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
+
 # Prompt
 abbr -a cl clear
 
