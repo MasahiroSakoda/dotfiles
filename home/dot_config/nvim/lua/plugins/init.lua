@@ -208,9 +208,13 @@ return {
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
-    build = "make install_jsregexp",
+    -- FIXME: Build not woring
+    -- build = "make install_jsregexp",
     event = "InsertEnter",
-    config = function() require("lsp.cmp.luasnip") end,
+    config = function ()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      -- require("lsp.cmp.luasnip")
+    end,
   },
 
   -- AI assisted completion
