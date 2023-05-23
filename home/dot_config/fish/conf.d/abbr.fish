@@ -34,7 +34,7 @@ abbr -a gd git diff
 abbr -a gds git diff --staged
 abbr -a gb git branch
 abbr -a ga git add
-abbr -a gc git commit
+abbr -a gc git commit -m
 abbr -a gco git checkout
 abbr -a gm git merge
 abbr -a gps git push
