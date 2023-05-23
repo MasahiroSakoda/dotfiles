@@ -204,19 +204,6 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
--- Keymap for Snippet
----------------------------------------------------------------------------
--- LuaSnip
-vim.cmd [[
-  imap     <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-  inoremap <silent>       <S-Tab> <CMD>lua require("luasnip").jump(-1)<CR>
-  snoremap <silent>       <Tab>   <CMD>lua require("luasnip").jump(1)<CR>
-  snoremap <silent>       <S-Tab> <CMD>lua require("luasnip").jump(-1)<CR>
-  imap     <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-  smap     <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-]]
-
----------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapterr Protocol
 ---------------------------------------------------------------------------
 keymap("n", "<F5>",    ":DapContinue<CR>",  { desc = ": Continue Process" })
