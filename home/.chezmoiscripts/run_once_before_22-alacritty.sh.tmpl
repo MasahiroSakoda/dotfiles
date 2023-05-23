@@ -5,7 +5,7 @@ set -e
 
 # Install Alacritty theme
 if [ ! -e "$HOME/.config/alacritty/themes" ]; then
-  git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  git clone https://github.com/alacritty/alacritty-theme $HOME/.config/alacritty/themes
 else
   pushd "$HOME/.config/alacritty/themes" > /dev/null
   git pull
