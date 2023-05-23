@@ -11,10 +11,10 @@ local border_opts = {
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 local anyWord = [[\k\+]]
 
-local has_words_before = function(deleting)
-	local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-	local start_col = deleting and 1 or 0
-	return col > start_col and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local menu = {
@@ -138,7 +138,7 @@ cmp.setup({
       elseif luasnip.expandable() then
         luasnip.expand()
       elseif has_words_before() then
-        cmp.complete({ select = false })
+        cmp.complete()
       else
         fallback()
       end
