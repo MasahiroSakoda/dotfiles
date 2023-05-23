@@ -192,6 +192,7 @@ Programming language version management tool
 | Package            | Category   |
 | ------------------ | ---------- |
 | [**iTerm2**](https://iterm2.com/)             | Terminal   |
+| [**Alacritty**](https://github.com/alacritty/alacritty)          | Terminal |
 | [**Visual Studio Code**](https://code.visualstudio.com/) | IDE        |
 | [**Docker**](https://www.docker.com/)             | Container  |
 | [**TablePlus**](https://tableplus.com/)          | Database   |
