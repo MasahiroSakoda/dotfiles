@@ -3,6 +3,7 @@ abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 
 # Prompt
 abbr -a cl clear
+abbr -a x exit
 
 # File
 abbr -a o open
