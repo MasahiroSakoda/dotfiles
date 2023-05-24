@@ -45,7 +45,9 @@ nl.setup({
     formatting.trim_newlines,
     formatting.trim_whitespace,
     diagnostics.todo_comments,
-    diagnostics.codespell,
+    diagnostics.codespell.with({
+      extra_args = { "--ignore-words", vim.fn.stdpath "config" .. "/spell/codespell-ignore.txt" },
+    }),
     hover.dictionary,
     hover.printenv,
     completion.spell,
