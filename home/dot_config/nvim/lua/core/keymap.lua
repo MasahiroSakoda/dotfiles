@@ -127,8 +127,8 @@ wk.register({
 -- Line Number
 ---------------------------------------------------------------------------
 local number = require("core.number")
-keymap("n", "<Leader>n", number.toggleLineNumber,     { desc = "􀋴   Toggle Line Number" })
-keymap("n", "<Leader>N", number.toggleRelativeNumber, { desc = "􀋴   Toggle Relatieve Number" })
+keymap("n", "\\n", number.toggleLineNumber,     { desc = "􀋴   Toggle Line Number" })
+keymap("n", "\\N", number.toggleRelativeNumber, { desc = "􀋴   Toggle Relatieve Number" })
 
 ---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin
@@ -147,6 +147,16 @@ keymap("n", "<Leader>q", quickfix.toggleQuickfix,               { desc = "􀓕  
 keymap("n", "[q",        quickfix.navigateQuickfix("previous"), { desc = "􀓕 􀄿 Move to prev Quickfix" })
 keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "􀓕 􀅀 Move to next Quickfix" })
 -- keymap("n", "<Leader>r", ":lua require'replacer'.run()<CR>",    { desc = "Refactor" })
+
+---------------------------------------------------------------------------
+-- Generator
+---------------------------------------------------------------------------
+wk.register({
+  mode = "n",
+  ["<Leader>nc"] = { ":lua require'neogen'.generate({ type = 'class' })<CR>", "Generate class annotation" },
+  ["<Leader>nf"] = { ":lua require'neogen'.generate({ type = 'func' })<CR>",  "Generate function annotation" },
+  ["<Leader>nt"] = { ":lua require'neogen'.generate({ type = 'func' })<CR>",  "Generate function annotation" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
