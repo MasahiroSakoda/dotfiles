@@ -74,7 +74,7 @@ $ chezmoi update
 | Package | Category         | Notes      |
 | ------- | ---------------- | ---------- |
 | [**Fish**](https://github.com/fish-shell/fish-shell)    | Shell            |            |
-| [**tmux**](https://github.com/tmux/tmux)    | Screen           | [~/.config/alacritty/alacritty.yml](https://github.com/alacritty/alacritty) |
+| [**tmux**](https://github.com/tmux/tmux)    | Screen           | [~/.config/tmux/tmux.conf](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl) |
 | [**NeoVim**](https://github.com/neovim/neovim)  | Editor           | See [Detail](#NeoVim) |
 | [**asdf**](https://github.com/asdf-vm/asdf)    | Language version | See [Detail](#asdf) |
 | [**fzf**](https://github.com/junegunn/fzf)     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
