@@ -10,6 +10,10 @@ color = "on"
 [data]
     osid = {{ $osid | quote }}
 
+[data.git]
+    name  = "{{ promptString "Git: Enter your committer name" }}"
+    email = "{{ promptString "Git: Enter your email address" }}"
+
 [edit]
     command = "nvim"
     apply = false
