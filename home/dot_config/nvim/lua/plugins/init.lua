@@ -21,6 +21,8 @@ return {
   { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
   {
     "VonHeikemen/fine-cmdline.nvim",
+    cmd = "FineCmdline",
+    config = function() require("ui.cmdline") end,
   },
   {
     "VonHeikemen/searchbox.nvim",
