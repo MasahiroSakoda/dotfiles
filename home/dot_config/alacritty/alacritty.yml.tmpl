@@ -39,16 +39,21 @@ colors:
 font:
   size: {{ .terminalFontSize }}
   normal:
-    family: {{ .terminalFont }}
+    family: {{ .asciiFont }}
     style: Regular
+    offset: 0
+  non_ascii:
+    family: {{ .nonasciiFont }}
+    style: Regular
+    offset: 0
   bold:
-    family: {{ .terminalFont }}
+    family: {{ .asciiFont }}
     style: Bold
   italic:
-    family: {{ .terminalFont }}
+    family: {{ .asciiFont }}
     style: Italic
   bold_italic:
-    family: {{ .terminalFont }}
+    family: {{ .asciiFont }}
     style: Bold Italic
 
 window:
