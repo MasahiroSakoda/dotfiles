@@ -1,4 +1,4 @@
-# -*-mode:toml-*- vim:ft=toml
+# -*-mode:conf-toml-*- vim:ft=toml
 
 [font.family]
     ascii    = "JetBrainsMono Nerd Font Mono"
