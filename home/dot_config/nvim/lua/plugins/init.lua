@@ -20,14 +20,6 @@ return {
   { "akinsho/toggleterm.nvim", cmd = "ToggleTerm", config = function() require("ui.toggleterm") end },
   { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
   {
-    "VonHeikemen/fine-cmdline.nvim",
-    cmd = "FineCmdline",
-    config = function() require("ui.cmdline") end,
-  },
-  {
-    "VonHeikemen/searchbox.nvim",
-  },
-  {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "kyazdani42/nvim-web-devicons" },
     event  = "BufWinEnter",

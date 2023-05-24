@@ -17,7 +17,6 @@ if not ok then
 end
 
 keymap("n", "<Leader>e", ':edit<Space>', { desc = "􀈊   Edit" })
-keymap("n", ":", "<CMD>FineCmdline<CR>", opts)
 
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
