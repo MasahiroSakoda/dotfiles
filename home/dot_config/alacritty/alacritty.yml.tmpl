@@ -6,10 +6,13 @@ shell:
     - --login
     - --command
     - 'tmux a -t default || tmux new -s default\; source ~/.config/tmux/default.session.conf'
+
 env:
   TERM: alacritty
+
 import:
   - ~/.config/alacritty/themes/themes/wombat.yaml
+
 colors:
   primary:
     background: '#32302f'
@@ -32,6 +35,7 @@ colors:
     magenta: '#d3869b'
     cyan:    '#8ec07c'
     white:   '#ebdbb2'
+
 font:
   size: {{ .terminalFontSize }}
   normal:
@@ -46,6 +50,7 @@ font:
   bold_italic:
     family: {{ .terminalFont }}
     style: Bold Italic
+
 window:
   decorations: full         # ボーダーとタイトルバーを表示する
   startup_mode: Fullscreen  # フルスクリーンで起動する
@@ -58,4 +63,20 @@ window:
     y: 0
   dynamic_title: true
   dynamic_padding: true
+
+hints:
+  alphabet: "jfkdls;ahgurieowpq"
+  enabled:
+    - regex:
+        "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+        [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: command
+      binding:
+        key: U
+        mods: Control|Shift
+
 live_config_reload: true
