@@ -17,8 +17,15 @@ return {
   { "vim-jp/vimdoc-ja", ft = "help" },
   { "dstein64/vim-startuptime", cmd = "StartupTime" },
   { "jghauser/mkdir.nvim" },
-  { "rcarriga/nvim-notify",    event = "VeryLazy", config = function() require("ui.notify") end },
   { "akinsho/toggleterm.nvim", cmd = "ToggleTerm", config = function() require("ui.toggleterm") end },
+  {
+    "folke/noice.nvim",
+    dependencies = {
+      { "rcarriga/nvim-notify", config = function() require("ui.notify") end },
+    },
+    event = "VeryLazy",
+    config = function() require("ui.noice") end,
+  },
   {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "kyazdani42/nvim-web-devicons" },
