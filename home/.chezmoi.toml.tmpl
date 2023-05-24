@@ -11,8 +11,8 @@ color = "on"
 
 [data]
     osid = {{ $osid | quote }}
-    # terminalFont = "JetBrainsMono Nerd Font Mono"
-    terminalFont = "PlemolJP Console"
+    asciiFont = "JetBrainsMono Nerd Font Mono"
+    nonasciiFont = "PlemolJP Console"
     terminalFontSize = {{ if $isLaptop -}} 8 {{- else -}} 12 {{- end }}
 
 [edit]
