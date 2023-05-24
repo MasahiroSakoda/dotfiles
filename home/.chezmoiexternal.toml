@@ -1,0 +1,8 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[".local/share/tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
