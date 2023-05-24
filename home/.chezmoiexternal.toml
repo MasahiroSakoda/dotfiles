@@ -6,3 +6,9 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".config/alacritty/themes"]
+    type = "git-repo"
+    url = "https://github.com/alacritty/alacritty-theme"
+    exact = true
+    refreshPeriod = "168h"
