@@ -14,23 +14,28 @@ import:
   - ~/.config/alacritty/themes/themes/tomorrow_night.yaml
 
 font:
-  size: 12
+  size: {{ .font.size.medium }}
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: {{ .font.family.ascii }}
+    # family: JetBrainsMono Nerd Font Mono
     style: Regular
     offset: 0
   non_ascii:
-    family: Cica
+    family: {{ .font.family.nonascii }}
+    # family: Cica
     style: Regular
     offset: 0
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: {{ .font.family.ascii }}
+    # family: JetBrainsMono Nerd Font Mono
     style: Bold
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: {{ .font.family.ascii }}
+    # family: JetBrainsMono Nerd Font Mono
     style: Italic
   bold_italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: {{ .font.family.ascii }}
+    # family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
 
 window:
