@@ -2,6 +2,7 @@
 # file: home/.chezmoi.toml.tmpl
 
 {{- $osid := .chezmoi.os -}}
+{{ $computer := promptString "computer type (home/work)" -}}
 
 encryption = "age"
 format = "json"
