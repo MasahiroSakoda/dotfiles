@@ -47,6 +47,7 @@ nl.setup({
     diagnostics.todo_comments,
     diagnostics.codespell.with({
       extra_args = { "--ignore-words", vim.fn.stdpath "config" .. "/spell/codespell-ignore.txt" },
+      disabled_filetypes = {},
     }),
     hover.dictionary,
     hover.printenv,
