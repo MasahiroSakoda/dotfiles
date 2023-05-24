@@ -22,10 +22,14 @@ return {
     "folke/noice.nvim",
     dependencies = {
     { "MunifTanjim/nui.nvim" },
-      { "rcarriga/nvim-notify", config = function() require("ui.notify") end },
+      { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
     },
     event = "VeryLazy",
     config = function() require("ui.noice") end,
+  },
+
+  {
+    "VonHeikemen/fine-cmdline.nvim",
   },
   {
     "goolord/alpha-nvim", -- startup dashboard
