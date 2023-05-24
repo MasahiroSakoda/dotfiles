@@ -67,12 +67,19 @@ bind y setw synchronize-panes
 # -----------------------------------------------------------------------------
 # plugin manager
 set -g @plugin "tmux-plugins/tpm"
+
 # A set of tmux options that should be acceptable to everyone
 set -g @plugin "tmux-plugins/tmux-sensible"
+
+# Tmux plugin for copying to system clipboard
+set -g @plugin 'tmux-plugins/tmux-yank'
+
 # Tmux plugin for controlling panes
 set -g @plugin "tmux-plugins/tmux-pain-control"
+
 # An arctic, north-bluish clean and elegant tmux theme
 set -g @plugin "nordtheme/tmux"
+
 # Plugin that highlights when you press tmux prefix key
 set -g @plugin "tmux-plugins/tmux-prefix-highlight"
 set -g @prefix_highlight_show_copy_mode 'on'
