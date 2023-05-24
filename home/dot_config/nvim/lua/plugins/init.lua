@@ -32,6 +32,9 @@ return {
     "VonHeikemen/fine-cmdline.nvim",
   },
   {
+    "VonHeikemen/searchbox.nvim",
+  },
+  {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "kyazdani42/nvim-web-devicons" },
     event  = "BufWinEnter",
