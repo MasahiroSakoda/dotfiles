@@ -5,6 +5,10 @@ abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 abbr -a cl clear
 abbr -a x exit
 
+# tmux
+abbr -a tm tmux
+abbr -a tmd "tmux a -t default || tmux new -s default\; source $HOME/.config/tmux/default.session.conf"
+
 # File
 abbr -a o open
 abbr -a oa open -a
