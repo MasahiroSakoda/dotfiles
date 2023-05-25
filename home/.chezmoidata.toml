@@ -8,3 +8,7 @@
     large  = 14
     medium = 12
     small  = 10
+
+[alacritty]
+    # ~/.config/alacritty/themes/schemes.yaml
+    theme = "tomorrow_night"
