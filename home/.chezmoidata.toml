@@ -1,8 +1,8 @@
 # -*-mode:conf-toml-*- vim:ft=toml
 
 [font.family]
-    ascii    = "JetBrainsMono Nerd Font Mono"
-    nonascii = "Cica"
+    ascii    = "JetBrainsMonoNL Nerd Font Mono"
+    nonascii = "HackGen35 Console NF"
 
 [font.size]
     large  = 14
