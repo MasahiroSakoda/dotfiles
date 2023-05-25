@@ -11,3 +11,4 @@
 
 [alacritty]
     theme = "dracula"
+    opacity = 0.75
