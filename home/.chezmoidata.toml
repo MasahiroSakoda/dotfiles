@@ -10,5 +10,4 @@
     small  = 10
 
 [alacritty]
-    # ~/.local/share/alacritty/themes/schemes.yaml
-    theme = "tomorrow_night"
+    theme = "dracula"
