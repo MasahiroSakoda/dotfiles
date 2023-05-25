@@ -269,7 +269,7 @@ return {
       { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
       { "RRethy/nvim-treesitter-endwise" },
-      { "mrjones2014/nvim-ts-rainbow" },
+      { "HiPhish/nvim-ts-rainbow2" },
       { "windwp/nvim-ts-autotag", ft = filetypes.autotag },
       { "andymass/vim-matchup" },
     },
