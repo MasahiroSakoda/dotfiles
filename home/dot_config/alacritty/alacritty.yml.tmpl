@@ -68,6 +68,7 @@ hints:
 live_config_reload: true
 
 key_bindings:
+  - { key: Comma, mods: Command, command: { program: "sh", args: ["-c", "open -a ~/Applications/CotEditor.app ~/.config/alacritty/alacritty.yml"] } }
 {{- if eq .chezmoi.os "darwin" }}
   - { key: F,      mods: Command|Control, action: ToggleSimpleFullscreen }
   - { key: Return, mods: Command,         action: ToggleSimpleFullscreen }
