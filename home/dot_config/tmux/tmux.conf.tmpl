@@ -3,6 +3,7 @@
 # -----------------------------------------------------------------------------
 # General
 # -----------------------------------------------------------------------------
+
 # color
 set -g default-terminal "screen-256color"
 set -ag terminal-overrides ",alacritty:RGB"
@@ -28,6 +29,9 @@ setw -g clock-mode-style 24
 # Prefix key
 unbind C-b
 set -g prefix C-s
+
+# Visually marks windows with unread output
+set -g visual-activity on
 
 # -----------------------------------------------------------------------------
 # Status
