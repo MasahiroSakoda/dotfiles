@@ -10,5 +10,5 @@
     small  = 10
 
 [alacritty]
-    # ~/.config/alacritty/themes/schemes.yaml
+    # ~/.local/share/alacritty/themes/schemes.yaml
     theme = "tomorrow_night"
