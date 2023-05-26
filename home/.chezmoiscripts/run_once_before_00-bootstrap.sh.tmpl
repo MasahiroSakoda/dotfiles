@@ -33,12 +33,14 @@ else
 fi
 {{- end }}
 
-# Check and install any remaining software updates.
-echo "Checking for software updates:"
-if softwareupdate -l 2>&1 | grep -q "No new software available."; then
-  echo "Ok"
-else
-  echo "Installing software updates:"
-  sudo softwareupdate --install --all
-  echo "Ok"
+if [ -n "$GITHUB_ACTIONS" ]; then
+  # Check and install any remaining software updates.
+  echo "Checking for software updates:"
+  if softwareupdate -l 2>&1 | grep -q "No new software available."; then
+    echo "Ok"
+  else
+    echo "Installing software updates:"
+    sudo softwareupdate --install --all
+    echo "Ok"
+  fi
 fi
