@@ -8,10 +8,6 @@ on:
     branches:
       - main
 
-env:
-  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
-  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
@@ -23,4 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install dotfiles
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
