@@ -7,7 +7,7 @@ if [ -n "$GITHUB_ACTIONS" ]; then
   exit 0
 fi
 
-if [ ! -f "${HOME}/key.txt" ]; then
+if command -v age > /dev/null 2>&1 && [ ! -f "${HOME}/key.txt" ]; then
   age --decrypt --output "${HOME}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
   chmod 600 "${HOME}/key.txt"
 fi
