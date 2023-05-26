@@ -2,7 +2,6 @@
 # file: home/.chezmoi.toml.tmpl
 
 {{- $osid := .chezmoi.os -}}
-{{- $computer := promptStringOnce "computer type home/work" (default: home) -}}
 
 {{- $git_user  := (env GIT_USERNAME) -}}
 {{- $git_email := (env GIT_EMAIL) -}}
