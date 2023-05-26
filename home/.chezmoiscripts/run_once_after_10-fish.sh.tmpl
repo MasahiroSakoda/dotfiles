@@ -6,7 +6,7 @@ set -e
 {{ template "common/script_sudo" . }}
 
 # Change default shell
-FISH_PATH=$(which fish)
+FISH_PATH="$(which fish)"
 
 if ! grep -q "${FISH_PATH}" /etc/shells ; then
   echo "${FISH_PATH}" | sudo tee -a /etc/shells
