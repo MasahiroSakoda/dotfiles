@@ -2,7 +2,7 @@
 # file: home/.chezmoi.toml.tmpl
 
 {{- $osid := .chezmoi.os -}}
-{{ $computer := promptString "computer type (home/work)" -}}
+{{ $computer := promptStringOnce "computer type home/work" (default: home) -}}
 
 encryption = "age"
 format = "json"
@@ -12,8 +12,8 @@ color = "on"
     osid = {{ $osid | quote }}
 
 [data.git]
-    name  = "{{ promptString "Git: Enter your committer name" }}"
-    email = "{{ promptString "Git: Enter your email address" }}"
+    name  = {{ promptStringOnce "Enter your git username:" (default (env GIT_USERNAME)) }}
+    email = {{ promptStringOnce "Enter your git email address:" (default (env GIT_EMAIL)) }}
 
 [edit]
     command = "nvim"
