@@ -57,5 +57,25 @@ dial.augends:register_group({
       preserve_case = true,
     }),
 
+    -- Font switcher
+    augend.constant.new({ -- for ASCII font
+      elements = {
+        "JetBrainsMono Nerd Font Mono",
+        "JetBrainsMonoNL Nerd Font Mono",
+        "Hack Nerd Font Mono"
+      },
+      word = true,
+      cyclic = true
+    }),
+    augend.constant.new({ -- for non ASCII font
+      elements = {
+        "HackGen Console NF",
+        "HackGen Console NFJ",
+        "PlemolJP Console NF",
+        "PlemolJP Console NFJ",
+      },
+      word = true,
+      cyclic = true
+    }),
   },
 })

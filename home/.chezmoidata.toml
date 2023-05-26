@@ -2,7 +2,7 @@
 
 [font.family]
     ascii    = "JetBrainsMonoNL Nerd Font Mono"
-    nonascii = "HackGen35 Console NF"
+    nonascii = "HackGen Console NF"
 
 [font.size]
     large  = 14
