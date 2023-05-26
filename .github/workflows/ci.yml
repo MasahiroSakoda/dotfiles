@@ -16,6 +16,8 @@ jobs:
         os:
         - macos-latest
     timeout-minutes: 10
+    # sptesの並列化で高速化できる
+    # https://qiita.com/qualitia_cdev/items/407b0df9c0a0f0f45bbc
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,4 +43,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -v -S .
