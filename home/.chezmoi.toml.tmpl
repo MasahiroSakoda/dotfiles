@@ -3,8 +3,8 @@
 
 {{- $osid := .chezmoi.os -}}
 
-{{- $git_user  := env GIT_USERNAME -}}
-{{- $git_email := env GIT_EMAIL -}}
+{{- $git_user  := env "GIT_USERNAME" -}}
+{{- $git_email := env "GIT_EMAIL" -}}
 
 {{- if stdinIsATTY -}}
 {{- $git_user  := promptStringOnce "Enter your git username: " -}}
