@@ -33,7 +33,7 @@ else
 fi
 {{- end }}
 
-if [ -n "$GITHUB_ACTIONS" ]; then
+if [ -z "$GITHUB_ACTIONS" ]; then
   # Check and install any remaining software updates.
   echo "Checking for software updates:"
   if softwareupdate -l 2>&1 | grep -q "No new software available."; then
