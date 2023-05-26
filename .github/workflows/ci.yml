@@ -9,8 +9,8 @@ on:
       - main
 
 env:
-  GIT_USERNAME: ${ secrets.GIT_USERNAME }
-  GIT_EMAIL: ${ secrets.GIT_EMAIL }
+  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
 
 jobs:
   ci:
