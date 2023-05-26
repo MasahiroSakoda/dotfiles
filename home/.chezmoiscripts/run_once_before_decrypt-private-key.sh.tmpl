@@ -3,6 +3,10 @@
 
 set -e
 
+if [ -z "$GITHUB_ACTIONS"]; then
+  exit 0
+fi
+
 if [ ! -f "${HOME}/key.txt" ]; then
   age --decrypt --output "${HOME}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
   chmod 600 "${HOME}/key.txt"
