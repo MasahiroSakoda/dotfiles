@@ -4,6 +4,7 @@ Filetypes.log  = { "log", "txt", "text" }
 Filetypes.js   = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
 Filetypes.json = { "json", "json5", "jsonc" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
+Filetypes.markdown = { "markdown", "md" }
 
 Filetypes.treesitter = {
   -- Compiled Languages

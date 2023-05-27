@@ -145,6 +145,10 @@ nl.setup({
     code_actions.eslint,
     -- formatting.deno_fmt,
 
+    formatting.markdownlint.with({
+      filetypes = filetypes.markdown,
+    }),
+
     -- VimScript
     diagnostics.vint,
   },
