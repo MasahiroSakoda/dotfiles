@@ -29,6 +29,7 @@
   * [Update](#Update)
 * [Environment](#Environment)
   * [Homebrew packages](#Homebrew-packages)
+    * [fish shell](#fish-shell)
     * [NeoVim](#NeoVim)
       * [Configured Languages for LSP](#Configured-Languages-for-LSP)
       * [Configured Languages for DAP](#Configured-Languages-for-DAP)
@@ -84,6 +85,17 @@ $ chezmoi update
 | [**bottom**](https://github.com/ClementTsang/bottom)  | `top` alternative  | [~/.config/bottom/bottom.toml](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml) |
 
 Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Brewfile.tmpl)
+
+#### fish shell
+| Plugin                        | Notes            |
+| ----------------------------- | ---------------- |
+| [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)           | A plugin manager for Fish |
+| [oh-my-fish/theme-bobthefish](https://github.com/oh-my-fish/theme-bobthefish)   | A Powerline-style, Git-aware fish theme optimized for awesome. |
+| [jethrokuan/fzf](https://github.com/jethrokuan/fzf)                | Ef-🐟-ient fish keybindings for fzf |
+| [jethrokuan/z](https://github.com/jethrokuan/z)                  | Pure-fish z directory jumping |
+| [dracula/fish](https://github.com/dracula/fish)                  | 🧛🏻‍♂️ Dark theme for fish |
+| [franciscolourenco/done](https://github.com/franciscolourenco/done)        | A fish-shell package to automatically receive notifications when long processes finish. |
+| [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)    | Auto-complete matching pairs in the Fish command line |
 
 #### NeoVim
 <a href="img/NeoVim-mason.nvim.png" target="_blank"><img src="img/NeoVim-mason.nvim.png" align="right" width="450px" /></a>
