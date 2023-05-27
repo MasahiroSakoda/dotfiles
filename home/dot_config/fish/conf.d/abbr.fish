@@ -47,6 +47,29 @@ abbr -a gpl git pull
 abbr -a gcl git clone
 abbr -a clone git clone
 
+## GitHub CLI
+abbr -a ghs gh status
+
+### issue
+abbr -a ghi gh issue
+abbr -a ghil gh issue list
+abbr -a ghis gh issue status
+abbr -a ghic gh issue create
+abbr -a ghiC gh issue close
+abbr -a ghiv gh issue view
+
+### GitHub Actions
+abbr -a ghw gh workflow
+abbr -a ghwl gh workflow list
+
+### gh extension
+abbr -a ghe gh extension
+abbr -a ghel gh extension list
+abbr -a ghes gh extension search
+abbr -a gheb gh extension browse
+abbr -a ghei gh extension install
+abbr -a gher gh extension remove
+
 # Docker
 ## docker-compose
 abbr -a dc docker-compose
