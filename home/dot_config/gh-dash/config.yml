@@ -1,0 +1,75 @@
+# -*-mode:conf-yaml-*- vim:ft=yaml
+
+theme:
+  colors:
+    text:
+      primary: "#E2E1ED"
+      secondary: "#666CA6"
+      inverted: "#242347"
+      faint: "#797d9c"
+      warning: "#F23D5C"
+      success: "#3DF294"
+    background:
+      selected: "#39386b"
+    border:
+      primary: "#383B5B"
+      secondary: "#39386B"
+      faint: "#2B2B40"
+
+keybindings:
+  prs:
+    # - key: c
+  issues: []
+    # - key: c
+
+defaults:
+  view: issues
+  prsLimit: 20
+  issuesLimit: 20
+  layout:
+    prs:
+      repo:
+        grow: true,
+        width: 20
+        hidden: false
+    issues:
+      repo:
+        width: 20
+      assignees:
+        hidden: true
+  preview:
+    open: true # whether to have the preview pane open by default
+    width: 55 # width in columns
+  refetchIntervalMinutes: 30 # will refetch all sections every 30 minutes
+
+pager:
+  diff: delta
+
+repoPaths: []
+
+prSections:
+  - title: My PRs
+    filters: is:open author:@me
+    layout:
+      lines:
+        hidden: true
+  - title: Commented
+    filters: commenter:@me
+  - title: Closed
+    filters: is:closed author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+  - title: Subscribed
+    filters: is:open -author:@me repo:cli/cli repo:dlvhdr/gh-dash
+    limit: 50
+
+issuesSections:
+  - title: My Issues
+    filters: is:open author:@me
+    layout:
+      creator:
+        hidden: true
+  - title: Assigned
+    filters: is:open assignee:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
