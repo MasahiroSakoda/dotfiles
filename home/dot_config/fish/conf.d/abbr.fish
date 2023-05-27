@@ -86,6 +86,9 @@ abbr -a bo brew outdated
 abbr -a bu brew update
 abbr -a bug brew upgrade
 
+# cht.sh
+abbr -a chtsh cht.sh --shell
+
 # Node.js
 ## npm
 abbr -a ni npm install
