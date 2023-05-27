@@ -32,20 +32,88 @@ abbr -a chR "chmod -R"
 
 # Git
 abbr -a g git
+
+## git status
 abbr -a gs git status
-abbr -a gl git log --graph --all
-abbr -a gla git log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-abbr -a gd git diff
-abbr -a gds git diff --staged
-abbr -a gb git branch
-abbr -a ga git add
-abbr -a gc git commit -m
-abbr -a gco git checkout
+abbr -a gss git status --short
+abbr -a gsb git status --short --branch
+
+## git add
+abbr -a ga git add --verbose
+abbr -a gaa git add --verbose --all
+
+abbr -a gf git fetch
+abbr -a gfo git fetch origin
+
 abbr -a gm git merge
-abbr -a gps git push
-abbr -a gpl git pull
+abbr -a gma git merge --abort
+abbr -a gms git merge --squash
+
+## git rm
+abbr -a grm git rm
+abbr -a grmc git rm --cached
+
+## git clone
 abbr -a gcl git clone
 abbr -a clone git clone
+
+## git log
+abbr -a gl git log --graph --all
+abbr -a gla git log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+
+## git diff
+abbr -a gd git diff
+abbr -a gds git diff --staged
+abbr -a gdc git diff --cached
+
+## git commit
+abbr -a gcm git commit -m
+abbr -a gcma git commit --amend
+
+## git cherry-pick
+abbr -a gcp git cherry-pick
+abbr -a gcpe git cherry-pick -e
+abbr -a gcpn git cherry-pick -n
+abbr -a gcpa git cherry-pick --abort
+abbr -a gcpc git cherry-pick --continue
+
+## git branch
+abbr -a gb git branch
+abbr -a gba git branch -a
+abbr -a gbd git branch -d
+
+## git checkout
+abbr -a gco git checkout
+abbr -a gcob git checkout -b
+abbr -a gcoo git checkout --ours
+abbr -a gcot git checkout --theirs
+
+# git pull
+abbr -a gpl git pull
+abbr -a gplo git pull origin
+abbr -a gplu git pull upstream
+abbr -a gplr git pull --rebase
+
+# git pull-request
+abbr -a gpr git pull-request
+abbr -a gprd git pull-request -d
+abbr -a gprp git pull-request -p
+
+# git push
+abbr -a gps git push
+abbr -a gpsu git push upstream
+abbr -a gpsd git push --dry-run
+
+## git rebase
+abbr -a grb git rebase
+abbr -a grba git rebase --abort
+abbr -a grbc git rebase --continue
+abbr -a grbi git rebase --interactive
+abbr -a grbs git rebase --skip
+
+## git tag
+abbr -a gt git tag -a (tag_name) -m (message)
+abbr -a gts git tag --sign
 
 ## GitHub CLI
 abbr -a ghs gh status
