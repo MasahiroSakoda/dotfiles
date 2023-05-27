@@ -15,8 +15,3 @@ fi
 if [[ "$SHELL" != "${FISH_PATH}" ]] ; then
   sudo chsh -s "${FISH_PATH}"
 fi
-
-# Install/Update fish shell plugin
-if ! [ -e "$HOME/.config/fish/functions/fisher.fish" ]; then
-  fish -c "curl -sL https://git.io/fisher | source && fisher update"
-fi
