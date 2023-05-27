@@ -4,7 +4,11 @@
 set -e
 
 # GitHub CLI dashboard
-gh extension install dlvhdr/gh-dash
+if ! command -v `gh dash` > /dev/null 2>&1; then
+  gh extension install dlvhdr/gh-dash
+fi
 
 # GitHub CLI to manage GitHub Actions cache
-gh extension install actions/gh-actions-cache
+if ! command -v `gh actions-cache` > /dev/null 2>&1; then
+  gh extension install actions/gh-actions-cache
+fi
