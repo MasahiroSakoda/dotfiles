@@ -21,62 +21,69 @@
 </div>
 
 ## Table of Contents
+
 * [Features](#features)
-* [Getting Started](#Getting-Started)
-* [Usage](#Usage)
-  * [Configure dotfiles](#Configure-dotfiles)
-  * [Apply changes](#Apply-changes)
-  * [Update](#Update)
-* [Environment](#Environment)
-  * [Homebrew packages](#Homebrew-packages)
+* [Getting Started](#getting-started)
+* [Usage](#usage)
+  * [Configure dotfiles](#configure-dotfiles)
+  * [Apply changes](#apply-changes)
+  * [Update](#update)
+* [Environment](#environment)
+  * [Homebrew packages](#homebrew-packages)
     * [fish shell](#fish-shell)
-    * [NeoVim](#NeoVim)
-      * [Configured Languages for LSP](#Configured-Languages-for-LSP)
-      * [Configured Languages for DAP](#Configured-Languages-for-DAP)
-      * [Configured Linter](#Configured-Linter)
-      * [Configured Formatter](#Configured-Formatter)
+    * [NeoVim](#neovim)
+      * [Configured Languages for LSP](#configured-languages-for-lsp)
+      * [Configured Languages for DAP](#configured-languages-for-dap)
+      * [Configured Linter](#configured-linter)
+      * [Configured Formatter](#configured-formatter)
     * [asdf](#asdf)
-  * [Homebrew cask packages](#Homebrew-cask-packages)
-  * [App Store apps](#App-Store-apps)
-* [ToDo](#ToDo)
+  * [Homebrew cask packages](#homebrew-cask-packages)
+  * [App Store apps](#app-store-apps)
+* [ToDo](#todo)
 
 ---
 
 ## Features
+
 * One Line Install
 * dotfiles management using [**`chezmoi`**](https://github.com/twpayne/chezmoi)
 
 ## Getting Started
+
 ```bash
-$ curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MasahiroSakoda/dotfiles/main/install.sh | bash
 ```
 
 ## Usage
 
 ### Configure dotfiles
+
 ```bash
-$ chezmoi edit $DOTFILES
+chezmoi edit $DOTFILES
 ```
 
 ### Apply changes
+
 ```bash
-$ chezmoi apply
+chezmoi apply
 ```
 
 ### Update
+
 ```bash
-$ chezmoi diff
-$ chezmoi update
+chezmoi diff
+chezmoi update
 ```
 
 ## Environment
 
 ### Homebrew packages
+
 | Package | Category         | Notes      |
 | ------- | ---------------- | ---------- |
 | [**Fish**](https://github.com/fish-shell/fish-shell)    | Shell            |            |
 | [**tmux**](https://github.com/tmux/tmux)    | Screen           | [~/.config/tmux/tmux.conf](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl) |
-| [**NeoVim**](https://github.com/neovim/neovim)  | Editor           | See [Detail](#NeoVim) |
+| [**NeoVim**](https://github.com/neovim/neovim)  | Editor           | See [Detail](#neovim) |
 | [**asdf**](https://github.com/asdf-vm/asdf)    | Language version | See [Detail](#asdf) |
 | [**fzf**](https://github.com/junegunn/fzf)     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
 | [**ripgrep**](https://github.com/BurntSushi/ripgrep) | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
@@ -87,6 +94,7 @@ $ chezmoi update
 Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Brewfile.tmpl)
 
 #### fish shell
+
 | Plugin                        | Notes            |
 | ----------------------------- | ---------------- |
 | [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)           | A plugin manager for Fish |
@@ -98,21 +106,24 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)    | Auto-complete matching pairs in the Fish command line |
 
 #### NeoVim
+
 <a href="img/NeoVim-mason.nvim.png" target="_blank"><img src="img/NeoVim-mason.nvim.png" align="right" width="450px" /></a>
 
-* [Builtin LSP Supported](#Configured-Languages-for-LSP)
-* [DAP supported](#Configured-Languages-for-DAP) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
-* [Linter support](#Configured-Linter)
-* [Formatter support](#Configured-Formatter)
+* [Builtin LSP Supported](#configured-languages-for-lsp)
+* [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
+* [Linter support](#configured-linter)
+* [Formatter support](#configured-formatter)
 * Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
-* [Fuzzy Finder](#Telescope-extensions): [**`Telescope`**](https://github.com/nvim-telescope/telescope.nvim)
-* [AI Assistant](#AI-Assistant) available
+* [Fuzzy Finder](#telescope-extensions): [**`Telescope`**](https://github.com/nvim-telescope/telescope.nvim)
+* [AI Assistant](#ai-assistant) available
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
 
 ##### Configured Languages for LSP
+
 <a href="img/NeoVim-LSP.png" target="_blank"><img src="img/NeoVim-LSP.png" align="right" width="450px" /></a>
+
 * `Lua`,
 * `VimScript`
 * `Bash`
@@ -130,13 +141,16 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * `Dockerfile`
 
 <a href="img/NeoVim-DAP.png" target="_blank"><img src="img/NeoVim-DAP.png" align="right" width="450px" /></a>
+
 ##### Configured Languages for DAP
+
 * `Lua`: [**`one-small-step-for-vimkind`**](https://github.com/jbyuki/one-small-step-for-vimkind)
 * `Python`: [**`nvim-dap-python`**](https://github.com/mfussenegger/nvim-dap-python)
 * `Go`: [**`nvim-dap-go`**](https://github.com/leoluz/nvim-dap-go)
 * `js`/`ts`: [**`vscode-js-debug`**](https://github.com/microsoft/vscode-js-debug), [**`nvim-dap-vscode-js`**](https://github.com/mxsdev/nvim-dap-vscode-js)
 
 ##### Configured Linter
+
 | Linter       | Notes                              |
 | ------------ | ---------------------------------- |
 | [**codespell**](https://github.com/codespell-project/codespell)    | Check code for common misspellings |
@@ -148,6 +162,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**cmakelint**](https://github.com/cmake-lint/cmake-lint)    | `CMake` linter |
 
 ##### Configured Formatter
+
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
 | [**beautysh**](https://github.com/lovesegfault/beautysh)      | `sh`, `bash`, `zsh` formatter |
@@ -161,9 +176,10 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**xmlformatter**](https://github.com/pamoller/xmlformatter)  | `XML` formatter |
 | [**yamlfmt**](https://github.com/google/yamlfmt)       | `YAML` formatter |
 
-
 ##### Telescope extensions
+
 <a href="img/NeoVim-telescope.nvim.png" target="_blank"><img src="img/NeoVim-telescope.nvim.png" align="right" width="450px" /></a>
+
 * [**telescope-frecency**](https://github.com/nvim-telescope/telescope-frecency.nvim): [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
 * [**telescope-file-browser**](https://github.com/nvim-telescope/telescope-file-browser.nvim): File Browser
 * [**telescope-lazy**](https://github.com/tsakirist/telescope-lazy.nvim): [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
@@ -171,11 +187,14 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * [**telescope-dap**](https://github.com/nvim-telescope/telescope-dap.nvim): DAP Extension
 
 ##### AI Assistant
+
 * [**ChatGPT.nvim**](https://github.com/jackMort/ChatGPT.nvim)
 * [**neoai.nvim**](https://github.com/Bryley/neoai.nvim)
 
 #### asdf
+
 Programming language version management tool
+
 * [**`asdf-python`**](https://github.com/asdf-community/asdf-python)
   * [`Poetry`](https://github.com/python-poetry/poetry)
 * [**`asdf-ruby`**](https://github.com/asdf-vm/asdf-ruby)
@@ -183,13 +202,16 @@ Programming language version management tool
 * [**`asdf-deno`**](https://github.com/asdf-community/asdf-deno)
 
 ### Homebrew cask packages
+
 #### Keyboard
+
 | Package             | Configuration files |
 | ------------------- | ------------------- |
 | [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/)  | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
 | [**Hammerspoon**](https://www.hammerspoon.org/)         | [~/.hammerspoon](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/dot_hammerspoon)      |
 
 #### Fonts
+
 | Package                        | Notes                           |
 | ------------------------------ | ------------------------------- |
 | [**font-codicon**](https://github.com/microsoft/vscode-codicons)                   | Icon Font                       |
@@ -202,6 +224,7 @@ Programming language version management tool
 | [**font-plemol-jp-nfj**](https://github.com/yuru7/PlemolJP)             | IBM Plex base Font for Japanese |
 
 #### Dev
+
 | Package            | Category   |
 | ------------------ | ---------- |
 | [**iTerm2**](https://iterm2.com/)             | Terminal   |
@@ -216,9 +239,11 @@ Programming language version management tool
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Caskfile.tmpl)
 
 ### App Store apps
+
 See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Masfile.tmpl)
 
 ## ToDo
+
 * [ ] Fix script attributes in [**`.chezmoiscripts`**](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/.chezmoiscripts)
 * [ ] VSCode support
 * [ ] Cross platform support
