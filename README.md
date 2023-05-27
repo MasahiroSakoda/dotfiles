@@ -81,15 +81,29 @@ chezmoi update
 
 | Package | Category         | Notes      |
 | ------- | ---------------- | ---------- |
-| [**Fish**](https://github.com/fish-shell/fish-shell)    | Shell            |            |
-| [**tmux**](https://github.com/tmux/tmux)    | Screen           | [~/.config/tmux/tmux.conf](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl) |
-| [**NeoVim**](https://github.com/neovim/neovim)  | Editor           | See [Detail](#neovim) |
-| [**asdf**](https://github.com/asdf-vm/asdf)    | Language version | See [Detail](#asdf) |
-| [**fzf**](https://github.com/junegunn/fzf)     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
-| [**ripgrep**](https://github.com/BurntSushi/ripgrep) | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
-| [**fd**](https://github.com/sharkdp/fd)      | `find` alternative |            |
-| [**bat**](https://github.com/sharkdp/bat)     | `cat` alternative  | [~/.config/bat/config](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bat/config) |
-| [**bottom**](https://github.com/ClementTsang/bottom)  | `top` alternative  | [~/.config/bottom/bottom.toml](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml) |
+| [**Fish**][fish]    | Shell            |            |
+| [**tmux**][tmux]    | Screen           | [~/.config/tmux/tmux.conf][tmux.conf] |
+| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim) |
+| [**asdf**][asdf]    | Language version | See [Detail](#asdf) |
+| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
+| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
+| [**fd**][fd]      | `find` alternative |            |
+| [**bat**][bat]     | `cat` alternative  | [~/.config/bat/config][batconfig] |
+| [**bottom**][bottom]  | `top` alternative  | [~/.config/bottom/bottom.toml][bottom.toml] |
+
+[fish]: https://github.com/fish-shell/fish-shell
+[tmux]: https://github.com/tmux/tmux
+[neovim]: https://github.com/neovim/neovim
+[asdf]: https://github.com/asdf-vm/asdf
+[fzf]: https://github.com/junegunn/fzf
+[ripgrep]: https://github.com/BurntSushi/ripgrep
+[fd]: https://github.com/sharkdp/fd
+[bat]: https://github.com/sharkdp/bat
+[bottom]: https://github.com/ClementTsang/bottom
+
+[tmux.conf]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl
+[batconfig]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bat/config
+[bottom.toml]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml
 
 Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Brewfile.tmpl)
 
@@ -110,12 +124,18 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 <a href="img/NeoVim-mason.nvim.png" target="_blank"><img src="img/NeoVim-mason.nvim.png" align="right" width="450px" /></a>
 
 * [Builtin LSP Supported](#configured-languages-for-lsp)
-* [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
+* [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
 * [Linter support](#configured-linter)
 * [Formatter support](#configured-formatter)
-* Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
-* [Fuzzy Finder](#telescope-extensions): [**`Telescope`**](https://github.com/nvim-telescope/telescope.nvim)
+* Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
+* [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
+
+[LuaSnip]: https://github.com/L3MON4D3/LuaSnip
+[friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
+[nvim-dap]: https://github.com/mfussenegger/nvim-dap
+[nvim-dap-ui]: https://github.com/rcarriga/nvim-dap-ui
+[Telescope]: https://github.com/nvim-telescope/telescope.nvim
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
@@ -144,47 +164,78 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### Configured Languages for DAP
 
-* `Lua`: [**`one-small-step-for-vimkind`**](https://github.com/jbyuki/one-small-step-for-vimkind)
-* `Python`: [**`nvim-dap-python`**](https://github.com/mfussenegger/nvim-dap-python)
-* `Go`: [**`nvim-dap-go`**](https://github.com/leoluz/nvim-dap-go)
-* `js`/`ts`: [**`vscode-js-debug`**](https://github.com/microsoft/vscode-js-debug), [**`nvim-dap-vscode-js`**](https://github.com/mxsdev/nvim-dap-vscode-js)
+* `Lua`: [**`one-small-step-for-vimkind`**][one-small-step-for-vimkind]
+* `Python`: [**`nvim-dap-python`**][nvim-dap-python]
+* `Go`: [**`nvim-dap-go`**][nvim-dap-go]
+* `js`/`ts`: [**`vscode-js-debug`**][vscode-js-debug], [**`nvim-dap-vscode-js`**][nvim-dap-vscode-js]
+
+[one-small-step-for-vimkind]: https://github.com/jbyuki/one-small-step-for-vimkind
+[nvim-dap-python]: https://github.com/mfussenegger/nvim-dap-python
+[nvim-dap-go]: https://github.com/leoluz/nvim-dap-go
+[vscode-js-debug]: https://github.com/microsoft/vscode-js-debug
+[nvim-dap-vscode-js]: https://github.com/mxsdev/nvim-dap-vscode-js
 
 ##### Configured Linter
 
 | Linter       | Notes                              |
 | ------------ | ---------------------------------- |
-| [**codespell**](https://github.com/codespell-project/codespell)    | Check code for common misspellings |
-| [**hadolint**](https://github.com/hadolint/hadolint)     | `Dockerfile` linter |
-| [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
-| [**ruff**](https://github.com/charliermarsh/ruff/)         | Fast `Python` Linter |
-| [**rubocop**](https://rubocop.org)      | `Ruby` linter/formatter |
-| [**vint**](https://github.com/Vimjas/vint)         | `VimScript` linter |
-| [**cmakelint**](https://github.com/cmake-lint/cmake-lint)    | `CMake` linter |
+| [**codespell**][codespell]    | Check code for common misspellings |
+| [**hadolint**][hadolint]     | `Dockerfile` linter |
+| [**markdownlint**][markdownlint] | `markdown` linter/formatter |
+| [**ruff**][ruff]         | Fast `Python` Linter |
+| [**rubocop**][rubocop]      | `Ruby` linter/formatter |
+| [**vint**][vint]         | `VimScript` linter |
+| [**cmakelint**][cmakelint]    | `CMake` linter |
+
+[codespell]: https://github.com/codespell-project/codespell
+[hadolint]: https://github.com/hadolint/hadolint
+[markdownlint]: https://github.com/igorshubovych/markdownlint-cli
+[ruff]: https://github.com/charliermarsh/ruff
+[rubocop]: https://rubocop.org
+[vint]: https://github.com/Vimjas/vint
+[cmakelint]: https://github.com/cmake-lint/cmake-lint
 
 ##### Configured Formatter
 
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
-| [**beautysh**](https://github.com/lovesegfault/beautysh)      | `sh`, `bash`, `zsh` formatter |
-| [**black**](https://pypi.org/project/black/)         | Fast `Python` formatter |
-| [**clang-format**](https://pypi.org/project/clang-format/)  | `C++`formatter |
-| [**jq**](https://github.com/stedolan/jq)            | `JSON` formatter |
-| [**prettier**](https://prettier.io)      | Opinionated Code Formatter |
-| [**rustfmt**](https://github.com/rust-lang/rustfmt)       | `Rust` formatter |
-| [**sql-formatter**](https://sql-formatter-org.github.io/sql-formatter/) | `SQL` formatter |
-| [**stylua**](https://github.com/JohnnyMorganz/StyLua)        | `Lua` formatter |
-| [**xmlformatter**](https://github.com/pamoller/xmlformatter)  | `XML` formatter |
-| [**yamlfmt**](https://github.com/google/yamlfmt)       | `YAML` formatter |
+| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter |
+| [**black**][black]         | Fast `Python` formatter |
+| [**clang-format**][clang-format]  | `C++`formatter |
+| [**jq**][jq]            | `JSON` formatter |
+| [**prettier**][prettier]      | Opinionated Code Formatter |
+| [**rustfmt**][rustfmt]       | `Rust` formatter |
+| [**sql-formatter**][sql-formatter] | `SQL` formatter |
+| [**stylua**][stylua]        | `Lua` formatter |
+| [**xmlformatter**][xmlformatter]  | `XML` formatter |
+| [**yamlfmt**][yamlfmt]       | `YAML` formatter |
+
+[beautysh]: https://github.com/lovesegfault/beautysh
+[black]: https://pypi.org/project/black/
+[clang-format]: https://pypi.org/project/clang-format/
+[jq]: https://github.com/stedolan/jq
+[prettier]: https://prettier.io
+[rustfmt]: https://github.com/rust-lang/rustfmt
+[sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
+[stylua]: https://github.com/JohnnyMorganz/StyLua
+[xmlformatter]: https://github.com/pamoller/xmlformatter
+[yamlfmt]: https://github.com/google/yamlfmt
 
 ##### Telescope extensions
 
 <a href="img/NeoVim-telescope.nvim.png" target="_blank"><img src="img/NeoVim-telescope.nvim.png" align="right" width="450px" /></a>
 
-* [**telescope-frecency**](https://github.com/nvim-telescope/telescope-frecency.nvim): [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
-* [**telescope-file-browser**](https://github.com/nvim-telescope/telescope-file-browser.nvim): File Browser
-* [**telescope-lazy**](https://github.com/tsakirist/telescope-lazy.nvim): [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
-* [**telescope-tabs**](https://github.com/LukasPietzschmann/telescope-tabs): Tab extension
-* [**telescope-dap**](https://github.com/nvim-telescope/telescope-dap.nvim): DAP Extension
+* [**telescope-frecency**][telescope-frecency]: [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
+* [**telescope-file-browser**][telescope-file-browser]: File Browser
+* [**telescope-lazy**][telescope-lazy]: [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
+* [**telescope-tabs**][telescope-tabs]: Tab extension
+* [**telescope-dap**][telescope-dap]: DAP Extension
+
+[telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
+[telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
+[telescope-lazy]: https://github.com/tsakirist/telescope-lazy.nvim
+[telescope-tabs]: https://github.com/LukasPietzschmann/telescope-tabs
+[telescope-dap]: https://github.com/nvim-telescope/telescope-dap.nvim
 
 ##### AI Assistant
 
@@ -207,34 +258,53 @@ Programming language version management tool
 
 | Package             | Configuration files |
 | ------------------- | ------------------- |
-| [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/)  | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
-| [**Hammerspoon**](https://www.hammerspoon.org/)         | [~/.hammerspoon](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/dot_hammerspoon)      |
+| [**Karabiner-Elements**][karabiner-elements]  | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
+| [**Hammerspoon**][hammerspoon]         | [~/.hammerspoon](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/dot_hammerspoon)      |
+
+[karabiner-elements]: https://karabiner-elements.pqrs.org/
+[hammerspoon]: https://www.hammerspoon.org/
 
 #### Fonts
 
 | Package                        | Notes                           |
 | ------------------------------ | ------------------------------- |
-| [**font-codicon**](https://github.com/microsoft/vscode-codicons)                   | Icon Font                       |
-| [**font-hack-nerd-font**](https://github.com/ryanoasis/nerd-fonts)            | Nerd Font                       |
-| [**font-cica**](https://github.com/miiton/Cica)                      | Monospaced Font for Japanese    |
-| [**font-hackgen**](https://github.com/yuru7/HackGen)                   | Programming Font for Japanese   |
-| [**font-hackgen-nerd**](https://github.com/yuru7/HackGen)              | Programming Font for Japanese   |
-| [**font-jetbrains-mono-nerd-font**](https://www.jetbrains.com/ja-jp/lp/mono/)  | Open Source Font                |
-| [**font-plemol-jp-nf**](https://github.com/yuru7/PlemolJP)              | IBM Plex base Font for Japanese |
-| [**font-plemol-jp-nfj**](https://github.com/yuru7/PlemolJP)             | IBM Plex base Font for Japanese |
+| [**font-codicon**][codicon]                   | Icon Font                       |
+| [**font-hack-nerd-font**][hack-nerd-font]            | Nerd Font                       |
+| [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font                |
+| [**font-cica**][cica]                      | Monospaced Font for Japanese    |
+| [**font-hackgen**][hackgen]                   | Programming Font for Japanese   |
+| [**font-hackgen-nerd**][hackgen]              | Programming Font for Japanese   |
+| [**font-plemol-jp-nf**][plemoljp]              | IBM Plex base Font for Japanese |
+| [**font-plemol-jp-nfj**][plemoljp]             | IBM Plex base Font for Japanese |
 
-#### Dev
+[codicon]: https://github.com/microsoft/vscode-codicons
+[hack-nerd-font]: https://github.com/ryanoasis/nerd-fonts
+[jetbrains-mono-nerd-font]: https://www.jetbrains.com/ja-jp/lp/mono/
+[cica]: https://github.com/miiton/Cica
+[hackgen]: https://github.com/yuru7/HackGen
+[plemoljp]: https://github.com/yuru7/PlemolJP
+
+#### Dev packages
 
 | Package            | Category   |
 | ------------------ | ---------- |
-| [**iTerm2**](https://iterm2.com/)             | Terminal   |
-| [**Alacritty**](https://github.com/alacritty/alacritty)          | Terminal |
-| [**Visual Studio Code**](https://code.visualstudio.com/) | IDE        |
-| [**Docker**](https://www.docker.com/)             | Container  |
-| [**TablePlus**](https://tableplus.com/)          | Database   |
-| [**drawio**](https://www.drawio.com/)             | Diagram    |
-| [**wireshark-chmodbpf**](https://www.wireshark.org/) | Network    |
-| [**TunnelBear**](https://www.tunnelbear.com/)         | VPN        |
+| [**iTerm2**][iterm2]             | Terminal   |
+| [**Alacritty**][alacritty]          | Terminal |
+| [**Visual Studio Code**][vscode] | IDE        |
+| [**Docker**][docker]             | Container  |
+| [**TablePlus**][tableplus]          | Database   |
+| [**drawio**][drawio]             | Diagram    |
+| [**wireshark-chmodbpf**][wireshark] | Network    |
+| [**TunnelBear**][tunnelbear]         | VPN        |
+
+[iTerm2]: https://iterm2.com/
+[alacritty]: https://github.com/alacritty/alacritty
+[vscode]: https://code.visualstudio.com/
+[docker]: https://www.docker.com/
+[tableplus]: https://tableplus.com/
+[drawio]: https://www.drawio.com/
+[wireshark]: https://www.wireshark.org/
+[tunnelbear]: https://www.tunnelbear.com/
 
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Caskfile.tmpl)
 
