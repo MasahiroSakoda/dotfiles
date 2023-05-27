@@ -25,19 +25,19 @@ dial.augends:register_group({
     augend.constant.new { elements = { "public", "private" }, word = true, cyclic = true, preserve_case = true },
   },
 
-  augend:on_filetype({
-    lua = {
-      augend.constant.new({ elements = { "==", "~=" }, word = false, cyclic = true }),
-    },
-    javascript = {
-      augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
-      augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
-    },
-    typescript = {
-      augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
-      augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
-    },
-  }),
+  -- augend:on_filetype({
+  --   lua = {
+  --     augend.constant.new({ elements = { "==", "~=" }, word = false, cyclic = true }),
+  --   },
+  --   javascript = {
+  --     augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
+  --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
+  --   },
+  --   typescript = {
+  --     augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
+  --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
+  --   },
+  -- }),
 
   custom = {
     augend.integer.alias.decimal,
