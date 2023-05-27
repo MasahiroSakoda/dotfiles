@@ -29,9 +29,8 @@ vim.cmd [[
 wk.register({
   mode    = "n",
   ["<Leader>H"]  = { name = "❓  Help"},
-  ["<Leader>Hv"] = { ":vertical belowright help<Space>", "􀥟   Open Help page right side" },
-  ["<Leader>Hh"] = { ":horizontal above help<Space>",    "􀾮   Open Help page avobe current buffer" },
-  ["<Leader>Hl"] = { "<CMD>Legendary find<CR>",          "􀝥   Legendary: Command Palette Helper" }
+  ["<Leader>Hv"] = { ":vertical belowright help<Space>", "   Open Help page right side" },
+  ["<Leader>Hh"] = { ":horizontal above help<Space>",    "   Open Help page above current buffer" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -41,9 +40,9 @@ wk.register({
   mode    = "n",
   silent = false,
   ["<Leader>h"]  = { name = "🕒  History" },
-  ["<Leader>hc"] = { "<CR>q:", "􀆔  Command History" },
-  ["<Leader>hs"] = { "<CR>q/", "􀒒  Forward Search History" },
-  ["<Leader>hS"] = { "<CR>q?", "􀒓  Backward Search History" },
+  ["<Leader>hc"] = { "<CR>q:", "  Command History" },
+  ["<Leader>hs"] = { "<CR>q/", "  Forward Search History" },
+  ["<Leader>hS"] = { "<CR>q?", "  Backward Search History" },
 })
 
 ---------------------------------------------------------------------------
@@ -56,10 +55,10 @@ wk.register({
   prefix = "<Leader>",
   ["<Leader>"] = {
     name = "🔡  Hop: Cursor Assistant",
-    w = { "<CMD>HopWord<CR>",                "􀌱   Go to any word in the current buffer" },
-    l = { "<CMD>HopLine<CR>",                "􀋾   Go to any line and any line" },
-    a = { "<CMD>HopAnywhere<CR>",            "􀋾   Go to any line and any line" },
-    c = { "<CMD>HopAnywhereCurrentLine<CR>", "􀋾   Go to any line and any line" },
+    w = { "<CMD>HopWord<CR>",                "   Go to any word in the current buffer" },
+    l = { "<CMD>HopLine<CR>",                "   Go to any line and any line" },
+    a = { "<CMD>HopAnywhere<CR>",            "   Go to anywhere" },
+    c = { "<CMD>HopAnywhereCurrentLine<CR>", "   Go to  current line" },
   },
 }, nx_mode)
 
@@ -67,68 +66,68 @@ wk.register({
 -- Search
 ---------------------------------------------------------------------------
 wk.register({
-  ["*"]   = { "<Plug>(asterisk-*)",   "􀊫 􁉆 Search forward" },
-  ["#"]   = { "<Plug>(asterisk-#)",   "􀊫 􁉈 Search backward" },
-  ["g*"]  = { "<Plug>(asterisk-g*)",  "􀊫 􁉇  Partial Search forward" },
-  ["g#"]  = { "<Plug>(asterisk-g#)",  "􀊫 􁉉  Partial search backward" },
-  ["gz*"] = { "<Plug>(asterisk-gz*)", "􀊫 􀊐  Partial Search forward (in-place)" },
-  ["gz#"] = { "<Plug>(asterisk-gz#)", "􀊫 􀊎  Partial search backward (in-place)" },
-  ["z"]   = { name = "􀒓   Search in-place" },
-  ["z*"]  = { "<Plug>(asterisk-z*)",  "􀊫 􀊏  Search forward (in-place)" },
-  ["z#"]  = { "<Plug>(asterisk-z#)",  "􀊫 􀊍  Search backward (in-place)" },
+  ["*"]   = { "<Plug>(asterisk-*)",   "  Search forward" },
+  ["#"]   = { "<Plug>(asterisk-#)",   "  Search backward" },
+  ["g*"]  = { "<Plug>(asterisk-g*)",  "  Partial Search forward" },
+  ["g#"]  = { "<Plug>(asterisk-g#)",  "  Partial search backward" },
+  ["gz*"] = { "<Plug>(asterisk-gz*)", "  Partial Search forward (in-place)" },
+  ["gz#"] = { "<Plug>(asterisk-gz#)", "  Partial search backward (in-place)" },
+  ["z"]   = { name = "   Search in-place" },
+  ["z*"]  = { "<Plug>(asterisk-z*)",  "  Search forward (in-place)" },
+  ["z#"]  = { "<Plug>(asterisk-z#)",  "  Search backward (in-place)" },
 }, nx_mode)
 
 ---------------------------------------------------------------------------
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
-keymap("n", "[b", "<CMD>bprev<CR>", { desc = "􀰚   Move to prev buffer" })
-keymap("n", "]b", "<CMD>bnext<CR>", { desc = "􀰞   Move to next buffer" })
+keymap("n", "[b", "<CMD>bprev<CR>", { desc = "  Move to prev buffer" })
+keymap("n", "]b", "<CMD>bnext<CR>", { desc = "  Move to next buffer" })
 
 -- Buffer Naigation
 wk.register({
   mode   = "n",
   ["<Leader>b"]  = { name = "🖥  Buffer Navigation" },
-  ["<Leader>bb"] = { "<CMD>Telescope buffers<CR>",   "􀢹   Display buffers list" },
-  ["<Leader>bp"] = { "<CMD>BufferLineCyclePrev<CR>", "􀰛   Move to prev buffer" },
-  ["<Leader>bn"] = { "<CMD>BufferLineCycleNext<CR>", "􀰟   Move to next buffer" },
-  ["<Leader>bd"] = { "<CMD>bdelete<CR>",             "􀈑   Delete buffer" },
+  ["<Leader>bb"] = { "<CMD>Telescope buffers<CR>",   "   Display buffers list" },
+  ["<Leader>bp"] = { "<CMD>BufferLineCyclePrev<CR>", "   Move to prev buffer" },
+  ["<Leader>bn"] = { "<CMD>BufferLineCycleNext<CR>", "   Move to next buffer" },
+  ["<Leader>bd"] = { "<CMD>bdelete<CR>",             "   Delete buffer" },
 }, opts)
 
 -- Tab Navigation
-keymap("n", "[t", ":tabprevious<CR>", { desc = "􁂊   Move to prev tab" })
-keymap("n", "]t", ":tabnext<CR>",     { desc = "􁂎   Move to next tab" })
-keymap("n", "[T", ":tabfirst<CR>",    { desc = "􁂊   Move to First tab" })
-keymap("n", "]T", ":tablast<CR>",     { desc = "􁂎   Move to Last tab"})
+keymap("n", "[t", ":tabprevious<CR>", { desc = "   Move to prev tab" })
+keymap("n", "]t", ":tabnext<CR>",     { desc = "   Move to next tab" })
+keymap("n", "[T", ":tabfirst<CR>",    { desc = "   Move to First tab" })
+keymap("n", "]T", ":tablast<CR>",     { desc = "   Move to Last tab"})
 
 -- Tab Control via Telescope
 wk.register({
   mode    = "n",
   ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>tt"] = { ":Telescope telescope-tabs list_tabs<CR>", "􀋲   List Tabs" },
-  ["<Leader>te"] = { ":tabedit<Space>",                         "􀥃   Edit file in new tab" },
-  ["<Leader>tn"] = { ":tabnew<Space>",                          "􀥃   Edit file in new tab" },
+  ["<Leader>tt"] = { ":Telescope telescope-tabs list_tabs<CR>", "   List Tabs" },
+  ["<Leader>te"] = { ":tabedit<Space>",                         "   Edit file in new tab" },
+  ["<Leader>tn"] = { ":tabnew<Space>",                          "   Edit file in new tab" },
 }, opts)
 
 -- Window Moving
-keymap("n", "[w", "<C-w>h", { desc = "􀧽   Move to Left  Window" })
-keymap("n", "]w", "<C-w>l", { desc = "􀧿   Move to Right Window" })
-keymap("n", "]W", "<C-w>j", { desc = "􀧾   Move to Above Window" })
-keymap("n", "[W", "<C-w>k", { desc = "􀨀   Move to Below Window" })
+keymap("n", "[w", "<C-w>h", { desc = "   Move to Left  Window" })
+keymap("n", "]w", "<C-w>l", { desc = "   Move to Right Window" })
+keymap("n", "]W", "<C-w>j", { desc = "   Move to Above Window" })
+keymap("n", "[W", "<C-w>k", { desc = "   Move to Below Window" })
 
 -- Split Window
 wk.register({
   mode    = "n",
   ["<Leader>s"]  = { name = "📖  Split Window" },
-  ["<Leader>sh"] = { ":split<Space>",  "􀧊   Split window horizontally" },
-  ["<Leader>sv"] = { ":vsplit<Space>", "􀧈   Split window vertically" },
+  ["<Leader>sh"] = { ":split<Space>",  "   Split window horizontally" },
+  ["<Leader>sv"] = { ":vsplit<Space>", "   Split window vertically" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- Line Number
 ---------------------------------------------------------------------------
 local number = require("core.number")
-keymap("n", "\\n", number.toggleLineNumber,     { desc = "􀋴   Toggle Line Number" })
-keymap("n", "\\N", number.toggleRelativeNumber, { desc = "􀋴   Toggle Relatieve Number" })
+keymap("n", "\\n", number.toggleLineNumber,     { desc = "   Toggle Line Number" })
+keymap("n", "\\N", number.toggleRelativeNumber, { desc = "   Toggle Relatieve Number" })
 
 ---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin
@@ -143,9 +142,9 @@ keymap("n", "g<C-x>", function() map.manipulate("decrement", "gnormal") end, { d
 -- Quickfix
 ---------------------------------------------------------------------------
 local quickfix = require("core.quickfix")
-keymap("n", "<Leader>q", quickfix.toggleQuickfix,               { desc = "􀓕   Toggle Quickfix" })
-keymap("n", "[q",        quickfix.navigateQuickfix("previous"), { desc = "􀓕 􀄿 Move to prev Quickfix" })
-keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "􀓕 􀅀 Move to next Quickfix" })
+keymap("n", "<Leader>q", quickfix.toggleQuickfix,               { desc = "⚡  Toggle Quickfix" })
+keymap("n", "[q",        quickfix.navigateQuickfix("previous"), { desc = "⚡ Move to prev Quickfix" })
+keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "⚡ Move to next Quickfix" })
 -- keymap("n", "<Leader>r", ":lua require'replacer'.run()<CR>",    { desc = "Refactor" })
 
 ---------------------------------------------------------------------------
@@ -164,38 +163,38 @@ wk.register({
 wk.register({
   mode   = "n",
   ["<Leader>f"]  = { name = "🔭  Telescope: Fuzzy Finder" },
-  ["<Leader>ff"] = { ":Telescope frecency<CR>",        "􀓕   Frecency algorithm Search" },
-  ["<Leader>fF"] = { ":Telescope frecency workspace=", "􀓕   Frecency algorithm Search" },
-  ["<Leader>F"]  = { ":Telescope find_files<CR>",      "􀎾   Find files in current directory" },
-  ["<Leader>fo"] = { ":Telescope oldfiles<CR>",        "􀐫   Recently files" },
-  ["<Leader>fb"] = { ":Telescope file_browser<CR>",    "􀈷   File Browser" },
-  ["<Leader>fn"] = { ":Telescope notify<CR>",          "􀋙   Notification History" },
-  ["<Leader>fh"] = { ":Telescope help_tags<CR>",       "􀁜   Help via Telescope" },
-  ["<Leader>ft"] = { ":TodoTelescope<CR>",             "􁙠   Display Project ToDo" },
-  ["<Leader>P"]  = { ":Lazy<CR>",                      "􀏜   Open lazy.nvim Window" },
+  ["<Leader>ff"] = { ":Telescope frecency<CR>",        "   Frecency algorithm Search" },
+  ["<Leader>fF"] = { ":Telescope frecency workspace=", "   Frecency algorithm Search in workspace" },
+  ["<Leader>F"]  = { ":Telescope find_files<CR>",      "   Find files in current directory" },
+  ["<Leader>fo"] = { ":Telescope oldfiles<CR>",        "   Recently files" },
+  ["<Leader>fb"] = { ":Telescope file_browser<CR>",    "   File Browser" },
+  ["<Leader>fn"] = { ":Telescope notify<CR>",          "   Notification History" },
+  ["<Leader>fh"] = { ":Telescope help_tags<CR>",       "   Help via Telescope" },
+  ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
+  ["<Leader>P"]  = { ":Lazy<CR>",                      "   Open lazy.nvim Window" },
 
-  ["<C-g>"]         = { ":Telescope live_grep<CR>",   "􁙠   " },
-  ["<Leader><C-g>"] = { ":Telescope grep_string<CR>", "􀊫   Grep string in working directory" },
-  ["<Leader>fl"] = { ":lua require'telescope'.extensions.lazy.lazy()<CR>", "􀈷   lazy.nvim Browser" },
+  ["<C-g>"]         = { ":Telescope live_grep<CR>",   "   " },
+  ["<Leader><C-g>"] = { ":Telescope grep_string<CR>", "   Grep string in working directory" },
+  ["<Leader>fl"] = { ":lua require'telescope'.extensions.lazy.lazy()<CR>", "   lazy.nvim Browser" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- LSP: Language Server Protocol
 ---------------------------------------------------------------------------
-keymap("n", "<Leader>M", ":Mason<CR>",                 { desc = "􀏜   Open mason.nvim Window" })
+keymap("n", "<Leader>M", ":Mason<CR>",                 { desc = "   Open mason.nvim Window" })
 keymap("n", "K",  "<NOP>")
 keymap("n", "K",  ":Lspsaga hover_doc<CR>",            { desc = "   Hover Documentation"})
 keymap("n", "gd", ":Lspsaga goto_definition<CR>",      { desc = "   Go to Definition" })
 keymap("n", "gD", ":Lspsaga peek_type_definition<CR>", { desc = "   Go to Type Declaration" })
 keymap("n", "gr", ":Lspsaga lsp_finder<CR>",           { desc = "   Go to References & Implementation" })
-keymap("n", "go", ":Lspsaga outline<CR>",              { desc = "􀋺   Toggle code outline" })
+keymap("n", "go", ":Lspsaga outline<CR>",              { desc = "   Toggle code outline" })
 keymap("n", "gR", ":Lspsaga rename<CR>",               { desc = "   Rename" })
-keymap("n", "g[", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "􀰛   Jump to prev diagnostics" })
-keymap("n", "g]", ":Lspsaga diagnostic_jump_next<CR>", { desc = "􀰟   Jump to next diagnostics" })
+keymap("n", "g[", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "   Jump to prev diagnostics" })
+keymap("n", "g]", ":Lspsaga diagnostic_jump_next<CR>", { desc = "   Jump to next diagnostics" })
 keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Action" })
 
-keymap("n", "<Leader>gi", "<CMD>Lspsaga incoming_calls<CR>", { desc = "    Call incoming hierarchy" })
-keymap("n", "<Leader>go", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "    Call outgoing hierarchy" })
+keymap("n", "<Leader>gi", "<CMD>Lspsaga incoming_calls<CR>", { desc = "   Call incoming hierarchy" })
+keymap("n", "<Leader>go", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "   Call outgoing hierarchy" })
 
 --------------------------------------------------
 ---- 🚦  Keymap for LSP via Telescope
@@ -218,22 +217,22 @@ wk.register({
 ---------------------------------------------------------------------------
 keymap("n", "<F5>",    ":DapContinue<CR>",  { desc = ": Continue Process" })
 keymap("n", "<S-F5>",  ":DapTerminate<CR>", { desc = "□: Terminate Process" })
-keymap("n", "<F10>",   ":DapStepOver<CR>",  { desc = ": Step Over" })
-keymap("n", "<F11>",   ":DapStepInto<CR>",  { desc = ": Step Into" })
-keymap("n", "<S-F11>", ":DapStepOut<CR>",   { desc = ": Step Out" })
+keymap("n", "<F10>",   ":DapStepOver<CR>",  { desc = ": Step Over" })
+keymap("n", "<F11>",   ":DapStepInto<CR>",  { desc = ": Step Into" })
+keymap("n", "<S-F11>", ":DapStepOut<CR>",   { desc = ": Step Out" })
 
 -- Debugger Control
 wk.register({
   mode    = "n",
   ["<Leader>d"]  = { name = "🐛  Debugger" },
   ["<Leader>dd"] = { ":lua require'dapui'.toggle()<CR>", ": Toggle Debugger UI" },
-  ["<Leader>db"] = { ":DapToggleBreakpoint<CR>",     ": Toggle DAP Breakpoints" },
-  ["<Leader>dc"] = { ":DapContinue<CR>",             ": Continue Process" },
-  ["<Leader>di"] = { ":DapStepInto<CR>",             ": Step Into" },
-  ["<Leader>do"] = { ":DapStepOver<CR>",             ": Step Over" },
-  ["<Leader>dO"] = { ":DapStepOut<CR>",              ": Step Out" },
-  ["<Leader>dB"] = { "::DapStepBack<CR>",             ": Step Back" },
-  ["<Leader>dt"] = { ":DapTerminate<CR>",            "□: Terminate Process" },
+  ["<Leader>db"] = { ":DapToggleBreakpoint<CR>",         ": Toggle DAP Breakpoints" },
+  ["<Leader>dc"] = { ":DapContinue<CR>",                 ": Continue Process" },
+  ["<Leader>di"] = { ":DapStepInto<CR>",                 ": Step Into" },
+  ["<Leader>do"] = { ":DapStepOver<CR>",                 ": Step Over" },
+  ["<Leader>dO"] = { ":DapStepOut<CR>",                  ": Step Out" },
+  ["<Leader>dB"] = { "::DapStepBack<CR>",                ": Step Back" },
+  ["<Leader>dt"] = { ":DapTerminate<CR>",                "□: Terminate Process" },
   ["<Leader>dl"] = { ":lua require'dap'.run_last()<CR>", "↻: Run Last" },
 }, opts)
 
@@ -255,7 +254,7 @@ wk.register({
 -- Debugger
 wk.register({
   mode    = "n",
-  ["<Leader>fd"]  = { name = "􀩼  Telescope DAP Integration" },
+  ["<Leader>fd"]  = { name = "  Telescope DAP Integration" },
   ["<Leader>fdc"] = { ":lua require'telescope'.extensions.dap.configurations()<CR>",   "   DAP Configurations" },
   ["<Leader>fdC"] = { ":lua require'telescope'.extensions.dap.commands()<CR>",         "   DAP Commands" },
   ["<Leader>fdl"] = { ":lua require'telescope'.extensions.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
@@ -266,7 +265,7 @@ wk.register({
 ---------------------------------------------------------------------------
 -- Terminal
 ---------------------------------------------------------------------------
-keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "􀩼   Toggle Terminal" })
+keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "   Toggle Terminal" })
 
 ---------------------------------------------------------------------------
 -- 🤖  AI Interaction
@@ -274,9 +273,9 @@ keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "􀩼   Toggle Terminal" }
 -- ChatGPT.nvim
 wk.register({
   ["<Leader>i"]  = { name = "🤖  ChatGPT" },
-  ["<Leader>io"] = { ":ChatGPT<CR>",                     "􀩼   Open ChatGPT Interactive Window" },
-  ["<Leader>ia"] = { ":ChatGPTActAs<CR>",                "􀪏   Awesome ChatGPT Prompts" },
-  ["<Leader>ie"] = { ":ChatGPTEditWithInstructions<CR>", "􀪏   Edit with instructions" },
+  ["<Leader>io"] = { ":ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
+  ["<Leader>ia"] = { ":ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
+  ["<Leader>ie"] = { ":ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
 }, opts)
 
 wk.register({
@@ -289,27 +288,27 @@ wk.register({
   -- noremap = true,
   -- silent  = false,
   ["<Leader>a"]   = { name = "🤖  NeoAI" },
-  ["<Leader>aa"]  = { ":NeoAIToggle<CR>",            "Toggle NeoAI window" },
-  ["<Leader>ac"]  = { ":NeoAIContext<Space>",        "Toggle NeoAI window with context" },
-  ["<Leader>aij"] = { ":NeoAIInject<Space>",         "receive directly AI response into the buffer" },
-  ["<Leader>aic"] = { ":NeoAIInjectCode<Space>",     "receive directly AI response as code snippets into buffer" },
-  ["<Leader>aiC"] = { ":NeoAIInjectContext<Space>",  "" },
+  ["<Leader>aa"]  = { ":NeoAIToggle<CR>",            " Toggle NeoAI window" },
+  ["<Leader>ac"]  = { ":NeoAIContext<Space>",        " Toggle NeoAI window with context" },
+  ["<Leader>aij"] = { ":NeoAIInject<Space>",         " receive directly AI response into the buffer" },
+  ["<Leader>aic"] = { ":NeoAIInjectCode<Space>",     " receive directly AI response as code snippets into buffer" },
+  ["<Leader>aiC"] = { ":NeoAIInjectContext<Space>",  " injects the AI response into the buffer without window" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- Web Browser Integration
 ---------------------------------------------------------------------------
-keymap(nv_mode, "gx", "<Plug>(openbrowser-smart-search)", { desc = "􀆪   Open URL on current line" })
-keymap(nv_mode, "gX", ":OpenGithubFile<CR>",          { desc = "􀆪   Open current file on github.com" })
-keymap("n",     "gs", ":OpenBrowserSearch<Space>",        { desc = "􀆪   Google Search" })
+keymap(nv_mode, "gx", "<Plug>(openbrowser-smart-search)", { desc = "   Open URL on current line" })
+keymap(nv_mode, "gX", ":OpenGithubFile<CR>",              { desc = "   Open current file on github.com" })
+keymap("n",     "gs", ":OpenBrowserSearch<Space>",        { desc = "   Google Search" })
 
 ---------------------------------------------------------------------------
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
-keymap("n", ",h",  "<CMD>HexToggle",              { desc = "􀔹   Toggle hex editor" })
-keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "􀹲   Toggle NeoTree" })
-keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "􀤏   Toggle Scrollbar" })
-keymap("n", ",n",  "<CMD>HlSearchLensToggle<CR>", { desc = "􀒒   Toggle Hlsearch lens" })
+keymap("n", ",h",  "<CMD>HexToggle",              { desc = "   Toggle hex editor" })
+keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
+keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
+keymap("n", ",n",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
-keymap("n", "\\t", "<CMD>TroubleToggle<CR>",      { desc = "􀋴   Toggle Diagnostic List" })
+keymap("n", "\\t", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
