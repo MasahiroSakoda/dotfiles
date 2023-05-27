@@ -112,7 +112,7 @@ abbr -a grbi git rebase --interactive
 abbr -a grbs git rebase --skip
 
 ## git tag
-abbr -a gt git tag -a (tag_name) -m (message)
+abbr -a gt git tag -a
 abbr -a gts git tag --sign
 
 ## GitHub CLI
