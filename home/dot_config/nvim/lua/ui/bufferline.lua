@@ -42,8 +42,8 @@ bufferline.setup {
     show_close_icons  = true,
     show_buffer_close_icon   = true,
 
-    close_icon         = "",
-    buffer_close_icon  = "",
+    close_icon         = "",
+    buffer_close_icon  = "",
     modified_icon      = "●",
     left_trunc_marker  = "",
     right_trunc_marker = "",
