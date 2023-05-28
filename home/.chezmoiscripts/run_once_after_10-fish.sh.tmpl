@@ -7,4 +7,4 @@ set -eo pipefail
 
 # Change default shell
 echo "$(command -v fish)" | sudo tee -a /etc/shells
-sudo chsh -s "$(command -v fish)"
+chsh -s "$(command -v fish)"
