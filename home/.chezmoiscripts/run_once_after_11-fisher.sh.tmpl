@@ -1,8 +1,6 @@
-#!/usr/bin/env fish
-# -*-mode:fish-*- vim:ft=fish
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
 
 # Install/Update fish shell plugin
 # plugin list: ~/.config/fish/fish_plugins
-if not type -q fish
-  fish -c "curl -sL https://git.io/fisher | source && fisher update"
-end
+$(which fish) -c "curl -sL https://git.io/fisher | source && fisher update"
