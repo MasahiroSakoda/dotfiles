@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
+{{ template "common/script_eval_brew" . }}
+
 # Install/Update fish shell plugin
 # plugin list: ~/.config/fish/fish_plugins
-if [[ $(command -v fish) ]]; then
+if ! fish -c "type fisher" >/dev/null 2>&1; then
   echo "Installing fisher & update"
-  fish -c "curl -sL https://git.io/fisher | source && fisher update < /dev/null"
+  fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 else
   echo "fish shell is not detected..."
 fi
+
+fish -c "fisher update"

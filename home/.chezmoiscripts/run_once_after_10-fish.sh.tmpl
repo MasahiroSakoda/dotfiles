@@ -3,19 +3,7 @@
 
 set -eo pipefail
 
-{{ if eq .chezmoi.os "darwin" }}
-if [ -x "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [ -x "/usr/local/bin/brew" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-{{ else if eq .chezmoi.os "linux" -}}
-if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
-  eval "$($HOME/.linuxbrew/bin/brew shellenv)"
-fi
-{{ end }}
+{{ template "common/script_eval_brew" . }}
 
 # Change default shell
 if command -v sudo &>/dev/null; then
