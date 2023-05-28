@@ -58,6 +58,18 @@ set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3)"
 set -gx NODE_ENV development
 
 # Homebrew
+switch (uname -m)
+  case arm64
+    set -gx HOMEBREW_PREFIX /opt/homebrew
+  case "*"
+    set -gx HOMEBREW_PREFIX /usr/local
+end
+
+if test -d $HOMEBREW_PREFIX
+  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+end
+
+
 ## Cask
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
