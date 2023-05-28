@@ -3,4 +3,9 @@
 
 # Install/Update fish shell plugin
 # plugin list: ~/.config/fish/fish_plugins
-curl -sL https://git.io/fisher | source && fisher update < /dev/null
+if [[ $(command -v fish) ]]; then
+  echo "Installing fisher & update"
+  fish -c "curl -sL https://git.io/fisher | source && fisher update < /dev/null"
+else
+  echo "fish shell is not detected..."
+fi
