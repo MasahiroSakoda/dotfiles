@@ -1,15 +1,11 @@
 # -*-mode:sh-*- vim:ft=sh
 
 {{ if eq .chezmoi.os "darwin" }}
-if [ -x "/opt/homebrew/bin/brew" ]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [ -x "/usr/local/bin/brew" ]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
-{{ else if eq .chezmoi.os "linux" -}}
-if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
-  eval "$($HOME/.linuxbrew/bin/brew shellenv)"
-fi
+{{ if eq .chezmoi.arch "arm64" }}
+[ -f /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ else }}
+[ -f /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
+{{ end }}
+{{ else if eq .chezmoi.io "linux" }}
+# TODO: configure eval for linux environment
 {{ end }}
