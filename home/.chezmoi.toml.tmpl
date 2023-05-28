@@ -1,14 +1,42 @@
 # -*-mode:conf-toml-*- vim:ft=toml
 # file: home/.chezmoi.toml.tmpl
 
-{{- $osid := .chezmoi.os -}}
+{{/* boolean feature tags */}}
+{{- $docker := false -}}{{/* true if this machine should have Docker installed */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $flarm := false -}}{{/* true if this machine is used for FLARM */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- "" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{-   if eq $computerName "Tom’s MacBook Air" -}}
+{{-     $hostname = "toms-mba" -}}
+{{-   else -}}
+{{-     $hostname = $computerName -}}
+{{-   end -}}
+{{- end -}}
 
 {{- $git_user  := env "GIT_USERNAME" -}}
 {{- $git_email := env "GIT_EMAIL" -}}
 
 {{- if stdinIsATTY -}}
-{{- $git_user  := promptStringOnce "Enter your git username: " -}}
-{{- $git_email := promptStringOnce "Enter your git email: " -}}
+{{- $git_user  := promptStringOnce . "git_user"  "Enter your git username: " -}}
+{{- $git_email := promptStringOnce . "git_email" "Enter your git email: " -}}
 {{- end -}}
 
 encryption = "age"
@@ -16,7 +44,13 @@ format = "json"
 color = "on"
 
 [data]
-    osid = {{ $osid | quote }}
+    docker    = {{ $docker }}
+    ephemeral = {{ $ephemeral }}
+    flarm     = {{ $flarm }}
+    headless  = {{ $headless }}
+    hostname  = {{ $hostname | quote }}
+    personal  = {{ $personal }}
+    osid      = {{ $osID | quote }}
 
 [data.git]
     name  = {{ $git_user | quote }}
