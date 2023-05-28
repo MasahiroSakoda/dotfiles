@@ -9,7 +9,7 @@ if [ -x "/opt/homebrew/bin/brew" ]; then
 elif [ -x "/usr/local/bin/brew" ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
-{{ else if eq .chezmoi.os "linux" }}
+{{ else if eq .chezmoi.os "linux" -}}
 if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [ -x "$HOME/.linuxbrew/bin/brew" ]; then
@@ -20,8 +20,8 @@ fi
 # Change default shell
 if command -v sudo &>/dev/null; then
   echo "$(which fish)" | sudo tee -a /etc/shells
-  sudo chsh -s $(which fish)
+  sudo chsh -s $(which fish) $(whoami)
 else
   echo "$(which fish)" | tee -a /etc/shells
-  chsh -s $(which fish)
+  chsh -s $(which fish) $(whoami)
 fi
