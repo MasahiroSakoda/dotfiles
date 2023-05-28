@@ -4,7 +4,8 @@
 set -eo pipefail
 
 {{ template "common/script_eval_brew" . }}
+{{ template "common/script_sudo" . }}
 
 # Change default shell
 echo "$(command -v fish)" | sudo tee -a /etc/shells
-chsh -s "$(command -v fish)"
+sudo chsh -s "$(command -v fish)"
