@@ -8,8 +8,8 @@ set -eo pipefail
 # Change default shell
 if command -v sudo &>/dev/null; then
   echo "$(which fish)" | sudo tee -a /etc/shells
-  sudo chsh -s $(which fish) $(whoami)
+  sudo chsh -s $(which fish)
 else
   echo "$(which fish)" | tee -a /etc/shells
-  chsh -s $(which fish) $(whoami)
+  chsh -s $(which fish)
 fi
