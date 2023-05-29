@@ -9,6 +9,8 @@ PLUGINS="python ruby nodejs deno"
 
 # TODO: install from ~/.tool-versions
 
+echo $(brew info asdf)
+
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 exec $SHELL -l
 
