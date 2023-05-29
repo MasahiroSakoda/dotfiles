@@ -3,12 +3,16 @@
 
 {{ template "common/script_eval_brew" . }}
 
-# Install/Update fish shell plugin
-# plugin list: ~/.config/fish/fish_plugins
-if ! fish -c "type fisher" >/dev/null 2>&1; then
-  echo "Installing fisher & update"
-  fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-  fish -c "fisher update"
-else
-  echo "fish shell is not detected..."
+
+# FIXME: could not execute on GitHub Actions
+if [ -z "$GITHUB_ACTIONS" ]; then
+  if ! fish -c "type fisher" >/dev/null 2>&1; then
+    echo "Installing fisher & update"
+    # Install/Update fish shell plugin
+    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+    # plugin list: ~/.config/fish/fish_plugins
+    fish -c "fisher update"
+  else
+    echo "fish shell is not detected..."
+  fi
 fi
