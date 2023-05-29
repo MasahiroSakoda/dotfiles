@@ -6,6 +6,15 @@ set -eo pipefail
 {{ template "common/script_eval_brew" . }}
 {{ template "common/script_sudo" . }}
 
-echo $(which fish)
-echo $(which fish) | sudo tee -a /etc/shells
-chsh -s $(which fish)
+{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.arch "arm64" }}
+FISH_PATH=/opt/homebrew/bin/fish
+{{ else }}
+FISH_PATH=/usr/local/bin/fish
+{{ end }}
+{{ else if eq .chezmoi.os "linux" }}
+FISH_PATH=/home/linuxbrew/.linuxbrew/bin/fish
+{{ end }}
+
+echo $FISH_PATH | sudo tee -a /etc/shells
+chsh -s $FISH_PATH
