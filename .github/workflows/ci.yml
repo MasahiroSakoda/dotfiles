@@ -43,4 +43,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -v -S .
+        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
