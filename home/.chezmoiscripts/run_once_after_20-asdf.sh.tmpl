@@ -7,15 +7,21 @@ set -eo pipefail
 
 PLUGINS="python ruby nodejs deno"
 
+{{ if eq .chezmoi.os "darwin" }}
+. $(brew --prefix asdf)/libexec/asdf.sh
+{{ else if .chezmoi.os "linux" }}
+# TODO: configure linuxbrew path
+{{ end }}
+
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  if $(command -v asdf) plugin-list | $(command -v rg) ${PLUGIN} >/dev/null; then
+  if $(brew --prefix asdf) plugin-list | $(brew --prefix rg) ${PLUGIN} >/dev/null; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
-    $(command -v asdf) plugin-add ${PLUGIN}
+    $(brew --prefix asdf) plugin-add ${PLUGIN}
     # Install latest version
-    $(command -v asdf) install ${PLUGIN} latest
-    $(command -v asdf) global ${PLUGIN}
+    $(brew --prefix asdf) install ${PLUGIN} latest
+    $(brew --prefix asdf) global ${PLUGIN}
     echo "${PLUGIN} installed to $(which ${PLUGIN})"
   fi
 done
