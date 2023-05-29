@@ -7,12 +7,7 @@ set -eo pipefail
 
 PLUGINS="python ruby nodejs deno"
 
-{{ if eq .chezmoi.os "darwin" }}
-# . $(brew --prefix asdf)/libexec/asdf.sh
-. ${ASDF_DIR}/asdf.sh
-{{ else if .chezmoi.os "linux" }}
-# TODO: configure linuxbrew path
-{{ end }}
+# TODO: install from ~/.tool-versions
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
