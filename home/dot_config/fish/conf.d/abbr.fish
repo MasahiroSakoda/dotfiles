@@ -166,6 +166,7 @@ abbr -a czrf chezmoi remove --force
 ## edit
 abbr -a cze chezmoi edit
 abbr -a czea chezmoi edit --apply
+abbr -a czew chezmoi edit --watch
 
 # Homebrew
 abbr -a b brew
