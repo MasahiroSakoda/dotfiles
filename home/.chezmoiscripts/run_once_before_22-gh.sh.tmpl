@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
 
 # GitHub CLI dashboard
-if ! command -v `gh dash` > /dev/null 2>&1; then
-  gh extension install dlvhdr/gh-dash
-fi
+$(command -v gh) extension install dlvhdr/gh-dash
 
 # GitHub CLI to manage GitHub Actions cache
-if ! command -v `gh actions-cache` > /dev/null 2>&1; then
-  gh extension install actions/gh-actions-cache
-fi
+$(command -v gh) extension install actions/gh-actions-cache
