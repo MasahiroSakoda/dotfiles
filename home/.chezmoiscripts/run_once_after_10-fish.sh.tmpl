@@ -6,6 +6,6 @@ set -eo pipefail
 {{ template "common/script_eval_brew" . }}
 {{ template "common/script_sudo" . }}
 
-echo $(whichi fish)
+echo $(which fish)
 echo $(which fish) | sudo tee -a /etc/shells
 chsh -s $(which fish)
