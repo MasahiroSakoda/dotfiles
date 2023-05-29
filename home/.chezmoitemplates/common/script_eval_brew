@@ -6,6 +6,6 @@
 {{ else }}
 [ -f /usr/local/bin/brew ] && eval "$(/usr/local/bin/brew shellenv)"
 {{ end }}
-{{ else if eq .chezmoi.io "linux" }}
-# TODO: configure eval for linux environment
+{{ else if eq .chezmoi.os "linux" }}
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
