@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
+
+{{ template "common/script_eval_brew" . }}
 
 PLUGINS="python ruby nodejs deno"
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  if asdf plugin-list | rg ${PLUGIN} >/dev/null; then
+  if $(command -v asdf) plugin-list | $(command -v rg) ${PLUGIN} >/dev/null; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
-    asdf plugin-add ${PLUGIN}
+    $(command -v asdf) plugin-add ${PLUGIN}
     # Install latest version
-    asdf install ${PLUGIN} latest
-    asdf global ${PLUGIN}
+    $(command -v asdf) install ${PLUGIN} latest
+    $(command -v asdf) global ${PLUGIN}
     echo "${PLUGIN} installed to $(which ${PLUGIN})"
   fi
 done
