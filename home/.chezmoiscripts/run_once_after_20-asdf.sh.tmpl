@@ -9,6 +9,8 @@ PLUGINS="python ruby nodejs deno"
 
 # TODO: install from ~/.tool-versions
 
+echo $(brew info asdf)
+
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
   if $(command -v asdf) plugin-list | $(command -v rg) ${PLUGIN} >/dev/null; then
