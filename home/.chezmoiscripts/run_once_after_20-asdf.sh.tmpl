@@ -15,13 +15,13 @@ PLUGINS="python ruby nodejs deno"
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  if $(brew --prefix asdf) plugin-list | $(brew --prefix rg) ${PLUGIN} >/dev/null; then
+  if "$(brew --prefix asdf)/libexec/bin/asdf" plugin-list | $(brew --prefix rg) ${PLUGIN} >/dev/null; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
-    $(brew --prefix asdf) plugin-add ${PLUGIN}
+    "$(brew --prefix asdf)/libexec/bin/asdf" plugin-add ${PLUGIN}
     # Install latest version
-    $(brew --prefix asdf) install ${PLUGIN} latest
-    $(brew --prefix asdf) global ${PLUGIN}
+    "$(brew --prefix asdf)/libexec/bin/asdf" install ${PLUGIN} latest
+    "$(brew --prefix asdf)/libexec/bin/adsf" global ${PLUGIN}
     echo "${PLUGIN} installed to $(which ${PLUGIN})"
   fi
 done
