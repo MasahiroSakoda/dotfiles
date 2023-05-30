@@ -73,10 +73,6 @@ end
 ## Cask
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
-# GitHub
-## hub
-eval (hub alias -s)
-
 # Fish Plugin
 ## Configure fish plugins
 set fish_plugins theme peco git osx brew rails bundler gem pbcopy
