@@ -30,13 +30,13 @@ jobs:
           # TODO: configure hashFiles for Homebrew cache
           # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
-      - name: Save Homebrew cellar
-        uses: actions/cache/restore@v3
-        with:
-          path: /usr/local/Cellar
-          key: ${{ runner.os }}-homebrew-cellar-
-          # TODO: configure hashFiles for Homebrew cellar
-          # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+      # - name: Save Homebrew cellar
+      #   uses: actions/cache/restore@v3
+      #   with:
+      #     path: /usr/local/Cellar
+      #     key: ${{ runner.os }}-homebrew-cellar-
+      #     # TODO: configure hashFiles for Homebrew cellar
+      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
       - name: Restore asdf cache
         uses: actions/cache/restore@v3
@@ -62,14 +62,14 @@ jobs:
           # TODO: configure hashFiles for Homebrew cache
           # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
-      - name: Save Homebrew cellar
-        uses: actions/cache/save@v3
-        if: always()
-        with:
-          path: /usr/local/Cellar
-          key: ${{ runner.os }}-homebrew-cellar-
-          # TODO: configure hashFiles for Homebrew cellar
-          # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+      # - name: Save Homebrew cellar
+      #   uses: actions/cache/save@v3
+      #   if: always()
+      #   with:
+      #     path: /usr/local/Cellar
+      #     key: ${{ runner.os }}-homebrew-cellar-
+      #     # TODO: configure hashFiles for Homebrew cellar
+      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
       - name: Save asdf cache
         uses: actions/cache/save@v3
