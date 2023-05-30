@@ -47,6 +47,7 @@ jobs:
 
       - name: Cache homebrew
         uses: actions/cache@v3
+        if: always()
         with:
           path: /Users/runner/Library/Caches/Homebrew
           # key: ${{ runner.os }}-homebrew-${{ hashFiles("home/dot_config/Brewfile.tmpl") }}
