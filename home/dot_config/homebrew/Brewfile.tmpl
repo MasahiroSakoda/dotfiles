@@ -55,7 +55,9 @@ brew "ghq"
 brew "hub"
 
 ## DevOps
+{{ if not .headless }}
 brew "awscli"
+{{ end }}
 
 ## Programming Language
 brew "asdf"
@@ -81,6 +83,7 @@ brew "cjson"
 ## Database
 brew "sqlite"
 
+{{ if not .headless }}
 ## Media
 brew "ffmpeg"
 brew "media-info"
@@ -106,3 +109,4 @@ brew "wget"
 brew "aria2"
 brew "youtube-dl"
 brew "yt-dlp"
+{{ end }}
