@@ -49,10 +49,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          key: ${{ runner.os }}-homebrew-${{ hashFiles(["home/dot_config/Brewfile.tmpl"]) }}
+          # key: ${{ runner.os }}-homebrew-${{ hashFiles("home/dot_config/Brewfile.tmpl") }}
+          key: ${{ runner.os }}-homebrew-${{ github.sha }}
 
       - name: Cache asdf
         uses: actions/cache@v3
         with:
           path: /Users/runner/.asdf
-          key: ${{ runner.os }}-asdf-${{ hashFiles(["home/dot_tool-versions.tmpl"]) }}
+          # key: ${{ runner.os }}-asdf-${{ hashFiles("home/dot_tool-versions.tmpl") }}
+          key: ${{ runner.os }}-asdf-${{ github.sha }}
