@@ -210,7 +210,6 @@ abbr -a rs rails server
 abbr -a rd rails destroy
 
 ## rails generate
-abbr -a rg rails generate
 abbr -a rgs rails generate scaffold
 abbr -a rgc rails generate controller
 abbr -a rgmi rails generate migration
