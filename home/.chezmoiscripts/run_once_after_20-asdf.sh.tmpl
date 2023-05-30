@@ -5,7 +5,7 @@ set -eo pipefail
 
 {{ template "common/script_eval_brew" . }}
 
-PLUGINS="python ruby nodejs deno"
+PLUGINS="python poetry ruby nodejs deno"
 
 # TODO: install from ~/.tool-versions
 
@@ -15,6 +15,7 @@ for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
   if asdf plugin-list | grep -Fq ${PLUGIN}; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
+    asdf plugin-update ${PLUGIN}
   else
     echo "installing ${PLUGIN}..."
     asdf plugin-add ${PLUGIN}
