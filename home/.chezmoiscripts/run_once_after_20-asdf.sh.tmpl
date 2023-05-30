@@ -5,28 +5,27 @@ set -eo pipefail
 
 {{ template "common/script_eval_brew" . }}
 
-PLUGINS="python poetry ruby nodejs deno"
-
-# TODO: install from ~/.tool-versions
-
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
-for PLUGIN in ${PLUGINS}; do
-  # Install asdf plugin
-  if asdf plugin-list | grep -Fq ${PLUGIN}; then
-    echo "asdf plugin \"${PLUGIN}\" is already installed"
-    asdf plugin-update ${PLUGIN}
+# install from ~/.tool-versions
+while read plugin version; do
+  if asdf plugin-list | grep --silent $plugin; then
+    echo "asdf plugin \"${plugin}\" is already installed"
+    echo "asdf plugin \"${plugin}\" updating..."
+    asdf plugin-update ${plugin}
   else
-    echo "installing ${PLUGIN}..."
-    asdf plugin-add ${PLUGIN}
-
-    # Install latest version
-    asdf install ${PLUGIN} latest
-    asdf global ${PLUGIN} latest
-
-    echo "${PLUGIN} installed to $(which ${PLUGIN})"
+    echo "installing ${plugin}..."
+    asdf plugin-add ${plugin}
   fi
-done
 
-asdf reshim
+  if ! asdf current ${python} | grep -Fq ${version}; then
+    asdf install ${plugin} ${version}
+    echo "${plugin} installed to $(which ${plugin})"
+
+    asdf global ${plugin} ${version}
+  fi
+  asdf reshim ${plugin}
+  echo "${plugin} ${version} is activated"
+done < ~/.tool-versions
+
 asdf current
