@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
-
-if [ -n "$GITHUB_ACTIONS" ]; then
-  exit 0
-fi
+set -eo pipefail
 
 if command -v age > /dev/null 2>&1 && [ ! -f "${HOME}/key.txt" ]; then
   age --decrypt --output "${HOME}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
