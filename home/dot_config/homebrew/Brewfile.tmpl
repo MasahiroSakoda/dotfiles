@@ -68,6 +68,7 @@ brew "cmake"
 ## Formatter/Linter
 brew "checkmake"
 
+{{ if not .headless }}
 ## CSV
 brew "csview"
 brew "xsv"
@@ -78,7 +79,6 @@ brew "cjson"
 ## Database
 brew "sqlite"
 
-{{ if not .headless }}
 ## Media
 brew "ffmpeg"
 brew "media-info"

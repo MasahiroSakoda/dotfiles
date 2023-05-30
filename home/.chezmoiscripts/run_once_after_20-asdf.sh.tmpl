@@ -13,12 +13,11 @@ PLUGINS="python ruby nodejs deno"
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  echo "asdf plugins: $(asdf plugin-list)"
   if asdf plugin-list | grep -Fq ${PLUGIN}; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
     echo "installing ${PLUGIN}..."
-    adsf plugin-add ${PLUGIN}
+    asdf plugin-add ${PLUGIN}
 
     # Install latest version
     asdf install ${PLUGIN} latest
