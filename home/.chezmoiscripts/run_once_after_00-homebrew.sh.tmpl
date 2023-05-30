@@ -15,11 +15,11 @@ if ! command -v brew > /dev/null 2>&1 && [ -f "$HOME/.config/homebrew/Brewfile" 
 fi
 
 # Install Homebrew packages
-brew bundle -v --no-lock --file="${PKG_DIR}/Brewfile"
+brew bundle -v --file="${PKG_DIR}/Brewfile"
 
 if [ -z "$GITHUB_ACTIONS" ]; then
-  brew bundle -v --no-lock --file="${PKG_DIR}/Caskfile"
-  brew bundle -v --no-lock --file="${PKG_DIR}/Masfile"
+  brew bundle -v --file="${PKG_DIR}/Caskfile"
+  brew bundle -v --file="${PKG_DIR}/Masfile"
 fi
 
 brew list
