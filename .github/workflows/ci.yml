@@ -55,6 +55,7 @@ jobs:
 
       - name: Cache asdf
         uses: actions/cache@v3
+        if: always()
         with:
           path: /Users/runner/.asdf
           # key: ${{ runner.os }}-asdf-${{ hashFiles("home/dot_tool-versions.tmpl") }}
