@@ -9,12 +9,10 @@ tap "wfxr/csview"
 brew "gnutls"
 brew "gnupg"
 brew "coreutils"
-brew "readline"
 brew "openssl"
 
 ## Shell
 brew "fish"
-brew "direnv"
 
 ## Basic Command Alternative
 brew "bat"
@@ -23,7 +21,6 @@ brew "fd"
 brew "ripgrep"
 brew "procs"
 brew "starship"
-brew "colordiff"
 brew "thefuck"
 brew "fzf"
 
@@ -53,9 +50,7 @@ brew "lazygit"
 brew "gh"
 brew "ghq"
 
-## DevOps
 {{ if not .headless }}
-brew "awscli"
 {{ end }}
 
 ## Programming Language
@@ -68,6 +63,9 @@ brew "cmake"
 ## Formatter/Linter
 brew "checkmake"
 
+## Database
+brew "sqlite"
+
 {{ if not .headless }}
 ## CSV
 brew "csview"
@@ -76,8 +74,8 @@ brew "xsv"
 ## JSON
 brew "cjson"
 
-## Database
-brew "sqlite"
+## DevOps
+brew "awscli"
 
 ## Media
 brew "ffmpeg"
