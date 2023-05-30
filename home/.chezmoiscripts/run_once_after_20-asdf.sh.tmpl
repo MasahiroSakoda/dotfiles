@@ -16,17 +16,19 @@ exec $SHELL -l
 
 for PLUGIN in ${PLUGINS}; do
   # Install asdf plugin
-  if $(command -v asdf) plugin-list | $(command -v rg) ${PLUGIN} >/dev/null; then
+  if asdf plugin-list | rg ${PLUGIN} >/dev/null; then
     echo "asdf plugin \"${PLUGIN}\" is already installed"
   else
-    $(command -v adsf) plugin-add ${PLUGIN}
+    adsf plugin-add ${PLUGIN}
 
     # Install latest version
-    $(command -v asdf) install ${PLUGIN} latest
-    $(command -v asdf) global ${PLUGIN}
+    asdf install ${PLUGIN} latest
+    asdf global ${PLUGIN}
+    asdf reshim ${PLUGIN}
 
     echo "${PLUGIN} installed to $(which ${PLUGIN})"
   fi
 done
 
-$(command -v adsf) current
+adsf reshim
+adsf current
