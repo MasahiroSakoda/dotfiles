@@ -38,6 +38,18 @@ jobs:
       #   if: steps.cache.outputs.cache-hit != 'true'
       #   run: brew install-bundler-gems
 
+      - name: Restore Homebrew cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /Users/runner/Library/Caches/Homebrew
+          key: ${{ runner.os }}-homebrew-${{ github.sha }}
+
+      - name: Restore asdf cache
+        uses: actions/cache/restore@v3
+        with:
+          path: /Users/runner/.asdf
+          key: ${{ runner.os }}-asdf-${{ github.sha }}
+
       - name: Install dotfiles
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -45,18 +57,16 @@ jobs:
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
 
-      - name: Cache homebrew
-        uses: actions/cache@v3
+      - name: Save Homebrew cache
+        uses: actions/cache/save@v3
         if: always()
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          # key: ${{ runner.os }}-homebrew-${{ hashFiles("home/dot_config/Brewfile.tmpl") }}
           key: ${{ runner.os }}-homebrew-${{ github.sha }}
 
-      - name: Cache asdf
-        uses: actions/cache@v3
+      - name: Save asdf cache
+        uses: actions/cache/save@v3
         if: always()
         with:
           path: /Users/runner/.asdf
-          # key: ${{ runner.os }}-asdf-${{ hashFiles("home/dot_tool-versions.tmpl") }}
           key: ${{ runner.os }}-asdf-${{ github.sha }}
