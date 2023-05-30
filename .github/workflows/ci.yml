@@ -55,7 +55,7 @@ jobs:
 
       - name: Save Homebrew cache
         uses: actions/cache/save@v3
-        if: always()
+        # if: always()
         with:
           path: /Users/runner/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-
