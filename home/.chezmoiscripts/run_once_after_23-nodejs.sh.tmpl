@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
+
+echo $(asdf current nodejs)
 
 npm install -g npm yarn neovim eslint create-react-app
 

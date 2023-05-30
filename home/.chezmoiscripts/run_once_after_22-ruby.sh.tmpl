@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
+
+echo $(asdf current ruby)
 
 # Update gem
 gem update --system
 gem install bundler -N
-gem install neovim
+gem install neovim -N
 
 asdf reshim ruby

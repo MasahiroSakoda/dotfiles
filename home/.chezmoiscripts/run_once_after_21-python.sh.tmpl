@@ -3,6 +3,8 @@
 
 set -eo pipefail
 
+echo $(asdf current python)
+
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
