@@ -12,8 +12,6 @@ PLUGINS="python ruby nodejs deno"
 echo $(brew info asdf)
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
-rm ~/.asdf/shims/*
-$(command -v asdf) reshim
 exec $SHELL -l
 
 for PLUGIN in ${PLUGINS}; do
