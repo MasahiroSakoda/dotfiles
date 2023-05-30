@@ -26,13 +26,25 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          key: ${{ runner.os }}-homebrew-${{ github.sha }}
+          key: ${{ runner.os }}-homebrew-cache-
+          # TODO: configure hashFiles for Homebrew cache
+          # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+
+      - name: Save Homebrew cellar
+        uses: actions/cache/restore@v3
+        with:
+          path: /usr/local/Cellar
+          key: ${{ runner.os }}-homebrew-cellar-
+          # TODO: configure hashFiles for Homebrew cellar
+          # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
       - name: Restore asdf cache
         uses: actions/cache/restore@v3
         with:
           path: /Users/runner/.asdf
-          key: ${{ runner.os }}-asdf-${{ github.sha }}
+          key: ${{ runner.os }}-asdf-cache-
+          # TODO: configure hashFiles for asdf
+          # key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions") }}
 
       - name: Install dotfiles
         env:
@@ -46,11 +58,24 @@ jobs:
         if: always()
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          key: ${{ runner.os }}-homebrew-${{ github.sha }}
+          key: ${{ runner.os }}-homebrew-cache-
+          # TODO: configure hashFiles for Homebrew cache
+          # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+
+      - name: Save Homebrew cellar
+        uses: actions/cache/save@v3
+        if: always()
+        with:
+          path: /usr/local/Cellar
+          key: ${{ runner.os }}-homebrew-cellar-
+          # TODO: configure hashFiles for Homebrew cellar
+          # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
 
       - name: Save asdf cache
         uses: actions/cache/save@v3
         if: always()
         with:
           path: /Users/runner/.asdf
-          key: ${{ runner.os }}-asdf-${{ github.sha }}
+          key: ${{ runner.os }}-asdf-cache-
+          # TODO: configure hashFiles for asdf
+          # key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions") }}
