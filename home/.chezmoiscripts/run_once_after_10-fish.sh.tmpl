@@ -16,9 +16,7 @@ FISH_PATH=/usr/local/bin/fish
 FISH_PATH=/home/linuxbrew/.linuxbrew/bin/fish
 {{ end }}
 
-echo $FISH_PATH | sudo tee -a /etc/shells
-
-# FIXME: could not execute on GitHub Actions
-if [ -z "$GITHUB_ACTIONS" ]; then
+if [ "$SHELL" != $FISH_PATH ]; then
+  grep -qxF "$FISH_PATH" /etc/shells || echo "$FISH_PATH" | sudo tee -a /etc/shells
   chsh -s $FISH_PATH
 fi
