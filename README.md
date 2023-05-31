@@ -4,11 +4,13 @@
 
   <h1>dotfiles</h1>
   <img src="https://img.shields.io/badge/macOS-%23.svg?style=flat-square&logo=apple&color=000000&logoColor=white" />
+
   <p>Bootstrap & build macOS development environment</p>
 
   [![chezmoi][chezmoi-badge]][chezmoi-website]
   [![license][license-badge]][license-file]
   [![commit activity](https://img.shields.io/github/commit-activity/m/MasahiroSakoda/dotfiles)](https://github.com/MasahiroSakoda/dotfiles/graphs/commit-activity)
+  <img src="https://img.shields.io/github/repo-size/MasahiroSakoda/dotfiles?style=flat-square&label=Repo" alt="Repo size">
 
   [chezmoi-website]: https://github.com/twpayne/chezmoi
   [chezmoi-badge]: https://img.shields.io/badge/Powered%20by-chezmoi-blue.svg
