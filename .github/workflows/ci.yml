@@ -28,7 +28,7 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           # key: ${{ runner.os }}-homebrew-cache-
           # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_Brewfile.tmpl") }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/restore@v3
@@ -36,7 +36,7 @@ jobs:
       #     path: /usr/local/Cellar
       #     key: ${{ runner.os }}-homebrew-cellar-
       #     # TODO: configure hashFiles for Homebrew cellar
-      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_Brewfile.tmpl") }}
 
       - name: Restore asdf cache
         uses: actions/cache/restore@v3
@@ -44,7 +44,7 @@ jobs:
           path: /Users/runner/.asdf
           ## key: ${{ runner.os }}-asdf-cache-
           # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/.tool-versions") }}
+          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions.tmpl") }}
 
       - name: Install dotfiles
         env:
@@ -60,7 +60,7 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("")}}
           # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_Brewfile.tmpl") }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/save@v3
@@ -78,4 +78,4 @@ jobs:
           path: /Users/runner/.asdf
           # key: ${{ runner.os }}-asdf-cache-
           # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/.tool-versions") }}
+          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions.tmpl") }}

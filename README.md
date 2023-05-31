@@ -105,7 +105,7 @@ chezmoi update
 [batconfig]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bat/config
 [bottom.toml]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml
 
-Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Brewfile.tmpl)
+Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Brewfile.tmpl)
 
 #### fish shell
 
@@ -306,11 +306,11 @@ Programming language version management tool
 [wireshark]: https://www.wireshark.org/
 [tunnelbear]: https://www.tunnelbear.com/
 
-Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Caskfile.tmpl)
+Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Caskfile.tmpl)
 
 ### App Store apps
 
-See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/homebrew/Masfile.tmpl)
+See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Masfile.tmpl)
 
 ## ToDo
 

@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
 
 {{ template "common/script_eval_brew" . }}
 {{ template "common/script_sudo" . }}
 
-PKG_DIR="${HOME}/.config/homebrew"
-
 # Install Homebrew
 if ! command -v brew > /dev/null 2>&1 && [ -f "$HOME/.config/homebrew/Brewfile" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 fi
 
 # Install Homebrew packages
-brew bundle -v --file="${PKG_DIR}/Brewfile"
+brew bundle -v --file="$HOME/.Brewfile"
 
-if [ -z "$GITHUB_ACTIONS" ]; then
-  brew bundle -v --file="${PKG_DIR}/Caskfile"
-  brew bundle -v --file="${PKG_DIR}/Masfile"
-fi
+{{ if not .headless }}
+brew bundle -v --file="$HOME/.Caskfile"
+brew bundle -v --file="$HOME/.Masfile"
+{{ end }}
 
 brew list
