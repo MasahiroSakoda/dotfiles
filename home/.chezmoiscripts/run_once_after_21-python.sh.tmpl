@@ -8,4 +8,12 @@ echo $(asdf current python)
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
+# Poetry
+## create .venv in your project
+poetry config virtualenvs.create true
+poetry config virtualenvs.in-project true
+
+## use python via asdf
+poetry config virtualenvs.prefer-active-python true
+
 asdf reshim python
