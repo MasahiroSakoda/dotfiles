@@ -3,6 +3,8 @@
 
 set -eo pipefail
 
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+
 echo $(asdf current ruby)
 
 # Update gem

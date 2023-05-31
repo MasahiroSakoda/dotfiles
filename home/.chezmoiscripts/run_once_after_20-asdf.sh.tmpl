@@ -30,7 +30,7 @@ while read plugin version; do
 
     asdf global ${plugin} ${version}
   fi
-  asdf reshim ${plugin}
+  asdf reshim ${plugin} ${version}
   echo "${plugin} ${version} is activated"
 done < ~/.tool-versions
 

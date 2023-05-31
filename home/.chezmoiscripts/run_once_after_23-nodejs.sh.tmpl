@@ -3,6 +3,8 @@
 
 set -eo pipefail
 
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+
 echo $(asdf current nodejs)
 
 npm install -g npm yarn neovim eslint create-react-app
