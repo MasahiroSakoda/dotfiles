@@ -18,7 +18,7 @@ jobs:
         os:
         - macos-latest
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 20
     # sptesの並列化で高速化できる
     # https://qiita.com/qualitia_cdev/items/407b0df9c0a0f0f45bbc
     steps:
