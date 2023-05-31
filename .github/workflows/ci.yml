@@ -28,7 +28,7 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           # key: ${{ runner.os }}-homebrew-cache-
           # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile.tmpl") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile") }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/restore@v3
@@ -44,7 +44,7 @@ jobs:
           path: /Users/runner/.asdf
           ## key: ${{ runner.os }}-asdf-cache-
           # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/dot_tool-versions.tmpl") }}
+          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/.tool-versions") }}
 
       - name: Install dotfiles
         env:
@@ -60,7 +60,7 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("")}}
           # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile.tmpl") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("**/Brewfile") }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/save@v3
@@ -78,4 +78,4 @@ jobs:
           path: /Users/runner/.asdf
           # key: ${{ runner.os }}-asdf-cache-
           # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/dot_tool-versions.tmpl") }}
+          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("**/.tool-versions") }}
