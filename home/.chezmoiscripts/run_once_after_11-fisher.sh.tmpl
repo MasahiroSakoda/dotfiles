@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
+set -eo pipefail
+
 {{ template "common/script_eval_brew" . }}
 
-
-# FIXME: could not execute on GitHub Actions
-if [ -z "$GITHUB_ACTIONS" ]; then
-  if ! fish -c "type fisher" >/dev/null 2>&1; then
-    echo "Installing fisher & update"
-    # Install/Update fish shell plugin
-    fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-    # plugin list: ~/.config/fish/fish_plugins
-    fish -c "fisher update"
-  else
-    echo "fish shell is not detected..."
-  fi
+if ! fish -c "type fisher" >/dev/null 2>&1; then
+  echo "Installing fisher & update"
+  # Install/Update fish shell plugin
+  fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
+  # plugin list: ~/.config/fish/fish_plugins
+  fish -c "fisher update"
+else
+  echo "fish shell is not detected..."
 fi
