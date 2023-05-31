@@ -8,13 +8,16 @@ on:
     branches:
       - main
 
+env:
+  cache-version: v1
+
 jobs:
   ci:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
         - macos-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     # sptesの並列化で高速化できる
     # https://qiita.com/qualitia_cdev/items/407b0df9c0a0f0f45bbc
@@ -26,25 +29,19 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          # key: ${{ runner.os }}-homebrew-cache-
-          # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_Brewfile.tmpl") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/restore@v3
       #   with:
       #     path: /usr/local/Cellar
-      #     key: ${{ runner.os }}-homebrew-cellar-
-      #     # TODO: configure hashFiles for Homebrew cellar
-      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_Brewfile.tmpl") }}
+      #     # key: ${{ runner.os }}-homebrew-cellar-${{ env.cache-version }}
 
       - name: Restore asdf cache
         uses: actions/cache/restore@v3
         with:
           path: /Users/runner/.asdf
-          ## key: ${{ runner.os }}-asdf-cache-
-          # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions.tmpl") }}
+          key: ${{ runner.os }}-asdf-cache-${{ env.cache-version }}
 
       - name: Install dotfiles
         env:
@@ -58,24 +55,18 @@ jobs:
         # if: always()
         with:
           path: /Users/runner/Library/Caches/Homebrew
-          # key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("")}}
-          # TODO: configure hashFiles for Homebrew cache
-          key: ${{ runner.os }}-homebrew-cache-${{ hashFiles("home/dot_Brewfile.tmpl") }}
+          key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       # - name: Save Homebrew cellar
       #   uses: actions/cache/save@v3
       #   if: always()
       #   with:
       #     path: /usr/local/Cellar
-      #     key: ${{ runner.os }}-homebrew-cellar-
-      #     # TODO: configure hashFiles for Homebrew cellar
-      #     # key: ${{ runner.os }}-homebrew-cellar-${{ hashFiles("home/dot_config/homebrew/Brewfile.tmpl") }}
+      #     # key: ${{ runner.os }}-homebrew-cellar-${{ env.cache-version }}
 
       - name: Save asdf cache
         uses: actions/cache/save@v3
         if: always()
         with:
           path: /Users/runner/.asdf
-          # key: ${{ runner.os }}-asdf-cache-
-          # TODO: configure hashFiles for asdf
-          key: ${{ runner.os }}-asdf-cache-${{ hashFiles("home/dot_tool-versions.tmpl") }}
+          key: ${{ runner.os }}-asdf-cache-${{ env.cache-version }}
