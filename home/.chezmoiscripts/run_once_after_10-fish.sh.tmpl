@@ -16,7 +16,9 @@ FISH_PATH=/usr/local/bin/fish
 FISH_PATH=/home/linuxbrew/.linuxbrew/bin/fish
 {{ end }}
 
+{{ if not .headless }}
 if [ "$SHELL" != $FISH_PATH ]; then
   grep -qxF "$FISH_PATH" /etc/shells || echo "$FISH_PATH" | sudo tee -a /etc/shells
   chsh -s $FISH_PATH
 fi
+{{ end }}
