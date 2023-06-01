@@ -6,7 +6,7 @@ bufferline.setup {
     -- Usable mode: tabs / buffers
     mode = "tabs",
     ---@Usable diagnostics: nvim_lsp / coc
-    -- diagnostics = "nvim_lsp",
+    diagnostics = "nvim_lsp",
 
     -- Format
     name_formatter = function(opts)
