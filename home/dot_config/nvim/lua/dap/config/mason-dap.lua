@@ -12,13 +12,14 @@ dap.setup({
 
   -- You'll need to check that you have the required things installed
   -- online, please don't ask me how to install them :)
-  ensure_installed = {
-    "bash",     -- bash-debug-adapter
-    "codelldb", -- codelldb: C, C++, Rust
-    "cppdbg",   -- cpptools: C, C++, Rust
-    "delve",    -- Go
-    "python",   -- Python
-    "js",       -- JavaScript, TypeScript
-    "chrome",   -- Google Chrome
-  },
+  ensure_installed = require("dap.adapters"),
+  -- ensure_installed = {
+  --   "bash",     -- bash-debug-adapter
+  --   "codelldb", -- codelldb: C, C++, Rust
+  --   "cppdbg",   -- cpptools: C, C++, Rust
+  --   "delve",    -- Go
+  --   "python",   -- Python
+  --   "js",       -- JavaScript, TypeScript
+  --   "chrome",   -- Google Chrome
+  -- },
 })
