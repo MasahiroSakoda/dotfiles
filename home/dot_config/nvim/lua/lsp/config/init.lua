@@ -18,6 +18,13 @@ require("lsp.config.handlers")
 local api, lsp = vim.api, vim.lsp
 local capabilities = cmp_nvim_lsp.default_capabilities(lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  }
+}
 capabilities.textDocument.colorProvider = {
   dynamicRegistration = true
 }
@@ -30,6 +37,8 @@ local on_attach = function(client, bufnr)
   api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   client.server_capabilities.document_formatting       = false
   client.server_capabilities.document_range_formatting = false
+
+  client.server_capabilities.offsetEncoding = { "utf-16" }
 
   -- Avoid confliction tsserver & denols
   local active_clients = lsp.get_active_clients()
