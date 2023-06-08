@@ -66,12 +66,16 @@ local on_attach = function(client, bufnr)
   end
 end
 
-mason_cfg.setup({ ensure_installed = require("lsp.servers") })
+local servers = require("lsp.servers")
+mason_cfg.setup({ ensure_installed = servers })
+
+local server_opts = {
+  on_attach    = on_attach,
+  capabilities = capabilities,
+}
 mason_cfg.setup_handlers {
   function (server)
-    lspconfig[server].setup {
-      on_attach    = on_attach,
-      capabilities = capabilities,
-    }
-  end
+    local opts = vim.tbl_deep_extend("force", server_opts, servers[server] or {})
+    lspconfig[server].setup(opts)
+  end,
 }
