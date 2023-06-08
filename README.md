@@ -316,7 +316,6 @@ See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/do
 
 ## ToDo
 
-* [ ] Fix script attributes in [**`.chezmoiscripts`**](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/.chezmoiscripts)
 * [ ] VSCode support
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
