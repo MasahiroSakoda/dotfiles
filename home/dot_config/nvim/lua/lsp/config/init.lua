@@ -35,8 +35,10 @@ capabilities.textDocument.foldingRange  = {
 
 local on_attach = function(client, bufnr)
   api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-  client.server_capabilities.document_formatting       = false
-  client.server_capabilities.document_range_formatting = false
+  client.server_capabilities.document_formatting        = false
+  client.server_capabilities.document_range_formatting  = false
+  client.server_capabilities.documentFormattingProvider = false
+  -- client.server_capabilities.documentRangeFormattingProvider = false
 
   client.server_capabilities.offsetEncoding = { "utf-16" }
 
