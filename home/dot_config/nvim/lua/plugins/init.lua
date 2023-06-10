@@ -211,7 +211,7 @@ return {
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
-    -- FIXME: Build not woring
+    -- WARN: Build not woring
     -- build = "make install_jsregexp",
     event = "InsertEnter",
     config = function ()
