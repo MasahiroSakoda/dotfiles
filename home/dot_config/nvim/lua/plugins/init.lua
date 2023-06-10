@@ -207,7 +207,7 @@ return {
   { "dmitmel/cmp-cmdline-history", event = "CmdlineEnter" },
   { "tzachar/cmp-fuzzy-buffer",    event = { "InsertEnter", "CmdlineEnter" } },
 
-  { "saadparwaiz1/cmp_luasnip" },
+  { "saadparwaiz1/cmp_luasnip", event = { "InsertEnter", "CmdlineEnter" } },
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
