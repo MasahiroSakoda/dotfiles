@@ -15,7 +15,6 @@ return {
   -- Vim
   ------------------------------------------------------------------------
   { "vim-jp/vimdoc-ja", ft = "help" },
-  { "jghauser/mkdir.nvim" },
   { "akinsho/toggleterm.nvim", cmd = "ToggleTerm", config = function() require("ui.toggleterm") end },
   { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
   {
