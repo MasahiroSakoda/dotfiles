@@ -299,13 +299,14 @@ return {
   },
   -- Hilighter for current cursor scope
   { "folke/twilight.nvim", cmd = "Twilight", config = function() require("twilight").setup() end },
-  {
-    "danymat/neogen", -- annotation generator
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function() require("user.treesitter.neogen") end,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-  },
+  -- {
+  --   "danymat/neogen", -- annotation generator
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   cmd    = "Neogen",
+  --   config = function() require("user.treesitter.neogen") end,
+  --   -- Uncomment next line if you want to follow only stable versions
+  --   -- version = "*"
+  -- },
   {
     "folke/todo-comments.nvim", -- Comment Hilighter
     dependencies = { "nvim-lua/plenary.nvim" },
