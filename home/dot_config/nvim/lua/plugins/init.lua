@@ -108,12 +108,6 @@ return {
     config = function() require("user.dial") end,
   },
   {
-    "phaazon/hop.nvim", -- Cursor: EasyMotion
-    branch = "v2",
-    cmd = { "HopWord", "HopLine", "HopAnywhere", "HopAnywhereCurrentLine", "HopPattern" },
-    config = function() require("ui.hop") end,
-  },
-  {
     "windwp/nvim-autopairs", -- autopair: like if/end
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end

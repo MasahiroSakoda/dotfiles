@@ -51,17 +51,6 @@ wk.register({
 -- Insert Modeでjj/jk ESC
 keymap("i", "jj", "<ESC>")
 
-wk.register({
-  prefix = "<Leader>",
-  ["<Leader>"] = {
-    name = "🔡  Hop: Cursor Assistant",
-    w = { "<CMD>HopWord<CR>",                "   Go to any word in the current buffer" },
-    l = { "<CMD>HopLine<CR>",                "   Go to any line and any line" },
-    a = { "<CMD>HopAnywhere<CR>",            "   Go to anywhere" },
-    c = { "<CMD>HopAnywhereCurrentLine<CR>", "   Go to  current line" },
-  },
-}, nx_mode)
-
 ---------------------------------------------------------------------------
 -- Search
 ---------------------------------------------------------------------------
