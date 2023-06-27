@@ -39,7 +39,8 @@ return {
 
   {
     "NvChad/nvim-colorizer.lua", -- Color code viewer
-    event  = { "BufReadPost", "BufNewFile" },
+    -- event  = { "BufReadPost", "BufNewFile" },
+    cmd = { "ColorizerToggle" },
     config = function() require("ui.colorizer") end,
   },
 
