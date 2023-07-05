@@ -95,7 +95,6 @@ nl.setup({
     diagnostics.fish,
 
     -- Rust
-    formatting.rustfmt.with({ extra_args = { "--edition=2021" }}),
     -- diagnostics.rust_analyzer,
 
     -- Python
