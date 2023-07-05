@@ -185,6 +185,8 @@ keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Acti
 keymap("n", "<Leader>gi", "<CMD>Lspsaga incoming_calls<CR>", { desc = "   Call incoming hierarchy" })
 keymap("n", "<Leader>go", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "   Call outgoing hierarchy" })
 
+keymap("n", "<Leader>gh", function() vim.lsp.buf.inlay_hints(0, nil) end, { desc = "Toggle Inlay Hints" })
+
 --------------------------------------------------
 ---- 🚦  Keymap for LSP via Telescope
 --------------------------------------------------

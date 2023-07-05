@@ -79,3 +79,41 @@ mason_cfg.setup_handlers {
     lspconfig[server].setup(opts)
   end,
 }
+
+local setup_inlay_hints = function()
+  local hl = vim.api.nvim_get_hl(0, { name = "Comment" })
+  local foreground = string.format("#%06x", hl["fg"] or 0)
+  if #foreground < 3 then
+    foreground = ""
+  end
+
+  hl = vim.api.nvim_get_hl(0, { name = "CursorLine" })
+  local background = string.format("#%06x", hl["bg"] or 0)
+  if #background < 3 then
+    background = ""
+  end
+  vim.api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
+end
+
+local supports_inlay_hint = function(args)
+  local client = vim.lsp.get_client_by_id(args.data.client_id)
+  return client.supports_method("textDocument/inlayHint")
+end
+
+api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    -- Inlay Hints
+    if vim.fn.has('nvim-0.10') ~= 1 or vim.lsp.buf.inlay_hint == nil then
+      vim.notify_once('LSP Inlayhints requires Neovim 0.10.0+ (ca5de93)', vim.log.levels.ERROR)
+    else
+      supports_inlay_hint(args)
+      local bufnr = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client.supports_method("textDocument/inlayHint") then
+        setup_inlay_hints()
+        -- vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.buf.inlay_hint(bufnr, true)
+      end
+    end
+  end
+})

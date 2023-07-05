@@ -10,6 +10,7 @@ return {
         globals = { "vim", "use", "describe", "it", "before_each", "after_each", "MiniTest" },
         -- disable = { "undefined-global", "lowercase-global", "unused-local", "unused-vararg", "trailing-space" },
       },
+      hint = { enable = true },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {
