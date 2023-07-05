@@ -95,7 +95,7 @@ nl.setup({
     diagnostics.fish,
 
     -- Rust
-    -- diagnostics.rust_analyzer,
+    diagnostics.rust_analyzer,
 
     -- Python
     diagnostics.ruff.with {
