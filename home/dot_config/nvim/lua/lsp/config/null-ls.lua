@@ -94,9 +94,6 @@ nl.setup({
     -- fish
     diagnostics.fish,
 
-    -- Rust
-    diagnostics.rust_analyzer,
-
     -- Python
     diagnostics.ruff.with {
       prefer_local = "venv/bin",
