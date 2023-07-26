@@ -6,6 +6,7 @@ return {
   filetypes = { "ruby" },
   root_dir  = function(filename)
     return lspconfig.util.root_pattern(
+      ".rubocop.yml",
       "Gemfile",
       ".git"
     )(filename) or vim.fn.getcwd()
