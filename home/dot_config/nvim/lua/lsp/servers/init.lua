@@ -5,6 +5,8 @@ return {
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust Language Server
   bashls        = require("lsp.servers.bashls"),        -- bash Language Server
   sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
+  -- TODO: uncomment after configure rubocop LSP
+  -- rubocop       = require("lsp.servers.rubocop"),        -- Ruby Linter
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
@@ -25,7 +27,6 @@ return {
   cmakelint    = {}, -- CMake
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
-  rubocop      = {}, -- Ruby
   vint         = {}, -- VimScript
 
   -- Formetter
