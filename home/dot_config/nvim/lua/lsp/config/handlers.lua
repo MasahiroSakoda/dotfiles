@@ -4,6 +4,8 @@ local handlers = lsp.handlers
 handlers["textDocument/hover"] = lsp.with(handlers.hover, {
   border = "rounded",
 })
+-- NeovimのLSPで誰にどうして怒られたのかを確認するための設定
+-- https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/
 handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   underline     = true,
   severity_sort = true,
