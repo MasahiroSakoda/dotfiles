@@ -5,8 +5,6 @@ return {
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust Language Server
   bashls        = require("lsp.servers.bashls"),        -- bash Language Server
   sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
-  -- TODO: uncomment after configure rubocop LSP
-  -- rubocop       = require("lsp.servers.rubocop"),        -- Ruby Linter
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
@@ -28,6 +26,7 @@ return {
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
+  rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
 
   -- Formetter
   beautysh      = {}, -- Sh, Bash, Zsh, Csh, Ksh
