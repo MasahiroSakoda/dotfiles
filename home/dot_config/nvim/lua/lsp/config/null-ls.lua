@@ -105,16 +105,16 @@ nl.setup({
 
     -- Ruby
     -- rubocop: Static Code Analyzer for Ruby
-    diagnostics.rubocop.with({
-      prefer_local = "vendor/bin",
-      command      = "bin/rubocop",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
-    }),
-    formatting.rubocop.with({
-      prefer_local = "vendor/bin",
-      command      = "bin/rubocop",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
-    }),
+    -- diagnostics.rubocop.with({
+    --   prefer_local = "vendor/bin",
+    --   command      = "bin/rubocop",
+    --   condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
+    -- }),
+    -- formatting.rubocop.with({
+    --   prefer_local = "vendor/bin",
+    --   command      = "bin/rubocop",
+    --   condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
+    -- }),
 
     -- Lua
     -- stylua:
