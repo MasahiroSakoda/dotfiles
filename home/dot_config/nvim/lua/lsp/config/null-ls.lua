@@ -55,7 +55,7 @@ nl.setup({
     completion.tags,
 
     -- Dockerfile
-    builtins.diagnostics.hadolint,
+    diagnostics.hadolint,
 
     -- Git
     code_actions.gitsigns,
