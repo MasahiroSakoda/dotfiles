@@ -8,7 +8,6 @@ return {
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
-  eslint        = require("lsp.servers.eslint"),        -- JavaScript/TypeScript Linter
   denols        = require("lsp.servers.denols"),        -- Deno Language Server
   html          = require("lsp.servers.html"),          -- HTML Language Serer
   cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS Language Server
@@ -26,6 +25,7 @@ return {
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
+  eslint       = require("lsp.servers.eslint"),         -- JavaScript/TypeScript Linter
   rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
 
   -- Formetter
