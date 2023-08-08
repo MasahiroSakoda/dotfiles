@@ -77,7 +77,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
-    branch = "v2.x",
+    branch = "v3.x",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "kkharji/sqlite.lua",
