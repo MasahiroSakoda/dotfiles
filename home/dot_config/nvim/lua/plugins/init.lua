@@ -344,7 +344,7 @@ return {
   { "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua" },
   { "nvim-telescope/telescope-file-browser.nvim" },
   { "tsakirist/telescope-lazy.nvim" },
-  { "LukasPietzschmann/telescope-tabs",  config = function() require("user.telescope.tabs") end },
+  -- { "LukasPietzschmann/telescope-tabs",  config = function() require("user.telescope.tabs") end },
   { "nvim-telescope/telescope-dap.nvim", config = function() require("user.telescope.dap") end },
 
   ------------------------------------------------------------------------
