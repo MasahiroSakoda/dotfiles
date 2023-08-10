@@ -152,11 +152,11 @@ wk.register({
 wk.register({
   mode   = "n",
   ["<Leader>f"]  = { name = "🔭  Telescope: Fuzzy Finder" },
-  ["<Leader>ff"] = { ":Telescope frecency<CR>",        "   Frecency algorithm Search" },
-  ["<Leader>fF"] = { ":Telescope frecency workspace=", "   Frecency algorithm Search in workspace" },
+  -- ["<Leader>ff"] = { ":Telescope frecency<CR>",        "   Frecency algorithm Search" },
+  -- ["<Leader>fF"] = { ":Telescope frecency workspace=", "   Frecency algorithm Search in workspace" },
   ["<Leader>F"]  = { ":Telescope find_files<CR>",      "   Find files in current directory" },
   ["<Leader>fo"] = { ":Telescope oldfiles<CR>",        "   Recently files" },
-  ["<Leader>fb"] = { ":Telescope file_browser<CR>",    "   File Browser" },
+  -- ["<Leader>fb"] = { ":Telescope file_browser<CR>",    "   File Browser" },
   ["<Leader>fn"] = { ":Telescope notify<CR>",          "   Notification History" },
   ["<Leader>fh"] = { ":Telescope help_tags<CR>",       "   Help via Telescope" },
   ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
@@ -164,7 +164,7 @@ wk.register({
 
   ["<C-g>"]         = { ":Telescope live_grep<CR>",   "   " },
   ["<Leader><C-g>"] = { ":Telescope grep_string<CR>", "   Grep string in working directory" },
-  ["<Leader>fl"] = { ":lua require'telescope'.extensions.lazy.lazy()<CR>", "   lazy.nvim Browser" },
+  -- ["<Leader>fl"] = { ":lua require'telescope'.extensions.lazy.lazy()<CR>", "   lazy.nvim Browser" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -246,11 +246,11 @@ wk.register({
 wk.register({
   mode    = "n",
   ["<Leader>fd"]  = { name = "  Telescope DAP Integration" },
-  ["<Leader>fdc"] = { ":lua require'telescope'.extensions.dap.configurations()<CR>",   "   DAP Configurations" },
-  ["<Leader>fdC"] = { ":lua require'telescope'.extensions.dap.commands()<CR>",         "   DAP Commands" },
-  ["<Leader>fdl"] = { ":lua require'telescope'.extensions.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
-  ["<Leader>fdv"] = { ":lua require'telescope'.extensions.dap.variables()<CR>",        "   Show Variables" },
-  ["<Leader>fdf"] = { ":lua require'telescope'.extensions.dap.frames()<CR>",           "   Show Frames" },
+  -- ["<Leader>fdc"] = { ":lua require'telescope'.extensions.dap.configurations()<CR>",   "   DAP Configurations" },
+  -- ["<Leader>fdC"] = { ":lua require'telescope'.extensions.dap.commands()<CR>",         "   DAP Commands" },
+  -- ["<Leader>fdl"] = { ":lua require'telescope'.extensions.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
+  -- ["<Leader>fdv"] = { ":lua require'telescope'.extensions.dap.variables()<CR>",        "   Show Variables" },
+  -- ["<Leader>fdf"] = { ":lua require'telescope'.extensions.dap.frames()<CR>",           "   Show Frames" },
 }, opts)
 
 ---------------------------------------------------------------------------

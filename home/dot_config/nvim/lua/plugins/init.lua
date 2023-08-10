@@ -335,17 +335,44 @@ return {
       "kyazdani42/nvim-web-devicons",
     },
     cmd    = "Telescope",
+    module = "Telescope",
     config = function() require("user.telescope") end,
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
-  { "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua" },
-  { "nvim-telescope/telescope-file-browser.nvim" },
-  { "tsakirist/telescope-lazy.nvim" },
-  -- { "LukasPietzschmann/telescope-tabs",  config = function() require("user.telescope.tabs") end },
-  { "nvim-telescope/telescope-dap.nvim", config = function() require("user.telescope.dap") end },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    dependencies = { "kkharji/sqlite.lua" },
+    cmd    = "Telescope frecency",
+    keys   = {
+      { "<Leader>ff", "<CMD>Telescope frecency<CR>",            desc = "   Frecency algorithm Search" },
+      { "<Leader>fF", "<CMD>Telescope frecency workspace=<CR>", desc = "   Frecency algorithm Search in workspace" },
+    },
+    config = function() require("user.telescope.frecency") end,
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    keys   = { { "<Leader>fb", "<CMD>Telescope file_browser<CR>", desc = "   File Browser" } },
+    config = function() require("user.telescope.file_browser") end,
+  },
+  {
+    "tsakirist/telescope-lazy.nvim",
+    keys = { { "<Leader>fl", "<CMD>Telescope lazy<CR>", desc = "   lazy.nvim Browser" } },
+    config = function() require("user.telescope.lazy") end,
+  },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    keys = {
+      { "<Leader>fdc", ":lua require'telescope'.extensions.dap.configurations()<CR>",   desc = "   DAP Configurations" },
+      { "<Leader>fdC", ":lua require'telescope'.extensions.dap.commands()<CR>",         desc = "   DAP Commands" },
+      { "<Leader>fdl", ":lua require'telescope'.extensions.dap.list_breakpoints()<CR>", desc = "   Show Breakpoints" },
+      { "<Leader>fdv", ":lua require'telescope'.extensions.dap.variables()<CR>",        desc = "   Show Variables" },
+      { "<Leader>fdf", ":lua require'telescope'.extensions.dap.frames()<CR>",           desc = "   Show Frames" },
+    },
+    config = function() require("user.telescope.dap") end
+  },
 
   ------------------------------------------------------------------------
   -- AI Assistant

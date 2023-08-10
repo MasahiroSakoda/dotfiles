@@ -3,13 +3,9 @@ if not ok then return end
 
 local actions    = require "telescope.actions"
 local layout     = require "telescope.actions.layout"
-local fb_actions = require "telescope._extensions.file_browser.actions"
 
-local fn, cmd = vim.fn, vim.cmd
-local db_root = fn.stdpath("state")
-
-local find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", "{.git,node_modules}" }
-local grep_command = { "rg", "--follow", "--hidden", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--trim" }
+local find_command = require("core.find")
+local grep_command = require("core.grep")
 
 local borderchars = {
   prompt  = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
@@ -107,27 +103,6 @@ telescope.setup({
     live_grep = {
       file_ignore_patterns = { "^.git/", "%.lock" },
     },
-    file_browser = {
-      hidden = true,
-      files  = true,
-      find_command = find_command,
-    },
-    frecency = {
-      hidden = true,
-      files  = true,
-    },
-    lazy = {
-      show_icon = true,
-      mappings = {
-        open_in_browser           = "<C-o>",
-        open_in_file_browser      = "<C-z>",
-        open_in_find_files        = "<C-f>",
-        open_in_live_grep         = "<C-p>",
-        open_plugins_picker       = "<C-g>", -- Works only after having called first another action
-        open_lazy_root_find_files = "<C-r>f",
-        open_lazy_root_live_grep  = "<C-r>g",
-      },
-    },
   },
 
   extensions = {
@@ -137,51 +112,9 @@ telescope.setup({
       override_file_sorter = true,
       case_mode = "smart_case", ---@Usage case_mode: smart_case / respect_case
     },
-
-    file_browser = {
-      layout_strategy  = "horizontal",
-      hijack_netrw = true,
-      -- Keymap
-      mappings = {
-        ["n"] = {
-          -- your custom normal mode mappings
-          ["N"] = fb_actions.create,
-          ["h"] = fb_actions.goto_parent_dir,
-          ["/"] = function()
-            cmd('startinsert')
-          end,
-        },
-        ["i"] = {
-          -- your custom insert mode mappings
-          ["<C-w>"] = function() cmd('normal vbd') end,
-        },
-      },
-      history = { path = db_root .. "/databases/telescope_history.sqlite3", limit = 100 },
-    },
-
-    frecency = {
-      default_workspace = "CWD",
-      db_root = db_root,
-      db_safe_mode     = true,
-      auto_validate    = true,
-      show_scores      = true,
-      show_unindexed   = true,
-      disable_devicons = false,
-      ignore_patterns  = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
-      show_filter_column = { "LSP", "CWD", "VIM" },
-      workspaces = {
-        ["fish"]    = "~/.config/fish",
-        ["nvim"]    = "~/.config/nvim",
-        ["lazy"]    = "~/.local/share/nvim/lazy",
-        ["project"] = "~/Dev",
-        ["doc"]    = "~/Documents",
-      },
-    },
   }
 })
 
 -- Load Extensions
 telescope.load_extension("fzf")
-telescope.load_extension("frecency")
-telescope.load_extension("file_browser")
 telescope.load_extension("notify")
