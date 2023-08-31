@@ -200,8 +200,8 @@ return {
   { "hrsh7th/cmp-nvim-lua", ft = "lua" },
   { "mtoohey31/cmp-fish",   ft = "fish" },
 
-  { "hrsh7th/cmp-path",            event = { "InsertEnter", "CmdlineEnter" } },
-  { "hrsh7th/cmp-buffer",          event = { "InsertEnter", "CmdlineEnter" } },
+  -- { "hrsh7th/cmp-path",            event = { "InsertEnter", "CmdlineEnter" } },
+  -- { "hrsh7th/cmp-buffer",          event = { "InsertEnter", "CmdlineEnter" } },
   { "tzachar/cmp-fuzzy-path",      event = { "InsertEnter", "CmdlineEnter" } },
   { "hrsh7th/cmp-cmdline",         event = "CmdlineEnter" },
   { "dmitmel/cmp-cmdline-history", event = "CmdlineEnter" },
