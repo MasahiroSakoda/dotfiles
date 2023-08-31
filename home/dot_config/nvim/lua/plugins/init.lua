@@ -421,13 +421,6 @@ return {
   ------------------------------------------------------------------------
   -- Others
   ------------------------------------------------------------------------
-  { "tyru/open-browser.vim", cmd = { "OpenBrowser", "OpenBrowserSearch" } },
-  {
-    "tyru/open-browser-github.vim",
-    dependencies = { "tyru/open-browser.vim" },
-    cmd = { "OpenGithubProject", "OpenGithubFile", "OpenGithubIssue", "OpenGithubCommit", "OpenGithubPullReq" },
-  },
-
   -- Translate Engine
   { "potamides/pantran.nvim", cmd = "Pantran", config = function() require("user.pantran") end },
 
