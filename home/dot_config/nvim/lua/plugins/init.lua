@@ -111,11 +111,6 @@ return {
     config = function() require("user.dial") end,
   },
   {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    config = function() require("ui.flash") end,
-  },
-  {
     "windwp/nvim-autopairs", -- autopair: like if/end
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
