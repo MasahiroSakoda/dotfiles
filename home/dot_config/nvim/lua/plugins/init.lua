@@ -271,10 +271,7 @@ return {
       },
       { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
-      { "RRethy/nvim-treesitter-endwise" },
       { "HiPhish/nvim-ts-rainbow2" },
-      { "windwp/nvim-ts-autotag", ft = filetypes.autotag },
-      { "andymass/vim-matchup" },
     },
     build  = function()
       if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end
@@ -282,6 +279,9 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter") end,
   },
+  { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
+  { "RRethy/nvim-treesitter-endwise", ft = filetypes.endwise },
+  { "andymass/vim-matchup",           ft = filetypes.matchup },
   {
     "numToStr/Comment.nvim",
     event  = { "BufReadPost", "BufNewFile" },

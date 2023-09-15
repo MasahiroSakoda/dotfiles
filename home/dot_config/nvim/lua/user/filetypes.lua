@@ -50,6 +50,21 @@ Filetypes.autotag = {
   "javascriptreact", "typescriptreact", "markdown",
 }
 
+Filetypes.endwise = {
+  "lua", "vim", "ruby", "elixir" ,"bash",  "fish",
+}
+
+Filetypes.matchup = {
+  "sh", "bash", "csh", "zsh",
+  "vim", "lua",
+  "make", "cmake",
+  "c", "cpp",
+  "ruby", "eruby",
+  "perl", "php",
+  "javascript", "javascriptreact", "typescriptreact",
+  "html", "xhtml", "xml", "haml",
+}
+
 Filetypes.lsp = {
   clang_format = { ".clang_format" },
   stylua   = { "stylua.toml", ".stylua.toml" },
