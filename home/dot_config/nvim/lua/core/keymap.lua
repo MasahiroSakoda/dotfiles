@@ -158,9 +158,20 @@ wk.register({
   ["<Leader>fh"] = { ":Telescope help_tags<CR>",       "   Help via Telescope" },
   ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
   ["<Leader>P"]  = { ":Lazy<CR>",                      "   Open lazy.nvim Window" },
-
   ["<C-g>"]         = { ":Telescope live_grep<CR>",   "   " },
   ["<Leader><C-g>"] = { ":Telescope grep_string<CR>", "   Grep string in working directory" },
+
+  ["<Leader>ff"] = { ":Telescope frecency<CR>",            "   Frecency algorithm Search" },
+  ["<Leader>fF"] = { ":Telescope frecency workspace=<CR>", "   Frecency algorithm Search in workspace" },
+
+  ["<Leader>fb"] = { ":Telescope file_browser", "   File Browser" },
+  ["<Leader>fl"] = { ":Telescope lazy",         "   lazy.nvim Browser" },
+
+  ["<Ldeader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   dap configurations" },
+  ["<Ldeader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
+  ["<Ldeader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
+  ["<Ldeader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
+  ["<Ldeader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>", "   Show Frames" },
 }, opts)
 
 ---------------------------------------------------------------------------
