@@ -45,11 +45,12 @@ dashboard.section.header.val = {
 
 -- Buttons
 dashboard.section.buttons.val = {
-  dashboard.button("n", "    New file",      ":ene <BAR> startinsert <CR>"),
-  dashboard.button("r", "    Recent files",  ":Telescope oldfiles only_cwd=true<CR>"),
-  dashboard.button("f", "    Find files",    ":Telescope find_files<CR>"),
-  dashboard.button("g", "    Grep search",   ":Telescope live_grep<CR>"),
-  dashboard.button("F", "    Find word",     ":Telescope grep_string<CR>"),
+  dashboard.button("n", "    New file",        ":ene <BAR> startinsert <CR>"),
+  dashboard.button("f", "    Frecency Search", ":Telescope frecency<CR>"),
+  dashboard.button("F", "    Find files",      ":Telescope find_files<CR>"),
+  dashboard.button("r", "    Recent files",    ":Telescope oldfiles only_cwd=true<CR>"),
+  dashboard.button("g", "    Grep search",     ":Telescope live_grep<CR>"),
+  dashboard.button("G", "    Find word",       ":Telescope grep_string<CR>"),
   -- dashboard.button("p", "    Find project",  ":lua require('telescope').extensions.projects.projects()<CR>"),
   dashboard.button("q", "    Quit NVIM",     ":qa<CR>"),
 }
