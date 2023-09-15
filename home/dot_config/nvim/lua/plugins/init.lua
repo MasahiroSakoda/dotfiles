@@ -37,7 +37,6 @@ return {
   -- colorscheme
   { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
   { "folke/tokyonight.nvim" },
-  { "rebelot/kanagawa.nvim" },
 
   {
     "NvChad/nvim-colorizer.lua", -- Color code viewer
