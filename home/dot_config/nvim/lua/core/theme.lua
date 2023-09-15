@@ -3,12 +3,11 @@ local fn, api = vim.fn, vim.api
 -- Color Schemes
 ---@Usage for nightfox: nightfox/dayfox/dawnfox/duskfox/nordfox/terafox/carbonfox
 ---@Usage for tokyonight: tokyonight-night/tokyonight-storm/tokyonight-day/tokyonight-moon
----@Usage for kanagawa: kanagawa-wave/kanagawa-dragon/kanagawa-lotus
 
 -- Disable changing color scheme cause by this segment
 -- https://blog.atusy.net/2022/12/17/styler-nvim-active-win/
 local ACTIVE_COLORSCHEME   = "nightfox"
-local INACTIVE_COLORSCHEME = "kanagawa-dragon"
+local INACTIVE_COLORSCHEME = "carbonfox"
 vim.cmd.colorscheme(ACTIVE_COLORSCHEME)
 
 local styler_ok, styler = pcall(require, "styler")
