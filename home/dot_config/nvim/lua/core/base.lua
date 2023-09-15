@@ -24,6 +24,9 @@ opt.visualbell = true
 -- Clipboard
 opt.clipboard = "unnamedplus"
 
+-- Sroll
+opt.scrolloff  = 2
+
 -- Tab
 opt.smarttab  = true
 opt.expandtab = true

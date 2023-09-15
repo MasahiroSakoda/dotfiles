@@ -7,8 +7,6 @@ opt.ignorecase = true
 opt.smartcase  = true
 opt.wrapscan   = true
 
-opt.scrolloff  = 4
-
 local executable = function(e)
   return fn.executable(e) > 0
 end
