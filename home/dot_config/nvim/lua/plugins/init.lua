@@ -423,14 +423,6 @@ return {
     config = function() require("ai.neoai") end,
   },
 
-  -- Multi-backend supported AI: ChatGPT, GPT-4, BingAI
-  {
-    "archibate/nvim-gpt",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    cmd = { "GPTModel", "GPTOpen", "GPTClose", "GPTToggle", "GPTCode" },
-    config = function() require("ai.nvim-gpt") end,
-  },
-
   ------------------------------------------------------------------------
   -- Others
   ------------------------------------------------------------------------
