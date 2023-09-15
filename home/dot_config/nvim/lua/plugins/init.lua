@@ -271,13 +271,17 @@ return {
       },
       { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
-      { "HiPhish/nvim-ts-rainbow2" },
     },
     build  = function()
       if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end
     end,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter") end,
+  },
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    event = "VeryLazy",
+    config = function() require("ui.rainbow-delimiters") end,
   },
   { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
   { "RRethy/nvim-treesitter-endwise", ft = filetypes.endwise },

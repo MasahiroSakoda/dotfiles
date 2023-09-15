@@ -29,14 +29,6 @@ treesitter.setup({
     additional_vim_regex_highlighting = true,
   },
   indent  = enable,
-  rainbow = {
-    enable = true,
-    disable = {},
-    extend_mode = true,
-    max_file_lines = 1000,
-    -- colors = {},
-    -- termcolors = {},
-  },
 
   textobjects = {
     select = {
