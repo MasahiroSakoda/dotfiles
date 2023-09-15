@@ -36,7 +36,6 @@ return {
   { "folke/styler.nvim", cmd = "Styler", config = function() require("ui.styler") end },
   -- colorscheme
   { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
-  { "folke/tokyonight.nvim" },
 
   {
     "NvChad/nvim-colorizer.lua", -- Color code viewer
