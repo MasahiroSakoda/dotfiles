@@ -52,6 +52,7 @@ return {
   },
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
+    cond   = not is_vscode,
     event  = "SearchWrapped",
     config = function() require("ui.hlslens") end,
   },
@@ -61,6 +62,7 @@ return {
       "kevinhwang91/nvim-hlslens",
       "lewis6991/gitsigns.nvim",
     },
+    cond   = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.scrollbar") end,
   },
