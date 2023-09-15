@@ -125,12 +125,6 @@ return {
   -- *-Improved
   { "haya14busa/vim-asterisk", event = { "BufReadPost", "BufNewFile" } },
 
-  {
-    "RaafatTurki/hex.nvim", -- Hexadecimal Editor
-    cmd    = { "HexDump", "HexAssemble", "HexToggle" },
-    config = function() require("hex").setup() end,
-  },
-
   -- File specific Highlighter
   { "MTDL9/vim-log-highlighting",  ft = { "log", "txt", "text" } },
   { "Decodetalkers/csv-tools.lua", ft = "csv" },
