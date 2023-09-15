@@ -1,3 +1,3 @@
 function ls
-  command exa -a --color=automatic --group-directories-first $argv
+  command eza -a --grid --icons --color=automatic --group-directories-first --git-ignore $argv
 end
