@@ -10,7 +10,6 @@ return {
   { "MunifTanjim/nui.nvim" },
   { "kyazdani42/nvim-web-devicons" },
   { "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
-  { "nathom/filetype.nvim",   config = function() require("core.filetype") end },
 
   ------------------------------------------------------------------------
   -- Vim
