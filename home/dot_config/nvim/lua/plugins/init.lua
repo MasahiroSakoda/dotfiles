@@ -213,7 +213,7 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     -- WARN: Build not woring
     -- build = "make install_jsregexp",
-    event = "InsertEnter",
+    event  = "InsertEnter",
     config = function ()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("lsp.cmp.luasnip")
@@ -280,7 +280,7 @@ return {
   },
   {
     "hiphish/rainbow-delimiters.nvim",
-    event = "VeryLazy",
+    event  = "VeryLazy",
     config = function() require("ui.rainbow-delimiters") end,
   },
   { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
