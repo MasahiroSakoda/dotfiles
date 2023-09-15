@@ -1,4 +1,5 @@
 local filetypes = require("user.filetypes")
+local is_vscode = vim.g.vscode
 return {
   ------------------------------------------------------------------------
   -- Libraries
@@ -20,6 +21,7 @@ return {
   {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "kyazdani42/nvim-web-devicons" },
+    cond   = not is_vscode,
     event  = "BufWinEnter",
     config = function() require("ui.alpha") end,
   },
@@ -47,6 +49,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim", -- Indent guides
     event  = { "BufReadPost", "BufNewFile" },
+    cond   = not is_vscode,
     config = function() require("ui.indent-blankline") end,
   },
   {
@@ -72,6 +75,7 @@ return {
   {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "kyazdani42/nvim-web-devicons" },
+    cond   = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
@@ -140,6 +144,7 @@ return {
       { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
       { "williamboman/mason-lspconfig.nvim" },
     },
+    cond   = not is_vscode,
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
   },
@@ -153,6 +158,7 @@ return {
   {
     "SmiteshP/nvim-navic",
     dependencies = { "neovim/nvim-lspconfig" },
+    cond   = not is_vscode,
     config = function() require("lsp.config.navic") end,
   },
   {
@@ -178,6 +184,7 @@ return {
   {
     "folke/trouble.nvim", -- Display diagnostics
     dependencies = { "kyazdani42/nvim-web-devicons" },
+    cond   = not is_vscode,
     cmd    = { "TroubleToggle", "Trouble" },
     config = function() require("lsp.config.trouble") end,
   },
@@ -187,6 +194,7 @@ return {
   ------------------------------------------------------------------------
   {
     "hrsh7th/nvim-cmp", -- Completion Engine
+    cond   = not is_vscode,
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
   },
@@ -194,7 +202,11 @@ return {
   { "hrsh7th/cmp-nvim-lsp-signature-help",  event = "InsertEnter" },
   { "hrsh7th/cmp-nvim-lsp-document-symbol", event = "InsertEnter" },
   { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
-  { "onsails/lspkind.nvim", event = "InsertEnter" },
+  {
+    "onsails/lspkind.nvim",
+    cond  = not is_vscode,
+    event = "InsertEnter",
+  },
   -- { "hrsh7th/cmp-omni" },
 
   { "hrsh7th/cmp-nvim-lua", ft = "lua" },
@@ -207,12 +219,17 @@ return {
   { "dmitmel/cmp-cmdline-history", event = "CmdlineEnter" },
   { "tzachar/cmp-fuzzy-buffer",    event = { "InsertEnter", "CmdlineEnter" } },
 
-  { "saadparwaiz1/cmp_luasnip", event = { "InsertEnter", "CmdlineEnter" } },
+  {
+    "saadparwaiz1/cmp_luasnip",
+    cond  = not is_vscode,
+    event = { "InsertEnter", "CmdlineEnter" },
+  },
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
     -- WARN: Build not woring
     -- build = "make install_jsregexp",
+    cond   = not is_vscode,
     event  = "InsertEnter",
     config = function ()
       require("luasnip.loaders.from_vscode").lazy_load()
@@ -230,6 +247,7 @@ return {
     "jcdickinson/codeium.nvim",
     dependencies = { "jcdickinson/http.nvim", build = "cargo build --workspace --release" },
     build  = ":Codeium Auth",
+    cond   = not is_vscode,
     config = function() require("lsp.cmp.codeium") end,
   },
   ------------------------------------------------------------------------
@@ -241,6 +259,7 @@ return {
       { "theHamsta/nvim-dap-virtual-text", config = function() require("dap.config.virtual_text") end },
       { "rcarriga/nvim-dap-ui",            config = function() require("dap.config.ui") end },
     },
+    cond   = not is_vscode,
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
     config = function() require("dap.config") end,
   },
@@ -275,11 +294,13 @@ return {
     build  = function()
       if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end
     end,
+    cond   = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter") end,
   },
   {
     "hiphish/rainbow-delimiters.nvim",
+    cond   = is_vscode,
     event  = "VeryLazy",
     config = function() require("ui.rainbow-delimiters") end,
   },
@@ -309,6 +330,7 @@ return {
   {
     "m-demare/hlargs.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
+    cond = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter.hlargs") end,
   },
@@ -325,6 +347,7 @@ return {
   {
     "folke/todo-comments.nvim", -- Comment Hilighter
     dependencies = { "nvim-lua/plenary.nvim" },
+    cond   = not is_vscode,
     cmd    = "TodoTelescope",
     config = function() require("todo-comments").setup() end,
   },
