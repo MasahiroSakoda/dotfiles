@@ -17,5 +17,3 @@ telescope.setup({
     },
   },
 })
-
-telescope.load_extension("lazy")
