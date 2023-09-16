@@ -243,22 +243,44 @@ return {
   ------------------------------------------------------------------------
   {
     "mfussenegger/nvim-dap",
-    dependencies = {
-      { "theHamsta/nvim-dap-virtual-text", config = function() require("dap.config.virtual_text") end },
-      { "rcarriga/nvim-dap-ui",            config = function() require("dap.config.ui") end },
-    },
     cond   = not is_vscode,
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
     config = function() require("dap.config") end,
   },
-  { "jbyuki/one-small-step-for-vimkind", ft = "lua",        config = function() require("dap.adapters.lua") end },
-  { "leoluz/nvim-dap-go",                ft = "go",         config = function() require("dap.adapters.go") end },
-  { "mfussenegger/nvim-dap-python",      ft = "python",     config = function() require("dap.adapters.python") end },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    cond   = not is_vscode,
+    config = function() require("dap.config.virtual_text") end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    cond   = not is_vscode,
+    config = function() require("dap.config.ui") end,
+  },
+  {
+    "jbyuki/one-small-step-for-vimkind",
+    ft     = "lua",
+    cond   = not is_vscode,
+    config = function() require("dap.adapters.lua") end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft     = "go",
+    cond   = not is_vscode,
+    config = function() require("dap.adapters.go") end,
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft     = "python",
+    cond   = not is_vscode,
+    config = function() require("dap.adapters.python") end,
+  },
 
   {
     "microsoft/vscode-js-debug",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
     ft    = filetypes.js,
+    cond  = not is_vscode,
   },
   {
     "mxsdev/nvim-dap-vscode-js",
