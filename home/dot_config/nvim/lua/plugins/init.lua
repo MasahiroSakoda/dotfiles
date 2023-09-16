@@ -140,6 +140,7 @@ return {
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    cond   = not is_vscode,
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
