@@ -312,7 +312,7 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim",
     cond   = is_vscode,
-    event  = "VeryLazy",
+    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.rainbow-delimiters") end,
   },
   { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
