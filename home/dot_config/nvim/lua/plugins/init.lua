@@ -299,7 +299,6 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function() require("user.treesitter.textobjects") end,
       },
-      { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
     },
     build  = function()
