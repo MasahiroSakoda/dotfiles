@@ -345,8 +345,6 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter.hlargs") end,
   },
-  -- Hilighter for current cursor scope
-  { "folke/twilight.nvim", cmd = "Twilight", config = function() require("twilight").setup() end },
   -- {
   --   "danymat/neogen", -- annotation generator
   --   dependencies = "nvim-treesitter/nvim-treesitter",
