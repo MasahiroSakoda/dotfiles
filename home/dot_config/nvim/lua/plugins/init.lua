@@ -320,7 +320,7 @@ return {
   {
     "numToStr/Comment.nvim",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.treesitter.Comment") end,
+    config = function() require("Comment") end,
   },
   {
     "RRethy/vim-illuminate",
