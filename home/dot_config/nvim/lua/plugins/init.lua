@@ -299,6 +299,7 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function() require("user.treesitter.textobjects") end,
       },
+      { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
     },
     build  = function()
@@ -320,7 +321,7 @@ return {
   {
     "numToStr/Comment.nvim",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("Comment") end,
+    config = function() require("user.treesitter.comment") end,
   },
   {
     "RRethy/vim-illuminate",
