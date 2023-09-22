@@ -115,8 +115,8 @@ wk.register({
 -- Line Number
 ---------------------------------------------------------------------------
 local number = require("core.number")
-keymap("n", "\\n", number.toggleLineNumber,     { desc = "   Toggle Line Number" })
-keymap("n", "\\N", number.toggleRelativeNumber, { desc = "   Toggle Relatieve Number" })
+keymap("n", ",n", number.toggleLineNumber,     { desc = "   Toggle Line Number" })
+keymap("n", ",N", number.toggleRelativeNumber, { desc = "   Toggle Relatieve Number" })
 
 ---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin
@@ -309,6 +309,6 @@ keymap("n",     "gs", ":OpenBrowserSearch<Space>",        { desc = "   Google
 keymap("n", ",h",  "<CMD>HexToggle",              { desc = "   Toggle hex editor" })
 keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
 keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
-keymap("n", ",n",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
+keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
 keymap("n", "\\t", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })

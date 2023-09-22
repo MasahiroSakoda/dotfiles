@@ -18,11 +18,8 @@ Number.toggleLineNumber = function()
 end
 
 Number.toggleRelativeNumber = function()
-  if opt.relativenumber == true then
-    opt.relativenumber = false
-  else
-    opt.relativenumber = true
-  end
+  vim.o.signcolumn = vim.o.signcolumn == "yes" and "no" or "yes"
+  vim.o.relativenumber = not vim.o.relativenumber
 end
 
 return Number
