@@ -5,7 +5,7 @@ opt.shell = "fish"
 
 -- Line Numbers
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.numberwidth = 2
 -- display line number for help
 vim.cmd[[autocmd! FileType help setlocal number]]
