@@ -391,10 +391,7 @@ return {
     "tsakirist/telescope-lazy.nvim",
     config = function() require("user.telescope.lazy") end,
   },
-  {
-    "nvim-telescope/telescope-dap.nvim",
-    config = function() require("user.telescope.dap") end
-  },
+  { "nvim-telescope/telescope-dap.nvim" },
 
   ------------------------------------------------------------------------
   -- AI Assistant
