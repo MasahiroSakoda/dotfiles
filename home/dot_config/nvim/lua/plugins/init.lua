@@ -136,9 +136,9 @@ return {
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
   },
-  -- TODO: replace with alternative
+  -- INFO: null-ls.nvim alternative
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cond   = not is_vscode,
     event  = { "BufReadPre", "BufNewFile" },
