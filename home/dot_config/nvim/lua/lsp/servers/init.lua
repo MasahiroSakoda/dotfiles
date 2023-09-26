@@ -16,7 +16,7 @@ return {
   marksman      = require("lsp.servers.marksman"),      -- Markdown Language Server
   cmake         = require("lsp.servers.cmake"),         -- CMake Language Serevr
   dockerls      = require("lsp.servers.dockerls"),      -- Docker Language Server
-  -- terraformls   = require("lsp.servers.terraformls"),   -- Terraform Language Server
+  terraformls   = require("lsp.servers.terraformls"),   -- Terraform Language Server
   sqlls         = require("lsp.servers.sqlls"),         -- SQL Language Server
   vimls         = require("lsp.servers.vimls"),         -- VimScript Language Server
 
