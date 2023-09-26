@@ -75,7 +75,7 @@ Filetypes.lsp = {
 }
 
 Filetypes.tabnine = {
-  "rs", "go", "*.sh", "*.py", "*.rb", "*.lua",
+  "*.rs", "*.go", "*.sh", "*.py", "*.rb", "*.lua",
   "*.html", "*.css", "*.scss",
   "*.js", "*.jsx", "*.ts", "*.tsx",
 }

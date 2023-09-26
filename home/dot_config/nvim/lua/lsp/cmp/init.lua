@@ -93,7 +93,7 @@ cmp.setup({
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require('cmp_tabnine.compare'),
+      require('cmp_tabnine.compare'),
       require("cmp_fuzzy_path.compare"),
       require("cmp_fuzzy_buffer.compare"),
       compare.offset,
