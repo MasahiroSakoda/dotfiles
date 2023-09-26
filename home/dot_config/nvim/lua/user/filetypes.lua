@@ -67,10 +67,11 @@ Filetypes.matchup = {
 
 Filetypes.lsp = {
   clang_format = { ".clang_format" },
-  stylua   = { "stylua.toml", ".stylua.toml" },
-  rubocop  = { ".rubocop.yml" },
-  prettier = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
-  eslint   = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
+  stylua       = { "stylua.toml", ".stylua.toml" },
+  rubocop      = { ".rubocop.yml" },
+  prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
+  eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
+  terraform    = { "terraform", "tf" },
 }
 
 Filetypes.tabnine = {
