@@ -29,6 +29,7 @@ return {
   rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
 
   -- Formetter
+  clang_format  = {}, -- C, C++, Obj-C, Java, JS, C#, etc..
   beautysh      = {}, -- Sh, Bash, Zsh, Csh, Ksh
   shfmt         = {}, -- Sh, Bash
   jq            = {}, -- JSON
