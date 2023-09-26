@@ -235,10 +235,11 @@ return {
     config = function() require("lsp.cmp.tabnine") end,
   },
   {
-    "jcdickinson/codeium.nvim",
+    "Exafunction/codeium.nvim",
     dependencies = { "jcdickinson/http.nvim", build = "cargo build --workspace --release" },
     build  = ":Codeium Auth",
     cond   = not is_vscode,
+    -- event  = "InsertEnter",
     config = function() require("lsp.cmp.codeium") end,
   },
   ------------------------------------------------------------------------
