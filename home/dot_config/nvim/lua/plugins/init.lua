@@ -230,6 +230,8 @@ return {
   {
     "tzachar/cmp-tabnine",
     build  = "./install.sh",
+    -- event  = "InsertEnter",
+    -- cond   = not is_vscode,
     config = function() require("lsp.cmp.tabnine") end,
   },
   {
