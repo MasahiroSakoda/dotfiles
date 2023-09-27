@@ -12,3 +12,11 @@
 [alacritty]
     theme = "dracula"
     opacity = 0.75
+
+[rtx.version]
+    node   = "20.7.0"
+    deno   = "1.37.1"
+    bun    = "1.0.3"
+    python = "3.11.5"
+    poetry = "1.6.1"
+    ruby   = "3.2.2"
