@@ -57,8 +57,6 @@ if type -q rtx
   rtx completion fish | source
 end
 
-set -gx RTX_LOG_LEVEL debug
-
 # Ruby
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3)"
 
