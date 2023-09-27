@@ -188,6 +188,27 @@ abbr -a nt npm run test
 abbr -a nb npm run build
 abbr -a nd npm run dev
 
+## pnpm
+abbr -a p pnpm
+abbr -a pa pnpm add
+abbr -a pe pnpm exec
+abbr -a ph pnpm help
+abbr -a pi pnpm install
+abbr -a pim pnpm import
+abbr -a pls pnpm ls
+abbr -a psa pnpm store add
+abbr -a psp pnpm store prune
+abbr -a pss pnpm store status
+abbr -a pst pnpm start
+abbr -a pt pnpm test
+
+### pnpm scripts
+abbr -a pb pnpm build
+abbr -a pr pnpm rebuild
+abbr -a pd pnpm dev
+abbr -a pe pnpm e2e
+abbr -a pu pnpm unit
+
 ## yarn
 abbr -a y yarn
 abbr -a ya yarn add
