@@ -203,6 +203,12 @@ abbr -a ys yarn server
 abbr -a yu yarn ui
 abbr -a yw yarn web
 
+## deno
+abbr -a dn deno
+abbr -a dnh "deno help | bat"
+abbr -a dnt deno task
+abbr -a dnr deno run
+
 # Rails
 abbr -a rn rails new
 abbr -a rr rails routes
