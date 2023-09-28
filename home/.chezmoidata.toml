@@ -15,6 +15,7 @@
 
 [rtx.version]
     node   = "20.7.0"
+    pnpm   = "latest"
     deno   = "1.37.1"
     bun    = "1.0.3"
     python = "3.11.5"
