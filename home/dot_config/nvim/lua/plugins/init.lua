@@ -45,8 +45,10 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim", -- Indent guides
-    event  = { "BufReadPost", "BufNewFile" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    main   = "ibl",
     cond   = not is_vscode,
+    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.indent-blankline") end,
   },
   {

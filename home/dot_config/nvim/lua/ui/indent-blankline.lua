@@ -1,50 +1,56 @@
-local ok, ib =  pcall(require, "indent_blankline")
+local ok, ibl = pcall(require, "ibl")
 if not ok then return end
 
-local cmd = vim.cmd
+local highlight = {
+  "RainbowRed",
+  "RainbowYellow",
+  "RainbowBlue",
+  "RainbowOrange",
+  "RainbowGreen",
+  "RainbowViolet",
+  "RainbowCyan",
+}
 
--- With custom background highlight
--- cmd[[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
--- cmd[[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  vim.api.nvim_set_hl(0, "RainbowRed",    { fg = "#E06C75" })
+  vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+  vim.api.nvim_set_hl(0, "RainbowBlue",   { fg = "#61AFEF" })
+  vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+  vim.api.nvim_set_hl(0, "RainbowGreen",  { fg = "#98C379" })
+  vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+  vim.api.nvim_set_hl(0, "RainbowCyan",   { fg = "#56B6C2" })
+end)
 
--- With custom g:indent_blankline_char_highlight_list
-cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-
-
-ib.setup({
-  char = "┊",
-  buftype_exclude  = { "terminal", "nofile" },
-  filetype_exclude = { "help", "lazy", "alpha", "neo-tree", "Trouble" },
-  --[[ With custom background highlight
-  char = "",
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
+vim.g.rainbow_delimiters = { highlight = highlight }
+ibl.setup({
+  indent = {
+    char    = "┊",
+    tabchar = ">",
+    smart_indent_cap = true,
   },
-  space_char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
+  scope  = { highlight = highlight },
+  exclude = {
+    filetypes = {
+      "help",
+      "man",
+      "alpha",
+      "neo-tree",
+      "Trouble",
+      "lazy",
+      "mason",
+      "notify",
+      "qf",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "toggleterm",
+    },
+    buftypes = {
+      "terminal",
+      "nofile",
+    },
   },
-  show_trailing_blankline_indent = false,
-  ]]
-
-  char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
-  },
-
-  -- With context indent highlighted by treesitter
-  space_char_blankline       = " ",
-  show_current_context       = true,
-  show_current_context_start = true,
-
 })
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
