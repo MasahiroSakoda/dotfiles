@@ -52,10 +52,10 @@ set -x GREP_OPTIONS "--color=always"
 source (brew --prefix asdf)/libexec/asdf.fish
 
 # rtx
-if type -q rtx
-  rtx activate fish | source
-  rtx completion fish | source
-end
+# if type -q rtx
+#   rtx activate fish | source
+#   rtx completion fish | source
+# end
 
 # Ruby
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3)"
