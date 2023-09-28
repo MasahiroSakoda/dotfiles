@@ -34,4 +34,7 @@ while read plugin version; do
   echo "${plugin} ${version} is activated"
 done < ~/.tool-versions
 
+# pnpm completion for fish
+$(command -v pnpm) install-completion fish || true
+
 asdf current
