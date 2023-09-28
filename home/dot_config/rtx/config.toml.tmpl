@@ -1,0 +1,57 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[env]
+# supports arbitrary env vars so rtx can be used like direnv/dotenv
+# NODE_ENV = 'production'
+
+[tools]
+nodejs = "{{ .rtx.version.node }}"
+pnpm   = "{{ .rtx.version.pnpm }}"
+deno   = "{{ .rtx.version.deno }}"
+bun    = "{{ .rtx.version.bun }}"
+python = "{{ .rtx.version.python }}"
+poetry = "{{ .rtx.version.poetry }}"
+ruby   = "{{ .rtx.version.ruby }}"
+
+# supports everything you can do with .tool-versions currently
+# nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
+
+# send arbitrary options to the plugin, passed as:
+# RTX_TOOL_OPTS__VENV=.venv
+# python = {version='3.10', virtualenv='.venv'}
+
+[plugins]
+# specify a custom repo url
+# note this will only be used if the plugin does not already exist
+# python = 'https://github.com/jdxcode/rtx-python'
+pnpm   = "https://github.com/jonathanmorley/asdf-pnpm"
+deno   = "https://github.com/asdf-community/asdf-deno"
+bun    = "https://github.com/cometkim/asdf-bun"
+poetry = "https://github.com/asdf-community/asdf-poetry"
+
+[settings]
+# plugins can read the versions files used by other version managers (if enabled by the plugin)
+# for example, .nvmrc in the case of node's nvm
+legacy_version_file = true                     # enabled by default (unlike asdf)
+legacy_version_file_disable_tools = ['python'] # disable for specific tools
+
+# configure `rtx install` to always keep the downloaded archive
+always_keep_download = true        # deleted after install by default
+always_keep_install = false         # deleted on failure by default
+
+# configure how frequently (in minutes) to fetch updated plugin repository changes
+# this is updated whenever a new runtime is installed
+# (note: this isn't currently implemented but there are plans to add it: https://github.com/jdx/rtx/issues/128)
+plugin_autoupdate_last_check_duration = '1 week' # set to 0 to disable updates
+
+# config files with these prefixes will be trusted by default
+trusted_config_paths = [
+]
+
+verbose = false     # set to true to see full installation output, see `RTX_VERBOSE`
+asdf_compat = false # set to true to ensure .tool-versions will be compatible with asdf, see `RTX_ASDF_COMPAT`
+jobs = 4            # number of plugins or runtimes to install in parallel. The default is `4`.
+raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
+yes = false         # set to true to automatically answer yes to all prompts
+
+experimental = true
