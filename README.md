@@ -250,6 +250,7 @@ Programming language version management tool
   * [`Poetry`](https://github.com/python-poetry/poetry)
 * [**`asdf-ruby`**](https://github.com/asdf-vm/asdf-ruby)
 * [**`asdf-nodejs`**](https://github.com/asdf-vm/asdf-nodejs)
+* [**`asdf-pnpm`**](https://github.com/jonathanmorley/asdf-pnpm)
 * [**`asdf-deno`**](https://github.com/asdf-community/asdf-deno)
 
 ### Homebrew cask packages
