@@ -18,5 +18,5 @@
     deno   = "1.37.1"
     bun    = "1.0.3"
     python = "3.11.5"
-    poetry = "1.6.1"
+    poetry = "latest"
     ruby   = "3.2.2"
