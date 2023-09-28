@@ -14,25 +14,8 @@ export LDFLAGS="-L$(brew --prefix openssl)/lib"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
 # install from ~/.tool-versions
-while read plugin version; do
-  if asdf plugin-list | grep --silent $plugin; then
-    echo "asdf plugin \"${plugin}\" is already installed"
-    echo "asdf plugin \"${plugin}\" updating..."
-    asdf plugin-update ${plugin}
-  else
-    echo "installing ${plugin}..."
-    asdf plugin-add ${plugin}
-  fi
-
-  if ! asdf current ${python} | grep -Fq ${version}; then
-    asdf install ${plugin} ${version}
-    echo "${plugin} installed to $(which ${plugin})"
-
-    asdf global ${plugin} ${version}
-  fi
-  asdf reshim ${plugin} ${version}
-  echo "${plugin} ${version} is activated"
-done < ~/.tool-versions
+cut -d' ' -f1 ${HOME}/.tool-versions | xargs -I{} asdf plugin add {} || true
+asdf install
 
 # pnpm completion for fish
 $(command -v pnpm) install-completion fish || true
