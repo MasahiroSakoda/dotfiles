@@ -7,16 +7,17 @@ set -eo pipefail
 {{ template "common/script_sudo" . }}
 
 # Install Homebrew
-if ! command -v brew > /dev/null 2>&1 && [ -f "$HOME/.config/homebrew/Brewfile" ]; then
+BREW_DIR="$HOME/.config/homebrew"
+if ! command -v brew > /dev/null 2>&1 && [ -f "$BREW_DIR/Brewfile" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Install Homebrew packages
-brew bundle -v --file="$HOME/.Brewfile"
+brew bundle -v --file="$BREW_DIR/Brewfile"
 
 {{ if not .headless }}
-brew bundle -v --file="$HOME/.Caskfile"
-brew bundle -v --file="$HOME/.Masfile"
+brew bundle -v --file="$BREW_DIR/Caskfile"
+brew bundle -v --file="$BREW_DIR/Masfile"
 {{ end }}
 
 brew list
