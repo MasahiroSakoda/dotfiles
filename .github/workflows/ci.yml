@@ -27,7 +27,7 @@ jobs:
     # https://qiita.com/qualitia_cdev/items/407b0df9c0a0f0f45bbc
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Restore Homebrew cache
         uses: actions/cache/restore@v3
