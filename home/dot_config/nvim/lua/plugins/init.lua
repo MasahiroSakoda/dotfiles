@@ -335,11 +335,6 @@ return {
   },
   {
     "Wansmer/treesj",
-    keys   = {
-      { "<Leader>m", "<CMD>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
-      { "<Leader>J", "<CMD>TSJJoin<CR>",   desc = "Treesitter Join" },
-      { "<Leader>S", "<CMD>TSJSplit<CR>",  desc = "Treesitter Split" },
-    },
     cmd    =  { "TSJToggle", "TSJJoin", "TSJSplit" },
     config = function() require("user.treesitter.treesj") end,
   },

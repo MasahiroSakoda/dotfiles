@@ -310,5 +310,6 @@ keymap("n", ",h",  "<CMD>HexToggle",              { desc = "   Toggle hex edi
 keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
 keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
 keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
+keymap("n", ",m",  "<CMD>TSJToggle<CR>",          { desc = "Toggle node under cursor" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
 keymap("n", "\\t", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
