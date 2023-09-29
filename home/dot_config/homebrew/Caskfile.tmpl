@@ -12,6 +12,8 @@
 ## Install directory for Homebrew Cask
 cask_args appdir: "~/Applications"
 
+{{ if not .headless }}
+
 ## Maintenance
 cask "onyx"
 cask "appcleaner"
@@ -113,5 +115,6 @@ cask "transmission"
 
 cask "dropbox"
 cask "franz"
+{{ end }}
 
 {{ end }}
