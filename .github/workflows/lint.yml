@@ -8,11 +8,13 @@ on:
 
 jobs:
   shellcheck:
-    name: 'ShellCheck'
+    name: ShellCheck
     runs-on: ubuntu-latest
     steps:
-    - uses: 'actions/checkout@v3'
-    - name: 'Run shellcheck'
-      uses: 'azohra/shell-linter@master'
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Run shellcheck
+      uses: azohra/shell-linter@master
       env:
         SHELLCHECK_OPTS: -P **/*.sh
