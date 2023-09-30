@@ -192,8 +192,8 @@ keymap("n", "gD", ":Lspsaga peek_type_definition<CR>", { desc = "   Go to Typ
 keymap("n", "gr", ":Lspsaga finder<CR>",           { desc = "   Go to References & Implementation" })
 keymap("n", "go", ":Lspsaga outline<CR>",              { desc = "   Toggle code outline" })
 keymap("n", "gR", ":Lspsaga rename<CR>",               { desc = "   Rename" })
-keymap("n", "g[", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "   Jump to prev diagnostics" })
-keymap("n", "g]", ":Lspsaga diagnostic_jump_next<CR>", { desc = "   Jump to next diagnostics" })
+keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "   Jump to prev diagnostics" })
+keymap("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", { desc = "   Jump to next diagnostics" })
 keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Action" })
 
 keymap("n", "<Leader>gi", "<CMD>Lspsaga incoming_calls<CR>", { desc = "   Call incoming hierarchy" })
