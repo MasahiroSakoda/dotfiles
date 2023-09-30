@@ -33,6 +33,7 @@ return {
   clang_format  = {}, -- C, C++, Obj-C, Java, JS, C#, etc..
   beautysh      = {}, -- Sh, Bash, Zsh, Csh, Ksh
   shfmt         = {}, -- Sh, Bash
+  black         = {}, -- Python
   jq            = {}, -- JSON
   xmlformatter  = {}, -- XML, XHTML
   yamlformatter = {}, -- YAML
