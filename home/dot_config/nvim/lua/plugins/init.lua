@@ -153,7 +153,7 @@ return {
     config = function() require("lsp.config.navic") end,
   },
   {
-    "glepnir/lspsaga.nvim", -- Rich GUI for LSP
+    "nvimdev/lspsaga.nvim", -- Rich GUI for LSP
     event  = { "BufReadPost", "BufNewFile" }, -- Do not change for nvim-navic
     config = function() require("lsp.config.lspsaga") end,
   },
