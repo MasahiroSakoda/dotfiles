@@ -5,8 +5,8 @@ if not (lualine_ok or navic_ok) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    -- Usable Themes: dracula / horizon / molokai / solarized_dark
-    theme = require("lualine.themes.molokai"),
+    -- Usable Themes: molokai / ayu_mirage / dracula / horizon / solarized_dark
+    theme = require("lualine.themes.dracula"),
     -- Separator
     component_separators = { left = "", right = "" },
     section_separators   = { left = "", right = "" },
@@ -34,16 +34,19 @@ lualine.setup {
     }
   },
   sections = {
-    lualine_a = { { "mode", icon = { "", color = { fg = "#000000" } } } },
+    lualine_a = {
+      { "mode", icon = { "", color = { fg = "#000000" } } },
+    },
     lualine_b = { "branch", "diff" },
     lualine_c = {
+      { "diagnostics", source = "nvim-lsp" },
       { "filename", path = 1, icon = { "", color = { fg = "#FFFFFF" } } },
-      -- { "diagnostics", source = "nvim-lsp" },
+    },
+    lualine_x = {
       { function() return navic.get_location() end, cond = function() return navic.is_available() end },
     },
-    lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_y = { { "progress", icon = { "", color = { fg = "#FFFFFF" } } } },
-    lualine_z = { { "location", icon = { "", color = { fg = "#000000" } } } },
+    lualine_y = { "encoding", "fileformat", "filetype" },
+    lualine_z = { "progress", "location" },
   },
   extensions = {
     "quickfix",
