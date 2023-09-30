@@ -2,11 +2,11 @@
 # file: home/.chezmoi.toml.tmpl
 
 {{/* boolean feature tags */}}
-{{- $docker := false -}}{{/* true if this machine should have Docker installed */}}
-{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
-{{- $flarm := false -}}{{/* true if this machine is used for FLARM */}}
-{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
-{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $docker     := false -}}{{/* true if this machine should have Docker installed */}}
+{{- $ephemeral  := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $flarm      := false -}}{{/* true if this machine is used for FLARM */}}
+{{- $headless   := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal   := false -}}{{/* true if this machine should have personal secrets */}}
 {{- "" -}}
 
 {{- $osID := .chezmoi.os -}}
