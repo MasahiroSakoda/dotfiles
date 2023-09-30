@@ -16,19 +16,19 @@ end
 
 local bp = {
   breakpoint = {
-    text   = "􀌛 ",
+    text   = " ",
     texthl = "LspDiagnosticsSignError",
     linehl = "",
     numhl  = "",
   },
   rejected = {
-    text   = "􀌚 ",
+    text   = " ",
     texthl = "LspDiagnosticsSignHint",
     linehl = "",
     numhl  = "",
   },
   stopped  = {
-    text   = "􁂎 ",
+    text   = "➤ ",
     texthl = "LspDiagnosticsSignInformation",
     linehl = "DiagnosticUnderlineInfo",
     numhl  = "LspDiagnosticsSignInformation",
@@ -37,8 +37,8 @@ local bp = {
 
 local fn  = vim.fn
 fn.sign_define("DapBreakpoint",         bp.breakpoint)
-fn.sign_define("DapStopped",            bp.breakpoint)
-fn.sign_define("DapBreakpointRejected", bp.breakpoint)
+fn.sign_define("DapBreakpointRejected", bp.rejected)
+fn.sign_define("DapStopped",            bp.stopped)
 
 -- require("dap.adapters.cppdbg")
 -- require("dap.adapters.codelldb")
