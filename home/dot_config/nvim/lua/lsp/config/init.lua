@@ -73,13 +73,14 @@ local server_opts = {
   on_attach    = on_attach,
   capabilities = capabilities,
 }
--- mason_cfg.setup_handlers {
---   function (server)
---     local opts = vim.tbl_deep_extend("force", server_opts, servers[server] or {})
---     lspconfig[server].setup(opts)
---   end,
--- }
---
+mason_cfg.setup_handlers {
+  function (server)
+    local opts = vim.tbl_deep_extend("force", server_opts, servers[server] or {})
+    lspconfig[server].setup(opts)
+  end,
+}
+
+
 -- local setup_inlay_hints = function()
 --   local hl = vim.api.nvim_get_hl(0, { name = "Comment" })
 --   local foreground = string.format("#%06x", hl["fg"] or 0)
