@@ -154,7 +154,11 @@ return {
   },
   {
     "nvimdev/lspsaga.nvim", -- Rich GUI for LSP
-    event  = { "BufReadPost", "BufNewFile" }, -- Do not change for nvim-navic
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "LspAttach",
     config = function() require("lsp.config.lspsaga") end,
   },
   {
