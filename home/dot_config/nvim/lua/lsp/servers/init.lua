@@ -27,6 +27,7 @@ return {
   vint         = {}, -- VimScript
   eslint       = require("lsp.servers.eslint"),         -- JavaScript/TypeScript Linter
   rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
+  ruff         = {}, -- Python Linter
 
   -- Formetter
   clang_format  = {}, -- C, C++, Obj-C, Java, JS, C#, etc..
