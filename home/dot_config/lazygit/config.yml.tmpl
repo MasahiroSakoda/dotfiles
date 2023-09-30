@@ -1,74 +1,74 @@
 # -*-mode:yaml-*- vim:ft=yaml
 git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-    useConfig: false
+    paging:
+        colorArg: always
+        pager: delta --dark --paging=never
+        useConfig: false
 gui:
-  sidePanelWidth: 0.25
-  language: auto
-  timeFormat: '2015-02-25 11:06:39 +0900 JST'
-  authorColors: {}
-  branchColors: {}
-  mouseEvents: true
-  skipUnstageLineWarning: false
-  skipStashWarning: false
-  showFileTree: true
-  showListFooter: true
-  showRandomTip: true
-  showBottomLine: true
-  showCommandLog: true
-  showIcons: true
-  theme:
-    activeBorderColor:
-      - green
-      - bold
-    inactiveBorderColor:
-      - white
-    optionsTextColor:
-      - blue
-    selectedLineBgColor:
-      - reverse
-      - underline
-    selectedRangeBgColor:
-      - blue
-      - underline
-    cherryPickedCommitBgColor:
-      - cyan
-    cherryPickedCommitFgColor:
-      - blue
-    unstagedChangesColor:
-      - red
+    sidePanelWidth: 0.25
+    language: auto
+    timeFormat: '2015-02-25 11:06:39 +0900 JST'
+    authorColors: {}
+    branchColors: {}
+    mouseEvents: true
+    skipUnstageLineWarning: false
+    skipStashWarning: false
+    showFileTree: true
+    showListFooter: true
+    showRandomTip: true
+    showBottomLine: true
+    showCommandLog: true
+    showIcons: true
+    theme:
+        activeBorderColor:
+            - green
+            - bold
+        inactiveBorderColor:
+            - white
+        optionsTextColor:
+            - blue
+        selectedLineBgColor:
+            - reverse
+            - underline
+        selectedRangeBgColor:
+            - blue
+            - underline
+        cherryPickedCommitBgColor:
+            - cyan
+        cherryPickedCommitFgColor:
+            - blue
+        unstagedChangesColor:
+            - red
 keybinding:
-  universal:
-    quit: q
-    quit-alt1: <c-c>
-    togglePanel: <tab>
-    prevItem: <up>
-    nextItem: <down>
-    prevItem-alt: k
-    nextItem-alt: j
-    prevMatch: N
-    nextMatch: n
-  status:
-    checkForUpdate: u
-  files:
-    commitChanges: c
-    refreshFiles: r
-    fetch: f
-  branches:
-    checkoutBranchByName: c
-  commits:
-    tagCommit: T
-  commitFiles:
-    checkoutCommitFile: c
-  stash:
-    popStash: g
-  main:
-  submodules:
+    universal:
+        quit: q
+        quit-alt1: <c-c>
+        togglePanel: <tab>
+        prevItem: <up>
+        nextItem: <down>
+        prevItem-alt: k
+        nextItem-alt: j
+        prevMatch: N
+        nextMatch: n
+    status:
+        checkForUpdate: u
+    files:
+        commitChanges: c
+        refreshFiles: r
+        fetch: f
+    branches:
+        checkoutBranchByName: c
+    commits:
+        tagCommit: T
+    commitFiles:
+        checkoutCommitFile: c
+    stash:
+        popStash: g
+    main:
+      submodules:
 refresher:
-  refreshInterval: 3
+    refreshInterval: 3
 os:
-  edit: "nvim"
+    edit: "nvim"
 notARepository: skip
 promptToReturnFromSubprocess: true
