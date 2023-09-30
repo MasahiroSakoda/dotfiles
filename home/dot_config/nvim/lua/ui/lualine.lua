@@ -24,7 +24,7 @@ lualine.setup {
       "dapui_stacks",
       "dapui_watches",
     },
-    -- ignore_focus = { "toggleterm" },
+    ignore_focus = { "toggleterm" },
     always_divide_middle = true,
     globalstatus = true,
     refresh = {
