@@ -33,6 +33,8 @@ capabilities.textDocument.foldingRange  = {
   lineFoldingOnly     = true,
 }
 
+local active_clients = lsp.get_active_clients()
+
 local on_attach = function(client, bufnr)
   api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
   client.server_capabilities.document_formatting        = false
@@ -42,9 +44,8 @@ local on_attach = function(client, bufnr)
 
   client.server_capabilities.offsetEncoding = { "utf-16" }
 
-  -- Avoid confliction tsserver & denols
-  local active_clients = lsp.get_active_clients()
-  if client.name == "tsserver" then
+  -- Avoid confliction tsserver + eslint & denols
+  if client.name == "tsserver" or client.name == "eslint" then
     for _, _client in ipairs(active_clients) do
       -- stop tsserver if denols is already active
       if _client.name == "denols" then
@@ -55,6 +56,8 @@ local on_attach = function(client, bufnr)
     -- prevent tsserver from starting if denols is already active
     for _, _client in ipairs(active_clients) do
       if _client.name == "tsserver" then
+        client.stop()
+      elseif _client.name == "eslint" then
         client.stop()
       end
     end
