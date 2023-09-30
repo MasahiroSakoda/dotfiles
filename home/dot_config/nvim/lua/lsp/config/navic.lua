@@ -30,6 +30,10 @@ navic.setup({
     Operator      = ' ',
     TypeParameter = ' '
   },
+  lsp = {
+    auto_attach = true,
+    preference = nil,
+  },
   highlight = true,
   safe_output = true,
   separator = '',
