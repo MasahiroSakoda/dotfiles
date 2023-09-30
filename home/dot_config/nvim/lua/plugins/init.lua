@@ -8,7 +8,7 @@ return {
   { "kkharji/sqlite.lua" },
   { "tzachar/fuzzy.nvim" },
   { "MunifTanjim/nui.nvim" },
-  { "kyazdani42/nvim-web-devicons" },
+  { "nvim-tree/nvim-web-devicons" },
   { "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
 
   ------------------------------------------------------------------------
@@ -19,7 +19,7 @@ return {
   { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
   {
     "goolord/alpha-nvim", -- startup dashboard
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not is_vscode,
     event  = "BufWinEnter",
     config = function() require("ui.alpha") end,
@@ -69,13 +69,13 @@ return {
   },
   {
     "akinsho/bufferline.nvim", -- Tab page integration
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.bufferline") end,
   },
   {
     "nvim-lualine/lualine.nvim", -- Status Line
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
@@ -86,7 +86,7 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "kkharji/sqlite.lua",
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
     },
     cmd    = "Neotree",
     config = function() require("ui.neo-tree") end,
@@ -174,7 +174,7 @@ return {
   },
   {
     "folke/trouble.nvim", -- Display diagnostics
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not is_vscode,
     cmd    = { "TroubleToggle", "Trouble" },
     config = function() require("lsp.config.trouble") end,
@@ -368,7 +368,7 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
     },
     cmd    = "Telescope",
     module = "Telescope",
