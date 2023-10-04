@@ -28,7 +28,7 @@ vim.g.rainbow_delimiters = { highlight = highlight }
 ibl.setup({
   indent = {
     char    = "┊",
-    tabchar = ">",
+    tab_char = ">",
     smart_indent_cap = true,
   },
   scope  = { highlight = highlight },
