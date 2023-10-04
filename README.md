@@ -313,7 +313,7 @@ See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/do
 
 ## ToDo
 
-* [ ] **`rtx`** support
+* [ ] `rtx` support
 * [ ] VSCode support
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
