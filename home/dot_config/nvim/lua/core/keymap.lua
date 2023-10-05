@@ -16,7 +16,7 @@ if not ok then
   vim.notify('Failed loading ' .. "which-key", vim.log.levels.WARN)
 end
 
-keymap("n", "<Leader>e", ':edit<Space>', { desc = "􀈊   Edit" })
+keymap("n", "<Leader>e", ':edit<Space>', { desc = "   Edit" })
 
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
@@ -141,16 +141,16 @@ keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "⚡
 ---------------------------------------------------------------------------
 wk.register({
   mode = "n",
-  ["<Leader>ng"] = { ":lua require'neogen'.generate()<CR>", "" },
-  ["<Leader>nc"] = { ":lua require'neogen'.generate({ type = 'class' })<CR>", "Generate class annotation" },
-  ["<Leader>nf"] = { ":lua require'neogen'.generate({ type = 'func' })<CR>",  "Generate function annotation" },
-  ["<Leader>nt"] = { ":lua require'neogen'.generate({ type = 'type' })<CR>",  "Generate type annotation" },
+  ["<Leader>ng"] = { ":lua require'neogen'.generate()<CR>",                   "   Generate annotation" },
+  ["<Leader>nc"] = { ":lua require'neogen'.generate({ type = 'class' })<CR>", "   Generate class annotation" },
+  ["<Leader>nf"] = { ":lua require'neogen'.generate({ type = 'func' })<CR>",  "   Generate function annotation" },
+  ["<Leader>nt"] = { ":lua require'neogen'.generate({ type = 'type' })<CR>",  "   Generate type annotation" },
 }, opts)
 
 wk.register({
   mode = "i",
-  ["<C-h>"] = { ":lua require'neogen'.jump_prev()<CR>", "Jump to prev annotation" },
-  ["<C-l>"] = { ":lua require'neogen'.jump_next()<CR>", "Jump to next annotation" },
+  ["<C-h>"] = { ":lua require'neogen'.jump_prev()<CR>", "   Jump to prev annotation" },
+  ["<C-l>"] = { ":lua require'neogen'.jump_next()<CR>", "   Jump to next annotation" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -312,6 +312,6 @@ keymap("n", ",h",  "<CMD>HexToggle",              { desc = "   Toggle hex edi
 keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
 keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
 keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
-keymap("n", ",m",  "<CMD>TSJToggle<CR>",          { desc = "Toggle node under cursor" })
+keymap("n", ",m",  "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
-keymap("n", ",x", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
+keymap("n", ",x", "<CMD>TroubleToggle<CR>",       { desc = "   Toggle Diagnostic List" })

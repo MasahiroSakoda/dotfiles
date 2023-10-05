@@ -23,7 +23,7 @@ trouble.setup({
     warning     = "",
     hint        = "",
     information = "",
-    other       = "﫠"
+    other       = ""
   },
 
   action_keys   = {
@@ -52,4 +52,4 @@ vim.cmd[[ sign define DiagnosticSignError text= texthl=DiagnosticSignError li
 vim.cmd[[ sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn  linehl= numhl= ]]
 vim.cmd[[ sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo  linehl= numhl= ]]
 vim.cmd[[ sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint  linehl= numhl= ]]
-vim.cmd[[ sign define DiagnosticSignOther text=﫠texthl=DiagnosticSignOther linehl= numhl= ]]
+vim.cmd[[ sign define DiagnosticSignOther text= texthl=DiagnosticSignOther linehl= numhl= ]]
