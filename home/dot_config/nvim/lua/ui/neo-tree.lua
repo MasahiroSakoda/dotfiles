@@ -115,7 +115,7 @@ nt.setup({
 
   filesystem = {
     filtered_items = {
-      visibile       = true,
+      visible        = true,
       hide_dotfiles  = false,
       hide_gitignore = false,
       hide_by_name = {
