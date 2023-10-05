@@ -358,7 +358,7 @@ return {
     -- version = "*"
   },
   {
-    "folke/todo-comments.nvim", -- Comment Hilighter
+    "folke/todo-comments.nvim", -- Comment highlighter
     dependencies = { "nvim-lua/plenary.nvim" },
     cond   = not is_vscode,
     cmd    = "TodoTelescope",
