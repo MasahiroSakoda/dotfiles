@@ -165,7 +165,9 @@ wk.register({
   ["<Leader>fh"] = { ":Telescope help_tags<CR>",       "   Help via Telescope" },
   ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
   ["<Leader>P"]  = { ":Lazy<CR>",                      "   Open lazy.nvim Window" },
-  ["<C-g>"]         = { ":Telescope live_grep<CR>",    "   " },
+
+  -- ["<C-g>"]         = { ":Telescope live_grep<CR>",    "   " },
+  ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Telescope egrepify" },
   ["<Leader><C-g>"] = { ":Telescope grep_string<CR>",  "   Grep string in working directory" },
 
   ["<Leader>ff"] = { ":Telescope frecency<CR>",            "   Frecency algorithm Search" },

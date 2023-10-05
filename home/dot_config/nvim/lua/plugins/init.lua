@@ -388,6 +388,11 @@ return {
     config = function() require("user.telescope.frecency") end,
   },
   {
+    "fdschmidt93/telescope-egrepify.nvim",
+    cmd = "Telescope egrepify",
+    config = function() require("user.telescope.egrepify") end,
+  },
+  {
     "nvim-telescope/telescope-file-browser.nvim",
     config = function() require("user.telescope.file_browser") end,
   },
