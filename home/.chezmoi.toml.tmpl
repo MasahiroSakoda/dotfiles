@@ -22,13 +22,16 @@
 
 {{- $hostname := .chezmoi.hostname -}}
 
-{{- $git_user  := env "GIT_USERNAME" -}}
-{{- $git_email := env "GIT_EMAIL" -}}
+{{- $user  := env "GIT_USERNAME" -}}
+{{- $email := env "GIT_EMAIL" -}}
 
-{{- if stdinIsATTY -}}
-{{- $git_user  := promptStringOnce . "git_user"  "Enter your git username: " -}}
-{{- $git_email := promptStringOnce . "git_email" "Enter your git email: " -}}
-{{- end -}}
+{{ if and (not $user) stdinIsATTY }}
+{{ $user  = promptStringOnce . "user"  "Enter your git username: " }}
+{{ end }}
+
+{{ if and (not $email) stdinIsATTY -}}
+{{ $email = promptStringOnce . "email" "Enter your git email: " }}
+{{ end }}
 
 encryption = "age"
 format = "json"
@@ -44,8 +47,8 @@ color = "on"
     osid      = {{ $osID | quote }}
 
 [data.git]
-    name  = {{ $git_user | quote }}
-    email = {{ $git_email | quote }}
+    user  = {{ $user | quote }}
+    email = {{ $email | quote }}
 
 [edit]
     command = "nvim"
