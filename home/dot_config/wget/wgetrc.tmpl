@@ -1,4 +1,4 @@
-# -*-mode:conf-*- vim:ft=wgetrc
+# -*-mode:sh-*- vim:ft=sh
 
 # ~/.wgetrc
 # =============================================================================
@@ -17,7 +17,7 @@
 
 # Set number of retries per URL, like `-t n`.
 tries = 5
-
+hsts-file = ${HOME}/.cache/wget-hsts
 
 # Local settings
 # -----------------------------------------------------------------------------
@@ -77,4 +77,3 @@ user-agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML
 # Firefox
 # user-agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:113.0) Gecko/20100101 Firefox/113.0
 {{- end }}
-
