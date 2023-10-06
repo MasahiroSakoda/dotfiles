@@ -1,0 +1,12 @@
+# -*-mode:yaml-*- vim:ft=yaml
+
+:verbose: true
+:sources:
+- https://rubygems.org
+:benchmark: false
+:update_sources: true
+
+install: --no-document
+update: --no-document
+search: --remote
+specification: --remote

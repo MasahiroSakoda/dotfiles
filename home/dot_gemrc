@@ -1,4 +1,0 @@
-install: --no-document
-update: --no-document
-search: --remote
-specification: --remote
