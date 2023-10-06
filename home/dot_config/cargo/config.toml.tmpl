@@ -1,0 +1,34 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[alias]
+a = "add"
+b = "build"
+br = "build --release"
+brr = "build --release"
+r = "run"
+rr = "run --release"
+c = "check"
+f = "fmt"
+t = "test"
+pp = "clippy"
+clr = "clean"
+upd = "update"
+trp = "tarpaulin -o Xml -v"
+d = "doc"
+i = "install"
+o = "outdated -Rv"
+
+[cargo-new]
+name  = {{ .git.user }}
+email = {{ .git.email }}
+vcs   = "git"
+
+[expand]
+pager = true
+theme = "Dracula"
+
+[net]
+git-fetch-with-cli = true
+
+[build]
+jobs = 6
