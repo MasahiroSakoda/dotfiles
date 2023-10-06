@@ -1,0 +1,34 @@
+system_charset UTF-8
+auto_detect 2
+document_charset UTF-8
+display_charset UTF-8
+cookie_accept_domains
+cookie_reject_domains
+ssl_ca_file
+ssl_ca_path /etc/ssl/certs
+ssl_key_file
+ssl_cert_file
+ssl_verify_server 1
+ssl_forbid_method
+no_cache 0
+noproxy_netaddr 0
+no_proxy
+ftp_proxy
+gopher_proxy
+https_proxy https://127.0.0.1:8118/
+http_proxy http://127.0.0.1:8118/
+use_proxy 0
+max_news 50
+nntpmode
+nntpserver
+dns_order 0
+meta_refresh 1
+follow_redirection 10
+default_url 1
+retry_http 1
+argv_is_url 1
+accept_media text/*, image/*, application/*, audio/*, vms/*
+accept_encoding gzip, compress, bzip, bzip2, deflate
+accept_language en;q=1.0
+no_referer 0
+user_agent
