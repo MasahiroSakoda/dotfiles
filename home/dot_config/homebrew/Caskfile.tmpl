@@ -116,34 +116,10 @@ cask "transmission"
 cask "dropbox"
 cask "franz"
 
-vscode "aaron-bond.better-comments"
-vscode "alefragnani.Bookmarks"
-vscode "alefragnani.project-manager"
-vscode "asvetliakov.vscode-neovim"
-vscode "christian-kohler.path-intellisense"
-vscode "dracula-theme.theme-dracula"
-vscode "EditorConfig.EditorConfig"
-vscode "formulahendry.auto-close-tag"
-vscode "formulahendry.auto-rename-tag"
-vscode "Gruntfuggly.todo-tree"
-vscode "ms-azuretools.vscode-docker"
-vscode "MS-CEINTL.vscode-language-pack-ja"
-vscode "ms-python.isort"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode.cpptools"
-vscode "njpwerner.autodocstring"
-vscode "PKief.material-icon-theme"
-vscode "redhat.vscode-xml"
-vscode "twxs.cmake"
-vscode "usernamehw.errorlens"
-vscode "wayou.vscode-todo-highlight"
+{{ range .plugins.vscode | sortAlpha | uniq }}
+vscode {{ . | quote }}
+{{ end }}
+
 {{ end }}
 
 {{ end }}
