@@ -1,0 +1,51 @@
+# -*-mode:sh-*- vim:ft=sh
+
+function command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+function log_debug() {
+  printf "${green}✔ %s${reset}\n" "$@"
+}
+
+function log_info() {
+  printf "${blue}➜ %s${reset}\n" "$@"
+}
+
+function log_warning() {
+  printf "${tan}➜ %s${reset}\n" "$@"
+}
+
+function log_error() {
+  printf "${red}✖ %s${reset}\n" "$@"
+}
+
+function log_underline() {
+  printf "${underline}${bold}%s${reset}\n" "$@"
+}
+
+function log_bold() {
+  printf "${bold}%s${reset}\n" "$@"
+}
+
+if [ -t 1 ]; then
+  bold="$(tput bold)"
+  underline=$(tput sgr 0 1)
+  reset="$(tput sgr0)"
+  red="$(tput setaf 1)"
+  green="$(tput setaf 2)"
+  yellow="$(tput setaf 3)"
+  blue="$(tput setaf 4)"
+  purple=$(tput setaf 171)
+  tan=$(tput setaf 3)
+else
+  bold=""
+  underline=""
+  reset=""
+  red=""
+  green=""
+  yellow=""
+  blue=""
+  purple=""
+  tan=""
+fi
