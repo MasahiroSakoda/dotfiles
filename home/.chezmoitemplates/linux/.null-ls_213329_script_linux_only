@@ -1,5 +1,0 @@
-# -*-mode:sh-*- vim:ft=sh
-
-{{ if eq .chezmoi.os "linux" }}
-exit 0
-{{ end }}
