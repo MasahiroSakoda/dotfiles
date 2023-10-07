@@ -5,8 +5,6 @@ set -eo pipefail
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
-echo $(asdf current python)
-
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
