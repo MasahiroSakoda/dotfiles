@@ -227,11 +227,13 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 * [**telescope-frecency**][telescope-frecency]: [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
 * [**telescope-file-browser**][telescope-file-browser]: File Browser
+* [**telescope-egrepify**][telescope-egrepify] live grep extension
 * [**telescope-lazy**][telescope-lazy]: [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
 * [**telescope-dap**][telescope-dap]: DAP Extension
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
+[telescope-egrepify]: https://github.com/fdschmidt93/telescope-egrepify.nvim
 [telescope-lazy]: https://github.com/tsakirist/telescope-lazy.nvim
 [telescope-dap]: https://github.com/nvim-telescope/telescope-dap.nvim
 
