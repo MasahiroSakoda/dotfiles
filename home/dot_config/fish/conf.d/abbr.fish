@@ -145,7 +145,6 @@ abbr -a dcu docker-compose up
 abbr -a dcd docker-compose down
 
 # chezmoi
-abbr -a cz chezmoi
 abbr -a czd "chezmoi diff | bat"
 abbr -a czD chezmoi doctor
 abbr -a czu chezmoi update
