@@ -4,6 +4,7 @@
 
   <h1>dotfiles</h1>
   <img src="https://img.shields.io/badge/macOS-%23.svg?style=flat-square&logo=apple&color=000000&logoColor=white" />
+  <img src="https://img.shields.io/badge/Linux%20-yellow.svg?style=flat-square&logo=linux&logoColor=black" />
 
   <p>Bootstrap & build macOS development environment</p>
 
