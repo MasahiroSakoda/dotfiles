@@ -1,0 +1,12 @@
+# -*-mode:sh-*- vim:ft=sh
+
+set -eo pipefail
+
+{{ template "linux/script_linux_only" . }}
+
+# TODO: Install VSCode
+
+# Install extensions
+{{ range .plugins.vscode | sortAlpha | uniq }}
+code --install-extension {{ . | quote }}
+{{ end }}
