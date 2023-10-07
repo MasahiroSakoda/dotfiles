@@ -115,6 +115,11 @@ cask "transmission"
 
 cask "dropbox"
 cask "franz"
+
+{{ range .plugins.vscode | sortAlpha | uniq }}
+vscode {{ . | quote }}
+{{ end }}
+
 {{ end }}
 
 {{ end }}
