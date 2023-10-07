@@ -3,8 +3,10 @@
 
 set -eo pipefail
 
+{{ template "common/script_helper" . }}
+
 {{ if not .headless }}
-if command -v age > /dev/null 2>&1 && [ ! -f "${HOME}/key.txt" ]; then
+if command_exists age && [ ! -f "${HOME}/key.txt" ]; then
   age --decrypt --output "${HOME}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
   chmod 600 "${HOME}/key.txt"
 fi

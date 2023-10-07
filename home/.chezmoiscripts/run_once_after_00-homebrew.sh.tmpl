@@ -5,10 +5,11 @@ set -eo pipefail
 
 {{ template "common/script_eval_brew" . }}
 {{ template "common/script_sudo" . }}
+{{ template "common/script_helper" . }}
 
 # Install Homebrew
 BREW_DIR="$HOME/.config/homebrew"
-if ! command -v brew > /dev/null 2>&1 && [ -f "$BREW_DIR/Brewfile" ]; then
+if ! command_exists brew && [ -f "$BREW_DIR/Brewfile" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
