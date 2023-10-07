@@ -5,6 +5,8 @@ set -eo pipefail
 {{ template "linux/script_linux_only" . }}
 {{ template "common/script_sudo" . }}
 
+{{ if not .headless }}
+
 # Install VSCode
 {{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
 
@@ -21,4 +23,6 @@ sudo apt install -y code
 # Install extensions
 {{ range .plugins.vscode | sortAlpha | uniq }}
 code --install-extension {{ . | quote }}
+{{ end }}
+
 {{ end }}

@@ -5,6 +5,8 @@ set -eo pipefail
 {{ template "linux/script_linux_only" . }}
 {{ template "common/script_sudo" . }}
 
+{{ if not .headless }}
+
 # Install prerequisite packages
 sudo apt install -y ca-certificates gnupg gnupg2
 
@@ -32,3 +34,5 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 sudo apt install -y docker-ce docker-ce-cli kubectl
+
+{{ end }}
