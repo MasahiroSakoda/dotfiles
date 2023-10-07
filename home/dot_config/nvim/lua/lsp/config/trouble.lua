@@ -28,7 +28,7 @@ trouble.setup({
 
   action_keys   = {
     close       = "q",
-    cancel      = "<esc>",
+    cancel      = { "<esc>", "<C-c>" },
     previous    = "k",
     next        = "j",
     refresh     = "r",
