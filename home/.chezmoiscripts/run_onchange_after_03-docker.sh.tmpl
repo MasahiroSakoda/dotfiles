@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
 set -eo pipefail
@@ -5,13 +6,13 @@ set -eo pipefail
 {{ template "linux/script_linux_only" . }}
 {{ template "common/script_sudo" . }}
 
-{{ if not .headless }}
+{{ if not .headless -}}
 
 # Install prerequisite packages
 sudo apt install -y ca-certificates gnupg gnupg2
 
 # Docker
-{{ if eq .chezmoi.osRelease.id "ubuntu" }}
+{{ if eq .osid "ubuntu" }}
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -19,7 +20,7 @@ echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docke
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-{{ else if eq .chezmoi.osRelease.id "debian" }}
+{{ else if eq .osid "debian" }}
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -35,4 +36,4 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt
 
 sudo apt install -y docker-ce docker-ce-cli kubectl
 
-{{ end }}
+{{- end }}

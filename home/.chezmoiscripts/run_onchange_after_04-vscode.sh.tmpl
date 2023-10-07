@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
 set -eo pipefail
@@ -8,7 +9,7 @@ set -eo pipefail
 {{ if not .headless }}
 
 # Install VSCode
-{{ if eq .chezmoi.osRelease.id "ubuntu" "debian" }}
+{{ if eq .osid "ubuntu" "debian" }}
 
 curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
