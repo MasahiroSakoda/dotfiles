@@ -242,7 +242,6 @@ return {
   },
   {
     "Exafunction/codeium.nvim",
-    dependencies = { "jcdickinson/http.nvim", build = "cargo build --workspace --release" },
     build  = ":Codeium Auth",
     cond   = not is_vscode,
     -- event  = "InsertEnter",
