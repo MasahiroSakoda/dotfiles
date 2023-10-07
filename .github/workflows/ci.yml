@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  cache-version: v1
+  cache-version: v2
 
 jobs:
   ci:
@@ -36,13 +36,6 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
-      # - name: Save Homebrew cellar
-      #   uses: actions/cache/restore@v3
-      #   with:
-      #     enableCrossOsArchive: true
-      #     path: /usr/local/Cellar
-      #     key: ${{ runner.os }}-homebrew-cellar-${{ env.cache-version }}
-
       - name: Restore asdf cache
         uses: actions/cache/restore@v3
         with:
@@ -64,14 +57,6 @@ jobs:
           enableCrossOsArchive: true
           path: /Users/runner/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
-
-      # - name: Save Homebrew cellar
-      #   uses: actions/cache/save@v3
-      #   if: always()
-      #   with:
-      #     enableCrossOsArchive: true
-      #     path: /usr/local/Cellar
-      #     key: ${{ runner.os }}-homebrew-cellar-${{ env.cache-version }}
 
       - name: Save asdf cache
         uses: actions/cache/save@v3
