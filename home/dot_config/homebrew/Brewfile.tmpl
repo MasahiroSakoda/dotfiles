@@ -102,3 +102,9 @@ brew "aria2"
 brew "youtube-dl"
 brew "yt-dlp"
 {{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+# Linux packages
+brew "util-linux"
+brew "cups"
+{{ end }}
