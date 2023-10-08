@@ -70,6 +70,7 @@ return {
   {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond   = not is_vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.bufferline") end,
   },
