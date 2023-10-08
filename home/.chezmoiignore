@@ -12,8 +12,18 @@ LICENSE
 README.md
 install.sh
 
+# Shell
+.zsh_sessions
+fish_variables
+
+# History
+.lesshst
+.wget-hsts
+.*_history
+
 # macOS flies
-.DS_Store
+**/.DS_Store
+.CFUserTextEncoding
 
 # NeoVim files
 .config/nvim/lazy-lock.json
