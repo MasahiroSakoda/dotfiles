@@ -278,30 +278,34 @@ keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "   Toggle Terminal" })
 ---------------------------------------------------------------------------
 -- 🤖  AI Interaction
 ---------------------------------------------------------------------------
--- ChatGPT.nvim
-wk.register({
-  ["<Leader>i"]  = { name = "🤖  ChatGPT" },
-  ["<Leader>io"] = { ":ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
-  ["<Leader>ia"] = { ":ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
-  ["<Leader>ie"] = { ":ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
-}, opts)
+if not is_vscode then
 
-wk.register({
-  ["<Leader>i"]  = { name = "🤖  ChatGPT" },
-  ["<Leader>ie"] = { "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with instructions" },
-}, { mode = "v" })
+  -- ChatGPT.nvim
+  wk.register({
+    ["<Leader>i"]  = { name = "🤖  ChatGPT" },
+    ["<Leader>io"] = { ":ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
+    ["<Leader>ia"] = { ":ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
+    ["<Leader>ie"] = { ":ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
+  }, opts)
 
--- neoai.nvim
-wk.register({
-  -- noremap = true,
-  -- silent  = false,
-  ["<Leader>a"]   = { name = "🤖  NeoAI" },
-  ["<Leader>aa"]  = { ":NeoAIToggle<CR>",            " Toggle NeoAI window" },
-  ["<Leader>ac"]  = { ":NeoAIContext<Space>",        " Toggle NeoAI window with context" },
-  ["<Leader>aij"] = { ":NeoAIInject<Space>",         " receive directly AI response into the buffer" },
-  ["<Leader>aic"] = { ":NeoAIInjectCode<Space>",     " receive directly AI response as code snippets into buffer" },
-  ["<Leader>aiC"] = { ":NeoAIInjectContext<Space>",  " injects the AI response into the buffer without window" },
-}, opts)
+  wk.register({
+    ["<Leader>i"]  = { name = "🤖  ChatGPT" },
+    ["<Leader>ie"] = { "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with instructions" },
+  }, { mode = "v" })
+
+  -- neoai.nvim
+  wk.register({
+    -- noremap = true,
+    -- silent  = false,
+    ["<Leader>a"]   = { name = "🤖  NeoAI" },
+    ["<Leader>aa"]  = { ":NeoAIToggle<CR>",            " Toggle NeoAI window" },
+    ["<Leader>ac"]  = { ":NeoAIContext<Space>",        " Toggle NeoAI window with context" },
+    ["<Leader>aij"] = { ":NeoAIInject<Space>",         " receive directly AI response into the buffer" },
+    ["<Leader>aic"] = { ":NeoAIInjectCode<Space>",     " receive directly AI response as code snippets into buffer" },
+    ["<Leader>aiC"] = { ":NeoAIInjectContext<Space>",  " injects the AI response into the buffer without window" },
+  }, opts)
+
+end
 
 ---------------------------------------------------------------------------
 -- Web Browser Integration

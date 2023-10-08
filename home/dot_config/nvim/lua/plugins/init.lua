@@ -427,6 +427,7 @@ return {
       "ChatGPTCompleteCode",
       "ChatGPTEditWithInstructions",
     },
+    cond   = not is_vscode,
     config = function() require("ai.chatgpt") end,
   },
 
@@ -443,6 +444,7 @@ return {
       { "<Leader>ar", desc = "refactor code" },
       { "<Leader>ag", desc = "generate git message" },
     },
+    cond   = not is_vscode,
     config = function() require("ai.neoai") end,
   },
 
