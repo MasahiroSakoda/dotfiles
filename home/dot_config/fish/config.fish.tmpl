@@ -107,6 +107,11 @@ set -x FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100% --border"
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
 
+## thefuck
+if type -q the fuck
+  thefuck --alias | source
+end
+
 # Wine
 set -x PATH "/usr/local/opt/wine-6.1/bin" $PATH
 
