@@ -5,7 +5,7 @@ set -eo pipefail
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
-PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 pnpm add -g neovim create-react-app
 
