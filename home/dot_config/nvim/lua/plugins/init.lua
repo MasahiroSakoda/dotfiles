@@ -196,7 +196,7 @@ return {
   -- LSP completion sources
   { "hrsh7th/cmp-nvim-lsp-signature-help",  event = "InsertEnter" },
   { "hrsh7th/cmp-nvim-lsp-document-symbol", event = "InsertEnter" },
-  { "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+  { "hrsh7th/cmp-nvim-lsp", cond = not is_vscode, event = "InsertEnter" },
   {
     "onsails/lspkind.nvim",
     cond  = not is_vscode,
