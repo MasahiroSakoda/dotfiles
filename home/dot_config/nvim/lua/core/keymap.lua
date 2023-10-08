@@ -8,6 +8,7 @@
 -- Gitの割り当て修飾キー: "<Space> + g"
 ---------------------------------------------------------------------------
 local keymap = vim.keymap.set -- instead of nvim_keymap_set()
+local is_vscode = vim.g.vscode
 local opts = { noremap = true, silent = true }
 local nv_mode, nx_mode, nt_mode = { "n", "v" }, { "n", "x" }, { "n", "t" }
 
@@ -156,6 +157,9 @@ wk.register({
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
 ---------------------------------------------------------------------------
+-- Disable Telescope keymap for VSCode
+if is_vscode then
+
 wk.register({
   mode   = "n",
   ["<Leader>f"]  = { name = "🔭  Telescope: Fuzzy Finder" },
@@ -182,6 +186,8 @@ wk.register({
   ["<Ldeader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
   ["<Ldeader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>", "   Show Frames" },
 }, opts)
+
+end
 
 ---------------------------------------------------------------------------
 -- LSP: Language Server Protocol

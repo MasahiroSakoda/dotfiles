@@ -373,6 +373,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
     },
+    cond   = not is_vscode,
     cmd    = "Telescope",
     module = "Telescope",
     config = function() require("user.telescope") end,
@@ -380,26 +381,34 @@ return {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    cond   = not is_vscode,
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
     dependencies = { "kkharji/sqlite.lua" },
+    cond   = not is_vscode,
     config = function() require("user.telescope.frecency") end,
   },
   {
     "fdschmidt93/telescope-egrepify.nvim",
     cmd = "Telescope egrepify",
+    cond   = not is_vscode,
     config = function() require("user.telescope.egrepify") end,
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
+    cond   = not is_vscode,
     config = function() require("user.telescope.file_browser") end,
   },
   {
     "tsakirist/telescope-lazy.nvim",
+    cond   = not is_vscode,
     config = function() require("user.telescope.lazy") end,
   },
-  { "nvim-telescope/telescope-dap.nvim" },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+    cond   = not is_vscode,
+  },
 
   ------------------------------------------------------------------------
   -- AI Assistant
