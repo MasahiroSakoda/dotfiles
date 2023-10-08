@@ -56,7 +56,6 @@
         # Tools
         "alefragnani.Bookmarks",
         "alefragnani.project-manager",
-        "njpwerner.autodocstring",
         "Gruntfuggly.todo-tree",
         "wayou.vscode-todo-highlight",
         "usernamehw.errorlens",
