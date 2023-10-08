@@ -158,7 +158,7 @@ wk.register({
 -- 🔭  Telescope
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
-if is_vscode then
+if not is_vscode then
 
   wk.register({
     mode   = "n",
