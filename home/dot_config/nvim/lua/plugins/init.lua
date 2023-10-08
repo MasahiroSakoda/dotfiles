@@ -89,6 +89,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     cmd    = "Neotree",
+    cond   = not is_vscode,
     config = function() require("ui.neo-tree") end,
   },
   {
