@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/macOS-%23.svg?style=flat-square&logo=apple&color=000000&logoColor=white" />
   <img src="https://img.shields.io/badge/Linux%20-yellow.svg?style=flat-square&logo=linux&logoColor=black" />
 
-  <p>Bootstrap & build macOS development environment</p>
+  <p>multi-platform dotfiles powered by chezmoi</p>
 
   [![chezmoi][chezmoi-badge]][chezmoi-website]
   [![license][license-badge]][license-file]
