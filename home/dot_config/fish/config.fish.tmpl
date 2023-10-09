@@ -24,6 +24,13 @@ set -gx CPPFLAGS "-I/usr/local/opt/libffi/include"
 set -gx PKG_CONFIG_PATH "/usr/local/opt/libffi/lib/pkgconfig"
 set -gx RUBY_CFLAGS "-Wno-error=implicit-function-declaration"
 
+# cURL
+set -gx LDFLAGS "-L/usr/local/opt/curl/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/curl/include"
+set -gx PKG_CONFIG_PATH "/usr/local/opt/curl/lib/pkgconfig"
+set -gx HOMEBREW_FORCE_BREWED_CURL 1
+fish_add_path /usr/local/opt/curl/bin
+
 # ripgrep config
 # set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
