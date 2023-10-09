@@ -5,6 +5,9 @@ set -eo pipefail
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
+asdf global python {{ .asdf.version.python }}
+asdf global poetry {{ .asdf.version.poetry }}
+
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
