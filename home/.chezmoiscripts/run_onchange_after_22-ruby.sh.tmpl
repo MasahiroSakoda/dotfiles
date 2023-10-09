@@ -5,6 +5,8 @@ set -eo pipefail
 
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
+asdf global ruby {{ .asdf.version.ruby }}
+
 # Update gem
 gem update --system
 gem install bundler -N
