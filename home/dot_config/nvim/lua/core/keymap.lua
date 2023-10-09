@@ -142,10 +142,10 @@ keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "⚡
 ---------------------------------------------------------------------------
 wk.register({
   mode = "n",
-  ["<Leader>ng"] = { ":lua require'neogen'.generate()<CR>",                   "   Generate annotation" },
-  ["<Leader>nc"] = { ":lua require'neogen'.generate({ type = 'class' })<CR>", "   Generate class annotation" },
-  ["<Leader>nf"] = { ":lua require'neogen'.generate({ type = 'func' })<CR>",  "   Generate function annotation" },
-  ["<Leader>nt"] = { ":lua require'neogen'.generate({ type = 'type' })<CR>",  "   Generate type annotation" },
+  ["<Leader>ng"] = { ":Neogen<CR>",       "   Generate annotation" },
+  ["<Leader>nc"] = { ":Neogen class<CR>", "   Generate class annotation" },
+  ["<Leader>nf"] = { ":Neogen func<CR>",  "   Generate function annotation" },
+  ["<Leader>nt"] = { ":Neogen type<CR>",  "   Generate type annotation" },
 }, opts)
 
 wk.register({
