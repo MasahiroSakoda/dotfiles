@@ -1,0 +1,90 @@
+{
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.autoSave": "onFocusChange",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "scm.alwaysShowActions": true,
+    "editor.quickSuggestions": {
+        "comments": false,
+        "strings": false,
+        "other": true
+    },
+    "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono', 'HackGen Console NF'",
+    "editor.fontLigatures": true,
+    "editor.wordSeparators": "~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masahiro/.config/nvim/init.lua",
+    "[c]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[cpp]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "[lua]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "json.schemaDownload.enable": true,
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500
+    },
+    "[javascriptreact]": {
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[typescriptreact]": {
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "[ruby]": {
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    "settingsSync.ignoredSettings": [
+    ],
+    "dotfiles.repository": "~/.local/share/chezmoi",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
+}
