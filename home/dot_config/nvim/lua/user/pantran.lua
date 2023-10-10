@@ -8,7 +8,7 @@ pantran.setup({
   retry = 5,
   timeout = 20,
 
-  default_engine = "google",
+  default_engine = vim.env.DEEPL_API_KEY and "deepl" or nil,
   engines = {
     deepl = {
       default_target = "JA-JP",
