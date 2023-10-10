@@ -4,7 +4,7 @@ if not ok then return end
 trouble.setup({
   auto_open     = false,
   auto_close    = false,
-  auto_preview  = true,
+  auto_preview  = false,
   auto_fold     = false,
   indent_lines  = true,
 
