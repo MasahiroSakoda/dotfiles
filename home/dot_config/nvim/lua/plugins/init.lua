@@ -85,8 +85,8 @@ return {
     "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
     branch = "v3.x",
     dependencies = {
+      "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      "kkharji/sqlite.lua",
       "nvim-tree/nvim-web-devicons",
     },
     cmd    = "Neotree",
