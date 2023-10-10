@@ -388,7 +388,6 @@ return {
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    dependencies = { "kkharji/sqlite.lua" },
     cond   = not is_vscode,
     config = function() require("user.telescope.frecency") end,
   },

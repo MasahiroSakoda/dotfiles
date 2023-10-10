@@ -22,6 +22,7 @@ telescope.setup({
       disable_devicons = false,
       ignore_patterns  = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
       show_filter_column = { "LSP", "CWD", "VIM" },
+      use_sqlite = false,
       workspaces = {
         ["fish"]    = "~/.config/fish",
         ["nvim"]    = "~/.config/nvim",
