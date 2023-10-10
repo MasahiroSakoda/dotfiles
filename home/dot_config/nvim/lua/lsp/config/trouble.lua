@@ -35,16 +35,16 @@ trouble.setup({
     jump        = {"<cr>", "<tab>"},
     jump_close  = "o",
     hover       = "zh",
-    toggle_preview = "p",
+    preview     = "p",
+    toggle_preview = "P",
 
-    open_split  = {},
+    toggle_mode = "m",
+    open_split  = "<C-x>",
     open_vsplit = "<C-v>",
     open_tab    = "<C-t>",
-    toggle_mode = {},
-    preview     = {},
-    close_folds = {},
-    open_folds  = {},
-    toggle_fold = {},
+    open_folds  = { "zR", "zr" },
+    close_folds = { "zM", "zm" },
+    toggle_fold = { "zA", "za" },
   },
 })
 
