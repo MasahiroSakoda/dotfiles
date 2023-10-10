@@ -13,7 +13,7 @@ nt.setup({
 
   window = {
     position = "left",
-    width = 25,
+    width = 30,
     mappings = {
       ["<Space>"] = {
         "toggle_node",
