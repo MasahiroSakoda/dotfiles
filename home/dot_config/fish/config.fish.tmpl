@@ -119,6 +119,12 @@ end
 # Wine
 set -x PATH "/usr/local/opt/wine-6.1/bin" $PATH
 
+{{ if eq .chezmoi.os "darwin" }}
 set -gx OPENAI_API_KEY (security find-generic-password -s "OpenAI API Key" -w)
 set -gx GOOGLE_API_KEY (security find-generic-password -s "Google API Key" -w)
-set -gx DEEPL_API_KEY (security find-generic-password -s "DeepL API Key" -w)
+set -gx DEEPL_API_KEY  (security find-generic-password -s "DeepL API Key" -w)
+{{ else if eq .chezmoi.os "linux" }}
+set -gx OPENAI_API_KEY (secret-tool lookup username $USER key_name "OpenAI API Key")
+set -gx GOOGLE_API_KEY (secret-tool lookup username $USER key_name "Google API Key")
+set -gx DEEPL_API_KEY  (secret-tool lookup username $USER key_name "DeepL API Key")
+{{ end }}
