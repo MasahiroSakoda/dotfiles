@@ -84,10 +84,11 @@ cask "wireshark-chmodbpf"
 ### Image
 cask "kap"
 
+{{ if .graphics }}
 ### Graphics
 cask "gimp"
 cask "blender"
-
+{{ end }}
 ### Movie
 cask "iina"
 cask "vlc"

@@ -7,6 +7,7 @@
 {{- $flarm      := false -}}{{/* true if this machine is used for FLARM */}}
 {{- $headless   := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal   := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $graphics   := false -}}{{/* true if this machine should have graphic apps */}}
 {{- $cloud      := false -}}{{/* true if this machine is going to use cloud */}}
 {{- "" -}}
 
@@ -57,6 +58,7 @@ color = "on"
     headless  = {{ $headless }}
     hostname  = {{ $hostname | quote }}
     personal  = {{ $personal }}
+    graphics  = {{ $graphics }}
     cloud     = {{ $cloud }}
     osid      = {{ $osID | quote }}
     brew_prefix = {{ $brew_prefix | quote }}
