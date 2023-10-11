@@ -7,6 +7,15 @@ set -x LC_CTYPE ja_JP.UTF-8
 # Path Configuration
 set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin /usr/local/opt/bison/bin $PATH
 
+# Homebrew
+set -gx HOMEBREW_PREFIX "{{ .brew_prefix }}"
+if test -d $HOMEBREW_PREFIX
+  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+end
+
+## Cask
+set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
+
 # Editor
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
@@ -84,22 +93,6 @@ set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-
-# Homebrew
-switch (uname -m)
-  case arm64
-    set -gx HOMEBREW_PREFIX /opt/homebrew
-  case "*"
-    set -gx HOMEBREW_PREFIX /usr/local
-end
-
-if test -d $HOMEBREW_PREFIX
-  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-end
-
-
-## Cask
-set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
 # Fish Plugin
 ## Configure fish plugins

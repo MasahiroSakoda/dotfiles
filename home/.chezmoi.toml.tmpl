@@ -33,6 +33,18 @@
 {{ $email = promptStringOnce . "email" "Enter your git email: " }}
 {{ end }}
 
+{{/* Discover the homebrew prefix */}}
+{{- $brew_prefix := "" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   if eq .chezmoi.arch "arm64" -}}
+{{-     $brew_prefix = "/opt/homebrew" -}}
+{{-   else if eq .chezmoi.arch "amd64" -}}
+{{-     $brew_prefix = "/usr/local" -}}
+{{-   end -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   $brew_prefix = "/home/linuxbrew/.linuxbrew" -}}
+{{- end -}}
+
 encryption = "age"
 format = "json"
 color = "on"
@@ -45,6 +57,7 @@ color = "on"
     hostname  = {{ $hostname | quote }}
     personal  = {{ $personal }}
     osid      = {{ $osID | quote }}
+    brew_prefix = {{ $brew_prefix | quote }}
 
 [data.git]
     user  = {{ $user | quote }}
