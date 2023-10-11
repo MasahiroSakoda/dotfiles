@@ -9,9 +9,12 @@ tap "dopplerhq/cli"
 
 ## GNU
 brew "gnutls"
-brew "gnupg"
 brew "coreutils"
 brew "openssl"
+brew "gnupg"
+{{ if eq .chezmoi.os "darwin" }}
+brew "pinentry-mac"
+{{ end }}
 
 ## Shell
 brew "fish"
