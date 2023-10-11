@@ -124,8 +124,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 #### NeoVim
 
-<img src="https://github.com/MasahiroSakoda/dotfiles/assets/1011488/156587cb-ca8d-40b8-b7b0-3779883ad9f6" align="right" width="450px" />
-
 * [Builtin LSP Supported](#configured-languages-for-lsp)
 * [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
 * [Linter support](#configured-linter)
@@ -133,6 +131,8 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
+
+![mason.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/156587cb-ca8d-40b8-b7b0-3779883ad9f6)
 
 [LuaSnip]: https://github.com/L3MON4D3/LuaSnip
 [friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
@@ -144,8 +144,6 @@ Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
 
 ##### Configured Languages for LSP
-
-<img src="https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9050cb99-b33a-4a82-a540-ebe7b9e962c4" align="right" width="450px" />
 
 * `Lua`,
 * `VimScript`
@@ -162,6 +160,8 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * `SQL`
 * `GraphQL`
 * `Dockerfile`
+
+![NeoVim-LSP-Completion](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9050cb99-b33a-4a82-a540-ebe7b9e962c4)
 
 ##### Configured Languages for DAP
 
@@ -222,14 +222,13 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### Telescope extensions
 
-
-<img src="https://github.com/MasahiroSakoda/dotfiles/assets/1011488/aa77f7fa-5abc-471d-9ff2-ed2fcca1bfb8" align="right" width="450px" />
-
 * [**telescope-frecency**][telescope-frecency]: [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
 * [**telescope-file-browser**][telescope-file-browser]: File Browser
 * [**telescope-egrepify**][telescope-egrepify] live grep extension
 * [**telescope-lazy**][telescope-lazy]: [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
 * [**telescope-dap**][telescope-dap]: DAP Extension
+
+![telescope.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/aa77f7fa-5abc-471d-9ff2-ed2fcca1bfb8)
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
