@@ -64,6 +64,7 @@ set -gx LV "-Ou8 -c -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 set -x GREP_OPTIONS "--color=always"
 
 # asdf
+set -gx ASDF_CONFIG_FILE "$HOME/.config/asdf/asdfrc"
 source (brew --prefix asdf)/libexec/asdf.fish
 
 # rtx
