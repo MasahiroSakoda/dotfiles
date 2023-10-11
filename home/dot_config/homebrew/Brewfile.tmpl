@@ -78,13 +78,15 @@ brew "xsv"
 brew "cjson"
 
 ## DevOps
-
+{{ if .cloud }}
 ### AWS
 brew "awscli"
 
 ### Azure
 brew "azure-cli"
 
+{{ end }}
+{{ if .docker }}
 ### Kubernetes
 brew "kubernetes-cli"
 brew "helm"      # Kubernetes package manager
@@ -95,6 +97,7 @@ brew "kind"      # Run local Kubernetes cluster in Docker
 brew "krew"      # kubectl plugin manager
 brew "kubectx"   # Tool that can switch between kubectl contexts easily and create aliases
 brew "kustomize" # Template-free customization of Kubernetes YAML manifests
+{{ end }}
 
 ### Terraform
 brew "terraform"
