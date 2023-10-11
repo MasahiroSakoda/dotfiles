@@ -117,12 +117,13 @@ cask "tunnelbear"
 cask "townwifi"
 cask "transmission"
 
+{{ if .cloud }}
 ## Cloud
 cask "google-cloud-sdk"
-
+{{ end }}
 ### Storage
 cask "dropbox"
-cask "google-drive"
+# cask "google-drive"
 
 cask "franz"
 
