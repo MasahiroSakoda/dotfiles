@@ -311,7 +311,6 @@ end
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
-keymap("n", ",h",  "<CMD>HexToggle",              { desc = "   Toggle hex editor" })
 keymap("n", ",f",  "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
 keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
 keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
