@@ -282,15 +282,28 @@ if not is_vscode then
 
   -- ChatGPT.nvim
   wk.register({
-    ["<Leader>i"]  = { name = "🤖  ChatGPT" },
-    ["<Leader>io"] = { ":ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
-    ["<Leader>ia"] = { ":ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
-    ["<Leader>ie"] = { ":ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
+    mode = nv_mode,
+    ["<Leader>a"]  = { name = "🤖  ChatGPT" },
+    ["<Leader>ai"] = { ":ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
+    ["<Leader>aa"] = { ":ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
+    ["<Leader>ac"] = { ":ChatGPTCompleteCode<CR>",         "   Complete code with ChatGPT" },
+    ["<Leader>ae"] = { ":ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
+
+    ["<Leader>ag"] = { ":ChatGPTRun grammar_correction<CR>", "   Grammar Correction" },
+    ["<Leader>as"] = { ":ChatGPTRun summarize<CR>",          "   Summarize text" },
+    ["<Leader>at"] = { ":ChatGPTRun translate<CR>",          "   translate text" },
+    ["<Leader>ak"] = { ":ChatGPTRun keywords<CR>",           "   Keyword Generation" },
+
+    ["<Leader>ad"] = { ":ChatGPTRun docstring<CR>",     "   Create docstring" },
+    ["<Leader>af"] = { ":ChatGPTRun fix_bugs<CR>",      "   Fix bugs" },
+    ["<Leader>aE"] = { ":ChatGPTRun explain_code<CR>",  "   Explain Code" },
+    ["<Leader>ao"] = { ":ChatGPTRun optimize_code<CR>", "   Optimize Code" },
+    ["<Leader>ar"] = { ":ChatGPTRun roxygen_edit<CR>",  "   Roxygen Edit" },
   }, opts)
 
   wk.register({
-    ["<Leader>i"]  = { name = "🤖  ChatGPT" },
-    ["<Leader>ie"] = { "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with instructions" },
+    ["<Leader>a"]  = { name = "🤖  ChatGPT" },
+    ["<Leader>ae"] = { ":ChatGPTEditWithInstructions<CR>", "Edit with instructions" },
   }, { mode = "v" })
 
 end
