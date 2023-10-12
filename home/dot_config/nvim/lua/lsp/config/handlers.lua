@@ -1,9 +1,6 @@
 local lsp = vim.lsp
 local handlers = lsp.handlers
 
-handlers["textDocument/hover"] = lsp.with(handlers.hover, {
-  border = "rounded",
-})
 -- NeovimのLSPで誰にどうして怒られたのかを確認するための設定
 -- https://dev.classmethod.jp/articles/eetann-change-neovim-lsp-diagnostics-format/
 handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
@@ -15,9 +12,15 @@ handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish
     end,
   },
 })
-handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
-  border = "rounded",
-  silent = true,
-  -- focusable = false,
-  close_events = { "CursorMoved", "BufHidden", "InsertCharPre", "InsertLeave" },
-})
+
+-- INFO: deactivate this code to use `noice.nvim`
+-- handlers["textDocument/hover"] = lsp.with(handlers.hover, {
+--   border = "rounded",
+-- })
+
+-- handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
+--   border = "rounded",
+--   silent = true,
+--   -- focusable = false,
+--   close_events = { "CursorMoved", "BufHidden", "InsertCharPre", "InsertLeave" },
+-- })

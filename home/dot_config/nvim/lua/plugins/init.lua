@@ -15,8 +15,9 @@ return {
   -- Vim
   ------------------------------------------------------------------------
   { "vim-jp/vimdoc-ja", ft = "help" },
-  { "akinsho/toggleterm.nvim", cmd = "ToggleTerm", config = function() require("ui.toggleterm") end },
-  { "rcarriga/nvim-notify", event = "VeryLazy", config = function() require("ui.notify") end },
+  { "akinsho/toggleterm.nvim", cmd = "ToggleTerm",   config = function() require("ui.toggleterm") end },
+  { "rcarriga/nvim-notify", event  = "VeryLazy",     config = function() require("ui.notify") end },
+  { "folke/noice.nvim",     event  = "CmdlineEnter", config = function() require("ui.noice") end },
   {
     "goolord/alpha-nvim", -- startup dashboard
     dependencies = { "nvim-tree/nvim-web-devicons" },
