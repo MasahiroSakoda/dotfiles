@@ -434,23 +434,6 @@ return {
     config = function() require("ai.chatgpt") end,
   },
 
-  {
-    "Bryley/neoai.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    cmd = {
-      "NeoAI", "NeoAIOpen", "NeoAIClose", "NeoAIToggle", "NeoAIShortcut",
-      "NeoAIContext", "NeoAIContextOpen", "NeoAIContextClose",
-      "NeoAIInject", "NeoAIInjectCode", "NeoAIInjectContext", "NeoAIInjectContextCode"
-    },
-    keys = {
-      { "<Leader>as", desc = "summarize text" },
-      { "<Leader>ar", desc = "refactor code" },
-      { "<Leader>ag", desc = "generate git message" },
-    },
-    cond   = not is_vscode,
-    config = function() require("ai.neoai") end,
-  },
-
   ------------------------------------------------------------------------
   -- Others
   ------------------------------------------------------------------------

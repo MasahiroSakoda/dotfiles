@@ -293,18 +293,6 @@ if not is_vscode then
     ["<Leader>ie"] = { "<CMD>ChatGPTEditWithInstructions<CR>", "Edit with instructions" },
   }, { mode = "v" })
 
-  -- neoai.nvim
-  wk.register({
-    -- noremap = true,
-    -- silent  = false,
-    ["<Leader>a"]   = { name = "🤖  NeoAI" },
-    ["<Leader>aa"]  = { ":NeoAIToggle<CR>",            " Toggle NeoAI window" },
-    ["<Leader>ac"]  = { ":NeoAIContext<Space>",        " Toggle NeoAI window with context" },
-    ["<Leader>aij"] = { ":NeoAIInject<Space>",         " receive directly AI response into the buffer" },
-    ["<Leader>aic"] = { ":NeoAIInjectCode<Space>",     " receive directly AI response as code snippets into buffer" },
-    ["<Leader>aiC"] = { ":NeoAIInjectContext<Space>",  " injects the AI response into the buffer without window" },
-  }, opts)
-
 end
 
 ---------------------------------------------------------------------------
