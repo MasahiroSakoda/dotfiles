@@ -86,8 +86,8 @@ wk.register({
 -- Tab Navigation
 keymap("n", "[t", ":tabprevious<CR>", { desc = "   Move to prev tab" })
 keymap("n", "]t", ":tabnext<CR>",     { desc = "   Move to next tab" })
-keymap("n", "[T", ":tabfirst<CR>",    { desc = "   Move to First tab" })
-keymap("n", "]T", ":tablast<CR>",     { desc = "   Move to Last tab"})
+keymap("n", "[1", ":tabfirst<CR>",    { desc = "   Move to First tab" })
+keymap("n", "]9", ":tablast<CR>",     { desc = "   Move to Last tab"})
 
 -- Tab Control via Telescope
 wk.register({
