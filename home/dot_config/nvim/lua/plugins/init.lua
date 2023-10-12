@@ -416,8 +416,17 @@ return {
   ------------------------------------------------------------------------
   -- AI Assistant
   ------------------------------------------------------------------------
+  -- GitHub Copilot interaction
   {
-    "jackMort/ChatGPT.nvim", -- ChatGPT client
+    "zbirenbaum/copilot.lua",
+    build  = ":Copilot auth",
+    cmd    = "Copilot",
+    event  = "InsertEnter",
+    config = function() require("ai.copilot") end,
+  },
+  -- ChatGPT client
+  {
+    "jackMort/ChatGPT.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
