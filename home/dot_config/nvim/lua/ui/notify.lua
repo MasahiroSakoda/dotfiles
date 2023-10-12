@@ -18,7 +18,7 @@ notify.setup({
   ---@usage timeout for notifications in ms, default 5000
   timeout = 2500,
   ---@usage User render fps value
-  fps = 30,
+  fps = 20,
   -- Render function for notifications. See notify-render()
   render = "default",
   ---@usage highlight behind the window for stages that change opacity
