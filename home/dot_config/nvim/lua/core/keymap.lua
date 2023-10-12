@@ -308,13 +308,6 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- Web Browser Integration
----------------------------------------------------------------------------
-keymap(nv_mode, "gx", "<Plug>(openbrowser-smart-search)", { desc = "   Open URL on current line" })
-keymap(nv_mode, "gX", ":OpenGithubFile<CR>",              { desc = "   Open current file on github.com" })
-keymap("n",     "gs", ":OpenBrowserSearch<Space>",        { desc = "   Google Search" })
-
----------------------------------------------------------------------------
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
