@@ -421,6 +421,7 @@ return {
     "zbirenbaum/copilot.lua",
     build  = ":Copilot auth",
     cmd    = "Copilot",
+    cond   = not is_vscode,
     event  = "InsertEnter",
     config = function() require("ai.copilot") end,
   },
