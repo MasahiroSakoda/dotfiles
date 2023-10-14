@@ -1,7 +1,18 @@
 local ok, gpt = pcall(require, "chatgpt")
 if not ok then return end
 
+WELCOME_MESSAGE = [[
+
+     If you don't ask the right questions,
+        you don't get the right answers.
+                                      ~ Robert Half
+
+]]
+
 gpt.setup({
+  popup_layout = {
+    default = "right", --- @type "center"|"right"
+  },
   edit_with_instructions = {
     keymap = {
       accept              = "<C-y>",
@@ -11,8 +22,9 @@ gpt.setup({
       use_output_as_input = "<C-i>",
     },
   },
+
   chat = {
-    welcome_message = "WELCOME_MESSAGE",
+    welcome_message = WELCOME_MESSAGE,
     loading_text    = "Loading, please wait ...",
     keymaps = {
       close           = "<C-c>",
@@ -31,7 +43,10 @@ gpt.setup({
       },
     },
   },
+
+  -- See also: https://platform.openai.com/docs/models
   openai_params = {
+    --- @type "gpt-3.5-turbo"|"text-davinci-003"|"text-curie-001"|"text-babbage-001"|"text-ada-001"
     model = "gpt-3.5-turbo",
     frequency_penalty = 0,
     presence_penalty  = 0,
@@ -40,7 +55,9 @@ gpt.setup({
     top_p = 1,
     n = 1,
   },
+
   openai_edit_params = {
+    --- @type "gpt-3.5-turbo"|"code-davinci-edit-001"|"code-davinci-edit-002"
     model = "code-davinci-edit-001",
     temperature = 0,
     top_p = 1,
