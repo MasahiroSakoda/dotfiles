@@ -179,6 +179,7 @@ if not is_vscode then
 
     ["<Leader>fb"] = { ":Telescope file_browser<CR>", "   File Browser" },
     ["<Leader>fl"] = { ":Telescope lazy<CR>",         "   lazy.nvim Browser" },
+    ["<Leader>fL"] = { ":Telescope luasnip<CR>",      "   LuaSnip Browser" },
 
     ["<Ldeader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   dap configurations" },
     ["<Ldeader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },

@@ -406,6 +406,11 @@ return {
     config = function() require("user.telescope.file_browser") end,
   },
   {
+    "benfowler/telescope-luasnip.nvim",
+    cond   = not is_vscode,
+    module = "telescope._extensions.luasnip",
+  },
+  {
     "tsakirist/telescope-lazy.nvim",
     cond   = not is_vscode,
     config = function() require("user.telescope.lazy") end,
