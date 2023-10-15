@@ -6,7 +6,9 @@ local fn, api = vim.fn, vim.api
 
 -- Disable changing color scheme cause by this segment
 -- https://blog.atusy.net/2022/12/17/styler-nvim-active-win/
+--- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"
 local ACTIVE_COLORSCHEME   = "nightfox"
+--- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"
 local INACTIVE_COLORSCHEME = "carbonfox"
 vim.cmd.colorscheme(ACTIVE_COLORSCHEME)
 
