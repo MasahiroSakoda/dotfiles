@@ -7,7 +7,7 @@ return {
   -- Libraries
   ------------------------------------------------------------------------
   { "nvim-lua/plenary.nvim" },
-  { "kkharji/sqlite.lua" },
+  -- { "kkharji/sqlite.lua" },
   { "tzachar/fuzzy.nvim" },
   { "MunifTanjim/nui.nvim" },
   { "nvim-tree/nvim-web-devicons" },
