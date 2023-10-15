@@ -29,7 +29,7 @@ telescope.setup({
     winblend = 20,
     file_ignore_patterns = {
       "build/", "dist/",
-      "build/", "%.o", "%.out", "%.a", "%.d", "%.so",        -- Binary
+      "build/", "%.o", "%.out", "%.a", "%.so",        -- Binary
       "%.tar", "%.tar.gz", "%.zip", "%.rar", "%.7z", -- Archives
       "^.git/", -- Git
       "%.otf", "%.ttf", "%.woff", ".fonts", -- font
