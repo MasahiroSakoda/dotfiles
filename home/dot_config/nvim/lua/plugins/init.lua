@@ -314,6 +314,7 @@ return {
   },
   { "nvim-neotest/neotest-python" },
   { "olimorris/neotest-rspec" },
+  { "nvim-neotest/neotest-jest" },
 
   ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter

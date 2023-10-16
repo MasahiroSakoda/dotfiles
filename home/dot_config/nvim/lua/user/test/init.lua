@@ -16,5 +16,14 @@ neotest.setup({
       rspec_cmd = function() return vim.tbl_flatten({ "bundle", "exec", "rspec" }) end,
       root_files = { "Gemfile", ".rspec", ".gitignore" },
     }),
+    require("neotest-jest")({
+      -- TODO: configure parameter for npm/pnpm
+      -- TODO: configure for jest watch mode
+      jestCommand = "npm test --",
+      -- TODO: configure for Monorepo environment
+      jestConfigFile = "custom.jest.config.ts",
+      env = { CI = true },
+      cwd = function(path) return vim.fn.getcwd() end,
+    }),
   },
 })
