@@ -200,6 +200,7 @@ return {
     dependencies = {
       -- LSP completion sources
       "hrsh7th/cmp-nvim-lsp",
+      "onsails/lspkind.nvim",
       -- "hrsh7th/cmp-omni",
 
       -- "hrsh7th/cmp-path",
