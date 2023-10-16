@@ -200,9 +200,6 @@ return {
     dependencies = {
       -- LSP completion sources
       "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-      "hrsh7th/cmp-nvim-lsp-document-symbol",
-      "onsails/lspkind.nvim",
       -- "hrsh7th/cmp-omni",
 
       -- "hrsh7th/cmp-path",

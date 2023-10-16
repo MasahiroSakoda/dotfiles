@@ -76,12 +76,11 @@ cmp.setup({
   },
 
   sources = { -- Completion Sources
-    { name = "nvim_lsp_signature_help", group_index = 1, priority = 100, keyword_length = 0 },
-    { name = "luasnip",     group_index = 2, priority = 90, max_item_count = 5 },
-    { name = "nvim_lsp",    group_index = 1, priority = 80, max_item_count = 5 },
-    { name = "nvim_lua",    group_index = 1, priority = 80, max_item_count = 5 },
-    { name = "codeium",     group_index = 3, priority = 70, max_item_count = 2 },
-    -- { name = "cmp_tabnine", group_index = 3, priority = 70, max_item_count = 2 },
+    { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 5 },
+    { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 5 },
+    { name = "nvim_lua",    group_index = 2, priority = 80,  max_item_count = 5 },
+    { name = "codeium",     group_index = 3, priority = 70,  max_item_count = 2 },
+    -- { name = "cmp_tabnine", group_index = 3, priority = 70,  max_item_count = 2 },
     -- { name = "omni" },
     { name = "buffer",       keyword_length = 2, max_item_count = 5, option = { keyword_pattern = anyWord } },
     { name = "path",         keyword_length = 3, max_item_count = 5 },
@@ -177,7 +176,6 @@ cmp.setup({
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "nvim_lsp_document_symbol" },
     { name = "buffer",          keyword_length = 1, option = { keyword_pattern = anyWord } },
     { name = "fuzzy_buffer",    keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
     { name = "cmdline_history", keyword_length = 2, option = { keyword_pattern = anyWord } },
