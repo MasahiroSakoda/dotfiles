@@ -25,6 +25,8 @@ neotest.setup({
       env = { CI = true },
       cwd = function(path) return vim.fn.getcwd() end,
     }),
+    -- JavaScript, TypeScript
     require("neotest-vitest"),
+    require("neotest-playwright"),
   },
 })

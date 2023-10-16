@@ -316,6 +316,7 @@ return {
   { "olimorris/neotest-rspec" },
   { "nvim-neotest/neotest-jest" },
   { "marilari88/neotest-vitest" },
+  { "thenbe/neotest-playwright" },
 
   ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter
