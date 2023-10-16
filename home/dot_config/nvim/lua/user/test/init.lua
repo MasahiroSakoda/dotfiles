@@ -27,6 +27,12 @@ neotest.setup({
     }),
     -- JavaScript, TypeScript
     require("neotest-vitest"),
-    require("neotest-playwright"),
+    require("neotest-playwright").adapter({
+      options = {
+        persist_project_selection = true,
+        enable_dynamic_test_discovery = true,
+        preset = "none", --- @type "none"|"headed"|"debug"
+      }
+    }),
   },
 })
