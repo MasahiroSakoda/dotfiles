@@ -139,6 +139,8 @@ return {
     dependencies = {
       { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
       { "williamboman/mason-lspconfig.nvim" },
+      { "folke/neodev.nvim" },
+      { "folke/neoconf.nvim", cmd = "Neoconf" },
     },
     cond   = not is_vscode,
     event  = { "BufReadPre", "BufNewFile" },
