@@ -310,8 +310,9 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim"
     },
-    config = function() require("user.neotest") end,
+    config = function() require("user.test") end,
   },
+  { "nvim-neotest/neotest-python" },
 
   ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter
