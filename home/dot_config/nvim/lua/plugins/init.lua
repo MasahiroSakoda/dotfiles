@@ -281,6 +281,12 @@ return {
       require("dap-python").setup(path .. "/venv/bin/python")
     end,
   },
+  {
+    "suketa/nvim-dap-ruby",
+    ft     = "ruby",
+    cond = not is_vscode,
+    config = function() require("dap-ruby").setup() end,
+  },
 
   {
     "microsoft/vscode-js-debug",
