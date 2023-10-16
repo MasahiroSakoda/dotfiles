@@ -25,5 +25,6 @@ neotest.setup({
       env = { CI = true },
       cwd = function(path) return vim.fn.getcwd() end,
     }),
+    require("neotest-vitest"),
   },
 })
