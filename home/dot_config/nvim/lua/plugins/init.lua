@@ -195,36 +195,30 @@ return {
   ------------------------------------------------------------------------
   {
     "hrsh7th/nvim-cmp", -- Completion Engine
+    dependencies = {
+      -- LSP completion sources
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "onsails/lspkind.nvim",
+      -- "hrsh7th/cmp-omni",
+
+      -- "hrsh7th/cmp-path",
+      -- "hrsh7th/cmp-buffer",
+      "tzachar/cmp-fuzzy-path",
+      "tzachar/cmp-fuzzy-buffer",
+      "hrsh7th/cmp-cmdline",
+      "dmitmel/cmp-cmdline-history",
+
+      "saadparwaiz1/cmp_luasnip",
+    },
     cond   = not is_vscode,
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
   },
-  -- LSP completion sources
-  { "hrsh7th/cmp-nvim-lsp-signature-help",  event = "InsertEnter" },
-  { "hrsh7th/cmp-nvim-lsp-document-symbol", event = "InsertEnter" },
-  { "hrsh7th/cmp-nvim-lsp", cond = not is_vscode, event = "InsertEnter" },
-  {
-    "onsails/lspkind.nvim",
-    cond  = not is_vscode,
-    event = "InsertEnter",
-  },
-  -- { "hrsh7th/cmp-omni" },
-
   { "hrsh7th/cmp-nvim-lua", ft = "lua" },
   { "mtoohey31/cmp-fish",   ft = "fish" },
 
-  -- { "hrsh7th/cmp-path",            event = { "InsertEnter", "CmdlineEnter" } },
-  -- { "hrsh7th/cmp-buffer",          event = { "InsertEnter", "CmdlineEnter" } },
-  { "tzachar/cmp-fuzzy-path",      event = { "InsertEnter", "CmdlineEnter" } },
-  { "hrsh7th/cmp-cmdline",         event = "CmdlineEnter" },
-  { "dmitmel/cmp-cmdline-history", event = "CmdlineEnter" },
-  { "tzachar/cmp-fuzzy-buffer",    event = { "InsertEnter", "CmdlineEnter" } },
-
-  {
-    "saadparwaiz1/cmp_luasnip",
-    cond  = not is_vscode,
-    event = { "InsertEnter", "CmdlineEnter" },
-  },
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
