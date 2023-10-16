@@ -276,7 +276,10 @@ return {
     "mfussenegger/nvim-dap-python",
     ft     = "python",
     cond   = not is_vscode,
-    config = function() require("dap.adapters.python") end,
+    config = function()
+      local path = require("mason-registry").get_package("debugpy"):get_install_path()
+      require("dap-python").setup(path .. "/venv/bin/python")
+    end,
   },
 
   {
