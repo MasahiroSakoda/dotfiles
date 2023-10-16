@@ -11,5 +11,10 @@ neotest.setup({
       runner = "pytest", --- @type "pytest"|"unittest"
       python = ".venv/bin/python",
     }),
+    -- Ruby
+    require("neotest-rspec")({
+      rspec_cmd = function() return vim.tbl_flatten({ "bundle", "exec", "rspec" }) end,
+      root_files = { "Gemfile", ".rspec", ".gitignore" },
+    }),
   },
 })

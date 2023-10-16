@@ -313,6 +313,7 @@ return {
     config = function() require("user.test") end,
   },
   { "nvim-neotest/neotest-python" },
+  { "olimorris/neotest-rspec" },
 
   ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter
