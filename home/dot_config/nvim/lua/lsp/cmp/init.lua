@@ -53,6 +53,7 @@ cmp.setup({
   completion = {
     border = "rounded",
     winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+    completeopt = "menu,menuone,noinsert",
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
