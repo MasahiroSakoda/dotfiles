@@ -350,8 +350,8 @@ return {
   },
   {
     "Wansmer/treesj",
-    cmd    =  { "TSJToggle", "TSJJoin", "TSJSplit" },
-    config = function() require("user.treesitter.treesj") end,
+    cmd    =  "TSJToggle",
+    config = function() require("user.treesj") end,
   },
   {
     "m-demare/hlargs.nvim",
