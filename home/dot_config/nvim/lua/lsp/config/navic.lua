@@ -38,6 +38,6 @@ navic.setup({
   safe_output = true,
   separator = '',
   -- separator = '',
-  depth_limit = 0,
+  depth_limit = 5,
   depth_limit_indicator = "..",
 })

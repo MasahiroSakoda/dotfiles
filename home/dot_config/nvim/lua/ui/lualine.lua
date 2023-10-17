@@ -39,13 +39,21 @@ lualine.setup {
     },
     lualine_b = { "branch", "diff" },
     lualine_c = {
-      { "diagnostics", source = "nvim-lsp" },
-      { "filename", path = 1, icon = { "", color = { fg = "#FFFFFF" } } },
+      { "diagnostics", source = { "nvim-lsp", "nvim_diagnostic"} },
+      {
+        "filename",
+        icon = { "", color = { fg = "#FFFFFF" } },
+        path = 1, --- @type 0|1|2|3|4
+        symbols = { modified = "", readonly = "", newfile  = "", unnamed  = "" }
+      },
     },
     lualine_x = {
-      { function() return navic.get_location() end, cond = function() return navic.is_available() end },
+      {
+        function() return navic.get_location() end,
+        cond = function() return navic.is_available() end,
+      },
     },
-    lualine_y = { "encoding", "fileformat", "filetype" },
+    lualine_y = { "encoding", "fileformat" },
     lualine_z = { "progress", "location" },
   },
   extensions = {
