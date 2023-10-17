@@ -15,6 +15,8 @@ elseif not navic_ok then
   vim.notify('[lspconfig] Loading "nvim-navic" failed.', vim.log.levels.WARN)
 elseif not neodev_ok then
   vim.notify('[lspconfig] Loading "neodev" failed.', vim.log.levels.WARN)
+elseif not neoconf_ok then
+  vim.notify('[lspconfig] Loading "neoconf" failed.', vim.log.levels.WARN)
 end
 
 require("lsp.config.handlers")
