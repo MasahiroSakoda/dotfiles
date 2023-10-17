@@ -43,6 +43,7 @@ local fd_opts = {
   },
 }
 local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", "cw", "cwq", "cx", "cxa" }
+vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
 cmp.setup({
   window = {
@@ -164,7 +165,9 @@ cmp.setup({
     ["<CR>"]  = cmp.mapping.confirm { select = true },
   }),
   experimental = {
-    ghost_text = true,
+    ghost_text = {
+      hl_group = "CmpGhostText",
+    },
   },
 })
 
