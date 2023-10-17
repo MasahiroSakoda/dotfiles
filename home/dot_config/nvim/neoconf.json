@@ -21,15 +21,9 @@
       "vscode": true
     },
     "plugins": {
-      "lspconfig": {
-        "enabled": true
-      },
-      "lua_ls": {
-        "enabled": true
-      },
-      "jsonls": {
-        "enabled": true
-      }
+      "lspconfig": { "enabled": true },
+      "lua_ls": { "enabled": true },
+      "jsonls": { "enabled": true }
     }
   },
   "lspconfig": {
