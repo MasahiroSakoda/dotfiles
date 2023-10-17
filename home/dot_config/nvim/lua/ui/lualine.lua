@@ -61,5 +61,6 @@ lualine.setup {
     "trouble",
     "neo-tree",
     "fzf",
+    "mason",
   },
 }
