@@ -144,6 +144,14 @@ return {
     cond   = not is_vscode,
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
+    opts   = {
+      -- builtin LSP inlay hints on Neovim >= 0.10.0
+      inlay_hint  = {
+        enabled = vim.fn.has("nvim-0.10") == 1,
+        inline  = vim.fn.has("nvim-0.10") == 0,
+      },
+      diagnostics = { virtual_text = vim.fn.has("nvim-0.10") == 0 and "●" },
+    },
   },
   -- INFO: null-ls.nvim alternative
   {
