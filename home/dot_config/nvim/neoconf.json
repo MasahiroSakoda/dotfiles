@@ -48,7 +48,7 @@
       "Lua.format.enable": false,
       "Lua.hint.await": true,
       "Lua.hint.enable": true,
-      "Lua.hint.setType": true,
+      // "Lua.hint.setType": true,
       "Lua.hover.enable": true,
       "Lua.hover.enumsLimit": 5,
       "Lua.hover.viewNumber": true,
