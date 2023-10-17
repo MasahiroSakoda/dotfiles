@@ -6,7 +6,5 @@ set -eo pipefail
 . "$(brew --prefix asdf)/libexec/asdf.sh"
 
 asdf global nodejs {{ .asdf.version.node }}
-asdf global pnpm {{ .asdf.version.pnpm }}
 
 asdf reshim nodejs
-asdf reshim pnpm
