@@ -15,7 +15,6 @@
 
 [asdf.version]
     node   = "20.8.0"
-    pnpm   = "8.9.0"
     deno   = "1.37.2"
     bun    = "1.0.3"
     python = "3.12.0"
