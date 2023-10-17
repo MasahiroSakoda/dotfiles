@@ -227,8 +227,8 @@ return {
     cond   = not is_vscode,
     event  = "InsertEnter",
     config = function ()
-      require("luasnip.loaders.from_vscode").lazy_load()
       require("lsp.cmp.luasnip")
+      require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
 
