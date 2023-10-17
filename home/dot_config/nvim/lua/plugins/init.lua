@@ -116,7 +116,6 @@ return {
   },
   {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
-    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.dial") end,
   },
   {
