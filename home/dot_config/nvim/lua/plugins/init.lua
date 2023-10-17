@@ -216,7 +216,6 @@ return {
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
   },
-  { "hrsh7th/cmp-nvim-lua", ft = "lua" },
   { "mtoohey31/cmp-fish",   ft = "fish" },
 
   {
