@@ -22,6 +22,13 @@ end
 require("lsp.config.handlers")
 
 neodev.setup({
+  override = function(root_dir, library)
+    local util = require("neodev.util")
+    if util.has_file(root_dir, "~/.local/share/chezmoi") then
+      library.enabled = true
+      library.plugins = true
+    end
+  end,
 })
 
 neoconf.setup({
