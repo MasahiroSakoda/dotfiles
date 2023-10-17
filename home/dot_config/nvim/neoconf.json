@@ -3,24 +3,73 @@
     "library": {
       "enabled": true,
       "plugins": [
-        "lsp",
-        "nvim-lspconfig",
         "neoconf",
+        "nvim-lspconfig",
+        "lsp",
         "nvim-dap-ui"
-      ]
-    }
+      ],
+      "runtime": true,
+      "types": true
+    },
+    "lspconfig": true
   },
   "neoconf": {
+    "live_reload": true,
+    "global_settings": "neoconf.json",
+    "local_settings": ".neoconf.json",
+    "import": {
+      "vscode": true
+    },
     "plugins": {
+      "lspconfig": {
+        "enabled": true
+      },
       "lua_ls": {
+        "enabled": true
+      },
+      "jsonls": {
         "enabled": true
       }
     }
   },
   "lspconfig": {
     "lua_ls": {
+      "Lua.addonManager.enable": true,
+      "Lua.codeLens.enable": true,
+      "Lua.completion.autoRequire": true,
+      "Lua.completion.callSnippet": "Replace",
+      "Lua.completion.displayContext": 0,
+      "Lua.completion.enable": true,
+      "Lua.completion.postfix": "@",
+      "Lua.completion.requireSeparator": ".",
+      "Lua.completion.showParams": true,
+      "Lua.completion.showWord": "Enable",
+      "Lua.completion.workspaceWord": true,
       "Lua.format.enable": false,
-      "Lua.completion.callSnippet": "Replace"
+      "Lua.hint.await": true,
+      "Lua.hint.enable": true,
+      "Lua.hint.setType": true,
+      "Lua.hover.enable": true,
+      "Lua.hover.enumsLimit": 5,
+      "Lua.hover.viewNumber": true,
+      "Lua.hover.viewString": true,
+      "Lua.hover.viewStringMax": 1000,
+      "Lua.semantic.annotation": true,
+      "Lua.semantic.enable": true,
+      "Lua.semantic.keyword": true,
+      "Lua.semantic.variable": true,
+      "Lua.signatureHelp.enable": true,
+      "Lua.workspace.checkThirdParty": false
+    },
+    "jsonls": {
+      "json.format.enable": true,
+      "json.format.keepLines": true,
+      "json.validate.enable": true,
+      "json.trace.server": "messages"
+    },
+    "yamlls": {
+      "yaml.hover": true,
+      "yaml.schemaStore.enable": true
     }
   }
 }
