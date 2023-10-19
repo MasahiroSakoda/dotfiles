@@ -13,7 +13,7 @@
     theme = "dracula"
     opacity = 0.75
 
-[asdf.version]
+[rtx.version]
     node   = "20"
     deno   = "1"
     bun    = "1"
