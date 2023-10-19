@@ -73,11 +73,8 @@ set -gx LV "-Ou8 -c -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 set -x GREP_OPTIONS "--color=always"
 
 # rtx
-if type -q rtx
-  rtx activate fish | source
-  rtx completion fish | source
-  # set -gx RTX_DEBUG 1
-end
+type -q rtx && rtx activate fish | source && rtx completion fish | source
+# set -gx RTX_DEBUG 1
 
 # Ruby
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3)"
