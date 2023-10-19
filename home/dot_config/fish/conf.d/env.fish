@@ -7,3 +7,12 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_STATE_HOME $HOME/.local/state
+
+# Homebrew
+set -gx HOMEBREW_PREFIX "{{ .brew_prefix }}"
+if test -d $HOMEBREW_PREFIX
+  set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+end
+
+## Cask
+set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
