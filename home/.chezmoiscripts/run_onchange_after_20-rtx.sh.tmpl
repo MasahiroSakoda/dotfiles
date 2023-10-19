@@ -3,20 +3,5 @@
 
 set -eo pipefail
 
-# while read plugin version; do
-#   if rtx ls | grep --silent $plugin; then
-#     echo "rtx plugin\"${plugin}\" is already installed"
-#     echo "rtx plugin \"${plugin}\" updating..."
-#     rtx update ${plugin}
-#   else
-#     echo "installing ${plugin}..."
-#     rtx plugin-add ${plugin}
-#   fi
-#
-#   if ! asdf current ${python} | grep -Fq ${version}; then
-#     rtx
-#   fi
-# done < ~/.tool-versions
-
-# rtx install
-# rtx current
+rtx install
+rtx current

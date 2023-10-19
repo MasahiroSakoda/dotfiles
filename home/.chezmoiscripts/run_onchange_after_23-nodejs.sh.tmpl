@@ -3,8 +3,6 @@
 
 set -eo pipefail
 
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-
-asdf global nodejs {{ .asdf.version.node }}
-
-asdf reshim nodejs
+# Configure global version
+rtx use -g node@{{ .rtx.version.node }}
+rtx use -g deno@{{ .rtx.version.deno }}

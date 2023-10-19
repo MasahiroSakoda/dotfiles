@@ -3,13 +3,10 @@
 
 set -eo pipefail
 
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-
-asdf global ruby {{ .asdf.version.ruby }}
+# Configure global version
+rtx use -g ruby@{{ .rtx.version.ruby }}
 
 # Update gem
 gem update --system
 gem install bundler -N
 gem install neovim -N
-
-asdf reshim ruby

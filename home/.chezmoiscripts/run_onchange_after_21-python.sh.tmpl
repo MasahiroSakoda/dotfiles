@@ -3,13 +3,8 @@
 
 set -eo pipefail
 
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-
-asdf global python {{ .asdf.version.python }}
-asdf global poetry {{ .asdf.version.poetry }}
+# Configure global version
+rtx use -g ruby@{{ .rtx.version.python }}
 
 # Upgrade pip
 python3 -m pip install --upgrade pip
-
-asdf reshim python
-asdf reshim poetry
