@@ -1,6 +1,7 @@
 # -*-mode:gitignore-*- vim:ft=gitignore
 
 {{ template "common/Vim.gitignore" . }}
+{{ template "common/VisualStudioCode.gitignore" . }}
 
 {{ if (eq .chezmoi.os "darwin" ) }}
 {{ template "darwin/macOS.gitignore" . }}
