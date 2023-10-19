@@ -5,12 +5,12 @@
 # NODE_ENV = 'production'
 
 [tools]
-nodejs = "{{ .asdf.version.node }}"
-deno   = "{{ .asdf.version.deno }}"
-bun    = "{{ .asdf.version.bun }}"
-python = "{{ .asdf.version.python }}"
-poetry = "{{ .asdf.version.poetry }}"
-ruby   = "{{ .asdf.version.ruby }}"
+nodejs = "{{ .rtx.version.node }}"
+deno   = "{{ .rtx.version.deno }}"
+bun    = "{{ .rtx.version.bun }}"
+python = "{{ .rtx.version.python }}"
+poetry = "{{ .rtx.version.poetry }}"
+ruby   = "{{ .rtx.version.ruby }}"
 
 # supports everything you can do with .tool-versions currently
 # nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
