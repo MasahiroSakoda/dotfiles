@@ -1,5 +1,6 @@
 # Environment variable
 .env
+.tool-versions
 
 ##################################################
 # macOS
