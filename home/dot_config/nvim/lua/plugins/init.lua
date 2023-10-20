@@ -346,7 +346,7 @@ return {
   {
     "RRethy/vim-illuminate",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("illuminate").configure() end,
+    config = function() require("user.treesitter.illuminate") end,
   },
   {
     "Wansmer/treesj",
