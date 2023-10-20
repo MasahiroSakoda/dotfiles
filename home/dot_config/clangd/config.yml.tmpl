@@ -1,0 +1,103 @@
+# -*-mode:yaml-*- vim:ft=yaml
+
+# TODO: update config for C++23 environment
+InlayHints:
+  Enabled: true
+  Designators: true
+  DeducedTypes: true
+  ParameterNames: true
+
+Completion:
+  AllScopes: true
+
+Hover:
+  ShowAKA: true
+
+Index:
+  StandardLibrary: Yes
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add: [
+        clang-*
+        llvm-*
+        bugprone-*
+        modernize-*
+        misc-*
+        performance-*
+        readability-*
+        google-*
+      ]
+    Remove: [
+        modernize-avoid-c-arrays
+        modernize-pass-by-value
+        modernize-use-nodiscard
+        modernize-use-trailing-return-type
+        readability-identifier-length
+        readability-isolate-declaration
+        readability-uppercase-literal-suffix
+        readability-function-cognitive-complexity
+      ]
+
+---
+# Flags for .c files
+If:
+  PathMatch: .*\.c
+CompileFlags:
+  Add: [
+    -xc++,
+    -std=c++2b
+    -stdlib=libc++
+    -Wall
+    -Wconversion
+    -Wextra
+    -Wpedantic
+    -Wshadow
+    ]
+  remove: []
+  Compiler: clang++
+
+---
+# Flags for .h files
+If:
+  PathMatch: .*\.h
+CompileFlags:
+  Add: [
+    -xc-header,
+    -std=gnu2x, # c standard  c2x
+    --include=Global.h,
+    ]
+  Remove: []
+  Compiler: clang
+
+---
+# Flags for .cpp files
+If:
+  PathMatch: .*\.(cc|cpp|c\+\+)
+CompileFlags:
+  Add: [
+    -xc++,
+    -std=gnu++2b, # c++ standard  c++2b
+    ]
+  Remove: []
+  Compiler: clang++
+Diagnostics:
+  ClangTidy:
+    Add: modernize-*
+
+---
+# Flags for .hpp files
+If:
+  PathMatch: .*\.(hh|hpp|h\+\+)
+CompileFlags:
+  Add: [
+    -xc++,
+    -std=gnu++2b, # c++ standard  c++2b
+    --include=Global.h,
+    ]
+  Remove: []
+  Compiler: clang++
+Diagnostics:
+  ClangTidy:
+    Add: modernize-*
