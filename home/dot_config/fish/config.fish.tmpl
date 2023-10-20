@@ -41,9 +41,6 @@ set -gx LV "-Ou8 -c -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
 # Grep
 set -x GREP_OPTIONS "--color=always"
 
-# rtx
-type -q rtx && rtx activate fish | source && rtx completion fish | source
-
 # Rust
 set -gx RUST_BACKTRACE full
 
