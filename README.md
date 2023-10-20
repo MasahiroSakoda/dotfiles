@@ -39,7 +39,7 @@
       * [Configured Languages for DAP](#configured-languages-for-dap)
       * [Configured Linter](#configured-linter)
       * [Configured Formatter](#configured-formatter)
-    * [asdf](#asdf)
+    * [rtx](#rtx)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
 * [ToDo](#todo)
@@ -87,7 +87,7 @@ chezmoi update
 | [**Fish**][fish]    | Shell            |            |
 | [**tmux**][tmux]    | Screen           | [~/.config/tmux/tmux.conf][tmux.conf] |
 | [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim) |
-| [**asdf**][asdf]    | Language version | See [Detail](#asdf) |
+| [**rtx**][rtx]    | Version Control  | See [Detail](#rtx) |
 | [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
 | [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
 | [**fd**][fd]      | `find` alternative |            |
@@ -97,7 +97,7 @@ chezmoi update
 [fish]: https://github.com/fish-shell/fish-shell
 [tmux]: https://github.com/tmux/tmux
 [neovim]: https://github.com/neovim/neovim
-[asdf]: https://github.com/asdf-vm/asdf
+[rtx]: https://github.com/jdx/rtx
 [fzf]: https://github.com/junegunn/fzf
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fd]: https://github.com/sharkdp/fd
@@ -241,15 +241,24 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * [**ChatGPT.nvim**](https://github.com/jackMort/ChatGPT.nvim)
 * [**copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
 
-#### asdf
+#### rtx
+Version Management Tool
 
-Programming language version management tool
+`.tool-versions` is not supported.
 
-* [**`asdf-python`**](https://github.com/asdf-community/asdf-python)
-  * [`Poetry`](https://github.com/python-poetry/poetry)
-* [**`asdf-ruby`**](https://github.com/asdf-vm/asdf-ruby)
-* [**`asdf-nodejs`**](https://github.com/asdf-vm/asdf-nodejs)
-* [**`asdf-deno`**](https://github.com/asdf-community/asdf-deno)
+so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local usage
+
+##### configured tools
+* [**`Python`**][rtx-python]
+* [**`Ruby`**][rtx-ruby]
+* [**`Node.js`**][rtx-node]
+* [**`Deno`**][rtx-deno]
+
+[rtx-python]: https://github.com/jdx/rtx/blob/main/docs/python.md
+[rtx-poetry]: https://github.com/rtx-plugins/rtx-poetry
+[rtx-ruby]: https://github.com/jdx/rtx/blob/main/docs/ruby.md
+[rtx-node]: https://github.com/jdx/rtx/blob/main/docs/node.md
+[rtx-deno]: https://github.com/jdx/rtx/blob/main/docs/deno.md
 
 ### Homebrew cask packages
 
