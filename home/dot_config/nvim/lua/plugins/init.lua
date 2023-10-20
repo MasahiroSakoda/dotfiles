@@ -354,13 +354,6 @@ return {
     config = function() require("user.treesj") end,
   },
   {
-    "m-demare/hlargs.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cond = not is_vscode,
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.treesitter.hlargs") end,
-  },
-  {
     "danymat/neogen", -- annotation generator
     dependencies = "nvim-treesitter/nvim-treesitter",
     cmd    = "Neogen",
