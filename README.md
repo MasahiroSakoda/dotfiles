@@ -242,6 +242,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * [**copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
 
 #### rtx
+
 Version Management Tool
 
 `.tool-versions` is not supported.
