@@ -255,7 +255,6 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 * [**`Deno`**][rtx-deno]
 
 [rtx-python]: https://github.com/jdx/rtx/blob/main/docs/python.md
-[rtx-poetry]: https://github.com/rtx-plugins/rtx-poetry
 [rtx-ruby]: https://github.com/jdx/rtx/blob/main/docs/ruby.md
 [rtx-node]: https://github.com/jdx/rtx/blob/main/docs/node.md
 [rtx-deno]: https://github.com/jdx/rtx/blob/main/docs/deno.md
