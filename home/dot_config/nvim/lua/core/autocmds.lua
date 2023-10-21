@@ -30,14 +30,6 @@ autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
   callback = function(_) highlight_url() end,
 })
 
-autocmd("BufWritePre", {
-  desc    = "Strip trailing whitespace from all files",
-  group   = augroup "trailing_whitespace",
-  pattern = "*",
-  command = "%s/s+$//e",
-})
-
--- Auto `chezmoi apply`
 -- autocmd("BufWritePost", {
 --   group   = augroup "chezmoi_apply",
 --   pattern = fn.expand("~") .. "/.local/share/chezmoi/*",
