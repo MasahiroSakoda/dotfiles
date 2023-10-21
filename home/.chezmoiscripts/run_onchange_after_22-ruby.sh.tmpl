@@ -4,7 +4,7 @@
 set -eo pipefail
 
 # Configure global version
-rtx use -g ruby@{{ .rtx.version.ruby }}
+rtx use -g ruby@{{ .rtx.versions.ruby }}
 
 # Update gem
 gem update --system

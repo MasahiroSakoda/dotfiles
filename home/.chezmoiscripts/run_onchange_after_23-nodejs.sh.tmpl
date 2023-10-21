@@ -4,7 +4,7 @@
 set -eo pipefail
 
 # Configure global version
-rtx use -g node@{{ .rtx.version.node }}
-rtx use -g deno@{{ .rtx.version.deno }}
+rtx use -g node@{{ .rtx.versions.node }}
+rtx use -g deno@{{ .rtx.versions.deno }}
 
 pnpm add -g neovim

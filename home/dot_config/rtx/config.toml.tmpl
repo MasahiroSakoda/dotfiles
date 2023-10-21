@@ -5,12 +5,9 @@
 # NODE_ENV = 'production'
 
 [tools]
-nodejs = "{{ .rtx.version.node }}"
-deno   = "{{ .rtx.version.deno }}"
-bun    = "{{ .rtx.version.bun }}"
-python = "{{ .rtx.version.python }}"
-# poetry = "{{ .rtx.version.poetry }}"
-ruby   = "{{ .rtx.version.ruby }}"
+{{- range $lang, $versions := .rtx.versions }}
+{{ $lang }} = [{{ range $i, $version := $versions | sortAlpha -}}{{- if $i -}}, {{ end -}}"{{ $version -}}"{{- end -}}]
+{{- end }}
 
 # supports everything you can do with .tool-versions currently
 # nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']

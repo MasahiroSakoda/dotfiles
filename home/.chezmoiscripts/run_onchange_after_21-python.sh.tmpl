@@ -4,7 +4,7 @@
 set -eo pipefail
 
 # Configure global version
-rtx use -g ruby@{{ .rtx.version.python }}
+rtx use -g ruby@{{ .rtx.versions.python }}
 
 # Upgrade pip
 python3 -m pip install --upgrade pip
