@@ -45,9 +45,12 @@ nl.setup({
     formatting.trim_newlines,
     formatting.trim_whitespace,
     diagnostics.todo_comments,
+    -- formatting.codespell.with({
+    --   disabled_filetypes = { "css", "bib" },
+    -- }),
     diagnostics.codespell.with({
       extra_args = { "--ignore-words", vim.fn.stdpath "config" .. "/spell/codespell-ignore.txt" },
-      disabled_filetypes = {},
+      disabled_filetypes = { "css", "bib", "log" },
     }),
     hover.dictionary,
     hover.printenv,
