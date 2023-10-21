@@ -58,7 +58,6 @@ telescope.setup({
     mappings = {
       n = {
         ["q"]     = actions.close,
-        ["<ESC>"] = actions.close,
         ["<C-c>"] = actions.close,
         ["<CR>"]  = actions.select_default,
         ["<C-t>"] = actions.select_tab,
