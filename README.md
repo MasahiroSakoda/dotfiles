@@ -249,6 +249,7 @@ Version Management Tool
 so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local usage
 
 ##### configured tools
+
 * [**`Python`**][rtx-python]
 * [**`Ruby`**][rtx-ruby]
 * [**`Node.js`**][rtx-node]
