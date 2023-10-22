@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  cache-version: v4
+  cache-version: v5
 
 jobs:
   ci:
