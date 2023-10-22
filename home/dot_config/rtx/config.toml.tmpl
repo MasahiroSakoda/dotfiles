@@ -5,9 +5,11 @@
 # NODE_ENV = 'production'
 
 [tools]
-{{- range $lang, $versions := .rtx.versions }}
-{{ $lang }} = [{{ range $i, $version := $versions | sortAlpha -}}{{- if $i -}}, {{ end -}}"{{ $version -}}"{{- end -}}]
-{{- end }}
+node   = "20"
+deno   = "1"
+bun    = "1"
+python = "3.11"
+ruby   = "3.2"
 
 # supports everything you can do with .tool-versions currently
 # nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']

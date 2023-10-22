@@ -13,15 +13,6 @@
     theme = "dracula"
     opacity = 0.75
 
-[rtx.versions]
-    # version should be in a array!!
-    node   = ["20"]
-    deno   = ["1"]
-    bun    = ["1"]
-    python = ["3.11", "3.12"]
-    # poetry = ["1.6"]
-    ruby   = ["3.2"]
-
 [plugins]
     vscode = [
         # Language
