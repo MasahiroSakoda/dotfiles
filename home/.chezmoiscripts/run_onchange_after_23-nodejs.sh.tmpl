@@ -4,8 +4,9 @@
 set -eo pipefail
 
 # Setup pnpm
-PNPM_HOME="$HOME/.local/share/pnpm"
-PATH="$PNPM_HOME" $PATH
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+mkdir -p "$HOME/.local/share/pnpm"
 
 $(command -v pnpm) setup
 $(command -v pnpm) add -g neovim
