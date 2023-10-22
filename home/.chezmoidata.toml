@@ -14,6 +14,14 @@
     opacity = 0.75
 
 [plugins]
+    gh = [
+        # GitHub CLI dashboard
+        "dlvhdr/gh-dash",
+        # GitHub CLI to manage GitHub Actions cache
+        "actions/gh-actions-cache",
+        # GitHub activity graph
+        "kawarimidoll/gh-graph",
+    ]
     vscode = [
         # Language
         "MS-CEINTL.vscode-language-pack-ja",
