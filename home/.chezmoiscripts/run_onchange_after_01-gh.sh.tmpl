@@ -3,8 +3,6 @@
 
 set -eo pipefail
 
-# GitHub CLI dashboard
-$(command -v gh) extension install dlvhdr/gh-dash || true
-
-# GitHub CLI to manage GitHub Actions cache
-$(command -v gh) extension install actions/gh-actions-cache || true
+{{ range .plugins.gh | sortAlpha | uniq  }}
+$(command -v gh) extension install {{ . | quote }} || true
+{{ end }}
