@@ -106,19 +106,6 @@ nl.setup({
       extra_args   = { "--line-length", "120", "--fast", "--extend-select" },
     },
 
-    -- Ruby
-    -- rubocop: Static Code Analyzer for Ruby
-    -- diagnostics.rubocop.with({
-    --   prefer_local = "vendor/bin",
-    --   command      = "bin/rubocop",
-    --   condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
-    -- }),
-    -- formatting.rubocop.with({
-    --   prefer_local = "vendor/bin",
-    --   command      = "bin/rubocop",
-    --   condition    = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
-    -- }),
-
     -- Lua
     -- stylua:
     formatting.stylua.with({

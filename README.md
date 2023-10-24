@@ -251,15 +251,21 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 
 ##### configured tools
 
-* [**`Python`**][rtx-python]
-* [**`Ruby`**][rtx-ruby]
-* [**`Node.js`**][rtx-node]
-* [**`Deno`**][rtx-deno]
+| Runtime        | Version |
+| -------------- | ------- |
+| [**`Go`**][rtx-go]             | latest  |
+| [**`Python`**][rtx-python]         | 3.11    |
+| [**`Ruby`**][rtx-ruby]           | 3.2     |
+| [**`Node.js`**][rtx-node]        | 20      |
+| [**`Deno`**][rtx-deno]           | 1       |
+| [**`Bun`**][rtx-bun]            | 1       |
 
+[rtx-go]: https://github.com/jdx/rtx/blob/main/docs/go.md
 [rtx-python]: https://github.com/jdx/rtx/blob/main/docs/python.md
 [rtx-ruby]: https://github.com/jdx/rtx/blob/main/docs/ruby.md
 [rtx-node]: https://github.com/jdx/rtx/blob/main/docs/node.md
 [rtx-deno]: https://github.com/jdx/rtx/blob/main/docs/deno.md
+[rtx-bun]: https://github.com/jdx/rtx/blob/main/docs/bun.md
 
 ### Homebrew cask packages
 
