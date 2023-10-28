@@ -10,9 +10,6 @@ set -gx PYTHON_CONFIGURE_OPTS "--with-openssl-dir='$(brew --prefix openssl@3)' -
 set -gx RUBY_CFLAGS "-Wno-error=implicit-function-declaration"
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
 
-# Node.js
-set -gx NODE_ENV development
-
 # pnpm
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
