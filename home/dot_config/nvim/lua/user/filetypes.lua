@@ -24,6 +24,8 @@ Filetypes.treesitter = {
   "awk", "bash", "fish", -- "zsh",
   -- Command
   "vimdoc", "diff", "regex",
+  -- SSH
+  "ssh_config",
   -- Git
   "gitattributes", "gitignore", "gitcommit", "git_rebase",
   -- Build
