@@ -279,6 +279,29 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- IDE Integration
+---------------------------------------------------------------------------
+keymap("n", "<Leader>xs", "<CMD>XcodebuildSetup<CR>",  { desc = "Run configuration wizard to select project configuration" })
+keymap("n", "<Leader>xa", "<CMD>XcodebuildPicker<CR>", { desc = "Show picker with all available actions" })
+
+keymap("n", "<Leader>xp", "<CMD>XcodebuildSelectProject<CR>",  { desc = "Show project file picker" })
+keymap("n", "<Leader>xS", "<CMD>XcodebuildSelectScheme<CR>",   { desc = "Show scheme picker" })
+keymap("n", "<Leader>xc", "<CMD>XcodebuildSelectConfig<CR>",   { desc = "Show build configuration picker" })
+keymap("n", "<Leader>xC", "<CMD>XcodebuildShowConfig<CR>",     { desc = "Print current project configuration" })
+keymap("n", "<Leader>xd", "<CMD>XcodebuildSelectDevice<CR>",   { desc = "Show device picker" })
+keymap("n", "<Leader>xP", "<CMD>XcodebuildSelectTestPlan<CR>", { desc = "Show test plan picker" })
+keymap("n", "<Leader>xl", "<CMD>XcodebuildToggleLogs<CR>",     { desc = "Toggle logs panel" })
+
+keymap("n", "<Leader>xb",  "<CMD>XcodebuildBuild<CR>",        { desc = "Build project" })
+keymap("n", "<Leader>xb",  "<CMD>XcodebuildBuildRun<CR>",     { desc = "Build & run app" })
+keymap("n", "<Leader>x.",  "<CMD>XcodebuildCancel<CR>",       { desc = "Cancel currently running action" })
+keymap("n", "<Leader>xT",  "<CMD>XcodebuildTest<CR>",         { desc = "Run tests (whole test plan)" })
+keymap("n", "<Leader>xtc", "<CMD>XcodebuildTestClass<CR>",    { desc = "Run test class (where the cursor is)" })
+keymap("n", "<Leader>xtf", "<CMD>XcodebuildTestFunc<CR>",     { desc = "Run test (where the cursor is)" })
+keymap("n", "<Leader>xts", "<CMD>XcodebuildTestSelected<CR>", { desc = "Run selected tests (using visual mode)" })
+keymap("n", "<Leader>xtF", "<CMD>XcodebuildTestFailing<CR>",  { desc = "Rerun previously failed tests" })
+
+---------------------------------------------------------------------------
 -- Test with neotest
 ---------------------------------------------------------------------------
 wk.register({
