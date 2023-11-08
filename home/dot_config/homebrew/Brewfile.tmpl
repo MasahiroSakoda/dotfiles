@@ -14,6 +14,9 @@ brew "openssl"
 brew "gnupg"
 {{ if eq .chezmoi.os "darwin" }}
 brew "pinentry-mac"
+
+## Xcode
+brew "xcbeautify"
 {{ end }}
 
 ## Shell
