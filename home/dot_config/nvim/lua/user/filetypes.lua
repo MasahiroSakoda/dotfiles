@@ -8,26 +8,26 @@ Filetypes.markdown = { "markdown", "md" }
 
 Filetypes.treesitter = {
   -- Compiled Languages
-  "c", "cpp", "arduino", "swift", "llvm",
+  "c", "cpp", "objc", "arduino", "swift", "llvm",
   "c_sharp", "java", "scala", "kotlin", "clojure",
   "erlang", "elixir",
-  "go", "haskell", "rust", "zig",
+  "go", "haskell", "rust", "zig", "nasm", "cuda",
   -- Script Languages
-  "perl", "php", "python", "ruby", "lua", "vim", "r",
+  "perl", "php", "python", "ruby", "lua", "luadoc", "vim", "r", "matlab",
   -- Javascript
   "javascript", "typescript", "tsx", "vue",
-  "json", "json5", "jsonc",
+  "json", "json5", "jsonc", "jsdoc", "jq",
   -- Markup Languages
   "html", "css", "scss",
-  "yaml", "toml", "markdown", "markdown_inline", "latex",
+  "xml", "yaml", "toml", "markdown", "markdown_inline", "latex", "rst",
   -- Shell
   "awk", "bash", "fish", -- "zsh",
   -- Command
   "vimdoc", "diff", "regex",
-  -- SSH
-  "ssh_config",
+  -- Security
+  "ssh_config", "gpg",
   -- Git
-  "gitattributes", "gitignore", "gitcommit", "git_rebase",
+  "git_config", "gitattributes", "gitignore", "gitcommit", "git_rebase",
   -- Build
   "make", "cmake",
   -- DevOps
@@ -38,6 +38,12 @@ Filetypes.treesitter = {
   "sql", "graphql",
   -- ORM
   "prisma",
+  -- saparated value
+  "csv", "tsv",
+  -- Package manager
+  "nix",
+  -- Others
+  "ini", "comment",
 }
 
 Filetypes.colorizer = {
