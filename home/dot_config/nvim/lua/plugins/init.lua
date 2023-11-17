@@ -260,7 +260,7 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       { "theHamsta/nvim-dap-virtual-text", config = function() require("dap.config.virtual_text") end },
-      { "rcarriga/nvim-dap-ui",            config = function() require("dap.config.ui") end },
+      { "rcarriga/nvim-dap-ui" },
     },
     cond   = not is_vscode,
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
