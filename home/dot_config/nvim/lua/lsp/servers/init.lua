@@ -23,6 +23,7 @@ return {
 
   -- Linter
   cmakelint    = {}, -- CMake
+  revive       = {}, -- Go
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript

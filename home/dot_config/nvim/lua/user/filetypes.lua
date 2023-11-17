@@ -76,6 +76,7 @@ Filetypes.matchup = {
 Filetypes.lsp = {
   clang_format = { ".clang_format" },
   stylua       = { "stylua.toml", ".stylua.toml" },
+  revive       = { "revive.toml" },
   rubocop      = { ".rubocop.yml" },
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },

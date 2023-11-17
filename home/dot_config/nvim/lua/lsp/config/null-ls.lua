@@ -90,6 +90,13 @@ nl.setup({
       },
     }),
 
+    -- Go
+    diagnostics.revive.with({
+      condition = function(utils)
+        return utils.has_file(filetypes.lsp.revive)
+      end
+    }),
+
     -- beautysh: bash/csh/ksh/sh/zsh formatter
     formatting.beautysh.with({
       extra_args = { "--indent-size", "2" },
