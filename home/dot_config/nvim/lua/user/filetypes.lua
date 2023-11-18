@@ -11,9 +11,10 @@ Filetypes.treesitter = {
   "c", "cpp", "objc", "arduino", "swift", "llvm",
   "c_sharp", "java", "scala", "kotlin", "clojure",
   "erlang", "elixir",
-  "go", "haskell", "rust", "zig", "nasm", "cuda",
+  "go", "gomod", "gosum", "gowork", "templ",
+  "haskell", "rust", "zig", "nasm", "cuda",
   -- Script Languages
-  "perl", "php", "python", "ruby", "lua", "luadoc", "vim", "r", "matlab",
+  "perl", "php", "python", "requirements", "ruby", "lua", "luadoc", "vim", "r", "matlab",
   -- Javascript
   "javascript", "typescript", "tsx", "vue",
   "json", "json5", "jsonc", "jsdoc", "jq",
