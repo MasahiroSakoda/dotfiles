@@ -267,7 +267,7 @@ return {
     config = function() require("dap.config") end,
   },
   { "jbyuki/one-small-step-for-vimkind", ft = "lua",  cond = not is_vscode, config = function() require("dap.adapters.lua") end },
-  { "leoluz/nvim-dap-go",                ft = "go",   cond = not is_vscode, config = function() require("dap.adapters.go") end },
+  -- { "leoluz/nvim-dap-go",                ft = "go",   cond = not is_vscode, config = function() require("dap.adapters.go") end },
   { "suketa/nvim-dap-ruby",              ft = "ruby", cond = not is_vscode, config = function() require("dap-ruby").setup() end },
   {
     "mfussenegger/nvim-dap-python",
@@ -331,7 +331,6 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         init = function() require("user.treesitter.textobjects") end,
       },
-      { "JoosepAlviste/nvim-ts-context-commentstring" },
       -- { "RRethy/nvim-treesitter-textsubjects" },
     },
     build  = function()
@@ -341,6 +340,7 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter") end,
   },
+  { "JoosepAlviste/nvim-ts-context-commentstring" },
   {
     "hiphish/rainbow-delimiters.nvim",
     cond   = is_vscode,
