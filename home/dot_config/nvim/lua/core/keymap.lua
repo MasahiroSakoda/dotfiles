@@ -255,6 +255,10 @@ wk.register({
   ["<Leader>dB"] = { "::DapStepBack<CR>",                ": Step Back" },
   ["<Leader>dt"] = { ":DapTerminate<CR>",                "□: Terminate Process" },
   ["<Leader>dl"] = { ":lua require'dap'.run_last()<CR>", "↻: Run Last" },
+
+  ["<Leader>dw"] = { ":lua require'dapui'.float_element('watches', { enter = true })<CR>", "Float watches" },
+  ["<Leader>ds"] = { ":lua require'dapui'.float_element('scope',   { enter = true })<CR>", "Float scopes" },
+  ["<Leader>dS"] = { ":lua require'dapui'.float_element('stacks',  { enter = true })<CR>", "Float scopes" },
 }, opts)
 
 -- Debugger Action
