@@ -32,26 +32,26 @@ dapui.setup({
   render = {
     indent = 2,
     max_type_length = nil, -- Can be integer or nil.
-    max_value_lines = 100, -- Can be integer or nil.
+    max_value_lines = 30, -- Can be integer or nil.
   },
 
   layouts = {
     {
       elements = {
-        { id = "scopes",      size = 0.33 },
-        { id = "breakpoints", size = 0.17 },
-        { id = "stacks",      size = 0.20 },
-        { id = "watches",     size = 0.20 },
+        { id = "scopes",      size = 0.40 },
+        { id = "breakpoints", size = 0.20 },
+        { id = "stacks",      size = 0.25 },
+        -- { id = "watches",     size = 0.25 },
       },
-      size = 0.25,
+      size = 35,
       position = "left",
     },
     {
       elements = {
-        { id = "repl",    size = 0.45 },
-        { id = "console", size = 0.55 },
+        { id = "repl",    size = 0.55 },
+        { id = "console", size = 0.45 },
       },
-      size = 0.25,
+      size = 0.30,
       position = "bottom",
     },
   },
