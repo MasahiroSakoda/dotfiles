@@ -4,25 +4,21 @@ if not ok then return end
 --------------------------------------------------
 -- DAP configuration for Python
 --------------------------------------------------
+local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/debugpy-adapter"
 local venv = os.getenv('VIRTUAL_ENV')
+
 dap.adapters.python = {
-  type = "executable";
-  command = string.format("%s/bin/python", venv),
-  args = { "-m", "debugpy.adapter" },
+  type    = "executable";
+  command = path,
 }
 
 dap.configurations.python = {
   {
-    type    = "python",
-    request = "launch",
-    name    = "launch File",
-    program = "${file}",
-    pythonPath = function()
-      if venv == nil then
-        return "python"
-      else
-        return venv .. "/bin/python"
-      end
-    end
+    type       = "python",
+    request    = "launch",
+    name       = "launch File",
+    cwd        = "${workspaceFolder}",
+    program    = "${file}",
+    pythonPath = venv and (venv .. '/bin/python') or nil,
   },
 }
