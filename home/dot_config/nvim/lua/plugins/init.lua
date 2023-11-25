@@ -267,17 +267,6 @@ return {
     config = function() require("dap.config") end,
   },
   { "jbyuki/one-small-step-for-vimkind", ft = "lua",  cond = not is_vscode, config = function() require("dap.adapters.lua") end },
-  -- { "leoluz/nvim-dap-go",                ft = "go",   cond = not is_vscode, config = function() require("dap.adapters.go") end },
-  { "suketa/nvim-dap-ruby",              ft = "ruby", cond = not is_vscode, config = function() require("dap-ruby").setup() end },
-  {
-    "mfussenegger/nvim-dap-python",
-    ft     = "python",
-    cond   = not is_vscode,
-    config = function()
-      local path = require("mason-registry").get_package("debugpy"):get_install_path()
-      require("dap-python").setup(path .. "/venv/bin/python")
-    end,
-  },
 
   {
     "microsoft/vscode-js-debug",

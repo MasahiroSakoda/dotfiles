@@ -38,5 +38,7 @@ copilot.setup({
     markdown  = false,
     gitcommit = false,
     gitrebase = false,
+    go        = false,
+    lua       = false,
   },
 })

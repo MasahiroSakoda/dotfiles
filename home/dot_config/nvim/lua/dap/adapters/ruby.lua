@@ -28,8 +28,6 @@ dap.configurations.ruby = {
     command = "ruby",
     script  = "${file}",
     server  = "127.0.0.1",
-    port    = 38698,
-    wanting = 1000,
   },
   {
     type    = "ruby",
@@ -39,8 +37,6 @@ dap.configurations.ruby = {
     command = "rails test",
     script  = "${file}",
     server  = "127.0.0.1",
-    port    = 38698,
-    wanting = 1000,
   },
   {
     type    = "ruby",
@@ -50,8 +46,16 @@ dap.configurations.ruby = {
     command = "rails test",
     script  = "./test",
     server  = "127.0.0.1",
-    port    = 38698,
-    wanting = 1000,
+  },
+  {
+    type    = "ruby",
+    name    = "run rails",
+    bundle  = "bundle",
+    request = "attach",
+    command = "rails",
+    script  = "s",
+    server  = "127.0.0.1",
+    localfs = true,
   },
   {
     type    = "ruby",
@@ -69,7 +73,5 @@ dap.configurations.ruby = {
     command = "rspec",
     script  = "./spec",
     server  = "127.0.0.1",
-    port    = 38698,
-    waiting = 1000,
   },
 }
