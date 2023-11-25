@@ -267,7 +267,6 @@ return {
     config = function() require("dap.config") end,
   },
   { "jbyuki/one-small-step-for-vimkind", ft = "lua",  cond = not is_vscode, config = function() require("dap.adapters.lua") end },
-  { "suketa/nvim-dap-ruby",              ft = "ruby", cond = not is_vscode, config = function() require("dap-ruby").setup() end },
   {
     "mfussenegger/nvim-dap-python",
     ft     = "python",
