@@ -7,7 +7,6 @@ return {
   -- Libraries
   ------------------------------------------------------------------------
   { "nvim-lua/plenary.nvim" },
-  -- { "kkharji/sqlite.lua" },
   { "tzachar/fuzzy.nvim" },
   { "MunifTanjim/nui.nvim" },
   { "nvim-tree/nvim-web-devicons" },
@@ -123,8 +122,6 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
   },
-  -- *-Improved
-  { "haya14busa/vim-asterisk", event = { "BufReadPost", "BufNewFile" } },
 
   -- File specific Highlighter
   { "MTDL9/vim-log-highlighting",  ft = { "log", "txt", "text" } },
@@ -208,11 +205,10 @@ return {
       -- LSP completion sources
       "hrsh7th/cmp-nvim-lsp",
       "onsails/lspkind.nvim",
-      -- "hrsh7th/cmp-omni",
 
-      -- "hrsh7th/cmp-path",
+      "hrsh7th/cmp-path",
+      -- "tzachar/cmp-fuzzy-path",
       -- "hrsh7th/cmp-buffer",
-      "tzachar/cmp-fuzzy-path",
       "tzachar/cmp-fuzzy-buffer",
       "hrsh7th/cmp-cmdline",
       "dmitmel/cmp-cmdline-history",
@@ -266,7 +262,6 @@ return {
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
     config = function() require("dap.config") end,
   },
-  { "jbyuki/one-small-step-for-vimkind", ft = "lua",  cond = not is_vscode, config = function() require("dap.adapters.lua") end },
 
   {
     "microsoft/vscode-js-debug",
