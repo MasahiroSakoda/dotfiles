@@ -20,7 +20,7 @@ end
 
 local menu = {
   cmdline         = "[Cmd]",
-  async_path      = "[Path]",
+  path            = "[Path]",
   fuzzy_path      = "[FzPath]",
   nvim_lsp        = "[LSP]",
   luasnip         = "[Snip]",
@@ -80,18 +80,17 @@ cmp.setup({
     { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 10 },
     { name = "codeium",     group_index = 2, priority = 80,  max_item_count = 10 },
     { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
-    -- { name = "omni" },
-    -- { name = "buffer",       keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
-    -- { name = "path",         keyword_length = 3, max_item_count = 5 },
-    { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
+    { name = "path",         keyword_length = 3, max_item_count = 5 },
     { name = "fuzzy_buffer", keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
+    -- { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
+    -- { name = "buffer",       keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
   },
 
   sorting = {
     priority_weight = 2,
     comparators = {
       -- require('cmp_tabnine.compare'),
-      require("cmp_fuzzy_path.compare"),
+      -- require("cmp_fuzzy_path.compare"),
       require("cmp_fuzzy_buffer.compare"),
       compare.offset,
       compare.exact,
@@ -176,7 +175,7 @@ cmp.setup({
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "buffer",          keyword_length = 1, option = { keyword_pattern = anyWord } },
+    -- { name = "buffer",          keyword_length = 1, option = { keyword_pattern = anyWord } },
     { name = "fuzzy_buffer",    keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
     { name = "cmdline_history", keyword_length = 2, option = { keyword_pattern = anyWord } },
   },
@@ -196,7 +195,8 @@ cmp.setup.cmdline(":", {
       keyword_pattern = [=[[^[:blank:]\!]*]=]
     },
     { name = "cmdline_history", group_index = 2, priority = 1, max_item_count = 5, keyword_length = 1  },
-    { name = "fuzzy_path",      group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
+    { name = "path",            group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
+    -- { name = "fuzzy_path",      group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
   },
   formatting = {
     fields = { "menu", "abbr", "kind" },
