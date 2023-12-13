@@ -29,6 +29,9 @@ install.sh
 # NeoVim files
 .config/nvim/lazy-lock.json
 
+# Node.js
+.npm/
+
 key.txt.age
 
 # Ignore non-macOS files.
