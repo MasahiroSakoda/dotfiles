@@ -27,7 +27,7 @@ local menu = {
   cmdline_history = "[Hist]",
   buffer          = "[Buf]",
   fuzzy_buffer    = "[FzBuf]",
-  cmp_tabnine     = "[T9]",
+  -- cmp_tabnine     = "[T9]",
   codeium         = "[Codeium]",
 }
 
@@ -79,7 +79,7 @@ cmp.setup({
     { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 10 },
     { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 10 },
     { name = "codeium",     group_index = 2, priority = 80,  max_item_count = 10 },
-    { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
+    -- { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
     { name = "path",         keyword_length = 3, max_item_count = 5 },
     { name = "fuzzy_buffer", keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
     -- { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
