@@ -5,7 +5,11 @@ set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 
 # Path Configuration
-set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin /usr/local/opt/bison/bin $PATH
+set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin $PATH
+
+for pkg in bison curl openssl@3
+  fish_add_path $HOMEBREW_PREFIX/opt/$pkg/bin
+end
 
 # Editor
 set -gx EDITOR nvim
@@ -16,7 +20,6 @@ set -gx NVIM_APPNAME nvim
 set -gx HOMEBREW_FORCE_BREWED_CURL 1
 set -gx HOMEBREW_CURL_RETRIES 5
 set -gx HOMEBREW_CURLRC "$HOME/.config/curlrc"
-fish_add_path $HOMEBREW_PREFIX/opt/curl/bin
 
 # ripgrep config
 # set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc

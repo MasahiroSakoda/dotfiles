@@ -1,0 +1,28 @@
+# -*-mode:fish-*- vim:ft=fish
+
+# Rust
+set -gx RUST_BACKTRACE full
+
+# Python
+set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
+set -gx PYTHON_BUILD_HTTP_CLIENT "aria2c"
+
+{{ if ne .chezmoi.os "darwin" -}}
+set -gx PYTHON_CONFIGURE_OPTS "--enable-framework --enable-optimizations --with-lto=full"
+{{ else if ne .chezmoi.os "linux" -}}
+set -gx PYTHON_CONFIGURE_OPTS "--enable-shared --enable-optimizations --with-lto=full"
+{{ else -}}
+set -gx PYTHON_CONFIGURE_OPTS "--enable-optimizations --with-lto=full"
+{{- end -}}
+set -gx PYTHON_CFLAGS "-march=native -mtune=native"
+# set -gx PYTHON_BUILD_SKIP_HOMEBREW 1
+
+# Ruby
+set -gx RUBY_CFLAGS "-Wno-error=implicit-function-declaration"
+set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
+
+# pnpm
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
