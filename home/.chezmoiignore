@@ -14,7 +14,8 @@ install.sh
 
 # Shell
 .zsh_sessions
-fish_variables
+.config/fish/fish_variables
+.config/fish/fish_history
 
 # History
 .lesshst
