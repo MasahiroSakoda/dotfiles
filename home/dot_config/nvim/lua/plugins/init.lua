@@ -15,7 +15,6 @@ return {
   ------------------------------------------------------------------------
   -- Vim
   ------------------------------------------------------------------------
-  { "vim-jp/vimdoc-ja", ft = "help" },
   { "akinsho/toggleterm.nvim", cmd = "ToggleTerm",   config = function() require("ui.toggleterm") end },
   { "rcarriga/nvim-notify", event  = "VeryLazy",     config = function() require("ui.notify") end },
   -- { "folke/noice.nvim",     event  = "CmdlineEnter", config = function() require("ui.noice") end },
@@ -235,13 +234,6 @@ return {
   },
 
   -- AI assisted completion
-  {
-    "tzachar/cmp-tabnine",
-    build  = "./install.sh",
-    -- event  = "InsertEnter",
-    cond   = not is_vscode,
-    config = function() require("lsp.cmp.tabnine") end,
-  },
   {
     "Exafunction/codeium.nvim",
     build  = ":Codeium Auth",
