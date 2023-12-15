@@ -225,9 +225,10 @@ return {
     dependencies = { "rafamadriz/friendly-snippets" },
     -- WARN: Build not working
     -- build = "make install_jsregexp",
-    cond   = not is_vscode,
-    event  = "InsertEnter",
-    config = function ()
+    version = "v2.*",
+    cond    = not is_vscode,
+    event   = "InsertEnter",
+    config  = function ()
       require("lsp.cmp.luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
