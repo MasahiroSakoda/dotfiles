@@ -36,7 +36,7 @@
     * [fish shell](#fish-shell)
     * [NeoVim](#neovim)
       * [LSP](#lsp)
-      * [Configured Languages for DAP](#configured-languages-for-dap)
+      * [DAP](#dap)
       * [Configured Linter](#configured-linter)
       * [Configured Formatter](#configured-formatter)
     * [rtx](#rtx)
@@ -125,7 +125,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 #### NeoVim
 
 * [Builtin LSP Supported](#lsp)
-* [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
+* [DAP supported](#dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
 * [Linter support](#configured-linter)
 * [Formatter support](#configured-formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
@@ -174,16 +174,14 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
 
-* `Lua`: [**`one-small-step-for-vimkind`**][one-small-step-for-vimkind]
-* `Python`: [**`nvim-dap-python`**][nvim-dap-python]
-* `Go`: [**`nvim-dap-go`**][nvim-dap-go]
-* `js`/`ts`: [**`vscode-js-debug`**][vscode-js-debug], [**`nvim-dap-vscode-js`**][nvim-dap-vscode-js]
-
-[one-small-step-for-vimkind]: https://github.com/jbyuki/one-small-step-for-vimkind
-[nvim-dap-python]: https://github.com/mfussenegger/nvim-dap-python
-[nvim-dap-go]: https://github.com/leoluz/nvim-dap-go
-[vscode-js-debug]: https://github.com/microsoft/vscode-js-debug
-[nvim-dap-vscode-js]: https://github.com/mxsdev/nvim-dap-vscode-js
+|Language              |Adapters           |
+|:---------------------|:------------------|
+|Bash                  |[bash-debug-adapter](https://github.com/rogalmic/vscode-bash-debug) |
+|C/C++, Rust           |[codelldb](https://github.com/vadimcn/vscode-lldb)           |
+|C/C++, Rust           |[cpptools](https://github.com/microsoft/vscode-cpptools)           |
+|Go                    |[delve](https://github.com/go-delve/delve)              |
+|Python                |[debugpy](https://github.com/microsoft/debugpy)            |
+|Javascript/TyptScript |[js-debug-adapter](https://github.com/microsoft/vscode-js-debug)   |
 
 ##### Configured Linter
 
