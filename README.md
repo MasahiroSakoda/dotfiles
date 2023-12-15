@@ -82,17 +82,17 @@ chezmoi update
 
 ### Homebrew packages
 
-| Package | Category         | Notes      |
-| ------- | ---------------- | ---------- |
-| [**Fish**][fish]    | Shell            |            |
-| [**tmux**][tmux]    | Screen           | [~/.config/tmux/tmux.conf][tmux.conf] |
-| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim) |
-| [**rtx**][rtx]    | Version Control  | See [Detail](#rtx) |
-| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
-| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
-| [**fd**][fd]      | `find` alternative |            |
-| [**bat**][bat]     | `cat` alternative  | [~/.config/bat/config][batconfig] |
-| [**bottom**][bottom]  | `top` alternative  | [~/.config/bottom/bottom.toml][bottom.toml] |
+| Package | Category         | Notes       |
+| ------- | ---------------- | ----------- |
+| [**Fish**][fish]    | Shell            |             |
+| [**tmux**][tmux]    | Screen           | [tmux.conf][tmux.conf]   |
+| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim)  |
+| [**rtx**][rtx]     | Version Control  | See [Detail](#rtx)  |
+| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
+| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
+| [**fd**][fd]      | `find` alternative |             |
+| [**bat**][bat]     | `cat` alternative  | [config][batconfig]      |
+| [**bottom**][bottom]  | `top` alternative  | [bottom.toml][bottom.toml] |
 
 [fish]: https://github.com/fish-shell/fish-shell
 [tmux]: https://github.com/tmux/tmux
@@ -267,7 +267,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | Runtime        | Version |
 | -------------- | ------- |
 | [**`Go`**][rtx-go]             | latest  |
-| [**`Python`**][rtx-python]         | 3.11    |
+| [**`Python`**][rtx-python]         | 3.12    |
 | [**`Ruby`**][rtx-ruby]           | 3.2     |
 | [**`Node.js`**][rtx-node]        | 20      |
 | [**`Deno`**][rtx-deno]           | 1       |
@@ -342,6 +342,5 @@ See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/do
 
 ## ToDo
 
-* [ ] `rtx` support
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
