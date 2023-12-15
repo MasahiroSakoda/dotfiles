@@ -35,10 +35,10 @@
   * [Homebrew packages](#homebrew-packages)
     * [fish shell](#fish-shell)
     * [NeoVim](#neovim)
-      * [Configured Languages for LSP](#configured-languages-for-lsp)
-      * [Configured Languages for DAP](#configured-languages-for-dap)
-      * [Configured Linter](#configured-linter)
-      * [Configured Formatter](#configured-formatter)
+      * [LSP](#lsp)
+      * [DAP](#dap)
+      * [Linter](#linter)
+      * [Formatter](#formatter)
     * [rtx](#rtx)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
@@ -82,17 +82,17 @@ chezmoi update
 
 ### Homebrew packages
 
-| Package | Category         | Notes      |
-| ------- | ---------------- | ---------- |
-| [**Fish**][fish]    | Shell            |            |
-| [**tmux**][tmux]    | Screen           | [~/.config/tmux/tmux.conf][tmux.conf] |
-| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim) |
-| [**rtx**][rtx]    | Version Control  | See [Detail](#rtx) |
-| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)       |
-| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md) |
-| [**fd**][fd]      | `find` alternative |            |
-| [**bat**][bat]     | `cat` alternative  | [~/.config/bat/config][batconfig] |
-| [**bottom**][bottom]  | `top` alternative  | [~/.config/bottom/bottom.toml][bottom.toml] |
+| Package | Category         | Notes       |
+| ------- | ---------------- | ----------- |
+| [**Fish**][fish]    | Shell            |             |
+| [**tmux**][tmux]    | Screen           | [tmux.conf][tmux.conf]   |
+| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim)  |
+| [**rtx**][rtx]     | Version Control  | See [Detail](#rtx)  |
+| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
+| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
+| [**fd**][fd]      | `find` alternative |             |
+| [**bat**][bat]     | `cat` alternative  | [config][batconfig]      |
+| [**bottom**][bottom]  | `top` alternative  | [bottom.toml][bottom.toml] |
 
 [fish]: https://github.com/fish-shell/fish-shell
 [tmux]: https://github.com/tmux/tmux
@@ -112,27 +112,35 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 #### fish shell
 
-| Plugin                        | Notes            |
-| ----------------------------- | ---------------- |
-| [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)           | A plugin manager for Fish |
-| [oh-my-fish/theme-bobthefish](https://github.com/oh-my-fish/theme-bobthefish)   | A Powerline-style, Git-aware fish theme optimized for awesome. |
-| [jethrokuan/fzf](https://github.com/jethrokuan/fzf)                | Ef-🐟-ient fish keybindings for fzf |
-| [jethrokuan/z](https://github.com/jethrokuan/z)                  | Pure-fish z directory jumping |
-| [dracula/fish](https://github.com/dracula/fish)                  | 🧛🏻‍♂️ Dark theme for fish |
-| [franciscolourenco/done](https://github.com/franciscolourenco/done)        | A fish-shell package to automatically receive notifications when long processes finish. |
-| [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)    | Auto-complete matching pairs in the Fish command line |
+| Plugin           | Notes                                                          |
+| ---------------- | -------------------------------------------------------------- |
+| [fisher][fisher]           | A plugin manager for Fish                                      |
+| [theme-bobthefish][theme-bobthefish] | A Powerline-style, Git-aware fish theme optimized for awesome. |
+| [fzf][fish-fzf]              | Ef-🐟-ient fish keybindings for fzf                            |
+| [z][fish-z]                | Pure-fish z directory jumping                                  |
+| [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
+| [autopair.fish][autopair]    | Auto-complete matching pairs in the Fish command line          |
+| [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
+
+[fisher]: https://github.com/jorgebucaran/fisher
+[theme-bobthefish]: https://github.com/oh-my-fish/theme-bobthefish
+[fish-fzf]: https://github.com/jethrokuan/fzf
+[fish-z]: https://github.com/jethrokuan/z
+[dracula]: https://github.com/dracula/fish
+[autopair]: https://github.com/jorgebucaran/autopair.fish
+[fish-done]: https://github.com/franciscolourenco/done
 
 #### NeoVim
 
-* [Builtin LSP Supported](#configured-languages-for-lsp)
-* [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
-* [Linter support](#configured-linter)
-* [Formatter support](#configured-formatter)
+* [Builtin LSP Supported](#lsp)
+* [DAP supported](#dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
+* [Linter support](#linter)
+* [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
 
-![mason.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/156587cb-ca8d-40b8-b7b0-3779883ad9f6)
+![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca8a55ad-718a-4dd9-8b8d-05d29f7d62cf)
 
 [LuaSnip]: https://github.com/L3MON4D3/LuaSnip
 [friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
@@ -143,72 +151,81 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
 
-##### Configured Languages for LSP
+##### LSP
 
-* `Lua`,
-* `VimScript`
-* `Bash`
-* `C`/`C++`,
-* `Rust`
-* `JavaScript`,
-* `TypeScript`
-* `JSON`, `YAML`
-* `HTML`,
-* `CSS`, `SCSS`, `LESS`, `Tailwind CSS`
-* `Python`
-* `Ruby`
-* `SQL`
-* `GraphQL`
-* `Dockerfile`
+| Language             | Language Server             |
+|:---------------------|:----------------------------|
+|Bash                  |[bash-language-server](https://github.com/bash-lsp/bash-language-server)         |
+|C/C++                 |[clangd](https://clangd.llvm.org)                       |
+|Rust                  |[rust-analyzer](https://github.com/rust-lang/rust-analyzer)                |
+|Go                    |[gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                        |
+|Python                |[pyright](https://github.com/microsoft/pyright)                      |
+|Ruby                  |[solargraph](https://solargraph.org)                   |
+|Javascript/TyptScript |[deno](https://deno.land)                         |
+|TypeScript            |[typescript-language-server](https://github.com/typescript-language-server/typescript-language-server)   |
+|Lua                   |[lua-language-server](https://github.com/LuaLS/lua-language-server)          |
+|VimScript             |[vim-language-server](https://github.com/iamcco/vim-language-server)          |
+|HTML                  |[html-lsp](https://github.com/microsoft/vscode-html-languageservice)                     |
+|CSS                   |[css-lsp](https://github.com/microsoft/vscode-css-languageservice)                      |
+|JSON                  |[json-lsp](https://github.com/microsoft/vscode-json-languageservice)                     |
+|YAML                  |[yaml-language-server](https://github.com/redhat-developer/yaml-language-server)         |
+|SQL                   |[sqllls](https://github.com/joe-re/sql-language-server)                       |
+|GraphQL               |[graphql-language-service-cli](https://www.npmjs.com/package/graphql-language-service-cli) |
+|CMake                 |[cmake-language-server](https://github.com/regen100/cmake-language-server)        |
+|Dockerfile            |[dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server-nodejs)   |
+|Terraform             |[terraformls](https://github.com/hashicorp/terraform-ls)                  |
+|Markdown              |[Marksman](https://github.com/artempyanykh/marksman)                     |
 
-![NeoVim-LSP-Completion](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9050cb99-b33a-4a82-a540-ebe7b9e962c4)
+![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca0321fa-ac83-4dc4-85a8-a89506cad93a)
 
-##### Configured Languages for DAP
+##### DAP
 
-* `Lua`: [**`one-small-step-for-vimkind`**][one-small-step-for-vimkind]
-* `Python`: [**`nvim-dap-python`**][nvim-dap-python]
-* `Go`: [**`nvim-dap-go`**][nvim-dap-go]
-* `js`/`ts`: [**`vscode-js-debug`**][vscode-js-debug], [**`nvim-dap-vscode-js`**][nvim-dap-vscode-js]
+![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
 
-[one-small-step-for-vimkind]: https://github.com/jbyuki/one-small-step-for-vimkind
-[nvim-dap-python]: https://github.com/mfussenegger/nvim-dap-python
-[nvim-dap-go]: https://github.com/leoluz/nvim-dap-go
-[vscode-js-debug]: https://github.com/microsoft/vscode-js-debug
-[nvim-dap-vscode-js]: https://github.com/mxsdev/nvim-dap-vscode-js
+|Language              |Adapters           |
+|:---------------------|:------------------|
+|Bash                  |[bash-debug-adapter](https://github.com/rogalmic/vscode-bash-debug) |
+|C/C++, Rust           |[codelldb](https://github.com/vadimcn/vscode-lldb)           |
+|C/C++, Rust           |[cpptools](https://github.com/microsoft/vscode-cpptools)           |
+|Go                    |[delve](https://github.com/go-delve/delve)              |
+|Python                |[debugpy](https://github.com/microsoft/debugpy)            |
+|Javascript/TyptScript |[js-debug-adapter](https://github.com/microsoft/vscode-js-debug)   |
 
-##### Configured Linter
+##### Linter
 
 | Linter       | Notes                              |
 | ------------ | ---------------------------------- |
 | [**codespell**][codespell]    | Check code for common misspellings |
-| [**hadolint**][hadolint]     | `Dockerfile` linter |
-| [**markdownlint**][markdownlint] | `markdown` linter/formatter |
-| [**ruff**][ruff]         | Fast `Python` Linter |
-| [**rubocop**][rubocop]      | `Ruby` linter/formatter |
-| [**vint**][vint]         | `VimScript` linter |
-| [**cmakelint**][cmakelint]    | `CMake` linter |
+| [**revive**][revive]       | Fast Linter for `golang`             |
+| [**ruff**][ruff]         | Fast `Python` Linter                 |
+| [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
+| [**vint**][vint]         | `VimScript` linter                   |
+| [**cmakelint**][cmakelint]    | `CMake` linter                       |
+| [**hadolint**][hadolint]     | `Dockerfile` linter                  |
+| [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
 
 [codespell]: https://github.com/codespell-project/codespell
-[hadolint]: https://github.com/hadolint/hadolint
-[markdownlint]: https://github.com/igorshubovych/markdownlint-cli
+[revive]: https://github.com/mgechev/revive
 [ruff]: https://github.com/charliermarsh/ruff
 [rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
+[hadolint]: https://github.com/hadolint/hadolint
+[markdownlint]: https://github.com/igorshubovych/markdownlint-cli
 
-##### Configured Formatter
+##### Formatter
 
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
-| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter |
-| [**black**][black]         | Fast `Python` formatter |
-| [**clang-format**][clang-format]  | `C++`formatter |
-| [**jq**][jq]            | `JSON` formatter |
+| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter    |
+| [**black**][black]         | Fast `Python` formatter      |
+| [**clang-format**][clang-format]  | `C++`formatter               |
+| [**jq**][jq]            | `JSON` formatter             |
 | [**prettier**][prettier]      | Opinionated Code Formatter |
-| [**sql-formatter**][sql-formatter] | `SQL` formatter |
-| [**stylua**][stylua]        | `Lua` formatter |
-| [**xmlformatter**][xmlformatter]  | `XML` formatter |
-| [**yamlfmt**][yamlfmt]       | `YAML` formatter |
+| [**sql-formatter**][sql-formatter] | `SQL` formatter              |
+| [**stylua**][stylua]        | `Lua` formatter              |
+| [**xmlformatter**][xmlformatter]  | `XML` formatter              |
+| [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
 [beautysh]: https://github.com/lovesegfault/beautysh
 [black]: https://pypi.org/project/black/
@@ -222,19 +239,23 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### Telescope extensions
 
-* [**telescope-frecency**][telescope-frecency]: [`Frecency algorithm`](https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm) search
-* [**telescope-file-browser**][telescope-file-browser]: File Browser
-* [**telescope-egrepify**][telescope-egrepify] live grep extension
-* [**telescope-lazy**][telescope-lazy]: [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
-* [**telescope-dap**][telescope-dap]: DAP Extension
+| Plugin                 | Notes                     |
+|:-----------------------|:--------------------------|
+| [**telescope-frecency**][telescope-frecency]     | [`Frecency algorithm`][frecency-algorithm] search |
+| [**telescope-file-browser**][telescope-file-browser] | File Browser              |
+| [**telescope-egrepify**][telescope-egrepify]     | live grep extension       |
+| [**telescope-lazy**][telescope-lazy]         | [`lazy.nvim`][lazy-nvim] extension       |
+| [**telescope-dap**][telescope-dap]          | DAP Extension             |
 
-![telescope.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/aa77f7fa-5abc-471d-9ff2-ed2fcca1bfb8)
+![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/bf770389-32bd-4f72-9787-1034689ee0ae)
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
 [telescope-egrepify]: https://github.com/fdschmidt93/telescope-egrepify.nvim
 [telescope-lazy]: https://github.com/tsakirist/telescope-lazy.nvim
 [telescope-dap]: https://github.com/nvim-telescope/telescope-dap.nvim
+[frecency-algorithm]: https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm
+[lazy-nvim]: https://github.com/folke/lazy.nvim
 
 ##### AI Assistant
 
@@ -254,7 +275,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | Runtime        | Version |
 | -------------- | ------- |
 | [**`Go`**][rtx-go]             | latest  |
-| [**`Python`**][rtx-python]         | 3.11    |
+| [**`Python`**][rtx-python]         | 3.12    |
 | [**`Ruby`**][rtx-ruby]           | 3.2     |
 | [**`Node.js`**][rtx-node]        | 20      |
 | [**`Deno`**][rtx-deno]           | 1       |
@@ -304,7 +325,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | Package            | Category   |
 | ------------------ | ---------- |
 | [**iTerm2**][iterm2]             | Terminal   |
-| [**Alacritty**][alacritty]          | Terminal |
+| [**Alacritty**][alacritty]          | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
 | [**Docker**][docker]             | Container  |
 | [**TablePlus**][tableplus]          | Database   |
@@ -329,6 +350,5 @@ See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/do
 
 ## ToDo
 
-* [ ] `rtx` support
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
