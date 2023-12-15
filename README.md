@@ -132,7 +132,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
 
-![mason.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/156587cb-ca8d-40b8-b7b0-3779883ad9f6)
+![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca8a55ad-718a-4dd9-8b8d-05d29f7d62cf)
 
 [LuaSnip]: https://github.com/L3MON4D3/LuaSnip
 [friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
@@ -161,9 +161,11 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * `GraphQL`
 * `Dockerfile`
 
-![NeoVim-LSP-Completion](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9050cb99-b33a-4a82-a540-ebe7b9e962c4)
+![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca0321fa-ac83-4dc4-85a8-a89506cad93a)
 
 ##### Configured Languages for DAP
+
+![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
 
 * `Lua`: [**`one-small-step-for-vimkind`**][one-small-step-for-vimkind]
 * `Python`: [**`nvim-dap-python`**][nvim-dap-python]
@@ -228,7 +230,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * [**telescope-lazy**][telescope-lazy]: [`lazy.nvim`](https://github.com/folke/lazy.nvim) extension
 * [**telescope-dap**][telescope-dap]: DAP Extension
 
-![telescope.nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/aa77f7fa-5abc-471d-9ff2-ed2fcca1bfb8)
+![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/bf770389-32bd-4f72-9787-1034689ee0ae)
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
