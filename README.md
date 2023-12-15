@@ -112,15 +112,23 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 #### fish shell
 
-| Plugin                        | Notes            |
-| ----------------------------- | ---------------- |
-| [jorgebucaran/fisher](https://github.com/jorgebucaran/fisher)           | A plugin manager for Fish |
-| [oh-my-fish/theme-bobthefish](https://github.com/oh-my-fish/theme-bobthefish)   | A Powerline-style, Git-aware fish theme optimized for awesome. |
-| [jethrokuan/fzf](https://github.com/jethrokuan/fzf)                | Ef-🐟-ient fish keybindings for fzf |
-| [jethrokuan/z](https://github.com/jethrokuan/z)                  | Pure-fish z directory jumping |
-| [dracula/fish](https://github.com/dracula/fish)                  | 🧛🏻‍♂️ Dark theme for fish |
-| [franciscolourenco/done](https://github.com/franciscolourenco/done)        | A fish-shell package to automatically receive notifications when long processes finish. |
-| [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)    | Auto-complete matching pairs in the Fish command line |
+| Plugin           | Notes                                                          |
+| ---------------- | -------------------------------------------------------------- |
+| [fisher][fisher]           | A plugin manager for Fish                                      |
+| [theme-bobthefish][theme-bobthefish] | A Powerline-style, Git-aware fish theme optimized for awesome. |
+| [fzf][fish-fzf]              | Ef-🐟-ient fish keybindings for fzf                            |
+| [z][fish-z]                | Pure-fish z directory jumping                                  |
+| [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
+| [autopair.fish][autopair]    | Auto-complete matching pairs in the Fish command line          |
+| [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
+
+[fisher]: https://github.com/jorgebucaran/fisher
+[theme-bobthefish]: https://github.com/oh-my-fish/theme-bobthefish
+[fish-fzf]: https://github.com/jethrokuan/fzf
+[fish-z]: https://github.com/jethrokuan/z
+[dracula]: https://github.com/dracula/fish
+[autopair]: https://github.com/jorgebucaran/autopair.fish
+[fish-done]: https://github.com/franciscolourenco/done
 
 #### NeoVim
 
@@ -317,7 +325,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | Package            | Category   |
 | ------------------ | ---------- |
 | [**iTerm2**][iterm2]             | Terminal   |
-| [**Alacritty**][alacritty]          | Terminal |
+| [**Alacritty**][alacritty]          | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
 | [**Docker**][docker]             | Container  |
 | [**TablePlus**][tableplus]          | Database   |
