@@ -37,7 +37,7 @@
     * [NeoVim](#neovim)
       * [LSP](#lsp)
       * [DAP](#dap)
-      * [Configured Linter](#configured-linter)
+      * [Linter](#linter)
       * [Configured Formatter](#configured-formatter)
     * [rtx](#rtx)
   * [Homebrew cask packages](#homebrew-cask-packages)
@@ -126,7 +126,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 * [Builtin LSP Supported](#lsp)
 * [DAP supported](#dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
-* [Linter support](#configured-linter)
+* [Linter support](#linter)
 * [Formatter support](#configured-formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
@@ -170,7 +170,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca0321fa-ac83-4dc4-85a8-a89506cad93a)
 
-##### Configured Languages for DAP
+##### DAP
 
 ![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
 
@@ -183,25 +183,27 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 |Python                |[debugpy](https://github.com/microsoft/debugpy)            |
 |Javascript/TyptScript |[js-debug-adapter](https://github.com/microsoft/vscode-js-debug)   |
 
-##### Configured Linter
+##### Linter
 
 | Linter       | Notes                              |
 | ------------ | ---------------------------------- |
 | [**codespell**][codespell]    | Check code for common misspellings |
-| [**hadolint**][hadolint]     | `Dockerfile` linter |
-| [**markdownlint**][markdownlint] | `markdown` linter/formatter |
-| [**ruff**][ruff]         | Fast `Python` Linter |
-| [**rubocop**][rubocop]      | `Ruby` linter/formatter |
-| [**vint**][vint]         | `VimScript` linter |
-| [**cmakelint**][cmakelint]    | `CMake` linter |
+| [**revive**][revive]       | Fast Linter for `golang`             |
+| [**ruff**][ruff]         | Fast `Python` Linter                 |
+| [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
+| [**vint**][vint]         | `VimScript` linter                   |
+| [**cmakelint**][cmakelint]    | `CMake` linter                       |
+| [**hadolint**][hadolint]     | `Dockerfile` linter                  |
+| [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
 
 [codespell]: https://github.com/codespell-project/codespell
-[hadolint]: https://github.com/hadolint/hadolint
-[markdownlint]: https://github.com/igorshubovych/markdownlint-cli
+[revive]: https://github.com/mgechev/revive
 [ruff]: https://github.com/charliermarsh/ruff
 [rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
+[hadolint]: https://github.com/hadolint/hadolint
+[markdownlint]: https://github.com/igorshubovych/markdownlint-cli
 
 ##### Configured Formatter
 
