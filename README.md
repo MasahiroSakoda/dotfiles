@@ -35,7 +35,7 @@
   * [Homebrew packages](#homebrew-packages)
     * [fish shell](#fish-shell)
     * [NeoVim](#neovim)
-      * [Configured Languages for LSP](#configured-languages-for-lsp)
+      * [LSP](#lsp)
       * [Configured Languages for DAP](#configured-languages-for-dap)
       * [Configured Linter](#configured-linter)
       * [Configured Formatter](#configured-formatter)
@@ -124,7 +124,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 #### NeoVim
 
-* [Builtin LSP Supported](#configured-languages-for-lsp)
+* [Builtin LSP Supported](#lsp)
 * [DAP supported](#configured-languages-for-dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
 * [Linter support](#configured-linter)
 * [Formatter support](#configured-formatter)
@@ -143,23 +143,30 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
 
-##### Configured Languages for LSP
+##### LSP
 
-* `Lua`,
-* `VimScript`
-* `Bash`
-* `C`/`C++`,
-* `Rust`
-* `JavaScript`,
-* `TypeScript`
-* `JSON`, `YAML`
-* `HTML`,
-* `CSS`, `SCSS`, `LESS`, `Tailwind CSS`
-* `Python`
-* `Ruby`
-* `SQL`
-* `GraphQL`
-* `Dockerfile`
+| Language             | Language Server             |
+|:---------------------|:----------------------------|
+|Bash                  |[bash-language-server](https://github.com/bash-lsp/bash-language-server)         |
+|C/C++                 |[clangd](https://clangd.llvm.org)                       |
+|Rust                  |[rust-analyzer](https://github.com/rust-lang/rust-analyzer)                |
+|Go                    |[gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                        |
+|Python                |[pyright](https://github.com/microsoft/pyright)                      |
+|Ruby                  |[solargraph](https://solargraph.org)                   |
+|Javascript/TyptScript |[deno](https://deno.land)                         |
+|TypeScript            |[typescript-language-server](https://github.com/typescript-language-server/typescript-language-server)   |
+|Lua                   |[lua-language-server](https://github.com/LuaLS/lua-language-server)          |
+|VimScript             |[vim-language-server](https://github.com/iamcco/vim-language-server)          |
+|HTML                  |[html-lsp](https://github.com/microsoft/vscode-html-languageservice)                     |
+|CSS                   |[css-lsp](https://github.com/microsoft/vscode-css-languageservice)                      |
+|JSON                  |[json-lsp](https://github.com/microsoft/vscode-json-languageservice)                     |
+|YAML                  |[yaml-language-server](https://github.com/redhat-developer/yaml-language-server)         |
+|SQL                   |[sqllls](https://github.com/joe-re/sql-language-server)                       |
+|GraphQL               |[graphql-language-service-cli](https://www.npmjs.com/package/graphql-language-service-cli) |
+|CMake                 |[cmake-language-server](https://github.com/regen100/cmake-language-server)        |
+|Dockerfile            |[dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server-nodejs)   |
+|Terraform             |[terraformls](https://github.com/hashicorp/terraform-ls)                  |
+|Markdown              |[Marksman](https://github.com/artempyanykh/marksman)                     |
 
 ![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca0321fa-ac83-4dc4-85a8-a89506cad93a)
 
