@@ -38,7 +38,7 @@
       * [LSP](#lsp)
       * [DAP](#dap)
       * [Linter](#linter)
-      * [Configured Formatter](#configured-formatter)
+      * [Formatter](#formatter)
     * [rtx](#rtx)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
@@ -127,7 +127,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Builtin LSP Supported](#lsp)
 * [DAP supported](#dap) with [**`nvim-dap`**][nvim-dap], [**`nvim-dap-ui`**][nvim-dap-ui]
 * [Linter support](#linter)
-* [Formatter support](#configured-formatter)
+* [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][friendly-snippets]
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
@@ -205,19 +205,19 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [hadolint]: https://github.com/hadolint/hadolint
 [markdownlint]: https://github.com/igorshubovych/markdownlint-cli
 
-##### Configured Formatter
+##### Formatter
 
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
-| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter |
-| [**black**][black]         | Fast `Python` formatter |
-| [**clang-format**][clang-format]  | `C++`formatter |
-| [**jq**][jq]            | `JSON` formatter |
+| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter    |
+| [**black**][black]         | Fast `Python` formatter      |
+| [**clang-format**][clang-format]  | `C++`formatter               |
+| [**jq**][jq]            | `JSON` formatter             |
 | [**prettier**][prettier]      | Opinionated Code Formatter |
-| [**sql-formatter**][sql-formatter] | `SQL` formatter |
-| [**stylua**][stylua]        | `Lua` formatter |
-| [**xmlformatter**][xmlformatter]  | `XML` formatter |
-| [**yamlfmt**][yamlfmt]       | `YAML` formatter |
+| [**sql-formatter**][sql-formatter] | `SQL` formatter              |
+| [**stylua**][stylua]        | `Lua` formatter              |
+| [**xmlformatter**][xmlformatter]  | `XML` formatter              |
+| [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
 [beautysh]: https://github.com/lovesegfault/beautysh
 [black]: https://pypi.org/project/black/
