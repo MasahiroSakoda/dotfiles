@@ -76,8 +76,8 @@ cmp.setup({
   },
 
   sources = { -- Completion Sources
-    { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 10 },
-    { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 10 },
+    { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 15 },
+    { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 15 },
     { name = "codeium",     group_index = 2, priority = 80,  max_item_count = 10 },
     -- { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
     { name = "path",         keyword_length = 3, max_item_count = 5 },
