@@ -1,8 +1,8 @@
 local cmp_ok,     cmp     = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 local lspkind_ok, lspkind = pcall(require, "lspkind")
-local neogen_ok,  neogen  = pcall(require, "neogen")
-if not (cmp_ok or lspkind_ok or luasnip_ok or neogen_ok) then return end
+-- local neogen_ok,  neogen  = pcall(require, "neogen")
+if not (cmp_ok or lspkind_ok or luasnip_ok) then return end
 
 local compare = cmp.config.compare
 local border_opts = {
