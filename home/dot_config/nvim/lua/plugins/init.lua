@@ -183,7 +183,6 @@ return {
   },
   {
     "j-hui/fidget.nvim", -- Status GUI for LSP
-    branch = "legacy",
     event = "LspAttach",
     config = function() require("lsp.config.fidget") end,
   },
@@ -342,14 +341,14 @@ return {
     cmd    =  "TSJToggle",
     config = function() require("user.treesj") end,
   },
-  {
-    "danymat/neogen", -- annotation generator
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    cmd    = "Neogen",
-    config = function() require("user.treesitter.neogen") end,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-  },
+  -- {
+  --   "danymat/neogen", -- annotation generator
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   cmd    = "Neogen",
+  --   config = function() require("user.treesitter.neogen") end,
+  --   -- Uncomment next line if you want to follow only stable versions
+  --   -- version = "*"
+  -- },
   {
     "folke/todo-comments.nvim", -- Comment highlighter
     dependencies = { "nvim-lua/plenary.nvim" },

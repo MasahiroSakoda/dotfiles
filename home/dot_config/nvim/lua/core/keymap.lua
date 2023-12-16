@@ -147,19 +147,19 @@ keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "⚡
 ---------------------------------------------------------------------------
 -- Generator
 ---------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  ["<Leader>ng"] = { ":Neogen<CR>",       "   Generate annotation" },
-  ["<Leader>nc"] = { ":Neogen class<CR>", "   Generate class annotation" },
-  ["<Leader>nf"] = { ":Neogen func<CR>",  "   Generate function annotation" },
-  ["<Leader>nt"] = { ":Neogen type<CR>",  "   Generate type annotation" },
-}, opts)
+-- wk.register({
+--   mode = "n",
+--   ["<Leader>ng"] = { ":Neogen<CR>",       "   Generate annotation" },
+--   ["<Leader>nc"] = { ":Neogen class<CR>", "   Generate class annotation" },
+--   ["<Leader>nf"] = { ":Neogen func<CR>",  "   Generate function annotation" },
+--   ["<Leader>nt"] = { ":Neogen type<CR>",  "   Generate type annotation" },
+-- }, opts)
 
-wk.register({
-  mode = "i",
-  ["<C-h>"] = { ":lua require'neogen'.jump_prev()<CR>", "   Jump to prev annotation" },
-  ["<C-l>"] = { ":lua require'neogen'.jump_next()<CR>", "   Jump to next annotation" },
-}, opts)
+-- wk.register({
+--   mode = "i",
+--   ["<C-h>"] = { ":lua require'neogen'.jump_prev()<CR>", "   Jump to prev annotation" },
+--   ["<C-l>"] = { ":lua require'neogen'.jump_next()<CR>", "   Jump to next annotation" },
+-- }, opts)
 
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
