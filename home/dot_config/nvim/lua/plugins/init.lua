@@ -183,7 +183,6 @@ return {
   },
   {
     "j-hui/fidget.nvim", -- Status GUI for LSP
-    branch = "legacy",
     event = "LspAttach",
     config = function() require("lsp.config.fidget") end,
   },
