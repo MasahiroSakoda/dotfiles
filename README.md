@@ -153,43 +153,71 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### LSP
 
-| Language             | Language Server             |
-|:---------------------|:----------------------------|
-|Bash                  |[bash-language-server](https://github.com/bash-lsp/bash-language-server)         |
-|C/C++                 |[clangd](https://clangd.llvm.org)                       |
-|Rust                  |[rust-analyzer](https://github.com/rust-lang/rust-analyzer)                |
-|Go                    |[gopls](https://pkg.go.dev/golang.org/x/tools/gopls)                        |
-|Python                |[pyright](https://github.com/microsoft/pyright)                      |
-|Ruby                  |[solargraph](https://solargraph.org)                   |
-|Javascript/TyptScript |[deno](https://deno.land)                         |
-|TypeScript            |[typescript-language-server](https://github.com/typescript-language-server/typescript-language-server)   |
-|Lua                   |[lua-language-server](https://github.com/LuaLS/lua-language-server)          |
-|VimScript             |[vim-language-server](https://github.com/iamcco/vim-language-server)          |
-|HTML                  |[html-lsp](https://github.com/microsoft/vscode-html-languageservice)                     |
-|CSS                   |[css-lsp](https://github.com/microsoft/vscode-css-languageservice)                      |
-|JSON                  |[json-lsp](https://github.com/microsoft/vscode-json-languageservice)                     |
-|YAML                  |[yaml-language-server](https://github.com/redhat-developer/yaml-language-server)         |
-|SQL                   |[sqllls](https://github.com/joe-re/sql-language-server)                       |
-|GraphQL               |[graphql-language-service-cli](https://www.npmjs.com/package/graphql-language-service-cli) |
-|CMake                 |[cmake-language-server](https://github.com/regen100/cmake-language-server)        |
-|Dockerfile            |[dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server-nodejs)   |
-|Terraform             |[terraformls](https://github.com/hashicorp/terraform-ls)                  |
-|Markdown              |[Marksman](https://github.com/artempyanykh/marksman)                     |
+| Language Server            | Language                |
+|:---------------------------|:------------------------|
+| [**bash-language-server**][bash-lsp]       | Bash                    |
+| [**clangd**][clangd]                     | C/C++                   |
+| [**rust-analyzer**][rust-analyzer]              | Rust                    |
+| [**gopls**][gopls]                      | Go                      |
+| [**pyright**][pyright]                    | Python                  |
+| [**solargraph**][solargraph]                 | Ruby                    |
+| [**deno**][denols]                       | JavaScript, TypeScript  |
+| [**typescript-language-server**][tsserver] | JavaScript, TypeScript  |
+| [**lua-language-server**][luals]        | Lua                     |
+| [**vim-language-server**][vimls]        | VimScript               |
+| [**html-lsp**][html-lsp]                   | HTML                    |
+| [**css-lsp**][css-lsp]                    | CSS, SCSS, LESS         |
+| [**json-lsp**][json-lsp]                   | JSON                    |
+| [**yaml-language-server**][yaml-lsp]       | YAML                    |
+| [**sqlls**][sqlls]                      | SQL                     |
+| [**graphql-language-service**][graphqlls]   | GraphQL                 |
+| [**cmake-language-server**][cmakels]      | CMake                   |
+| [**dockerfile-language-server**][dockerfilels] | Dockerfile              |
+| [**terraform-ls**][terraformls]               | Terraform               |
+| [**Marksman**][marksman]                   | Markdown                |
+
+[bash-lsp]: https://github.com/bash-lsp/bash-language-server
+[clangd]: https://clangd.llvm.org
+[rust-analyzer]: https://github.com/rust-lang/rust-analyzer
+[gopls]: https://pkg.go.dev/golang.org/x/tools/gopls
+[pyright]: https://github.com/microsoft/pyright
+[solargraph]: https://solargraph.org/
+[denols]: https://deno.land
+[tsserver]: https://github.com/typescript-language-server/typescript-language-server
+[luals]: https://github.com/LuaLS/lua-language-server
+[vimls]: https://github.com/iamcco/vim-language-server
+[html-lsp]: https://github.com/microsoft/vscode-html-languageservice
+[css-lsp]: https://github.com/microsoft/vscode-css-languageservice
+[json-lsp]: https://github.com/microsoft/vscode-json-languageservice
+[yaml-lsp]: https://github.com/redhat-developer/yaml-language-server
+[sqlls]: https://github.com/joe-re/sql-language-server
+[graphqlls]: https://www.npmjs.com/package/graphql-language-service-cli
+[cmakels]: https://github.com/regen100/cmake-language-server
+[dockerfilels]: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+[terraformls]: https://github.com/hashicorp/terraform-ls
+[marksman]: https://github.com/artempyanykh/marksman
 
 ![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ca0321fa-ac83-4dc4-85a8-a89506cad93a)
 
 ##### DAP
 
-![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
+| Adapter            | Language              |
+|:-------------------|:----------------------|
+| [**bash-debug-adapter**][bash-da] | Bash                  |
+| [**codelldb**][codelldb]           | C/C++, Rust           |
+| [**cpptools**][cpptools]           | C/C++, Rust           |
+| [**delve**][delve]              | Go                    |
+| [**debugpy**][debugpy]            | Python                |
+| [**js-debug-adapter**][js-da]   | Javascript/TyptScript |
 
-|Language              |Adapters           |
-|:---------------------|:------------------|
-|Bash                  |[bash-debug-adapter](https://github.com/rogalmic/vscode-bash-debug) |
-|C/C++, Rust           |[codelldb](https://github.com/vadimcn/vscode-lldb)           |
-|C/C++, Rust           |[cpptools](https://github.com/microsoft/vscode-cpptools)           |
-|Go                    |[delve](https://github.com/go-delve/delve)              |
-|Python                |[debugpy](https://github.com/microsoft/debugpy)            |
-|Javascript/TyptScript |[js-debug-adapter](https://github.com/microsoft/vscode-js-debug)   |
+[bash-da]: https://github.com/rogalmic/vscode-bash-debug
+[codelldb]: https://github.com/vadimcn/vscode-lldb
+[cpptools]: https://github.com/microsoft/vscode-cpptools
+[delve]: https://github.com/go-delve/delve
+[debugpy]: https://github.com/microsoft/debugpy
+[js-da]: https://github.com/microsoft/vscode-js-debug
+
+![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/263001eb-c24b-4e7c-9ceb-9be0d63252dc)
 
 ##### Linter
 
