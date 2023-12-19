@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
 end
 
 nl.setup({
-  debug = true,
+  debug = false,
   -- builtin sources: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
   diagnostics_format = "#{m} (#{s}: #{c})",
   sources = {
