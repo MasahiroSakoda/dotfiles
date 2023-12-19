@@ -31,7 +31,7 @@ fidget.setup({
       max_height = 0,
       x_padding  = 1,
       y_padding  = 0,
-      align    = "bottom", --- @type "top"|"bottom"
+      align    = "bottom", --- @type "top"|"bottom"|"avoid_cursor"
       relative = "editor", --- @type "editor"|"win"
     },
   },
