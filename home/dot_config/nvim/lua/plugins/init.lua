@@ -149,7 +149,6 @@ return {
       diagnostics = { virtual_text = vim.fn.has("nvim-0.10") == 0 and "●" },
     },
   },
-  -- INFO: null-ls.nvim alternative
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -278,24 +277,6 @@ return {
       require("dap.adapters.xcodebuild")
     end,
   },
-
-  ------------------------------------------------------------------------
-  -- Test
-  ------------------------------------------------------------------------
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim"
-    },
-    config = function() require("user.test") end,
-  },
-  { "nvim-neotest/neotest-python" },
-  { "olimorris/neotest-rspec" },
-  { "nvim-neotest/neotest-jest" },
-  { "marilari88/neotest-vitest" },
-  { "thenbe/neotest-playwright" },
 
   ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter
