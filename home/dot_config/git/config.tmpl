@@ -23,6 +23,26 @@
 [branch]
   autosetuprebase = always
 
+[http]
+  postBuffer = 524288000
+
+[remote]
+  pushDefault = origin
+
+[fetch]
+  prune = true
+
 [merge]
   branchdesc = true
   log = true
+
+[push]
+  default = current
+
+[pull]
+  ff = only
+
+{{ if eq .chezmoi.os "darwin" -}}
+[credential]
+  helper = osxkeychain
+{{ end -}}
