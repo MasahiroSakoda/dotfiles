@@ -41,3 +41,8 @@
 
 [pull]
   ff = only
+
+{{ if eq .chezmoi.os "darwin" -}}
+[credential]
+  helper = osxkeychain
+{{ end -}}
