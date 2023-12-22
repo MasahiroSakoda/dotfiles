@@ -237,7 +237,7 @@ return {
     "Exafunction/codeium.nvim",
     build  = ":Codeium Auth",
     cond   = not is_vscode,
-    -- event  = "InsertEnter",
+    event  = "InsertEnter",
     config = function() require("lsp.cmp.codeium") end,
   },
   ------------------------------------------------------------------------
