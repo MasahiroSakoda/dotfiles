@@ -369,3 +369,6 @@ keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearc
 keymap("n", ",m",  "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
 keymap("n", ",x", "<CMD>TroubleToggle<CR>",       { desc = "   Toggle Diagnostic List" })
+
+-- Open File/URL
+keymap(nv_mode, "gf", ":lua require'utils'.open_cfile()<CR>", { desc = "    Open File/URL" })
