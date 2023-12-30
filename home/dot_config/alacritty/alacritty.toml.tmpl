@@ -1,0 +1,85 @@
+# -*-mode:conf-toml-*- vim:ft=toml
+
+import = [
+  "~/.local/share/alacritty/themes/themes/{{ .alacritty.theme }}.toml",
+  "~/.config/alacritty/fonts.toml",
+  "~/.config/alacritty/keybindings.toml",
+]
+
+live_config_reload = true
+
+[shell]
+program = "/usr/local/bin/fish"
+args = [
+  "--login",
+  "--command",
+  "tmux a -t default || tmux new -s default\\; source ~/.config/tmux/default.session.conf",
+]
+
+[env]
+TERM     = "alacritty"
+USE_TMUX = "true"
+
+[cursor]
+thickness = 0.2
+unfocused_hollow = false
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations  = "full"
+startup_mode = "Fullscreen"
+opacity      = {{ .alacritty.opacity }}
+
+dynamic_title   = true
+dynamic_padding = true
+{{- if eq .chezmoi.os "darwin" }}
+option_as_alt   = "Both"
+{{- end }}
+
+[window.dimensions]
+columns = 0
+lines   = 0
+
+[window.position]
+x = 0
+y = 0
+
+[window.padding]
+x = 0
+y = 0
+
+[hints]
+alphabet   = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+hyperlinks = true
+post_processing = true
+{{- if eq .chezmoi.os "darwin" }}
+command = "open"
+{{- else if eq .chezmoi.os "linux" }}
+command = "xdg-open"
+{{- end }}
+binding.key  = "o"
+binding.mods = "Control | Shift"
+
+[[hints.enabled]]
+regex = "[a-zA-Z0-9-_/@#]+"
+hyperlinks = true
+action = "Copy"
+binding.key = "w"
+binding.mods = "Control | Shift"
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[mouse]
+hide_when_typing = false
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"

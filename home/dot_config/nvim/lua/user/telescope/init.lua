@@ -32,7 +32,7 @@ telescope.setup({
       "build/", "%.o", "%.out", "%.a", "%.so",        -- Binary
       "%.tar", "%.tar.gz", "%.zip", "%.rar", "%.7z", -- Archives
       "^.git/", -- Git
-      "%.otf", "%.ttf", "%.woff", ".fonts", -- font
+      "%.otf", "%.ttf", "%.woff", -- font
       "%.ico", "%.svg", -- Icon
       "^.idea/", "^.vscode/", -- IDE
       ".DS_Store", "%.dylib", -- macOS
