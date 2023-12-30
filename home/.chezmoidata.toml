@@ -1,64 +1,64 @@
 # -*-mode:conf-toml-*- vim:ft=toml
 
 [font.family]
-    ascii    = "JetBrainsMonoNL NFM"
-    nonascii = "HackGen Console NF"
+ascii    = "JetBrainsMonoNL NFM"
+nonascii = "HackGen Console NF"
 
 [font.size]
-    large  = 14
-    medium = 12
-    small  = 10
+large  = 14
+medium = 12
+small  = 10
 
 [alacritty]
-    theme = "dracula"
-    opacity = 0.75
+theme = "dracula"
+opacity = 0.75
 
 [plugins]
-    gh = [
-        # GitHub CLI dashboard
-        "dlvhdr/gh-dash",
-        # GitHub CLI to manage GitHub Actions cache
-        "actions/gh-actions-cache",
-        # GitHub activity graph
-        "kawarimidoll/gh-graph",
-    ]
-    vscode = [
-        # Language
-        "MS-CEINTL.vscode-language-pack-ja",
-        # Appearance
-        "dracula-theme.theme-dracula",
-        "PKief.material-icon-theme",
-        # Editor
-        "EditorConfig.EditorConfig",
-        "asvetliakov.vscode-neovim",
-        "christian-kohler.path-intellisense",
-        # Environment
-        "GitHub.codespaces",
-        "GitHub.copilot",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.remote-containers",
-        "ms-vscode-remote.remote-ssh",
-        "ms-vscode-remote.remote-ssh-edit",
-        "ms-vscode-remote.remote-wsl",
-        "ms-vscode-remote.vscode-remote-extensionpack",
-        # Python
-        "ms-python.isort",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        ## Jupyter Notebook
-        "ms-toolsai.jupyter",
-        "ms-toolsai.jupyter-keymap",
-        "ms-toolsai.jupyter-renderers",
-        "ms-toolsai.vscode-jupyter-cell-tags",
-        "ms-toolsai.vscode-jupyter-slideshow",
-        # C, C++, Rust etc...
-        "ms-vscode.cpptools",
-        # Tools
-        "alefragnani.Bookmarks",
-        "alefragnani.project-manager",
-        "Gruntfuggly.todo-tree",
-        "wayou.vscode-todo-highlight",
-        "usernamehw.errorlens",
-        "redhat.vscode-xml",
-        "redhat.vscode-yaml",
-    ]
+gh = [
+    # GitHub CLI dashboard
+    "dlvhdr/gh-dash",
+    # GitHub CLI to manage GitHub Actions cache
+    "actions/gh-actions-cache",
+    # GitHub activity graph
+    "kawarimidoll/gh-graph",
+]
+vscode = [
+    # Language
+    "MS-CEINTL.vscode-language-pack-ja",
+    # Appearance
+    "dracula-theme.theme-dracula",
+    "PKief.material-icon-theme",
+    # Editor
+    "EditorConfig.EditorConfig",
+    "asvetliakov.vscode-neovim",
+    "christian-kohler.path-intellisense",
+    # Environment
+    "GitHub.codespaces",
+    "GitHub.copilot",
+    "ms-azuretools.vscode-docker",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-ssh-edit",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    # Python
+    "ms-python.isort",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    ## Jupyter Notebook
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.vscode-jupyter-cell-tags",
+    "ms-toolsai.vscode-jupyter-slideshow",
+    # C, C++, Rust etc...
+    "ms-vscode.cpptools",
+    # Tools
+    "alefragnani.Bookmarks",
+    "alefragnani.project-manager",
+    "Gruntfuggly.todo-tree",
+    "wayou.vscode-todo-highlight",
+    "usernamehw.errorlens",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+]
