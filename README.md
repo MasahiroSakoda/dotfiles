@@ -333,20 +333,18 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | Package                        | Notes                           |
 | ------------------------------ | ------------------------------- |
 | [**font-codicon**][codicon]                   | Icon Font                       |
-| [**font-hack-nerd-font**][hack-nerd-font]            | Nerd Font                       |
 | [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font                |
 | [**font-cica**][cica]                      | Monospaced Font for Japanese    |
-| [**font-hackgen**][hackgen]                   | Programming Font for Japanese   |
 | [**font-hackgen-nerd**][hackgen]              | Programming Font for Japanese   |
-| [**font-plemol-jp-nf**][plemoljp]              | IBM Plex base Font for Japanese |
 | [**font-plemol-jp-nfj**][plemoljp]             | IBM Plex base Font for Japanese |
+| [**font-udev-gothic-nf**][udev-gothic]            | BIZ UD Gothic + JetBrains Mono for Japanese |
 
 [codicon]: https://github.com/microsoft/vscode-codicons
-[hack-nerd-font]: https://github.com/ryanoasis/nerd-fonts
 [jetbrains-mono-nerd-font]: https://www.jetbrains.com/ja-jp/lp/mono/
 [cica]: https://github.com/miiton/Cica
 [hackgen]: https://github.com/yuru7/HackGen
 [plemoljp]: https://github.com/yuru7/PlemolJP
+[udev-gothic]: https://github.com/yuru7/udev-gothic
 
 #### Dev packages
 
