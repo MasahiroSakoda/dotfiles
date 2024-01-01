@@ -79,7 +79,7 @@ config.disable_default_key_bindings = true
 
 config.keys       = keybinds.keys
 config.key_tables = keybinds.key_tables
--- config.leaders = ""
+config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1000 }
 
 --------------------------------------------------
 -- Bell
