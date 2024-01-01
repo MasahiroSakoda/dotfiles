@@ -69,10 +69,21 @@ return {
     { key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
 
     -- Clipboard
-    { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
-    { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
+    { key = "c",     mods = "SUPER",  action = act.CopyTo("Clipboard") },
+    { key = "v",     mods = "SUPER",  action = act.PasteFrom("Clipboard") },
     -- Copy Mode https://wezfurlong.org/wezterm/copymode.html
     { key = "y",     mods = "SUPER",  action = act.ActivateCopyMode },
+
+    { key = "Space", mods = "LEADER", action = act.QuickSelect },
+    { key = "o",     mods = "SUPER",  action = act.QuickSelectArgs({
+      label = "open url",
+      patterns = { "https?://\\S+" },
+      action = wezterm.action_callback(function(window, pane)
+        local url = window:get_selection_text_for_pane(pane)
+        wezterm.log_info("Opening: " .. url)
+        wezterm.open_with(url)
+      end)
+    }) },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {

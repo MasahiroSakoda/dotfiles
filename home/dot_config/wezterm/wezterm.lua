@@ -13,7 +13,6 @@ end
 --   "tmux a -t default || tmux new -s default\\; source ~/.config/tmux/default.session.conf",
 -- }
 config.use_ime = true ---@type boolean
-config.hyperlink_rules = require("links")
 config.status_update_interval = 1000 ---@type integer
 
 --------------------------------------------------
@@ -85,6 +84,15 @@ config.disable_default_key_bindings = true
 config.keys       = keybinds.keys
 config.key_tables = keybinds.key_tables
 config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 1000 }
+
+--------------------------------------------------
+-- Hyperlink / Quick Select
+--------------------------------------------------
+config.hyperlink_rules = require("links")
+
+local select = require("select")
+config.quick_select_alphabet = select.alphabet
+config.quick_select_patterns = select.patterns
 
 --------------------------------------------------
 -- Bell
