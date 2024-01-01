@@ -61,17 +61,39 @@ wezterm.on("update-status", function(window, _)
   }))
 end)
 
+wezterm.on("window-config-reloaded", function(window, _)
+  window:toast_notification("wezterm", "Configuration reloaded.", nil , 5000)
+end)
+
 wezterm.on("switch-colorscheme", function(window, _)
   local overrides = window:get_config_overrides() or {}
-  local index = 0
 
   if not overrides.color_scheme then
-    if wezterm.GLOBAL.color_scheme_index < #schemes - 1 then
+    if wezterm.GLOBAL.color_scheme_index < #schemes then
       wezterm.GLOBAL.color_scheme_index = wezterm.GLOBAL.color_scheme_index + 1
+    else
+      wezterm.GLOBAL.color_scheme_index = 0
     end
-    overrides.color_scheme = schemes[index]
+    overrides.color_scheme = schemes[wezterm.GLOBAL.color_scheme_index]
   else
     overrides.color_scheme = nil
+  end
+
+  window:set_config_overrides(overrides)
+end)
+
+wezterm.on("switch-background-image", function(window, _)
+  local overrides = window:get_config_overrides() or {}
+  local images = require("background")
+  if not overrides.background then
+    if wezterm.GLOBAL.color_scheme_index < #images then
+      wezterm.GLOBAL.background_index = wezterm.GLOBAL.background_index + 1
+    else
+      wezterm.GLOBAL.background_index = 0
+    end
+    overrides.background = images[wezterm.GLOBAL.background_index]
+  else
+    overrides.background = nil
   end
 
   window:set_config_overrides(overrides)
