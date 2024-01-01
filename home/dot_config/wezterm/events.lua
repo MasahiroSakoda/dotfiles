@@ -49,6 +49,9 @@ wezterm.on("update-status", function(window, _)
     { Text = " [" .. window:active_workspace() .. "]" },
   }))
   window:set_right_status(wezterm.format({
+    { Foreground = { Color = scheme.brights[6] } },
+    { Background = { Color = scheme.ansi[1] } },
+    { Text = utils.active_key_status(window) },
     { Foreground = { Color = scheme.brights[3] } },
     { Background = { Color = scheme.ansi[1] } },
     { Text = utils.keyboard_status(window) },
