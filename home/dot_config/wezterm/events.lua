@@ -45,9 +45,9 @@ end)
 
 wezterm.on("update-status", function(window, _)
   window:set_left_status(wezterm.format({
-    { Foreground = { Color = scheme.ansi[4] } },
-    { Background = { Color = scheme.brights[1] } },
-    { Text = " [" .. window:active_workspace() .. "]" },
+    { Foreground = { Color = scheme.brights[7] } },
+    { Background = { Color = scheme.ansi[1] } },
+    { Text = "[" .. window:active_workspace() .. "]" },
   }))
   window:set_right_status(wezterm.format({
     { Foreground = { Color = scheme.brights[6] } },
