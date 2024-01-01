@@ -20,6 +20,11 @@ themes = [
   "ThayerBright (Gogh)",
   "TokyoNightStorm (Gogh)",
 ]
+images = [
+  "daft-punk-music-retro-style-wallpaper.jpg",
+  "daft-punk-music-black-background-helmet-wallpaper.jpg",
+  "daft-punk-punk-edm-music-wallpaper.jpg",
+]
 
 [plugins]
 gh = [
