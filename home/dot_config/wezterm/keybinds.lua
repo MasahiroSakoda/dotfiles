@@ -12,6 +12,7 @@ return {
     { key = "m", mods = "SUPER", action = act.Hide },
     { key = "r", mods = "SUPER", action = act.ReloadConfiguration },
     { key = "k", mods = "SUPER", action = act.ClearScrollback("ScrollbackAndViewport") },
+    { key = "?", mods = "SUPER", action = act.ActivateCommandPalette },
     -- { key = ",", mods = "SUPER", action = act.perform },
 
     -- Fullscreen
