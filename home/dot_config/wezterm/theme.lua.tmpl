@@ -1,0 +1,10 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+local schemes = {}
+{{- range .wezterm.themes | uniq }}
+table.insert(schemes, "{{ . }}")
+{{- end }}
+
+return {
+  color_schemes = schemes
+}

@@ -1,0 +1,21 @@
+-- -*-mode:lua-*- vim:ft=lua
+local wezterm  = require("wezterm")
+
+return {
+  global = {
+    font = wezterm.font_with_fallback({
+      { family = {{ .font.family.combined | quote }}, weight = "Bold" },
+      { family = {{ .font.family.ascii | quote }}, weight = "Bold" },
+      { family = {{ .font.family.nonascii | quote }}, weight = "Bold" },
+    }),
+    size = {{ .font.size.medium }},
+  },
+  window = {
+    font = wezterm.font_with_fallback({
+      { family = {{ .font.family.combined | quote }}, weight = "Bold" },
+      { family = {{ .font.family.ascii | quote }}, weight = "Bold" },
+      { family = {{ .font.family.nonascii | quote }}, weight = "Bold" },
+    }),
+    size = {{ .font.size.medium }},
+  },
+}
