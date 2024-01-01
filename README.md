@@ -352,6 +352,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 | ------------------ | ---------- |
 | [**iTerm2**][iterm2]             | Terminal   |
 | [**Alacritty**][alacritty]          | Terminal   |
+| [**wezerm**][wezterm]             | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
 | [**Docker**][docker]             | Container  |
 | [**TablePlus**][tableplus]          | Database   |
@@ -361,6 +362,7 @@ so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local us
 
 [iTerm2]: https://iterm2.com/
 [alacritty]: https://github.com/alacritty/alacritty
+[wezterm]: https://github.com/wez/wezterm
 [vscode]: https://code.visualstudio.com/
 [docker]: https://www.docker.com/
 [tableplus]: https://tableplus.com/
