@@ -3,6 +3,7 @@
 [font.family]
 ascii    = "JetBrainsMonoNL NFM"
 nonascii = "HackGen Console NF"
+combined = "UDEV Gothic NF"
 
 [font.size]
 large  = 14
@@ -12,6 +13,13 @@ small  = 10
 [alacritty]
 theme = "dracula"
 opacity = 0.75
+
+[wezterm]
+themes = [
+  "Spring (Gogh)",
+  "ThayerBright (Gogh)",
+  "TokyoNightStorm (Gogh)",
+]
 
 [plugins]
 gh = [
