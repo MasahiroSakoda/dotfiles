@@ -18,7 +18,7 @@ wezterm.on("format-window-title", function(tab, _, tabs, _, _)
     index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
   end
 
-  return index .. ":" .. utils.basename(tab.active_pane.title)
+  return index .. ": " .. tab.active_pane.title
 end)
 
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
