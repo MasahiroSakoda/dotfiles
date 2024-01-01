@@ -22,9 +22,10 @@ wezterm.on("format-window-title", function(tab, _, tabs, _, _)
 end)
 
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
-  local tab_title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
-
-  local index_bg = tab.is_active and scheme.brights[5] or scheme.ansi[1]
+  local process   = tab.active_pane.foreground_process_name
+  local icon      = utils.process_icon(process)
+  local tab_title = wezterm.truncate_right(utils.basename(process), max_width)
+  local index_bg  = tab.is_active and scheme.brights[5] or scheme.ansi[1]
 
   return {
     { Attribute  = { Intensity = "Bold" } },
@@ -34,7 +35,7 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
     { Attribute  = { Underline = "Curly" } },
     { Foreground = { Color = fg } },
     { Background = { Color = index_bg } },
-    { Text       = tab.tab_index + 1 .. ": " .. tab_title },
+    { Text       = tab.tab_index + 1 .. ":" .. icon .. tab_title },
     { Foreground = { Color = edge_fg } },
     { Background = { Color = index_bg } },
     { Text       = fonts.cod_chevron_right },
