@@ -65,8 +65,11 @@ config.show_new_tab_button_in_tab_bar = true ---@type boolean
 config.hide_tab_bar_if_only_one_tab   = false ---@type boolean
 
 -- Cursor
--- config.animation_fps = 1
-config.default_cursor_style  = "SteadyBar"
+config.animation_fps     = 1
+config.cursor_blink_rate = 750
+
+---@type "SteadyBlock"|"BlinkingBlock"|"SteadyUnderline"|"BlinkingUnderline"|"SteadyBar"|"BlinkingBar"
+config.default_cursor_style  = "BlinkingBlock"
 config.cursor_blink_ease_in  = "Constant" ---@type "Constant"|"Linear"
 config.cursor_blink_ease_out = "Constant" ---@type "Constant"|"Linear"
 
