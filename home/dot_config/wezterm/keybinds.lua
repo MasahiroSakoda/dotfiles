@@ -71,6 +71,8 @@ return {
     -- Clipboard
     { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
     { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
+    -- Copy Mode https://wezfurlong.org/wezterm/copymode.html
+    { key = "y",     mods = "SUPER",  action = act.ActivateCopyMode },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
