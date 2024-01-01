@@ -26,9 +26,6 @@ config.initial_rows = 25  ---@type integer
 wezterm.GLOBAL.color_scheme_index = wezterm.GLOBAL.color_scheme_index or 1
 config.color_scheme = require("theme").color_schemes[wezterm.GLOBAL.color_scheme_index]
 
--- Background
-config.background = require("background")
-
 -- Font
 config.font      = fonts.global.font
 config.font_size = fonts.global.size + 1
@@ -37,6 +34,9 @@ config.adjust_window_size_when_changing_font_size = false ---@type boolean
 -- Window
 config.window_decorations = "TITLE|RESIZE"
 config.window_close_confirmation = "AlwaysPrompt" ---@type "AlwaysPrompt"|"NeverPrompt"
+
+wezterm.GLOBAL.background_index = wezterm.GLOBAL.background_index or 1
+config.window_background_image = require("background")[wezterm.GLOBAL.background_index]
 config.window_background_opacity = 0.75 ---@type float
 config.window_frame = {
   font      = fonts.window.font,
