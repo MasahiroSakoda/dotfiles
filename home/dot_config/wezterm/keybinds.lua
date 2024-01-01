@@ -69,8 +69,9 @@ return {
     { key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
 
     -- Clipboard
-    { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
-    { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
+    { key = "c",     mods = "SUPER",  action = act.CopyTo("Clipboard") },
+    { key = "v",     mods = "SUPER",  action = act.PasteFrom("Clipboard") },
+    { key = "Space", mods = "LEADER", action = act.QuickSelect },
     -- Copy Mode https://wezfurlong.org/wezterm/copymode.html
     { key = "y",     mods = "SUPER",  action = act.ActivateCopyMode },
   },
