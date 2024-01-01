@@ -62,6 +62,9 @@ return {
     -- Colro Scheme
     { key = "e", mods = "SUPER|CTRL", action = act.EmitEvent("switch-colorscheme") },
 
+    -- Background Image
+    { key = "D", mods = "SUPER|CTRL", action = act.EmitEvent("switch-background-image") },
+
     -- Search
     { key = "f", mods = "SUPER", action = act.Search("CurrentSelectionOrEmptyString") },
 

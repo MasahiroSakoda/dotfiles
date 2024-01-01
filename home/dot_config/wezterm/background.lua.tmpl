@@ -1,0 +1,9 @@
+-- -*-mode:lua-*- vim:ft=lua
+local imgdir = os.getenv("HOME") .. "/Pictures/Wallpapers/"
+
+local images = {}
+{{- range .wezterm.images }}
+table.insert(images, imgdir .. {{ . | quote }})
+{{- end }}
+
+return images
