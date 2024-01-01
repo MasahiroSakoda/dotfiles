@@ -18,13 +18,14 @@ wezterm.on("format-window-title", function(tab, _, tabs, _, _)
     index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
   end
 
-  return index .. ":" .. utils.basename(tab.active_pane.title)
+  return index .. ": " .. tab.active_pane.title
 end)
 
 wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
-  local tab_title = wezterm.truncate_right(utils.basename(tab.active_pane.foreground_process_name), max_width)
-
-  local index_bg = tab.is_active and scheme.brights[5] or scheme.ansi[1]
+  local process   = tab.active_pane.foreground_process_name
+  local icon      = utils.process_icon(process)
+  local tab_title = wezterm.truncate_right(utils.basename(process), max_width)
+  local index_bg  = tab.is_active and scheme.brights[5] or scheme.ansi[1]
 
   return {
     { Attribute  = { Intensity = "Bold" } },
@@ -34,7 +35,7 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
     { Attribute  = { Underline = "Curly" } },
     { Foreground = { Color = fg } },
     { Background = { Color = index_bg } },
-    { Text       = tab.tab_index + 1 .. ": " .. tab_title },
+    { Text       = tab.tab_index + 1 .. ":" .. icon .. tab_title },
     { Foreground = { Color = edge_fg } },
     { Background = { Color = index_bg } },
     { Text       = fonts.cod_chevron_right },
@@ -44,9 +45,9 @@ end)
 
 wezterm.on("update-status", function(window, _)
   window:set_left_status(wezterm.format({
-    { Foreground = { Color = scheme.ansi[4] } },
-    { Background = { Color = scheme.brights[1] } },
-    { Text = " [" .. window:active_workspace() .. "]" },
+    { Foreground = { Color = scheme.brights[7] } },
+    { Background = { Color = scheme.ansi[1] } },
+    { Text = "[" .. window:active_workspace() .. "]" },
   }))
   window:set_right_status(wezterm.format({
     { Foreground = { Color = scheme.brights[6] } },

@@ -7,6 +7,21 @@ M.basename = function(s)
   return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
+M.process_icon = function(foreground_process)
+  local icons = {
+    nvim    = fonts.custom_vim,
+    ssh     = fonts.mdi_server,
+    top     = fonts.mdi_monitor,
+    docker  = fonts.dev_docker,
+    node    = fonts.dev_nodejs_small,
+    python  = fonts.dev_python,
+    ruby    = fonts.dev_ruby,
+    default = fonts.dev_terminal,
+  }
+  local process = M.basename(foreground_process)
+  return icons[process] and icons[process] .. " " or icons["default"] .. " "
+end
+
 M.datetime = function()
   local datetime = wezterm.strftime("%b %d (%a) %H:%M")
   return fonts.fa_clock_o .. " " .. datetime
