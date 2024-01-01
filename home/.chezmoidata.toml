@@ -13,6 +13,13 @@ small  = 10
 theme = "dracula"
 opacity = 0.75
 
+[wezterm]
+themes = [
+  "Spring (Gogh)",
+  "ThayerBright (Gogh)",
+  "TokyoNightStorm (Gogh)",
+]
+
 [plugins]
 gh = [
     # GitHub CLI dashboard
