@@ -27,8 +27,8 @@ return {
     { key = "w",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
     { key = "Tab", mods = "CTRL",       action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
-    { key = "H",   mods = "SUPER",      action = act.ActivateTabRelative(-1) },
-    { key = "L",   mods = "SUPER",      action = act.ActivateTabRelative(1) },
+    { key = "p",   mods = "LEADER",     action = act.ActivateTabRelative(-1) },
+    { key = "n",   mods = "LEADER",     action = act.ActivateTabRelative(1) },
     { key = "1",   mods = "SUPER",      action = act.ActivateTab(0) },
     { key = "2",   mods = "SUPER",      action = act.ActivateTab(1) },
     { key = "3",   mods = "SUPER",      action = act.ActivateTab(2) },
@@ -71,6 +71,8 @@ return {
     -- Clipboard
     { key = "c", mods = "SUPER", action = act.CopyTo("Clipboard") },
     { key = "v", mods = "SUPER", action = act.PasteFrom("Clipboard") },
+    -- Copy Mode https://wezfurlong.org/wezterm/copymode.html
+    { key = "y",     mods = "SUPER",  action = act.ActivateCopyMode },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
