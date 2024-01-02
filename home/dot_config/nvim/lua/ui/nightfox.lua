@@ -12,5 +12,6 @@ nf.setup({
       types     = "italic,bold",
     },
     transparent  = true,
+    dim_inactive = true,
   },
 })
