@@ -28,6 +28,7 @@ config.color_scheme = require("theme").color_schemes[wezterm.GLOBAL.color_scheme
 -- Font
 config.font      = fonts.global.font
 config.font_size = fonts.global.size + 1
+config.harfbuzz_features = { "calt=1", "alig=1", "liga=1" }
 config.adjust_window_size_when_changing_font_size = false ---@type boolean
 
 -- Window

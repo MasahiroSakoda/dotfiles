@@ -114,3 +114,13 @@ wezterm.on("decreate-opacity", function(window, _)
   overrides.window_background_opacity = math.max(0, overrides.window_background_opacity - 0.05)
   window:set_config_overrides(overrides)
 end)
+
+wezterm.on("toggle-ligature", function(window, _)
+  local overrides = window.get_config_overrides() or {}
+  if not overrides.harfbuzz_features then
+    overrides.harfbuzz_features = { "calt=0", "alig=0", "liga=0" }
+  else
+    overrides.harfbuzz_features = nil
+  end
+  window:set_config_overrides(overrides)
+end)

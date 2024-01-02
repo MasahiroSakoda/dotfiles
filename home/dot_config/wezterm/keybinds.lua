@@ -55,6 +55,7 @@ return {
     { key = "-", mods = "SUPER",       action = act.DecreaseFontSize },
     { key = "-", mods = "SUPER|SHIFT", action = act.DecreaseFontSize },
     { key = "0", mods = "SUPER",       action = act.ResetFontSize },
+    { key = "0", mods = "LEADER",      action = act.EmitEvent("toggle-ligature") },
 
     -- Opacity
     { key = "F1", mods = "SHIFT", action = act.EmitEvent("decrease-opacity") },

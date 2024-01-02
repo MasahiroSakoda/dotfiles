@@ -1,20 +1,25 @@
 -- -*-mode:lua-*- vim:ft=lua
-local wezterm  = require("wezterm")
+local wezterm = require("wezterm")
+local weight  = "Bold"
+
+local configure_font = function(family)
+  return { family = family, weight = weight }
+end
 
 return {
   global = {
     font = wezterm.font_with_fallback({
-      { family = {{ .font.family.combined | quote }}, weight = "Bold" },
-      { family = {{ .font.family.ascii | quote }}, weight = "Bold" },
-      { family = {{ .font.family.nonascii | quote }}, weight = "Bold" },
+      configure_font("{{ .font.family.combined }}"),
+      configure_font("{{ .font.family.ascii }}"),
+      configure_font("{{ .font.family.nonascii }}"),
     }),
     size = {{ .font.size.medium }},
   },
   window = {
     font = wezterm.font_with_fallback({
-      { family = {{ .font.family.combined | quote }}, weight = "Bold" },
-      { family = {{ .font.family.ascii | quote }}, weight = "Bold" },
-      { family = {{ .font.family.nonascii | quote }}, weight = "Bold" },
+      configure_font("{{ .font.family.combined }}"),
+      configure_font("{{ .font.family.ascii }}"),
+      configure_font("{{ .font.family.nonascii }}"),
     }),
     size = {{ .font.size.medium }},
   },
