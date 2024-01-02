@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 local wezterm = require("wezterm")
+local pattern = require("regexp").pattern
 local act     = wezterm.action
 
 -- See https://wezfurlong.org/wezterm/config/keys.html
@@ -74,16 +75,36 @@ return {
     -- Copy Mode https://wezfurlong.org/wezterm/copymode.html
     { key = "y",     mods = "SUPER",  action = act.ActivateCopyMode },
 
-    { key = "Space", mods = "LEADER", action = act.QuickSelect },
-    { key = "o",     mods = "SUPER",  action = act.QuickSelectArgs({
-      label = "open url",
-      patterns = { "https?://\\S+" },
-      action = wezterm.action_callback(function(window, pane)
-        local url = window:get_selection_text_for_pane(pane)
-        wezterm.log_info("Opening: " .. url)
-        wezterm.open_with(url)
-      end)
-    }) },
+    -- Quick Select
+    { key = "s", mods = "SUPER|CTRL", action = act.QuickSelect },
+    {
+      key = "l",
+      mods = "SUPER|CTRL",
+      action = act.QuickSelectArgs({ label = "Copy Line", patterns = { pattern.line } })
+    },
+    {
+      key = "i",
+      mods = "SUPER|CTRL",
+      action = act.QuickSelectArgs({ label = "Copy IP address", patterns = { pattern.ip } })
+    },
+    {
+      key = "u",
+      mods = "SUPER|CTRL",
+      action = act.QuickSelectArgs({ label = "Copy URL", patterns = { pattern.url } })
+    },
+    {
+      key = "o",
+      mods = "SUPER|CTRL",
+      action = act.QuickSelectArgs({
+        label = "Open URL with default browser",
+        patterns = { pattern.http },
+        action = wezterm.action_callback(function(window, pane)
+          local url = window:get_selection_text_for_pane(pane)
+          wezterm.log_info("Opening: " .. url)
+          wezterm.open_with(url)
+        end)
+      })
+    },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
