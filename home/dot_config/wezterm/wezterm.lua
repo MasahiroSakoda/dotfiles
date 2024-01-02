@@ -38,7 +38,7 @@ wezterm.GLOBAL.background_index = wezterm.GLOBAL.background_index or 1
 config.window_background_image = require("background")[wezterm.GLOBAL.background_index]
 config.window_background_opacity = 0.75 ---@type float
 config.window_background_image_hsb = {
-  brightness = 0.5,
+  brightness = 0.25,
   -- hue = 1.0,
   -- saturation = 1.0,
 }
