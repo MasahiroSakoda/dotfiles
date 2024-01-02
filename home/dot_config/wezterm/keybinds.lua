@@ -44,6 +44,8 @@ return {
     { key = "d", mods = "SUPER", action = act.SplitHorizontal },
     { key = "D", mods = "SUPER", action = act.SplitVertical },
     { key = "W", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
+    { key = "[", mods = "SUPER", action = act.RotatePanes("CounterClockwise") },
+    { key = "]", mods = "SUPER", action = act.RotatePanes("Clockwise") },
     { key = "LeftArrow",  mods = "SUPER", action = act.ActivatePaneDirection("Left") },
     { key = "RightArrow", mods = "SUPER", action = act.ActivatePaneDirection("Right") },
     { key = "UpArrow",    mods = "SUPER", action = act.ActivatePaneDirection("Up") },
