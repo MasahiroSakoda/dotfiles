@@ -88,6 +88,11 @@ return {
       action = act.QuickSelectArgs({ label = "Copy IP address", patterns = { pattern.ip } })
     },
     {
+      key = "S",
+      mods = "SUPER|CTRL",
+      action = act.QuickSelectArgs({ label = "Copy hash", patterns = { pattern.hash } })
+    },
+    {
       key = "u",
       mods = "SUPER|CTRL",
       action = act.QuickSelectArgs({ label = "Copy URL", patterns = { pattern.url } })
