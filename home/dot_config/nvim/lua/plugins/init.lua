@@ -32,8 +32,6 @@ return {
   ------------------------------------------------------------------------
   -- Appearance
   ------------------------------------------------------------------------
-  -- Colorscheme changer
-  { "folke/styler.nvim", cmd = "Styler", config = function() require("ui.styler") end },
   -- colorscheme
   { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
 
