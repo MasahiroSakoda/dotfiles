@@ -95,7 +95,7 @@ return {
     {
       key = "u",
       mods = "SUPER|CTRL",
-      action = act.QuickSelectArgs({ label = "Copy URL", patterns = { pattern.url } })
+      action = act.QuickSelectArgs({ label = "Copy URL", patterns = { pattern.http } })
     },
     {
       key = "o",
