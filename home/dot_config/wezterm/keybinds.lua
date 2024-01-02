@@ -111,6 +111,8 @@ return {
         end)
       })
     },
+
+    { key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "manage_pane" }) },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
@@ -156,6 +158,19 @@ return {
       { key = "p", mods = "CTRL",  action = act.CopyMode("PriorMatch") },
       { key = "r", mods = "CTRL",  action = act.CopyMode("CycleMatchType") },
       { key = "u", mods = "CTRL",  action = act.CopyMode("ClearPattern") },
+    },
+    manage_pane = {
+      { key = "w", action = act.PaneSelect },
+      { key = "q", action = act.CloseCurrentPane({ confirm = true }) },
+      { key = "h", action = act.ActivatePaneDirection("Left") },
+      { key = "l", action = act.ActivatePaneDirection("Right") },
+      { key = "k", action = act.ActivatePaneDirection("Up") },
+      { key = "j", action = act.ActivatePaneDirection("Down") },
+      { key = "H", action = act.SplitPane({ direction = "Left" }) },
+      { key = "L", action = act.SplitPane({ direction = "Right" }) },
+      { key = "K", action = act.SplitPane({ direction = "Up" }) },
+      { key = "J", action = act.SplitPane({ direction = "Down" }) },
+
     },
   },
 }
