@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  alphabet = "",
+  alphabet = "hjklasdfgyuiopqwertnmzxcvb",
   patterns = {
     "[A-Za-z0-9-_.]{6,100}",
     "\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b",    -- URI
