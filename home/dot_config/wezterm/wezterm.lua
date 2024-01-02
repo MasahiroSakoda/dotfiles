@@ -82,7 +82,9 @@ config.scrollback_lines  = 10000 ---@type integer
 --------------------------------------------------
 -- Keybind
 --------------------------------------------------
-config.disable_default_key_bindings = true
+config.enable_kitty_keyboard        = true   ---@type boolean
+config.enable_csi_u_key_encoding    = false  ---@type boolean
+config.disable_default_key_bindings = true   ---@type boolean
 
 config.keys       = keybinds.keys
 config.key_tables = keybinds.key_tables
