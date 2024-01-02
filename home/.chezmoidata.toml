@@ -3,7 +3,7 @@
 [font.family]
 ascii    = "JetBrainsMonoNL NFM"
 nonascii = "HackGen Console NF"
-combined = "UDEV Gothic NF"
+combined = "UDEV Gothic NFLG"
 
 [font.size]
 large  = 14
