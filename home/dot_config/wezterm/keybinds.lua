@@ -113,6 +113,7 @@ return {
     },
 
     { key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "manage_pane" }) },
+    { key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
@@ -171,6 +172,13 @@ return {
       { key = "K", action = act.SplitPane({ direction = "Up" }) },
       { key = "J", action = act.SplitPane({ direction = "Down" }) },
 
+    },
+    resize_pane = {
+      { key = "h",      action = act.AdjustPaneSize({ "Left", 5 }) },
+      { key = "l",      action = act.AdjustPaneSize({ "Right", 5 }) },
+      { key = "j",      action = act.AdjustPaneSize({ "Down", 5 }) },
+      { key = "k",      action = act.AdjustPaneSize({ "Up", 5 }) },
+      { key = "Escape", action = act.PopKeyTable },
     },
   },
 }
