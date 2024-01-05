@@ -2,8 +2,11 @@
 local imgdir = os.getenv("HOME") .. "/Pictures/Wallpapers/"
 
 local images = {}
+---@diagnostic disable-next-line: undefined-global, exp-in-action
 {{- range .wezterm.images }}
+---@diagnostic disable-next-line: undefined-global
 table.insert(images, imgdir .. {{ . | quote }})
+---@diagnostic disable-next-line: unknown-symbol, miss-exp
 {{- end }}
 
 return images

@@ -1,8 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 local schemes = {}
+---@diagnostic disable-next-line: undefined-global, exp-in-action
 {{- range .wezterm.themes | uniq }}
 table.insert(schemes, "{{ . }}")
+---@diagnostic disable-next-line: unknown-symbol, miss-exp
 {{- end }}
 
 return {
