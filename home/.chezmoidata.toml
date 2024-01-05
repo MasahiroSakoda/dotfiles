@@ -26,6 +26,14 @@ images = [
   "daft-punk-punk-edm-music-wallpaper.jpg",
 ]
 
+[mise]
+bun    = "1"
+deno   = "1"
+go     = "latest"
+node   = "20"
+python = "3.12"
+ruby   = "3.3"
+
 [plugins]
 gh = [
     # GitHub CLI dashboard
