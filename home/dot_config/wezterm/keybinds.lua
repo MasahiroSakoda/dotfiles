@@ -120,7 +120,23 @@ return {
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
     copy_mode = {
-      { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
+      { key = "Escape", mods = "NONE", action = act.Multiple({
+        act.CopyMode("Close"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
+
+      { key = "/", mods = "NONE", action = act.Multiple({
+        act.CopyMode("ClearPattern"),
+        act.Search({ CaseSensitiveString = "" }),
+      }) },
+      { key = "n", mods = "NONE", action = act.Multiple({
+        act.CopyMode("PriorMatch"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
+      { key = "N", mods = "SHIFT", action = act.Multiple({
+        act.CopyMode("NextMatch"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
       { key = "Enter",  mods = "NONE", action = act.CopyMode("MoveToStartOfNextLine") },
 
       -- Move
