@@ -39,7 +39,7 @@
       * [DAP](#dap)
       * [Linter](#linter)
       * [Formatter](#formatter)
-    * [rtx](#rtx)
+    * [mise](#mise)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
 * [ToDo](#todo)
@@ -87,7 +87,7 @@ chezmoi update
 | [**Fish**][fish]    | Shell            |             |
 | [**tmux**][tmux]    | Screen           | [tmux.conf][tmux.conf]   |
 | [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim)  |
-| [**rtx**][rtx]     | Version Control  | See [Detail](#rtx)  |
+| [**mise**][mise]     | Version Control  | See [Detail](#mise)  |
 | [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
 | [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
 | [**fd**][fd]      | `find` alternative |             |
@@ -97,7 +97,7 @@ chezmoi update
 [fish]: https://github.com/fish-shell/fish-shell
 [tmux]: https://github.com/tmux/tmux
 [neovim]: https://github.com/neovim/neovim
-[rtx]: https://github.com/jdx/rtx
+[mise]: https://github.com/jdx/mise
 [fzf]: https://github.com/junegunn/fzf
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fd]: https://github.com/sharkdp/fd
@@ -290,31 +290,32 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 * [**ChatGPT.nvim**](https://github.com/jackMort/ChatGPT.nvim)
 * [**copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
 
-#### rtx
+#### mise
 
-Version Management Tool
+Runtime version management tool
 
 `.tool-versions` is not supported.
 
-so use `~/.config/rtx/config.toml` for global usage, or `.rtx.toml` for local usage
+so use `~/.config/mise/config.toml` for global usage, or `.mise.toml` for local usage
 
 ##### configured tools
 
 | Runtime        | Version |
 | -------------- | ------- |
-| [**`Go`**][rtx-go]             | latest  |
-| [**`Python`**][rtx-python]         | 3.12    |
-| [**`Ruby`**][rtx-ruby]           | 3.2     |
-| [**`Node.js`**][rtx-node]        | 20      |
-| [**`Deno`**][rtx-deno]           | 1       |
-| [**`Bun`**][rtx-bun]            | 1       |
+| [**`Go`**][mise-go]             | latest  |
+| [**`Python`**][mise-python]         | 3.12    |
+| [**`Ruby`**][mise-ruby]           | 3.2     |
+| [**`Node.js`**][mise-node]        | 20      |
+| [**`Deno`**][mise-deno]           | 1       |
+| [**`Bun`**][mise-bun]            | 1       |
 
-[rtx-go]: https://github.com/jdx/rtx/blob/main/docs/go.md
-[rtx-python]: https://github.com/jdx/rtx/blob/main/docs/python.md
-[rtx-ruby]: https://github.com/jdx/rtx/blob/main/docs/ruby.md
-[rtx-node]: https://github.com/jdx/rtx/blob/main/docs/node.md
-[rtx-deno]: https://github.com/jdx/rtx/blob/main/docs/deno.md
-[rtx-bun]: https://github.com/jdx/rtx/blob/main/docs/bun.md
+[mise-go]: https://mise.jdx.dev/lang/go.html
+[mise-python]: https://mise.jdx.dev/lang/python.html
+[mise-ruby]: https://mise.jdx.dev/lang/ruby.html
+[mise-node]: https://mise.jdx.dev/lang/node.html
+[mise-deno]: https://mise.jdx.dev/lang/deno.html
+[mise-bun]: https://mise.jdx.dev/lang/bun.html
+https://mise.jdx.dev/lang/bun.html
 
 ### Homebrew cask packages
 
