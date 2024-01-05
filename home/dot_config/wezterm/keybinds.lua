@@ -44,6 +44,8 @@ return {
     { key = "d", mods = "SUPER", action = act.SplitHorizontal },
     { key = "D", mods = "SUPER", action = act.SplitVertical },
     { key = "W", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
+    { key = "[", mods = "SUPER", action = act.RotatePanes("CounterClockwise") },
+    { key = "]", mods = "SUPER", action = act.RotatePanes("Clockwise") },
     { key = "LeftArrow",  mods = "SUPER", action = act.ActivatePaneDirection("Left") },
     { key = "RightArrow", mods = "SUPER", action = act.ActivatePaneDirection("Right") },
     { key = "UpArrow",    mods = "SUPER", action = act.ActivatePaneDirection("Up") },
@@ -111,11 +113,30 @@ return {
         end)
       })
     },
+
+    { key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "manage_pane" }) },
+    { key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
     copy_mode = {
-      { key = "Escape", mods = "NONE", action = act.CopyMode("Close") },
+      { key = "Escape", mods = "NONE", action = act.Multiple({
+        act.CopyMode("Close"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
+
+      { key = "/", mods = "NONE", action = act.Multiple({
+        act.CopyMode("ClearPattern"),
+        act.Search({ CaseSensitiveString = "" }),
+      }) },
+      { key = "n", mods = "NONE", action = act.Multiple({
+        act.CopyMode("PriorMatch"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
+      { key = "N", mods = "SHIFT", action = act.Multiple({
+        act.CopyMode("NextMatch"),
+        act.CopyMode("ClearSelectionMode"),
+      }) },
       { key = "Enter",  mods = "NONE", action = act.CopyMode("MoveToStartOfNextLine") },
 
       -- Move
@@ -156,6 +177,26 @@ return {
       { key = "p", mods = "CTRL",  action = act.CopyMode("PriorMatch") },
       { key = "r", mods = "CTRL",  action = act.CopyMode("CycleMatchType") },
       { key = "u", mods = "CTRL",  action = act.CopyMode("ClearPattern") },
+    },
+    manage_pane = {
+      { key = "w", action = act.PaneSelect },
+      { key = "q", action = act.CloseCurrentPane({ confirm = true }) },
+      { key = "h", action = act.ActivatePaneDirection("Left") },
+      { key = "l", action = act.ActivatePaneDirection("Right") },
+      { key = "k", action = act.ActivatePaneDirection("Up") },
+      { key = "j", action = act.ActivatePaneDirection("Down") },
+      { key = "H", action = act.SplitPane({ direction = "Left" }) },
+      { key = "L", action = act.SplitPane({ direction = "Right" }) },
+      { key = "K", action = act.SplitPane({ direction = "Up" }) },
+      { key = "J", action = act.SplitPane({ direction = "Down" }) },
+
+    },
+    resize_pane = {
+      { key = "h",      action = act.AdjustPaneSize({ "Left", 5 }) },
+      { key = "l",      action = act.AdjustPaneSize({ "Right", 5 }) },
+      { key = "j",      action = act.AdjustPaneSize({ "Down", 5 }) },
+      { key = "k",      action = act.AdjustPaneSize({ "Up", 5 }) },
+      { key = "Escape", action = act.PopKeyTable },
     },
   },
 }
