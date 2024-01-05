@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
+
+set -eo pipefail
+
+mise trust $HOME/.config/mise/config.toml
+mise install
+mise current
