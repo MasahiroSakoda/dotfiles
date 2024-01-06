@@ -4,8 +4,8 @@
 --verbose
 
 # Embed
---embed-metadata
---embed-thumbnail
+# --embed-metadata
+# --embed-thumbnail
 
 # Output format
 --output "%(title)s.%(ext)s"
@@ -15,5 +15,6 @@
 --downloader aria2c
 --downloader-args "--continue --max-connection-per-server=16 --min-split-size=1M --split=16"
 
---sponsorblock-mark all,-filler
---sponsorblock-chapter-title "[SponsorBlock] %(category_names)l"
+# Sponsor block
+# --sponsorblock-mark all,-filler
+# --sponsorblock-chapter-title "[SponsorBlock] %(category_names)l"
