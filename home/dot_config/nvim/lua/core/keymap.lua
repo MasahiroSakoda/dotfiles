@@ -22,9 +22,14 @@ keymap("n", "<Leader>e", ':edit<Space>', { desc = "   Edit" })
 ---------------------------------------------------------------------------
 -- which-key commands
 ---------------------------------------------------------------------------
-keymap("n", "<Leader>wa", ":WhichKey<CR>",            { desc = "   Show all mappings" })
-keymap("n", "<Leader>wl", ":WhichKey <Leader><CR>",   { desc = "   Show all <Leader> mappings" })
-keymap("n", "<Leader>wv", ":WhichKey <Leader> v<CR>", { desc = "   Show all <Leader> mappings for VISUAL mode" })
+wk.register({
+  mode = "n",
+  silent = false,
+  ["<Leader>w"]  = { name = "⌨️   Which-Key" },
+  ["<Leader>wk"] = { ":WhichKey<CR>",            "   Show all mappings" },
+  ["<Leader>wl"] = { ":WhichKey <Leader><CR>",   "   Show all <Leader> mappings" },
+  ["<Leader>wv"] = { ":WhichKey <Leader> v<CR>", "   Show all <Leader> mappings for VISUAL mode" },
+})
 
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
