@@ -315,7 +315,6 @@ so use `~/.config/mise/config.toml` for global usage, or `.mise.toml` for local 
 [mise-node]: https://mise.jdx.dev/lang/node.html
 [mise-deno]: https://mise.jdx.dev/lang/deno.html
 [mise-bun]: https://mise.jdx.dev/lang/bun.html
-https://mise.jdx.dev/lang/bun.html
 
 ### Homebrew cask packages
 
