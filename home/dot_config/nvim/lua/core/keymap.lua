@@ -225,8 +225,13 @@ keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "   Jump to p
 keymap("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", { desc = "   Jump to next diagnostics" })
 keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Action" })
 
-keymap("n", "<Leader>gi", "<CMD>Lspsaga incoming_calls<CR>", { desc = "   Call incoming hierarchy" })
-keymap("n", "<Leader>go", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "   Call outgoing hierarchy" })
+wk.register({
+  mode = "n",
+  silent = false,
+  ["<Leader>g"]  = { name = "🛠   Call hierarchy" },
+  ["<Leader>gi"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
+  ["<Leader>go"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
+})
 
 keymap("n", "<Leader>gh", function() vim.lsp.buf.inlay_hints(0, nil) end, { desc = "Toggle Inlay Hints" })
 
