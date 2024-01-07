@@ -1,3 +1,4 @@
+// -*-mode:javascript-*- vim:ft=jsonc
 {
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
@@ -16,7 +17,8 @@
         "strings": false,
         "other": true
     },
-    "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono', 'HackGen Console NF'",
+    "editor.fontFamily": "'{{ .font.family.ascii }}', '{{ .font.family.combined }}', '{{ .font.family.nonascii }}'",
+    "editor.fontSize": {{ .font.size.xlarge }},
     "editor.fontLigatures": true,
     "editor.wordSeparators": "~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。",
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
