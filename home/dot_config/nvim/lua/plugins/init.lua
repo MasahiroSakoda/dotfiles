@@ -111,6 +111,12 @@ return {
     end,
   },
   {
+    "tris203/hawtkeys.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd = { "Hawtkeys", "HawtkeysAll", "HawtkeysDup" },
+    config = function() require("user.hawtkeys") end,
+  },
+  {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
     config = function() require("user.dial") end,
   },
