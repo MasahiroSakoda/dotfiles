@@ -306,22 +306,6 @@ keymap("n", "<Leader>xts", "<CMD>XcodebuildTestSelected<CR>", { desc = "Run sele
 keymap("n", "<Leader>xtF", "<CMD>XcodebuildTestFailing<CR>",  { desc = "Rerun previously failed tests" })
 
 ---------------------------------------------------------------------------
--- Test with neotest
----------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  ["<Leader>T"]  = { name = "🪧  Test" },
-  ["<Leader>Tr"] = { ":lua require'neotest'.run.run(vim.fn.expand('%'))<CR>", "   Run Tests" },
-  ["<Leader>Ta"] = { ":lua require'neotest'.run.run(vim.loop.cwd())<CR>",     "   Run All Tests" },
-  ["<Leader>Tn"] = { ":lua require'neotest'.run.run()",                       "   Run Nearest" },
-  ["<Leader>Ts"] = { ":lua require'neotest'.run.stop()<CR>",                  "   Stop Tests" },
-  ["<Leader>Td"] = { ":lua require'neotest'.run.run({strategy = 'dap'})",     "   Debug Neaerest" },
-  ["<Leader>TS"] = { ":lua require'neotest'.summary.toggle()<CR>",            "   Toggle Summary" },
-  ["<Leader>To"] = { ":lua require'neotest'.output_panel.toggle()<CR>",       "   Toggle Output Panel" },
-  ["<Leader>TO"] = { ":lua require'neotest'.output.open({ enter = true, auto_close = true })<CR>", "   Show Output" },
-}, opts)
-
----------------------------------------------------------------------------
 -- Terminal
 ---------------------------------------------------------------------------
 keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "   Toggle Terminal" })
