@@ -8,8 +8,38 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
+        "**/.*_history": true,
+        "**/.bash_sessions": true,
+        "**/.viminfo": true,
+        "**/.lesshst": true,
+        "**/.wget-hsts": true,
+        "**/.project": true,
+        "**/.vscode": true,
+        "**/.idea": true,
+        "**/.cache": true,
+        "**/.gradle": true,
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/node_modules": true,
+        "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
+        "**/.next": true,
+        "**/.nuxt": true
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.ipynb_checkpoints": true,
+        "**/vendors": true,
+        "**/build": true,
+        "**/coverage": true,
+        {{ if eq .chezmoi.os "darwin" -}}
+        "**/.CFUserTextEncoding": true,
         "**/.DS_Store": true,
+        "**/.localized": true,
+        "**/.Trash*": true,
+        {{ else if eq .chezmoi.os "windows" -}}
         "**/Thumbs.db": true
+        "**/desktop.ini": true,
+        {{- end }}
     },
     "scm.alwaysShowActions": true,
     "editor.quickSuggestions": {
