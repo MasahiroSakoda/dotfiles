@@ -2,6 +2,9 @@
 {
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
     "files.autoSave": "onFocusChange",
     "files.trimTrailingWhitespace": true,
     "files.exclude": {
@@ -65,7 +68,7 @@
         "**/logs": true,
     },
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masahiro/.config/nvim/init.lua",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
     "docker.showStartPage": false,
     "remote.SSH.configFile": "~/.ssh/config",
     "remote.SSH.connectTimeout": 300,
@@ -111,6 +114,10 @@
         "editor.defaultFormatter": "ms-python.python",
         "editor.suggestSelection": "first",
         "editor.tabSize": 4
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
     },
     "[ruby]": {
         "editor.tabSize": 2
