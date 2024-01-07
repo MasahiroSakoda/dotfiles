@@ -20,10 +20,9 @@
         "**/.gradle": true,
         "**/.classpath": true,
         "**/.factorypath": true,
-        "**/node_modules": true,
+        "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
         "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
-        "**/.next": true,
-        "**/.nuxt": true
+        "**/.next": true, "**/.nuxt": true
         "**/*.pyc": true,
         "**/__pycache__": true,
         "**/.pytest_cache": true,
@@ -52,6 +51,16 @@
     "editor.fontSize": {{ .font.size.xlarge }},
     "editor.fontLigatures": true,
     "editor.wordSeparators": "~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。",
+    "search.exclude": {
+        "**/.git": true,
+        "**/.github": true,
+        "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
+        "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
+        "**/.next": true, "**/.nuxt": true,
+        "**/dist/**": true,
+        "**/tmp": true,
+        "**/logs": true,
+    },
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masahiro/.config/nvim/init.lua",
     "[c][cpp]": {
@@ -72,14 +81,8 @@
         "editor.suggest.insertMode": "replace"
     },
     "json.schemaDownload.enable": true,
-    "[javascript]": {
+    "[javascript][javascriptreact][typescript][typescriptreact]": {
         "editor.maxTokenizationLineLength": 2500
-    },
-    "[javascriptreact]": {
-    },
-    "[typescript]": {
-    },
-    "[typescriptreact]": {
     },
     "[python]": {
     },
