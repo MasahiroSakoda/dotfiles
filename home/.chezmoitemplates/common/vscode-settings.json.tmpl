@@ -1,0 +1,152 @@
+// -*-mode:javascript-*- vim:ft=jsonc
+{
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "files.autoSave": "onFocusChange",
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.*_history": true,
+        "**/.bash_sessions": true,
+        "**/.viminfo": true,
+        "**/.lesshst": true,
+        "**/.wget-hsts": true,
+        "**/.project": true,
+        "**/.vscode": true,
+        "**/.idea": true,
+        "**/.cache": true,
+        "**/.gradle": true,
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
+        "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
+        "**/.next": true, "**/.nuxt": true
+        "**/*.pyc": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.ipynb_checkpoints": true,
+        "**/vendors": true,
+        "**/build": true,
+        "**/coverage": true,
+        {{ if eq .chezmoi.os "darwin" -}}
+        "**/.CFUserTextEncoding": true,
+        "**/.DS_Store": true,
+        "**/.localized": true,
+        "**/.Trash*": true,
+        {{ else if eq .chezmoi.os "windows" -}}
+        "**/Thumbs.db": true
+        "**/desktop.ini": true,
+        {{- end }}
+    },
+    "scm.alwaysShowActions": true,
+    "editor.quickSuggestions": {
+        "comments": false,
+        "strings": false,
+        "other": true
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.fontFamily": "'{{ .font.family.ascii }}', '{{ .font.family.combined }}', '{{ .font.family.nonascii }}'",
+    "editor.fontSize": {{ .font.size.xlarge }},
+    "editor.fontLigatures": true,
+    "editor.wordSeparators": "~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。",
+    "search.exclude": {
+        "**/.git": true,
+        "**/.github": true,
+        "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
+        "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
+        "**/.next": true, "**/.nuxt": true,
+        "**/dist/**": true,
+        "**/tmp": true,
+        "**/logs": true,
+    },
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+    "docker.showStartPage": false,
+    "remote.SSH.configFile": "~/.ssh/config",
+    "remote.SSH.connectTimeout": 300,
+    "remote.SSH.showLoginTerminal": true,
+    "remote.WSL.debug": true,
+    "remote.WSL.fileWatcher.polling": true,
+    // TODO: configure `remote.containers.*`
+    "[c][cpp]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true
+    },
+    "[rust]": {
+        "editor.tabSize": 4
+    },
+    "go.buildOnSave": "workspace",
+    "[go][go.mod]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.tabSize": 4
+    },
+    "[lua]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "json.schemaDownload.enable": true,
+    "[javascript][javascriptreact][typescript][typescriptreact]": {
+        "editor.maxTokenizationLineLength": 2500
+    },
+    "python.languageserver": "Pylance",
+    "python.showStartPage": false,
+    "python.venvPath": ".venv",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.suggestSelection": "first",
+        "editor.tabSize": 4
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "[ruby]": {
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "[markdown]": {
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    "settingsSync.ignoredSettings": [
+    ],
+    "dotfiles.repository": "~/.local/share/chezmoi",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
+}
