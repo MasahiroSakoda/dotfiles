@@ -34,12 +34,12 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
-      - name: Restore rtx cache
+      - name: Restore mise cache
         uses: actions/cache/restore@v3
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/.local/share/rtx
-          key: ${{ runner.os }}-rtx-cache-${{ env.cache-version }}
+          path: /Users/runner/.local/share/mise
+          key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
 
       - name: Install dotfiles
         env:
@@ -56,10 +56,10 @@ jobs:
           path: /Users/runner/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
-      - name: Save rtx cache
+      - name: Save mise cache
         uses: actions/cache/save@v3
         if: always()
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/.local/share/rtx
-          key: ${{ runner.os }}-rtx-cache-${{ env.cache-version }}
+          path: /Users/runner/.local/share/mise
+          key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
