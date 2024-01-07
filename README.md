@@ -304,7 +304,7 @@ so use `~/.config/mise/config.toml` for global usage, or `.mise.toml` for local 
 | -------------- | ------- |
 | [**`Go`**][mise-go]             | latest  |
 | [**`Python`**][mise-python]         | 3.12    |
-| [**`Ruby`**][mise-ruby]           | 3.2     |
+| [**`Ruby`**][mise-ruby]           | 3.3     |
 | [**`Node.js`**][mise-node]        | 20      |
 | [**`Deno`**][mise-deno]           | 1       |
 | [**`Bun`**][mise-bun]            | 1       |
