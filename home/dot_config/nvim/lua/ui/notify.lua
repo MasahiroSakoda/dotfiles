@@ -22,7 +22,7 @@ notify.setup({
   -- Render function for notifications. See notify-render()
   render = "default",
   ---@usage highlight behind the window for stages that change opacity
-  background_colour = "Normal",
+  background_colour = "#000000",
   level = "TRACE",
 
   max_height = function() return math.floor(o.lines * 0.7) end,
