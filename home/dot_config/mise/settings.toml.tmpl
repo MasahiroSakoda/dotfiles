@@ -27,4 +27,18 @@ jobs = 4            # number of plugins or runtimes to install in parallel. The 
 raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
 yes = false         # set to true to automatically answer yes to all prompts
 
-experimental = true
+not_found_auto_install = true # see MISE_NOT_FOUND_AUTO_INSTALL
+task_output = "prefix" # see Task Runner for more information
+paranoid = false       # see MISE_PARANOID
+
+shorthands_file = '~/.config/mise/shorthands.toml' # path to the shorthands file, see `MISE_SHORTHANDS_FILE`
+disable_default_shorthands = false # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
+disable_tools = ['node']           # disable specific tools, generally used to turn off core tools
+
+env_file = '.env' # load env vars from a dotenv file, see `MISE_ENV_FILE`
+
+experimental = true # enable experimental features
+
+[alias.node]
+my_custom_node = '20'  # makes `mise install node@my_custom_node` install node-20.x
+                       # this can also be specified in a plugin (see below in "Aliases")
