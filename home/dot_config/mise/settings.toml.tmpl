@@ -1,30 +1,5 @@
 # -*-mode:toml-*- vim:ft=toml
 
-[env]
-# supports arbitrary env vars so mise can be used like direnv/dotenv
-NODE_ENV = 'development'
-
-[tools]
-go     = "{{ .mise.go }}"
-node   = "{{ .mise.node }}"
-deno   = "{{ .mise.deno }}"
-bun    = "{{ .mise.bun }}"
-python = "{{ .mise.python }}"
-ruby   = "{{ .mise.ruby }}"
-
-# supports everything you can do with .tool-versions currently
-# nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
-
-# send arbitrary options to the plugin, passed as:
-# MISE_TOOL_OPTS__VENV=.venv
-# python = {version='3.10', virtualenv='.venv'}
-
-[plugins]
-# specify a custom repo url
-# note this will only be used if the plugin does not already exist
-# python = 'https://github.com/mise-plugins/rtx-python'
-
-[settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
 # for example, .nvmrc in the case of node's nvm
 legacy_version_file = true                     # enabled by default (unlike asdf)
@@ -52,4 +27,18 @@ jobs = 4            # number of plugins or runtimes to install in parallel. The 
 raw = false         # set to true to directly pipe plugins to stdin/stdout/stderr
 yes = false         # set to true to automatically answer yes to all prompts
 
-experimental = true
+not_found_auto_install = true # see MISE_NOT_FOUND_AUTO_INSTALL
+task_output = "prefix" # see Task Runner for more information
+paranoid = false       # see MISE_PARANOID
+
+shorthands_file = '~/.config/mise/shorthands.toml' # path to the shorthands file, see `MISE_SHORTHANDS_FILE`
+disable_default_shorthands = false # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
+disable_tools = ['node']           # disable specific tools, generally used to turn off core tools
+
+env_file = '.env' # load env vars from a dotenv file, see `MISE_ENV_FILE`
+
+experimental = true # enable experimental features
+
+[alias.node]
+my_custom_node = '20'  # makes `mise install node@my_custom_node` install node-20.x
+                       # this can also be specified in a plugin (see below in "Aliases")
