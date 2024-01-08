@@ -70,7 +70,7 @@ config.animation_fps     = 1
 config.cursor_blink_rate = 750
 
 ---@type "SteadyBlock"|"BlinkingBlock"|"SteadyUnderline"|"BlinkingUnderline"|"SteadyBar"|"BlinkingBar"
-config.default_cursor_style  = "BlinkingBlock"
+config.default_cursor_style  = "SteadyUnderline"
 config.cursor_blink_ease_in  = "Constant" ---@type "Constant"|"Linear"
 config.cursor_blink_ease_out = "Constant" ---@type "Constant"|"Linear"
 
