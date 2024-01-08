@@ -170,8 +170,12 @@ return {
       { key = "K", mods = "CTRL",  action = act.ClearScrollback("ScrollbackOnly") },
     },
     search_mode = {
-      { key = "Enter",  mods = "NONE", action = act.CopyMode("PriorMatch")},
-      { key = "Escape", mods = "NONE", action = act.CopyMode("Close")},
+      { key = "Enter",  mods = "SHIFT", action = act.CopyMode("PriorMatch")},
+      { key = "Enter",  mods = "NONE",  action = act.CopyMode("NextMatch")},
+      { key = "Escape", mods = "NONE",  action = act.Multiple({
+        act.CopyMode("ClearSelectionMode"),
+        act.CopyMode("Close"),
+      }) },
 
       { key = "n", mods = "CTRL",  action = act.CopyMode("NextMatch") },
       { key = "p", mods = "CTRL",  action = act.CopyMode("PriorMatch") },
