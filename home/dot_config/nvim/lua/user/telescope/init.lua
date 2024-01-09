@@ -6,6 +6,7 @@ local layout     = require "telescope.actions.layout"
 
 local find_command = require("core.find")
 local grep_command = require("core.grep")
+local patterns     = require("core.ignore")
 
 local borderchars = {
   prompt  = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
@@ -27,34 +28,7 @@ telescope.setup({
     borderchars = borderchars,
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
-    file_ignore_patterns = {
-      "build/", "dist/",
-      "build/", "%.o", "%.out", "%.a", "%.so",        -- Binary
-      "%.tar", "%.tar.gz", "%.zip", "%.rar", "%.7z", -- Archives
-      "^.git/", -- Git
-      "%.otf", "%.ttf", "%.woff", -- font
-      "%.ico", "%.svg", -- Icon
-      "^.idea/", "^.vscode/", -- IDE
-      ".DS_Store", "%.dylib", -- macOS
-      "%.exe", "Thumbs.db",   -- Windows
-
-      "%.class", "%.jar", "%.war", -- Java
-      "%.dll", "%.pdb", -- C#
-      "^node_modules/", "package-lock.json", "yarn.lock", -- Node.js
-      "%.min.js", "%.min.gzip.js", -- JavaScript & TypeScript
-      "__pycache__/*", "__pycache__/", "%.ipynb", -- Python
-      "^vendor/", "^deps/", "Gemfile.lock", -- Ruby
-      "%.sqlite3", "%.db", -- Database
-
-      "%.ai", "%.psd", -- Illustrator / Photoshop
-      "%.jpg", "%.jpeg", "%.png", "%.webp", -- Image
-      "%.mp4", "%.mkv", "%.m4v", -- Video
-      "%.wav", "%.flac", "ttf", "%.mp3", -- Audio
-      "%.docx", "%.xlsx", "%.pptx", "%.pdf", "%.epub", -- Documents
-      "themepack/",
-      ".terraform",
-      "lazy-lock.json",
-    },
+    file_ignore_patterns = patterns,
     mappings = {
       n = {
         ["q"]     = actions.close,
@@ -101,7 +75,7 @@ telescope.setup({
       find_command = find_command,
     },
     live_grep = {
-      file_ignore_patterns = { "^.git/", "%.lock" },
+      file_ignore_patterns = patterns,
     },
   },
 
