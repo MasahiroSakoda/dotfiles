@@ -26,7 +26,7 @@ telescope.setup({
     },
     borderchars = borderchars,
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
-    winblend = 20,
+    winblend = 30,
     file_ignore_patterns = {
       "build/", "dist/",
       "build/", "%.o", "%.out", "%.a", "%.so",        -- Binary
