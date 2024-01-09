@@ -25,19 +25,21 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
   local process   = tab.active_pane.foreground_process_name
   local icon      = utils.process_icon(process)
   local tab_title = wezterm.truncate_right(utils.basename(process), max_width)
-  local index_bg  = tab.is_active and scheme.brights[5] or scheme.ansi[1]
+
+  local tab_fg = tab.is_active and fg or scheme.brights[4]
+  local tab_bg = tab.is_active and scheme.brights[5] or edge_fg
 
   return {
     { Attribute  = { Intensity = "Bold" } },
     { Foreground = { Color = edge_fg } },
-    { Background = { Color = index_bg } },
+    { Background = { Color = tab_bg } },
     { Text       = fonts.cod_chevron_left },
     { Attribute  = { Underline = "Curly" } },
-    { Foreground = { Color = fg } },
-    { Background = { Color = index_bg } },
+    { Foreground = { Color = tab_fg } },
+    { Background = { Color = tab_bg } },
     { Text       = tab.tab_index + 1 .. ":" .. icon .. tab_title },
     { Foreground = { Color = edge_fg } },
-    { Background = { Color = index_bg } },
+    { Background = { Color = tab_bg } },
     { Text       = fonts.cod_chevron_right },
     { Attribute = { Intensity = "Normal" } },
   }
@@ -45,8 +47,9 @@ end)
 
 wezterm.on("update-status", function(window, _)
   window:set_left_status(wezterm.format({
-    { Foreground = { Color = scheme.brights[7] } },
-    { Background = { Color = scheme.ansi[1] } },
+    { Attribute  = { Intensity = "Bold" } },
+    { Foreground = { Color = scheme.ansi[4] } },
+    { Background = { Color = edge_bg } },
     { Text = "[" .. window:active_workspace() .. "]" },
   }))
   window:set_right_status(wezterm.format({
