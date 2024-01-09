@@ -20,13 +20,13 @@ telescope.setup({
     selection_caret = " ",
     color_devicons = true,
     layout_config    = {
-      width  = 0.75,
-      preview_width = 0.5,
+      width  = 0.8,
+      preview_width = 0.55,
       prompt_position = "top",    ---@Usage: "top", "bottom"
     },
     borderchars = borderchars,
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
-    winblend = 20,
+    winblend = 30,
     file_ignore_patterns = {
       "build/", "dist/",
       "build/", "%.o", "%.out", "%.a", "%.so",        -- Binary
