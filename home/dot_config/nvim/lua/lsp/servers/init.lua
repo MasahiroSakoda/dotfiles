@@ -22,6 +22,7 @@ return {
   vimls         = require("lsp.servers.vimls"),         -- VimScript Language Server
 
   -- Linter
+  actionlint   = {}, -- GitHub Actions workflow
   cmakelint    = {}, -- CMake
   revive       = {}, -- Go
   hadolint     = {}, -- Dockerfile

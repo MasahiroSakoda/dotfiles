@@ -47,6 +47,8 @@ Filetypes.treesitter = {
   "ini", "comment",
 }
 
+Filetypes.actions = { "yaml.github" }
+
 Filetypes.colorizer = {
   "vim", "lua",
   "html", "eruby", "css", "markdown",
