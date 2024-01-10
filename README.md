@@ -352,7 +352,7 @@ so use `~/.config/mise/config.toml` for global usage, or `.mise.toml` for local 
 | ------------------ | ---------- |
 | [**iTerm2**][iterm2]             | Terminal   |
 | [**Alacritty**][alacritty]          | Terminal   |
-| [**wezerm**][wezterm]             | Terminal   |
+| [**wezterm**][wezterm]             | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
 | [**Docker**][docker]             | Container  |
 | [**TablePlus**][tableplus]          | Database   |
