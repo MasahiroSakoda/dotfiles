@@ -63,6 +63,14 @@ nl.setup({
     -- Git
     code_actions.gitsigns,
 
+    -- GitHub Actions workflow
+    diagnostics.actionlint.with({
+      filetypes = filetypes.actions,
+      runtime_condition = function(params)
+        return params.bufname:match("\\.github/workflows") ~= nil
+      end,
+    }),
+
     -- Linter for make
     diagnostics.checkmake.with({
       filetypes  = filetypes.makefile,
