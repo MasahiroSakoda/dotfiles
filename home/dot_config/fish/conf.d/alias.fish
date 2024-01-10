@@ -2,7 +2,6 @@ alias vi="nvim"
 alias vim="nvim"
 
 alias cat="bat"
-alias lg="lazygit"
 
 alias w3m='/usr/local/bin/w3m -I utf-8 -O utf-8 -m -num -s'
 
