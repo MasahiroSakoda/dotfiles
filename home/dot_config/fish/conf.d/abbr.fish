@@ -31,6 +31,7 @@ abbr -a chx "chmod +x"
 abbr -a chR "chmod -R"
 
 # Git
+abbr -a lg lazygit
 abbr -a g git
 
 ## git status
