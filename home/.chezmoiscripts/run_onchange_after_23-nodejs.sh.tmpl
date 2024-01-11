@@ -3,12 +3,16 @@
 
 set -eo pipefail
 
+{{ template "common/script_helper" . }}
+
 # Setup pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 mkdir -p "$HOME/.local/share/pnpm"
 
-$(command -v pnpm) install-completion fish
+if ! command_exists pnpm; then
+  $(command -v pnpm) install-completion fish
+fi
 
 # $(command -v pnpm) setup
 $(command -v pnpm) add -g neovim
