@@ -294,9 +294,16 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 Runtime version management tool
 
-`.tool-versions` is not supported.
+`.tool-versions` used by `asdf` is deactivated to prevent confliction & confusion.
 
-so use `~/.config/mise/config.toml` for global usage, or `.mise.toml` for local usage
+| File                         | Usage           |
+|:-----------------------------|:----------------|
+| [**`~/.config/mise/settings.toml`**][mise-settings] | System settings |
+| [**`~/.config/mise/config.toml`**][mise-global]   | Global config   |
+| `.mise.toml`                   | Local config    |
+
+[mise-global]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/config.toml.tmpl
+[mise-settings]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/settings.toml.tmpl
 
 ##### configured tools
 
