@@ -33,6 +33,7 @@ bun    = "1"
 deno   = "1"
 go     = "latest"
 node   = "20"
+pnpm   = "latest"
 python = "3.12"
 ruby   = "3.3"
 
