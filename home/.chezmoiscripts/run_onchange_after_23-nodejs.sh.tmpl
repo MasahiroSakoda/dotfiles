@@ -8,6 +8,8 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 mkdir -p "$HOME/.local/share/pnpm"
 
+$(command -v pnpm) install-completion fish
+
 # $(command -v pnpm) setup
 $(command -v pnpm) add -g neovim
 $(command -v pnpm) add -g create-{react,next}-app
