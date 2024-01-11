@@ -1,0 +1,4 @@
+// -*-mode:jsonc-*- vim:ft=jsonc
+{
+  "path": "cz-conventional-changelog"
+}
