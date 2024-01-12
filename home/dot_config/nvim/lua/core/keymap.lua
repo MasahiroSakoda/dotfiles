@@ -113,7 +113,6 @@ keymap("n", "]9", ":tablast<CR>",     { desc = "   Move to Last tab"})
 wk.register({
   mode    = "n",
   ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>tt"] = { ":Telescope telescope-tabs list_tabs<CR>", "   List Tabs" },
   ["<Leader>te"] = { ":tabedit<Space>",                         "   Edit file in new tab" },
   ["<Leader>tn"] = { ":tabnew<Space>",                          "   Edit file in new tab" },
 }, opts)
@@ -252,7 +251,7 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🐛  DAP: Debugger Adapterr Protocol
+-- 🐛  DAP: Debugger Adapter Protocol
 ---------------------------------------------------------------------------
 keymap("n", "<F5>",    ":DapContinue<CR>",  { desc = ": Continue Process" })
 keymap("n", "<S-F5>",  ":DapTerminate<CR>", { desc = "□: Terminate Process" })
@@ -278,21 +277,6 @@ wk.register({
   ["<Leader>ds"] = { ":lua require'dapui'.float_element('scope',   { enter = true })<CR>", "Float scopes" },
   ["<Leader>dS"] = { ":lua require'dapui'.float_element('stacks',  { enter = true })<CR>", "Float scopes" },
 }, opts)
-
--- Debugger Action
-wk.register({
-  mode = "n",
-  ["<Leader>da"]  = { name = "🐛  Debugger" },
-  ["<Leader>dal"] = { ":lua require'osv'.launch({ port = 8086 })<CR>",  "   Run Lua debugger server" },
-  ["<Leader>daL"] = { ":lua require'osv'.run_this()<CR>",               "   Run Lua debugger" },
-  ["<Leader>dap"] = { ":lua require'dap-python'.test_method()<CR>",     "   Debug Python test method" },
-  ["<Leader>daP"] = { ":lua require'dap-python'.test_class()<CR>",      "   Debug Python test class" },
-  ["<Leader>daq"] = { ":lua require'dap-python'.debug_selection()<CR>", "   Run test selection for Python" },
-  ["<Leader>dag"] = { ":lua require'dap-go'.debug_test()<CR>",          "   Debug current test for Go" },
-  ["<Leader>daG"] = { ":lua require'dap-go'.debug_last_test()<CR>",     "   Debug last test for Go" },
-  ["<Leader>daf"] = { ":lua require'dap-go'.run_last()<CR>",            "   Run last test for Go" },
-  ["<Leader>daj"] = { ":lua require''.run", "   Run JS debugger" },
-})
 
 -- Debugger
 wk.register({
@@ -375,7 +359,7 @@ keymap("n", ",s",  "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollb
 keymap("n", ",/",  "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
 keymap("n", ",m",  "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
 keymap("n", ",c",  "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
-keymap("n", ",x", "<CMD>TroubleToggle<CR>",       { desc = "   Toggle Diagnostic List" })
+keymap("n", ",x",  "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
 
 -- Open File/URL
 keymap(nv_mode, "gf", ":lua require'utils'.open_cfile()<CR>", { desc = "    Open File/URL" })
