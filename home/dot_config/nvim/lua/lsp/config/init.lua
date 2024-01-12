@@ -99,10 +99,10 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
 
-  if client.supports_method("textDocument/inlayHint") then
-    setup_inlay_hints()
-    inlay_hint(bufnr, true)
-  end
+  -- if client.supports_method("textDocument/inlayHint") then
+  --   setup_inlay_hints()
+  --   inlay_hint(bufnr, true)
+  -- end
 end
 
 local servers = require("lsp.servers")

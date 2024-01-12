@@ -146,11 +146,11 @@ return {
     config = function() require("lsp.config") end,
     opts   = {
       -- builtin LSP inlay hints on Neovim >= 0.10.0
-      inlay_hint  = {
-        enabled = vim.fn.has("nvim-0.10") == 1,
-        inline  = vim.fn.has("nvim-0.10") == 0,
-      },
-      diagnostics = { virtual_text = vim.fn.has("nvim-0.10") == 0 and "●" },
+      -- inlay_hint  = {
+      --   enabled = vim.fn.has("nvim-0.10") == 1,
+      --   inline  = vim.fn.has("nvim-0.10") == 0,
+      -- },
+      -- diagnostics = { virtual_text = vim.fn.has("nvim-0.10") == 0 and "●" },
     },
   },
   {
@@ -240,7 +240,7 @@ return {
     "Exafunction/codeium.nvim",
     build  = ":Codeium Auth",
     cond   = not is_vscode,
-    event  = "InsertEnter",
+    -- event  = "InsertEnter",
     config = function() require("lsp.cmp.codeium") end,
   },
   ------------------------------------------------------------------------
