@@ -1,0 +1,33 @@
+# -*-mode:toml-*- vim:ft=toml
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Markdown
+[*.{md}]
+indent_style = space
+indent_size  = 4
+
+# Shell Script
+[*.{sh,fish,fish.symlink}]
+indent_style = space
+indent_size  = 2
+
+# Lua
+[*.{lua}]
+indent_style = space
+indent_size  = 2
+
+# TOML
+[*.{toml}]
+indent_style = space
+indent_size  = 2
+
+# JSON & YAML
+[*.{json, yml,yaml}]
+indent_size  = 2
+indent_style = space
