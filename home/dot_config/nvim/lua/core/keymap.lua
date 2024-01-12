@@ -251,7 +251,7 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🐛  DAP: Debugger Adapterr Protocol
+-- 🐛  DAP: Debugger Adapter Protocol
 ---------------------------------------------------------------------------
 keymap("n", "<F5>",    ":DapContinue<CR>",  { desc = ": Continue Process" })
 keymap("n", "<S-F5>",  ":DapTerminate<CR>", { desc = "□: Terminate Process" })
