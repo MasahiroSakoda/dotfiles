@@ -39,3 +39,15 @@ disable_tools = []                 # disable specific tools, generally used to t
 env_file = '.env' # load env vars from a dotenv file, see `MISE_ENV_FILE`
 
 experimental = true # enable experimental features
+
+## Python
+python_compile = false
+{{- if eq .chezmoi.arch "arm64" }}
+python_precompiled_arch = "aarch64"
+{{- else if eq .chezmoi.arch "amd64" }}
+{{- if eq .chezmoi.os "darwin" }}
+python_precompiled_arch = "x86_64"
+{{- else if eq "linux" }}
+python_precompiled_arch = "x86_64_v3"
+{{- end }}
+{{- end }}
