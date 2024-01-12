@@ -68,6 +68,7 @@ abbr -a gds git diff --staged
 abbr -a gdc git diff --cached
 
 ## git commit
+abbr -a gcz git cz
 abbr -a gcm git commit -m
 abbr -a gcma git commit --amend
 
