@@ -30,18 +30,21 @@ wezterm.on("format-tab-title", function(tab, _, _, _, _, max_width)
   local tab_bg = tab.is_active and scheme.brights[5] or edge_fg
 
   return {
-    { Attribute  = { Intensity = "Bold" } },
-    { Foreground = { Color = edge_fg } },
+    -- Tab index
+    { Attribute  = { Intensity = tab.is_active and "Bold" or "Normal" } },
+    { Foreground = { Color = fg } },
     { Background = { Color = tab_bg } },
-    { Text       = fonts.cod_chevron_left },
+    { Text       = tab.tab_index + 1 .. ":" },
+    -- Process icon
+    { Attribute = { Intensity = "Bold" } },
+    { Foreground = { Color = tab.is_active and scheme.brights[1] or scheme.ansi[5] } },
+    { Background = { Color = tab_bg } },
+    { Text       = icon .. " " },
+    -- Tab title
     { Attribute  = { Underline = "Curly" } },
     { Foreground = { Color = tab_fg } },
     { Background = { Color = tab_bg } },
-    { Text       = tab.tab_index + 1 .. ":" .. icon .. tab_title },
-    { Foreground = { Color = edge_fg } },
-    { Background = { Color = tab_bg } },
-    { Text       = fonts.cod_chevron_right },
-    { Attribute = { Intensity = "Normal" } },
+    { Text       = tab_title .. " " },
   }
 end)
 
