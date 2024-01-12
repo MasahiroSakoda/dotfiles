@@ -37,6 +37,24 @@ pnpm   = "latest"
 python = "3.12"
 ruby   = "3.3"
 
+[packages]
+npm = [
+  "neovim",
+  "create-{react,next}-app",
+  "commitizen",
+  "cz-conventional-changelog",
+  "cz-customizable",
+]
+go  = [
+]
+python = [
+  "pynvim",
+]
+gem = [
+  "bundler",
+  "neovim",
+]
+
 [plugins]
 gh = [
   # GitHub CLI dashboard
