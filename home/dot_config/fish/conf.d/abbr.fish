@@ -22,8 +22,9 @@ abbr -a .5 "cd ../../../../../"
 abbr -a cwd "pwd | pbcopy"
 
 ## Permission
-abbr -a chx "chmod +x"
-abbr -a chR "chmod -R"
+abbr -a co chown -v
+abbr -a cmx chmod +x
+abbr -a cmr chmod -R
 
 
 # Vim / NeoVim
