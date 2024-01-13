@@ -7,11 +7,17 @@ abbr -a x exit
 ## File
 abbr -a o open
 abbr -a oa open -a
-abbr -a cpr "cp -R"
-abbr -a rmf "rm -f"
-abbr -a rmrf "rm -rf"
+abbr -a mv mv -iv
+abbr -a cp cp -iv
+abbr -a cpr cp -R
+abbr -a rm rm -iv
+abbr -a rmf rm -if
+abbr -a rmrf rm -rf
 
 ## Directory
+abbr -a cwd "pwd | pbcopy"
+abbr -a mkdir mkdir -pv
+
 abbr -a .. "cd .."
 abbr -a ... "cd ../.."
 abbr -a .... "cd ../../.."
@@ -19,7 +25,7 @@ abbr -a .2 "cd ../../"
 abbr -a .3 "cd ../../../"
 abbr -a .4 "cd ../../../../"
 abbr -a .5 "cd ../../../../../"
-abbr -a cwd "pwd | pbcopy"
+
 
 ## Permission
 abbr -a co chown -v
