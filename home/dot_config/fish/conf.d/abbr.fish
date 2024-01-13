@@ -4,10 +4,6 @@
 abbr -a cl clear
 abbr -a x exit
 
-# tmux
-abbr -a tm tmux
-abbr -a tmd "tmux a -t default || tmux new -s default\; source $HOME/.config/tmux/default.session.conf"
-
 ## File
 abbr -a o open
 abbr -a oa open -a
@@ -33,6 +29,13 @@ abbr -a chR "chmod -R"
 # Vim / NeoVim
 abbr -a v $EDITOR
 abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
+
+
+# tmux
+abbr -a tm tmux
+abbr -a tmd "tmux a -t default || tmux new -s default\; source $HOME/.config/tmux/default.session.conf"
+abbr -a tmn tmux new -s
+
 
 # Git
 abbr -a g git
