@@ -3,6 +3,7 @@
 ## Prompt
 abbr -a cl clear
 abbr -a x exit
+abbr -a R exec $SHELL -l
 
 ## File
 abbr -a o open
