@@ -1,7 +1,7 @@
 # Fish
 abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 
-# Prompt
+## Prompt
 abbr -a cl clear
 abbr -a x exit
 
@@ -9,14 +9,14 @@ abbr -a x exit
 abbr -a tm tmux
 abbr -a tmd "tmux a -t default || tmux new -s default\; source $HOME/.config/tmux/default.session.conf"
 
-# File
+## File
 abbr -a o open
 abbr -a oa open -a
 abbr -a cpr "cp -R"
 abbr -a rmf "rm -f"
 abbr -a rmrf "rm -rf"
 
-# Directory
+## Directory
 abbr -a .. "cd .."
 abbr -a ... "cd ../.."
 abbr -a .... "cd ../../.."
@@ -26,37 +26,19 @@ abbr -a .4 "cd ../../../../"
 abbr -a .5 "cd ../../../../../"
 abbr -a cwd "pwd | pbcopy"
 
-# Permission
+## Permission
 abbr -a chx "chmod +x"
 abbr -a chR "chmod -R"
 
+
 # Git
-abbr -a lg lazygit
 abbr -a g git
+abbr -a lg lazygit
 
 ## git status
 abbr -a gs git status
 abbr -a gss git status --short
 abbr -a gsb git status --short --branch
-
-## git add
-abbr -a ga git add --verbose
-abbr -a gaa git add --verbose --all
-
-abbr -a gf git fetch
-abbr -a gfo git fetch origin
-
-abbr -a gm git merge
-abbr -a gma git merge --abort
-abbr -a gms git merge --squash
-
-## git rm
-abbr -a grm git rm
-abbr -a grmc git rm --cached
-
-## git clone
-abbr -a gcl git clone
-abbr -a clone git clone
 
 ## git log
 abbr -a gl git log --graph --all
@@ -66,6 +48,19 @@ abbr -a gla git log --graph --date=short --decorate=short --pretty=format:'%Cgre
 abbr -a gd git diff
 abbr -a gds git diff --staged
 abbr -a gdc git diff --cached
+
+## git add
+abbr -a ga git add --verbose
+abbr -a gaa git add --verbose --all
+
+## git rm
+abbr -a grm git rm
+abbr -a grmc git rm --cached
+
+## git merge
+abbr -a gm git merge
+abbr -a gma git merge --abort
+abbr -a gms git merge --squash
 
 ## git commit
 abbr -a gcz git cz
@@ -89,6 +84,14 @@ abbr -a gco git checkout
 abbr -a gcob git checkout -b
 abbr -a gcoo git checkout --ours
 abbr -a gcot git checkout --theirs
+
+## git clone
+abbr -a gcl git clone
+abbr -a clone git clone
+
+## git fetch
+abbr -a gf git fetch
+abbr -a gfo git fetch origin
 
 # git pull
 abbr -a gpl git pull
@@ -140,11 +143,15 @@ abbr -a gheb gh extension browse
 abbr -a ghei gh extension install
 abbr -a gher gh extension remove
 
+
 # Docker
+abbr -a d docker
+
 ## docker-compose
 abbr -a dc docker-compose
 abbr -a dcu docker-compose up
 abbr -a dcd docker-compose down
+
 
 # chezmoi
 abbr -a czd "chezmoi diff | bat"
@@ -169,6 +176,7 @@ abbr -a cze chezmoi edit
 abbr -a czea chezmoi edit --apply
 abbr -a czew chezmoi edit --watch
 
+
 # Homebrew
 abbr -a b brew
 abbr -a bi brew install
@@ -181,6 +189,7 @@ abbr -a bug brew upgrade
 
 # cht.sh
 abbr -a chtsh cht.sh --shell
+
 
 # Node.js
 ## npm
@@ -230,6 +239,7 @@ abbr -a dn deno
 abbr -a dnh "deno help | bat"
 abbr -a dnt deno task
 abbr -a dnr deno run
+
 
 # Rails
 abbr -a rn rails new
