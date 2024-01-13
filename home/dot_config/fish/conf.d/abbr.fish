@@ -1,5 +1,4 @@
 # Fish
-abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 
 ## Prompt
 abbr -a cl clear
@@ -30,6 +29,10 @@ abbr -a cwd "pwd | pbcopy"
 abbr -a chx "chmod +x"
 abbr -a chR "chmod -R"
 
+
+# Vim / NeoVim
+abbr -a v $EDITOR
+abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 
 # Git
 abbr -a g git
