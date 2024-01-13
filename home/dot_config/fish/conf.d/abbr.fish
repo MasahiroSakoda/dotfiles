@@ -189,13 +189,25 @@ abbr -a czew chezmoi edit --watch
 
 # Homebrew
 abbr -a b brew
+abbr -a bwre brew
+abbr -a bwre brew
+
+abbr -a bt brew tap
+abbr -a but brew untap
+
+abbr -a buse brew uses --recursive --installed
+abbr -a bdep brew deps --tree --installed
+
 abbr -a bi brew install
 abbr -a bic brew install --cask
+abbr -a bif brew install --force
 abbr -a bri brew reinstall
-abbr -a bif brew info
+
 abbr -a bo brew outdated
-abbr -a bu brew update
 abbr -a bug brew upgrade
+
+abbr -a bl brew link
+abbr -a bul brew unlink
 
 # cht.sh
 abbr -a chtsh cht.sh --shell
