@@ -146,11 +146,21 @@ abbr -a gher gh extension remove
 
 # Docker
 abbr -a d docker
+abbr -a dps docker ps
+abbr -a dk docker kill
+abbr -a dp docker pull
+abbr -a dP docker push
+abbr -a dr docker run --rm
 
 ## docker-compose
 abbr -a dc docker-compose
-abbr -a dcu docker-compose up
+abbr -a dcb docker-compose build
+abbr -a dcu docker-compose up --build -d
 abbr -a dcd docker-compose down
+abbr -a dcl docker-compose logs
+abbr -a dcr docker-compose run --rm
+abbr -a dce docker-compose exec
+abbr -a dcs docker-compose stop
 
 
 # chezmoi
