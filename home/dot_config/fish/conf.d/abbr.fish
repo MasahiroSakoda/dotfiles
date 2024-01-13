@@ -162,27 +162,28 @@ abbr -a dcs docker-compose stop
 
 
 # chezmoi
-abbr -a czd "chezmoi diff | bat"
-abbr -a czD chezmoi doctor
-abbr -a czu chezmoi update
-abbr -a czap chezmoi apply
+abbr -a .d "chezmoi diff | bat"
+abbr -a .D chezmoi doctor
+abbr -a .u chezmoi update
+abbr -a .a chezmoi apply
+abbr -a .c chezmoi cd
+abbr -a .C chezmoi chattr
 
 ## init
-abbr -a czi chezmoi init
-abbr -a czia chezmoi init --apply
+abbr -a .i chezmoi init
+abbr -a .ia chezmoi init --apply
 
 ## add
-abbr -a czad chezmoi add
-abbr -a czat chezmoi add --template
+abbr -a .Ad chezmoi add --verbose
+abbr -a .At chezmoi add --template
 
 ## remove
-abbr -a czr chezmoi remove
-abbr -a czrf chezmoi remove --force
+abbr -a .r chezmoi remove --verbose
+abbr -a .rf chezmoi remove --force
 
 ## edit
-abbr -a cze chezmoi edit
-abbr -a czea chezmoi edit --apply
-abbr -a czew chezmoi edit --watch
+abbr -a .e chezmoi edit --watch
+abbr -a .ea chezmoi edit --apply
 
 
 # Homebrew
