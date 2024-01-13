@@ -49,88 +49,72 @@ abbr -a tmn tmux new -s
 abbr -a g git
 abbr -a lg lazygit
 
-## git status
+## status
 abbr -a gs git status
 abbr -a gss git status --short
 abbr -a gsb git status --short --branch
 
-## git log
+## log
 abbr -a gl git log --graph --all
-abbr -a gla git log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 
-## git diff
+## diff
 abbr -a gd git diff
-abbr -a gds git diff --staged
-abbr -a gdc git diff --cached
 
-## git add
+## add / rm / mv
 abbr -a ga git add --verbose
 abbr -a gaa git add --verbose --all
+abbr -a grm git rm --verbose
+abbr -a gmv git mv --verbose
 
-## git rm
-abbr -a grm git rm
-abbr -a grmc git rm --cached
-
-## git merge
-abbr -a gm git merge
+## merge
+abbr -a gm git merge --verbose
 abbr -a gma git merge --abort
 abbr -a gms git merge --squash
 
-## git commit
-abbr -a gcz git cz
-abbr -a gcm git commit -m
-abbr -a gcma git commit --amend
-
-## git cherry-pick
+## cherry-pick
 abbr -a gcp git cherry-pick
 abbr -a gcpe git cherry-pick -e
 abbr -a gcpn git cherry-pick -n
 abbr -a gcpa git cherry-pick --abort
 abbr -a gcpc git cherry-pick --continue
 
-## git branch
-abbr -a gb git branch
-abbr -a gba git branch -a
+## branch
+abbr -a gb git branch --all
 abbr -a gbd git branch -d
 
-## git checkout
+## checkout
 abbr -a gco git checkout
 abbr -a gcob git checkout -b
 abbr -a gcoo git checkout --ours
 abbr -a gcot git checkout --theirs
 
-## git clone
+## clone / fetch
 abbr -a gcl git clone
-abbr -a clone git clone
+abbr -a gf git fetch origin
 
-## git fetch
-abbr -a gf git fetch
-abbr -a gfo git fetch origin
-
-# git pull
-abbr -a gpl git pull
-abbr -a gplo git pull origin
+# pull
+abbr -a gpl git pull origin
 abbr -a gplu git pull upstream
 abbr -a gplr git pull --rebase
 
-# git pull-request
+# pull-request
 abbr -a gpr git pull-request
 abbr -a gprd git pull-request -d
 abbr -a gprp git pull-request -p
 
-# git push
-abbr -a gps git push
+# push
+abbr -a gps git push origin
 abbr -a gpsu git push upstream
 abbr -a gpsd git push --dry-run
 
-## git rebase
+## rebase
 abbr -a grb git rebase
 abbr -a grba git rebase --abort
 abbr -a grbc git rebase --continue
 abbr -a grbi git rebase --interactive
 abbr -a grbs git rebase --skip
 
-## git tag
+## tag
 abbr -a gt git tag -a
 abbr -a gts git tag --sign
 
