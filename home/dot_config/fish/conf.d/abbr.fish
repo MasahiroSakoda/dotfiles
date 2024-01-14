@@ -215,9 +215,13 @@ abbr -a chtsh cht.sh --shell
 # Node.js
 ## npm
 abbr -a ni npm install
+abbr -a nid npm install -D
+abbr -a nig npm install -d
+abbr -a nu npm update
 abbr -a nt npm run test
 abbr -a nb npm run build
 abbr -a nd npm run dev
+abbr -a nci npm ci
 
 ## pnpm
 abbr -a p pnpm
@@ -282,7 +286,3 @@ abbr -a rdbp rails db:prepare
 abbr -a rdbd rails db:drop
 abbr -a rdbr rails db:reset
 abbr -a rdbs rails db:seed
-
-# Downloader
-## yt-dlp
-abbr -a yt yt-dlp -civ
