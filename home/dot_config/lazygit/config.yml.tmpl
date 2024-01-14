@@ -1,4 +1,8 @@
 # -*-mode:yaml-*- vim:ft=yaml
+os:
+  edit: "nvim"
+notARepository: skip
+promptToReturnFromSubprocess: true
 confirmOnQuit: true
 git:
   parseEmoji: true
@@ -75,7 +79,10 @@ keybinding:
     submodules:
 refresher:
   refreshInterval: 3
-os:
-  edit: "nvim"
-notARepository: skip
-promptToReturnFromSubprocess: true
+customCommands:
+  - key: "C"
+    command: "cz"
+    description: "commit with commitizen"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
