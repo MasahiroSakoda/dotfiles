@@ -91,7 +91,7 @@ customCommands:
     context: 'commits'
     command: 'git commit --allow-empty -m "empty commit"'
     loadingText: 'Committing empty commit...'
-  - key: '<c-f>'
+  - key: '<C-f>'
     description: 'fetch a remote branch as a new local branch'
     command: "git fetch {{ `{{index .SelectedRemote.Name }}` }} {{ `{{index .PromptResponses 0}}` }}:{{ `{{index .PromptResponses 1}}` }}"
     context: 'remotes'
@@ -110,3 +110,19 @@ customCommands:
       - type: 'input'
         title: 'which branch do you want to push to?'
     command: "git push origin {{ `{{index .PromptResponses 0}}` }}"
+  - key: '<C-P>'
+    description: "Pull from a specific remote repository"
+    context: 'files'
+    loadingText: 'Pulling ...'
+    command: git pull {{ `{{ .Form.Remote }}` }} {{ `{{ .Form.RemoteBranch }}` }}
+    prompts:
+      - type: 'input'
+        key: 'Remote'
+        title: "Remote:"
+        suggestions:
+          preset: 'remotes'
+      - type: 'input'
+        key: 'RemoteBranch'
+        title: "Remote branch:"
+        suggestions:
+          command: "git branch --remote --list '{{ `{{.Form.Remote}}` }}/*' --format='%(refname:short)' | sed 's/{{ `{{.Form.Remote}}` }}\\///'"
