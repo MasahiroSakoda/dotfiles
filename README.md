@@ -140,7 +140,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
 
-![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/e2f4295d-ad1c-4106-9d66-86c63c222335)
+![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ffd1d883-bf3b-40ea-957b-2d2463ca10ee)
 
 [LuaSnip]: https://github.com/L3MON4D3/LuaSnip
 [friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
@@ -197,7 +197,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [terraformls]: https://github.com/hashicorp/terraform-ls
 [marksman]: https://github.com/artempyanykh/marksman
 
-![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/265a2f1c-6850-4d34-af4e-a09c52b3006e)
+![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9e14ad2c-9bdf-444f-96f3-f1bd59648477)
 
 ##### DAP
 
@@ -217,7 +217,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [debugpy]: https://github.com/microsoft/debugpy
 [js-da]: https://github.com/microsoft/vscode-js-debug
 
-![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/bb53321f-9a12-48b7-b812-f6a06440d6c1)
+![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/29f62dc3-f065-4dae-9aa4-79022d3cbb4d)
 
 ##### Linter
 
@@ -275,7 +275,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**telescope-lazy**][telescope-lazy]         | [`lazy.nvim`][lazy-nvim] extension       |
 | [**telescope-dap**][telescope-dap]          | DAP Extension             |
 
-![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/a1230457-1618-4a6f-b104-355378a62027)
+![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/f06103f9-e523-4c91-a499-b26bb4d491a2)
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
