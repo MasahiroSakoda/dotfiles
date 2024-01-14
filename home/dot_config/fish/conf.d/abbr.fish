@@ -212,6 +212,7 @@ abbr -a chtsh cht.sh --shell
 
 # Node.js
 ## npm
+abbr -a nl npm list
 abbr -a ni npm install
 abbr -a nid npm install -D
 abbr -a nig npm install -d
