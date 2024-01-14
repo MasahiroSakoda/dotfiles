@@ -243,21 +243,6 @@ abbr -a pd pnpm dev
 abbr -a pe pnpm e2e
 abbr -a pu pnpm unit
 
-## yarn
-abbr -a y yarn
-abbr -a ya yarn add
-abbr -a yad yarn add -D
-abbr -a yb yarn build
-abbr -a yd yarn dev
-abbr -a ye yarn e2e
-abbr -a yg yarn generate
-abbr -a yl yarn lint
-abbr -a yp yarn plop
-abbr -a yt yarn test
-abbr -a ys yarn server
-abbr -a yu yarn ui
-abbr -a yw yarn web
-
 ## deno
 abbr -a dn deno
 abbr -a dnh "deno help | bat"
