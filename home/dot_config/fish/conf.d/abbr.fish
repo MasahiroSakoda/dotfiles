@@ -228,6 +228,7 @@ abbr -a pa pnpm add
 abbr -a pe pnpm exec
 abbr -a ph pnpm help
 abbr -a pi pnpm install
+abbr -a pid pnpm install -D
 abbr -a pim pnpm import
 abbr -a pls pnpm ls
 abbr -a psa pnpm store add
