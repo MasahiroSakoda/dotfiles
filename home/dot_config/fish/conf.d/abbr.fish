@@ -252,22 +252,6 @@ abbr -a dnr deno run
 
 
 # Rails
-abbr -a rn rails new
-abbr -a rr rails routes
-abbr -a rs rails server
-abbr -a rd rails destroy
-
-## rails generate
-abbr -a rgs rails generate scaffold
-abbr -a rgc rails generate controller
-abbr -a rgmi rails generate migration
-abbr -a rgmo rails generate model
-
-## rails db
-abbr -a rdb rails db:
-abbr -a rdbc rails db:create
-abbr -a rdbm rails db:migrate
-abbr -a rdbp rails db:prepare
-abbr -a rdbd rails db:drop
-abbr -a rdbr rails db:reset
-abbr -a rdbs rails db:seed
+for cmd in rails rake irb pry rspec foreman guard
+  abbr -a $cmd bundle exec $cmd
+end
