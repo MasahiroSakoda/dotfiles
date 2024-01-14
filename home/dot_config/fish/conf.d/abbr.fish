@@ -3,7 +3,6 @@
 ## Prompt
 abbr -a cl clear
 abbr -a x exit
-abbr -a R exec $SHELL -l
 
 ## File
 abbr -a o open
@@ -35,7 +34,6 @@ abbr -a cmr chmod -R
 
 
 # Vim / NeoVim
-abbr -a v $EDITOR
 abbr -a fishrc chezmoi edit $HOME/.config/fish/config.fish
 
 
