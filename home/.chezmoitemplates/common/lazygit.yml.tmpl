@@ -103,3 +103,10 @@ customCommands:
         title: 'New Local Branch Name'
         initialValue: ''
     loadingText: 'fetching branch'
+  - key: '<c-p>'
+    context: 'global'
+    loadingText: 'pushing'
+    prompts:
+      - type: 'input'
+        title: 'which branch do you want to push to?'
+    command: "git push origin {{ `{{index .PromptResponses 0}}` }}"
