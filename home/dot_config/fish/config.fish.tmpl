@@ -7,6 +7,12 @@ set -x LC_CTYPE ja_JP.UTF-8
 # Path Configuration
 set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin $PATH
 
+{{- if eq .chezmoi.arch "arm64" }}
+set -gx ARCHFLAGS '-arch arm64'
+{{- else if eq .chezmoi.arch "amd64" }}
+set -gx ARCHFLAGS '-arch x86_64'
+{{- end }}
+
 for pkg in bison curl openssl@3
   fish_add_path $HOMEBREW_PREFIX/opt/$pkg/bin
 end
@@ -276,6 +282,8 @@ abbr -a -- foreman 'bundle exec foreman'
 abbr -a -- guard 'bundle exec guard'
 
 {{ if eq .chezmoi.os "darwin" }}
+set -gx POCKET_CONSUMER_KEY (security find-generic-password -s "Pocket Consumer Key" -w)
+set -gx POCKET_ACCESS_TOKEN (security find-generic-password -s "Pocket Access Token" -w)
 set -gx OPENAI_API_KEY (security find-generic-password -s "OpenAI API Key" -w)
 set -gx GOOGLE_API_KEY (security find-generic-password -s "Google API Key" -w)
 set -gx DEEPL_API_KEY  (security find-generic-password -s "DeepL API Key" -w)
