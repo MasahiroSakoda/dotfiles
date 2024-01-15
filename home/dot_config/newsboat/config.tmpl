@@ -1,0 +1,89 @@
+# vim:ft=conf
+
+# Default apps
+# browser "brave %u >/dev/null 2>&1 &"
+browser "w3m %u"
+{{- if eq .chezmoi.os "darwin" }}
+player "iina %u"
+{{- else if eq .chezmoi.os "linux" }}
+player "mpv %u"
+{{- end }}
+
+# General settings
+## Reader
+auto-reload yes
+max-items 50
+reload-time 180
+reload-threads 4
+
+## Display
+datetime-format "%Y-%m-%d %H:%M"
+show-read-articles yes
+show-read-feeds    yes
+
+## SSL
+ssl-verifyhost yes
+ssl-verifypeer no
+
+## Download
+download-retries 4
+download-timeout 120
+download-path ""
+
+## Cache
+cookie-cache "~/.cache/newsboat/cookies.txt"
+cache-file "~/.cache/newsboat/cache.db"
+refresh-on-startup yes
+
+# Appearance
+color listnormal color105 default
+color listfocus color24 color231 standout
+color listnormal_unread color111 default bold
+color listfocus_unread color24 color231 standout bold
+color info color178 color236 bold
+color article color247 default
+
+highlight all "---.*---" yellow
+highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
+highlight article "(^Link:.*|^Date:.*)" default default
+highlight article "https?://[^ ]+" green default
+
+highlight article "^(Title):.*$" blue default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(embedded flash\\)$" magenta default
+
+# Keybind
+unbind-key DOWN
+unbind-key UP
+unbind-key j
+unbind-key k
+unbind-key H
+unbind-key L
+unbind-key g
+unbind-key G
+
+bind-key j down
+bind-key k up
+bind-key h quit
+bind-key l open
+bind-key H prev-feed
+bind-key L next-feed
+bind-key d pagedown
+bind-key u pageup
+bind-key n next-unread
+bind-key N prev-unread
+bind-key s sort
+bind-key S rev-sort
+bind-key U show-urls
+bind-key a toggle-article-read
+bind-key g home
+bind-key G end
+bind-key ^B bookmark
+
+# Bookmark
+bookmark-cmd "~/.local/bin/save2pocket.sh"
+bookmark-autopilot yes
