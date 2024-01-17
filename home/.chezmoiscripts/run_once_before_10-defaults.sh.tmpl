@@ -121,6 +121,17 @@ defaults write com.apple.AdLib allowIdentifierForAdvertising -bool false
 networksetup -setdnsservers Wi-Fi 2606:4700:4700::1111 2606:4700:4700::1001 1.1.1.1 1.0.0.1
 {{ end }}
 
+# Google Chrome
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.brave.Browser AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.brave.Browser AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.brave.Browser DisablePrintPreview -bool true
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.brave.Browser PMPrintingExpandedStateForPrint2 -bool true
+
 for app in "Finder" \
            "Dock" \
            "SystemUIServer" \
