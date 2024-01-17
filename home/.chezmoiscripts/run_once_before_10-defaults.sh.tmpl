@@ -11,6 +11,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Keyboard
 defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 12
+defaults write -g AppleKeyboardUIMode -int 3
 
 # Trackpad / Mouse
 defaults write -g com.apple.mouse.tapBehavior -int 1
@@ -60,7 +61,6 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 sudo nvram SystemAudioVolume=" "
-killall Finder
 
 # Desktop services
 # .DS_Store on network storages
@@ -83,7 +83,6 @@ defaults write com.apple.dock launchanim -bool false
 defaults write com.apple.dock no-bouncing -bool true
 ## Hidden Apps
 defaults write com.apple.dock showhidden -bool true
-killall Dock
 
 # SystemUIServer
 ## Date format
@@ -93,7 +92,13 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 ## Disable drop shadow on screenshot
 defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture type -string "png"
-killall SystemUIServer
+
+# Disk Utility.app
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+# Photos.app
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # Safari.app
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
@@ -115,3 +120,24 @@ defaults write com.apple.AdLib allowIdentifierForAdvertising -bool false
 ## Cloudflare DNS
 networksetup -setdnsservers Wi-Fi 2606:4700:4700::1111 2606:4700:4700::1001 1.1.1.1 1.0.0.1
 {{ end }}
+
+# Google Chrome
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.brave.Browser AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.brave.Browser AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+defaults write com.google.Chrome DisablePrintPreview -bool true
+defaults write com.brave.Browser DisablePrintPreview -bool true
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.brave.Browser PMPrintingExpandedStateForPrint2 -bool true
+
+for app in "Finder" \
+           "Dock" \
+           "SystemUIServer" \
+           "Safari" \
+           "Photos" \
+           "Google Chrome"
+           "Brave Browser"; do
+  killall "${app}" &> /dev/null
+done
