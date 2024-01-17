@@ -7,9 +7,9 @@ set -gx RUST_BACKTRACE full
 set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
 set -gx PYTHON_BUILD_HTTP_CLIENT "aria2c"
 
-{{ if ne .chezmoi.os "darwin" -}}
-set -gx PYTHON_CONFIGURE_OPTS "--enable-framework --enable-optimizations --with-lto=full"
-{{ else if ne .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "darwin" -}}
+set -gx PYTHON_CONFIGURE_OPTS "--enable-framework --enable-optimizations --with-lto=full --with-tcltk-includes='-I$(brew --prefix tcl-tk)/include' --with-tcltk-libs='-L$(brew --prefix tcl-tk)/lib -ltcl8.6 -ltk8.6'"
+{{ else if eq .chezmoi.os "linux" -}}
 set -gx PYTHON_CONFIGURE_OPTS "--enable-shared --enable-optimizations --with-lto=full"
 {{ else -}}
 set -gx PYTHON_CONFIGURE_OPTS "--enable-optimizations --with-lto=full"
