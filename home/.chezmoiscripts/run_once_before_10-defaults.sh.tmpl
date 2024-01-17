@@ -97,6 +97,9 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
+# Photos.app
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
 # Safari.app
 defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 defaults write com.apple.Safari ShowStatusBar -bool true
