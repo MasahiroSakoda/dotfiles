@@ -8,4 +8,4 @@ DOWNLOADER_OPTS="--external-downloader aria2c --external-downloader-args '-c -x 
 AUDIO_OPTS="--extract-audio --audio-format mp3 --audio-quiality 128k"
 
 cd "$DOWNLOAD_PATH"
-$(command -v yt-dlp) -civ "$DOWNLOADER_OPTS" "$AUDIO_OPTS" -o "%(title)s.%(ext)s" $1
+$(command -v yt-dlp) -civ "$DOWNLOADER_OPTS" "$AUDIO_OPTS" -o "%(title)s.%(ext)s" "$1"
