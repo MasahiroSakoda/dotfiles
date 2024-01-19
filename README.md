@@ -249,7 +249,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**black**][black]         | Fast `Python` formatter      |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
-| [**prettier**][prettier]      | Opinionated Code Formatter |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
 | [**stylua**][stylua]        | `Lua` formatter              |
 | [**xmlformatter**][xmlformatter]  | `XML` formatter              |
@@ -259,7 +258,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [black]: https://pypi.org/project/black/
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
-[prettier]: https://prettier.io
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
 [stylua]: https://github.com/JohnnyMorganz/StyLua
 [xmlformatter]: https://github.com/pamoller/xmlformatter
