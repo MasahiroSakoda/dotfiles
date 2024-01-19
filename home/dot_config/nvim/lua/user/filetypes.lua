@@ -83,6 +83,7 @@ Filetypes.lsp = {
   rubocop      = { ".rubocop.yml" },
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
+  deno         = { "deno.json", "deno.jsonc" },
   terraform    = { "terraform", "tf" },
 }
 
