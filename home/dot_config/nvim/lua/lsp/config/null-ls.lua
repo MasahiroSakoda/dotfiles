@@ -128,23 +128,26 @@ nl.setup({
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
     }),
 
-    -- prettier: JS, TS, JSON, YAML, md, GraphQL, etc...
-    formatting.prettier.with({
-      command   = "node_modules/.bin/prettier",
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "scss", "less", "graphql" },
+    -- biome: JavaScript, TypeScript
+    formatting.biome.with({
+      -- INFO: support language might be updated
+      -- check https://biomejs.dev/internals/language-support/
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
       condition = function(utils)
-        return utils.has_file(filetypes.lsp.prettier) and not utils.has_file(filetypes.lsp.eslint)
+        return utils.has_file(filetypes.lsp.prettier)
+            or utils.has_file(filetypes.lsp.eslint)
+            or utils.has_file(filetypes.lsp.biome)
       end,
     }),
-    -- diagnostics.eslint.with({
-    --   prefer_local = "node_modules/.bin",
-    --   -- command      = "bin/eslint",
-    --   condition    = function(utils)
-    --     return utils.has_file(filetypes.lsp.eslint) and not utils.has_file(filetypes.lsp.prettier)
-    --   end,
-    -- }),
-    -- code_actions.eslint,
-    -- formatting.deno_fmt,
+
+    diagnostics.deno_lint.with({
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
+      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
+    }),
+    formatting.deno_fmt.with({
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
+      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
+    }),
 
     formatting.markdownlint.with({
       filetypes = filetypes.markdown,

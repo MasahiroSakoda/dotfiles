@@ -28,7 +28,7 @@ return {
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
-  eslint       = require("lsp.servers.eslint"),         -- JavaScript/TypeScript Linter
+  biome        = {}, -- JavaScript/TypeScript & JSON
   rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
   ruff         = {}, -- Python Linter
 

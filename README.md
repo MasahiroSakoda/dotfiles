@@ -228,6 +228,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**ruff**][ruff]         | Fast `Python` Linter                 |
 | [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
+| [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**cmakelint**][cmakelint]    | `CMake` linter                       |
 | [**hadolint**][hadolint]     | `Dockerfile` linter                  |
 | [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
@@ -237,6 +238,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [ruff]: https://github.com/charliermarsh/ruff
 [rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
+[biome]: https://github.com/biomejs/biome
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
 [hadolint]: https://github.com/hadolint/hadolint
 [markdownlint]: https://github.com/igorshubovych/markdownlint-cli
@@ -249,7 +251,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**black**][black]         | Fast `Python` formatter      |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
-| [**prettier**][prettier]      | Opinionated Code Formatter |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
 | [**stylua**][stylua]        | `Lua` formatter              |
 | [**xmlformatter**][xmlformatter]  | `XML` formatter              |
@@ -259,7 +260,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [black]: https://pypi.org/project/black/
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
-[prettier]: https://prettier.io
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
 [stylua]: https://github.com/JohnnyMorganz/StyLua
 [xmlformatter]: https://github.com/pamoller/xmlformatter
