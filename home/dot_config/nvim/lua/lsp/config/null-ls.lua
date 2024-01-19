@@ -128,14 +128,6 @@ nl.setup({
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
     }),
 
-    -- diagnostics.eslint.with({
-    --   prefer_local = "node_modules/.bin",
-    --   -- command      = "bin/eslint",
-    --   condition    = function(utils)
-    --     return utils.has_file(filetypes.lsp.eslint) and not utils.has_file(filetypes.lsp.prettier)
-    --   end,
-    -- }),
-    -- code_actions.eslint,
     -- formatting.deno_fmt,
 
     formatting.markdownlint.with({

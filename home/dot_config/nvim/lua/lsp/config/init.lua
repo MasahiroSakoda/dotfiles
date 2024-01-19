@@ -75,8 +75,8 @@ local on_attach = function(client, bufnr)
 
   client.server_capabilities.offsetEncoding = { "utf-16" }
 
-  -- Avoid confliction tsserver + eslint & denols
-  if client.name == "tsserver" or client.name == "eslint" then
+  -- Avoid confliction tsserver & denols
+  if client.name == "tsserver" then
     for _, _client in ipairs(active_clients) do
       -- stop tsserver if denols is already active
       if _client.name == "denols" then
@@ -87,8 +87,6 @@ local on_attach = function(client, bufnr)
     -- prevent tsserver from starting if denols is already active
     for _, _client in ipairs(active_clients) do
       if _client.name == "tsserver" then
-        client.stop()
-      elseif _client.name == "eslint" then
         client.stop()
       end
     end
