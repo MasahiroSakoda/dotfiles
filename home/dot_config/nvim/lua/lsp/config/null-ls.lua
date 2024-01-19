@@ -134,15 +134,19 @@ nl.setup({
       -- check https://biomejs.dev/internals/language-support/
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
       condition = function(utils)
-        return utils.has_file(filetypes.lsp.prettier) or utils.has_file(filetypes.lsp.eslint) or utils.has_file(filetypes.lsp.biome)
+        return utils.has_file(filetypes.lsp.prettier)
+            or utils.has_file(filetypes.lsp.eslint)
+            or utils.has_file(filetypes.lsp.biome)
       end,
     }),
 
+    diagnostics.deno_lint.with({
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
+      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
+    }),
     formatting.deno_fmt.with({
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.deno)
-      end,
+      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
     }),
 
     formatting.markdownlint.with({
