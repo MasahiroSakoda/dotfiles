@@ -128,14 +128,6 @@ nl.setup({
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
     }),
 
-    -- prettier: JS, TS, JSON, YAML, md, GraphQL, etc...
-    formatting.prettier.with({
-      command   = "node_modules/.bin/prettier",
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "scss", "less", "graphql" },
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.prettier) and not utils.has_file(filetypes.lsp.eslint)
-      end,
-    }),
     -- diagnostics.eslint.with({
     --   prefer_local = "node_modules/.bin",
     --   -- command      = "bin/eslint",
