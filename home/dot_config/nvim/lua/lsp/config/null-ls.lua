@@ -138,7 +138,12 @@ nl.setup({
       end,
     }),
 
-    -- formatting.deno_fmt,
+    formatting.deno_fmt.with({
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
+      condition = function(utils)
+        return utils.has_file(filetypes.lsp.deno)
+      end,
+    }),
 
     formatting.markdownlint.with({
       filetypes = filetypes.markdown,
