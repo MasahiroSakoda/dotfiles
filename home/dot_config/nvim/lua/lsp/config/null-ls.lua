@@ -134,10 +134,25 @@ nl.setup({
       -- check https://biomejs.dev/internals/language-support/
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
       condition = function(utils)
-        return utils.has_file(filetypes.lsp.prettier)
-            or utils.has_file(filetypes.lsp.eslint)
-            or utils.has_file(filetypes.lsp.biome)
+        -- TODO: uncomment after following command is usable
+        --`biome migrate prettier` & `biome migrate eslint`
+        -- if utils.has_file(filetypes.lsp.prettier) then
+        --   vim.fn.system({ "biome", "migrate", "prettier" })
+        --   vim.notify("`prettier` config migrated to `biome.json`", vim.log.levels.INFO)
+        -- elseif utils.has_file(filetypes.lsp.eslint) then
+        --   vim.fn.system({ "biome", "migrate", "eslint" })
+        --   vim.notify("`eslint` config migrated to `biome.json`", vim.log.levels.INFO)
+        -- end
+        return utils.has_file(filetypes.lsp.biome)
       end,
+      args = {
+        "check",
+        "--apply-unsafe",
+        "--formatter-enabled=true",
+        "--organize-imports-enabled=true",
+        "--skip-errors",
+        "$FILENAME",
+      },
     }),
 
     diagnostics.deno_lint.with({
