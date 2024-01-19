@@ -228,6 +228,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**ruff**][ruff]         | Fast `Python` Linter                 |
 | [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
+| [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**cmakelint**][cmakelint]    | `CMake` linter                       |
 | [**hadolint**][hadolint]     | `Dockerfile` linter                  |
 | [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
@@ -237,6 +238,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [ruff]: https://github.com/charliermarsh/ruff
 [rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
+[biome]: https://github.com/biomejs/biome
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
 [hadolint]: https://github.com/hadolint/hadolint
 [markdownlint]: https://github.com/igorshubovych/markdownlint-cli
