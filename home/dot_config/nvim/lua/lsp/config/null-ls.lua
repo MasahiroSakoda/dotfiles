@@ -128,6 +128,16 @@ nl.setup({
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
     }),
 
+    -- biome: JavaScript, TypeScript
+    formatting.biome.with({
+      -- INFO: support language might be updated
+      -- check https://biomejs.dev/internals/language-support/
+      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
+      condition = function(utils)
+        return utils.has_file(filetypes.lsp.prettier) or utils.has_file(filetypes.lsp.eslint) or utils.has_file(filetypes.lsp.biome)
+      end,
+    }),
+
     -- formatting.deno_fmt,
 
     formatting.markdownlint.with({
