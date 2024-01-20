@@ -1,0 +1,10 @@
+// -*-mode:javascript-*- vim:ft=javascript
+
+const downloadPath   = "~/Downloads/YouTube/Videos"
+const downloaderOpts = "--external-downloader aria2c --external-downloader-args '-c -x 5 -k 2M'"
+const formatOpts     = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+const codecOpts      = "vcodec:h264"
+const binPath        = "{{ .brew_prefix }}/bin/yt-dlp"
+
+const cmd = `cd ${downloadPath} && ${binPath} -civ ${downloaderOpts} -f ${formatOpts} -S ${codecOpts} -o "%(title)s.%(ext)s" ${location.href}`
+tri.native.run(cmd)
