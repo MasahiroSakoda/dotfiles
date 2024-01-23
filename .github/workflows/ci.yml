@@ -70,3 +70,7 @@ jobs:
           enableCrossOsArchive: true
           path: /Users/runner/.local/share/mise
           key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
+
+      - name: Remove age key
+        if: always()
+        run: rm ${HOME}/.config/chezmoi/key.txt
