@@ -41,6 +41,13 @@ jobs:
           path: /Users/runner/.local/share/mise
           key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
 
+      - name: Decrypt age key
+        env:
+          AGE_DECRYPT_PASS: ${{ secrets.AGE_DECRYPT_PASS }}
+        run: |
+          mkdir -p ${HOME}/.config/chezmoi
+          echo "${{ secrets.CHEZMOI_KEY }}" | base64 -d > ${HOME}/.config/chezmoi/key.txt
+
       - name: Install dotfiles
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
