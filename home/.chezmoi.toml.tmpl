@@ -52,37 +52,37 @@ format = "json"
 color = "on"
 
 [data]
-    docker    = {{ $docker }}
-    ephemeral = {{ $ephemeral }}
-    flarm     = {{ $flarm }}
-    headless  = {{ $headless }}
-    hostname  = {{ $hostname | quote }}
-    personal  = {{ $personal }}
-    graphics  = {{ $graphics }}
-    cloud     = {{ $cloud }}
-    osid      = {{ $osID | quote }}
-    brew_prefix = {{ $brew_prefix | quote }}
+docker    = {{ $docker }}
+ephemeral = {{ $ephemeral }}
+flarm     = {{ $flarm }}
+headless  = {{ $headless }}
+hostname  = {{ $hostname | quote }}
+personal  = {{ $personal }}
+graphics  = {{ $graphics }}
+cloud     = {{ $cloud }}
+osid      = {{ $osID | quote }}
+brew_prefix = {{ $brew_prefix | quote }}
 
 [data.git]
-    user  = {{ $user | quote }}
-    email = {{ $email | quote }}
+user  = {{ $user | quote }}
+email = {{ $email | quote }}
 
 [edit]
-    command = "nvim"
-    apply = false
+command = "nvim"
+apply = false
 
 [git]
-    autoCommit = false
-    autoPush   = false
+autoCommit = false
+autoPush   = false
 
 [diff]
-    format = "git"
-    pager = "delta"
+format = "git"
+pager = "delta"
 
 [merge]
-    command = "nvim"
-    args = "-d"
+command = "nvim"
+args = "-d"
 
 [age]
-    identity  = "~/.config/chezmoi/key.txt"
-    recipient = "age1nrn7s9fyggv6e6nhvksv96nh29k9euvtzd854fxlju53jr2hn5ds7xqnmq"
+identity  = "~/.config/chezmoi/key.txt"
+recipient = "age1nrn7s9fyggv6e6nhvksv96nh29k9euvtzd854fxlju53jr2hn5ds7xqnmq"
