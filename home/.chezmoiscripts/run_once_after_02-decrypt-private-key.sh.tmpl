@@ -4,8 +4,15 @@
 set -eo pipefail
 
 {{ template "common/script_helper" . }}
+chezmoi_config_dir="${HOME}/.config/chezmoi"
 
-if command_exists age && [ ! -f "${HOME}/key.txt" ]; then
-  age --decrypt --output "${HOME}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
-  chmod 600 "${HOME}/key.txt"
+if command_exists age && [ ! -f "${chezmoi_config_dir}/key.txt" ]; then
+  echo "Decrypting state encryption private key..."
+
+  mkdir -p "${chezmoi_config_dir}"
+  age --decrypt --output "${chezmoi_config_dir}/key.txt" "{{ .chezmoi.sourceDir }}/key.txt.age"
+  chmod 600 "${chezmoi_config_dir}/key.txt"
+
+  echo "Decrypted state encryption private key."
+  echo
 fi
