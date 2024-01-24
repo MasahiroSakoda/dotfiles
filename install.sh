@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
 
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --verbose --apply MasahiroSakoda
