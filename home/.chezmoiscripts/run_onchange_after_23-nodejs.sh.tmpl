@@ -10,7 +10,9 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 mkdir -p "$HOME/.local/share/pnpm"
 
-# $(command -v pnpm) setup
+{{- if not .headless }}
+$(command -v pnpm) setup
 {{- range .packages.npm | uniq }}
 $(command -v pnpm) add -g {{ . }}
+{{- end }}
 {{- end }}
