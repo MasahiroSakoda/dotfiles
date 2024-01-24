@@ -10,10 +10,6 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 mkdir -p "$HOME/.local/share/pnpm"
 
-if ! command_exists pnpm; then
-  $(command -v pnpm) install-completion fish
-fi
-
 # $(command -v pnpm) setup
 {{- range .packages.npm | uniq }}
 $(command -v pnpm) add -g {{ . }}

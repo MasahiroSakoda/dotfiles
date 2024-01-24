@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*-mode:sh-*- vim:ft=sh
 
-set -e
+set -eo pipefail
 
 {{ template "darwin/script_darwin_only" . }}
 {{ template "common/script_sudo" . }}
