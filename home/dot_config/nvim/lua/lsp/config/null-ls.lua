@@ -59,7 +59,9 @@ nl.setup({
     completion.tags,
 
     -- Dockerfile
-    diagnostics.hadolint,
+    diagnostics.hadolint.with({
+      filetypes = { "dockerfile" },
+    }),
 
     -- Git
     code_actions.gitsigns,
