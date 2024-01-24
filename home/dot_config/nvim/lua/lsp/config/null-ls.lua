@@ -59,7 +59,9 @@ nl.setup({
     completion.tags,
 
     -- Dockerfile
-    diagnostics.hadolint,
+    diagnostics.hadolint.with({
+      filetypes = { "dockerfile" },
+    }),
 
     -- Git
     code_actions.gitsigns,
@@ -78,7 +80,9 @@ nl.setup({
        extra_args = { "--config", vim.fn.stdpath "config" .. "/format/checkmake.toml" },
     }),
     -- CMake
-    formatting.cmake_format,
+    formatting.cmake_format.with({
+      filetypes = { "cmake" },
+    }),
     diagnostics.cmake_lint,
 
     -- C/C++
@@ -88,7 +92,7 @@ nl.setup({
       condition  = function(utils)
         return utils.root_has_file(filetypes.lsp.clang_format)
       end,
-      filetype   = { "c", "h", "cpp", "hpp", "cxx", "cc", "hxx", "tcc" },
+      filetypes  = { "c", "h", "cpp", "hpp", "cxx", "cc", "hxx", "tcc" },
       extra_args = {
         "--style={"
         .. "BasedOnStyle: llvm, "
