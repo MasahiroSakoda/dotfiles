@@ -80,7 +80,9 @@ nl.setup({
        extra_args = { "--config", vim.fn.stdpath "config" .. "/format/checkmake.toml" },
     }),
     -- CMake
-    formatting.cmake_format,
+    formatting.cmake_format.with({
+      filetypes = { "cmake" },
+    }),
     diagnostics.cmake_lint,
 
     -- C/C++
