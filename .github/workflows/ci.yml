@@ -36,13 +36,6 @@ jobs:
           path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
-      - name: Restore mise cache
-        uses: actions/cache/restore@v4
-        with:
-          enableCrossOsArchive: true
-          path: ${HOME}/.local/share/mise
-          key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
-
       - name: Decrypt age key
         env:
           AGE_DECRYPT_PASS: ${{ secrets.AGE_DECRYPT_PASS }}
