@@ -11,6 +11,7 @@ concurrency:
 
 env:
   cache-version: v5
+  HOMEBREW_NO_INSTALL_FROM_API:
 
 jobs:
   ci:
@@ -33,7 +34,7 @@ jobs:
         with:
           enableCrossOsArchive: true
           # TODO: enable for cross platform env
-          path: ${HOME}/Library/Caches/Homebrew
+          path: ~/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       - name: Decrypt age key
@@ -67,22 +68,14 @@ jobs:
         with:
           enableCrossOsArchive: true
           # TODO: enable for cross platform env
-          path: ${HOME}/Library/Caches/Homebrew
+          path: ~/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       - name: Install runtime with mise
         if: always()
         env:
-          MISE_TRUSTED_CONFIG_PATHS: ${HOME}/.config/mise/config.toml
+          MISE_TRUSTED_CONFIG_PATHS: ~/.config/mise/config.toml
         uses: jdx/mise-action@v2
-
-      - name: Save mise cache
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          enableCrossOsArchive: true
-          path: ${HOME}/.local/share/mise
-          key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
 
       - name: Remove age key
         if: always()
