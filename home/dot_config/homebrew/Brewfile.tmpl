@@ -10,12 +10,12 @@ brew "gnutls"
 brew "coreutils"
 brew "openssl"
 brew "gnupg"
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 brew "pinentry-mac"
 
 ## Xcode
 brew "xcbeautify"
-{{ end }}
+{{- end }}
 
 ## Shell
 brew "fish"
@@ -78,7 +78,7 @@ brew "goreleaser/tap/goreleaser"
 brew "tcl-tk"
 brew "python-tk@3.12"
 
-{{ if not .headless }}
+{{- if not .headless }}
 ## CSV
 brew "csview"
 brew "xsv"
@@ -87,15 +87,15 @@ brew "xsv"
 brew "cjson"
 
 ## DevOps
-{{ if .cloud }}
+{{- if .cloud }}
 ### AWS
 brew "awscli"
 
 ### Azure
 brew "azure-cli"
 
-{{ end }}
-{{ if .docker }}
+{{- end }}
+{{- if .docker }}
 ### Kubernetes
 brew "kubernetes-cli"
 brew "helm"      # Kubernetes package manager
@@ -106,7 +106,7 @@ brew "kind"      # Run local Kubernetes cluster in Docker
 brew "krew"      # kubectl plugin manager
 brew "kubectx"   # Tool that can switch between kubectl contexts easily and create aliases
 brew "kustomize" # Template-free customization of Kubernetes YAML manifests
-{{ end }}
+{{- end }}
 
 ### Terraform
 brew "terraform"
@@ -139,10 +139,10 @@ brew "yt-dlp"
 
 ## RSS
 brew "newsboat"
-{{ end }}
+{{- end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
 # Linux packages
 brew "util-linux"
 brew "cups"
-{{ end }}
+{{- end }}
