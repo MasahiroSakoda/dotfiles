@@ -3,6 +3,8 @@
 
 set -eo pipefail
 
+{{- if not .headless }}
 mise trust $HOME/.config/mise/config.toml
 mise install
 mise current
+{{- end }}

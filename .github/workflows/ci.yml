@@ -75,6 +75,11 @@ jobs:
           path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
+      - name: Install runtime with mise
+        uses: jdx/mise-action@v2
+        with:
+          version: latest
+
       - name: Save mise cache
         uses: actions/cache/save@v4
         if: always()
