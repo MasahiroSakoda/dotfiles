@@ -59,7 +59,7 @@ jobs:
 
       - name: Save Homebrew cache
         uses: actions/cache/save@v4
-        # if: always()
+        if: always()
         with:
           enableCrossOsArchive: true
           path: ${HOME}/Library/Caches/Homebrew
