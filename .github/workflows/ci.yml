@@ -32,14 +32,14 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/Library/Caches/Homebrew
+          path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       - name: Restore mise cache
         uses: actions/cache/restore@v4
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/.local/share/mise
+          path: ${HOME}/.local/share/mise
           key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
 
       - name: Decrypt age key
@@ -62,7 +62,7 @@ jobs:
         # if: always()
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/Library/Caches/Homebrew
+          path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       - name: Save mise cache
@@ -70,7 +70,7 @@ jobs:
         if: always()
         with:
           enableCrossOsArchive: true
-          path: /Users/runner/.local/share/mise
+          path: ${HOME}/.local/share/mise
           key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
 
       - name: Remove age key
