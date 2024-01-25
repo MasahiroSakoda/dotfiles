@@ -32,6 +32,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           enableCrossOsArchive: true
+          # TODO: enable for cross platform env
           path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
@@ -57,11 +58,20 @@ jobs:
         run: |
           sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
 
+      - name: Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Install Homebrew packages with Brewfile
+        run: |
+          brew update
+          brew bundle -v --file=${HOME}/.config/homebrew/Brewfile
+
       - name: Save Homebrew cache
         uses: actions/cache/save@v4
         if: always()
         with:
           enableCrossOsArchive: true
+          # TODO: enable for cross platform env
           path: ${HOME}/Library/Caches/Homebrew
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 

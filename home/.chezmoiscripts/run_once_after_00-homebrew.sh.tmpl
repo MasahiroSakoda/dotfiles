@@ -7,6 +7,7 @@ set -eo pipefail
 {{ template "common/script_sudo" . }}
 {{ template "common/script_helper" . }}
 
+{{- if not .headless }}
 # Install Homebrew
 BREW_DIR="$HOME/.config/homebrew"
 if ! command_exists brew && [ -f "$BREW_DIR/Brewfile" ]; then
@@ -16,9 +17,8 @@ fi
 # Install Homebrew packages
 brew bundle -v --file="$BREW_DIR/Brewfile"
 
-{{ if not .headless }}
 brew bundle -v --file="$BREW_DIR/Caskfile"
 brew bundle -v --file="$BREW_DIR/Masfile"
-{{ end }}
+{{- end }}
 
 brew list
