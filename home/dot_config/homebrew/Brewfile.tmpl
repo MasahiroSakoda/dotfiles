@@ -5,19 +5,17 @@
 # tap "Homebrew/bundle"
 # tap "wfxr/csview"
 
-tap "dopplerhq/cli"
-
 ## GNU
 brew "gnutls"
 brew "coreutils"
 brew "openssl"
 brew "gnupg"
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 brew "pinentry-mac"
 
 ## Xcode
 brew "xcbeautify"
-{{ end }}
+{{- end }}
 
 ## Shell
 brew "fish"
@@ -31,6 +29,10 @@ brew "ast-grep"
 brew "procs"
 brew "thefuck"
 brew "fzf"
+
+## Downloader
+brew "wget"
+brew "curl"
 
 # Screen
 brew "tmux"
@@ -48,7 +50,6 @@ brew "hyperfine"
 
 ## Security
 brew "age"
-brew "dopplerhq/cli/doppler"
 
 ## Version Control
 brew "git"
@@ -81,7 +82,7 @@ brew "goreleaser/tap/goreleaser"
 brew "tcl-tk"
 brew "python-tk@3.12"
 
-{{ if not .headless }}
+{{- if not .headless }}
 ## CSV
 brew "csview"
 brew "xsv"
@@ -90,15 +91,15 @@ brew "xsv"
 brew "cjson"
 
 ## DevOps
-{{ if .cloud }}
+{{- if and .cloud (not .headless) }}
 ### AWS
 brew "awscli"
 
 ### Azure
 brew "azure-cli"
 
-{{ end }}
-{{ if .docker }}
+{{- end }}
+{{- if .docker }}
 ### Kubernetes
 brew "kubernetes-cli"
 brew "helm"      # Kubernetes package manager
@@ -109,7 +110,7 @@ brew "kind"      # Run local Kubernetes cluster in Docker
 brew "krew"      # kubectl plugin manager
 brew "kubectx"   # Tool that can switch between kubectl contexts easily and create aliases
 brew "kustomize" # Template-free customization of Kubernetes YAML manifests
-{{ end }}
+{{- end }}
 
 ### Terraform
 brew "terraform"
@@ -135,17 +136,15 @@ brew "hashcat"
 brew "hcxtools"
 
 ## Downloader
-brew "wget"
-brew "curl"
 brew "aria2"
 brew "yt-dlp"
 
 ## RSS
 brew "newsboat"
-{{ end }}
+{{- end }}
 
-{{ if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
 # Linux packages
 brew "util-linux"
 brew "cups"
-{{ end }}
+{{- end }}
