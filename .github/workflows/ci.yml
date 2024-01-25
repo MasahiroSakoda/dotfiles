@@ -53,7 +53,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run: |
+          run: rm '/usr/local/bin/2to3'
+          sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
 
       - name: Save Homebrew cache
         uses: actions/cache/save@v4

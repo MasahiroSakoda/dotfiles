@@ -1,9 +1,8 @@
 # -*-mode:ruby-*- vim:ft=ruby
 
 # Homebrew
-# tap "Homebrew/core"
-# tap "Homebrew/bundle"
-# tap "wfxr/csview"
+tap "Homebrew/core"
+tap "Homebrew/bundle"
 
 ## GNU
 brew "gnutls"
@@ -84,7 +83,6 @@ brew "python-tk@3.12"
 
 {{- if not .headless }}
 ## CSV
-brew "csview"
 brew "xsv"
 
 ## JSON
