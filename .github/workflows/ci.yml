@@ -21,7 +21,7 @@ jobs:
         - macos-latest
     runs-on: ${{ matrix.os }}
     continue-on-error: true
-    timeout-minutes: 20
+    timeout-minutes: 30
     # sptesの並列化で高速化できる
     # https://qiita.com/qualitia_cdev/items/407b0df9c0a0f0f45bbc
     steps:
@@ -59,16 +59,18 @@ jobs:
           sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
 
       - name: Setup Homebrew
+        if: always()
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Install Homebrew packages with Brewfile
+        if: always()
         run: |
           brew update
           brew bundle -v --file=${HOME}/.config/homebrew/Brewfile
 
       - name: Save Homebrew cache
-        uses: actions/cache/save@v4
         if: always()
+        uses: actions/cache/save@v4
         with:
           enableCrossOsArchive: true
           # TODO: enable for cross platform env
@@ -76,13 +78,14 @@ jobs:
           key: ${{ runner.os }}-homebrew-cache-${{ env.cache-version }}
 
       - name: Install runtime with mise
+        if: always()
         uses: jdx/mise-action@v2
         with:
           version: latest
 
       - name: Save mise cache
-        uses: actions/cache/save@v4
         if: always()
+        uses: actions/cache/save@v4
         with:
           enableCrossOsArchive: true
           path: ${HOME}/.local/share/mise
