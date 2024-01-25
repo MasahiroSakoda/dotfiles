@@ -62,9 +62,6 @@ brew "lazygit"
 brew "gh"
 brew "ghq"
 
-## Version Management
-brew "mise"
-
 ## Build
 brew "cmake"
 
@@ -82,6 +79,9 @@ brew "tcl-tk"
 brew "python-tk@3.12"
 
 {{- if not .headless }}
+## Version Management
+brew "mise"
+
 ## CSV
 brew "xsv"
 
