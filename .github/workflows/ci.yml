@@ -11,6 +11,7 @@ concurrency:
 
 env:
   cache-version: v5
+  HOMEBREW_NO_INSTALL_FROM_API:
 
 jobs:
   ci:
