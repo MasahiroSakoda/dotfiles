@@ -54,7 +54,7 @@ jobs:
           GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
           GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
         run: |
-          run: rm '/usr/local/bin/2to3'
+          rm '/usr/local/bin/2to3'
           sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
 
       - name: Save Homebrew cache

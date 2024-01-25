@@ -69,8 +69,9 @@ nl.setup({
     -- GitHub Actions workflow
     diagnostics.actionlint.with({
       filetypes = filetypes.actions,
-      runtime_condition = function(params)
-        return params.bufname:match("\\.github/workflows") ~= nil
+      condition = function(_)
+        local path = api.nvim_buf_get_name(api.nvim_get_current_buf())
+        return path:match("github/workflows/") ~= nil
       end,
     }),
 
