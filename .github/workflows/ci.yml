@@ -80,8 +80,6 @@ jobs:
       - name: Install runtime with mise
         if: always()
         uses: jdx/mise-action@v2
-        with:
-          version: latest
 
       - name: Save mise cache
         if: always()
