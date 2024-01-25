@@ -77,14 +77,6 @@ jobs:
           MISE_TRUSTED_CONFIG_PATHS: ~/.config/mise/config.toml
         uses: jdx/mise-action@v2
 
-      - name: Save mise cache
-        if: always()
-        uses: actions/cache/save@v4
-        with:
-          enableCrossOsArchive: true
-          path: ~/.local/share/mise
-          key: ${{ runner.os }}-mise-cache-${{ env.cache-version }}
-
       - name: Remove age key
         if: always()
         run: rm ${HOME}/.config/chezmoi/key.txt
