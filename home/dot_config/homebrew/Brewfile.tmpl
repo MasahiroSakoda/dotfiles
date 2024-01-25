@@ -91,7 +91,7 @@ brew "xsv"
 brew "cjson"
 
 ## DevOps
-{{- if .cloud }}
+{{- if and .cloud (not .headless) }}
 ### AWS
 brew "awscli"
 
