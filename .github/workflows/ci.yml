@@ -72,6 +72,8 @@ jobs:
 
       - name: Install runtime with mise
         if: always()
+        env:
+          MISE_TRUSTED_CONFIG_PATHS: ${HOME}/.config/mise/config.toml
         uses: jdx/mise-action@v2
 
       - name: Save mise cache
