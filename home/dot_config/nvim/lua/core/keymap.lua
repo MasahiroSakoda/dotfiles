@@ -30,14 +30,6 @@ wk.register({
   ["<Leader>wl"] = { ":WhichKey <Leader><CR>",   "   Show all <Leader> mappings" },
   ["<Leader>wv"] = { ":WhichKey <Leader> v<CR>", "   Show all <Leader> mappings for VISUAL mode" },
 })
-wk.register({
-  mode = "n",
-  silent = false,
-  ["<Leader>k"] = { name = "⌨️   Hawtkeys" },
-  ["<Leader>ks"] = { ":Hawtkeys<CR>", "   Searching New Keymaps" },
-  ["<Leader>ka"] = { ":Hawtkeys<CR>", "   Show All Existing Keymaps" },
-  ["<Leader>kd"] = { ":Hawtkeys<CR>", "   Show Duplicated Keymaps" },
-})
 
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
