@@ -1,0 +1,20 @@
+# -*-mode:toml-*- vim:ft=toml
+
+{{- if eq .chezmoi.os "linux" }}
+[".local/share/fonts/JetBrainsMono"]
+type = "archive"
+url  = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
+refreshPeriod = "168h"
+
+[".local/share/fonts/HackGen"]
+{{- $latestVersion := (gitHubLatestRelease "yuru7/HackGen").TagName }}
+type = "archive"
+url  = "https://github.com/yuru7/HackGen/releases/download/{{ $latestVersion }}/HackGen_NF_{{ $latestVersion }}.zip"
+refreshPeriod = "168h"
+
+[".local/share/fonts/UDEV-Gothic"]
+{{- $latestVersion := (gitHubLatestRelease "yuru7/udev-gothic").TagName }}
+type = "archive"
+url  = "https://github.com/yuru7/udev-gothic/releases/download/{{ $latestVersion }}UDEVGothic_NF_{{ $latestVersion }}.zip"
+refreshPeriod = "168h"
+{{- end }}
