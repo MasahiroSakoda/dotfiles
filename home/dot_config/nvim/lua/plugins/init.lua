@@ -270,18 +270,6 @@ return {
   },
 
   ------------------------------------------------------------------------
-  -- Development
-  ------------------------------------------------------------------------
-  {
-    "wojciech-kulik/xcodebuild.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      require("user.xcodebuild")
-      require("dap.adapters.xcodebuild")
-    end,
-  },
-
-  ------------------------------------------------------------------------
   -- Treesitter: Language Parser / Syntax highlighter
   ------------------------------------------------------------------------
   {
