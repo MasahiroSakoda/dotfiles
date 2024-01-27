@@ -386,3 +386,4 @@ See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/do
 
 * [ ] Cross platform support
 * [ ] activate switching for personal/work usage
+* [ ] support minimal install
