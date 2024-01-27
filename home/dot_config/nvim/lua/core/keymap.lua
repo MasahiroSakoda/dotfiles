@@ -277,34 +277,6 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
--- IDE Integration
----------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  silent = true,
-  ["<Leader>x"]   = { name = "💻   Xcodebuild" },
-  ["<Leader>xs"]  = { ":XcodebuildSetup<CR>",  "   Run configuration wizard to select project configuration" },
-  ["<Leader>xa"]  = { ":XcodebuildPicker<CR>", "   Show picker with all available actions" },
-
-  ["<Leader>xp"]  = { ":XcodebuildSelectProject<CR>",  "   Show project file picker" },
-  ["<Leader>xS"]  = { ":XcodebuildSelectScheme<CR>",   "   Show scheme picker" },
-  ["<Leader>xc"]  = { ":XcodebuildSelectConfig<CR>",   "   Show build configuration picker" },
-  ["<Leader>xC"]  = { ":XcodebuildShowConfig<CR>",     "   Print current project configuration" },
-  ["<Leader>xd"]  = { ":XcodebuildSelectDevice<CR>",   "   Show device picker" },
-  ["<Leader>xP"]  = { ":XcodebuildSelectTestPlan<CR>", "   Show test plan picker" },
-  ["<Leader>xl"]  = { ":XcodebuildToggleLogs<CR>",     "   Toggle logs panel" },
-
-  ["<Leader>xb"]  = { ":XcodebuildBuild<CR>",        "   Build project" },
-  ["<Leader>xB"]  = { ":XcodebuildBuildRun<CR>",     "   Build & run app" },
-  ["<Leader>x."]  = { ":XcodebuildCancel<CR>",       "   Cancel currently running action" },
-  ["<Leader>xT"]  = { ":XcodebuildTest<CR>",         "   Run tests (whole test plan)" },
-  ["<Leader>xtc"] = { ":XcodebuildTestClass<CR>",    "   Run test class (where the cursor is)" },
-  ["<Leader>xtf"] = { ":XcodebuildTestFunc<CR>",     "   Run test (where the cursor is)" },
-  ["<Leader>xts"] = { ":XcodebuildTestSelected<CR>", "   Run selected tests (using visual mode)" },
-  ["<Leader>xtF"] = { ":XcodebuildTestFailing<CR>",  "   Rerun previously failed tests" },
-})
-
----------------------------------------------------------------------------
 -- Terminal
 ---------------------------------------------------------------------------
 keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "   Toggle Terminal" })
