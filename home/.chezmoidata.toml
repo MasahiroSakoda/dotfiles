@@ -76,7 +76,6 @@ vscode = [
   "christian-kohler.path-intellisense",
   # Environment
   "GitHub.codespaces",
-  "GitHub.copilot",
   "ms-azuretools.vscode-docker",
   "ms-vscode-remote.remote-containers",
   "ms-vscode-remote.remote-ssh",
@@ -99,8 +98,5 @@ vscode = [
   "alefragnani.Bookmarks",
   "alefragnani.project-manager",
   "Gruntfuggly.todo-tree",
-  "wayou.vscode-todo-highlight",
   "usernamehw.errorlens",
-  "redhat.vscode-xml",
-  "redhat.vscode-yaml",
 ]
