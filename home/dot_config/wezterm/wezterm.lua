@@ -23,6 +23,7 @@ config.initial_rows = 80  ---@type integer
 
 -- renderer
 config.front_end = "WebGpu"
+config.webgpu_power_preference = "LowPower" ---@type "LowPower"|"HighPerformance"
 
 -- Theme
 wezterm.GLOBAL.color_scheme_index = wezterm.GLOBAL.color_scheme_index or 1
