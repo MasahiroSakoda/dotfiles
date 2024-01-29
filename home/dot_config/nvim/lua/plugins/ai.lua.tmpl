@@ -1,0 +1,27 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+return {
+  {{- if .neovim.plugins.copilot }}
+  -- GitHub Copilot interaction
+  {
+    "zbirenbaum/copilot.lua",
+    build  = ":Copilot auth",
+    cmd    = "Copilot",
+    event  = "InsertEnter",
+    config = function() require("ai.copilot") end,
+  },
+  {{- end }}
+  {{- if .neovim.plugins.chatgpt }}
+  -- ChatGPT client
+  {
+    "jackMort/ChatGPT.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd    = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
+    config = function() require("ai.chatgpt") end,
+  }
+  {{- end }}
+}

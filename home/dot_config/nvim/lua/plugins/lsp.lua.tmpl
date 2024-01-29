@@ -1,0 +1,58 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+return {
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
+      { "williamboman/mason-lspconfig.nvim" },
+      { "folke/neodev.nvim" },
+      { "folke/neoconf.nvim", cmd = "Neoconf" },
+    },
+    event  = { "BufReadPre", "BufNewFile" },
+    config = function() require("lsp.config") end,
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event  = { "BufReadPre", "BufNewFile" },
+    config = function() require("lsp.config.null-ls") end,
+  },
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = { "neovim/nvim-lspconfig" },
+    cond   = not vim.g.vscode,
+    config = function() require("lsp.config.navic") end,
+  },
+  {
+    "nvimdev/lspsaga.nvim", -- Rich GUI for LSP
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "LspAttach",
+    config = function() require("lsp.config.lspsaga") end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    cmd    = { "DapInstall", "DapUninstall" },
+    config = function() require("dap.config.mason-dap") end,
+  },
+  {
+    "j-hui/fidget.nvim", -- Status GUI for LSP
+    event = "LspAttach",
+    config = function() require("lsp.config.fidget") end,
+  },
+  {
+    "folke/trouble.nvim", -- Display diagnostics
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond   = not vim.g.vscode,
+    cmd    = { "TroubleToggle", "Trouble" },
+    config = function() require("lsp.config.trouble") end,
+  },
+
+}
