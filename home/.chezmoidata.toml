@@ -28,6 +28,10 @@ images = [
   "daft-punk-punk-edm-music-wallpaper.jpg",
 ]
 
+[neovim.plugins]
+chatgpt = true
+copilot = true
+
 [mise]
 bun    = "1"
 deno   = "1"
