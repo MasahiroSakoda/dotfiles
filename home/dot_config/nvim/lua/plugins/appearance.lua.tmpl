@@ -1,0 +1,65 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+return {
+  -- colorscheme
+  { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
+
+  {
+    "NvChad/nvim-colorizer.lua", -- Color code viewer
+    -- event  = { "BufReadPost", "BufNewFile" },
+    cmd = { "ColorizerToggle" },
+    config = function() require("ui.colorizer") end,
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim", -- Indent guides
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    main   = "ibl",
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("ui.indent-blankline") end,
+  },
+  {
+    "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
+    event  = "SearchWrapped",
+    config = function() require("ui.hlslens") end,
+  },
+  {
+    "petertriho/nvim-scrollbar", -- Extensible Scrollbar
+    dependencies = {
+      "kevinhwang91/nvim-hlslens",
+      "lewis6991/gitsigns.nvim",
+    },
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("ui.scrollbar") end,
+  },
+  {
+    "akinsho/bufferline.nvim", -- Tab page integration
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond   = not vim.g.vscode,
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("ui.bufferline") end,
+  },
+  {
+    "nvim-lualine/lualine.nvim", -- Status Line
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("ui.lualine") end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd    = "Neotree",
+    cond   = not vim.g.vscode,
+    config = function() require("ui.neo-tree") end,
+  },
+  {
+    "lewis6991/gitsigns.nvim", -- Git integration
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("user.gitsigns") end,
+  },
+}
