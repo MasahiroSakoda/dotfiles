@@ -1,0 +1,42 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd    = "Telescope",
+    module = "Telescope",
+    config = function() require("user.telescope") end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function() require("user.telescope.frecency") end,
+  },
+  {
+    "fdschmidt93/telescope-egrepify.nvim",
+    cmd = "Telescope egrepify",
+    config = function() require("user.telescope.egrepify") end,
+  },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    config = function() require("user.telescope.file_browser") end,
+  },
+  {
+    "benfowler/telescope-luasnip.nvim",
+    module = "telescope._extensions.luasnip",
+  },
+  {
+    "tsakirist/telescope-lazy.nvim",
+    config = function() require("user.telescope.lazy") end,
+  },
+  {
+    "nvim-telescope/telescope-dap.nvim",
+  },
+}
