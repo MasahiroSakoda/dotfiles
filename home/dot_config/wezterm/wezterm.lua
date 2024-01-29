@@ -18,7 +18,7 @@ config.status_update_interval = 1000 ---@type integer
 --------------------------------------------------
 -- Appearance
 --------------------------------------------------
-config.initial_cols = 100 ---@type integer
+config.initial_cols = 200 ---@type integer
 config.initial_rows = 25  ---@type integer
 
 -- Theme
