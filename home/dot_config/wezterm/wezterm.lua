@@ -21,6 +21,9 @@ config.status_update_interval = 1000 ---@type integer
 config.initial_cols = 200 ---@type integer
 config.initial_rows = 80  ---@type integer
 
+-- renderer
+config.front_end = "WebGpu"
+
 -- Theme
 wezterm.GLOBAL.color_scheme_index = wezterm.GLOBAL.color_scheme_index or 1
 config.color_scheme = require("theme").color_schemes[wezterm.GLOBAL.color_scheme_index]
