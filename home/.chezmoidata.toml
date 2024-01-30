@@ -90,8 +90,6 @@ vscode = [
   "ms-python.isort",
   "ms-python.python",
   "ms-python.vscode-pylance",
-  # C, C++, Rust etc...
-  "ms-vscode.cpptools",
   # Tools
   "alefragnani.Bookmarks",
   "alefragnani.project-manager",
