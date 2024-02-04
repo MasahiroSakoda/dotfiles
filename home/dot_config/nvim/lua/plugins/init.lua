@@ -1,31 +1,14 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  -- Dependencies
   require("plugins.dependencies"),
-
-  -- Appearance
   require("plugins.appearance"),
-
-  -- Editor
   require("plugins.editor"),
-
-  -- LSP: Language Server Protocol
   require("plugins.lsp"),
-
-  -- Completion
   require("plugins.cmp"),
-
-  -- DAP: Debug Adapter Protocol
   require("plugins.dap"),
-
-  -- Treesitter: Language Parser / Syntax highlighter
   require("plugins.treesitter"),
-
-  -- Telescope: Fuzzy Finder
   require("plugins.telescope"),
-
-  -- AI Assistant
   require("plugins.ai"),
 
   ------------------------------------------------------------------------
