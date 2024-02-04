@@ -20,7 +20,7 @@ Filetypes.treesitter = {
   "json", "json5", "jsonc", "jsdoc", "jq",
   -- Markup Languages
   "html", "css", "scss",
-  "xml", "yaml", "toml", "markdown", "markdown_inline", "latex", "rst",
+  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst",
   -- Shell
   "awk", "bash", "fish", -- "zsh",
   -- Command
