@@ -42,6 +42,7 @@ return {
   {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
