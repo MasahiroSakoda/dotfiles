@@ -93,7 +93,7 @@ config.disable_default_key_bindings = true   ---@type boolean
 
 config.keys       = keybinds.keys
 config.key_tables = keybinds.key_tables
-config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 2000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 
 --------------------------------------------------
 -- Hyperlink / Quick Select
