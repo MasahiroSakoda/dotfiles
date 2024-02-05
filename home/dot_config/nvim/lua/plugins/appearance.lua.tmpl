@@ -20,6 +20,7 @@ return {
   },
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
+    cond   = not vim.g.vscode,
     event  = "SearchWrapped",
     config = function() require("ui.hlslens") end,
   },
