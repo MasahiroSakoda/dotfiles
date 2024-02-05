@@ -2,7 +2,12 @@
 
 return {
   { "vim-jp/vimdoc-ja", ft = "help" },
-  { "akinsho/toggleterm.nvim", cmd = "ToggleTerm",   config = function() require("ui.toggleterm") end },
+  {
+    "akinsho/toggleterm.nvim",
+    cond   = vim.g.vscode,
+    cmd    = "ToggleTerm",
+    config = function() require("ui.toggleterm") end,
+  },
   {
     "rcarriga/nvim-notify",
     cond   = not vim.g.vscode,
