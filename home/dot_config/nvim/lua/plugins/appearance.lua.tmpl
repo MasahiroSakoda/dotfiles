@@ -29,6 +29,7 @@ return {
       "kevinhwang91/nvim-hlslens",
       "lewis6991/gitsigns.nvim",
     },
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.scrollbar") end,
   },
