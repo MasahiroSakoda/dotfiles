@@ -67,7 +67,7 @@ config.tab_bar_at_bottom = true ---@type boolean
 config.show_tabs_in_tab_bar           = true ---@type boolean
 config.show_tab_index_in_tab_bar      = true ---@type boolean
 config.show_new_tab_button_in_tab_bar = true ---@type boolean
-config.hide_tab_bar_if_only_one_tab   = false ---@type boolean
+config.hide_tab_bar_if_only_one_tab   = true ---@type boolean
 
 -- Cursor
 config.animation_fps     = 1
