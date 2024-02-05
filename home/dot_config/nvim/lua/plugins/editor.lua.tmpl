@@ -2,8 +2,18 @@
 
 return {
   { "vim-jp/vimdoc-ja", ft = "help" },
-  { "akinsho/toggleterm.nvim", cmd = "ToggleTerm",   config = function() require("ui.toggleterm") end },
-  { "rcarriga/nvim-notify", event  = "VeryLazy",     config = function() require("ui.notify") end },
+  {
+    "akinsho/toggleterm.nvim",
+    cond   = vim.g.vscode,
+    cmd    = "ToggleTerm",
+    config = function() require("ui.toggleterm") end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    cond   = not vim.g.vscode,
+    event  = "VeryLazy",
+    config = function() require("ui.notify") end,
+  },
   -- { "folke/noice.nvim",     event  = "CmdlineEnter", config = function() require("ui.noice") end },
 
   {
@@ -15,7 +25,8 @@ return {
   },
   {
     "folke/which-key.nvim", -- Shortcut / Keymap
-    event = "VeryLazy",
+    cond   = not vim.g.vscode,
+    event  = "VeryLazy",
     config = function()
       require("user.which-key")
       require("core.keymap")

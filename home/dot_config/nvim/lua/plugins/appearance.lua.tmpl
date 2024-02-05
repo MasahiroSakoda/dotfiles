@@ -20,6 +20,7 @@ return {
   },
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
+    cond   = not vim.g.vscode,
     event  = "SearchWrapped",
     config = function() require("ui.hlslens") end,
   },
@@ -29,6 +30,7 @@ return {
       "kevinhwang91/nvim-hlslens",
       "lewis6991/gitsigns.nvim",
     },
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.scrollbar") end,
   },
@@ -42,6 +44,7 @@ return {
   {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
@@ -59,6 +62,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim", -- Git integration
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.gitsigns") end,
   },
