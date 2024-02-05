@@ -25,7 +25,8 @@ return {
   },
   {
     "folke/which-key.nvim", -- Shortcut / Keymap
-    event = "VeryLazy",
+    cond   = not vim.g.vscode,
+    event  = "VeryLazy",
     config = function()
       require("user.which-key")
       require("core.keymap")
