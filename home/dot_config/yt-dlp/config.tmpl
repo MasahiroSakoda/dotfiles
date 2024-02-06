@@ -10,6 +10,9 @@
 # --embed-metadata
 # --embed-thumbnail
 
+# Avoid vp9 because we have no HW acceleration in LXC
+-S vcodec:h264
+
 # Output format
 --output "%(title)s.%(ext)s"
 
