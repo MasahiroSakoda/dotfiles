@@ -3,9 +3,18 @@
 --ignore-errors
 --verbose
 
+# Cookie
+--cookies-from-browser brave
+
 # Embed
 # --embed-metadata
 # --embed-thumbnail
+
+# Avoid vp9 because we have no HW acceleration in LXC
+-S vcodec:h264
+
+# Quality
+--format 'bestvideo[ext=mp4][height<=1080][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080][fps<=30]/best'
 
 # Output format
 --output "%(title)s.%(ext)s"
