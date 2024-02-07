@@ -123,9 +123,6 @@ nl.setup({
       prefer_local = "venv/bin",
       extra_args   = { "--line-length", "120" },
     },
-    formatting.black.with {
-      extra_args   = { "--line-length", "120", "--fast", "--extend-select" },
-    },
 
     -- Lua
     -- stylua:
