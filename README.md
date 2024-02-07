@@ -247,7 +247,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
 | [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter    |
-| [**black**][black]         | Fast `Python` formatter      |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
@@ -256,7 +255,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
 [beautysh]: https://github.com/lovesegfault/beautysh
-[black]: https://pypi.org/project/black/
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
