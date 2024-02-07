@@ -17,6 +17,13 @@ fi
 # Install Homebrew packages
 brew bundle -v --file="$BREW_DIR/Brewfile"
 
+## Reinstall custom w3m
+W3M_PATH=$(brew info w3m | grep "Cellar" | sed -e "s/ (.*//")
+cp "$W3M_PATH/.brew/w3m.rb" .
+sed -i s/disable-image/enable-image/g ./w3m.rb
+brew reinstall --build-from-source --formula ./w3m.rb
+rm ./w3m.rb
+
 brew bundle -v --file="$BREW_DIR/Caskfile"
 brew bundle -v --file="$BREW_DIR/Masfile"
 {{- end }}
