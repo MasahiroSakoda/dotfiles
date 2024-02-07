@@ -121,7 +121,9 @@ nl.setup({
     -- Python
     diagnostics.ruff.with {
       prefer_local = "venv/bin",
-      extra_args   = { "--line-length", "120" },
+      condition    = function(utils)
+        return utils.has_file(filetypes.lsp.ruff)
+      end,
     },
 
     -- Lua
