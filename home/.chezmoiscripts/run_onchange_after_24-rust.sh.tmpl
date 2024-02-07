@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh
+
+set -eo pipefail
+
+{{ template "common/script_helper" . }}
+
+if command -v rustup-init >/dev/null; then
+  rustup-init --verbose -y
+fi
