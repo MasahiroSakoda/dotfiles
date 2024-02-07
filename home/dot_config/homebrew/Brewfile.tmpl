@@ -7,7 +7,6 @@ tap "Homebrew/bundle"
 brew "gnutls"
 brew "coreutils"
 brew "openssl"
-brew "gnupg"
 {{- if eq .chezmoi.os "darwin" }}
 brew "pinentry-mac"
 
@@ -27,25 +26,27 @@ brew "procs"
 brew "thefuck"
 brew "fzf"
 
-## Downloader
+## Browser / Downloader
+brew "w3m"
 brew "wget"
 brew "curl"
+brew "aria2"
+brew "yt-dlp"
 
-# Screen
+# Terminal
 brew "tmux"
 brew "zellij"
 brew "neofetch"
 
-## Monitor
+## Performance
 brew "bottom"
+brew "hyperfine"
 
 ## Editor
 brew "neovim"
 
-## Benchmark
-brew "hyperfine"
-
 ## Security
+brew "gnupg"
 brew "age"
 
 ## Version Control
@@ -130,10 +131,6 @@ brew "aircrack-ng"
 ## Hash
 brew "hashcat"
 brew "hcxtools"
-
-## Downloader
-brew "aria2"
-brew "yt-dlp"
 
 ## RSS
 brew "newsboat"
