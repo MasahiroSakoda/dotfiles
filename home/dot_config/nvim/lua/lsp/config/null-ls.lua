@@ -125,6 +125,12 @@ nl.setup({
         return utils.has_file(filetypes.lsp.ruff)
       end,
     },
+    formatting.ruff.with {
+      prefer_local = "venv/bin",
+      condition = function(utils)
+        return utils.has_file(filetypes.lsp.ruff)
+      end,
+    },
 
     -- Lua
     -- stylua:
