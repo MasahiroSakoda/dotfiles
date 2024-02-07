@@ -2,6 +2,9 @@
 
 # Rust
 set -gx RUST_BACKTRACE full
+if test -d $HOME/.cargo/bin
+  fish_add_path --universal $HOME/.cargo/bin
+end
 
 # Python
 set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
