@@ -1,4 +1,4 @@
-# -*-mode:gitignore-*- vim:ft=gitignore
+# -*-mode:gitignore-*- vim:ft=gotmpl.gitignore
 
 # ~/.local/share/chezmoi/.chezmoiignore
 # =============================================================================
