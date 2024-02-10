@@ -15,25 +15,20 @@
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
-
 {{/* detect GitHub Actions, GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
 {{- if or (env "GITHUB_TOKEN") (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
 {{-   $ephemeral = true -}}
 {{-   $headless = true -}}
 {{- end -}}
-
 {{- $hostname := .chezmoi.hostname -}}
-
 {{- $user  := env "GIT_USERNAME" -}}
 {{- $email := env "GIT_EMAIL" -}}
-
-{{ if and (not $user) stdinIsATTY }}
-{{ $user  = promptStringOnce . "user"  "Enter your git username: " }}
-{{ end }}
-
-{{ if and (not $email) stdinIsATTY -}}
-{{ $email = promptStringOnce . "email" "Enter your git email: " }}
-{{ end }}
+{{- if and (not $user) stdinIsATTY -}}
+{{- $user  = promptStringOnce . "user"  "Enter your git username: " -}}
+{{- end -}}
+{{- if and (not $email) stdinIsATTY -}}
+{{- $email = promptStringOnce . "email" "Enter your git email: " -}}
+{{- end -}}
 
 {{/* Discover the homebrew prefix */}}
 {{- $brew_prefix := "" -}}
