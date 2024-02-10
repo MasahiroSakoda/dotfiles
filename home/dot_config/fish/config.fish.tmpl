@@ -5,7 +5,11 @@ set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 
 # Path Configuration
-set -g PATH /bin /sbin /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin $HOME/.local/bin $PATH
+fish_add_path /usr/local/bin
+fish_add_path /usr/local/sbin
+fish_add_path /usr/bin
+fish_add_path /usr/sbin
+fish_add_path $HOME/.local/bin
 
 {{- if eq .chezmoi.arch "arm64" }}
 set -gx ARCHFLAGS '-arch arm64'
@@ -78,9 +82,6 @@ type -q thefuck && thefuck --alias | source
 # uninstall by removing these lines
 # Note: this is required for `pnpm` completion
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
-
-# Wine
-set -x PATH "$HOMEBREW_PREFIX/opt/wine-6.1/bin" $PATH
 
 # Fish
 abbr -a -- cl clear

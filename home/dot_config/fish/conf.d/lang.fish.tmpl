@@ -3,7 +3,7 @@
 # Rust
 set -gx RUST_BACKTRACE full
 if test -d $HOME/.cargo/bin
-  fish_add_path --universal $HOME/.cargo/bin
+  fish_add_path $HOME/.cargo/bin
 end
 
 # Python
@@ -25,5 +25,5 @@ set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$(brew --prefix openssl@3) --wit
 # pnpm
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+  fish_add_path $PNPM_HOME
 end
