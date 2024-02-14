@@ -1,4 +1,4 @@
-// -*-mode:javascript-*- vim:ft=jsonc
+// -*-mode:jsonc-*- vim:ft=jsonc
 {
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
@@ -24,9 +24,14 @@
     "**/.gradle": true,
     "**/.classpath": true,
     "**/.factorypath": true,
-    "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
-    "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
-    "**/.next": true, "**/.nuxt": true,
+    "**/node_modules": true,
+    "**/.yarn": true,
+    "**/.pnpm": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/pnpm-lock.yaml": true,
+    "**/.next": true,
+    "**/.nuxt": true,
     "**/*.pyc": true,
     "**/__pycache__": true,
     "**/.pytest_cache": true,
@@ -60,9 +65,14 @@
   "search.exclude": {
     "**/.git": true,
     "**/.github": true,
-    "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
-    "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
-    "**/.next": true, "**/.nuxt": true,
+    "**/node_modules": true,
+    "**/.yarn": true,
+    "**/.pnpm": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/pnpm-lock.yaml": true,
+    "**/.next": true,
+    "**/.nuxt": true,
     "**/dist/**": true,
     "**/tmp": true,
     "**/logs": true,
@@ -77,7 +87,7 @@
   "remote.WSL.fileWatcher.polling": true,
   // TODO: configure `remote.containers.*`
   "[c][cpp]": {
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
     "editor.semanticHighlighting.enabled": true
   },
@@ -109,9 +119,10 @@
   "python.venvPath": ".venv",
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
     },
-    "editor.defaultFormatter": "ms-python.python",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.suggestSelection": "first",
     "editor.tabSize": 4
   },
@@ -141,8 +152,7 @@
   },
   "update.mode": "manual",
   "extensions.autoUpdate": false,
-  "settingsSync.ignoredSettings": [
-  ],
+  "settingsSync.ignoredSettings": [],
   "dotfiles.repository": "~/.local/share/chezmoi",
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
