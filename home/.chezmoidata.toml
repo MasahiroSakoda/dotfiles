@@ -98,7 +98,7 @@ vscode = [
   "ms-toolsai.vscode-jupyter-slideshow",
   "charliermarsh.ruff",
   # Tools
-  "alefragnani.Bookmarks",
+  "alefragnani.numbered-bookmarks",
   "alefragnani.project-manager",
   "Gruntfuggly.todo-tree",
   "usernamehw.errorlens",
