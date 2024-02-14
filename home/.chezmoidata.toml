@@ -90,8 +90,15 @@ vscode = [
   "ms-python.isort",
   "ms-python.python",
   "ms-python.vscode-pylance",
+  # Jupyter Notebook
+  "ms-toolsai.jupyter",
+  "ms-toolsai.jupyter-keymap",
+  "ms-toolsai.jupyter-renderers",
+  "ms-toolsai.vscode-jupyter-cell-tags",
+  "ms-toolsai.vscode-jupyter-slideshow",
+  "charliermarsh.ruff",
   # Tools
-  "alefragnani.Bookmarks",
+  "alefragnani.numbered-bookmarks",
   "alefragnani.project-manager",
   "Gruntfuggly.todo-tree",
   "usernamehw.errorlens",

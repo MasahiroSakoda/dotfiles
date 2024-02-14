@@ -1,54 +1,70 @@
-// -*-mode:javascript-*- vim:ft=jsonc
+// -*-mode:jsonc-*- vim:ft=jsonc
 {
+  // Appearance
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
+  // File
   "files.autoSave": "onFocusChange",
   "files.trimTrailingWhitespace": true,
   "files.exclude": {
+    // VCS
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
-    "**/.*_history": true,
+    // Shell
     "**/.bash_sessions": true,
-    "**/.viminfo": true,
+    // History
+    "**/.*_history": true,
     "**/.lesshst": true,
     "**/.wget-hsts": true,
+    "**/.viminfo": true,
+    // IDE
     "**/.project": true,
     "**/.vscode": true,
     "**/.idea": true,
     "**/.cache": true,
     "**/.gradle": true,
+    // C#
     "**/.classpath": true,
     "**/.factorypath": true,
-    "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
-    "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
-    "**/.next": true, "**/.nuxt": true,
+    // node.js
+    "**/node_modules": true,
+    "**/.yarn": true,
+    "**/.pnpm": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/pnpm-lock.yaml": true,
+    "**/.next": true,
+    "**/.nuxt": true,
+    // Python
     "**/*.pyc": true,
     "**/__pycache__": true,
     "**/.pytest_cache": true,
     "**/.ipynb_checkpoints": true,
+    // Ruby
     "**/vendors": true,
+    // Test & Bduild
     "**/build": true,
     "**/coverage": true,
-    {{ if eq .chezmoi.os "darwin" -}}
+    // macOS
     "**/.CFUserTextEncoding": true,
     "**/.DS_Store": true,
     "**/.localized": true,
     "**/.Trash*": true,
-    {{ else if eq .chezmoi.os "windows" -}}
+    // Linux
+    // Windows
     "**/Thumbs.db": true,
-    "**/desktop.ini": true,
-    {{- end }}
+    "**/desktop.ini": true
   },
   "scm.alwaysShowActions": true,
   "editor.quickSuggestions": {
     "comments": false,
     "strings": false,
-    "other": true,
+    "other": true
   },
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
@@ -58,26 +74,45 @@
   "editor.fontLigatures": true,
   "editor.wordSeparators": "~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。",
   "search.exclude": {
+    // VCS
     "**/.git": true,
     "**/.github": true,
-    "**/node_modules": true, "**/.yarn": true, "**/.pnpm": true,
-    "**/package-lock.json": true, "**/yarn.lock": true, "**/pnpm-lock.yaml": true,
-    "**/.next": true, "**/.nuxt": true,
+    // node.js
+    "**/node_modules": true,
+    "**/.yarn": true,
+    "**/.pnpm": true,
+    "**/package-lock.json": true,
+    "**/yarn.lock": true,
+    "**/pnpm-lock.yaml": true,
+    "**/.next": true,
+    "**/.nuxt": true,
     "**/dist/**": true,
     "**/tmp": true,
     "**/logs": true,
   },
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  // NeoVim
+  "vscode-neovim.neovimExecutablePaths.darwin": "{{ .brew_prefix }}/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+  "vscode-neovim.neovimExecutablePaths.linux": "{{ .brew_prefix }}/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.lua",
+  // Docker
   "docker.showStartPage": false,
+  "remote.containers.defaultExtensions": [
+    "alefragnani.numbered-bookmarks",
+    "EditorConfig.EditorConfig"
+  ],
   "remote.SSH.configFile": "~/.ssh/config",
   "remote.SSH.connectTimeout": 300,
   "remote.SSH.showLoginTerminal": true,
+  "remote.SSH.defaultExtensions": [
+    "alefragnani.numbered-bookmarks",
+    "EditorConfig.EditorConfig"
+  ],
   "remote.WSL.debug": true,
   "remote.WSL.fileWatcher.polling": true,
-  // TODO: configure `remote.containers.*`
+  // Language specific settings
   "[c][cpp]": {
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "editor.suggest.insertMode": "replace",
     "editor.semanticHighlighting.enabled": true
   },
@@ -109,9 +144,10 @@
   "python.venvPath": ".venv",
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
     },
-    "editor.defaultFormatter": "ms-python.python",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.suggestSelection": "first",
     "editor.tabSize": 4
   },
@@ -141,8 +177,8 @@
   },
   "update.mode": "manual",
   "extensions.autoUpdate": false,
-  "settingsSync.ignoredSettings": [
-  ],
+  "settingsSync.ignoredSettings": [],
+  // dotfiles
   "dotfiles.repository": "~/.local/share/chezmoi",
   "dotfiles.targetPath": "~/dotfiles",
   "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
