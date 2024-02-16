@@ -44,6 +44,15 @@ install.sh
 ## Swift
 .swiftpm
 
+# Container
+.docker
+
+## k8s
+.kube
+.minikube
+.krew
+.k9s
+
 key.txt.age
 
 # Ignore non-macOS files.
