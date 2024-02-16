@@ -61,6 +61,19 @@ key.txt.age
 {{ if ne .chezmoi.os "darwin" -}}
 {{- end }}
 
+# Ignore non-Linux files.
+{{ if ne .chezmoi.os "linux" -}}
+.hushlogin
+.xinitrc
+.xprofile
+.Xmodmap
+.xserverrc
+.xsession
+.Xresources
+.config/Code
+.config/i3
+{{- end }}
+
 # Ignore non-Windows files.
 {{ if ne .chezmoi.os "windows" -}}
 *.ps1
