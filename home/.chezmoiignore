@@ -25,6 +25,7 @@ install.sh
 # macOS flies
 **/.DS_Store
 .CFUserTextEncoding
+.Trash
 
 # Vim / NeoVim files
 .viminfo
