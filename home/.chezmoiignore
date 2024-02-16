@@ -26,7 +26,8 @@ install.sh
 **/.DS_Store
 .CFUserTextEncoding
 
-# NeoVim files
+# Vim / NeoVim files
+.viminfo
 .config/nvim/lazy-lock.json
 
 # Runtime
