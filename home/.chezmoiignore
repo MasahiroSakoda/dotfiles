@@ -63,4 +63,5 @@ key.txt.age
 
 # Ignore non-Windows files.
 {{ if ne .chezmoi.os "windows" -}}
+*.ps1
 {{- end }}
