@@ -29,8 +29,20 @@ install.sh
 # NeoVim files
 .config/nvim/lazy-lock.json
 
-# Node.js
-.npm/
+# Runtime
+## asdf
+.asdf
+.tool-versions
+
+## Node.js
+.npm
+
+## Rust
+.cargo
+.rustup
+
+## Swift
+.swiftpm
 
 key.txt.age
 
