@@ -59,6 +59,12 @@ key.txt.age
 
 # Ignore non-macOS files.
 {{ if ne .chezmoi.os "darwin" -}}
+.hammerspoon
+.config/karabiner
+.config/sketchybar
+.config/skhd
+.config/yabai
+Library/Application Support
 {{- end }}
 
 # Ignore non-Linux files.
