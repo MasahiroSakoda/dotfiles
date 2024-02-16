@@ -25,19 +25,62 @@ install.sh
 # macOS flies
 **/.DS_Store
 .CFUserTextEncoding
+.Trash
 
-# NeoVim files
+# Vim / NeoVim files
+.viminfo
 .config/nvim/lazy-lock.json
 
-# Node.js
-.npm/
+# Runtime
+## asdf
+.asdf
+.tool-versions
+
+## Node.js
+.npm
+
+## Rust
+.cargo
+.rustup
+
+## Swift
+.swiftpm
+
+# Container
+.docker
+
+## k8s
+.kube
+.minikube
+.krew
+.k9s
 
 key.txt.age
 
 # Ignore non-macOS files.
 {{ if ne .chezmoi.os "darwin" -}}
+.hammerspoon
+.config/karabiner
+.config/sketchybar
+.config/skhd
+.config/yabai
+Library/Application Support
+{{- end }}
+
+# Ignore non-Linux files.
+{{ if ne .chezmoi.os "linux" -}}
+.hushlogin
+.xinitrc
+.xprofile
+.Xmodmap
+.xserverrc
+.xsession
+.Xresources
+.config/Code
+.config/i3
 {{- end }}
 
 # Ignore non-Windows files.
 {{ if ne .chezmoi.os "windows" -}}
+*.ps1
 {{- end }}
