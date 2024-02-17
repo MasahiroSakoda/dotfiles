@@ -15,7 +15,7 @@ opt.history  = 1000
 opt.updatetime  = 250
 opt.timeoutlen  = 500
 opt.ttimeoutlen = 200
-opt.lazyredraw  = true
+opt.lazyredraw  = false -- disable due to noice.nvim
 
 -- GUI
 opt.mouse = 'a'
