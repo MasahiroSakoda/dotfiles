@@ -65,7 +65,7 @@ noice.setup({
   -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#display-the-cmdline-and-popupmenu-together
   views = {
     cmdline_popup = {
-      position = { row = 5, col = "50%" },
+      position = { row = vim.o.lines * 0.32, col = "50%" },
       size     = { width = 60, height = "auto" },
     },
     popupmenu = {
