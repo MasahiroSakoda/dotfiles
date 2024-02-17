@@ -18,9 +18,9 @@ handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish
 --   border = "rounded",
 -- })
 
-handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
-  border = "rounded",
-  silent = true,
-  -- focusable = false,
-  close_events = { "CursorMoved", "BufHidden", "InsertCharPre", "InsertLeave" },
-})
+-- handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
+--   border = "rounded",
+--   silent = true,
+--   -- focusable = false,
+--   close_events = { "CursorMoved", "BufHidden", "InsertCharPre", "InsertLeave" },
+-- })
