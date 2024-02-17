@@ -14,7 +14,11 @@ return {
     event  = "VeryLazy",
     config = function() require("ui.notify") end,
   },
-  -- { "folke/noice.nvim",     event  = "CmdlineEnter", config = function() require("ui.noice") end },
+  {
+    "folke/noice.nvim",
+    event  = "CmdlineEnter",
+    config = function() require("ui.noice") end,
+  },
 
   {
     "goolord/alpha-nvim", -- startup dashboard
