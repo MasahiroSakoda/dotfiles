@@ -3,8 +3,7 @@ if not notify_ok then return end
 
 local o = vim.o
 notify.setup({
-  ---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-  stages = "fade_in_slide_out",
+  stages = "fade", ---@type "fade"|"slide"|"fade_in_slide_out"|"static"
   ---@usage Function called when a new window is opened, use for changing win settings/config
   on_open = function(win)
     -- Set custom options for the notification windows
