@@ -13,10 +13,10 @@ handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish
   },
 })
 
--- INFO: deactivate this code to use `noice.nvim`
-handlers["textDocument/hover"] = lsp.with(handlers.hover, {
-  border = "rounded",
-})
+-- INFO: deactivate follwoing codes to use `noice.nvim`
+-- handlers["textDocument/hover"] = lsp.with(handlers.hover, {
+--   border = "rounded",
+-- })
 
 handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
   border = "rounded",
