@@ -314,9 +314,9 @@ default_layout "compact"
 {{- if eq .chezmoi.os "darwin" }}
 copy_command "pbcopy"                     // osx
 {{- else if eq .chezmoi.os "linux" }}
-{{- if lookpath "xclip" }}
+{{- if lookPath "xclip" }}
 copy_command "xclip -selection clipboard" // x11
-{{- else if lookpath "wl-copy" }}
+{{- else if lookPath "wl-copy" }}
 copy_command "wl-copy"                    // wayland
 {{- end }}
 {{- end }}
