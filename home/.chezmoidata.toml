@@ -40,6 +40,7 @@ node   = "20"
 pnpm   = "latest"
 python = "3.12"
 ruby   = "3.3"
+usage  = "latest"
 
 [packages]
 npm = [
