@@ -17,8 +17,44 @@ indent_size  = 4
 indent_style = space
 indent_size  = 2
 
+# Makefile
+[{Makefile}]
+indent_style = tab
+indent_size  = 4
+
+# C/C++, Rust
+[*.{c,cc,cpp,h,hpp,rs}]
+indent_style = space
+indent_size  = 4
+tab_width    = 4
+
+# Go
+[*.{go}]
+indent_style = tab
+indent_size  = 4
+
+# Java, Scala, Kotlin, Clojure
+[*.{java,scala,kt,clj}]
+indent_style = tab
+indent_size  = 4
+
+# JavaScript / Typescript
+[*.{js,jsx,ts,tsx}]
+indent_style = space
+indent_size  = 2
+
 # Lua
 [*.{lua}]
+indent_style = space
+indent_size  = 2
+
+# Python
+[*.{py,pyw}]
+indent_style = space
+indent_size  = 4
+
+# Ruby
+[*.{rb,rbi,rbw,ru,gemspec,jbuilder,erb,slim,haml,Gemfile{,.lock},Rakefile,Guradfile,Brewfile,Caskfile,Masfile}]
 indent_style = space
 indent_size  = 2
 
@@ -28,6 +64,12 @@ indent_style = space
 indent_size  = 2
 
 # JSON & YAML
-[*.{json, yml,yaml}]
+[*.{json,y{a,}ml}]
 indent_size  = 2
 indent_style = space
+
+# HTML & CSS
+[*.{html,css,scss}]
+indent_style = space
+indent_size  = 2
+tab_width    = 2
