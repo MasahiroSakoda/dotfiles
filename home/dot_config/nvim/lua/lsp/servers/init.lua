@@ -29,7 +29,7 @@ return {
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
   biome        = {}, -- JavaScript/TypeScript & JSON
-  rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
+  rubocop      = {}, -- Ruby Static Code Analyzer
   ruff         = {}, -- Python Linter
 
   -- Formetter
