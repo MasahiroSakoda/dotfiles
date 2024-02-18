@@ -137,6 +137,11 @@ nl.setup({
         return utils.has_file(filetypes.lsp.rubocop)
       end,
     }),
+    formatting.rubocop.with({
+      condition = function(utils)
+        return utils.has_file(filetypes.lsp.rubocop)
+      end,
+    }),
 
     -- Lua
     -- stylua:
