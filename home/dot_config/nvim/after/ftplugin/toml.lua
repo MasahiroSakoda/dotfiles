@@ -1,5 +1,2 @@
-local opt = vim.opt
-opt.tabstop     = 2
-opt.shiftwidth  = 2
-opt.softtabstop = 2
-opt.foldmethod  = "marker"
+-- -*-mode:lua-*- vim:ft=lua
+vim.opt.foldmethod = "marker"

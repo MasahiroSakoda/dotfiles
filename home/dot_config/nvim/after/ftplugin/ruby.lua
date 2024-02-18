@@ -1,7 +1,3 @@
-local opt = vim.opt
-opt.tabstop     = 2
-opt.shiftwidth  = 2
-opt.softtabstop = 2
-
+-- -*-mode:lua-*- vim:ft=lua
 require("luasnip").filetype_extend("ruby", { "rails" })
 require("dap.adapters.ruby")
