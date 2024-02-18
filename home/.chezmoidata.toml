@@ -62,12 +62,9 @@ gem = [
 
 [plugins]
 gh = [
-  # GitHub CLI dashboard
-  "dlvhdr/gh-dash",
-  # GitHub CLI to manage GitHub Actions cache
-  "actions/gh-actions-cache",
-  # GitHub activity graph
-  "kawarimidoll/gh-graph",
+  "dlvhdr/gh-dash",           # Dashboard
+  "actions/gh-actions-cache", # Manage GitHub Actions cache
+  "kawarimidoll/gh-graph",    # Activity graph
 ]
 vscode = [
   # Language
