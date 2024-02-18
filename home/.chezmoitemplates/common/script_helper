@@ -1,4 +1,4 @@
-# -*-mode:sh-*- vim:ft=sh
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
 
 function command_exists() {
   command -v "$@" >/dev/null 2>&1
