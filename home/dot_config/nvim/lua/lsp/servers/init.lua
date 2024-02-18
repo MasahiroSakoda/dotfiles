@@ -4,8 +4,7 @@ return {
   gopls         = require("lsp.servers.gopls"),         -- Go Language Server
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust Language Server
   bashls        = require("lsp.servers.bashls"),        -- bash Language Server
-  -- sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
-  solargraph    = require("lsp.servers.solargraph"),    -- Ruby Language Server
+  sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
@@ -29,7 +28,7 @@ return {
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
   biome        = {}, -- JavaScript/TypeScript & JSON
-  rubocop      = require("lsp.servers.rubocop"),        -- Ruby Static Code Analyzer
+  rubocop      = {}, -- Ruby Static Code Analyzer
   ruff         = {}, -- Python Linter
 
   -- Formetter
