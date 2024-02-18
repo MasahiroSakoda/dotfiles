@@ -1,4 +1,4 @@
-# -*-mode:sh-*- vim:ft=sh
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
 
 if [ -z "$GITHUB_ACTION" ]; then
   # Ask for the administrator password upfront
