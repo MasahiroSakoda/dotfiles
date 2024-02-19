@@ -16,13 +16,11 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  pull-requests: read # to analyze PRs
+  statuses: write # to mark status of analyzed PR
 
 jobs:
   main:
-    permissions:
-      pull-requests: read # to analyze PRs
-      statuses: write # to mark status of analyzed PR
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
