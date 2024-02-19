@@ -14,3 +14,9 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
           configuration-path: ".github/labeler.yml"
+  issue-assign:
+    name: Assign author to Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign author to issue
+        uses: technote-space/assign-author@v1
