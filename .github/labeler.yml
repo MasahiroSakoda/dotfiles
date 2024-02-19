@@ -1,0 +1,84 @@
+# -*-mode:yaml-*- vim:ft=yaml
+ci:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/workflows/*.yml"
+      - ".github/ISSUE_TEMPLATE/*.yml"
+
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".github/renovate.json5"
+      - ".github/dependabot.yml"
+
+documentation:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "README.md"
+      - 'CONTRIBUTING.md'
+      - "SECURITY.md"
+
+chezmoi:
+  - changed-files:
+    - any-glob-to-any-file:
+      - ".chezmoiroot"
+      - "home/.chezmoi.toml.tmpl"
+      - "home/.chezmoidata.toml"
+      - "home/.chezmoiversion"
+      - "home/.chezmoiignore"
+      - "home/.chezmoiremove"
+      - "home/.chezmoiscripts/*.sh.tmpl"
+      - "home/.chezmoitemplates/**/*"
+      - "home/.chezmoiexternals/*"
+
+homebrew:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/dot_config/homebrew/*.tmpl"
+      - "home/.chezmoiscripts/run_once_after_00-homebrew.sh.tmpl"
+      - "home/.chezmoitemplates/common/script_eval_brew"
+
+cli:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/dot_config//*"
+
+fish:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/dot_config/fish/*.fish.tmpl"
+      - "home/dot_config/fish/**/*"
+      - "home/dot_config/fish/fish_plugins"
+      - "home/.chezmoiscripts/run_once_after_10-fish.sh.tmpl"
+
+mise:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/.chezmoiscripts/run_once_after_2*.sh.tmpl"
+      - "home/dot_config/mise/*.toml.tmpl"
+      - "home/dot_default-*.tmpl"
+
+neovim:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/dot_config/nvim/lua/**/*.lua"
+      - "home/dot_config/nvim/lua/**/*.lua.tmpl"
+      - "home/dot_config/nvim/after/**/*.lua"
+
+vscode:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/.chezmoiscripts/run_onchange_after_04-vscode.sh.tmpl"
+      - "home/.chezmoitemplates/common/vscode-settings.json.tmpl"
+      - "home/Library/Applications Support/Code/User/settings.json.tmpl"
+      - "home/dot_config/Code/User/settings.json.tmpl"
+      - "home/dot_editorconfig.tmpl"
+
+terminal:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/dot_config/alacritty/*"
+      - "home/.chezmoiexternals/alacritty.toml.tmpl"
+      - "home/.chezmoiexternals/tmux.toml.tmpl"
+      - "home/dot_config/wezterm/*"
+      - "home/dot_config/zellij/*"
