@@ -7,7 +7,7 @@ on:
       - reopened
 
 jobs:
-  labeler:
+  pr-labeler:
     name: PR Labeler
     permissions:
       contents: read
@@ -19,7 +19,7 @@ jobs:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         sync-labels: true
         configuration-path: ".github/labeler.yml"
-  assigner:
+  pr-assigner:
     name: Assign author to PR
     runs-on: ubuntu-latest
     steps:
