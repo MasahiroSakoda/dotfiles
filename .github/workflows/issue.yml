@@ -12,7 +12,9 @@ jobs:
       - uses: actions/labeler@v5
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          sync-labels: true
+          # workaround for sync-labels bug:
+          # https://github.com/actions/labeler/issues/112#issuecomment-1000491676
+          sync-labels: ""
           configuration-path: ".github/labeler.yml"
   issue-assign:
     name: Assign author to Issue
