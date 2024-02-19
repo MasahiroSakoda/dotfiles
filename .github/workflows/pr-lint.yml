@@ -42,16 +42,36 @@ jobs:
             build
             ci
           scopes: |
+            deps
+            issue
+            pr
+            readme
             chezmoi
-            ci
-            cli
-            dependencies
+            age
+            defaults
             homebrew
             fish
+            alacritty
+            wezterm
+            tmux
+            zellij
             neovim
             vscode
             mise
-            terminal
+            rust
+            go
+            node
+            pnpm
+            deno
+            bun
+            python
+            ruby
+            git
+            lazygit
+            commitizen
+            gh
+            yt-dlp
+            newsboat
           requireScope: false
           wip: true
           validateSingleCommit: true

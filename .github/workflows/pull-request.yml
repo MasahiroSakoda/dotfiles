@@ -1,10 +1,14 @@
 # -*-mode:yaml-*- vim:ft=yaml
-name: "Pull Request Labeler"
+name: "Pull Request"
 on:
-  - pull_request_target
+  pull_request:
+    types:
+      - opened
+      - reopened
 
 jobs:
-  labeler:
+  pr-labeler:
+    name: PR Labeler
     permissions:
       contents: read
       pull-requests: write
@@ -15,3 +19,9 @@ jobs:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         sync-labels: true
         configuration-path: ".github/labeler.yml"
+  pr-assigner:
+    name: Assign author to PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign author to PR
+        uses: technote-space/assign-author@v1

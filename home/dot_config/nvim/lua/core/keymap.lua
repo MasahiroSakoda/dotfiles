@@ -192,11 +192,12 @@ if not is_vscode then
     ["<Leader>fl"] = { ":Telescope lazy<CR>",         "   lazy.nvim Browser" },
     ["<Leader>fL"] = { ":Telescope luasnip<CR>",      "   LuaSnip Browser" },
 
-    ["<Ldeader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   dap configurations" },
-    ["<Ldeader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
-    ["<Ldeader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
-    ["<Ldeader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
-    ["<Ldeader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>", "   Show Frames" },
+    [";;"]          = { ":lua require'telescope'.builtin.resume()<CR>", "   Resume previous picker" },
+    ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   dap configurations" },
+    ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
+    ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
+    ["<Leader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
+    ["<Leader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>", "   Show Frames" },
   }, opts)
 
 end
