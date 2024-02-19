@@ -1,0 +1,24 @@
+# -*-mode:yaml-*- vim:ft=yaml
+name: "Issue"
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  issue-labeler:
+    name: Issue Labeler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v5
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          # workaround for sync-labels bug:
+          # https://github.com/actions/labeler/issues/112#issuecomment-1000491676
+          # sync-labels: ""
+          configuration-path: ".github/labeler.yml"
+  issue-assign:
+    name: Assign author to Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign author to issue
+        uses: technote-space/assign-author@v1

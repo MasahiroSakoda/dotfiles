@@ -16,7 +16,8 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  pull-requests: read
+  pull-requests: read # to analyze PRs
+  statuses: write # to mark status of analyzed PR
 
 jobs:
   main:
