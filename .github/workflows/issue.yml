@@ -1,0 +1,16 @@
+# -*-mode:yaml-*- vim:ft=yaml
+name: "Issue"
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  issue-labeler:
+    name: Issue Labeler
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v5
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: true
+          configuration-path: ".github/labeler.yml"
