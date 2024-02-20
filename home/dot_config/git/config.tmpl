@@ -6,6 +6,7 @@
   path = conf.d/lfs.conf
   path = conf.d/gist.conf
   path = conf.d/user.conf
+  path = conf.d/security.conf
 
 [core]
   editor       = nvim
@@ -42,8 +43,3 @@
 
 [pull]
   ff = only
-
-{{ if eq .chezmoi.os "darwin" -}}
-[credential]
-  helper = osxkeychain
-{{ end -}}
