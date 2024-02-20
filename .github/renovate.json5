@@ -21,5 +21,11 @@
       "matchPackagePrefixes": ["actions/"],
       "pinDigests": false
     },
+    {
+      "description": "Schedule digest updates weekly",
+      "excludePackagePrefixes": ["actions/"],
+      "matchUpdateTypes": ["digest"],
+      "schedule": ["every 7 days"],
+    }
   ]
 }
