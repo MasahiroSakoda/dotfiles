@@ -22,7 +22,7 @@ Filetypes.treesitter = {
   "html", "css", "scss",
   "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst",
   -- Shader Languages
-  "glsl", "hlsl",
+  "glsl", "hlsl", "wgsl",
   -- Shell
   "awk", "bash", "fish", -- "zsh",
   -- Command
