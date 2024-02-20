@@ -6,7 +6,6 @@
     ":dependencyDashboard",
     "github>whitesource/merge-confidence:beta"
   ],
-  "dependencyDashboard": false,
   "automerge": true,
   "requiredStatusChecks": null,
   "timezone": "Asia/Tokyo",
