@@ -21,4 +21,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign author to issue
-        uses: technote-space/assign-author@v1
+        uses: technote-space/assign-author@efd13e89605f9b283e48e01219b06b19e55ea61c # 1.6.2
