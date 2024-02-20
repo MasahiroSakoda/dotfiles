@@ -4,7 +4,7 @@ Filetypes.log  = { "log", "txt", "text" }
 Filetypes.js   = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
 Filetypes.json = { "json", "json5", "jsonc" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
-Filetypes.markdown = { "markdown", "md" }
+Filetypes.markdown = { "markdown", "md", "vimwiki" }
 
 Filetypes.treesitter = {
   -- Compiled Languages
@@ -89,6 +89,7 @@ Filetypes.lsp = {
   deno         = { "deno.json", "deno.jsonc" },
   biome        = { "biome.json" },
   terraform    = { "terraform", "tf" },
+  markdownlint = { ".markdownlintrc", ".markdownlint.json", ".markdownlint.jsonc" },
 }
 
 Filetypes.tabnine = {
