@@ -121,15 +121,11 @@ nl.setup({
     -- Python
     diagnostics.ruff.with {
       prefer_local = "venv/bin",
-      condition    = function(utils)
-        return utils.has_file(filetypes.lsp.ruff)
-      end,
+      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
     },
     formatting.ruff.with {
       prefer_local = "venv/bin",
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.ruff)
-      end,
+      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
     },
     -- Ruby
     diagnostics.rubocop.with({
