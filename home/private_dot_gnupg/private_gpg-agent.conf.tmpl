@@ -1,0 +1,10 @@
+# -*-mode:config-*- vim:ft=config.gotexttmpl
+
+{{- if eq .chezmoi.os "darwin" }}
+pinentry-program {{ .brew_prefix }}/bin/pinentry-mac
+{{- else if eq .chezmoi.os "linux" }}
+pinentry-program {{ .brew_prefix }}/bin/pinentry
+{{- end }}
+pinentry-timeout 120
+default-cache-ttl 18000
+enable-ssh-support
