@@ -21,6 +21,8 @@ Filetypes.treesitter = {
   -- Markup Languages
   "html", "css", "scss",
   "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst",
+  -- Shader Languages
+  "glsl",
   -- Shell
   "awk", "bash", "fish", -- "zsh",
   -- Command
