@@ -1,11 +1,12 @@
 # -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
 
 [include]
-  path = conf/alias.conf
-  path = conf/delta.conf
-  path = conf/lfs.conf
-  path = conf/gist.conf
-  path = conf/user.conf
+  path = conf.d/alias.conf
+  path = conf.d/delta.conf
+  path = conf.d/lfs.conf
+  path = conf.d/gist.conf
+  path = conf.d/user.conf
+  path = conf.d/security.conf
 
 [core]
   editor       = nvim
@@ -42,8 +43,3 @@
 
 [pull]
   ff = only
-
-{{ if eq .chezmoi.os "darwin" -}}
-[credential]
-  helper = osxkeychain
-{{ end -}}

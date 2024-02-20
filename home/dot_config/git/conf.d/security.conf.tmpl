@@ -1,0 +1,18 @@
+# -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
+
+[credential]
+{{ if eq .chezmoi.os "darwin" -}}
+  helper = osxkeychain
+{{ end -}}
+
+[gpg]
+	program = gpg
+
+[user]
+	signingkey = CF4534963E7B4319
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
