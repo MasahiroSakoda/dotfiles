@@ -186,6 +186,10 @@ nl.setup({
       condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
     }),
 
+    diagnostics.markdownlint.with({
+      extra_args = {},
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
+    }),
     formatting.markdownlint.with({
       filetypes = filetypes.markdown,
     }),
