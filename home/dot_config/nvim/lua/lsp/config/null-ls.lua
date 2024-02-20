@@ -107,7 +107,7 @@ nl.setup({
     -- Go
     diagnostics.revive.with({
       condition = function(utils)
-        return utils.has_file(filetypes.lsp.revive)
+        return utils.root_has_file(filetypes.lsp.revive)
       end
     }),
 
