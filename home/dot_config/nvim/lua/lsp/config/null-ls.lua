@@ -192,6 +192,7 @@ nl.setup({
     }),
     formatting.markdownlint.with({
       filetypes = filetypes.markdown,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
     }),
 
     -- VimScript
