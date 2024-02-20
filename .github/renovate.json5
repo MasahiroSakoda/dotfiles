@@ -14,4 +14,12 @@
   "major": {"stabilityDays": 7},
   "minor": {"stabilityDays": 3},
   "patch": {"stabilityDays": 2},
+
+  "packageRules":[
+    {
+      "description": "Don't pin official action digests",
+      "matchPackagePrefixes": ["actions/"],
+      "pinDigests": false
+    },
+  ]
 }
