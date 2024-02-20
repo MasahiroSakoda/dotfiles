@@ -76,7 +76,7 @@ jobs:
         if: always()
         env:
           MISE_TRUSTED_CONFIG_PATHS: ~/.config/mise/config.toml
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@21532eb59194c471ae242a614acefbab06aba032 # 2.0.2
 
       - name: Remove age key
         if: always()
