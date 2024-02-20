@@ -107,7 +107,7 @@ nl.setup({
     -- Go
     diagnostics.revive.with({
       condition = function(utils)
-        return utils.has_file(filetypes.lsp.revive)
+        return utils.root_has_file(filetypes.lsp.revive)
       end
     }),
 
@@ -121,33 +121,26 @@ nl.setup({
     -- Python
     diagnostics.ruff.with {
       prefer_local = "venv/bin",
-      condition    = function(utils)
-        return utils.has_file(filetypes.lsp.ruff)
-      end,
+      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
     },
     formatting.ruff.with {
       prefer_local = "venv/bin",
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.ruff)
-      end,
+      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
     },
     -- Ruby
     diagnostics.rubocop.with({
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.rubocop)
-      end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
     }),
     formatting.rubocop.with({
-      condition = function(utils)
-        return utils.has_file(filetypes.lsp.rubocop)
-      end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
     }),
 
     -- Lua
     -- stylua:
     formatting.stylua.with({
-      filetypes  = filetypes.lsp.stylua,
+      filetypes  = { "lua" },
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
+      condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
     }),
 
     -- biome: JavaScript, TypeScript
@@ -179,15 +172,20 @@ nl.setup({
 
     diagnostics.deno_lint.with({
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.deno) end,
     }),
     formatting.deno_fmt.with({
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils) return utils.has_file(filetypes.lsp.deno) end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.deno) end,
     }),
 
+    diagnostics.markdownlint.with({
+      extra_args = {},
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
+    }),
     formatting.markdownlint.with({
       filetypes = filetypes.markdown,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
     }),
 
     -- VimScript
