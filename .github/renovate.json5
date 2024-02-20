@@ -1,20 +1,18 @@
 // -*-mode:json5-*- vim:ft=json5
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    "github>whitesource/merge-confidence:beta"
+  ],
   "dependencyDashboard": false,
   "automerge": true,
   "requiredStatusChecks": null,
   "timezone": "Asia/Tokyo",
-  "extends": ["config:base","github>whitesource/merge-confidence:beta"],
   "ignorePresets": [":prHourlyLimit2", ":prConcurrentLimit10"],
 
-  "major": {
-    "stabilityDays": 7,
-  },
-  "minor": {
-    "stabilityDays": 3,
-  },
-  "patch": {
-    "stabilityDays": 2,
-  },
+  "major": {"stabilityDays": 7},
+  "minor": {"stabilityDays": 3},
+  "patch": {"stabilityDays": 2},
 }
