@@ -138,8 +138,9 @@ nl.setup({
     -- Lua
     -- stylua:
     formatting.stylua.with({
-      filetypes  = filetypes.lsp.stylua,
+      filetypes  = { "lua" },
       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
+      condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
     }),
 
     -- biome: JavaScript, TypeScript
