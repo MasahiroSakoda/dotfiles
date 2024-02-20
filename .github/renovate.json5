@@ -1,20 +1,31 @@
 // -*-mode:json5-*- vim:ft=json5
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "dependencyDashboard": false,
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    "github>whitesource/merge-confidence:beta"
+  ],
   "automerge": true,
   "requiredStatusChecks": null,
   "timezone": "Asia/Tokyo",
-  "extends": ["config:base","github>whitesource/merge-confidence:beta"],
   "ignorePresets": [":prHourlyLimit2", ":prConcurrentLimit10"],
 
-  "major": {
-    "stabilityDays": 7,
-  },
-  "minor": {
-    "stabilityDays": 3,
-  },
-  "patch": {
-    "stabilityDays": 2,
-  },
+  "major": {"stabilityDays": 7},
+  "minor": {"stabilityDays": 3},
+  "patch": {"stabilityDays": 2},
+
+  "packageRules":[
+    {
+      "description": "Don't pin official action digests",
+      "matchPackagePrefixes": ["actions/"],
+      "pinDigests": false
+    },
+    {
+      "description": "Schedule digest updates weekly",
+      "excludePackagePrefixes": ["actions/"],
+      "matchUpdateTypes": ["digest"],
+      "schedule": ["every 7 days"],
+    }
+  ]
 }
