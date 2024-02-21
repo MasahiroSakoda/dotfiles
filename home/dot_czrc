@@ -2,6 +2,7 @@
 {
   "path": "cz-conventional-changelog",
   "defaultType": "feat",
+  "maxHeaderWidth": 100,
   "types": {
     "feat":     {
       "title": "Feature",
