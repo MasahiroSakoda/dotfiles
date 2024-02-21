@@ -61,7 +61,6 @@ module.exports = {
   // skip any questions you want
   skipQuestions: ['scope', 'body'],
 
-
   messages: {
     type: "Select the type of change that you're committing: (Use arrow keys)",
     scope: "\nWhat is the scope of this change (e.g. component or file name): (press enter to skip)",
@@ -72,4 +71,4 @@ module.exports = {
     footer: "Does this change affect any open issues? (y/N)\n",
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   }
-}
+};
