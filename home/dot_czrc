@@ -1,6 +1,9 @@
 // -*-mode:jsonc-*- vim:ft=jsonc
 {
   "path": "cz-conventional-changelog",
+  "skipQuestions": ["scope", "body", "breaking", "footer"],
+  "defaultType": "feat",
+  "maxHeaderWidth": 100,
   "types": {
     "feat":     {
       "title": "Feature",
@@ -50,5 +53,25 @@
       "title": "WIP",
       "description": "🚧  Work in progress"
     }
-  }
+  },
+  "disableScopeLowerCase": true,
+  "allowCustomScopes": true,
+  "scopes": [
+    { "name": "ci" },
+    { "name": "chezmoi" },
+    { "name": "brew" },
+    { "name": "fish" },
+    { "name": "neovim" },
+    { "name": "vscode" },
+    { "name": "wezterm" },
+    { "name": "zellij" },
+    { "name": "git" },
+    { "name": "mise" },
+    { "name": "ssh" },
+    { "name": "gpg" },
+    { "name": "age" }
+  ],
+  "disableSubjectLowerCase": false,
+  "subjectLimit": 72,
+  "closedIssueMessage": "Associated issue: "
 }
