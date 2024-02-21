@@ -48,7 +48,6 @@ npm = [
   "create-{react,next}-app",
   "commitizen",
   "cz-conventional-changelog",
-  "cz-customizable",
 ]
 go  = [
 ]
