@@ -70,5 +70,6 @@
     { "name": "ssh" },
     { "name": "gpg" },
     { "name": "age" }
-  ]
+  ],
+  "disableSubjectLowerCase": false
 }
