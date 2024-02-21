@@ -54,5 +54,6 @@
       "description": "🚧  Work in progress"
     }
   },
-  "disableScopeLowerCase": true
+  "disableScopeLowerCase": true,
+  "allowCustomScopes": true
 }
