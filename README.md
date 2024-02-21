@@ -356,12 +356,12 @@ Runtime version management tool
 | ------------------ | ---------- |
 | [**iTerm2**][iterm2]             | Terminal   |
 | [**Alacritty**][alacritty]          | Terminal   |
-| [**wezterm**][wezterm]             | Terminal   |
+| [**wezterm**][wezterm]            | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
 | [**Docker**][docker]             | Container  |
 | [**TablePlus**][tableplus]          | Database   |
 | [**drawio**][drawio]             | Diagram    |
-| [**wireshark-chmodbpf**][wireshark] | Network    |
+| [**termshark**][termshark]          | Network    |
 | [**TunnelBear**][tunnelbear]         | VPN        |
 
 [iTerm2]: https://iterm2.com/
@@ -371,7 +371,7 @@ Runtime version management tool
 [docker]: https://www.docker.com/
 [tableplus]: https://tableplus.com/
 [drawio]: https://www.drawio.com/
-[wireshark]: https://www.wireshark.org/
+[termshark]: https://github.com/gcla/termshark
 [tunnelbear]: https://www.tunnelbear.com/
 
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Caskfile.tmpl)
