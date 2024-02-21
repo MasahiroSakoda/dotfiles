@@ -1,4 +1,6 @@
 // -*-mode:jsonc-*- vim:ft=jsonc
 {
   "path": "cz-conventional-changelog"
+  // "path": "cz-customizable",
+  // "config": ".cz-config.js"
 }
