@@ -1,5 +1,6 @@
 // -*-mode:javascript-*- vim:ft=javascript
 
+//jshint esversion:6
 const googleTranslateCallback = document.createElement('script');
 googleTranslateCallback.innerHTML = "function googleTranslateElementInit(){ new google.translate.TranslateElement(); }";
 document.body.insertBefore(googleTranslateCallback, document.body.firstChild);
