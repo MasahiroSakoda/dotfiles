@@ -1,6 +1,7 @@
 // -*-mode:jsonc-*- vim:ft=jsonc
 {
   "path": "cz-conventional-changelog",
+  "defaultType": "feat",
   "types": {
     "feat":     {
       "title": "Feature",
