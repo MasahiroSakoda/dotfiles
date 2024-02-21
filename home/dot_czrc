@@ -55,5 +55,20 @@
     }
   },
   "disableScopeLowerCase": true,
-  "allowCustomScopes": true
+  "allowCustomScopes": true,
+  "scopes": [
+    { "name": "ci" },
+    { "name": "chezmoi" },
+    { "name": "brew" },
+    { "name": "fish" },
+    { "name": "neovim" },
+    { "name": "vscode" },
+    { "name": "wezterm" },
+    { "name": "zellij" },
+    { "name": "git" },
+    { "name": "mise" },
+    { "name": "ssh" },
+    { "name": "gpg" },
+    { "name": "age" }
+  ]
 }
