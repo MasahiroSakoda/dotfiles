@@ -379,9 +379,3 @@ Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda
 ### App Store apps
 
 See [**`Masfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Masfile.tmpl)
-
-## ToDo
-
-* [ ] Cross platform support
-* [ ] activate switching for personal/work usage
-* [ ] support minimal install
