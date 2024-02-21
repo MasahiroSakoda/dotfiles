@@ -71,5 +71,6 @@
     { "name": "gpg" },
     { "name": "age" }
   ],
-  "disableSubjectLowerCase": false
+  "disableSubjectLowerCase": false,
+  "subjectLimit": 72
 }
