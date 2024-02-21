@@ -1,0 +1,81 @@
+###############################################################
+# Verbs and shortcuts
+
+# If $EDITOR isn't set on your computer, you should either set it using
+#  something similar to
+#   export EDITOR=/usr/bin/nvim
+#  or just replace it with your editor of choice in the 'execution'
+#  pattern.
+# Example:
+#  execution = "/usr/bin/nvim {file}"
+
+[[verbs]]
+invocation = "edit"
+key        = "F2"
+shortcut   = "e"
+execution  = "$EDITOR {file}"
+
+[[verb]]
+key       = "ctrl-c"
+execution = ":quit"
+
+[[verbs]]
+invocation  = "git_diff"
+shortcut    = "gd"
+leave_broot = false
+execution   = "git diff {file}"
+
+# If $PAGER isn't set on your computer, you should either set it
+#  or just replace it with your viewer of choice in the 'execution'
+#  pattern.
+# Example:
+#  execution = "less {file}"
+[[verbs]]
+name       = "view"
+invocation = "view"
+execution  = "$PAGER {file}"
+
+# If you uncomment the two next shortcuts, the left
+# and right arrow keys will be used to go to the parent
+# directory or to open a selected one:
+#
+# [[verbs]]
+# key = "left"
+# execution = ":parent"
+#
+# [[verbs]]
+# key = "right"
+# execution = ":focus"
+
+# Another popular set of shorctuts for going up and down:
+#
+# [[verbs]]
+# key = "ctrl-j"
+# execution = ":line_down"
+#
+# [[verbs]]
+# key = "ctrl-k"
+# execution = ":line_up"
+#
+[[verbs]]
+key = "ctrl-n"
+execution = ":line_down"
+
+[[verbs]]
+key = "ctrl-p"
+execution = ":line_up"
+
+[[verbs]]
+key = "ctrl-d"
+execution = ":page_down"
+
+[[verbs]]
+key = "ctrl-u"
+execution = ":page_up"
+
+# If you develop using git, you might like to often switch
+# to the "git status" filter:
+#
+# [[verbs]]
+# key = "ctrl-g"
+# execution = ":toggle_git_status"
