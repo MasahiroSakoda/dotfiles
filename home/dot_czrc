@@ -1,6 +1,7 @@
 // -*-mode:jsonc-*- vim:ft=jsonc
 {
   "path": "cz-conventional-changelog",
+  "skipQuestions": ["scope", "body", "breaking", "footer"],
   "defaultType": "feat",
   "maxHeaderWidth": 100,
   "types": {
