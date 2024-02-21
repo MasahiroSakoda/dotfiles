@@ -72,5 +72,6 @@
     { "name": "age" }
   ],
   "disableSubjectLowerCase": false,
-  "subjectLimit": 72
+  "subjectLimit": 72,
+  "closedIssueMessage": "Associated issue: "
 }
