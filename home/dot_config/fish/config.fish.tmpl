@@ -38,6 +38,10 @@ set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
 # ripgrep config
 # set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
+# Prompt configuration
+starship init fish | source
+set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
+
 # Pager
 set -gx LESS_TERMCAP_mb \e'[01;31m'
 # set -gx PAGER "lv -c"
