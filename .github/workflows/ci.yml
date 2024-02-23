@@ -41,8 +41,8 @@ jobs:
         env:
           AGE_DECRYPT_PASS: ${{ secrets.AGE_DECRYPT_PASS }}
         run: |
-          mkdir -p ${HOME}/.config/chezmoi
-          echo "${{ secrets.CHEZMOI_KEY }}" | base64 -d > ${HOME}/.config/chezmoi/key.txt
+          mkdir -p "${HOME}/.config/chezmoi"
+          echo "${{ secrets.CHEZMOI_KEY }}" | base64 -d > "${HOME}/.config/chezmoi/key.txt"
 
       - name: Install dotfiles
         env:
@@ -60,7 +60,7 @@ jobs:
         if: always()
         run: |
           brew update
-          brew bundle -v --file=${HOME}/.config/homebrew/Brewfile
+          brew bundle -v --file="${HOME}/.config/homebrew/Brewfile"
 
       - name: Save Homebrew cache
         if: always()
@@ -79,4 +79,4 @@ jobs:
 
       - name: Remove age key
         if: always()
-        run: rm ${HOME}/.config/chezmoi/key.txt
+        run: rm "${HOME}/.config/chezmoi/key.txt"
