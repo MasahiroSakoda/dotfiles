@@ -1,5 +1,4 @@
-# -*-mode:yaml-*- vim:ft=yaml
-name: "Pull Request"
+name: pull-request
 on:
   pull_request:
     types:

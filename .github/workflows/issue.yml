@@ -1,5 +1,4 @@
-# -*-mode:yaml-*- vim:ft=yaml
-name: "Issue"
+name: issue
 on:
   issues:
     types:
