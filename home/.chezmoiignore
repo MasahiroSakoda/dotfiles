@@ -40,7 +40,9 @@ install.sh
 .npm
 
 ## Rust
-.cargo
+.cargo/*
+!.cargo/config.toml
+!.cargo/env
 .rustup
 
 ## Swift
