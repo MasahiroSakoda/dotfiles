@@ -38,14 +38,9 @@ set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
 # ripgrep config
 # set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
-# Theme configuration for bobthefish
-set -g theme_color_scheme dracula
-set -g theme_title_display_process yes
-set -g theme_show_exit_status yes
-set -g theme_display_date yes
-set -g theme_date_format "+%F %H:%M"
-set -g theme_display_ruby no
-set -x theme_display_git_master_branch yes
+# Prompt configuration
+starship init fish | source
+set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
 
 # Pager
 set -gx LESS_TERMCAP_mb \e'[01;31m'

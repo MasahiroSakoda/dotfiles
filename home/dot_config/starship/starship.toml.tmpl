@@ -1,0 +1,463 @@
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl Get editor completions based on the config schema
+"$schema" = "https://starship.rs/config-schema.json"
+
+# ref: https://starship.rs/config/#prompt
+format = """
+[](fg:#7aa2f7)\
+$os\
+[ ](fg:#7aa2f7 bg:#363636)\
+$sudo\
+$localip\
+$shlvl\
+$directory\
+[](bg:#a2b1c1 fg:#363636)\
+$git_branch\
+[ ](fg:#a2b1c1)\
+$git_commit\
+$git_status\
+$git_state\
+$git_metrics\
+$fill\
+$c\
+$swift\
+$rust\
+$golang\
+$java\
+$scala\
+$kotlin\
+$nodejs\
+$deno\
+$bun\
+$python\
+$ruby\
+$php\
+$perl\
+$lua\
+$docker_context\
+$kubernetes\
+$terraform\
+$aws\
+$azure\
+$gcloud\
+$container
+$character\
+$status\
+$shell\
+"""
+
+right_format = """
+[ ](fg:#7aa2f7)
+$jobs
+[](fg:#300906)
+$cmd_duration
+$env_var
+$battery
+$memory_usage
+$line_break
+$package
+[](fg:#9999ff bg:#300906)
+$time
+[](fg:#9999ff)
+"""
+continuation_prompt = '[❯❯ ](fg:blue)'
+add_newline     = false
+scan_timeout    = 30
+command_timeout = 400
+
+#-------------------------------------------------
+# Hardware
+#-------------------------------------------------
+[battery]
+disabled           = true
+format             = '[$symbol$percentage]($style) '
+full_symbol        = " "
+charging_symbol    = " "
+discharging_symbol = " "
+unknown_symbol     = " "
+empty_symbol       = " "
+
+[[battery.display]]
+threshold = 15
+style     = "red bold"
+
+[[battery.display]]
+threshold = 95
+style     = "yellow bold"
+
+[[battery.display]]
+threshold = 99
+style     = "green bold"
+
+# ref: https://starship.rs/config/#memory-usage
+[memory_usage]
+disabled  = true
+symbol    = "🐏 "
+style     = "bg:#CF9562 fg:#444444"
+threshold = -1
+
+#-------------------------------------------------
+# OS
+# ref: https://starship.rs/config/#os
+#-------------------------------------------------
+[os]
+disabled = false
+format   = "[$symbol]($style)"
+style    = "fg:#1a1b26 bg:#7aa2f7"
+
+[os.symbols]
+Windows = " "
+Macos   = " "
+Linux   = " "
+Arch    = " "
+CentOS  = " "
+Debian  = " "
+Ubuntu  = " "
+Amazon  = " "
+Unknown = " "
+
+# ref: https://starship.rs/config/#character
+[character]
+disabled = false
+
+# ref: https://starship.rs/config/#command-duration
+[cmd_duration]
+disabled = false
+format   = "[ $duration ]($style)"
+style    = "bold fg:#3399ff bg:#300906"
+
+# ref: https://starship.rs/config/#hostname
+[hostname]
+ssh_only = true
+trim_at  = "."
+format   = "[@$hostname  ]($style)"
+style    = "#3399ff"
+
+# ref: https://starship.rs/config/#username
+[username]
+show_always = false
+format      = "[$user  ]($style)"
+style_root  = "red bold"
+style_user  = "#66b3ff"
+
+[time]
+disabled    = false
+style       = "bold fg:#300906 bg:#9999ff"
+format      = "[ $time]($style)"
+time_range  = "-"
+time_format = "%H:%M"
+
+# ref: https://starship.rs/config/#directory
+[directory]
+style             = 'fg:#7aa2f7 bg:#363636'
+read_only_style   = "fg:#f7768e bg:#1a1b26"
+format            = "[$path ]($style)[$read_only]($read_only_style)"
+truncation_length = 3
+# truncation_symbol = " "
+truncate_to_repo  = false
+use_os_path_sep   = true
+# home_symbol       = "󰋜 "
+fish_style_pwd_dir_length = 1
+use_logical_path  = true
+
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music"     = " "
+"Pictures"  = " "
+"Desktop"   = " "
+".config"   = " "
+".cache"    = "󰃨 "
+
+# ref: https://starship.rs/config/#jobs
+[jobs]
+disabled = false
+format   = "[$symbol$number]($style) "
+style    = "bold blue"
+threshold = 1
+symbol_threshold = 1
+number_threshold = 2
+
+# ref: https://starship.rs/config/#status
+[status]
+disabled = false
+
+[fill]
+symbol = "┈"
+style  = "fg:#3366cc"
+
+#-------------------------------------------------
+# Shell
+#-------------------------------------------------
+# ref: https://starship.rs/config/#shell
+[shell]
+disabled = false
+format   = "[$indicator]($style) "
+style    = "(bold blue)"
+bash_indicator = "   "
+zsh_indicator  = "💤  "
+fish_indicator = "🐟  "
+cmd_indicator  = "   "
+
+# ref: https://starship.rs/config/#shlvl
+[shlvl]
+disabled  = false
+threshold = 2
+repeat    = false
+repeat_offset = 0
+
+[localip]
+disabled = false
+ssh_only = true
+
+[sudo]
+disabled = false
+format   = "as [$symbol]($style)"
+style    = "bold blue"
+
+# ref: https://starship.rs/config/#package-version
+[package]
+disabled = false
+symbol   = " "
+style = "bold"
+format          = "[  $symbol $context]($style)"
+version_format  = "${raw}"
+display_private = false
+
+#-------------------------------------------------
+# Git config
+#-------------------------------------------------
+# ref: https://starship.rs/config/#git-status
+[git_status]
+style      = ""
+format     = "([$all_status$ahead_behind]($style))"
+diverged   = "[⇕⇡ ${ahead_count}](fg:#ddffa7)[⇣ ${behind_count}](fg:#ff8b92)"
+ahead      = "[⟫${count}](fg:#ddffa7) "
+behind     = "[⟪${count}](fg:#ff8b92) "
+untracked  = "[󰏑 ${count} ](bold fg:#a88847)"
+conflicted = "[ ${cound} ](bold fg:#ff8b6b bg:#a8006a)"
+stashed    = "[󰋻 ${count} ](bold fg:#24ffa0)"
+modified   = "[󱩼 ${count} ](bold fg:#da6633)"
+staged     = "[󰷬 ${count} ](bold fg:#f2d166)"
+renamed    = "[󰑕 ${count} ](bold fg:#6495ed)"
+deleted    = "[ ${count} ](bold fg:#c00000)"
+up_to_date = "[ ](fg:#adff2f)"
+
+# ref: https://starship.rs/config/#git-state
+[git_state]
+format = "[($state( $progress_current of $progress_total))]($style)"
+cherry_pick = '[ PICKING](bold red)'
+
+# ref: https://starship.rs/config/#git-branch
+[git_branch]
+format = "[$symbol $branch(:$remote_branch) ]($style)"
+style  = "fg:#090c09 bg:#a2b1c1"
+symbol = ""
+
+# ref: https://starship.rs/config/#git-metrics
+[git_metrics]
+disabled      = false
+added_style   = "bg:#1d1d1d fg:#00aa64"
+deleted_style = "bg:#1d1d1d fg:#ea5ea8"
+format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:#9c9c9c)"
+
+# ref: https://starship.rs/config/#git-commit
+[git_commit]
+style = "bg:#CF9562"
+commit_hash_length = 7
+
+#-------------------------------------------------
+# Programming Language
+#-------------------------------------------------
+[c]
+style  = "bold fg:#434343"
+format = "[  $symbol $version]($style)"
+
+[swift]
+symbol = " Swift"
+style  = "bold fg:#eb392c"
+format       = "[  $symbol $version]($style)"
+detect_files = ["Package.swift", ".swiftlint.yml"]
+
+[rust]
+symbol = " Rust"
+style  = "bold fg:#d69372"
+format = "[  $symbol $version](red)"
+
+[zig]
+symbol = " Zig"
+style  = "bold fg:#e57d4a"
+format = "[  $symbol $version]($style)"
+
+[golang]
+symbol = " Go"
+style  = "bold fg:#149dcf"
+format = "[  $symbol $version]($style)"
+
+[java]
+symbol = " Java"
+style  = "bold fg:#9e5e14"
+format = "[  $symbol $version]($style)"
+
+[scala]
+symbol = " Scala"
+style  = "bold fg:#b31a31"
+format = "[  $symbol $version]($style)"
+
+[kotlin]
+symbol = " Kotlin"
+style  = "bold fg:#985fff"
+format = "[  $symbol $version]($style)"
+
+[elixir]
+style  = "bold fg:#593669"
+format = "[  $symbol $version]($style)"
+
+[erlang]
+symbol = " Erlang"
+style  = "bold fg:#a82086"
+format = "[  $symbol $version]($style)"
+
+[haskell]
+symbol = " Haskell"
+style  = "bold fg:#483a6f"
+format = "[  $symbol $version]($style)"
+
+[dotnet]
+style  = "bold fg:#197802"
+format = "[  $symbol $version]($style)"
+
+[nodejs]
+symbol = " node"
+style  = "bold fg:#eddc49"
+format = "[  $symbol $version]($style)"
+
+[deno]
+style  = "bold fg:#2762ba"
+format = "[  $symbol $version]($style)"
+
+[bun]
+style  = "bold fg:#b6f325"
+format = "[  $symbol $version]($style)"
+
+[lua]
+symbol = " Lua"
+style  = "bold fg:#51a0cf"
+format = "[  $symbol $version]($style)"
+
+[python]
+symbol = " Python"
+style  = "bold fg:#2a5e95"
+format = " [  ${symbol}${pyenv_prefix} (${version} )(($virtualenv) )]($style)"
+
+[ruby]
+symbol = " Ruby"
+style  = "bold fg:#701516"
+format = "[  $symbol $version]($style)"
+
+[perl]
+symbol = " Perl"
+style  = "bold fg:#519aba"
+format = "[  $symbol $version]($style)"
+
+[php]
+symbol = " PHP"
+style  = "bold fg:#a074c4"
+format = "[  $symbol $version]($style)"
+
+[rlang]
+symbol = "󰟔 R"
+style  = "bold fg:#1876e1"
+format = "[  $symbol $version]($style)"
+
+[cmake]
+symbol = " Cmake"
+style  = "bold fg:#6d8086"
+format = "[  $symbol $version]($style)"
+
+[nix_shell]
+symbol = " Nix"
+style  = "bold fg:6c63fe"
+format = "[  $symbol $version]($style)"
+
+#-------------------------------------------------
+# Container
+# ref: https://starship.rs/config/#container
+#-------------------------------------------------
+[container]
+format = "[  $symbol ($name)]($style)"
+style  = 'bright-black'
+symbol = '⌘'
+
+[docker_context]
+# symbol = " "
+style  = "bold fg:#ffffff"
+format = "[  $symbol $version]($style)"
+
+# ref: https://starship.rs/config/#kubernetes
+[kubernetes]
+symbol = "󱃾 "
+style  = "purple bold"
+format = "[  $symbol ($user in )($cluster on )$context ($namespace)]($style)"
+
+[kubernetes.context_aliases]
+
+[kubernetes.user_aliases]
+
+[terraform]
+symbol = " "
+format = "[  $symbol $version]($style)"
+
+{{- if .cloud }}
+#-------------------------------------------------
+# Cloud
+#-------------------------------------------------
+[aws]
+disabled = true
+style    = "bold yellow"
+format   = "[  on $symbol($profile )(($region) )([$duration] )]($style)"
+
+[aws.region_aliases]
+us-east-1      = "va"        # North Virginia
+us-east-2      = "oh"        # Ohio
+us-west-1      = "ca"        # North California
+us-west-2      = "or"        # Oregon
+af-south-1     = "za"        # Cape Town
+ap-east-1      = "hk"        # Hong Kong
+ap-south-1     = "mb"        # Munbai
+ap-south-2     = "hyd"       # Hyderabad
+ap-southeast-1 = "sg"        # Singapore
+ap-southeast-2 = "syd"       # Sydney
+ap-southeast-3 = "jk"        # Jakarta
+ap-southeast-4 = "mel"       # Melbourne
+ap-northeast-1 = "tokyo"     # Tokyo
+ap-northeast-2 = "seoul"     # Seoul
+ap-northeast-3 = "osaka"     # Osaka
+ca-central-1   = "canada"    # Montreal
+ca-west-1      = "calgary"   # Calgary
+eu-central-1   = "fr"        # Frankfurt
+eu-central-2   = "zrh"       # Zurich
+eu-west-1      = "ie"        # Ireland
+eu-west-2      = "ldn"       # London
+eu-west-3      = "pa"        # Paris
+eu-south-1     = "mi"        # Milano
+eu-south-2     = "es"        # Spain
+eu-north-1     = "sthlm"     # Stockholm
+il-central-1   = "ta"        # Tel Aviv
+me-south-1     = "bh"        # Bahrain
+me-central-1   = "ae"        # UAE
+sa-east-1      = "br"        # San Paulo
+
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'
+
+[azure]
+disabled = true
+format   = "[  on $symbol($subscription)]($style) "
+symbol   = "󰠅 "
+
+[gcloud]
+disabled = true
+format   = "[  on $symbol$account(@$domain)(($region))]($style) "
+symbol   = " "
+style    =  "bold green"
+{{- end }}
