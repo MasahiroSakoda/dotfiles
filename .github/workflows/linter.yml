@@ -31,7 +31,7 @@ jobs:
           sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S . --exclude=scripts
 
       - name: Super-linter
-        uses: super-linter/super-linter/slim@6
+        uses: super-linter/super-linter/slim@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
