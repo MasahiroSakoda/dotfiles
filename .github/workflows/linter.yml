@@ -26,10 +26,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Deploy dotfiles without running scripts
-        run: |
-          sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S . --exclude=scripts
-
       - name: Super-linter
         uses: super-linter/super-linter/slim@v6
         env:
