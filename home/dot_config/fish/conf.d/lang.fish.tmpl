@@ -2,8 +2,10 @@
 
 # Rust
 set -gx RUST_BACKTRACE full
-if test -d $HOME/.cargo/bin
-  fish_add_path $HOME/.cargo/bin
+set -gx CARGO_HOME "{{ .chezmoi.homeDir }}/.cargo"
+
+if test -d $CARGO_HOME/bin
+  fish_add_path $CARGO_HOME/bin
 end
 
 # Python
