@@ -1,6 +1,6 @@
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 
-{{- if eq .chezmoi.os "linux" }}
+{{- if and (eq .chezmoi.os "linux") (not .headless) }}
 [".local/share/fonts/JetBrainsMono"]
 type = "archive"
 url  = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
@@ -15,6 +15,6 @@ refreshPeriod = "168h"
 [".local/share/fonts/UDEV-Gothic"]
 {{- $latestVersion := (gitHubLatestRelease "yuru7/udev-gothic").TagName }}
 type = "archive"
-url  = "https://github.com/yuru7/udev-gothic/releases/download/{{ $latestVersion }}UDEVGothic_NF_{{ $latestVersion }}.zip"
+url  = "https://github.com/yuru7/udev-gothic/releases/download/{{ $latestVersion }}/UDEVGothic_NF_{{ $latestVersion }}.zip"
 refreshPeriod = "168h"
 {{- end }}
