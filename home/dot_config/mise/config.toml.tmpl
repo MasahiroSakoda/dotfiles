@@ -5,14 +5,13 @@
 NODE_ENV = 'development'
 
 [tools]
-go     = "{{ .mise.go }}"
-node   = "{{ .mise.node }}"
-pnpm   = "{{ .mise.pnpm }}"
-deno   = "{{ .mise.deno }}"
-bun    = "{{ .mise.bun }}"
-python = "{{ .mise.python }}"
-ruby   = "{{ .mise.ruby }}"
-usage  = "{{ .mise.usage }}"
+{{- range $lang, $content := .mise }}
+{{- $enabled := $content.enabled }}
+{{- $versions:= $content.versions }}
+{{- if $enabled }}
+{{ $lang }} = [{{ range $i, $ver := $versions }}{{ if $i }}, {{ end }}{{ . | quote }}{{ end }}]
+{{- end }}
+{{- end }}
 
 # supports everything you can do with .tool-versions currently
 # nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
