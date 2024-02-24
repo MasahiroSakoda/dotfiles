@@ -1,18 +1,20 @@
-# -*-mode:toml-*- vim:ft=toml.gotexttmpl Get editor completions based on the config schema
+# Get editor completions based on the config schema
 "$schema" = "https://starship.rs/config-schema.json"
+
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
 
 # ref: https://starship.rs/config/#prompt
 format = """
-[](fg:#7aa2f7)\
+[](fg:{{ .starship.env.fg_color }})\
 $os\
-[ ](fg:#7aa2f7 bg:#363636)\
+[ ](fg:{{ .starship.env.fg_color }} bg:{{ .starship.env.bg_color }})\
 $sudo\
 $localip\
 $shlvl\
 $directory\
-[](bg:#a2b1c1 fg:#363636)\
+[](fg:{{ .starship.env.bg_color }} bg:{{ .starship.git.branch.bg_color }})\
 $git_branch\
-[ ](fg:#a2b1c1)\
+[ ](fg:{{ .starship.git.branch.bg_color }})\
 $git_commit\
 $git_status\
 $git_state\
@@ -48,16 +50,16 @@ $shell\
 right_format = """
 [ ](fg:#7aa2f7)
 $jobs
-[](fg:#300906)
+[](fg:{{ .starship.clock.fg_color }})
 $cmd_duration
 $env_var
 $battery
 $memory_usage
 $line_break
 $package
-[](fg:#9999ff bg:#300906)
+[](fg:{{ .starship.clock.bg_color }} bg:{{ .starship.clock.fg_color }})
 $time
-[](fg:#9999ff)
+[](fg:{{ .starship.clock.bg_color }})
 """
 continuation_prompt = '[❯❯ ](fg:blue)'
 add_newline     = false
@@ -102,7 +104,7 @@ threshold = -1
 [os]
 disabled = false
 format   = "[$symbol]($style)"
-style    = "fg:#1a1b26 bg:#7aa2f7"
+style    = "fg:#1a1b26 bg:{{ .starship.env.fg_color }}"
 
 [os.symbols]
 Windows = " "
@@ -123,7 +125,7 @@ disabled = false
 [cmd_duration]
 disabled = false
 format   = "[ $duration ]($style)"
-style    = "bold fg:#3399ff bg:#300906"
+style    = "bold fg:{{ .starship.cmd.color }} bg:{{ .starship.clock.fg_color }}"
 
 # ref: https://starship.rs/config/#hostname
 [hostname]
@@ -141,15 +143,15 @@ style_user  = "#66b3ff"
 
 [time]
 disabled    = false
-style       = "bold fg:#300906 bg:#9999ff"
+style       = "bold fg:{{ .starship.clock.fg_color }} bg:{{ .starship.clock.bg_color }}"
 format      = "[ $time]($style)"
 time_range  = "-"
 time_format = "%H:%M"
 
 # ref: https://starship.rs/config/#directory
 [directory]
-style             = 'fg:#7aa2f7 bg:#363636'
-read_only_style   = "fg:#f7768e bg:#1a1b26"
+style             = 'fg:{{ .starship.path.fg_color }} bg:{{ .starship.env.bg_color }}'
+read_only_style   = "fg:{{ .starship.path.ro_color }} bg:{{ .starship.env.bg_color }}"
 format            = "[$path ]($style)[$read_only]($read_only_style)"
 truncation_length = 3
 # truncation_symbol = " "
@@ -230,17 +232,17 @@ display_private = false
 [git_status]
 style      = ""
 format     = "([$all_status$ahead_behind]($style))"
-diverged   = "[⇕⇡ ${ahead_count}](fg:#ddffa7)[⇣ ${behind_count}](fg:#ff8b92)"
-ahead      = "[⟫${count}](fg:#ddffa7) "
-behind     = "[⟪${count}](fg:#ff8b92) "
-untracked  = "[󰏑 ${count} ](bold fg:#a88847)"
-conflicted = "[ ${cound} ](bold fg:#ff8b6b bg:#a8006a)"
-stashed    = "[󰋻 ${count} ](bold fg:#24ffa0)"
-modified   = "[󱩼 ${count} ](bold fg:#da6633)"
-staged     = "[󰷬 ${count} ](bold fg:#f2d166)"
-renamed    = "[󰑕 ${count} ](bold fg:#6495ed)"
-deleted    = "[ ${count} ](bold fg:#c00000)"
-up_to_date = "[ ](fg:#adff2f)"
+diverged   = "[⇕⇡ ${ahead_count}](fg:{{ .starship.git.status.ahead }})[⇣ ${behind_count}](fg:{{ .starship.git.status.behind }})"
+ahead      = "[⟫${count}](fg:{{ .starship.git.status.ahead }}) "
+behind     = "[⟪${count}](fg:{{ .starship.git.status.behind }}) "
+untracked  = "[󰏑 ${count} ](bold fg:{{ .starship.git.status.untracked }})"
+conflicted = "[ ${cound} ](bold fg:{{ .starship.git.status.conflicted }} bg:#a8006a)"
+stashed    = "[󰋻 ${count} ](bold fg:{{ .starship.git.status.stashed }})"
+modified   = "[󱩼 ${count} ](bold fg:{{ .starship.git.status.modified }})"
+staged     = "[󰷬 ${count} ](bold fg:{{ .starship.git.status.staged }})"
+renamed    = "[󰑕 ${count} ](bold fg:{{ .starship.git.status.renamed }})"
+deleted    = "[ ${count} ](bold fg:{{ .starship.git.status.deleted }})"
+up_to_date = "[ ](fg:{{ .starship.git.status.up_to_date}})"
 
 # ref: https://starship.rs/config/#git-state
 [git_state]
@@ -249,15 +251,15 @@ cherry_pick = '[ PICKING](bold red)'
 
 # ref: https://starship.rs/config/#git-branch
 [git_branch]
+style  = "fg:{{ .starship.git.branch.fg_color }} bg:{{ .starship.git.branch.bg_color}}"
 format = "[$symbol $branch(:$remote_branch) ]($style)"
-style  = "fg:#090c09 bg:#a2b1c1"
 symbol = ""
 
 # ref: https://starship.rs/config/#git-metrics
 [git_metrics]
 disabled      = false
-added_style   = "bg:#1d1d1d fg:#00aa64"
-deleted_style = "bg:#1d1d1d fg:#ea5ea8"
+added_style   = "fg:{{ .starship.git.metrics.added }}"
+deleted_style = "fg:{{ .starship.git.metrics.deleted }}"
 format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:#9c9c9c)"
 
 # ref: https://starship.rs/config/#git-commit
