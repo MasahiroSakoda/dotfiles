@@ -67,15 +67,33 @@ color = "#3399ff"
 chatgpt = true
 copilot = true
 
-[mise]
-bun    = "1"
-deno   = "1"
-go     = "latest"
-node   = "20"
-pnpm   = "latest"
-python = "3.12"
-ruby   = "3.3"
-usage  = "latest"
+[mise.node]
+enabled  = true
+versions = ["20"]
+
+[mise.pnpm]
+enabled  = true
+versions = ["latest"]
+
+[mise.deno]
+enabled  = true
+versions = ["1"]
+
+[mise.bun]
+enabled  = true
+versions = ["1"]
+
+[mise.go]
+enabled  = true
+versions = ["latest"]
+
+[mise.python]
+enabled  = true
+versions = ["3.11", "3.12"]
+
+[mise.ruby]
+enabled  = true
+versions = ["3.3"]
 
 [packages]
 npm = [
