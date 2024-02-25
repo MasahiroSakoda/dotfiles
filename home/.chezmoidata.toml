@@ -95,6 +95,10 @@ versions = ["3.11", "3.12"]
 enabled  = true
 versions = ["3.3"]
 
+[mise.usage]
+enabled  =  true
+versions = ["latest"]
+
 [packages]
 npm = [
   "neovim",
