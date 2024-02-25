@@ -10,6 +10,7 @@ Filetypes.js   = {
   "typescriptreact",
 }
 Filetypes.json = { "json", "json5", "jsonc" }
+Filetypes.shell = { "sh", "bash", "zsh" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
 

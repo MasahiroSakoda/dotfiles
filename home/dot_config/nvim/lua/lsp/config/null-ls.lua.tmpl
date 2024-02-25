@@ -113,6 +113,13 @@ nl.setup({
     }),
     {{- end }}
 
+    -- Shell
+    formatting.shfmt.with({
+      -- zsh is not supported but enable anyway
+      extrac_filetypes = filetypes.shell,
+      extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
+    }),
+
     -- fish
     diagnostics.fish,
 
