@@ -120,17 +120,6 @@ nl.setup({
     -- fish
     diagnostics.fish,
 
-    {{- if .mise.python.enabled }}
-    -- Python
-    diagnostics.ruff.with {
-      prefer_local = "venv/bin",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
-    },
-    formatting.ruff.with {
-      prefer_local = "venv/bin",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
-    },
-    {{- end }}
     {{- if .mise.ruby.enabled }}
     -- Ruby
     diagnostics.rubocop.with({
