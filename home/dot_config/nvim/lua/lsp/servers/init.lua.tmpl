@@ -13,7 +13,7 @@ return {
   {{- end }}
   {{- if .mise.python.enabled  }}
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
-  ruff_lsp      = require("lsp.servers.ruff_lsp")       -- extremely fast Python Linter
+  ruff_lsp      = require("lsp.servers.ruff_lsp"),       -- extremely fast Python Linter
   {{- end }}
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   {{- if .mise.node.enabled }}
