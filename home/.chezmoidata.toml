@@ -80,7 +80,7 @@ enabled  = true
 versions = ["1"]
 
 [mise.bun]
-enabled  = true
+enabled  = false
 versions = ["1"]
 
 [mise.go]
