@@ -1,14 +1,34 @@
+# Tig default configuration
+# cat /usr/local/opt/tig/share/tig/examples/tigrc
+#
+# Please see 'man tigrc' for a complete reference.
+
 # -*-mode:sh-*- vim:ft=sh.gotexttmpl
 
 # Encoding
 set line-graphics = utf-8
 
-# Display
+# Appearance
 ## Color
 color  diff-header       default magenta
 color  diff-chunk        black   white
-set diff-highlight = true
 set refresh-mode = auto
+
+## View
+set blame-view  = date:default author:full file-name:auto id:yes,color line-number:no,interval=1 text
+set grep-view   = file-name:no line-number:yes,interval=1 text
+set main-view   = line-number:no,interval=1 id:yes date:default author:full commit-title:yes,graph,refs,overflow=no
+set refs-view   = line-number:no id:no date:default author:full ref commit-title
+set stash-view  = line-number:no,interval=1 id:no date:default author:full commit-title
+set status-view = line-number:no,interval=1 status:short file-name
+set tree-view   = line-number:no,interval=1 mode author:full file-size date:default id:no file-name
+
+### Page based viwe
+set pager-view = line-number:no,interval=1 text
+set stage-view = line-number:no,interval=1 text
+set log-view   = line-number:no,interval=1 text
+set blob-view  = line-number:no,interval=1 text
+set diff-view  = line-number:no,interval=1 text:yes,commit-title-overflow=no
 
 ## Line Number
 set editor-line-number     = yes
@@ -20,8 +40,17 @@ set ignore-case = true
 set split-view-height = 80%
 
 # Keybind
-bind generic g      move-first-line
-bind generic G      move-last-line
-bind generic E      view-grep
-bind main    G      move-last-line
+bind generic g none
+bind generic G none
+bind generic g move-first-line
+bind generic G move-last-line
+bind main    g move-first-line
+bind main    G move-last-line
+
+bind generic <Ctrl-B> move-page-up
+bind generic <Ctrl-F> move-page-down
+
+bind generic E view-grep
+bind generic Y +bash -c 'printf "copied: "; printf "%s" "%(commit)" | tee >(pbcopy)'
+
 bind main    <Esc>g :toggle commit-title-graph
