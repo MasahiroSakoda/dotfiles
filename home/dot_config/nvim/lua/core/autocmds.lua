@@ -18,6 +18,20 @@ local highlight_url = function()
   if g.highlighturl_enabled then fn.matchadd("HighlightURL", url_pattern, 15) end
 end
 
+autocmd("BufWritePre", {
+  desc    = "Strip trailing whitespace ",
+  group   = augroup "",
+  pattern = "*",
+  command = "%s/s+$//e",
+})
+
+autocmd("BufWritePre", {
+  desc    = "Strip trailing new lines at the end of file on save",
+  group   = augroup "",
+  pattern = "*",
+  command = ":%s/\\n\\+\\%$//e",
+})
+
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc    = "Check if we need to reload the file when it changed",
   group   = augroup("checktime"),

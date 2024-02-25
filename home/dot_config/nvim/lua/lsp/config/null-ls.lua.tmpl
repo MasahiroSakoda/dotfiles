@@ -40,12 +40,10 @@ end
 
 nl.setup({
   debug = false,
-  -- builtin sources: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+  -- ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
   diagnostics_format = "#{m} (#{s}: #{c})",
   sources = {
     -- Common Configurations
-    formatting.trim_newlines,
-    formatting.trim_whitespace,
     diagnostics.todo_comments,
     -- formatting.codespell.with({
     --   disabled_filetypes = { "css", "bib" },
