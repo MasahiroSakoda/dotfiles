@@ -4,6 +4,15 @@ std = {
     "require",
     "pcall",
     "ipairs",
+    "print",
+    "next",
+    "select",
+    "rawget",
+    "os",
+    "io",
+    "string",
+    "table",
+    "totnumber",
   },
   ignore = {
     "122", -- Mutating read-only global variable
