@@ -59,6 +59,26 @@ install.sh
 
 key.txt.age
 
+# Language specific files
+{{- if not .mise.go.enabled }}
+.default-go-packages
+{{- end }}
+
+{{- if not .mise.python.enabled }}
+.default-python-packages
+.chezmoiscripts/run_onchange_after_21-python.sh.tmpl
+{{- end }}
+
+{{- if not .mise.ruby.enabled }}
+.default-gems
+.chezmoiscripts/run_onchange_after_22-ruby.sh.tmpl
+{{- end }}
+
+{{- if not .mise.node.enabled }}
+.default-npm-packages
+.chezmoiscripts/run_onchange_after_23-nodejs.sh.tmpl
+{{- end }}
+
 # Ignore non-macOS files.
 {{ if ne .chezmoi.os "darwin" -}}
 .hammerspoon

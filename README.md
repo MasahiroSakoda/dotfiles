@@ -20,7 +20,7 @@
   [license-badge]: https://img.shields.io/github/license/MasahiroSakoda/dotfiles
   [license-file]: https://github.com/MasahiroSakoda/dotfiles/blob/main/LICENSE
 
-  [![Codacy Security Scan](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/codacy.yml)
+  [![linter](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/linter.yml/badge.svg)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/linter.yml)
   [![ci](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml/badge.svg?event=pull_request)](https://github.com/MasahiroSakoda/dotfiles/actions/workflows/ci.yml)
 </div>
 
@@ -294,12 +294,15 @@ Runtime version management tool
 
 `.tool-versions` used by `asdf` is deactivated to prevent confliction & confusion.
 
+global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
+
 | File                         | Usage           |
 |:-----------------------------|:----------------|
 | [**`~/.config/mise/settings.toml`**][mise-settings] | System settings |
 | [**`~/.config/mise/config.toml`**][mise-global]   | Global config   |
 | `.mise.toml`                   | Local config    |
 
+[chezmoidata]:  https://github.com/MasahiroSakoda/dotfiles/blob/main/home/.chezmoidata.toml
 [mise-global]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/config.toml.tmpl
 [mise-settings]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/settings.toml.tmpl
 
