@@ -1,12 +1,10 @@
-local g, o, bo, fn, api, keymap =  vim.g, vim.o, vim.bo, vim.fn, vim.api, vim.keymap.set
+local g, bo, fn, api, keymap =  vim.g, vim.bo, vim.fn, vim.api, vim.keymap.set
 local autocmd = api.nvim_create_autocmd
 local augroup = function(name)
   return api.nvim_create_augroup("dotfiles_" .. name, { clear = true })
 end
 
-local url_pattern =
-  "\\v\\c%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)%([&:#*@~%_\\-=?!+;/0-9a-z]+%(%([.;/?]|[.][.]+)[&:#*@~%_\\-=?!+/0-9a-z]+|:\\d+|,%(%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)@![0-9a-z]+))*|\\([&:#*@~%_\\-=?!+;/.0-9a-z]*\\)|\\[[&:#*@~%_\\-=?!+;/.0-9a-z]*\\]|\\{%([&:#*@~%_\\-=?!+;/.0-9a-z]*|\\{[&:#*@~%_\\-=?!+;/.0-9a-z]*})\\})+"
-
+local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
 local lowlight_url = function()
   for _, match in ipairs(fn.getmatches()) do
     if match.group == "HighlightURL" then fn.matchdelete(match.id) end
@@ -17,6 +15,20 @@ local highlight_url = function()
   lowlight_url()
   if g.highlighturl_enabled then fn.matchadd("HighlightURL", url_pattern, 15) end
 end
+
+autocmd("BufWritePre", {
+  desc    = "Strip trailing whitespace ",
+  group   = augroup "TrailStripper",
+  pattern = "*",
+  command = "%s/s+$//e",
+})
+
+autocmd("BufWritePre", {
+  desc    = "Strip trailing new lines at the end of file on save",
+  group   = augroup "TrailStripper",
+  pattern = "*",
+  command = ":%s/\\n\\+\\%$//e",
+})
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc    = "Check if we need to reload the file when it changed",

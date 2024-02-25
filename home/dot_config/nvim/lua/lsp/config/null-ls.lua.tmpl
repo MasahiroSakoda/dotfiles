@@ -40,12 +40,10 @@ end
 
 nl.setup({
   debug = false,
-  -- builtin sources: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+  -- ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
   diagnostics_format = "#{m} (#{s}: #{c})",
   sources = {
     -- Common Configurations
-    formatting.trim_newlines,
-    formatting.trim_whitespace,
     diagnostics.todo_comments,
     -- formatting.codespell.with({
     --   disabled_filetypes = { "css", "bib" },
@@ -115,24 +113,16 @@ nl.setup({
     }),
     {{- end }}
 
-    -- beautysh: bash/csh/ksh/sh/zsh formatter
-    formatting.beautysh.with({
-      extra_args = { "--indent-size", "2" },
+    -- Shell
+    formatting.shfmt.with({
+      -- zsh is not supported but enable anyway
+      extrac_filetypes = filetypes.shell,
+      extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
     }),
+
     -- fish
     diagnostics.fish,
 
-    {{- if .mise.python.enabled }}
-    -- Python
-    diagnostics.ruff.with {
-      prefer_local = "venv/bin",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
-    },
-    formatting.ruff.with {
-      prefer_local = "venv/bin",
-      condition    = function(utils) return utils.root_has_file(filetypes.lsp.ruff) end,
-    },
-    {{- end }}
     {{- if .mise.ruby.enabled }}
     -- Ruby
     diagnostics.rubocop.with({
@@ -177,17 +167,6 @@ nl.setup({
         "--skip-errors",
         "$FILENAME",
       },
-    }),
-    {{- end }}
-
-    {{- if .mise.deno.enabled }}
-    diagnostics.deno_lint.with({
-      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.deno) end,
-    }),
-    formatting.deno_fmt.with({
-      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.deno) end,
     }),
     {{- end }}
 

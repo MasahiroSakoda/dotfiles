@@ -15,7 +15,7 @@ local virtual_text_document_handler = function(uri, result)
       return nil
     end
 
-    api.nvim_buf_set_lines(bufnr, 0, -1, nil, lines)
+    api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
     api.nvim_buf_set_option(bufnr, 'readonly', true)
     api.nvim_buf_set_option(bufnr, 'modified', false)
     api.nvim_buf_set_option(bufnr, 'modifiable', false)
@@ -49,13 +49,10 @@ local denols_handler = function(err, result, ctx)
   lsp.handlers[ctx.method](err, result, ctx)
 end
 
+local ft = require("user.filetypes")
 return {
   cmd       = { "deno", "lsp" },
-  root_dir  = lspconfig.util.root_pattern(
-    "deno.json",
-    "deno.jsonc"
-    -- "tsconfig.json"
-  ),
+  root_dir  = lspconfig.util.root_pattern(ft.lsp.deno),
   autostart = true,
   init_options = {
     enable    = true,
@@ -71,7 +68,7 @@ return {
       },
     },
   },
-  filetypes = require("user.filetypes").js,
+  filetypes = ft.js,
   handlers = {
     ["textDocument/definition"] = denols_handler,
     ["textDocument/references"] = denols_handler,
