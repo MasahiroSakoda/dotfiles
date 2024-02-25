@@ -1,7 +1,14 @@
 local Filetypes = {}
 
 Filetypes.log  = { "log", "txt", "text" }
-Filetypes.js   = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
+Filetypes.js   = {
+  "javascript",
+  "typescript",
+  "javascript.jsx",
+  "typescript.tsx",
+  "javascriptreact",
+  "typescriptreact",
+}
 Filetypes.json = { "json", "json5", "jsonc" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
@@ -84,6 +91,7 @@ Filetypes.lsp = {
   revive       = { "revive.toml" },
   ruff         = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
   rubocop      = { ".rubocop.yml" },
+  tsserver     = { "jsconfig.json", "tsconfig.json" },
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
   deno         = { "deno.json", "deno.jsonc" },

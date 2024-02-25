@@ -11,12 +11,5 @@ return {
     )(filename) or vim.fn.getcwd()
   end,
   autostart = false,
-  filetypes = {
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact",
-  },
+  filetypes = require("user.filetypes").js,
 }

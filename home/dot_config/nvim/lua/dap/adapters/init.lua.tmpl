@@ -1,9 +1,17 @@
+-- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+
 return {
   bash     = {},                                 -- bash-debug-adapter
   codelldb = require("dap.adapters.codelldb"),   -- codelldb: C, C++, Rust
   cpptools = require("dap.adapters.cpptools"),   -- cpptools: C, C++, Rust
+  {{- if .mise.go.enabled }}
   delve    = require("dap.adapters.delve"),      -- Go
+  {{- end }}
+  {{- if .mise.python.enabled }}
   debugpy  = require("dap.adapters.debugpy"),    -- Python
+  {{- end }}
+  {{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
   js       = require("dap.adapters.javascript"), -- JavaScript, TypeScript
   chrome   = require("dap.adapters.chrome"),     -- Google Chrome
+  {{- end }}
 }
