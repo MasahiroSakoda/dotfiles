@@ -14,6 +14,12 @@ return {
   ------------------------------------------------------------------------
   -- Others
   ------------------------------------------------------------------------
+  -- chezmoi integration
+  {
+    "xvzc/chezmoi.nvim",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require("user.chezmoi") end,
+  },
   -- Translate Engine
   { "potamides/pantran.nvim", cmd = "Pantran", config = function() require("user.pantran") end },
 
