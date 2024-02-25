@@ -1,6 +1,9 @@
 std = {
   globals = {
     "vim",
+    "require",
+    "pcall",
+    "ipairs",
   },
   ignore = {
     "122", -- Mutating read-only global variable
