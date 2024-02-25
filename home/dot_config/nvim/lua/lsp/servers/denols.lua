@@ -71,14 +71,7 @@ return {
       },
     },
   },
-  filetypes = {
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact",
-  },
+  filetypes = require("user.filetypes").js,
   handlers = {
     ["textDocument/definition"] = denols_handler,
     ["textDocument/references"] = denols_handler,
