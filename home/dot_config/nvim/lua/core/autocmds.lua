@@ -1,4 +1,4 @@
-local g, o, bo, fn, api, keymap =  vim.g, vim.o, vim.bo, vim.fn, vim.api, vim.keymap.set
+local g, bo, fn, api, keymap =  vim.g, vim.bo, vim.fn, vim.api, vim.keymap.set
 local autocmd = api.nvim_create_autocmd
 local augroup = function(name)
   return api.nvim_create_augroup("dotfiles_" .. name, { clear = true })
