@@ -311,15 +311,7 @@ default_layout "compact"
 // that will be used by default if this option is not set.
 // Examples:
 //
-{{- if eq .chezmoi.os "darwin" }}
-copy_command "pbcopy"                     // osx
-{{- else if eq .chezmoi.os "linux" }}
-{{- if lookPath "xclip" }}
-copy_command "xclip -selection clipboard" // x11
-{{- else if lookPath "wl-copy" }}
-copy_command "wl-copy"                    // wayland
-{{- end }}
-{{- end }}
+copy_command {{ .cmd.copy }}
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.

@@ -94,7 +94,7 @@ abbr -a -- rmf 'rm -if'
 abbr -a -- rmrf 'rm -rf'
 
 ## Directory
-abbr -a -- cwd 'pwd | pbcopy'
+abbr -a -- cwd 'pwd | {{ .cmd.copy }}'
 abbr -a -- mkdir 'mkdir -pv'
 abbr -a -- .. 'cd ..'
 abbr -a -- ... 'cd ../..'
