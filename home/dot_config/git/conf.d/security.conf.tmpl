@@ -1,9 +1,7 @@
 # -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
 
 [credential]
-{{ if eq .chezmoi.os "darwin" -}}
-  helper = osxkeychain
-{{ end -}}
+  helper = {{ .cmd.credential }}
 
 [gpg]
 	program = gpg
