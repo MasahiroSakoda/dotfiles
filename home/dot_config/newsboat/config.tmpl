@@ -3,11 +3,7 @@
 # Default apps
 # browser "brave %u >/dev/null 2>&1 &"
 browser "trash -rf ~/.w3m 2>/dev/null; w3m -sixel -config ~/.config/w3m/config %u"
-{{- if eq .chezmoi.os "darwin" }}
-player "iina %u"
-{{- else if eq .chezmoi.os "linux" }}
-player "mpv %u"
-{{- end }}
+player "{{ .cmd.player }} %u"
 
 # General settings
 ## Reader

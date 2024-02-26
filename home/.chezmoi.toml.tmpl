@@ -62,6 +62,26 @@ brew_prefix = {{ $brew_prefix | quote }}
 user  = {{ $user | quote }}
 email = {{ $email | quote }}
 
+[data.cmd]
+{{- if eq .chezmoi.os "darwin" }}
+copy     = "pbcopy"
+paste    = "pbpaste"
+pinentry = "{{ $brew_prefix }}/bin/pinentry-mac"
+open     = "open"
+player   = "iina"
+{{- else if eq .chezmoi.os "linux" }}
+{{-   if lookPath "xsel" }}
+copy     = "xsel --clipboard --input"
+paste    = "xsel --clipboard --output"
+{{-   else if or (lookPath "wl-copy") (lookPath "wl-paste") }}
+copy     = "wl-copy"
+paste    = "wl-paste"
+{{-   end }}
+pinentry = "{{ $brew_prefix }}/bin/pinentry"
+open     = "xdg-open"
+player   = "mpv"
+{{- end }}
+
 [edit]
 command = "nvim"
 apply = false

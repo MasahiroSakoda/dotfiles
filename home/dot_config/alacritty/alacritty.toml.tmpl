@@ -58,11 +58,7 @@ alphabet   = "jfkdls;ahgurieowpq"
 regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
 hyperlinks = true
 post_processing = true
-{{- if eq .chezmoi.os "darwin" }}
-command = "open"
-{{- else if eq .chezmoi.os "linux" }}
-command = "xdg-open"
-{{- end }}
+command = {{ .cmd.open }}
 binding.key  = "o"
 binding.mods = "Control | Shift"
 
