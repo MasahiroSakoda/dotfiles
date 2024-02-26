@@ -67,6 +67,7 @@ email = {{ $email | quote }}
 copy     = "pbcopy"
 paste    = "pbpaste"
 pinentry = "{{ $brew_prefix }}/bin/pinentry-mac"
+credential = "osxkeychain"
 open     = "open"
 player   = "iina"
 {{- else if eq .chezmoi.os "linux" }}
@@ -78,6 +79,7 @@ copy     = "wl-copy"
 paste    = "wl-paste"
 {{-   end }}
 pinentry = "{{ $brew_prefix }}/bin/pinentry"
+credential = "osxkeychain"
 open     = "xdg-open"
 player   = "mpv"
 {{- end }}
