@@ -22,6 +22,11 @@ install.sh
 .wget-hsts
 .*_history
 
+# Git files
+{{- if eq (env "REMOTE_CONTAINERS") "true" }}
+.gitconfig
+{{- end }}
+
 # macOS flies
 **/.DS_Store
 .CFUserTextEncoding

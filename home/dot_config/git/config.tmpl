@@ -9,7 +9,11 @@
   path = conf.d/security.conf
 
 [core]
+  {{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
+  editor       = code --wait
+  {{- else }}
   editor       = nvim
+  {{- end }}
 	excludesfile = ${XDG_CONFIG_HOME}/git/ignore
 
 [color]
