@@ -10,5 +10,5 @@ return {
   require("plugins.treesitter"),
   require("plugins.telescope"),
   require("plugins.ai"),
-  require("pluugins.misc"),
+  require("plugins.misc"),
 }
