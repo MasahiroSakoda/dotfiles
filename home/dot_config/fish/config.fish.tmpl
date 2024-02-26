@@ -5,10 +5,8 @@ set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 
 # Path Configuration
-fish_add_path /usr/local/bin
-fish_add_path /usr/local/sbin
-fish_add_path /usr/bin
-fish_add_path /usr/sbin
+fish_add_path {{ .brew_prefix }}/bin
+fish_add_path {{ .brew_prefix }}/sbin
 fish_add_path $HOME/.local/bin
 fish_add_path $XDG_DATA_HOME/nvim/mason/bin
 
