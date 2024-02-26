@@ -77,3 +77,10 @@ autocmd("FileType", {
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
   end,
 })
+
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
+  callback = function()
+    vim.schedule(require("chezmoi.commands.__edit").watch)
+  end
+})
