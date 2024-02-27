@@ -3,7 +3,7 @@ alias vim="nvim"
 
 alias cat="bat"
 
-alias w3m='/usr/local/bin/w3m -I utf-8 -O utf-8 -m -num -s'
+alias w3m='{{ .brew_prefix }}/bin/w3m -I utf-8 -O utf-8 -m -num -s'
 
 # YouTube
 alias audio-dl="yt-dlp -civ --external-downloader aria2c --external-downloader-args '-c -x 5 -k 2M' --extract-audio --audio-format mp3 --audio-quality 320k -o '%(title)s.%(ext)s' "
