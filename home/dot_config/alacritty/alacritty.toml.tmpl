@@ -9,7 +9,7 @@ import = [
 live_config_reload = true
 
 [shell]
-program = "/usr/local/bin/fish"
+program = "{{ .brew_prefix }}/bin/fish"
 args = [
   "--login",
   "--command",
