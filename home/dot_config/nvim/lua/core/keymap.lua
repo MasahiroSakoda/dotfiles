@@ -181,8 +181,8 @@ if not is_vscode then
     ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
     ["<Leader>P"]  = { ":Lazy<CR>",                      "   Open lazy.nvim Window" },
 
-    -- ["<C-g>"]         = { ":Telescope live_grep<CR>",    "   " },
-    ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Telescope egrepify" },
+    ["<Leader>fg"]    = { ":Telescope live_grep<CR>",    "   Live grep with args" },
+    ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Live grep with egrepify" },
     ["<Leader><C-g>"] = { ":Telescope grep_string<CR>",  "   Grep string in working directory" },
 
     ["<Leader>ff"] = { ":Telescope frecency<CR>",            "   Frecency algorithm Search" },
