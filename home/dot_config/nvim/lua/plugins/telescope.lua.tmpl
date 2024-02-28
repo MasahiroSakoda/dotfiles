@@ -29,6 +29,12 @@ return {
     config = function() require("user.telescope.egrepify") end,
   },
   {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    cond  = not vim.g.vscode,
+    cmd   = "Telescope live_grep",
+    config = function() require("user.telescope.lga") end,
+  },
+  {
     "nvim-telescope/telescope-file-browser.nvim",
     cond   = not vim.g.vscode,
     config = function() require("user.telescope.file_browser") end,
