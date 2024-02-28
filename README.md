@@ -117,7 +117,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | Plugin           | Notes                                                          |
 | ---------------- | -------------------------------------------------------------- |
 | [fisher][fisher]           | A plugin manager for Fish                                      |
-| [theme-bobthefish][theme-bobthefish] | A Powerline-style, Git-aware fish theme optimized for awesome. |
 | [fzf][fish-fzf]              | Ef-🐟-ient fish keybindings for fzf                            |
 | [z][fish-z]                | Pure-fish z directory jumping                                  |
 | [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
@@ -125,7 +124,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
 
 [fisher]: https://github.com/jorgebucaran/fisher
-[theme-bobthefish]: https://github.com/oh-my-fish/theme-bobthefish
 [fish-fzf]: https://github.com/jethrokuan/fzf
 [fish-z]: https://github.com/jethrokuan/z
 [dracula]: https://github.com/dracula/fish
