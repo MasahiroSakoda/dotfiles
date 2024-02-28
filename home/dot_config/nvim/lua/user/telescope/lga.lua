@@ -7,8 +7,10 @@ telescope.setup({
     live_grep_args = {
       auto_quoting = true,
       mappings = {
-        ["<C-k>"] = actions.quote_prompt(),
-        ["<C-i>"] = actions.quote_prompt({ postfix = " --iglob " }),
+        i = {
+          ["<C-r>"] = actions.quote_prompt(),
+          ["<C-i>"] = actions.quote_prompt({ postfix = " --iglob " }),
+        },
       },
     },
   },
