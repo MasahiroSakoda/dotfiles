@@ -9,6 +9,7 @@ if test -d $CARGO_HOME/bin
 end
 
 # Python
+set -gx PYTHONPATH "{{ .brew_prefix }}/lib/python3.11"
 set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
 set -gx PYTHON_BUILD_HTTP_CLIENT "aria2c"
 
