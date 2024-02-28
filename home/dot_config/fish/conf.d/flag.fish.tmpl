@@ -1,0 +1,9 @@
+# -*-mode:fish-*- vim:ft=fish
+
+set -gx LDFLAGS  "$LDFLAGS -L {{ .brew_prefix }}/lib"
+set -gx CFLAGS "$CFLAGS -I {{ .brew_prefix }}/include"
+set -gx CPPFLAGS "$CPPFLAGS -I {{ .brew_prefix }}/include"
+
+for pkg in openssl curl readline gettext ncurses sqlite zlib tcl-tk
+  set -gx PKG_CONFIG_PATH "$HOMEBREW_PREFIX/opt/$pkg/lib/pkgconfig" $PKG_CONFIG_PATH
+end
