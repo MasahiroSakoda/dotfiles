@@ -29,6 +29,10 @@ telescope.setup({
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
     file_ignore_patterns = patterns,
+    path_display = {
+      shorten  = { len = 1, exlude = { 1, -2, -1 } },
+      truncate = true,
+    },
     mappings = {
       n = {
         ["q"]     = actions.close,
