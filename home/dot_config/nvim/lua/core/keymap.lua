@@ -181,8 +181,8 @@ if not is_vscode then
     ["<Leader>ft"] = { ":TodoTelescope<CR>",             "   Display Project ToDo" },
     ["<Leader>P"]  = { ":Lazy<CR>",                      "   Open lazy.nvim Window" },
 
-    -- ["<C-g>"]         = { ":Telescope live_grep<CR>",    "   " },
-    ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Telescope egrepify" },
+    ["<Leader>fg"]    = { ":Telescope live_grep<CR>",    "   Live grep with args" },
+    ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Live grep with egrepify" },
     ["<Leader><C-g>"] = { ":Telescope grep_string<CR>",  "   Grep string in working directory" },
 
     ["<Leader>ff"] = { ":Telescope frecency<CR>",            "   Frecency algorithm Search" },
@@ -192,7 +192,7 @@ if not is_vscode then
     ["<Leader>fl"] = { ":Telescope lazy<CR>",         "   lazy.nvim Browser" },
     ["<Leader>fL"] = { ":Telescope luasnip<CR>",      "   LuaSnip Browser" },
 
-    [";;"]          = { ":lua require'telescope'.builtin.resume()<CR>", "   Resume previous picker" },
+    ["<Leader>fr"] = { ":lua require'telescope.builtin'.resume()<CR>",                   "   Resume previous picker" },
     ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   dap configurations" },
     ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
     ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
