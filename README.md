@@ -82,19 +82,21 @@ chezmoi update
 
 ### Homebrew packages
 
-| Package | Category         | Notes       |
-| ------- | ---------------- | ----------- |
-| [**Fish**][fish]    | Shell            |             |
-| [**tmux**][tmux]    | Screen           | [tmux.conf][tmux.conf]   |
-| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim)  |
+| Package  | Category         | Notes       |
+| -------- | ---------------- | ----------- |
+| [**Fish**][fish]     | Shell            |             |
+| [**starship**][starship] | Prompt           |             |
+| [**tmux**][tmux]     | Screen           | [tmux.conf][tmux.conf]   |
+| [**NeoVim**][neovim]   | Editor           | See [Detail](#neovim)  |
 | [**mise**][mise]     | Version Control  | See [Detail](#mise)  |
-| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
-| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
-| [**fd**][fd]      | `find` alternative |             |
-| [**bat**][bat]     | `cat` alternative  | [config][batconfig]      |
-| [**bottom**][bottom]  | `top` alternative  | [bottom.toml][bottom.toml] |
+| [**fzf**][fzf]      | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
+| [**ripgrep**][ripgrep]  | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
+| [**fd**][fd]       | `find` alternative |             |
+| [**bat**][bat]      | `cat` alternative  | [config][batconfig]      |
+| [**bottom**][bottom]   | `top` alternative  | [bottom.toml][bottom.toml] |
 
 [fish]: https://github.com/fish-shell/fish-shell
+[starship]: https://starship.rs/
 [tmux]: https://github.com/tmux/tmux
 [neovim]: https://github.com/neovim/neovim
 [mise]: https://github.com/jdx/mise
