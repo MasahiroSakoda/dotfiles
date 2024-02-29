@@ -185,6 +185,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [pyright]: https://github.com/microsoft/pyright
 [ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
 [rubocop]: https://rubocop.org
+[sorbet]: https://sorbet.org
 [denols]: https://deno.land
 [tsserver]: https://github.com/typescript-language-server/typescript-language-server
 [luals]: https://github.com/LuaLS/lua-language-server
