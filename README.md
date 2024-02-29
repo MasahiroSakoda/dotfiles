@@ -160,7 +160,9 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**rust-analyzer**][rust-analyzer]              | Rust                    |
 | [**gopls**][gopls]                      | Go                      |
 | [**pyright**][pyright]                    | Python                  |
-| [**solargraph**][solargraph]                 | Ruby                    |
+| [**ruff-lsp**][ruff-lsp]                   | Python Linter/Formatter |
+| [**sobet**][sorbet]                      | Ruby type checker       |
+| [**rubocop**][rubocop]                    | Ruby linter/formatter   |
 | [**deno**][denols]                       | JavaScript, TypeScript  |
 | [**typescript-language-server**][tsserver] | JavaScript, TypeScript  |
 | [**lua-language-server**][luals]        | Lua                     |
@@ -181,7 +183,8 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [rust-analyzer]: https://github.com/rust-lang/rust-analyzer
 [gopls]: https://pkg.go.dev/golang.org/x/tools/gopls
 [pyright]: https://github.com/microsoft/pyright
-[solargraph]: https://solargraph.org/
+[ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
+[rubocop]: https://rubocop.org
 [denols]: https://deno.land
 [tsserver]: https://github.com/typescript-language-server/typescript-language-server
 [luals]: https://github.com/LuaLS/lua-language-server
@@ -225,8 +228,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | ------------ | ---------------------------------- |
 | [**codespell**][codespell]    | Check code for common misspellings |
 | [**revive**][revive]       | Fast Linter for `golang`             |
-| [**ruff**][ruff]         | Fast `Python` Linter                 |
-| [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
 | [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**cmakelint**][cmakelint]    | `CMake` linter                       |
@@ -235,8 +236,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 [codespell]: https://github.com/codespell-project/codespell
 [revive]: https://github.com/mgechev/revive
-[ruff]: https://github.com/charliermarsh/ruff
-[rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
 [biome]: https://github.com/biomejs/biome
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
@@ -247,7 +246,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
-| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter    |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
@@ -255,7 +253,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**xmlformatter**][xmlformatter]  | `XML` formatter              |
 | [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
-[beautysh]: https://github.com/lovesegfault/beautysh
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
