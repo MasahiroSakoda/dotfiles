@@ -82,19 +82,21 @@ chezmoi update
 
 ### Homebrew packages
 
-| Package | Category         | Notes       |
-| ------- | ---------------- | ----------- |
-| [**Fish**][fish]    | Shell            |             |
-| [**tmux**][tmux]    | Screen           | [tmux.conf][tmux.conf]   |
-| [**NeoVim**][neovim]  | Editor           | See [Detail](#neovim)  |
+| Package  | Category         | Notes       |
+| -------- | ---------------- | ----------- |
+| [**Fish**][fish]     | Shell            |             |
+| [**starship**][starship] | Prompt           |             |
+| [**tmux**][tmux]     | Screen           | [tmux.conf][tmux.conf]   |
+| [**NeoVim**][neovim]   | Editor           | See [Detail](#neovim)  |
 | [**mise**][mise]     | Version Control  | See [Detail](#mise)  |
-| [**fzf**][fzf]     | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
-| [**ripgrep**][ripgrep] | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
-| [**fd**][fd]      | `find` alternative |             |
-| [**bat**][bat]     | `cat` alternative  | [config][batconfig]      |
-| [**bottom**][bottom]  | `top` alternative  | [bottom.toml][bottom.toml] |
+| [**fzf**][fzf]      | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
+| [**ripgrep**][ripgrep]  | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
+| [**fd**][fd]       | `find` alternative |             |
+| [**bat**][bat]      | `cat` alternative  | [config][batconfig]      |
+| [**bottom**][bottom]   | `top` alternative  | [bottom.toml][bottom.toml] |
 
 [fish]: https://github.com/fish-shell/fish-shell
+[starship]: https://starship.rs/
 [tmux]: https://github.com/tmux/tmux
 [neovim]: https://github.com/neovim/neovim
 [mise]: https://github.com/jdx/mise
@@ -115,7 +117,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | Plugin           | Notes                                                          |
 | ---------------- | -------------------------------------------------------------- |
 | [fisher][fisher]           | A plugin manager for Fish                                      |
-| [theme-bobthefish][theme-bobthefish] | A Powerline-style, Git-aware fish theme optimized for awesome. |
 | [fzf][fish-fzf]              | Ef-🐟-ient fish keybindings for fzf                            |
 | [z][fish-z]                | Pure-fish z directory jumping                                  |
 | [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
@@ -123,7 +124,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
 
 [fisher]: https://github.com/jorgebucaran/fisher
-[theme-bobthefish]: https://github.com/oh-my-fish/theme-bobthefish
 [fish-fzf]: https://github.com/jethrokuan/fzf
 [fish-z]: https://github.com/jethrokuan/z
 [dracula]: https://github.com/dracula/fish
@@ -140,7 +140,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
 * [AI Assistant](#ai-assistant) available
 
-![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/ffd1d883-bf3b-40ea-957b-2d2463ca10ee)
+![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/702a2de8-1264-4688-87b0-d682f2441b98)
 
 [LuaSnip]: https://github.com/L3MON4D3/LuaSnip
 [friendly-snippets]: https://github.com/rafamadriz/friendly-snippets
@@ -160,7 +160,9 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**rust-analyzer**][rust-analyzer]              | Rust                    |
 | [**gopls**][gopls]                      | Go                      |
 | [**pyright**][pyright]                    | Python                  |
-| [**solargraph**][solargraph]                 | Ruby                    |
+| [**ruff-lsp**][ruff-lsp]                   | Python Linter/Formatter |
+| [**sobet**][sorbet]                      | Ruby type checker       |
+| [**rubocop**][rubocop]                    | Ruby linter/formatter   |
 | [**deno**][denols]                       | JavaScript, TypeScript  |
 | [**typescript-language-server**][tsserver] | JavaScript, TypeScript  |
 | [**lua-language-server**][luals]        | Lua                     |
@@ -181,7 +183,9 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [rust-analyzer]: https://github.com/rust-lang/rust-analyzer
 [gopls]: https://pkg.go.dev/golang.org/x/tools/gopls
 [pyright]: https://github.com/microsoft/pyright
-[solargraph]: https://solargraph.org/
+[ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
+[rubocop]: https://rubocop.org
+[sorbet]: https://sorbet.org
 [denols]: https://deno.land
 [tsserver]: https://github.com/typescript-language-server/typescript-language-server
 [luals]: https://github.com/LuaLS/lua-language-server
@@ -197,7 +201,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [terraformls]: https://github.com/hashicorp/terraform-ls
 [marksman]: https://github.com/artempyanykh/marksman
 
-![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/9e14ad2c-9bdf-444f-96f3-f1bd59648477)
+![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/d20f648c-f520-485c-ad2b-3762ee60dfc1)
 
 ##### DAP
 
@@ -217,7 +221,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [debugpy]: https://github.com/microsoft/debugpy
 [js-da]: https://github.com/microsoft/vscode-js-debug
 
-![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/29f62dc3-f065-4dae-9aa4-79022d3cbb4d)
+![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/91de198d-993f-437c-a5dd-5fe52091924e)
 
 ##### Linter
 
@@ -225,8 +229,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | ------------ | ---------------------------------- |
 | [**codespell**][codespell]    | Check code for common misspellings |
 | [**revive**][revive]       | Fast Linter for `golang`             |
-| [**ruff**][ruff]         | Fast `Python` Linter                 |
-| [**rubocop**][rubocop]      | `Ruby` linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
 | [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**cmakelint**][cmakelint]    | `CMake` linter                       |
@@ -235,8 +237,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 [codespell]: https://github.com/codespell-project/codespell
 [revive]: https://github.com/mgechev/revive
-[ruff]: https://github.com/charliermarsh/ruff
-[rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
 [biome]: https://github.com/biomejs/biome
 [cmakelint]: https://github.com/cmake-lint/cmake-lint
@@ -247,7 +247,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Formatter     | Notes                      |
 | ------------- | -------------------------- |
-| [**beautysh**][beautysh]      | `sh`, `bash`, `zsh` formatter    |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
@@ -255,7 +254,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**xmlformatter**][xmlformatter]  | `XML` formatter              |
 | [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
-[beautysh]: https://github.com/lovesegfault/beautysh
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
@@ -273,7 +271,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**telescope-lazy**][telescope-lazy]         | [`lazy.nvim`][lazy-nvim] extension       |
 | [**telescope-dap**][telescope-dap]          | DAP Extension             |
 
-![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/f06103f9-e523-4c91-a499-b26bb4d491a2)
+![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/859d9cb8-6af7-47f6-a167-e3dcee61b0e9)
 
 [telescope-frecency]: https://github.com/nvim-telescope/telescope-frecency.nvim
 [telescope-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
