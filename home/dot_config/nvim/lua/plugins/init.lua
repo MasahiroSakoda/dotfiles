@@ -1,14 +1,20 @@
 -- -*-mode:lua-*- vim:ft=lua
-
-return {
-  require("plugins.dependencies"),
-  require("plugins.appearance"),
-  require("plugins.editor"),
-  require("plugins.lsp"),
-  require("plugins.cmp"),
-  require("plugins.dap"),
-  require("plugins.treesitter"),
-  require("plugins.telescope"),
-  require("plugins.ai"),
-  require("plugins.misc"),
+local plugins = {}
+local list = {
+  "plugins.dependencies",
+  "plugins.appearance",
+  "plugins.editor",
+  "plugins.lsp",
+  "plugins.cmp",
+  "plugins.dap",
+  "plugins.treesitter",
+  "plugins.telescope",
+  "plugins.ai",
+  "plugins.misc",
 }
+
+for _, plugin in ipairs(list) do
+  vim.tbl_deep_extend("keep", plugins, require(plugin))
+end
+
+return plugins
