@@ -40,6 +40,19 @@ lspsaga.setup({
     enable = false,
   },
 
+  diagnostic = {
+    on_insert         = false,
+    jump_num_shortcut = true,
+    show_source       = false,
+    show_code_action  = false,
+    show_virt_line    = false,
+    keys = {
+      quit        = { "<C-c>", "q" },
+      exec_action = { "<CR>", "o" },
+      go_action   = "g",
+    },
+  },
+
   -- configured in  fidget.nvim
   code_action = {
     show_server_name = false,
