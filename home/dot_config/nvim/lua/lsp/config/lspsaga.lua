@@ -29,6 +29,12 @@ lspsaga.setup({
     show_file = false,
   },
 
+  implement = {
+    enable = false,
+    sign   = true,
+    virtual_text = true,
+  },
+
   -- configured in rainbow-delimiters.nvim
   lightbulb = {
     enable = false,
