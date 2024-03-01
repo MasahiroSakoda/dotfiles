@@ -12,12 +12,11 @@ g.python3_host_skip_check = 1
 
 g.python3_host_prog = fn.exepath("neovim-python-host")
 
--- TODO: Configure `python3_host_prog` for Poetry virtual env
--- if vim.fn.exists("$VIRTURL_ENV") then
---   g.python3_host_prog = fn.substitute(fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
--- else
---   g.python3_host_prog = fn.substitute(fn.system("which python3"), "\n", "", "g")
--- end
+if vim.fn.exists("$VIRTURL_ENV") then
+  g.python3_host_prog = fn.substitute(fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
+else
+  g.python3_host_prog = fn.substitute(fn.system("which python3"), "\n", "", "g")
+end
 
 --------------------------------------------------
 -- Ruby environment

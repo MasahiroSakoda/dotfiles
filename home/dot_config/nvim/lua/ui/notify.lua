@@ -15,7 +15,7 @@ notify.setup({
   ---@usage Function called when a window is closed
   on_close = nil,
   ---@usage timeout for notifications in ms, default 5000
-  timeout = 2500,
+  timeout = 1500,
   ---@usage User render fps value
   fps = 10,
   -- Render function for notifications. See notify-render()
