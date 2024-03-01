@@ -5,6 +5,7 @@ lspsaga.setup({
   ui = {
     boader  = "single",
     devicon = true,
+    title   = false,
     code_action = "󰌶",
     diagnostic  = "",
     expand      = "",
