@@ -22,17 +22,20 @@ lspsaga.setup({
     scroll_up = "<C-b>",
   },
 
+  -- configud in lualine.nvim
   symbol_in_winbar = {
     enable    = false,
     show_file = false,
   },
 
+  -- configured in rainbow-delimiters.nvim
   lightbulb = {
     enable = false,
   },
 
+  -- configured in  fidget.nvim
   code_action = {
-    show_server_name = true,
+    show_server_name = false,
     keys = {
       quit = { "<ESC>", "q" },
       exec = "<CR>",
