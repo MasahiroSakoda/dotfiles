@@ -23,5 +23,6 @@ return {
       -- },
     },
   },
+  autostart = true,
   single_file_support = true,
 }
