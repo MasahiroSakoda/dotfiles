@@ -11,7 +11,7 @@ wk.setup({
     border   = "double",
     margin   = { 1, 2, 1, 2 }, -- extra window margin [top, right, bottom, left]
     padding  = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 20,
+    winblend = 25,
   },
   layout = {
     spacing = 2,
