@@ -25,7 +25,7 @@ fidget.setup({
       group_separator = "----------",
     },
     window = {
-      winblend   = 35,
+      winblend   = 45,
       border     = "none", --- @type "none"|"single"|"double"|"rounded"|"solid"|"shadow"
       max_width  = 0,
       max_height = 0,
