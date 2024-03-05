@@ -164,7 +164,11 @@ return {
       { key = "V", mods = "NONE",  action = act.CopyMode({ SetSelectionMode = "Line" }) },
       { key = "V", mods = "SHIFT", action = act.CopyMode({ SetSelectionMode = "Line" }) },
 
-      -- { key = "y", mods = "NONE", action = act.Multiple{{ CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } } },
+      {
+        key = "y",
+        mods = "NONE",
+        action = act.Multiple{{ CopyTo = "ClipboardAndPrimarySelection" }, { CopyMode = "Close" } },
+      },
 
       { key = "k", mods = "SUPER", action = act.ClearScrollback("ScrollbackOnly") },
       { key = "K", mods = "CTRL",  action = act.ClearScrollback("ScrollbackOnly") },
