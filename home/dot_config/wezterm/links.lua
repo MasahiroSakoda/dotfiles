@@ -1,26 +1,26 @@
 -- -*-mode:lua-*- vim:ft=lua
-local regexp = require("regexp")
+local pattern = require("regexp").pattern
 
 return {
   -- Linkify things that look like URLs and the host has a TLD name.
   --
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
   {
-    regex = regexp.pattern.url,
+    regex = pattern.url,
     format = "$0",
   },
 
   -- linkify email addresses
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
   {
-    regex  = regexp.pattern.email,
+    regex  = pattern.email,
     format = "mailto:$0",
   },
 
   -- file:// URI
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
   {
-    regex  = regexp.pattern.file,
+    regex  = pattern.file,
     format = "$0",
   },
 
@@ -28,7 +28,7 @@ return {
   -- E.g. http://127.0.0.1:8000 for a local development server,
   -- or http://192.168.1.1 for the web interface of many routers.
   {
-    regex  = [[\b\w+://(?:[\d]{1,3}\.){3}[\d]{1,3}\S*\b]],
+    regex  = pattern.ipv4,
     format = "$0",
   },
 
