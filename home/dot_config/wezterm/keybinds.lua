@@ -88,7 +88,7 @@ return {
     {
       key = "i",
       mods = "SUPER|CTRL",
-      action = act.QuickSelectArgs({ label = "Copy IP address", patterns = { pattern.ip } })
+      action = act.QuickSelectArgs({ label = "Copy IP address", patterns = { pattern.ipv4, pattern.ipv6 } })
     },
     {
       key = "S",
