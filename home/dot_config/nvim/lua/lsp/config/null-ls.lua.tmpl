@@ -53,9 +53,15 @@ nl.setup({
       filetypes = { "markdown", "latex", "rst", "txt" },
       disabled_filetypes = { "css", "bib", "log" },
     }),
-    hover.dictionary,
-    hover.printenv,
-    completion.spell,
+    hover.dictionary.with({
+      filetypes = { "tex", "text", "markdown", "vimwiki" },
+    }),
+    hover.printenv.with({
+      filetypes = { "sh", "bash", "zsh", "dosbatch", "ps1" },
+    }),
+    completion.spell.with({
+      filetypes = { "text", "markdown" },
+    }),
     completion.tags,
 
     -- Dockerfile
@@ -80,11 +86,6 @@ nl.setup({
       filetypes  = filetypes.makefile,
        extra_args = { "--config", vim.fn.stdpath "config" .. "/format/checkmake.toml" },
     }),
-    -- CMake
-    formatting.cmake_format.with({
-      filetypes = { "cmake" },
-    }),
-    diagnostics.cmake_lint,
 
     -- C/C++
     -- diagnostics.clang_check,
