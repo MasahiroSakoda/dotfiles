@@ -59,7 +59,9 @@ nl.setup({
     hover.printenv.with({
       filetypes = { "sh", "bash", "zsh", "dosbatch", "ps1" },
     }),
-    completion.spell,
+    completion.spell.with({
+      filetypes = { "text", "markdown" },
+    }),
     completion.tags,
 
     -- Dockerfile
