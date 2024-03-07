@@ -53,8 +53,12 @@ nl.setup({
       filetypes = { "markdown", "latex", "rst", "txt" },
       disabled_filetypes = { "css", "bib", "log" },
     }),
-    hover.dictionary,
-    hover.printenv,
+    hover.dictionary.with({
+      filetypes = { "tex", "text", "markdown", "vimwiki" },
+    }),
+    hover.printenv.with({
+      filetypes = { "sh", "bash", "zsh", "dosbatch", "ps1" },
+    }),
     completion.spell,
     completion.tags,
 
