@@ -16,7 +16,7 @@ telescope.setup({
     selection_caret = " ",
     color_devicons = true,
     layout_config    = {
-      width  = 0.8,
+      width  = 0.9,
       preview_width = 0.55,
       prompt_position = "top",    ---@Usage: "top", "bottom"
     },
