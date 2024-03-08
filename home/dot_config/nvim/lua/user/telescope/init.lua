@@ -1,18 +1,13 @@
 local ok, telescope = pcall(require, "telescope")
 if not ok then return end
 
-local actions    = require "telescope.actions"
-local layout     = require "telescope.actions.layout"
+local actions = require "telescope.actions"
+local layout  = require "telescope.actions.layout"
 
 local find_command = require("core.find")
 local grep_command = require("core.grep")
 local patterns     = require("core.ignore")
-
-local borderchars = {
-  prompt  = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
-  results = {' ', '▐', '▄', '▌', '▌', '▐', '▟', '▙' },
-  preview = {'▀', '▐', '▄', '▌', '▛', '▜', '▟', '▙' },
-}
+local borderchars  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
 
 telescope.setup({
   defaults = {
@@ -21,11 +16,15 @@ telescope.setup({
     selection_caret = " ",
     color_devicons = true,
     layout_config    = {
-      width  = 0.8,
-      preview_width = 0.55,
+      width  = 0.9,
+      preview_width = 0.5,
       prompt_position = "top",    ---@Usage: "top", "bottom"
     },
-    borderchars = borderchars,
+    borderchars = {
+      prompt = borderchars,
+      results = borderchars,
+      preview = borderchars,
+    },
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
     file_ignore_patterns = patterns,
