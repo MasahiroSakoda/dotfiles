@@ -14,6 +14,9 @@ treesj.setup({
   -- node will not be formatted
   max_join_length = 1000,
 
+  -- Notify about possible problems or not
+  notify = true,
+
   -- Use `dot` for repeat action
   dot_repeat = true,
 })
