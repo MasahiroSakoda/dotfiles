@@ -12,7 +12,7 @@ treesj.setup({
 
 -- If line after join will be longer than max value,
   -- node will not be formatted
-  max_join_length = 150,
+  max_join_length = 1000,
 
   -- Use `dot` for repeat action
   dot_repeat = true,
