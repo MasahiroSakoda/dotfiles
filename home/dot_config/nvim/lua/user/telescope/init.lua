@@ -17,7 +17,7 @@ telescope.setup({
     color_devicons = true,
     layout_config    = {
       width  = 0.9,
-      preview_width = 0.55,
+      preview_width = 0.5,
       prompt_position = "top",    ---@Usage: "top", "bottom"
     },
     borderchars = {
