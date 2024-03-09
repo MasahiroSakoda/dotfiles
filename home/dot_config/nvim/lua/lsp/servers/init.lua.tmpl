@@ -35,7 +35,6 @@ return {
 
   -- Linter
   actionlint   = {}, -- GitHub Actions workflow
-  cmakelint    = {}, -- CMake
   {{- if .mise.go.enabled }}
   revive       = {}, -- Go
   {{- end }}
@@ -53,6 +52,7 @@ return {
   clang_format  = {}, -- C, C++, Obj-C, Java, JS, C#, etc..
   shfmt         = {}, -- Sh, Bash
   jq            = {}, -- JSON
+  yq            = {}, -- YAML
   xmlformatter  = {}, -- XML, XHTML
   yamlformatter = {}, -- YAML
   sql_formatter = {}, -- SQL

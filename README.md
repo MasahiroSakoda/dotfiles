@@ -231,7 +231,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**revive**][revive]       | Fast Linter for `golang`             |
 | [**vint**][vint]         | `VimScript` linter                   |
 | [**biome**][biome]        | Fast Linter/Formatter for modern web development |
-| [**cmakelint**][cmakelint]    | `CMake` linter                       |
 | [**hadolint**][hadolint]     | `Dockerfile` linter                  |
 | [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
 
@@ -239,7 +238,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [revive]: https://github.com/mgechev/revive
 [vint]: https://github.com/Vimjas/vint
 [biome]: https://github.com/biomejs/biome
-[cmakelint]: https://github.com/cmake-lint/cmake-lint
 [hadolint]: https://github.com/hadolint/hadolint
 [markdownlint]: https://github.com/igorshubovych/markdownlint-cli
 
@@ -249,6 +247,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | ------------- | -------------------------- |
 | [**clang-format**][clang-format]  | `C++`formatter               |
 | [**jq**][jq]            | `JSON` formatter             |
+| [**yq**][yq]            | `YAML` formatter             |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
 | [**stylua**][stylua]        | `Lua` formatter              |
 | [**xmlformatter**][xmlformatter]  | `XML` formatter              |
@@ -256,6 +255,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 [clang-format]: https://pypi.org/project/clang-format/
 [jq]: https://github.com/stedolan/jq
+[yq]: https://github.com/mikefarah/yq
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
 [stylua]: https://github.com/JohnnyMorganz/StyLua
 [xmlformatter]: https://github.com/pamoller/xmlformatter
