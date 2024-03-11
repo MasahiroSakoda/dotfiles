@@ -12,6 +12,7 @@ std = {
     "io",
     "string",
     "table",
+    "unpack",
     "math",
     "totnumber",
   },
