@@ -1,7 +1,6 @@
 local cmp_ok,     cmp     = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 local lspkind_ok, lspkind = pcall(require, "lspkind")
--- local neogen_ok,  neogen  = pcall(require, "neogen")
 if not (cmp_ok or lspkind_ok or luasnip_ok) then return end
 
 local compare = cmp.config.compare
@@ -123,7 +122,10 @@ cmp.setup({
     ["<C-b>"]  = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 
     ["<Left>"]  = cmp.mapping(cmp.mapping.close(), { "i", "c" }),
-    ["<Right>"] = cmp.mapping(cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }), { 'i', 'c' }),
+    ["<Right>"] = cmp.mapping(cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Insert,
+    }), { 'i', 'c' }),
     ["<Up>"]    = cmp.mapping.select_prev_item(select_opts),
     ["<Down>"]  = cmp.mapping.select_next_item(select_opts),
     ["<C-p>"]   = cmp.mapping.select_prev_item(select_opts),
@@ -138,8 +140,6 @@ cmp.setup({
         luasnip.expand()
       elseif has_words_before() then
         cmp.complete()
-      -- elseif neogen.jumpable() then
-      --   neogen.jump_next()
       else
         fallback()
       end
@@ -149,8 +149,6 @@ cmp.setup({
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
         luasnip.jump(-1)
-      -- elseif neogen.jumpable(true) then
-      --   neogen.jump_prev()
       else
         fallback()
       end
