@@ -122,7 +122,10 @@ cmp.setup({
     ["<C-b>"]  = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 
     ["<Left>"]  = cmp.mapping(cmp.mapping.close(), { "i", "c" }),
-    ["<Right>"] = cmp.mapping(cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }), { 'i', 'c' }),
+    ["<Right>"] = cmp.mapping(cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Insert,
+    }), { 'i', 'c' }),
     ["<Up>"]    = cmp.mapping.select_prev_item(select_opts),
     ["<Down>"]  = cmp.mapping.select_next_item(select_opts),
     ["<C-p>"]   = cmp.mapping.select_prev_item(select_opts),
