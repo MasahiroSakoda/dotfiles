@@ -24,8 +24,7 @@ telescope.setup({
       show_filter_column = { "LSP", "CWD", "VIM" },
       use_sqlite = false,
       workspaces = {
-        ["fish"]    = "~/.config/fish",
-        ["nvim"]    = "~/.config/nvim",
+        ["dots"]    = "~/.local/share/chezmoi",
         ["lazy"]    = "~/.local/share/nvim/lazy",
         ["project"] = "~/Dev",
         ["doc"]    = "~/Documents",
