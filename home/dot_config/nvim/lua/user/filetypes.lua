@@ -1,11 +1,11 @@
 local Filetypes = {}
 
 Filetypes.log  = { "log", "txt", "text" }
-Filetypes.shell = { "sh", "bash", "zsh" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
 
 Filetypes.lang = {
+  shell = { "sh",  "bash", "zsh" },
   json  = { "json",  "json5", "jsonc" },
   js    = {
     "javascript", "javascriptreact", "javascript.jsx",
