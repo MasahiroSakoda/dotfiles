@@ -11,5 +11,5 @@ return {
     )(filename) or vim.fn.getcwd()
   end,
   autostart = false,
-  filetypes = require("user.filetypes").js,
+  filetypes = require("user.filetypes").lang.js,
 }

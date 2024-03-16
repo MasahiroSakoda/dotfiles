@@ -1,18 +1,17 @@
 local Filetypes = {}
 
 Filetypes.log  = { "log", "txt", "text" }
-Filetypes.js   = {
-  "javascript",
-  "typescript",
-  "javascript.jsx",
-  "typescript.tsx",
-  "javascriptreact",
-  "typescriptreact",
-}
 Filetypes.json = { "json", "json5", "jsonc" }
 Filetypes.shell = { "sh", "bash", "zsh" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
+
+Filetypes.lang = {
+  js    = {
+    "javascript", "javascriptreact", "javascript.jsx",
+    "typescript", "typescriptreact", "sjavacript.tsx",
+  },
+}
 
 Filetypes.treesitter = {
   -- Compiled Languages

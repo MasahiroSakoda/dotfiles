@@ -68,7 +68,7 @@ return {
       },
     },
   },
-  filetypes = ft.js,
+  filetypes = ft.lang.js,
   handlers = {
     ["textDocument/definition"] = denols_handler,
     ["textDocument/references"] = denols_handler,

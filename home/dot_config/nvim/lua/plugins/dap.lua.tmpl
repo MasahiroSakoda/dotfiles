@@ -15,12 +15,12 @@ return {
   {
     "microsoft/vscode-js-debug",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    ft    = filetypes.js,
+    ft    = filetypes.lang.js,
     cond  = not vim.g.vscode,
   },
   {
     "mxsdev/nvim-dap-vscode-js",
-    ft = filetypes.js,
+    ft = filetypes.lang.js,
     config = function() require("dap.adapters.javascript") end,
   },
 }
