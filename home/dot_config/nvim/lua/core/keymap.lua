@@ -181,6 +181,8 @@ if not is_vscode then
     ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
     ["<Leader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
     ["<Leader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>", "   Show Frames" },
+
+    ["<Leader>fc"] = { ":lua require'telescope'.extensions.chezmoi.find_files()<CR>", "   Search chezmoi managed files" },
   }, opts)
 
 end
