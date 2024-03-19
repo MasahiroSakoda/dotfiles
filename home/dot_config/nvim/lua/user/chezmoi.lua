@@ -8,8 +8,8 @@ chezmoi.setup({
     force = false,
   },
   notification = {
-    on_open  = true,
-    on_apply = true,
+    on_open  = true, -- notify file opened
+    on_apply = true, -- notify `chezmoi apply` after file saved
     on_watch = false,
   },
   telescope = {
