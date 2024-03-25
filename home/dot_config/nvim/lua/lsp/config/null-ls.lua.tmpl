@@ -181,7 +181,9 @@ nl.setup({
     }),
 
     -- VimScript
-    diagnostics.vint,
+    diagnostics.vint.with({
+      args = { "'--enable-neovim", "-s", "-j", "$FILENAME" },
+    }),
   },
   on_attach = on_attach,
 })
