@@ -183,6 +183,7 @@ nl.setup({
     -- VimScript
     diagnostics.vint.with({
       args = { "'--enable-neovim", "-s", "-j", "$FILENAME" },
+      condition = function() return vim.fn.executable("vint") > 0 end,
     }),
   },
   on_attach = on_attach,
