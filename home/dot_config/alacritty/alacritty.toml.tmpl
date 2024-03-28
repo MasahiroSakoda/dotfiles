@@ -58,7 +58,7 @@ alphabet   = "jfkdls;ahgurieowpq"
 regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
 hyperlinks = true
 post_processing = true
-command = {{ .cmd.open }}
+command = {{ .cmd.open | quote }}
 binding.key  = "o"
 binding.mods = "Control | Shift"
 
