@@ -11,13 +11,13 @@ local function remapKey(modifiers, key, code)
 	hs.hotkey.bind(modifiers, key, code, nil, code)
 end
 
-local function keyCodeSet(keys)
-	return function()
-		for _, keyEvent in ipairs(keys) do
-			keyEvent()
-		end
-	end
-end
+-- local function keyCodeSet(keys)
+-- 	return function()
+-- 		for _, keyEvent in ipairs(keys) do
+-- 			keyEvent()
+-- 		end
+-- 	end
+-- end
 
 --
 remapKey({'ctrl', 'alt'}, 'h', keyCode('left', {'ctrl'}))
