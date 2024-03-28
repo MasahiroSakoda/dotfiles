@@ -1,6 +1,7 @@
 std = {
   globals = {
     "vim",
+    "hs",
     "_",
     "describe",
     "it",

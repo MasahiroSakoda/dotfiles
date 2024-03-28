@@ -1,6 +1,7 @@
 std = {
   globals = {
     "vim",
+    "hs",
     "package",
     "require",
     "pcall",
