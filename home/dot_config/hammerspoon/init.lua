@@ -7,19 +7,19 @@ local function keyCode(key, modifiers)
 	end
 end
 
-local function remapKey(modifiers, key, keyCode)
-	hs.hotkey.bind(modifiers, key, keyCode, nil, keyCode)
+local function remapKey(modifiers, key, code)
+	hs.hotkey.bind(modifiers, key, code, nil, code)
 end
 
 local function keyCodeSet(keys)
 	return function()
-		for i, keyEvent in ipairs(keys) do
+		for _, keyEvent in ipairs(keys) do
 			keyEvent()
 		end
 	end
 end
 
--- 
+--
 remapKey({'ctrl', 'alt'}, 'h', keyCode('left', {'ctrl'}))
 remapKey({'ctrl', 'alt'}, 'l', keyCode('right', {'ctrl'}))
 
@@ -77,4 +77,3 @@ hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'R', function()
 	hs.reload()
 end)
 hs.alert.show("Config loaded")
-
