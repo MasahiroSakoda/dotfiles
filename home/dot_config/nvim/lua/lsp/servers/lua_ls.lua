@@ -7,7 +7,7 @@ return {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { "vim", "use", "describe", "it", "before_each", "after_each", "MiniTest" },
+        globals = { "vim", "hs", "use", "describe", "it", "before_each", "after_each", "MiniTest" },
         -- disable = { "undefined-global", "lowercase-global", "unused-local", "unused-vararg", "trailing-space" },
       },
       hint = { enable = true },
