@@ -112,7 +112,8 @@ key.txt.age
 .config/sketchybar
 .config/skhd
 .config/yabai
-Library/Application Support
+Documents/
+Library/
 {{- end }}
 
 # Ignore non-Linux files.
