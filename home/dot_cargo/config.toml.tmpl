@@ -47,3 +47,7 @@ rustflags = ["-Ctarget-cpu=native"]
 # Accelerate build.rs for debug environment
 [profile.dev.build-override]
 opt-level = 3
+
+# Accelerate build.rs for release environment
+[profile.relaese.build-override]
+opt-level = 3
