@@ -43,3 +43,7 @@ rustflags = ["-Ctarget-cpu=native"]
 [target.'cfg(target_arch="arm")']
 rustflags = ["-Ctarget-cpu=native"]
 {{ end -}}
+
+# Accelerate build.rs for debug environment
+[profile.dev.build-override]
+opt-level = 3
