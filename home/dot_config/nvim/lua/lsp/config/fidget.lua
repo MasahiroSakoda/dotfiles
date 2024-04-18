@@ -8,6 +8,7 @@ fidget.setup({
     ignore_done_already  = true,
     ignore_empty_message = true,
     ignore = { -- List of LSP Server to ignore
+      "null-ls",
     },
 
     display = {
