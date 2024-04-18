@@ -12,6 +12,7 @@ fidget.setup({
     },
 
     display = {
+      render_limit = 10,
       progress_icon = {
         { pattern = "grow_vertical", period = 1 },
       },
