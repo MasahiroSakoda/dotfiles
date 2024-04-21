@@ -5,7 +5,6 @@ local schemes = require("theme").color_schemes
 local scheme  = wezterm.color.get_builtin_schemes()[schemes[wezterm.GLOBAL.color_scheme_index]]
 local fg, bg  = scheme.foreground, scheme.background
 local edge_fg, edge_bg = bg, scheme.background
-local fonts   = wezterm.nerdfonts
 
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = wezterm.mux.spawn_window(cmd or {})
