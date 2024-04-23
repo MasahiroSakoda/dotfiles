@@ -109,7 +109,7 @@ config.quick_select_patterns = select.patterns
 --------------------------------------------------
 -- Command Palette
 --------------------------------------------------
-config.command_palette_font_size = 12
+config.command_palette_font_size = fonts.global.size
 config.command_palette_fg_color  = "#cdd6f4"
 config.command_palette_bg_color  = "#262626"
 
