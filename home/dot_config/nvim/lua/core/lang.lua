@@ -4,7 +4,7 @@ local g, fn = vim.g, vim.fn
 -- Python environment
 --------------------------------------------------
 g.loaded_python_provider  = 0 -- disable Python 2.x provider
-g.loaded_python3_provider = 1
+g.loaded_python3_provider = 0 -- disable Python 3.x provider
 
 -- Python This must be here becasue it makes loading vim VERY SLOW otherwise
 g.python_host_skip_check  = 1
@@ -21,7 +21,7 @@ end
 --------------------------------------------------
 -- Ruby environment
 --------------------------------------------------
-g.loaded_ruby_provider = 1
+g.loaded_ruby_provider = 0 -- disable Ruby provider
 g.ruby_host_skip_check = 1
 g.ruby_host_prog       = fn.exepath("neovim-ruby-host")
 
@@ -34,5 +34,5 @@ g.perl_host_skip_check = 1
 --------------------------------------------------
 -- Node.js environment
 --------------------------------------------------
-g.loaded_node_provider = 1
+g.loaded_node_provider = 0 -- disable node provider
 g.node_host_prog = fn.exepath("neovim-node-host")
