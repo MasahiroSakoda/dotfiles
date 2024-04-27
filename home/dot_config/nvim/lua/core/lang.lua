@@ -34,5 +34,5 @@ g.perl_host_skip_check = 1
 --------------------------------------------------
 -- Node.js environment
 --------------------------------------------------
-g.loaded_node_provider = 1
+g.loaded_node_provider = 0 -- disable node provider
 g.node_host_prog = fn.exepath("neovim-node-host")
