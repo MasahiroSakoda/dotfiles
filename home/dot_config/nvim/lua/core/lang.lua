@@ -4,7 +4,7 @@ local g, fn = vim.g, vim.fn
 -- Python environment
 --------------------------------------------------
 g.loaded_python_provider  = 0 -- disable Python 2.x provider
-g.loaded_python3_provider = 1
+g.loaded_python3_provider = 0 -- disable Python 3.x provider
 
 -- Python This must be here becasue it makes loading vim VERY SLOW otherwise
 g.python_host_skip_check  = 1
