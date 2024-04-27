@@ -21,7 +21,7 @@ end
 --------------------------------------------------
 -- Ruby environment
 --------------------------------------------------
-g.loaded_ruby_provider = 1
+g.loaded_ruby_provider = 0 -- disable Ruby provider
 g.ruby_host_skip_check = 1
 g.ruby_host_prog       = fn.exepath("neovim-ruby-host")
 
