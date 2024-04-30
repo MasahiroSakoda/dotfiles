@@ -8,7 +8,7 @@ local edge_fg, edge_bg = bg, scheme.background
 
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = wezterm.mux.spawn_window(cmd or {})
-  window.gui_window():toggle_fullscreen()
+  window:gui_window():toggle_fullscreen()
 end)
 
 wezterm.on("format-window-title", function(tab, _, tabs, _, _)
