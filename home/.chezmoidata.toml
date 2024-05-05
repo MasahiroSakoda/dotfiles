@@ -69,7 +69,7 @@ copilot = true
 
 [mise.node]
 enabled  = true
-versions = ["20"]
+versions = ["22"]
 
 [mise.pnpm]
 enabled  = true
