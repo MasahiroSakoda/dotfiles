@@ -92,7 +92,13 @@
   },
   // NeoVim
   "vscode-neovim.compositeKeys": {
-    "jj": { "command": "vscode-neovim.escape" }
+    "jj": {
+      "command": "vscode-neovim.escape"
+    },
+    "jk": {
+      "command": "vscode-neovim.lua",
+      "args": ["vim.api.nvim_input('<ESC>')\nrequire('vscode-neovim').action('workbench.action.files.save')"]
+    }
   },
   "vscode-neovim.neovimExecutablePaths.darwin": "{{ .brew_prefix }}/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
