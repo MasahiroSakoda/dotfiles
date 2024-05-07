@@ -29,7 +29,6 @@ telescope.setup({
     winblend = 30,
     file_ignore_patterns = patterns,
     path_display = {
-      shorten  = { len = 1, exlude = { 1, -2, -1 } },
       truncate = true,
     },
     mappings = {
