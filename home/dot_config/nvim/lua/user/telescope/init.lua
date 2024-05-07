@@ -31,6 +31,7 @@ telescope.setup({
     path_display = {
       truncate = true,
     },
+    dynamic_preview_title = true,
     mappings = {
       n = {
         ["q"]     = actions.close,
