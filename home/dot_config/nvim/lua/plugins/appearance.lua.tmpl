@@ -12,13 +12,6 @@ return {
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim", -- Indent guides
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    main   = "ibl",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("ui.indent-blankline") end,
-  },
-  {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
     cond   = not vim.g.vscode,
     event  = "SearchWrapped",
