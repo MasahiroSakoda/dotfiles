@@ -1,3 +1,4 @@
+-- -*-mode:lua-*- vim:ft=lua.gotexttmpl
 local ok, gitsigns = pcall(require, "gitsigns")
 if not ok then return end
 
@@ -13,6 +14,7 @@ gitsigns.setup({
 
 })
 
+{{- if .neovim.appearance.scrollbar }}
 require("scrollbar.handlers.gitsigns").setup()
 
 vim.api.nvim_create_user_command("ScrollbarEnable", function()
@@ -22,3 +24,4 @@ vim.api.nvim_create_user_command("ScrollbarEnable", function()
   end
   sg.setup()
 end, {})
+{{- end }}

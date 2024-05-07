@@ -67,6 +67,9 @@ color = "#3399ff"
 chatgpt = true
 copilot = true
 
+[neovim.appearance]
+scrollbar = false
+
 [mise.node]
 enabled  = true
 versions = ["22"]

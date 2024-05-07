@@ -12,11 +12,9 @@ return {
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim", -- Indent guides
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    main   = "ibl",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("ui.indent-blankline") end,
+    "shellRaining/hlchunk.nvim",
+    event  = "UIEnter",
+    config = function() require("ui.hlchunk") end,
   },
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
@@ -26,12 +24,10 @@ return {
   },
   {
     "petertriho/nvim-scrollbar", -- Extensible Scrollbar
-    dependencies = {
-      "kevinhwang91/nvim-hlslens",
-      "lewis6991/gitsigns.nvim",
-    },
     cond   = not vim.g.vscode,
+    {{- if .neovim.appearance.scrollbar }}
     event  = { "BufReadPost", "BufNewFile" },
+    {{- end }}
     config = function() require("ui.scrollbar") end,
   },
   {
