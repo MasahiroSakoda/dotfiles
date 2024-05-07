@@ -12,6 +12,11 @@ return {
   },
 
   {
+    "shellRaining/hlchunk.nvim",
+    event  = "UIEnter",
+    config = function() require("ui.hlchunk") end,
+  },
+  {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
     cond   = not vim.g.vscode,
     event  = "SearchWrapped",
