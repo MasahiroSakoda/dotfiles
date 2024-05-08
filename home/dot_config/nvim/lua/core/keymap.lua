@@ -105,8 +105,9 @@ keymap("n", "]9", ":tablast<CR>",     { desc = "   Move to Last tab"})
 wk.register({
   mode    = "n",
   ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>te"] = { ":tabedit<Space>",                         "   Edit file in new tab" },
-  ["<Leader>tn"] = { ":tabnew<Space>",                          "   Edit file in new tab" },
+  ["<Leader>te"] = { ":tabedit<Space>", "   Edit file in new tab" },
+  ["<Leader>tn"] = { ":tabnew<Space>",  "   Edit file in new tab" },
+  ["<Leader>tc"] = { ":tabclose<CR>",   "   Close current tab" },
 }, opts)
 
 -- Window Moving
@@ -205,7 +206,7 @@ keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Acti
 wk.register({
   mode = "n",
   silent = false,
-  ["<Leader>c"]  = { name = "🛠   Call hierarchy" },
+  ["<Leader>c"]  = { name = "🛠  Call hierarchy" },
   ["<Leader>ci"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
   ["<Leader>co"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
 })
