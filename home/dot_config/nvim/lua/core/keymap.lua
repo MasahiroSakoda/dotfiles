@@ -205,9 +205,9 @@ keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Acti
 wk.register({
   mode = "n",
   silent = false,
-  ["<Leader>g"]  = { name = "🛠   Call hierarchy" },
-  ["<Leader>gi"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
-  ["<Leader>go"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
+  ["<Leader>c"]  = { name = "🛠   Call hierarchy" },
+  ["<Leader>ci"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
+  ["<Leader>co"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
 })
 
 keymap("n", "<Leader>gh", function() vim.lsp.buf.inlay_hints(0, nil) end, { desc = "Toggle Inlay Hints" })
