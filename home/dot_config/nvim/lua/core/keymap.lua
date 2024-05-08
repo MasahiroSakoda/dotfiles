@@ -264,6 +264,22 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- Diffview
+---------------------------------------------------------------------------
+wk.register({
+  mode = "n",
+  silent = false,
+  ["<Leader>g"] = { name = "🧾  Diffview" },
+  ["<Leader>go"] = { ":DiffviewOpen<CR>",            "a Open Diffview" },
+  ["<Leader>gO"] = { ":DiffviewOpen<Space>",         "a Open Diffview with args" },
+  ["<Leader>gq"] = { ":DiffviewClose<CR>",           "  Close Diffview" },
+  ["<Leader>gt"] = { ":DiffviewToggleFiles<CR>",     "  Toggle file panels" },
+  ["<Leader>gh"] = { ":DiffviewFileHistory<Space>",  "  Open file history" },
+  ["<Leader>gf"] = { ":DiffviewFocusFiles<CR>",      "  Bring focus to the file panel" },
+  ["<Leader>gr"] = { ":DiffviewRefresh<CR>",         "  Refresh Diffview" },
+})
+
+---------------------------------------------------------------------------
 -- Terminal
 ---------------------------------------------------------------------------
 keymap(nt_mode, ",t", "<CMD>ToggleTerm<CR>", { desc = "   Toggle Terminal" })
