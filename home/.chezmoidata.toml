@@ -70,6 +70,10 @@ copilot = true
 [neovim.appearance]
 scrollbar = false
 
+[neovim.complete]
+fuzzy_path   = false
+fuzzy_buffer = false
+
 [mise.node]
 enabled  = true
 versions = ["22"]
