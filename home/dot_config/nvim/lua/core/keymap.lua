@@ -105,8 +105,9 @@ keymap("n", "]9", ":tablast<CR>",     { desc = "   Move to Last tab"})
 wk.register({
   mode    = "n",
   ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>te"] = { ":tabedit<Space>",                         "   Edit file in new tab" },
-  ["<Leader>tn"] = { ":tabnew<Space>",                          "   Edit file in new tab" },
+  ["<Leader>te"] = { ":tabedit<Space>", "   Edit file in new tab" },
+  ["<Leader>tn"] = { ":tabnew<Space>",  "   Edit file in new tab" },
+  ["<Leader>tc"] = { ":tabclose<CR>",   "   Close current tab" },
 }, opts)
 
 -- Window Moving
@@ -205,9 +206,9 @@ keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Acti
 wk.register({
   mode = "n",
   silent = false,
-  ["<Leader>g"]  = { name = "🛠   Call hierarchy" },
-  ["<Leader>gi"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
-  ["<Leader>go"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
+  ["<Leader>c"]  = { name = "🛠  Call hierarchy" },
+  ["<Leader>ci"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
+  ["<Leader>co"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
 })
 
 keymap("n", "<Leader>gh", function() vim.lsp.buf.inlay_hints(0, nil) end, { desc = "Toggle Inlay Hints" })
@@ -261,6 +262,22 @@ wk.register({
   mode    = "n",
   ["<Leader>fd"]  = { name = "  Telescope DAP Integration" },
 }, opts)
+
+---------------------------------------------------------------------------
+-- Diffview
+---------------------------------------------------------------------------
+wk.register({
+  mode = "n",
+  silent = false,
+  ["<Leader>g"] = { name = "🧾  Diffview" },
+  ["<Leader>go"] = { ":DiffviewOpen<CR>",            "a Open Diffview" },
+  ["<Leader>gO"] = { ":DiffviewOpen<Space>",         "a Open Diffview with args" },
+  ["<Leader>gq"] = { ":DiffviewClose<CR>",           "  Close Diffview" },
+  ["<Leader>gt"] = { ":DiffviewToggleFiles<CR>",     "  Toggle file panels" },
+  ["<Leader>gh"] = { ":DiffviewFileHistory<Space>",  "  Open file history" },
+  ["<Leader>gf"] = { ":DiffviewFocusFiles<CR>",      "  Bring focus to the file panel" },
+  ["<Leader>gr"] = { ":DiffviewRefresh<CR>",         "  Refresh Diffview" },
+})
 
 ---------------------------------------------------------------------------
 -- Terminal
