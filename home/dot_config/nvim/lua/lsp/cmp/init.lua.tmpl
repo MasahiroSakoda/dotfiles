@@ -27,7 +27,8 @@ local menu = {
   cmdline_history = "[Hist]",
   buffer          = "[Buf]",
   fuzzy_buffer    = "[FzBuf]",
-  -- cmp_tabnine     = "[T9]",
+  copilot         = "[Copilot]",
+  cmp_tabnine     = "[T9]",
   codeium         = "[Codeium]",
 }
 
@@ -78,8 +79,15 @@ cmp.setup({
   sources = { -- Completion Sources
     { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 15 },
     { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 15 },
+    {{- if .neovim.complete.copilot }}
+    { name = "copilot",     group_index = 2, priority = 80,  max_item_count = 10 },
+    {{- end }}
+    {{- if .neovim.complete.codeium }}
     { name = "codeium",     group_index = 2, priority = 80,  max_item_count = 10 },
-    -- { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
+    {{- end }}
+    {{- if .neovim.complete.tabnine }}
+    { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
+    {{- end }}
     {{- if not .neovim.complete.fuzzy_path }}
     { name = "path",         keyword_length = 3, max_item_count = 5 },
     {{- else }}
@@ -95,7 +103,12 @@ cmp.setup({
   sorting = {
     priority_weight = 2,
     comparators = {
-      -- require('cmp_tabnine.compare'),
+      {{- if .neovim.complete.copilot }}
+      require("copilot_cmp.comparators").prioritize,
+      {{- end }}
+      {{- if .neovim.complete.tabnine }}
+      require('cmp_tabnine.compare'),
+      {{- end }}
       {{- if .neovim.complete.fuzzy_path }}
       require("cmp_fuzzy_path.compare"),
       {{- end }}
