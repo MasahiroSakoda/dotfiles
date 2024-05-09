@@ -32,11 +32,11 @@ return {
         cmd    = "Copilot",
         config = function() require("ai.copilot") end,
       },
-      {{- end }}
       {
         "zbirenbaum/copilot-cmp",
         config = function() require("lsp.cmp.copilot") end,
       },
+      {{- end }}
       {{- if .neovim.complete.codeium }}
       {
         "Exafunction/codeium.nvim",
