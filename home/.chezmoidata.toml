@@ -65,10 +65,16 @@ color = "#3399ff"
 
 [neovim.plugins]
 chatgpt = true
-copilot = true
 
 [neovim.appearance]
 scrollbar = false
+
+[neovim.complete]
+fuzzy_path   = false
+fuzzy_buffer = false
+copilot = false
+codeium = true
+tabnine = false
 
 [mise.node]
 enabled  = true
