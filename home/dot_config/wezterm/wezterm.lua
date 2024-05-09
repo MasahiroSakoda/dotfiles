@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 local wezterm  = require("wezterm")
 local fonts    = require("fonts")
 local keybinds = require("keybinds")
