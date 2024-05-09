@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 local wezterm = require("wezterm")
 local weight  = "Bold"
 
@@ -13,6 +13,7 @@ return {
       configure_font("{{ .font.family.ascii }}"),
       configure_font("{{ .font.family.nonascii }}"),
     }),
+    ---@diagnostic disable-next-line: malformed-number
     size = {{ .font.size.medium }},
   },
   window = {
@@ -21,6 +22,7 @@ return {
       configure_font("{{ .font.family.ascii }}"),
       configure_font("{{ .font.family.nonascii }}"),
     }),
+    ---@diagnostic disable-next-line: malformed-number
     size = {{ .font.size.medium }},
   },
 }
