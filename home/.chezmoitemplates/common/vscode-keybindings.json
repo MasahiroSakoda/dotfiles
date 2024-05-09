@@ -1,4 +1,4 @@
-// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+// -*-mode:jsonc-*- vim:ft=jsonc
 [
   {
     "key": "cmd+=",
