@@ -1,16 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua.gotexttmpl
 
 return {
-  {{- if .neovim.plugins.copilot }}
-  -- GitHub Copilot interaction
-  {
-    "zbirenbaum/copilot.lua",
-    build  = ":Copilot auth",
-    cmd    = "Copilot",
-    event  = "InsertEnter",
-    config = function() require("ai.copilot") end,
-  },
-  {{- end }}
   {{- if .neovim.plugins.chatgpt }}
   -- ChatGPT client
   {
