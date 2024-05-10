@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
   -- colorscheme
@@ -19,15 +19,12 @@ return {
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
     cond   = not vim.g.vscode,
-    event  = "SearchWrapped",
+    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.hlslens") end,
   },
   {
     "petertriho/nvim-scrollbar", -- Extensible Scrollbar
-    cond   = not vim.g.vscode,
-    {{- if .neovim.appearance.scrollbar }}
-    event  = { "BufReadPost", "BufNewFile" },
-    {{- end }}
+    cond   = not vim.g.vscode and vim.g.scrollbar_enabled,
     config = function() require("ui.scrollbar") end,
   },
   {

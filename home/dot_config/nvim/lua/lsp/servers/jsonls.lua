@@ -3,7 +3,7 @@ if not ok then return end
 
 return {
   cmd       = { "vscode-json-language-server", "--stdio" },
-  filetypes = { "json", "jsonc" },
+  filetypes = require("user.filetypes").lang.json,
   root_dir  = function(filename)
     return lspconfig.util.root_pattern(
       "package.json",

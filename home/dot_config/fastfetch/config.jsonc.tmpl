@@ -1,27 +1,27 @@
-// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+// -*-mode:jsonc-*- vim:ft=jsonc
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "padding": {"top": 4},
+    "padding": {"top": 4}
   },
   "display": {
     "separator": " ➜ ",
     "color": {
       "keys": "green",
-      "title": "blue",
+      "title": "blue"
     },
     "brightColor": true,
-    "percent": {"type": 9},
+    "percent": {"type": 9}
   },
   "modules": [
     {
       "type": "version",
-      "key": " ",
+      "key": " "
     },
     {
       "type": "colors",
       "symbol": "circle",
-      "paddingLeft": 1,
+      "paddingLeft": 1
     },
     {
       "type": "custom",
@@ -30,27 +30,27 @@
     {
       "type": "host",
       "key": "│ ├ ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "cpu",
       "key": "│ ├ ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "gpu",
       "key": "│ ├󰍛 ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "memory",
       "key": "│ ├ ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "disk",
       "key": "│ ├ ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "display",
@@ -66,93 +66,87 @@
     {
       "type": "bluetooth",
       "key": "│ ├ ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "custom",
-      "format": "└────────────────────────────────────────────────────┘",
+      "format": "└────────────────────────────────────────────────────┘"
     },
     {
       "type": "custom",
-      "format": "┌──────────────────────Software──────────────────────┐",
+      "format": "┌──────────────────────Software──────────────────────┐"
     },
     {
       "type": "os",
-      {{- if eq .chezmoi.os "darwin" }}
-      "key": "│ ├ OS     ",
-      {{- else if eq .chezmoi.os "linux" }}
-      "key": "│ ├ OS     ",
-      {{- else if eq .chezmoi.os "windows"}}
-      "key": "│ ├ OS     ",
-      {{- end }}
-      "keyColor": "blue",
+      "key": "│ ├{{- .osicon }} OS     ",
+      "keyColor": "blue"
     },
     {
       "type": "bios",
       "key": "│ ├ BIOS   ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "kernel",
       "key": "│ ├ Kernel ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "locale",
       "key": "│ ├󰇧 Locale ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "shell",
       "key": "│ ├ Shell  ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "packages",
       "key": "│ ├ Package",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "wm",
       "key": "│ ├ WM     ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "de",
       "key": "│ ├ DE     ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "wmtheme",
       "key": "│ ├󰉼 Theme  ",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "custom",
-      "format": "└────────────────────────────────────────────────────┘",
+      "format": "└────────────────────────────────────────────────────┘"
     },
     {
       "type": "custom",
-      "format": "┌──────────────────────Terminal──────────────────────┐",
+      "format": "┌──────────────────────Terminal──────────────────────┐"
     },
     {
       "type": "terminal",
       "key": "│ ├ ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "terminalfont",
       "key": "│ ├ ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "terminalsize",
       "key": "│ ├ ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "custom",
-      "format": "└────────────────────────────────────────────────────┘",
-    },
-  ],
+      "format": "└────────────────────────────────────────────────────┘"
+    }
+  ]
 }

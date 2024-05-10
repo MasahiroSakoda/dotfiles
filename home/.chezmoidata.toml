@@ -66,9 +66,6 @@ color = "#3399ff"
 [neovim.plugins]
 chatgpt = true
 
-[neovim.appearance]
-scrollbar = false
-
 [neovim.complete]
 fuzzy_path   = false
 fuzzy_buffer = false

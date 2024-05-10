@@ -40,3 +40,6 @@ opt.laststatus = 2
 
 opt.list = true
 opt.listchars = { space = "･", eol = "↴", tab = "»-", trail = "-", nbsp = "%", extends = "⟩", precedes = "⟨" }
+
+-- nvim-scrollbar
+vim.g.scrollbar_enabled = false
