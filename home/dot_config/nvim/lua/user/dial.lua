@@ -17,12 +17,36 @@ dial.augends:register_group({
     augend.constant.alias.ja_weekday,
     augend.constant.alias.ja_weekday_full,
 
+    augend.case.new({
+      types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
+      cyclic = true,
+    }),
+
     augend.semver.alias.semver,
     augend.constant.new { elements = { "yes", "no" }, word = true, cyclic = true, preserve_case = true },
     augend.constant.new { elements = { "and", "or" }, word = true, cyclic = true, preserve_case = true },
     augend.constant.new { elements = { "&&", "||" }, word = false, cyclic = true },
     augend.constant.new { elements = { "==", "!=" }, word = false, cyclic = true },
     augend.constant.new { elements = { "public", "private" }, word = true, cyclic = true, preserve_case = true },
+
+    augend.constant.new { elements = { "prev", "next" },  word = true, cyclic = true, preserve_case = true },
+    augend.constant.new { elements = { "open", "close" }, word = true, cyclic = true, preserve_case = true },
+    augend.constant.new { elements = { "up", "down" },    word = true, cyclic = true, preserve_case = true },
+    augend.constant.new { elements = { "ascending", "descending" }, word = true, cyclic = true },
+    augend.constant.new { elements = { "horizontal", "vertical" },  word = true, cyclic = true },
+    augend.constant.new { elements = { "top", "middle", "bottom" }, word = true, cyclic = true },
+    augend.constant.new({
+      elements = { "mon", "tue", "wed", "thu", "fri", "sat", "sun" },
+      word = true,
+      cyclic = true,
+      preserve_case = true,
+    }),
+    augend.constant.new({
+      elements = { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" },
+      word = true,
+      cyclic = true,
+      preserve_case = true,
+    }),
   },
 
   -- augend:on_filetype({
@@ -38,44 +62,4 @@ dial.augends:register_group({
   --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
   --   },
   -- }),
-
-  custom = {
-    augend.integer.alias.decimal,
-    augend.integer.alias.hex,
-    augend.constant.alias.bool,
-    augend.constant.new { elements = { "true", "false" }, word = true, cyclic = true, preserve_case = true },
-    augend.constant.new { elements = { "prev", "next" },  word = true, cyclic = true, preserve_case = true },
-    augend.constant.new { elements = { "open", "close" }, word = true, cyclic = true, preserve_case = true },
-    augend.constant.new { elements = { "up", "down" },    word = true, cyclic = true, preserve_case = true },
-    augend.constant.new { elements = { "ascending", "descending" }, word = true, cyclic = true },
-    augend.constant.new { elements = { "horizontal", "vertical" },  word = true, cyclic = true },
-    augend.constant.new { elements = { "top", "middle", "bottom" }, word = true, cyclic = true },
-    augend.constant.new({
-      elements = { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" },
-      word = true,
-      cyclic = true,
-      preserve_case = true,
-    }),
-
-    -- Font switcher
-    augend.constant.new({ -- for ASCII font
-      elements = {
-        "JetBrainsMono Nerd Font Mono",
-        "JetBrainsMonoNL Nerd Font Mono",
-        "Hack Nerd Font Mono"
-      },
-      word = true,
-      cyclic = true
-    }),
-    augend.constant.new({ -- for non ASCII font
-      elements = {
-        "HackGen Console NF",
-        "HackGen Console NFJ",
-        "PlemolJP Console NF",
-        "PlemolJP Console NFJ",
-      },
-      word = true,
-      cyclic = true
-    }),
-  },
 })
