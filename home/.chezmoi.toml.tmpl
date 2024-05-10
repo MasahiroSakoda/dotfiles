@@ -32,13 +32,16 @@
 
 {{/* Discover the homebrew prefix */}}
 {{- $brew_prefix := "" -}}
+{{- $osIcon      := "" -}}
 {{- if eq .chezmoi.os "darwin" -}}
+{{-   $osIcon = "" }}
 {{-   if eq .chezmoi.arch "arm64" -}}
 {{-     $brew_prefix = "/opt/homebrew" -}}
 {{-   else if eq .chezmoi.arch "amd64" -}}
 {{-     $brew_prefix = "/usr/local" -}}
 {{-   end -}}
 {{- else if eq .chezmoi.os "linux" -}}
+{{-   $osIcon = "" }}
 {{-   $brew_prefix = "/home/linuxbrew/.linuxbrew" -}}
 {{- end -}}
 
@@ -56,6 +59,7 @@ personal  = {{ $personal }}
 graphics  = {{ $graphics }}
 cloud     = {{ $cloud }}
 osid      = {{ $osID | quote }}
+osicon    = {{ $osIcon | quote }}
 brew_prefix = {{ $brew_prefix | quote }}
 
 [data.git]

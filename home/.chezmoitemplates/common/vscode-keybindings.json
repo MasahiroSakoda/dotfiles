@@ -51,5 +51,5 @@
     "key": "shilft+c",
     "command": "list.collapse",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
-  },
+  }
 ]
