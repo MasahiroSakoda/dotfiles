@@ -135,10 +135,15 @@ keymap("n", ",N", number.toggleRelativeNumber, { desc = "   Toggle Relatieve 
 -- dial.nvim: Increment/Decrement plugin
 ---------------------------------------------------------------------------
 local map = require("dial.map")
-keymap(nv_mode, "<C-a>", map.inc_normal('custom'), { desc = "   Increment variable" })
-keymap(nv_mode, "<C-x>", map.dec_normal('custom'), { desc = "   Decrement variable" })
-keymap("n", "g<C-a>", function() map.manipulate("increment", "gnormal") end, { desc = "   Serialized Increment" })
-keymap("n", "g<C-x>", function() map.manipulate("decrement", "gnormal") end, { desc = "   Serialized Decrement" })
+keymap("n", "<C-a>",  map.inc_normal(),  { desc = "   Increment variable" })
+keymap("n", "<C-a>",  map.inc_normal(),  { desc = "   Decrement variable" })
+keymap("n", "g<C-x>", map.dec_gnormal(), { desc = "   Increment variable" })
+keymap("n", "g<C-x>", map.dec_gnormal(), { desc = "   Decrement variable" })
+
+keymap("v", "<C-a>",  map.inc_visual(),  { desc = "   Increment variable" })
+keymap("v", "<C-a>",  map.inc_visual(),  { desc = "   Decrement variable" })
+keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Increment variable" })
+keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Decrement variable" })
 
 ---------------------------------------------------------------------------
 -- Quickfix
@@ -176,14 +181,14 @@ if not is_vscode then
     ["<Leader>fl"] = { ":Telescope lazy<CR>",         "   lazy.nvim Browser" },
     ["<Leader>fL"] = { ":Telescope luasnip<CR>",      "   LuaSnip Browser" },
 
-    ["<Leader>fr"] = { ":lua require'telescope.builtin'.resume()<CR>", "   Resume previous picker" },
+    ["<Leader>fr"]  = { ":lua require'telescope.builtin'.resume()<CR>", "   Resume previous picker" },
     ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   DAP Configs" },
     ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
     ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
     ["<Leader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
     ["<Leader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>",           "   Show Frames" },
 
-    ["<Leader>fc"] = { ":lua require'telescope'.extensions.chezmoi.find_files()<CR>", "   Search chezmoi files" },
+    ["<Leader>fc"]  = { ":lua require'telescope'.extensions.chezmoi.find_files()<CR>", "   Search chezmoi files" },
   }, opts)
 
 end
