@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 local cmp_ok,     cmp     = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 local lspkind_ok, lspkind = pcall(require, "lspkind")
@@ -46,6 +46,47 @@ local fd_opts = {
 local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", "cw", "cwq", "cx", "cxa" }
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
+local sources = {
+  { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 15 },
+  { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 15 },
+  { name = "path",         keyword_length = 3, max_item_count = 5 },
+  -- { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
+  { name = "buffer",       keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
+  -- { name = "fuzzy_buffer", keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
+}
+
+if vim.g.copilot then
+  vim.tbl_deep_extend("force", sources, { name = "copilot", group_index = 2, priority = 80, max_item_count = 10 })
+end
+if vim.g.codeium then
+  vim.tbl_deep_extend("force", sources, { name = "codeium", group_index = 2, priority = 80, max_item_count = 10 })
+end
+if vim.g.tabnine then
+  vim.tbl_deep_extend("force", sources, { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 })
+end
+
+local comparators = {
+  -- require("cmp_fuzzy_path.compare"),
+  -- require("cmp_fuzzy_buffer.compare"),
+  compare.offset,
+  compare.exact,
+  -- compare.scopes,
+  compare.score,
+  compare.recently_used,
+  compare.locality,
+  compare.kind,
+  compare.sort_text,
+  compare.length,
+  compare.order,
+}
+
+if vim.g.copilot then
+  vim.tbl_deep_extend("force", comparators, require("copilot_cmp.comparators").prioritize)
+end
+if vim.g.tabnine then
+  vim.tbl_deep_extend("force", comparators, require("cmp_tabnine.compare"))
+end
+
 cmp.setup({
   window = {
     completion    = cmp.config.window.bordered(border_opts),
@@ -76,56 +117,10 @@ cmp.setup({
     })
   },
 
-  sources = { -- Completion Sources
-    { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 15 },
-    { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 15 },
-    {{- if .neovim.complete.copilot }}
-    { name = "copilot",     group_index = 2, priority = 80,  max_item_count = 10 },
-    {{- end }}
-    {{- if .neovim.complete.codeium }}
-    { name = "codeium",     group_index = 2, priority = 80,  max_item_count = 10 },
-    {{- end }}
-    {{- if .neovim.complete.tabnine }}
-    { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 },
-    {{- end }}
-    {{- if not .neovim.complete.fuzzy_path }}
-    { name = "path",         keyword_length = 3, max_item_count = 5 },
-    {{- else }}
-    { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
-    {{- end }}
-    {{- if not .neovim.complete.fuzzy_buffer }}
-    { name = "buffer",       keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
-    {{- else }}
-    { name = "fuzzy_buffer", keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
-    {{- end }}
-  },
-
+  sources = sources,
   sorting = {
     priority_weight = 2,
-    comparators = {
-      {{- if .neovim.complete.copilot }}
-      require("copilot_cmp.comparators").prioritize,
-      {{- end }}
-      {{- if .neovim.complete.tabnine }}
-      require('cmp_tabnine.compare'),
-      {{- end }}
-      {{- if .neovim.complete.fuzzy_path }}
-      require("cmp_fuzzy_path.compare"),
-      {{- end }}
-      {{- if .neovim.complete.fuzzy_buffer }}
-      require("cmp_fuzzy_buffer.compare"),
-      {{- end }}
-      compare.offset,
-      compare.exact,
-     -- compare.scopes,
-      compare.score,
-      compare.recently_used,
-      compare.locality,
-      compare.kind,
-      compare.sort_text,
-      compare.length,
-      compare.order,
-    },
+    comparators = comparators,
   },
 
   preselect = cmp.PreselectMode.None,
@@ -199,11 +194,8 @@ cmp.setup({
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    {{- if not .neovim.complete.fuzzy_buffer }}
     { name = "buffer",          keyword_length = 1, option = { keyword_pattern = anyWord } },
-    {{- else }}
-    { name = "fuzzy_buffer",    keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
-    {{- end }}
+    -- { name = "fuzzy_buffer",    keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
     { name = "cmdline_history", keyword_length = 2, option = { keyword_pattern = anyWord } },
   },
 })
@@ -222,11 +214,8 @@ cmp.setup.cmdline(":", {
       keyword_pattern = [=[[^[:blank:]\!]*]=]
     },
     { name = "cmdline_history", group_index = 2, priority = 1, max_item_count = 5, keyword_length = 1  },
-    {{- if not .neovim.complete.fuzzy_path }}
     { name = "path",            group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
-    {{- else }}
-    { name = "fuzzy_path",      group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
-    {{- end }}
+    -- { name = "fuzzy_path",      group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
   },
   formatting = {
     fields = { "menu", "abbr", "kind" },
