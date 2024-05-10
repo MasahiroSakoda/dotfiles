@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
   {
@@ -8,49 +8,41 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "onsails/lspkind.nvim",
 
-      {{- if not .neovim.complete.fuzzy_path }}
       "hrsh7th/cmp-path",
-      {{- else }}
-      "tzachar/cmp-fuzzy-path",
-      {{- end }}
-      {{- if not .neovim.complete.fuzzy_buffer }}
+      -- "tzachar/cmp-fuzzy-path",
       "hrsh7th/cmp-buffer",
-      {{- else }}
-      "tzachar/cmp-fuzzy-buffer",
-      {{- end }}
+      -- "tzachar/cmp-fuzzy-buffer",
       "hrsh7th/cmp-cmdline",
       "dmitmel/cmp-cmdline-history",
 
       "saadparwaiz1/cmp_luasnip",
 
       -- AI assisted completion
-      {{- if .neovim.complete.copilot }}
       -- GitHub Copilot interaction
       {
         "zbirenbaum/copilot.lua",
         build  = ":Copilot auth",
+        cond   = vim.g.copilot,
         cmd    = "Copilot",
         config = function() require("ai.copilot") end,
       },
       {
         "zbirenbaum/copilot-cmp",
+        cond   = vim.g.copilot,
         config = function() require("lsp.cmp.copilot") end,
       },
-      {{- end }}
-      {{- if .neovim.complete.codeium }}
       {
         "Exafunction/codeium.nvim",
         build  = ":Codeium Auth",
+        cond   = vim.g.codeium,
         config = function() require("lsp.cmp.codeium") end,
       },
-      {{- end }}
-      {{- if .neovim.complete.tabnine }}
       {
         "tzachar/cmp-tabnine",
         build = './install.sh',
+        cond   = vim.g.tabnine,
         config = function() require("lsp.cmp.tabnine") end,
       },
-      {{- end }}
     },
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,

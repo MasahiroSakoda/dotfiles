@@ -1,27 +1,17 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
   -- LSP
   clangd        = require("lsp.servers.clangd"),        -- C, C++, Obj-C Language Server
-  {{- if .mise.go.enabled }}
   gopls         = require("lsp.servers.gopls"),         -- Go Language Server
-  {{- end }}
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust Language Server
   bashls        = require("lsp.servers.bashls"),        -- bash Language Server
-  {{- if .mise.ruby.enabled }}
   sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
-  {{- end }}
-  {{- if .mise.python.enabled  }}
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
   ruff_lsp      = require("lsp.servers.ruff_lsp"),       -- extremely fast Python Linter
-  {{- end }}
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
-  {{- if .mise.node.enabled }}
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
-  {{- end }}
-  {{- if .mise.deno.enabled }}
   denols        = require("lsp.servers.denols"),        -- Deno Language Server
-  {{- end }}
   html          = require("lsp.servers.html"),          -- HTML Language Serer
   cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS Language Server
   jsonls        = require("lsp.servers.jsonls"),        -- JSON Language Server
@@ -35,18 +25,12 @@ return {
 
   -- Linter
   actionlint   = {}, -- GitHub Actions workflow
-  {{- if .mise.go.enabled }}
   revive       = {}, -- Go
-  {{- end }}
   hadolint     = {}, -- Dockerfile
   markdownlint = {}, -- Markdown Linter
   vint         = {}, -- VimScript
-  {{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
   biome        = {}, -- JavaScript/TypeScript & JSON
-  {{- end }}
-  {{- if .mise.ruby.enabled }}
   rubocop      = {}, -- Ruby Static Code Analyzer
-  {{- end }}
 
   -- Formetter
   clang_format  = {}, -- C, C++, Obj-C, Java, JS, C#, etc..

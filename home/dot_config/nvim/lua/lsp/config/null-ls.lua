@@ -1,4 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 
 local ok, nl = pcall(require, "null-ls")
 if not ok then return end
@@ -105,14 +105,12 @@ nl.setup({
       },
     }),
 
-    {{- if .mise.go.enabled }}
     -- Go
     diagnostics.revive.with({
       condition = function(utils)
         return utils.root_has_file(filetypes.lsp.revive)
       end
     }),
-    {{- end }}
 
     -- Shell
     formatting.shfmt.with({
@@ -124,7 +122,6 @@ nl.setup({
     -- fish
     diagnostics.fish,
 
-    {{- if .mise.ruby.enabled }}
     -- Ruby
     diagnostics.rubocop.with({
       condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
@@ -132,7 +129,6 @@ nl.setup({
     formatting.rubocop.with({
       condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
     }),
-    {{- end }}
 
     -- Lua
     -- stylua:
@@ -142,7 +138,6 @@ nl.setup({
       condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
     }),
 
-    {{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
     -- biome: JavaScript, TypeScript
     formatting.biome.with({
       -- INFO: support language might be updated
@@ -169,7 +164,6 @@ nl.setup({
         "$FILENAME",
       },
     }),
-    {{- end }}
 
     diagnostics.markdownlint.with({
       extra_args = {},

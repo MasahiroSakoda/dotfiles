@@ -1,7 +1,6 @@
--- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
-  {{- if .neovim.plugins.chatgpt }}
   -- ChatGPT client
   {
     "jackMort/ChatGPT.nvim",
@@ -10,8 +9,8 @@ return {
       "MunifTanjim/nui.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    cond   = vim.g.chatgpt_enabled,
     cmd    = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
     config = function() require("ai.chatgpt") end,
   }
-  {{- end }}
 }
