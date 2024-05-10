@@ -39,6 +39,13 @@ dial.augends:register_group({
   --   },
   -- }),
 
+  case = {
+    augend.case.new({
+      types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
+      cyclic = true,
+    }),
+  },
+
   custom = {
     augend.integer.alias.decimal,
     augend.integer.alias.hex,
