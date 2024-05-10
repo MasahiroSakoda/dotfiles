@@ -17,6 +17,11 @@ dial.augends:register_group({
     augend.constant.alias.ja_weekday,
     augend.constant.alias.ja_weekday_full,
 
+    augend.case.new({
+      types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
+      cyclic = true,
+    }),
+
     augend.semver.alias.semver,
     augend.constant.new { elements = { "yes", "no" }, word = true, cyclic = true, preserve_case = true },
     augend.constant.new { elements = { "and", "or" }, word = true, cyclic = true, preserve_case = true },
@@ -42,7 +47,6 @@ dial.augends:register_group({
       cyclic = true,
       preserve_case = true,
     }),
-
   },
 
   -- augend:on_filetype({
@@ -58,11 +62,4 @@ dial.augends:register_group({
   --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
   --   },
   -- }),
-
-  case = {
-    augend.case.new({
-      types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
-      cyclic = true,
-    }),
-  },
 })
