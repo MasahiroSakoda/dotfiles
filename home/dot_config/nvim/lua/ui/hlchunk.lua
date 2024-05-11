@@ -10,7 +10,7 @@ hlchunk.setup({
       horizontal_line = "─",
       vertical_line   = "│",
       left_top    = "┌",
-      left_bottom = "└>",
+      left_bottom = "└",
       right_arrow = "─",
     },
     style = "#00ffff",
