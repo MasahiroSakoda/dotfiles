@@ -174,12 +174,10 @@ if not is_vscode then
     ["<C-g>"]         = { ":Telescope egrepify<CR>",     "   Live grep with egrepify" },
     ["<Leader><C-g>"] = { ":Telescope grep_string<CR>",  "   Grep string in working directory" },
 
-    ["<Leader>ff"] = { ":Telescope frecency<CR>",            "   Frecency algorithm Search" },
-    ["<Leader>fF"] = { ":Telescope frecency workspace=<CR>", "   Frecency algorithm Search in workspace" },
-
-    ["<Leader>fb"] = { ":Telescope file_browser<CR>", "   File Browser" },
-    ["<Leader>fl"] = { ":Telescope lazy<CR>",         "   lazy.nvim Browser" },
-    ["<Leader>fL"] = { ":Telescope luasnip<CR>",      "   LuaSnip Browser" },
+    ["<Leader>ff"] = { ":Telescope frecency workspace=CWD<CR>", "   Frecency algorithm Search" },
+    ["<Leader>fb"] = { ":Telescope file_browser<CR>",           "   File Browser" },
+    ["<Leader>fl"] = { ":Telescope lazy<CR>",                   "   lazy.nvim Browser" },
+    ["<Leader>fL"] = { ":Telescope luasnip<CR>",                "   LuaSnip Browser" },
 
     ["<Leader>fr"]  = { ":lua require'telescope.builtin'.resume()<CR>", "   Resume previous picker" },
     ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   DAP Configs" },
