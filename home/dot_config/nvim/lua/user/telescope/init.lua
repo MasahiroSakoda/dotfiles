@@ -9,6 +9,25 @@ local grep_command = require("core.grep")
 local patterns     = require("core.ignore")
 local borderchars  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
 
+local flash = function(prompt_bufnr)
+  require("flash").jump({
+    pattern = "^",
+    label = { after = { 0, 0 } },
+    search = {
+      mode = "search",
+      exclude = {
+        function(win)
+          return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
+        end,
+      },
+    },
+    action = function(match)
+      local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+      picker:set_selection(match.pos[1] - 1)
+    end,
+  })
+end
+
 telescope.setup({
   defaults = {
     vimgrep_arguments = grep_command,
@@ -49,13 +68,14 @@ telescope.setup({
         ["M"]     = actions.move_to_middle,
         ["G"]     = actions.move_to_bottom,
         ["<C-/>"] = actions.which_key,
+        ["s"]     = flash,
       },
       i = {
         ["<C-c>"] = actions.close,
         ["<CR>"]  = actions.select_default,
         ["<C-t>"] = actions.select_tab,
+        ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
-        ["<C-s>"] = actions.select_horizontal,
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
         ["<C-k>"] = actions.move_selection_previous,
@@ -64,8 +84,8 @@ telescope.setup({
         ["<C-d>"] = actions.preview_scrolling_down,
         ["<C-p>"] = layout.toggle_preview,
         ["<C-o>"] = layout.toggle_mirror,
-        ["<C-x>"] = false,
         ["<C-/>"] = actions.which_key,
+        ["<C-s>"] = flash,
       },
     },
   },

@@ -64,6 +64,15 @@ wk.register({
 -- Insert Modeでjj/jk ESC
 keymap("i", "jj", "<ESC>")
 
+-- flash.nvim
+local nxo_mode = { "n", "x", "o" }
+keymap(nxo_mode, "s", "<CMD>lua require'flash'.jump()<CR>",       { desc = "  Flash" })
+keymap(nxo_mode, "S", "<CMD>lua require'flash'.treesitter()<CR>", { desc = "  Flash Treesitter" })
+
+keymap({ "o" },      "r", "<CMD>lua require'flash'.remote()<CR>",            { desc = "  Remote Flash" })
+keymap({ "o", "x" }, "R", "<CMD>lua require'flash'.treesitter_search()<CR>", { desc = "  Treesitter Search" })
+keymap({ "c" },  "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            { desc = "  Toggle Flash Search" })
+
 ---------------------------------------------------------------------------
 -- Search
 ---------------------------------------------------------------------------
