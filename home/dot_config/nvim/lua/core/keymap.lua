@@ -164,6 +164,13 @@ keymap("n", "]q",        quickfix.navigateQuickfix("next"),     { desc = "⚡
 -- keymap("n", "<Leader>r", ":lua require'replacer'.run()<CR>",    { desc = "Refactor" })
 
 ---------------------------------------------------------------------------
+-- no-neck-pain.nvim: Screen Positioning
+---------------------------------------------------------------------------
+keymap("n", "<Leader>nn", "<CMD>NoNeckPain<CR>", { desc = "Toggle Centering" })
+keymap("n", "<Leader>nh", "<CMD>NoNeckPainToggleLeftSide<CR>",  { desc = "Toggles the left side buffer" })
+keymap("n", "<Leader>nl", "<CMD>NoNeckPainToggleRightSide<CR>", { desc = "Toggles the right side buffer" })
+
+---------------------------------------------------------------------------
 -- 🔭  Telescope
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
