@@ -41,6 +41,7 @@ return {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
+    config = function() require("user.flash") end,
   },
   {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
