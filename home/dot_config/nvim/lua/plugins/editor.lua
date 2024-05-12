@@ -36,6 +36,12 @@ return {
       require("core.keymap")
     end,
   },
+  -- Enhanced character motion
+  {
+    "folke/flash.nvim",
+    cond   = not vim.g.vscode,
+    event  = "VeryLazy",
+  },
   {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
     config = function() require("user.dial") end,
