@@ -63,16 +63,6 @@ bg_color = "#9c9cff"
 [starship.cmd]
 color = "#3399ff"
 
-[neovim.plugins]
-chatgpt = true
-
-[neovim.complete]
-fuzzy_path   = false
-fuzzy_buffer = false
-copilot = false
-codeium = true
-tabnine = false
-
 [mise.node]
 enabled  = true
 versions = ["22"]
