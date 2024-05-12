@@ -6,6 +6,7 @@ return {
     "shortcuts/no-neck-pain.nvim",
     version = "*",
     cmd     = { "NoNeckPain", "NoNeckPainToggleLeftSide", "NoNeckPainToggleRightSide" },
+    config  = function() require("user.nnp") end,
   },
   {
     "akinsho/toggleterm.nvim",
