@@ -127,6 +127,7 @@ Library/
 .Xresources
 .config/Code
 .config/i3
+.config/superfile
 {{- end }}
 
 # Ignore non-Windows files.
