@@ -6,7 +6,10 @@ return {
     dependencies = {
       { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
       { "williamboman/mason-lspconfig.nvim" },
-      { "folke/neodev.nvim" },
+      {
+        "folke/neodev.nvim",
+        config = function() require("lsp.config.neodev") end,
+      },
       { "folke/neoconf.nvim", cmd = "Neoconf" },
     },
     event  = { "BufReadPre", "BufNewFile" },
