@@ -6,14 +6,15 @@ return {
     dependencies = {
       { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
       { "williamboman/mason-lspconfig.nvim" },
-      {
-        "folke/neodev.nvim",
-        config = function() require("lsp.config.neodev") end,
-      },
-      { "folke/neoconf.nvim", cmd = "Neoconf" },
+      { "folke/neodev.nvim", config = function() require("lsp.config.neodev") end },
     },
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
+  },
+  {
+    "folke/neoconf.nvim",
+    cmd    = "Neoconf",
+    config = function() require("lsp.config.neoconf") end,
   },
   {
     "nvimtools/none-ls.nvim",

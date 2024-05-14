@@ -2,7 +2,6 @@ local lsp_ok, lspconfig       = pcall(require, "lspconfig")
 local mason_cfg_ok, mason_cfg = pcall(require, "mason-lspconfig")
 local cmp_ok, cmp_nvim_lsp    = pcall(require, "cmp_nvim_lsp")
 local navic_ok, navic         = pcall(require, "nvim-navic")
-local neoconf_ok, neoconf     = pcall(require, "neoconf")
 
 if not lsp_ok  then
   vim.notify('[lspconfig] Loading "lspconfig" failed.', vim.log.levels.WARN)
@@ -12,14 +11,9 @@ elseif not cmp_ok then
   vim.notify('[lspconfig] Loading "cmp_nvim_lsp" failed.', vim.log.levels.WARN)
 elseif not navic_ok then
   vim.notify('[lspconfig] Loading "nvim-navic" failed.', vim.log.levels.WARN)
-elseif not neoconf_ok then
-  vim.notify('[lspconfig] Loading "neoconf" failed.', vim.log.levels.WARN)
 end
 
 require("lsp.config.handlers")
-
-neoconf.setup({
-})
 
 local api, lsp = vim.api, vim.lsp
 local capabilities = cmp_nvim_lsp.default_capabilities(lsp.protocol.make_client_capabilities())
