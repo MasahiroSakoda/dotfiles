@@ -210,27 +210,22 @@ end
 ---------------------------------------------------------------------------
 -- LSP: Language Server Protocol
 ---------------------------------------------------------------------------
-keymap("n", "<Leader>M", ":Mason<CR>",                 { desc = "   Open mason.nvim Window" })
 keymap("n", "K",  "<NOP>")
-keymap("n", "K",  ":Lspsaga hover_doc<CR>",            { desc = "   Hover Documentation"})
-keymap("n", "gd", ":Lspsaga goto_definition<CR>",      { desc = "   Go to Definition" })
-keymap("n", "gD", ":Lspsaga peek_type_definition<CR>", { desc = "   Go to Type Declaration" })
-keymap("n", "gr", ":Lspsaga finder<CR>",           { desc = "   Go to References & Implementation" })
-keymap("n", "go", ":Lspsaga outline<CR>",              { desc = "   Toggle code outline" })
-keymap("n", "gR", ":Lspsaga rename<CR>",               { desc = "   Rename" })
-keymap("n", "[d", ":Lspsaga diagnostic_jump_prev<CR>", { desc = "   Jump to prev diagnostics" })
-keymap("n", "]d", ":Lspsaga diagnostic_jump_next<CR>", { desc = "   Jump to next diagnostics" })
-keymap(nv_mode, "ga", ":Lspsaga code_action<CR>",      { desc = "   Code Action" })
+keymap("n", "<Leader>M", ":Mason<CR>",                          { desc = "   Open mason.nvim Window" })
+keymap("n", "K",  "<CMD>lua vim.lsp.buf.hover()<CR>",           { desc = "   Hover Documentation" })
+keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",      { desc = "   Go to Definition" })
+keymap("n", "gD", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "   Go to Type Definition" })
+keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",  { desc = "   Go to implementation" })
+keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",      { desc = "   Go to references" })
+-- keymap("n", "gh", "<CMD>lua vim.lsp.buf.inlay_hints()<CR>",     { desc = "   Toggle Inlay Hints" })
 
-wk.register({
-  mode = "n",
-  silent = false,
-  ["<Leader>c"]  = { name = "🛠  Call hierarchy" },
-  ["<Leader>ci"] = { ":Lspsaga incoming_calls<CR>",  "   Call incoming hierarchy" },
-  ["<Leader>co"] = { ":Lspsaga outcoming_calls<CR>", "   Call outcoming hierarchy" },
-})
-
-keymap("n", "<Leader>gh", function() vim.lsp.buf.inlay_hints(0, nil) end, { desc = "Toggle Inlay Hints" })
+keymap("n", "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "   Go to prev diagnostics" })
+keymap("n", "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "   Go to next diagnostics" })
+keymap("n", "go",  "<CMD>Lspsaga outline<CR>",              { desc = "   Code outline" })
+keymap("n", "gn",  "<CMD>Lspsaga rename<CR>",               { desc = "   Rename" })
+keymap("n", "gci", "<CMD>Lspsaga incoming_calls<CR>",       { desc = "   Call incoming hierarchy" })
+keymap("n", "gco", "<CMD>Lspsaga outcoming_calls<CR>",      { desc = "   Call outcoming hierarchy" })
+keymap(nv_mode, "ga", "<CMD>Lspsaga code_action<CR>",       { desc = "   Code Action" })
 
 --------------------------------------------------
 ---- 🚦  Keymap for LSP via Telescope
