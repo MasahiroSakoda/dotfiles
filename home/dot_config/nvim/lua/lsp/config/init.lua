@@ -48,8 +48,10 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
 
-  if client.supports_method("textDocument/inlayHint") then
-    lsp.buf.inlay_hint(bufnr, true)
+  if client.server_capabilities.inlayHintProvider then
+    vim.keymap.set("n", "gh", function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+    end, { desc = "   Toggle Inlay Hints" })
   end
 end
 

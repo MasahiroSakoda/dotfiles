@@ -217,7 +217,6 @@ keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",      { desc = "   
 keymap("n", "gD", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "   Go to Type Definition" })
 keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",  { desc = "   Go to implementation" })
 keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",      { desc = "   Go to references" })
-keymap("n", "gh", "<CMD>lua vim.lsp.buf.inlay_hints()<CR>",     { desc = "   Toggle Inlay Hints" })
 
 keymap("n", "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "   Go to prev diagnostics" })
 keymap("n", "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "   Go to next diagnostics" })
