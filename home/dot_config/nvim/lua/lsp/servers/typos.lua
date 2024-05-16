@@ -9,5 +9,6 @@ return {
   filetypes = { "*" },
   init_options = {
     config = vim.fn.expand("~/.config/nvim/spell/typos.toml"),
+    diagnosticSeverity = "Hint",
   },
 }
