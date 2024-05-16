@@ -14,22 +14,12 @@ end
 
 require("lsp.config.handlers")
 
-local api, lsp = vim.api, vim.lsp
-local active_clients = lsp.get_active_clients()
--- local inlay_hint     = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
--- local setup_inlay_hints = function()
---   local hl = api.nvim_get_hl(0, { name = "Comment" })
---   local foreground = string.format("#%06x", hl["fg"] or 0)
---   if #foreground < 3 then foreground = "" end
-
---   hl = api.nvim_get_hl(0, { name = "CursorLine" })
---   local background = string.format("#%06x", hl["bg"] or 0)
---   if #background < 3 then background = "" end
---   api.nvim_set_hl(0, 'LspInlayHint', { fg = foreground, bg = background })
--- end
+local active_clients = vim.lsp.get_clients()
 
 local on_attach = function(client, bufnr)
-  api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.bo.tagfunc    = "v:lua.vim.lsp.tagfunc"
+  vim.bo.omnifunc   = "v:lua.vim.lsp.omnifunc"
+  vim.bo.formatexpr = "v:lua.vim.lsp.formatexpr()"
   client.server_capabilities.document_formatting        = false
   client.server_capabilities.document_range_formatting  = false
   client.server_capabilities.documentFormattingProvider = false
@@ -59,10 +49,11 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
 
-  -- if client.supports_method("textDocument/inlayHint") then
-  --   setup_inlay_hints()
-  --   inlay_hint(bufnr, true)
-  -- end
+  if client.server_capabilities.inlayHintProvider then
+    vim.keymap.set("n", "gh", function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+    end, { desc = "   Toggle Inlay Hints" })
+  end
 end
 
 local servers = require("lsp.servers")
