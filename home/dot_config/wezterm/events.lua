@@ -108,13 +108,13 @@ wezterm.on("switch-background-image", function(window, _)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("increate-opacity", function(window, _)
+wezterm.on("increase-opacity", function(window, _)
   local overrides = window.get_config_overrides() or {}
   overrides.window_background_opacity = math.min(1, overrides.window_background_opacity + 0.05)
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("decreate-opacity", function(window, _)
+wezterm.on("decrease-opacity", function(window, _)
   local overrides = window.get_config_overrides() or {}
   overrides.window_background_opacity = math.max(0, overrides.window_background_opacity - 0.05)
   window:set_config_overrides(overrides)
