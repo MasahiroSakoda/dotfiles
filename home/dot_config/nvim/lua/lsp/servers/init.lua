@@ -22,7 +22,7 @@ return {
   terraformls   = require("lsp.servers.terraformls"),   -- Terraform Language Server
   sqlls         = require("lsp.servers.sqlls"),         -- SQL Language Server
   vimls         = require("lsp.servers.vimls"),         -- VimScript Language Server
-  typos_lsp     = {},         -- Spell checker
+  typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
 
   -- Linter
   actionlint   = {}, -- GitHub Actions workflow
