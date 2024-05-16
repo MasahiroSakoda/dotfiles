@@ -227,14 +227,14 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Linter       | Notes                              |
 | ------------ | ---------------------------------- |
-| [**codespell**][codespell]    | Check code for common misspellings |
+| [**typos**][typos]        | Source code spell checker          |
 | [**revive**][revive]       | Fast Linter for `golang`             |
 | [**vint**][vint]         | `VimScript` linter                   |
 | [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**hadolint**][hadolint]     | `Dockerfile` linter                  |
 | [**markdownlint**][markdownlint] | `markdown` linter/formatter          |
 
-[codespell]: https://github.com/codespell-project/codespell
+[typos]: https://github.com/crate-ci/typos
 [revive]: https://github.com/mgechev/revive
 [vint]: https://github.com/Vimjas/vint
 [biome]: https://github.com/biomejs/biome
