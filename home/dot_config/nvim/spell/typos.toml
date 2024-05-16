@@ -1,0 +1,13 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[default]
+default.locale = "en_us"
+
+[default.extend-words]
+iterm = "iterm"
+noice = "noice"
+
+fo = "fo"
+nd = "nd"
+
+[files]
