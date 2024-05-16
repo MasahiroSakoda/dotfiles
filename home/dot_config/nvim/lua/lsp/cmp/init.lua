@@ -21,12 +21,10 @@ end
 local menu = {
   cmdline         = "[Cmd]",
   path            = "[Path]",
-  fuzzy_path      = "[FzPath]",
   nvim_lsp        = "[LSP]",
   luasnip         = "[Snip]",
   cmdline_history = "[Hist]",
   buffer          = "[Buf]",
-  fuzzy_buffer    = "[FzBuf]",
   copilot         = "[Copilot]",
   cmp_tabnine     = "[T9]",
   codeium         = "[Codeium]",
@@ -47,12 +45,10 @@ local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", 
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
 local sources = {
-  { name = "luasnip",     group_index = 1, priority = 100, max_item_count = 15 },
-  { name = "nvim_lsp",    group_index = 2, priority = 90,  max_item_count = 15 },
-  { name = "path",         keyword_length = 3, max_item_count = 5 },
-  -- { name = "fuzzy_path",   keyword_length = 3, max_item_count = 5, option = fd_opts },
-  { name = "buffer",       keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
-  -- { name = "fuzzy_buffer", keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
+  { name = "luasnip",  group_index = 1, priority = 100, max_item_count = 15 },
+  { name = "nvim_lsp", group_index = 2, priority = 90,  max_item_count = 15 },
+  { name = "path",     keyword_length = 3, max_item_count = 5 },
+  { name = "buffer",   keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
 }
 
 if vim.g.copilot then
@@ -66,8 +62,6 @@ if vim.g.tabnine then
 end
 
 local comparators = {
-  -- require("cmp_fuzzy_path.compare"),
-  -- require("cmp_fuzzy_buffer.compare"),
   compare.offset,
   compare.exact,
   -- compare.scopes,
@@ -195,7 +189,6 @@ cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = "buffer",          keyword_length = 1, option = { keyword_pattern = anyWord } },
-    -- { name = "fuzzy_buffer",    keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
     { name = "cmdline_history", keyword_length = 2, option = { keyword_pattern = anyWord } },
   },
 })
@@ -215,7 +208,6 @@ cmp.setup.cmdline(":", {
     },
     { name = "cmdline_history", group_index = 2, priority = 1, max_item_count = 5, keyword_length = 1  },
     { name = "path",            group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
-    -- { name = "fuzzy_path",      group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
   },
   formatting = {
     fields = { "menu", "abbr", "kind" },
