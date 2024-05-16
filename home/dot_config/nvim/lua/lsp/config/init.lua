@@ -14,11 +14,12 @@ end
 
 require("lsp.config.handlers")
 
-local api, lsp = vim.api, vim.lsp
-local active_clients = lsp.get_active_clients()
+local active_clients = vim.lsp.get_clients()
 
 local on_attach = function(client, bufnr)
-  api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+  vim.bo.tagfunc    = "v:lua.vim.lsp.tagfunc"
+  vim.bo.omnifunc   = "v:lua.vim.lsp.omnifunc"
+  vim.bo.formatexpr = "v:lua.vim.lsp.formatexpr()"
   client.server_capabilities.document_formatting        = false
   client.server_capabilities.document_range_formatting  = false
   client.server_capabilities.documentFormattingProvider = false
