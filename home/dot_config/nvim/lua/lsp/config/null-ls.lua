@@ -45,14 +45,6 @@ nl.setup({
   sources = {
     -- Common Configurations
     diagnostics.todo_comments,
-    -- formatting.codespell.with({
-    --   disabled_filetypes = { "css", "bib" },
-    -- }),
-    diagnostics.codespell.with({
-      extra_args = { "--ignore-words", vim.fn.stdpath "config" .. "/spell/codespell-ignore.txt" },
-      filetypes = { "markdown", "latex", "rst", "txt" },
-      disabled_filetypes = { "css", "bib", "log" },
-    }),
     hover.dictionary.with({
       filetypes = { "tex", "text", "markdown", "vimwiki" },
     }),
@@ -115,7 +107,7 @@ nl.setup({
     -- Shell
     formatting.shfmt.with({
       -- zsh is not supported but enable anyway
-      extrac_filetypes = filetypes.lang.shell,
+      extract_filetypes = filetypes.lang.shell,
       extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
     }),
 

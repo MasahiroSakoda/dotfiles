@@ -8,7 +8,7 @@ return {
   bashls        = require("lsp.servers.bashls"),        -- bash Language Server
   sorbet        = require("lsp.servers.sorbet"),        -- Ruby Language Server
   pyright       = require("lsp.servers.pyright"),       -- Python Language Server
-  ruff_lsp      = require("lsp.servers.ruff_lsp"),       -- extremely fast Python Linter
+  ruff_lsp      = require("lsp.servers.ruff_lsp"),      -- extremely fast Python Linter
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua Language Server
   tsserver      = require("lsp.servers.tsserver"),      -- JavaScript/TypeScript Language Server
   denols        = require("lsp.servers.denols"),        -- Deno Language Server
@@ -22,6 +22,7 @@ return {
   terraformls   = require("lsp.servers.terraformls"),   -- Terraform Language Server
   sqlls         = require("lsp.servers.sqlls"),         -- SQL Language Server
   vimls         = require("lsp.servers.vimls"),         -- VimScript Language Server
+  typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
 
   -- Linter
   actionlint   = {}, -- GitHub Actions workflow
