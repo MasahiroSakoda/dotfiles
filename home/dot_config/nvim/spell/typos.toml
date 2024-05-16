@@ -11,3 +11,15 @@ fo = "fo"
 nd = "nd"
 
 [files]
+extend-exclude = [
+  ".git/", ".github/",
+  ".typos.toml", "_typos.toml",
+  "node_modules", "*lock.json", "*.lock", "*.json", "pnpm-lock.yaml",
+  "*.min.js", "*.js",
+  "*.min.css", "*.css",
+  "Gemfile.lock", "vendor/**/*",
+  "go.mod", "go.sum",
+  "*.plist", "*.pbxproj", "*.xcscheme", "*.xcresult",
+  "*.xccolortheme", "*.xib", "*.storyboard",
+  "*.svg", "*.png",
+]
