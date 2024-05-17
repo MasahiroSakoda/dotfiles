@@ -16,9 +16,9 @@ local virtual_text_document_handler = function(uri, result)
     end
 
     api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
-    api.nvim_buf_set_option(bufnr, 'readonly', true)
-    api.nvim_buf_set_option(bufnr, 'modified', false)
-    api.nvim_buf_set_option(bufnr, 'modifiable', false)
+    vim.bo.readonly   = true
+    vim.bo.modified   = true
+    vim.bo.modifiable = true
     lsp.buf_attach_client(bufnr, client_id)
   end
 end
@@ -72,5 +72,33 @@ return {
   handlers = {
     ["textDocument/definition"] = denols_handler,
     ["textDocument/references"] = denols_handler,
+  },
+
+  settings = {
+    deno = {
+      suggest = { completeFunctionCalls = true },
+      inlayHints = {
+        enumMemberValues = {
+          enabled = true,
+        },
+        functionLikeReturnTypes = {
+          enabled = true,
+        },
+        parameterNames = {
+          enabled = true,
+          suppressWhenArgumentMatchesName = true,
+        },
+        parameterTypes = {
+          enabled = true,
+        },
+        propertyDeclarationTypes = {
+          enabled = true,
+        },
+        variableTypes = {
+          enabled = true,
+          suppressWhenTypeMatchesName = true,
+        },
+      },
+    },
   },
 }

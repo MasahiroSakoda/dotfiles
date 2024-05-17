@@ -1,10 +1,15 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
   cmd       = { "bash-language-server", "start" },
-  cmd_env   = { GLOB_PATTERN = "*@(.sh|.inc|.bash|.command)" },
-  filetypes = { "sh" },
-  root_dir  = lspconfig.util.root_pattern(".bashrc"),
+  filetypes = { "sh", "bash", "zsh" },
+  root_dir = vim.lsp.util.find_git_ancestor,
   autostart = true,
+
+  settings = {
+    bashIde = {
+      globPattern = "*@(.sh|.inc|.bash|.command|.zsh)",
+      includeAllWorkspaceSymbols = true,
+    },
+  },
 }

@@ -1,14 +1,11 @@
+-- -*-mode:lua-*- vim:ft=lua
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
-local filetypes = require("user.filetypes")
-
+local ft = require("user.filetypes")
 return {
-  cmd       = { "bundle", "exec", "rubocop", "-lsp" },
+  cmd       = { "rubocop", "-lsp" },
   filetypes = { "ruby" },
-  root_dir  = function(filename)
-    local pattern = vim.tbl_extend("force", filetypes.rubocop, { "Gemfile", ".git" })
-    return lspconfig.util.root_pattern(pattern)(filename) or vim.fn.getcwd()
-  end,
+  root_dir  = lspconfig.util.root_pattern(ft.lsp.ruby),
   single_file_support = true,
 }

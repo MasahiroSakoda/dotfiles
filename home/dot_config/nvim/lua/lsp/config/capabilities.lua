@@ -10,7 +10,7 @@ capabilities.textDocument.completion.completionItem.deprecatedSupport       = tr
 capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
 capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 }}
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = { "documentation", "detail", "additionalTextEdits" }
+  properties = { "documentation", "detail", "additionalTextEdits", "documentHighlight" }
 }
 capabilities.textDocument.colorProvider = { dynamicRegistration = true }
 capabilities.textDocument.foldingRange  = { dynamicRegistration = false, lineFoldingOnly = true }

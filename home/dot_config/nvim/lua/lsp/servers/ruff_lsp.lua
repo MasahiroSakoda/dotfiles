@@ -11,4 +11,11 @@ return {
   autostart = true,
   filetypes = { "python" },
   single_file_support = true,
+
+  settings = {
+    fixAll = true,
+    showNotification = true,
+    organizeImports  = true,
+    lint = { enable = true },
+  },
 }
