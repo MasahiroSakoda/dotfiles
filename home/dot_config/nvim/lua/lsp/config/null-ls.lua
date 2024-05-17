@@ -116,10 +116,10 @@ nl.setup({
 
     -- Ruby
     diagnostics.rubocop.with({
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.ruby) end,
     }),
     formatting.rubocop.with({
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.rubocop) end,
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.ruby) end,
     }),
 
     -- Lua
