@@ -1,41 +1,30 @@
+-- -*-mode:lua-*- vim:ft=lua
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
-local function organize_imports()
-  local params = {
-    command = 'pyright.organizeimports',
-    arguments = { vim.uri_from_bufnr(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
-
+local ft = require("user.filetypes")
 return {
   cmd       = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },
   root_dir  = function(filename)
-    return lspconfig.util.root_pattern(
-      -- "pyproject.toml",
-      "pyrightconfig.json"
-      -- "Pipfile",
-      -- "setup.py",
-      -- "setup.cfg",
-      -- "requirements.txt"
-    )(filename) or vim.fn.getcwd()
+    return lspconfig.util.root_pattern(ft.lsp.pyright)(filename) or vim.fn.getcwd()
   end,
   single_file_support = true,
   settings = {
+    pyright = {
+      disableLanguageServices = false,
+      disableOrganizeImports  = true, -- Using Ruff's import organizer
+    },
     python = {
       analysis = {
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-        diagnosticMode = 'workspace',
+        typeCheckingMode = "off",
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { "*" },
+        diagnosticSeverityOverrides = {
+          -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+          reportUndefinedVariable = "none",
+        },
       },
     },
   },
-  commands = {
-    PyrightOrganizeImports = {
-      organize_imports,
-      description = 'Organize Imports',
-    },
-  }
 }
