@@ -160,9 +160,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**rust-analyzer**][rust-analyzer]              | Rust                    |
 | [**gopls**][gopls]                      | Go                      |
 | [**pyright**][pyright]                    | Python                  |
-| [**ruff-lsp**][ruff-lsp]                   | Python Linter/Formatter |
-| [**sobet**][sorbet]                      | Ruby type checker       |
-| [**rubocop**][rubocop]                    | Ruby linter/formatter   |
+| [**ruby-lsp**][ruby-lsp]                   | Ruby                    |
 | [**deno**][denols]                       | JavaScript, TypeScript  |
 | [**typescript-language-server**][tsserver] | JavaScript, TypeScript  |
 | [**lua-language-server**][luals]        | Lua                     |
@@ -183,9 +181,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [rust-analyzer]: https://github.com/rust-lang/rust-analyzer
 [gopls]: https://pkg.go.dev/golang.org/x/tools/gopls
 [pyright]: https://github.com/microsoft/pyright
-[ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
-[rubocop]: https://rubocop.org
-[sorbet]: https://sorbet.org
+[ruby-lsp]: https://github.com/Shopify/ruby-lsp
 [denols]: https://deno.land
 [tsserver]: https://github.com/typescript-language-server/typescript-language-server
 [luals]: https://github.com/LuaLS/lua-language-server
@@ -229,6 +225,8 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | ------------ | ---------------------------------- |
 | [**typos**][typos]        | Source code spell checker          |
 | [**revive**][revive]       | Fast Linter for `golang`             |
+| [**ruff-lsp**][ruff-lsp]     | Python Linter/Formatter            |
+| [**rubocop**][rubocop]      | Ruby linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
 | [**biome**][biome]        | Fast Linter/Formatter for modern web development |
 | [**hadolint**][hadolint]     | `Dockerfile` linter                  |
@@ -236,6 +234,8 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 [typos]: https://github.com/crate-ci/typos
 [revive]: https://github.com/mgechev/revive
+[ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
+[rubocop]: https://rubocop.org
 [vint]: https://github.com/Vimjas/vint
 [biome]: https://github.com/biomejs/biome
 [hadolint]: https://github.com/hadolint/hadolint
