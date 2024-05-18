@@ -85,8 +85,7 @@ key.txt.age
 .chezmoiscripts/run_onchange_after_22-ruby.sh.tmpl
 .config/nvim/after/ftplugin/ruby.lua
 .config/nvim/lua/lsp/servers/rubocop.lua
-.config/nvim/lua/lsp/servers/sorbet.lua
-.config/nvim/lua/lsp/servers/solrgraph.lua
+.config/nvim/lua/lsp/servers/ruby_ls.lua
 .config/nvim/lua/dap/adapters/ruby.lua
 {{- end }}
 
