@@ -3,12 +3,6 @@
 return {
   { "vim-jp/vimdoc-ja", ft = "help" },
   {
-    "shortcuts/no-neck-pain.nvim",
-    version = "*",
-    cmd     = { "NoNeckPain", "NoNeckPainToggleLeftSide", "NoNeckPainToggleRightSide" },
-    config  = function() require("user.nnp") end,
-  },
-  {
     "akinsho/toggleterm.nvim",
     cond   = vim.g.vscode,
     cmd    = "ToggleTerm",
