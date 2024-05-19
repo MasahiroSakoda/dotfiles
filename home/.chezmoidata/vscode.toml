@@ -36,6 +36,7 @@ vscode = [
   # Markup Languages
   "redhat.vscode-xml",
   "redhat.vscode-yaml",
+  "tamasfe.even-better-toml",
   # Programming Language
   ## Python
   "ms-python.isort",
