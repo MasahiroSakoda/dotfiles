@@ -1,0 +1,10 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[extensions]
+gh = [
+  "dlvhdr/gh-dash",           # Dashboard
+  "actions/gh-actions-cache", # Manage GitHub Actions cache
+  "kawarimidoll/gh-graph",    # Activity graph
+  "meiji163/gh-notify",       # Notification Extension
+  "gennaro-tedesco/gh-s",     # Search repositories interactively
+]
