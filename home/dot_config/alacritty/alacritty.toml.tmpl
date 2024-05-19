@@ -1,7 +1,7 @@
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 
 import = [
-  "~/.local/share/alacritty/themes/themes/{{ .alacritty.theme }}.toml",
+  "~/.local/share/alacritty/themes/themes/{{ .terminal.alacritty.theme }}.toml",
   "~/.config/alacritty/fonts.toml",
   "~/.config/alacritty/keybindings.toml",
 ]
@@ -31,7 +31,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 [window]
 decorations  = "full"
 startup_mode = "Fullscreen"
-opacity      = {{ .alacritty.opacity }}
+opacity      = {{ .terminal.alacritty.opacity }}
 
 dynamic_title   = true
 dynamic_padding = true

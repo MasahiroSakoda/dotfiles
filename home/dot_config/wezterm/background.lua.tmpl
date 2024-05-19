@@ -3,7 +3,7 @@ local imgdir = os.getenv("HOME") .. "/Pictures/Wallpapers/"
 
 local images = {}
 ---@diagnostic disable-next-line: exp-in-action, undefined-global
-{{- range .wezterm.images }}
+{{- range .terminal.wezterm.images }}
 ---@diagnostic disable-next-line: undefined-global
 table.insert(images, imgdir .. {{ . | quote }})
 ---@diagnostic disable-next-line: miss-exp, unknown-symbol

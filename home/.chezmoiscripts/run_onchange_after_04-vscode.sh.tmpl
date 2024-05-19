@@ -22,7 +22,7 @@ sudo apt install -y code
 {{ end }}
 
 # Install extensions
-{{ range .plugins.vscode | sortAlpha | uniq }}
+{{ range .extensions.vscode | sortAlpha | uniq }}
 code --install-extension {{ . | quote }}
 {{ end }}
 
