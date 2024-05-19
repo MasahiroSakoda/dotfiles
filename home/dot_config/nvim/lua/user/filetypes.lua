@@ -9,7 +9,7 @@ Filetypes.lang = {
   json  = { "json",  "json5", "jsonc" },
   js    = {
     "javascript", "javascriptreact", "javascript.jsx",
-    "typescript", "typescriptreact", "sjavacript.tsx",
+    "typescript", "typescriptreact", "javascript.tsx",
   },
 }
 
