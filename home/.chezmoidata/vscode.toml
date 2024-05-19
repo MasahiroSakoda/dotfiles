@@ -37,7 +37,16 @@ vscode = [
   "redhat.vscode-xml",
   "redhat.vscode-yaml",
   "tamasfe.even-better-toml",
+  # DAP
+  "vadimcn.vscode-lldb",
   # Programming Language
+  ## Build
+  "twxs.cmake",
+  ## Rust
+  "rust-lang.rust-analyzer",
+  "serayuzgur.crates",
+  ## C/C++
+  "ms-vscode.cpptools",
   ## Python
   "ms-python.isort",
   "ms-python.python",
