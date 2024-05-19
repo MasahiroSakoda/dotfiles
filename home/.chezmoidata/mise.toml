@@ -1,0 +1,33 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[mise.node]
+enabled  = true
+versions = ["22"]
+
+[mise.pnpm]
+enabled  = true
+versions = ["latest"]
+
+[mise.deno]
+enabled  = true
+versions = ["1"]
+
+[mise.bun]
+enabled  = false
+versions = ["1"]
+
+[mise.go]
+enabled  = true
+versions = ["latest"]
+
+[mise.python]
+enabled  = true
+versions = ["3.11", "3.12"]
+
+[mise.ruby]
+enabled  = true
+versions = ["3.3"]
+
+[mise.usage]
+enabled  =  true
+versions = ["latest"]

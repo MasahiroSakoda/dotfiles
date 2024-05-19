@@ -1,0 +1,18 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[packages]
+npm = [
+  "neovim",
+  "create-{react,next}-app",
+  "commitizen",
+  "cz-conventional-changelog",
+]
+go  = [
+]
+python = [
+  "pynvim",
+]
+gem = [
+  "bundler",
+  "neovim",
+]

@@ -42,5 +42,6 @@ jobs:
           VALIDATE_JSON: true
           VALIDATE_YAML: true
           VALIDATE_BASH: true
+          SHELLCHECK_OPTS: -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083
           VALIDATE_LUA: true
           VALIDATE_JAVASCRIPT_ES: true

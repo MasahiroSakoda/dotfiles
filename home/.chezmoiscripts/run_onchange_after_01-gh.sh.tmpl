@@ -3,6 +3,6 @@
 
 set -eo pipefail
 
-{{ range .plugins.gh | sortAlpha | uniq  }}
+{{ range .extensions.gh | sortAlpha | uniq }}
 $(command -v gh) extension install {{ . | quote }} || true
 {{ end }}

@@ -1,0 +1,13 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[font.family]
+ascii    = "JetBrainsMonoNL NFM"
+nonascii = "HackGen Console NF"
+combined = "UDEV Gothic NFLG"
+
+[font.size]
+xlarge = 16
+large  = 14
+medium = 12
+small  = 10
+xsmall = 8

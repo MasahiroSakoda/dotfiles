@@ -1,0 +1,17 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[terminal.alacritty]
+theme = "dracula"
+opacity = 0.75
+
+[terminal.wezterm]
+themes = [
+  "Spring (Gogh)",
+  "ThayerBright (Gogh)",
+  "TokyoNightStorm (Gogh)",
+]
+images = [
+  "daft-punk-music-retro-style-wallpaper.jpg",
+  "daft-punk-music-black-background-helmet-wallpaper.jpg",
+  "daft-punk-punk-edm-music-wallpaper.jpg",
+]
