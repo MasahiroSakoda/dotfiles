@@ -4,155 +4,127 @@
 tap "Homebrew/bundle"
 
 ## GNU
-brew "gnutls"
-brew "coreutils"
-brew "openssl"
-{{- if eq .chezmoi.os "darwin" }}
-brew "pinentry-mac"
+{{- range .packages.brew.core | uniq }}
+brew {{- . | quote }}
+{{- end }}
 
-## Xcode
-brew "xcbeautify"
+{{- if eq .chezmoi.os "darwin" }}
+{{ range .packages.brew.mac | uniq }}
+brew {{ . | quote }}
+{{- end }}
 {{- end }}
 
 ## Shell
-brew "fish"
-brew "starship"
+{{- range .packages.brew.shell | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Basic Command Alternative
-brew "bat"
-brew "eza"
-brew "fd"
-brew "ripgrep"
-brew "procs"
-brew "thefuck"
-brew "fzf"
+{{- range .packages.brew.command | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
-# Build tool / Task runner
-brew "go-task"
+# Browser
+{{- range .packages.brew.browser | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
-# File browser
-brew "superfile"
-
-## Browser / Downloader
-brew "w3m"
-brew "wget"
-brew "curl"
-brew "aria2"
-brew "yt-dlp"
-brew "rclone"
+# Downloader
+{{- range .packages.brew.downloader | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 # Terminal
-brew "tmux"
-brew "zellij"
-brew "fastfetch"
+{{- range .packages.brew.terminal | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Performance
-brew "bottom"
-brew "hyperfine"
+{{- range .packages.brew.performance | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Editor
-brew "neovim"
+{{- range .packages.brew.editor | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Security
-brew "gnupg"
-brew "age"
+{{- range .packages.brew.security | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Version Control
-brew "git"
-brew "git-lfs"
-brew "git-delta"
-brew "bit-git"
-brew "tig"
-brew "lazygit"
-
-## GitHub
-brew "gh"
-brew "ghq"
+{{- range .packages.brew.vcs | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Build
-brew "cmake"
-
-## Formatter/Linter
-brew "checkmake"
+{{- range .packages.brew.build | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Database
-brew "sqlite"
+{{- range .packages.brew.database | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Rust
-brew "rustup-init"
-
-## Go
-brew "goreleaser/tap/goreleaser"
+{{- range .packages.brew.rust | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Python
-brew "tcl-tk"
-brew "python-tk@3.12"
-
-## File Watch
-brew "watchexec"
+{{- range .packages.brew.python | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 {{- if not .headless }}
-## Version Management
-brew "mise"
 
-## CSV
-brew "xsv"
+## Runtime Management
+{{- range .packages.brew.runtime | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
-## JSON
-brew "jnv"
-
-## DevOps
 {{- if and .cloud (not .headless) }}
-### AWS
-brew "awscli"
-
-### Azure
-brew "azure-cli"
+## DevOps
+{{ range .packages.brew.devops | uniq }}
+brew {{ . | quote }}
+{{ end }}
 
 {{- end }}
 {{- if .docker }}
 ### Kubernetes
-brew "kubernetes-cli"
-brew "helm"      # Kubernetes package manager
-brew "k3d"       # Little helper to run CNCF's k3s in Docker
-brew "k3sup"     # Utility to create k3s clusters on any local or remote VM
-brew "k9s"       # Kubernetes CLI To Manage Your Clusters In Style!
-brew "kind"      # Run local Kubernetes cluster in Docker
-brew "krew"      # kubectl plugin manager
-brew "kubectx"   # Tool that can switch between kubectl contexts easily and create aliases
-brew "kustomize" # Template-free customization of Kubernetes YAML manifests
+{{ range .packages.brew.kubernetes | uniq }}
+brew {{ . | quote }}
+{{ end }}
 {{- end }}
 
-### Terraform
-brew "terraform"
-
 ## Media
-brew "ffmpeg"
-brew "media-info"
+{{- range .packages.brew.media | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ### Images
-brew "imagemagick"
-brew "exiftool"
-
-### Audio
-brew "lame"
-brew "flac"
+{{- range .packages.brew.image | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Network
-brew "tcptraceroute"
-brew "termshark"
-brew "aircrack-ng"
+{{- range .packages.brew.network | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
 ## Hash
-brew "hashcat"
-brew "hcxtools"
+{{- range .packages.brew.hash | uniq }}
+brew {{ . | quote }}
+{{- end }}
 
-## RSS
-brew "newsboat"
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
 # Linux packages
-brew "util-linux"
-brew "cups"
+{{- range .packages.brew.linux | uniq }}
+brew {{ . | quote }}
+{{- end }}
 {{- end }}
