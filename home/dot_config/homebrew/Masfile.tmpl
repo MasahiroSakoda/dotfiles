@@ -1,39 +1,14 @@
 # -*-mode:ruby-*- vim:ft=ruby.gotexttmpl
 
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 
 # Mac App Store
 brew "mas"
 
-{{ if not .headless }}
+{{- if not .headless }}
+{{- range .packages.mas | uniq }}
+mas {{ .name | quote }}, id: {{ .id }}
+{{- end }}
 
-## Window Management
-mas "Moom", id: 419330170
-
-## Archive
-mas "Keka",           id: 470158793
-mas "The Unarchiver", id: 425424353
-mas "WinArchiver",    id: 414855915
-
-## SNS
-mas "Twitter", id: 1482454543
-mas "LINE",    id: 539883307
-
-## Language
-mas "LanguageTranslator",   id: 1218781096
-mas "App Language Chooser", id: 451732904
-
-## Office
-mas "Pages",   id: 409201541
-mas "Numbers", id: 409203825
-
-mas "Pocket", id: 568494494
-
-## Web browser plugin
-mas "Vimari", id: 1480933944
-
-## Amphetamine
-mas "Amphetamine", id: 937984704
-{{ end }}
-
-{{ end }}
+{{- end }}
+{{- end }}
