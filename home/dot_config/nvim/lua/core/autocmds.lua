@@ -91,3 +91,10 @@ autocmd({ "RecordingEnter" }, {
     vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording" })
   end,
 })
+
+autocmd({ "RecordingLeave" }, {
+  callback = function()
+    local msg = string.format("Key:  %s", vim.fn.reg_recording())
+    vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording Ended" })
+  end,
+})
