@@ -41,3 +41,41 @@ kubernetes = [ "kubernetes-cli", "helm", "k3d", "k3sup", "k9s", "kind", "krew", 
 media  = [ "ffmpeg", "media-info" ]
 image  = [ "imagemagick", "exiftool" ]
 devops = [ "terraform", "awscli", "azure-cli" ]
+
+[packages.cask]
+tap = [ "Homebrew/cask-versions", "Homebrew/services" ]
+maintenance = [ "onyx", "appcleaner" ]
+language    = [ "monolingual" ]
+dictionary  = [ "deepl" ]
+finder   = [ "syntax-highlight", "qlimagesize", "webpquicklook", "symboliclinker" ]
+keyboard = [ "karabiner-elements", "hammerspoon" ]
+ime      = [ "google-japanese-ime" ]
+editor   = [ "coteditor" ]
+font     = [
+  "font-codicon",
+  "font-jetbrains-mono-nerd-font",
+  "font-cica",
+  "font-hackgen-nerd"
+  "font-plemol-jp-nfj",
+  "font-udev-gothic-nf",
+]
+archive  = [ "betterzip", "suspicious-package" ]
+launcher = [ "raycast" ]
+browser  = [ "google-chrome", "brave-browser", "firefox" ]
+terminal = [ "iterm2", "alacritty", "wezterm" ]
+ide      = [ "visual-studio-code", "arduino-ide", "imhex" ]
+container = [ "docker" ]
+devops    = [ "google-cloud-sdk" ]
+database  = [ "tableplus" ]
+diagram   = [ "drawio" ]
+graphics  = [ "blender" ]
+player    = [ "iina", "vlc", "spotify" ]
+audio     = [ "audacity", "blackhole-2ch", "ivolume" ]
+osc       = [ "touchosc-bridge", "touchosc-editor" ]
+broadcast = [ "obs" ]
+network   = [ "tunnelbear", "townwifi", "transmission" ]
+chat      = [ "slack", "discord", "franz" ]
+storage   = [
+  "dropbox",
+  # "google-cloud-sdk",
+]

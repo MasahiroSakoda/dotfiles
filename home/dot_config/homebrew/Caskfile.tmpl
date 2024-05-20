@@ -1,132 +1,151 @@
 # -*-mode:ruby-*- vim:ft=ruby.gotexttmpl
 
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 
 # Homwbrew Cask
-tap "Homebrew/cask-versions"
-tap "homebrew/cask-fonts"
-tap "Homebrew/services"
+{{- range .packages.cask.tap | uniq }}
+tap {{ . | quote }}
+{{- end }}
 
 ## Install directory for Homebrew Cask
 cask_args appdir: "~/Applications"
 
-{{ if not .headless }}
+{{- if not .headless }}
 
 ## Maintenance
-cask "onyx"
-cask "appcleaner"
+{{- range .packages.cask.maintenance | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Language
-cask "monolingual"
+{{- range .packages.cask.language | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Finder/Quicklook
-cask "syntax-highlight"
-cask "qlimagesize"
-cask "webpquicklook"
-cask "symboliclinker"
+{{- range .packages.cask.finder | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Dictionary
-cask "deepl"
+{{- range .packages.cask.dictionary | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Keyboard
-cask "karabiner-elements"
-cask "hammerspoon"
+{{- range .packages.cask.keyboard | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Input Method
-cask "google-japanese-ime"
+{{- range .packages.cask.ime | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Font
-cask "font-codicon"
-cask "font-jetbrains-mono-nerd-font"
-
-cask "font-cica"
-cask "font-hackgen-nerd"
-cask "font-plemol-jp-nfj"
-cask "font-udev-gothic-nf"
+{{- range .packages.cask.font | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Archive
-cask "betterzip"
-cask "suspicious-package"
+{{- range .packages.cask.archive | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Launcher
-cask "raycast"
+{{- range .packages.cask.launcher | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Web Browser
-cask "google-chrome"
-cask "brave-browser"
-cask "firefox"
+{{- range .packages.cask.browser | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Editor
-cask "coteditor"
+{{- range .packages.cask.editor | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Dev
-cask "iterm2"
-cask "alacritty"
-cask "wezterm"
-cask "visual-studio-code"
-cask "arduino-ide"
-cask "imhex"
+{{- range .packages.cask.terminal | uniq }}
+cask {{ . | quote }}
+{{- end }}
+{{- range .packages.cask.ide | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Container
-cask "docker"
+{{- range .packages.cask.container | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Database
-cask "tableplus"
+{{- range .packages.cask.database | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Diagram
-cask "drawio"
+{{- range .packages.cask.diagram | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Media
 
 ### Image
 cask "kap"
 
-{{ if .graphics }}
+{{- if .graphics }}
 ### Graphics
-cask "blender"
+{{- range .packages.cask.graphics | uniq }}
+cask {{ . | quote }}
+{{- end }}
 {{ end }}
 ### Movie
-cask "iina"
-cask "vlc"
+{{- range .packages.cask.player | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Audio
-cask "audacity"
-cask "blackhole-2ch"
-cask "ivolume"
-
-### Music
-cask "spotify"
+{{- range .packages.cask.audio | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### MIDI
-cask "touchosc-bridge"
-cask "touchosc-editor"
+{{- range .packages.cask.osc | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Broadcast
-cask "obs"
+{{- range .packages.cask.broadcast | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ### Chat
-cask "slack"
-cask "discord"
+{{- range .packages.cask.chat | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
 ## Network
-cask "tunnelbear"
-cask "townwifi"
-cask "transmission"
+{{- range .packages.cask.network | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
-{{ if .cloud }}
+{{- if .cloud }}
 ## Cloud
-cask "google-cloud-sdk"
+{{- range .packages.cask.devops | uniq }}
+cask {{ . | quote }}
+{{- end }}
 {{ end }}
+
 ### Storage
-cask "dropbox"
-# cask "google-drive"
+{{- range .packages.cask.storage | uniq }}
+cask {{ . | quote }}
+{{- end }}
 
-cask "franz"
-
-{{ range .extensions.vscode | sortAlpha | uniq }}
+{{- range .extensions.vscode | sortAlpha | uniq }}
 vscode {{ . | quote }}
-{{ end }}
+{{- end }}
 
-{{ end }}
-
-{{ end }}
+{{- end }}
+{{- end }}
