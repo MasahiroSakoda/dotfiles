@@ -40,8 +40,8 @@ vim.cmd [[
 wk.register({
   mode    = "n",
   ["<Leader>H"]  = { name = "❓  Help"},
-  ["<Leader>Hv"] = { "<CMD>vertical belowright help<Space>", "   Open Help page right side" },
-  ["<Leader>Hh"] = { "<CMD>horizontal above help<Space>",    "   Open Help page above current buffer" },
+  ["<Leader>Hv"] = { ":vertical belowright help<Space>", "   Open Help page right side" },
+  ["<Leader>Hh"] = { ":horizontal above help<Space>",    "   Open Help page above current buffer" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -112,8 +112,8 @@ keymap("n", "]9", "<CMD>tablast<CR>",     { desc = "   Move to Last tab"})
 wk.register({
   mode    = "n",
   ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>te"] = { "<CMD>tabedit<Space>", "   Edit file in new tab" },
-  ["<Leader>tn"] = { "<CMD>tabnew<Space>",  "   Edit file in new tab" },
+  ["<Leader>te"] = { ":tabedit<Space>", "   Edit file in new tab" },
+  ["<Leader>tn"] = { ":tabnew<Space>",  "   Edit file in new tab" },
   ["<Leader>tc"] = { "<CMD>tabclose<CR>",   "   Close current tab" },
 }, opts)
 
@@ -127,8 +127,8 @@ keymap("n", "[W", "<C-w>k", { desc = "   Move to Below Window" })
 wk.register({
   mode    = "n",
   ["<Leader>s"]  = { name = "📖  Split Window" },
-  ["<Leader>sh"] = { "<CMD>split<Space>",  "   Split window horizontally" },
-  ["<Leader>sv"] = { "<CMD>vsplit<Space>", "   Split window vertically" },
+  ["<Leader>sh"] = { ":split<Space>",  "   Split window horizontally" },
+  ["<Leader>sv"] = { ":vsplit<Space>", "   Split window vertically" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -279,10 +279,10 @@ wk.register({
   silent = false,
   ["<Leader>g"]  = { name = "🧾  Diffview" },
   ["<Leader>go"] = { "<CMD>DiffviewOpen<CR>",            "a Open Diffview" },
-  ["<Leader>gO"] = { "<CMD>DiffviewOpen<Space>",         "a Open Diffview with args" },
+  ["<Leader>gO"] = { ":DiffviewOpen<Space>",             "a Open Diffview with args" },
   ["<Leader>gq"] = { "<CMD>DiffviewClose<CR>",           "  Close Diffview" },
   ["<Leader>gt"] = { "<CMD>DiffviewToggleFiles<CR>",     "  Toggle file panels" },
-  ["<Leader>gh"] = { "<CMD>DiffviewFileHistory<Space>",  "  Open file history" },
+  ["<Leader>gh"] = { ":DiffviewFileHistory<Space>",      "  Open file history" },
   ["<Leader>gf"] = { "<CMD>DiffviewFocusFiles<CR>",      "  Bring focus to the file panel" },
   ["<Leader>gr"] = { "<CMD>DiffviewRefresh<CR>",         "  Refresh Diffview" },
 })
