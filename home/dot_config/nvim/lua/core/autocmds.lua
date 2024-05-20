@@ -84,3 +84,10 @@ autocmd({ "BufRead", "BufNewFile" }, {
     vim.schedule(require("chezmoi.commands.__edit").watch)
   end
 })
+
+autocmd({ "RecordingEnter" }, {
+  callback = function(_)
+    local msg = string.format("Key:  %s", vim.fn.reg_recording())
+    vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording" })
+  end,
+})
