@@ -32,6 +32,7 @@ return {
       "ObsidianLink", "ObsidianLinkNew", "ObsidianFollowLink", "ObsidianBacklinks",
       "ObsidianDailies", "ObsidianToday", "ObsidianTomorrow", "ObsidianYesterday",
       "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianRename", "ObsidianTags",
+      "ObsidianTemplate", "ObsidianPasteImg", "ObsidianToggleCheckbox",
     },
     config = function() require("user.obsidian") end,
   },
