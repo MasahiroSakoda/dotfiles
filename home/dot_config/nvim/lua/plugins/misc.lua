@@ -19,4 +19,20 @@ return {
     ft    = "markdown",
     cmd   = "PreviewMarkdown",
   },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    ft  = "markdown",
+    cmd = {
+      "ObsidianOpen", "ObsidianExtractNote", "ObsidianNew", "ObsidianWorkspace",
+      "ObsidianLink", "ObsidianLinkNew", "ObsidianFollowLink", "ObsidianBacklinks",
+      "ObsidianDailies", "ObsidianToday", "ObsidianTomorrow", "ObsidianYesterday",
+      "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianRename", "ObsidianTags",
+    },
+    config = function() require("user.obsidian") end,
+  },
 }
