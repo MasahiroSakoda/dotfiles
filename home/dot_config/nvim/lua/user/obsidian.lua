@@ -9,6 +9,8 @@ obsidian.setup({
   workspaces = {
     { name = "notes", path = doc_dir .. "Obsidian Vault" },
   },
+  notes_subdir = "002_Notes",
+  new_notes_location = "notes_subdir", ---@type "current_dir"|"notes_subdir"
   daily_notes = {
     folder = "001_DailyNotes",
     template = template_dir .. "/Daily/dailyNoteTemplate.md",
@@ -39,4 +41,5 @@ obsidian.setup({
       opts   = { expr = true, buffer = true },
     },
   },
+
 })
