@@ -316,6 +316,22 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+-- obsidian.nvim
+---------------------------------------------------------------------------
+wk.register({
+  mode = "n",
+  ["<Leader>o"]  = { name = "📝  Obsidian integration" },
+  ["<Leader>oo"] = { "<CMD>ObsidianOpen<CR>",        "  Open in Obsidian.app" },
+  ["<Leader>on"] = { "<CMD>ObsidianNew<CR>",         "  Create New Note" },
+  ["<Leader>ot"] = { "<CMD>ObsidianTemplate<CR>",    "  Insert Obsidian Template" },
+  ["<Leader>of"] = { "<CMD>ObsidianFollowLink<CR>",  "  Go To Link Under Cursor" },
+  ["<Leader>ob"] = { "<CMD>ObsidianBacklinks<CR>",   "  Get References To Current" },
+  ["<Leader>og"] = { "<CMD>ObsidianSearch<CR>",      "  Grep Search notes" },
+  ["<Leader>os"] = { "<CMD>ObsidianQuickSwitch<CR>", "  Quick Switch" },
+  ["<Leader>od"] = { "<CMD>ObsidianDailies<CR>",     "  Open Daily Notes" },
+}, opts)
+
+---------------------------------------------------------------------------
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
@@ -328,4 +344,3 @@ keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorize
 keymap("n", ",x", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
 
 keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", { desc = "   Toggle Diagnostic" })
-keymap(nv,  "gf", "<CMD>lua require'utils'.open_cfile()<CR>",           { desc = "   Open File/URL" })

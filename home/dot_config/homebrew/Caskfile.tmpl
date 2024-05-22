@@ -85,6 +85,11 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
+### Note
+{{- range .packages.cask.note | uniq }}
+cask {{ . | quote }}
+{{- end }}
+
 ### Diagram
 {{- range .packages.cask.diagram | uniq }}
 cask {{ . | quote }}

@@ -9,6 +9,7 @@ noice = "noice"
 
 fo = "fo"
 nd = "nd"
+ot = "ot"
 
 [files]
 extend-exclude = [
