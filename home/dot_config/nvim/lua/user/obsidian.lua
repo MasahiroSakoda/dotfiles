@@ -22,4 +22,21 @@ obsidian.setup({
     }
   },
 
+  mappings = {
+    -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+    ["gf"] = {
+      action = function() return obsidian.util.gf_passthrough() end,
+      opts   = { noremap = false, expr = true, buffer = true },
+    },
+     -- Toggle check-boxes.
+    ["<Leader>ch"] = {
+      action = function() return obsidian.util.toggle_checkbox() end,
+      opts   = { buffer = true },
+    },
+    -- Smart action depending on context, either follow link or toggle checkbox.
+    ["<Leader>oa"] = {
+      action = function() return obsidian.util.smart_action() end,
+      opts   = { expr = true, buffer = true },
+    },
+  },
 })
