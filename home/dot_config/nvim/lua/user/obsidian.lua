@@ -47,4 +47,13 @@ obsidian.setup({
   note_id_func = function(title)
     return title or tostring(os.date("%Y%m%d-%H%M%S"))
   end,
+
+  ---@param url string
+  follow_url_func = function(url)
+    if vim.fn.has("mac") then
+      vim.fn.jobstart({"open", url})
+    elseif vim.fn.executable("xdg-open") then
+      vim.fn.jobstart({"xdg-open", url})
+    end
+  end,
 })
