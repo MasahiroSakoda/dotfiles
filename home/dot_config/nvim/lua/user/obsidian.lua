@@ -42,4 +42,9 @@ obsidian.setup({
     },
   },
 
+  ---@param title string|?
+  ---@return string
+  note_id_func = function(title)
+    return title or tostring(os.date("%Y%m%d-%H%M%S"))
+  end,
 })
