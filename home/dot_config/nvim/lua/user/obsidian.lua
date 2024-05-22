@@ -2,7 +2,7 @@
 local ok, obsidian = pcall(require, "obsidian")
 if not ok then return end
 
-local doc_dir = vim.fn.expand("$HOME") .. "/Documents"
+local doc_dir = vim.fn.expand("$HOME") .. "/Documents/"
 local template_dir = "999_Templates"
 
 obsidian.setup({
