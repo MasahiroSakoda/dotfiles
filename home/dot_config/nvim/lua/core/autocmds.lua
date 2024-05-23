@@ -58,20 +58,7 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
   desc    = "Close specific filetype with <q>",
   group   = augroup "close_with_q",
-  pattern = {
-    "checkhealth",
-    "git",
-    "help",
-    "man",
-    "qf",
-    "startuptime",
-    "lspinfo",
-    "notify",
-    "neotest-output",
-    "neotest-output-panel",
-    "neotest-summary",
-    "toggleterm",
-  },
+  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm" },
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
@@ -79,10 +66,8 @@ autocmd("FileType", {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
-  callback = function()
-    vim.schedule(require("chezmoi.commands.__edit").watch)
-  end
+  pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
+  callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
 autocmd({ "RecordingEnter" }, {
