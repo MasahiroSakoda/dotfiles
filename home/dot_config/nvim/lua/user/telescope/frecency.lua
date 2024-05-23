@@ -20,7 +20,7 @@ telescope.setup({
       show_scores      = true,
       show_unindexed   = true,
       disable_devicons = false,
-      ignore_patterns  = { "*.git/*", "*/tmp/*", "*/node_modules/*" },
+      -- ignore_patterns  = require("core.ignore").files,
       show_filter_column = { "LSP", "CWD", "VIM" },
       use_sqlite = false,
       workspaces = {
