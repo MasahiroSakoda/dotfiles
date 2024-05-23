@@ -46,13 +46,13 @@ dashboard.section.header.val = {
 -- Buttons
 dashboard.section.buttons.val = {
   dashboard.button("n", "    New file",        ":ene <BAR> startinsert <CR>"),
-  dashboard.button("f", "    Frecency Search", ":Telescope frecency<CR>"),
-  dashboard.button("F", "    Find files",      ":Telescope find_files<CR>"),
-  dashboard.button("r", "    Recent files",    ":Telescope oldfiles only_cwd=true<CR>"),
-  dashboard.button("g", "    Grep search",     ":Telescope live_grep<CR>"),
-  dashboard.button("G", "    Find word",       ":Telescope grep_string<CR>"),
-  -- dashboard.button("p", "    Find project",  ":lua require('telescope').extensions.projects.projects()<CR>"),
-  dashboard.button("q", "    Quit NVIM",     ":qa<CR>"),
+  dashboard.button("f", "    Frecency Search", "<CMD>Telescope frecency<CR>"),
+  dashboard.button("F", "    Find files",      "<CMD>Telescope find_files<CR>"),
+  dashboard.button("r", "    Recent files",    "<CMD>Telescope oldfiles only_cwd=true<CR>"),
+  dashboard.button("g", "    Grep search",     "<CMD>Telescope egrepify<CR>"),
+  dashboard.button("G", "    Find word",       "<CMD>Telescope grep_string<CR>"),
+  -- dashboard.button("p", "    Find project",    "<CMD>lua require('telescope').extensions.projects.projects()<CR>"),
+  dashboard.button("q", "    Quit NVIM",       "<CMD>qa<CR>"),
 }
 for _, button in ipairs(dashboard.section.buttons.val) do
   button.opts.hl = "AlphaButtons"
