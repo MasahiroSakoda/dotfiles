@@ -6,7 +6,7 @@ local layout  = require "telescope.actions.layout"
 
 local fd_cmd   = require("core.find")
 local rg_cmd   = require("core.grep")
-local patterns = require("core.ignore")
+-- local patterns = require("core.ignore")
 local borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
 
 local flash = function(prompt_bufnr)
