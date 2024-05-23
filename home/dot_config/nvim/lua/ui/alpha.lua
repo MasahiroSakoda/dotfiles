@@ -2,31 +2,6 @@ local ok, alpha = pcall(require, "alpha")
 if not ok then return end
 
 local dashboard = require("alpha.themes.dashboard")
-local function getDashboardHeight()
-  local bannerHeight = 0
-  for _ in pairs(dashboard.section.header.val) do bannerHeight = bannerHeight + 1 end
-  local buttonCount = 0
-  for _ in pairs(dashboard.section.buttons.val) do buttonCount = buttonCount + 1 end
-  local buttonsHeight = 2 * buttonCount
-  local footerHeight = 1
-  local dashboardHeight = bannerHeight + dashboard.opts.layout[3].val + buttonsHeight + footerHeight
-  return dashboardHeight
-end
-
--- Header
-dashboard.section.header.opts.hl = "AlphaHeader"
--- dashboard.section.header.val = {
--- 	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
--- 	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
--- 	" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
--- 	" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
--- 	" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
--- 	" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
--- 	"",
--- 	"",
--- 	"",
--- }
-
 dashboard.section.header.val = {
   [[                                                                                                     ]],
   [[    ,####          ((                                                                                ]],
@@ -59,11 +34,33 @@ for _, button in ipairs(dashboard.section.buttons.val) do
   button.opts.hl_shortcut = "AlphaShortcut"
 end
 
+local dashboard_height = function()
+  local banner_height, btn_count = 0, 0
+  for _ in ipairs(dashboard.section.header.val) do banner_height = banner_height + 1 end
+  for _ in ipairs(dashboard.section.buttons.val) do btn_count = btn_count + 1 end
+  local btn_height, footer_height = 2 * btn_count, 1
+  return banner_height + dashboard.opts.layout[3].val + btn_height + footer_height
+end
+
+-- Header
+dashboard.section.header.opts.hl = "AlphaHeader"
+-- dashboard.section.header.val = {
+-- 	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+-- 	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+-- 	" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+-- 	" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+-- 	" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+-- 	" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+-- 	"",
+-- 	"",
+-- 	"",
+-- }
+
 dashboard.section.buttons.opts.hl = "AlphaButtons"
 dashboard.section.footer.opts.hl  = "Type"
 -- dashboard.section.footer.opts.hl  = "Constant"
 
-local topSpace = vim.fn.max { 0, vim.fn.floor((vim.fn.winheight(0) - getDashboardHeight()) / 4) }
+local topSpace = vim.fn.max { 0, vim.fn.floor((vim.fn.winheight(0) - dashboard_height()) / 4) }
 dashboard.opts.layout[1].val = topSpace
 
 alpha.setup(dashboard.config)
