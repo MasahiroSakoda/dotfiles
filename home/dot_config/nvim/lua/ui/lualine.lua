@@ -2,6 +2,8 @@ local lualine_ok, lualine = pcall(require, "lualine")
 local navic_ok,   navic   = pcall(require, "nvim-navic")
 if not (lualine_ok or navic_ok) then return end
 
+local ignore = require("core.ignore")
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -11,25 +13,8 @@ lualine.setup {
     component_separators = { left = "", right = "" },
     section_separators   = { left = "", right = "" },
     disabled_filetypes = {
-      statusline = {
-        "alpha",
-        "dashboard",
-        "lazy",
-        "lspsagaoutline",
-        "navic",
-        "neo-tree",
-        "Trouble",
-      },
-      winbar = {
-        "dapui_breakpoints",
-        "dapui_console",
-        "dap-repl",
-        "dapui_scopes",
-        "dapui_stacks",
-        "dapui_watches",
-        "alpha",
-        "dashboard",
-      },
+      statusline = ignore.lualine.statusline,
+      winbar = ignore.lualine.winbar,
     },
     ignore_focus = { "toggleterm" },
     always_divide_middle = true,
