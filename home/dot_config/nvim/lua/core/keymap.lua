@@ -39,9 +39,9 @@ vim.cmd [[
 
 wk.register({
   mode    = "n",
-  ["<Leader>H"]  = { name = "❓  Help"},
-  ["<Leader>Hv"] = { ":vertical belowright help<Space>", "   Open Help page right side" },
-  ["<Leader>Hh"] = { ":horizontal above help<Space>",    "   Open Help page above current buffer" },
+  ["<Leader>h"]  = { name = "❓  Help"},
+  ["<Leader>hv"] = { ":vertical belowright help<Space>", "   Open Help page right side" },
+  ["<Leader>hh"] = { ":horizontal above help<Space>",    "   Open Help page above current buffer" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -50,10 +50,10 @@ wk.register({
 wk.register({
   mode    = "n",
   silent = false,
-  ["<Leader>h"]  = { name = "🕒  History" },
-  ["<Leader>hc"] = { "<CR>q:", "  Command History" },
-  ["<Leader>hs"] = { "<CR>q/", "  Forward Search History" },
-  ["<Leader>hS"] = { "<CR>q?", "  Backward Search History" },
+  ["<Leader>H"]  = { name = "🕒  History" },
+  ["<Leader>Hc"] = { "<CR>q:", "  Command History" },
+  ["<Leader>Hs"] = { "<CR>q/", "  Forward Search History" },
+  ["<Leader>HS"] = { "<CR>q?", "  Backward Search History" },
 })
 
 ---------------------------------------------------------------------------
