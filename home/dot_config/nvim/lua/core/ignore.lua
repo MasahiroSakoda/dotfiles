@@ -1,30 +1,22 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+local files = {}
+for _, ft in ipairs(require("user.filetypes").ignore) do
+  table.insert(files, unpack(ft))
+end
+
 return {
-  "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$",
-  "^build/", "^dist/", "^.cache/", "%.o$", "%.out$", "%.a$", "%.so$", "%.whl$", "%.bin$",
-  "^.git/", "^.svn/", "^.hg/",
+  files = files,
+  autopairs  = { "TelescopePrompt", "vim" },
+  illuminate = { "alpha", "lazy", "neo-tree*", "TelescopePrompt", "toggleterm", "Trouble" },
 
-  ".DS_Store", "%.dylib", "^.Trashes/",
-  "%.exe", "Thumb.db", "desktop.ini",
-  ".Trash-*", "^.directory",
-
-  "^.idea/", "^.vscode/", "^.project",
-  "^debug/", "^target/",
-  "^.gradle/", "^.classpath/", "^.factorypath/", "%.class$", "%.jar$", "%.war$",
-  "%.dll$", "%.pdb$",
-  "^node_modules/", "^.yarn/", "^.pnpm/", "^.npm/", "package-lock.json",
-  "%.min.js$", "%.min.gzip.js$",
-  "^.venv/", "%.pyc$", "^__pycache__/", "%.ipynb$",
-  "^vendor/", "^deps/",
-  "%.sqlite$", "%.sqlite3$", "%.db$",
-  "%.lock$",
-
-  "%.ai$", "%.psd$",
-  "%.otf$", "%.ttf$", "%.woff$",
-  "%.ico$", "%.svg$",
-  "%.png$", "%.jpg$", "%.jpeg$", "%.webp$", "%.gif$",
-  "%.mp4$", "%.mkv$", "%.m4v$", "%.avi$", "%.flv$",
-  "%.wav$", "%.flac$", "%.ttf$", "%.mp3$", "%.m4a$", "%.ogg$",
-  "%.doc$", "%.xls$", "%.ppt$", "%.pdf$", "%.epub$",
+  lualine = {
+    statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline",  "neo-tree*" },
+    winbar     = { "alpha", "dashboard", "dapui*", "neo-tree*", "Trouble" },
+  },
+  scrollbar = {
+    buftypes  = { "nofile", "nowrite", "prompt", "TelescopePrompt", "toggleterm", "neo-tree*", "noice", "notify" },
+    filetypes = { "alpha", "dashboard", "dapui*", "neo-tree*", "noice", "notify", "qf", "TelescopePrompt" },
+  },
+  flash = { "flash_prompt", "notify", "noice", "neo-tree*", "cmp_menu" },
 }

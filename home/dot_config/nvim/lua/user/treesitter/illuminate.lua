@@ -8,14 +8,7 @@ illuminate.configure({
   -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
   filetype_overrides = {},
   -- filetypes_denylist: filetypes to not illuminate, this overrides filetypes_allowlist
-  filetypes_denylist = {
-    "dirbuf",
-    "dirvish",
-    "alpha",
-    "fugitive",
-    "TelescopePrompt",
-    "Trouble",
-  },
+  filetypes_denylist = require("core.ignore").illuminate,
 })
 
 local hl = vim.api.nvim_set_hl

@@ -4,10 +4,10 @@ if not ok then return end
 local actions = require "telescope.actions"
 local layout  = require "telescope.actions.layout"
 
-local find_command = require("core.find")
-local grep_command = require("core.grep")
-local patterns     = require("core.ignore")
-local borderchars  = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
+local fd_cmd   = require("core.find")
+local rg_cmd   = require("core.grep")
+-- local patterns = require("core.ignore")
+local borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" }
 
 local flash = function(prompt_bufnr)
   require("flash").jump({
@@ -30,7 +30,7 @@ end
 
 telescope.setup({
   defaults = {
-    vimgrep_arguments = grep_command,
+    vimgrep_arguments = rg_cmd,
     prompt_prefix = '🔍  ',
     selection_caret = " ",
     color_devicons = true,
@@ -46,7 +46,7 @@ telescope.setup({
     },
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
-    file_ignore_patterns = patterns,
+    -- file_ignore_patterns = patterns.files,
     path_display = {
       truncate = true,
     },
@@ -95,10 +95,10 @@ telescope.setup({
       -- theme  = "dropdown",
       hidden = true,
       files  = true,
-      find_command = find_command,
+      find_command = fd_cmd,
     },
     live_grep = {
-      file_ignore_patterns = patterns,
+      -- file_ignore_patterns = patterns.files,
     },
   },
 

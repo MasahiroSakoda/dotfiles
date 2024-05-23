@@ -70,9 +70,7 @@ Filetypes.autotag = {
   "javascriptreact", "typescriptreact", "markdown",
 }
 
-Filetypes.endwise = {
-  "lua", "vim", "ruby", "elixir" ,"bash",  "fish",
-}
+Filetypes.endwise = { "lua", "vim", "ruby", "elixir", "bash", "fish" }
 
 Filetypes.matchup = {
   "sh", "bash", "csh", "zsh",
@@ -105,6 +103,26 @@ Filetypes.tabnine = {
   "*.rs", "*.go", "*.sh", "*.py", "*.rb", "*.lua",
   "*.html", "*.css", "*.scss",
   "*.js", "*.jsx", "*.ts", "*.tsx",
+}
+
+Filetypes.ignore = {
+  archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
+  vcs     = { "^.git/", "^.svn/", "^.hg/" },
+  build   = { "^build/", "^dist/", "^.cache/", "%.o$", "%.obj$", "%.so$", "%.a$", "%.out$", "%.whl$", "%.bin$" },
+  ide     = { ".idea/", ".vscode/", ".project/" },
+  node    = { "node_modules/", ".yarn/", ".pnpm/", ".npm", "%-lock.json$" },
+  js      = { "%.min.js$", "%.min.gzip.js$" },
+  java    = { ".gradle/", ".classpath/", ".factorypath/", "%.class$", "%.jar$", "%.war$" },
+  python  = { ".venv/", "%.pyc$", "__pycache__", "%.ipynb$" },
+  ruby    = { "vendor/", "deps/" },
+  db      = { "%.sqlite$", "%.sqlite3$", "%.db$" },
+  win     = { "%.exe$", "Thumb.db$", "desktop.ini$$$", "%.dll$", "%.pdb$" },
+  mac     = { ".DS_Store", "%.dylib$", ".Trashs/" },
+  font    = { "%.otf$", "%.ttf$", "%.woff$" },
+  image   = { "%.png$", "%.jpg$", "%.jpeg$", "%.webp$", "%.gif$" },
+  video   = { "%.mp4$", "%.mkv$", "%.m4v$", "%.avi$", "%.flv$" },
+  audio   = { "%.wav$", "%.flac$", "%.ttf$", "%.mp3$", "%.m4a$", "%.ogg$" },
+  office  = { "%.doc$", "%.xls$", "%.ppt$", "%.pdf$", "%.epub$" },
 }
 
 return Filetypes
