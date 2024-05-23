@@ -1,10 +1,97 @@
-# -*-mode:gitignore-*- vim:ft=gitignore.gotexttmpl
+# -*-mode:gitignore-*- vim:ft=gitignore
 
+#  _   _  _
+# | | | |(_)
+# | | | | _  _ __ ___
+# | | | || || '_ ` _ \
+# \ \_/ /| || | | | | |
+#  \___/ |_||_| |_| |_|
+# https://github.com/github/gitignore/blob/main/Global/Vim.gitignore
 {{ template "common/Vim.gitignore" . }}
+
+#  _   _  _____  _____             _
+# | | | |/  ___|/  __ \           | |
+# | | | |\ `--. | /  \/  ___    __| |  ___
+# | | | | `--. \| |     / _ \  / _` | / _ \
+# \ \_/ //\__/ /| \__/\| (_) || (_| ||  __/
+#  \___/ \____/  \____/ \___/  \__,_| \___|
+# https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 {{ template "common/VisualStudioCode.gitignore" . }}
 
 {{ if (eq .chezmoi.os "darwin" ) }}
+#                          _____  _____
+#                         |  _  |/  ___|
+#  _ __ ___    __ _   ___ | | | |\ `--.
+# | '_ ` _ \  / _` | / __|| | | | `--. \
+# | | | | | || (_| || (__ \ \_/ //\__/ /
+# |_| |_| |_| \__,_| \___| \___/ \____/
+# https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
 {{ template "darwin/macOS.gitignore" . }}
 {{ else if (eq .chezmoi.os "linux") }}
+#  _      _
+# | |    (_)
+# | |     _  _ __   _   _ __  __
+# | |    | || '_ \ | | | |\ \/ /
+# | |____| || | | || |_| | >  <
+# \_____/|_||_| |_| \__,_|/_/\_\
+# https://github.com/github/gitignore/blob/main/Global/Linux.gitignore
 {{ template "linux/Linux.gitignore" . }}
 {{ end }}
+
+#  _____
+# /  __ \   _      _
+# | /  \/ _| |_  _| |_
+# | |    |_   _||_   _|
+# | \__/\  |_|    |_|
+#  \____/
+# https://github.com/github/gitignore/blob/main/C++.gitignore
+{{ template "common/C++.gitignore" }}
+
+# ______              _
+# | ___ \            | |
+# | |_/ / _   _  ___ | |_
+# |    / | | | |/ __|| __|
+# | |\ \ | |_| |\__ \| |_
+# \_| \_| \__,_||___/ \__|
+# https://github.com/github/gitignore/blob/main/Rust.gitignore
+{{ template "common/Rust.gitignore" }}
+
+#  _____
+# |  __ \
+# | |  \/  ___
+# | | __  / _ \
+# | |_\ \| (_) |
+#  \____/ \___/
+# https://github.com/github/gitignore/blob/main/Go.gitignore
+{{ template "common/Go.gitignore" }}
+
+#  _   _             _
+# | \ | |           | |
+# |  \| |  ___    __| |  ___
+# | . ` | / _ \  / _` | / _ \
+# | |\  || (_) || (_| ||  __/
+# \_| \_/ \___/  \__,_| \___|
+# https://github.com/github/gitignore/blob/main/Node.gitignore
+{{ template "common/Node.gitignore" }}
+
+#  ______         _    _
+# | ___ \       | |  | |
+# | |_/ / _   _ | |_ | |__    ___   _ __
+# |  __/ | | | || __|| '_ \  / _ \ | '_ \
+# | |    | |_| || |_ | | | || (_) || | | |
+# \_|     \__, | \__||_| |_| \___/ |_| |_|
+#          __/ |
+#         |___/
+# https://github.com/github/gitignore/blob/main/Python.gitignore
+{{ template "common/Python.gitignore" }}
+
+# ______         _
+# | ___ \       | |
+# | |_/ / _   _ | |__   _   _
+# |    / | | | || '_ \ | | | |
+# | |\ \ | |_| || |_) || |_| |
+# \_| \_| \__,_||_.__/  \__, |
+#                        __/ |
+#                       |___/
+# https://github.com/github/gitignore/blob/main/Ruby.gitignore
+{{ template "common/Ruby.gitignore" }}

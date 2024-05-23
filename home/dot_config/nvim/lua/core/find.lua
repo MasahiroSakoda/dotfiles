@@ -3,5 +3,4 @@ return {
   "--type", "f",
   "--hidden",
   "--follow",
-  "--exclude", "{.git,node_modules}",
 }
