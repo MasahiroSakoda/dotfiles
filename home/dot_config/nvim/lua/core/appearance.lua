@@ -32,7 +32,7 @@ vim.cmd [[
 ]]
 
 -- Command
-opt.cmdheight  = 1
+opt.cmdheight  = 0
 opt.showcmd    = true
 opt.showmode   = true
 -- opt.ambiwidth  = 'double'
