@@ -1,4 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
+require("core.complete")
 
 return {
   {
@@ -22,25 +23,25 @@ return {
       {
         "zbirenbaum/copilot.lua",
         build  = ":Copilot auth",
-        cond   = vim.g.copilot,
+        cond   = (not vim.g.vscode) and vim.g.copilot,
         cmd    = "Copilot",
         config = function() require("ai.copilot") end,
       },
       {
         "zbirenbaum/copilot-cmp",
-        cond   = vim.g.copilot,
+        cond   = (not vim.g.vscode) and vim.g.copilot,
         config = function() require("lsp.cmp.copilot") end,
       },
       {
         "Exafunction/codeium.nvim",
-        build  = ":Codeium Auth",
+        build  = (not vim.g.vscode) and ":Codeium Auth",
         cond   = vim.g.codeium,
         config = function() require("lsp.cmp.codeium") end,
       },
       {
         "tzachar/cmp-tabnine",
         build = './install.sh',
-        cond   = vim.g.tabnine,
+        cond   = (not vim.g.vscode) and vim.g.tabnine,
         config = function() require("lsp.cmp.tabnine") end,
       },
     },
