@@ -46,6 +46,10 @@ telescope.setup({
     sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
     file_ignore_patterns = patterns.files,
+    preview = {
+      filesize_limit = 1,   -- MB
+      timeout        = 200, -- ms
+    },
     path_display = {
       truncate = true,
     },
