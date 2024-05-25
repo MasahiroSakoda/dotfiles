@@ -349,6 +349,6 @@ keymap("n", ",s", "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollba
 keymap("n", ",/", "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
 keymap("n", ",m", "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
 keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
-keymap("n", ",x", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
 
+keymap("n", ",x", "<CMD>TroubleToggle workspace_diagnostics<CR>",       { desc = "   Toggle Diagnostic List" })
 keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", { desc = "   Toggle Diagnostic" })
