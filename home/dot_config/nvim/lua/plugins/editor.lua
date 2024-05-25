@@ -16,7 +16,7 @@ return {
   },
   {
     "folke/noice.nvim",
-    event  = "CmdlineEnter",
+    event  = "VeryLazy",
     config = function() require("ui.noice") end,
   },
 
