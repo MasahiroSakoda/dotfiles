@@ -7,10 +7,7 @@ Filetypes.markdown = { "markdown", "md", "vimwiki" }
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
   json  = { "json",  "json5", "jsonc" },
-  js    = {
-    "javascript", "javascriptreact", "javascript.jsx",
-    "typescript", "typescriptreact", "javascript.tsx",
-  },
+  js    = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 }
 
 Filetypes.treesitter = {
@@ -107,8 +104,8 @@ Filetypes.tabnine = {
 
 Filetypes.ignore = {
   archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
-  vcs     = { "^.git/", "^.svn/", "^.hg/" },
-  build   = { "^build/", "^dist/", "^.cache/", "%.o$", "%.obj$", "%.so$", "%.a$", "%.out$", "%.whl$", "%.bin$" },
+  vcs     = { ".git/", ".svn/", ".hg/" },
+  build   = { "build/", "dist/", ".cache/", "%.o$", "%.obj$", "%.so$", "%.a$", "%.out$", "%.whl$", "%.bin$" },
   ide     = { ".idea/", ".vscode/", ".project/" },
   node    = { "node_modules/", ".yarn/", ".pnpm/", ".npm", "%-lock.json$" },
   js      = { "%.min.js$", "%.min.gzip.js$" },

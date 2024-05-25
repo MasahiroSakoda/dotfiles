@@ -5,6 +5,7 @@ std = {
     "package",
     "require",
     "pcall",
+    "pairs",
     "ipairs",
     "print",
     "next",
