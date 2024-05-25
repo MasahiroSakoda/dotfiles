@@ -155,11 +155,18 @@ keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Decrement variable" })
 ---------------------------------------------------------------------------
 -- Quickfix
 ---------------------------------------------------------------------------
-local qf = require("utils.quickfix")
-keymap("n", "<Leader>q", qf.toggle_quickfix,               { desc = "⚡  Toggle Quickfix" })
-keymap("n", "[q",        qf.navigate_quickfix("previous"), { desc = "⚡ Move to prev Quickfix" })
-keymap("n", "]q",        qf.navigate_quickfix("next"),     { desc = "⚡ Move to next Quickfix" })
--- keymap("n", "<Leader>r", "<CMD>lua require'replacer'.run()<CR>",    { desc = "Refactor" })
+keymap("n", "<C-p>", "<Nop>")
+
+wk.register({
+  mode   = "n",
+  silent = true,
+  [",q"]    = { "<CMD>TroubleToggle quickfix<CR>",              "   Toggle Quickfix list" },
+  ["[q"]    = { "<CMD>lua require'utils.trouble'.prev()<CR>zz", "   Prev trouble / quickfix item" },
+  ["]q"]    = { "<CMD>lua require'utils.trouble'.next()<CR>zz", "   Next trouble / quickfix item" },
+  ["<C-p>"] = { "<CMD>lua require'utils.trouble'.prev()<CR>",   "   Prev trouble / quickfix item" },
+  ["<C-n>"] = { "<CMD>lua require'utils.trouble'.next()<CR>",   "   Next trouble / quickfix item" },
+  ["<Leader>m"] = { "<CMD>make<Space>", "   Run make" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
