@@ -155,11 +155,18 @@ keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Decrement variable" })
 ---------------------------------------------------------------------------
 -- Quickfix
 ---------------------------------------------------------------------------
-local qf = require("utils.quickfix")
-keymap("n", "<Leader>q", qf.toggle_quickfix,               { desc = "⚡  Toggle Quickfix" })
-keymap("n", "[q",        qf.navigate_quickfix("previous"), { desc = "⚡ Move to prev Quickfix" })
-keymap("n", "]q",        qf.navigate_quickfix("next"),     { desc = "⚡ Move to next Quickfix" })
--- keymap("n", "<Leader>r", "<CMD>lua require'replacer'.run()<CR>",    { desc = "Refactor" })
+keymap("n", "<C-p>", "<Nop>")
+
+wk.register({
+  mode   = "n",
+  silent = true,
+  [",q"]    = { "<CMD>TroubleToggle quickfix<CR>",              "   Toggle Quickfix list" },
+  ["[q"]    = { "<CMD>lua require'utils.trouble'.prev()<CR>zz", "   Prev trouble / quickfix item" },
+  ["]q"]    = { "<CMD>lua require'utils.trouble'.next()<CR>zz", "   Next trouble / quickfix item" },
+  ["<C-p>"] = { "<CMD>lua require'utils.trouble'.prev()<CR>",   "   Prev trouble / quickfix item" },
+  ["<C-n>"] = { "<CMD>lua require'utils.trouble'.next()<CR>",   "   Next trouble / quickfix item" },
+  ["<Leader>m"] = { "<CMD>make<Space>", "   Run make" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
@@ -173,6 +180,8 @@ if not is_vscode then
     ["<Leader>F"]  = { "<CMD>Telescope find_files<CR>", "   Find files in current directory" },
     ["<Leader>fo"] = { "<CMD>Telescope oldfiles<CR>",   "   Recently files" },
     ["<Leader>fn"] = { "<CMD>Telescope notify<CR>",     "   Notification History" },
+    ["<Leader>fq"] = { "<CMD>Telescope quickfix<CR>",   "   Display Quickfix list" },
+    ["<Leader>fr"] = { "<CMD>Telescope resume<CR>",     "   Resume previous picker" },
     ["<Leader>fh"] = { "<CMD>Telescope help_tags<CR>",  "   Help via Telescope" },
     ["<Leader>ft"] = { "<CMD>TodoTelescope<CR>",        "   Display Project ToDo" },
     ["<Leader>P"]  = { "<CMD>Lazy<CR>",                 "   Open lazy.nvim Window" },
@@ -186,7 +195,6 @@ if not is_vscode then
     ["<Leader>fl"] = { "<CMD>Telescope lazy<CR>",                   "   lazy.nvim Browser" },
     ["<Leader>fL"] = { "<CMD>Telescope luasnip<CR>",                "   LuaSnip Browser" },
 
-    ["<Leader>fr"]  = { ":lua require'telescope.builtin'.resume()<CR>", "   Resume previous picker" },
     ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   DAP Configs" },
     ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
     ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
@@ -341,6 +349,6 @@ keymap("n", ",s", "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollba
 keymap("n", ",/", "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
 keymap("n", ",m", "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
 keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
-keymap("n", ",x", "<CMD>TroubleToggle<CR>",      { desc = "   Toggle Diagnostic List" })
 
+keymap("n", ",x", "<CMD>TroubleToggle workspace_diagnostics<CR>",       { desc = "   Toggle Diagnostic List" })
 keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", { desc = "   Toggle Diagnostic" })

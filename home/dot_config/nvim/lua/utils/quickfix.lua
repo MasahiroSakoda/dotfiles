@@ -19,11 +19,4 @@ M.toggle_quickfix = function()
   end
 end
 
-M.navigate_quickfix = function(direction)
-  return function()
-    if not is_quickfix_open() then return end
-    cmd('silent! execute "normal! :c' .. direction .. '\\<CR>"')
-  end
-end
-
 return M
