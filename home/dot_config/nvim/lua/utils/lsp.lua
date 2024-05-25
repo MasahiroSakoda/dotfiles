@@ -4,7 +4,7 @@ local M = {}
 M.toggle_diagnostics = function()
   local is_enabled = vim.diagnostic.is_enabled({ bufnr = 0 })
   vim.diagnostic.enable(not is_enabled, { bufnr = 0 })
-  print("Diagnostics: " .. tostring(not is_enabled))
+  vim.notify("Diagnostics: " .. tostring(not is_enabled), vim.log.levels.INFO)
 end
 
 ---@param bufnr integer
