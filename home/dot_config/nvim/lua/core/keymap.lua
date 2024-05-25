@@ -173,6 +173,8 @@ if not is_vscode then
     ["<Leader>F"]  = { "<CMD>Telescope find_files<CR>", "   Find files in current directory" },
     ["<Leader>fo"] = { "<CMD>Telescope oldfiles<CR>",   "   Recently files" },
     ["<Leader>fn"] = { "<CMD>Telescope notify<CR>",     "   Notification History" },
+    ["<Leader>fq"] = { "<CMD>Telescope quickfix<CR>",   "   Display Quickfix list" },
+    ["<Leader>fr"] = { "<CMD>Telescope resume<CR>",     "   Resume previous picker" },
     ["<Leader>fh"] = { "<CMD>Telescope help_tags<CR>",  "   Help via Telescope" },
     ["<Leader>ft"] = { "<CMD>TodoTelescope<CR>",        "   Display Project ToDo" },
     ["<Leader>P"]  = { "<CMD>Lazy<CR>",                 "   Open lazy.nvim Window" },
@@ -186,7 +188,6 @@ if not is_vscode then
     ["<Leader>fl"] = { "<CMD>Telescope lazy<CR>",                   "   lazy.nvim Browser" },
     ["<Leader>fL"] = { "<CMD>Telescope luasnip<CR>",                "   LuaSnip Browser" },
 
-    ["<Leader>fr"]  = { ":lua require'telescope.builtin'.resume()<CR>", "   Resume previous picker" },
     ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   DAP Configs" },
     ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
     ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
