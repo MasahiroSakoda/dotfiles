@@ -16,8 +16,6 @@ return {
       "hrsh7th/cmp-cmdline",
       "dmitmel/cmp-cmdline-history",
 
-      "saadparwaiz1/cmp_luasnip",
-
       -- AI assisted completion
       -- GitHub Copilot interaction
       {
@@ -50,6 +48,7 @@ return {
   },
   { "mtoohey31/cmp-fish",   ft = "fish" },
 
+  { "saadparwaiz1/cmp_luasnip", event = { "BufReadPre", "BufNewFile" } },
   {
     "L3MON4D3/LuaSnip", -- Snippet completion sources
     dependencies = { "rafamadriz/friendly-snippets" },
