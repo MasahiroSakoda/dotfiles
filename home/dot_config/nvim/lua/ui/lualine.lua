@@ -41,6 +41,8 @@ lualine.setup {
     },
     lualine_x = {
       {
+        -- TODO: Confirugre `overseer.nvim` detail options
+        "overseer",
         function() return navic.get_location() end,
         cond = function() return navic.is_available() end,
       },
@@ -50,6 +52,7 @@ lualine.setup {
   },
   extensions = {
     "quickfix",
+    "overseer",
     "trouble",
     "neo-tree",
     "fzf",
