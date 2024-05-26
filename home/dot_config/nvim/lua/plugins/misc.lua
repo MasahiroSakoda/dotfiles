@@ -22,11 +22,7 @@ return {
   {
     "epwalsh/obsidian.nvim",
     version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    ft  = "markdown",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     cmd = {
       "ObsidianOpen", "ObsidianExtractNote", "ObsidianNew", "ObsidianWorkspace",
       "ObsidianLink", "ObsidianLinkNew", "ObsidianFollowLink", "ObsidianBacklinks",
