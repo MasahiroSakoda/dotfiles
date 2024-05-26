@@ -169,6 +169,16 @@ wk.register({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- 🛠  overseer.nvim: Task Runner
+---------------------------------------------------------------------------
+wk.register({
+  mode   = "n",
+  silent = false,
+  ["<Leader>rt"] = { "<CMD>OverseerToggle<CR>",  "  Toggle overseer window" },
+  ["<Leader>rr"] = { "<CMD>OverseerRun<CR>",     "  Run a task from a template" },
+})
+
+---------------------------------------------------------------------------
 -- 🔭  Telescope
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
