@@ -6,10 +6,13 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       { "theHamsta/nvim-dap-virtual-text", config = function() require("dap.config.virtual_text") end },
-      { "rcarriga/nvim-dap-ui" },
     },
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
     config = function() require("dap.config") end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
   },
 
   {
