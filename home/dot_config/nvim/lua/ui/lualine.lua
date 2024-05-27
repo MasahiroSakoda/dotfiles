@@ -43,12 +43,18 @@ lualine.setup {
       {
         -- TODO: Confirugre `overseer.nvim` detail options
         "overseer",
-        function() return navic.get_location() end,
-        cond = function() return navic.is_available() end,
       },
     },
     lualine_y = { "encoding", "fileformat" },
     lualine_z = { "progress", "location" },
+  },
+  winbar = {
+    lualine_c = {
+      {
+        function() return navic.get_location() end,
+        cond = function() return navic.is_available() end,
+      },
+    },
   },
   extensions = {
     "quickfix",
