@@ -9,12 +9,8 @@ bufferline.setup {
     diagnostics = "nvim_lsp",
 
     -- Format
-    name_formatter = function(opts)
-      return string.format("%s", opts.name)
-    end,
-    numbers = function(opts)
-      return string.format("%s", opts.ordinal)
-    end,
+    name_formatter = function(opts) return string.format("%s", opts.name) end,
+    numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
     offset = {
       {
