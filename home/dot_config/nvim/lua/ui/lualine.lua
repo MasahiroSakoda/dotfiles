@@ -28,7 +28,6 @@ lualine.setup {
     },
     lualine_b = { "branch", "diff" },
     lualine_c = {
-      { "diagnostics", source = { "nvim-lsp", "nvim_diagnostic"} },
       {
         "filename",
         icon = { "", color = { fg = "#FFFFFF" } },
@@ -46,6 +45,10 @@ lualine.setup {
     lualine_z = { "progress", "location" },
   },
   winbar = {
+    lualine_a = {},
+    lualine_b = {
+      { "diagnostics", source = { "nvim-lsp", "nvim_diagnostic"} },
+    },
     lualine_c = {
       {
         function() return navic.get_location() end,
