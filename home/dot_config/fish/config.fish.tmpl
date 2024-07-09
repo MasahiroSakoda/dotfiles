@@ -53,18 +53,12 @@ set -x GREP_OPTIONS "--color=always"
 
 # Fish Plugin
 ## Configure fish plugins
-set fish_plugins theme peco git osx brew rails bundler gem pbcopy
-
-## peco
-function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for peco history to Ctrl+r
-end
+set fish_plugins theme git osx brew rails bundler gem pbcopy
 
 ## fzf search
-set -Ux FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
-set -x FZF_LEGACY_KEYBINDINGS 0
-set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
-set -x FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100% --border"
+set -gx FZF_DEFAULT_OPTS "--height 100% --reverse --preview='bat --color=always {}' --cycle"
+set -gx FZF_LEGACY_KEYBINDINGS 0
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git/*" --glob "!cache/*" --glob "!node_modules/*"'
 
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
