@@ -132,19 +132,17 @@ nl.setup({
 
     -- biome: JavaScript, TypeScript
     formatting.biome.with({
-      -- INFO: support language might be updated
-      -- check https://biomejs.dev/internals/language-support/
+      -- supported language https://biomejs.dev/internals/language-support/
       filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
       condition = function(utils)
-        -- TODO: uncomment after following command is usable
-        --`biome migrate prettier` & `biome migrate eslint`
-        -- if utils.has_file(filetypes.lsp.prettier) then
-        --   vim.fn.system({ "biome", "migrate", "prettier" })
-        --   vim.notify("`prettier` config migrated to `biome.json`", vim.log.levels.INFO)
-        -- elseif utils.has_file(filetypes.lsp.eslint) then
-        --   vim.fn.system({ "biome", "migrate", "eslint" })
-        --   vim.notify("`eslint` config migrated to `biome.json`", vim.log.levels.INFO)
-        -- end
+        -- Use biome instead of prettier or eslint
+        if utils.has_file(filetypes.lsp.prettier) then
+          vim.fn.system({ "biome", "migrate", "prettier" , "--write" })
+          vim.notify("`prettier` config migrated to `biome.json`", vim.log.levels.INFO)
+        elseif utils.has_file(filetypes.lsp.eslint) then
+          vim.fn.system({ "biome", "migrate", "eslint", "--write" })
+          vim.notify("`eslint` config migrated to `biome.json`", vim.log.levels.INFO)
+        end
         return utils.has_file(filetypes.lsp.biome)
       end,
       args = {
