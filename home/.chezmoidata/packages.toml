@@ -8,12 +8,12 @@ npm = [
   "cz-conventional-changelog",
 ]
 go     = []
-python = [ "pynvim" ]
-gem    = [ "bundler", "neovim" ]
+python = [ ]
+gem    = [ "bundler" ]
 
 [packages.brew]
 core  = [ "gnutls", "coreutils" ]
-mac   = [ "pinentry-mac", "xcbeauty" ]
+mac   = [ "pinentry-mac" ]
 linux = [ "util-linux", "cups" ]
 shell    = [ "fish", "starship" ]
 terminal = [ "tmux", "zellij", "fastfetch" ]
@@ -31,13 +31,15 @@ build    = [ "cmake" ]
 runtime  = [ "mise", "xsv", "jnv" ]
 rust     = [ "rustup-init" ]
 python   = [ "tcl-tk", "python-tk@3.12" ]
+ruby     = [ "libyaml" ]
+lua      = [ "luarocks" ]
 kubernetes = [ "kubernetes-cli", "helm", "k3d", "k3sup", "k9s", "kind", "krew", "kubectx", "kustomize" ]
 media  = [ "ffmpeg", "media-info" ]
 image  = [ "imagemagick", "exiftool" ]
 devops = [ "terraform", "awscli", "azure-cli" ]
 
 [packages.cask]
-tap = [ "Homebrew/cask-versions", "Homebrew/services" ]
+tap = [ "Homebrew/services" ]
 maintenance = [ "onyx", "appcleaner" ]
 language    = [ "monolingual" ]
 dictionary  = [ "deepl" ]
@@ -50,10 +52,10 @@ font     = [
   "font-jetbrains-mono-nerd-font",
   "font-cica",
   "font-hackgen-nerd",
-  "font-plemol-jp-nfj",
-  "font-udev-gothic-nf",
+  "font-plemol-jp-nf",
+  "font-udev-gothic-nf"
 ]
-archive  = [ "betterzip", "suspicious-package" ]
+archive  = [ "suspicious-package" ]
 launcher = [ "raycast" ]
 browser  = [ "google-chrome", "brave-browser", "firefox" ]
 terminal = [ "iterm2", "alacritty", "wezterm" ]
@@ -70,10 +72,7 @@ osc       = [ "touchosc-bridge", "touchosc-editor" ]
 broadcast = [ "obs" ]
 network   = [ "tunnelbear", "townwifi", "transmission" ]
 chat      = [ "slack", "discord", "franz" ]
-storage   = [
-  "dropbox",
-  # "google-cloud-sdk",
-]
+storage   = [ "dropbox" ]
 
 [[packages.mas]]
 name = "Moom"
