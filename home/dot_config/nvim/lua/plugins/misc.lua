@@ -15,7 +15,6 @@ return {
   -- Translate Engine
   { "potamides/pantran.nvim", cmd = "Pantran", config = function() require("user.pantran") end },
 
-  { "vim-denops/denops.vim" },
   {
     "epwalsh/obsidian.nvim",
     version = "*",
