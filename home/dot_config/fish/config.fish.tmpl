@@ -64,7 +64,6 @@ end
 set -gx FZF_DEFAULT_OPTS "--height 100% --reverse --preview='bat --color=always {}' --cycle"
 set -gx FZF_LEGACY_KEYBINDINGS 0
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git/*" --glob "!cache/*" --glob "!node_modules/*"'
-set -x FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100% --border"
 
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
