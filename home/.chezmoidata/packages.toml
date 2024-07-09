@@ -8,8 +8,8 @@ npm = [
   "cz-conventional-changelog",
 ]
 go     = []
-python = [ "pynvim" ]
-gem    = [ "bundler", "neovim" ]
+python = [ ]
+gem    = [ "bundler" ]
 
 [packages.brew]
 core  = [ "gnutls", "coreutils" ]
