@@ -53,12 +53,7 @@ set -x GREP_OPTIONS "--color=always"
 
 # Fish Plugin
 ## Configure fish plugins
-set fish_plugins theme peco git osx brew rails bundler gem pbcopy
-
-## peco
-function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for peco history to Ctrl+r
-end
+set fish_plugins theme git osx brew rails bundler gem pbcopy
 
 ## fzf search
 set -gx FZF_DEFAULT_OPTS "--height 100% --reverse --preview='bat --color=always {}' --cycle"
