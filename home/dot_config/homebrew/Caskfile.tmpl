@@ -97,9 +97,6 @@ cask {{ . | quote }}
 
 ## Media
 
-### Image
-cask "kap"
-
 {{- if .graphics }}
 ### Graphics
 {{- range .packages.cask.graphics | uniq }}
