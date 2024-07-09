@@ -250,7 +250,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**yq**][yq]            | `YAML` formatter             |
 | [**sql-formatter**][sql-formatter] | `SQL` formatter              |
 | [**stylua**][stylua]        | `Lua` formatter              |
-| [**xmlformatter**][xmlformatter]  | `XML` formatter              |
 | [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
 
 [clang-format]: https://pypi.org/project/clang-format/
@@ -258,7 +257,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [yq]: https://github.com/mikefarah/yq
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
 [stylua]: https://github.com/JohnnyMorganz/StyLua
-[xmlformatter]: https://github.com/pamoller/xmlformatter
 [yamlfmt]: https://github.com/google/yamlfmt
 
 ##### Telescope extensions
