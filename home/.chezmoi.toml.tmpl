@@ -65,6 +65,7 @@ brew_prefix = {{ $brew_prefix | quote }}
 [data.git]
 user  = {{ $user | quote }}
 email = {{ $email | quote }}
+signingkey = "D28F2A700F100E19"
 
 [data.cmd]
 {{- if eq .chezmoi.os "darwin" }}

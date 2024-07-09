@@ -7,7 +7,7 @@
 	program = gpg
 
 [user]
-	signingkey = CF4534963E7B4319
+  signingkey = {{ .git.signingkey | quote }}
 
 [commit]
 	gpgsign = true
