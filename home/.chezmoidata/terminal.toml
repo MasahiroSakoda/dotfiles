@@ -6,9 +6,9 @@ opacity = 0.75
 
 [terminal.wezterm]
 themes = [
-  "Spring (Gogh)",
-  "ThayerBright (Gogh)",
-  "TokyoNightStorm (Gogh)",
+  "Oxocarbon Dark (Gogh)",
+  "Thayer Bright (Gogh)",
+  "Tokyo Night Storm (Gogh)",
 ]
 images = [
   "daft-punk-music-retro-style-wallpaper.jpg",
