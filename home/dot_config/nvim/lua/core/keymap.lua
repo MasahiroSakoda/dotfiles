@@ -184,7 +184,8 @@ if not is_vscode then
     { "<Leader>fL", "<CMD>Telescope luasnip<CR>",        desc = "  LuaSnip Browser" },
     { "<Leader>fb", "<CMD>Telescope file_browser<CR>",   desc = "  File Browser" },
 
-    { "<Leader>fc", ":lua require'telescope'.extensions.chezmoi.find_files()<CR>",    desc = "  Search chezmoi files" },
+    { "<Leader>fc", ":lua require'telescope'.extensions.chezmoi.find_files()<CR>", desc = "  Search chezmoi files" },
+
     { "<Leader>fdC", ":lua require'telescope'.extensinos.dap.commands()<CR>",         desc = "  DAP Commands" },
     { "<Leader>fdc", ":lua require'telescope'.extensinos.dap.configurations()<CR>",   desc = "  DAP Configs" },
     { "<Leader>fdf", ":lua require'telescope'.extensinos.dap.frames()<CR>",           desc = "  Show Frames" },
