@@ -9,25 +9,23 @@
 ---------------------------------------------------------------------------
 local keymap = vim.keymap.set -- instead of nvim_keymap_set()
 local is_vscode = vim.g.vscode
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true }
 local nv, nx, nt = { "n", "v" }, { "n", "x" }, { "n", "t" }
 
 local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
 
-keymap("n", "<Leader>e", ':edit<Space>', { desc = "   Edit" })
+keymap("n", "<Leader>e", ':edit<Space>', { desc = "  Edit" })
 
 ---------------------------------------------------------------------------
 -- which-key commands
 ---------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  silent = false,
-  ["<Leader>w"]  = { name = "⌨️   Which-Key" },
-  ["<Leader>wk"] = { "<CMD>WhichKey<CR>",            "   Show all mappings" },
-  ["<Leader>wl"] = { "<CMD>WhichKey <Leader><CR>",   "   Show all <Leader> mappings" },
-  ["<Leader>wv"] = { "<CMD>WhichKey <Leader> v<CR>", "   Show all <Leader> mappings for VISUAL mode" },
-})
+wk.add({
+  { "<Leader>w", group = "⌨️ Which-Key" },
+  { "<Leader>wk", "<CMD>WhichKey<CR>",            desc = "  Show all mappings" },
+  { "<Leader>wl", "<CMD>WhichKey <Leader><CR>",   desc = "  Show all <Leader> mappings" },
+  { "<Leader>wv", "<CMD>WhichKey <Leader> v<CR>", desc = "  Show all <Leader> mappings for VISUAL mode" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
@@ -37,23 +35,23 @@ vim.cmd [[
   cnoreabbrev HR vert bo h
 ]]
 
-wk.register({
+wk.add({
   mode    = "n",
-  ["<Leader>h"]  = { name = "❓  Help"},
-  ["<Leader>hv"] = { ":vertical belowright help<Space>", "   Open Help page right side" },
-  ["<Leader>hh"] = { ":horizontal above help<Space>",    "   Open Help page above current buffer" },
+  { "<Leader>h", group = "❓ Help" },
+  { "<Leader>hh", ":horizontal above help<Space>",    desc = "  Open Help page above current buffer" },
+  { "<Leader>hv", ":vertical belowright help<Space>", desc = "  Open Help page right side" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- 🕒  History: <Leader>+h
 ---------------------------------------------------------------------------
-wk.register({
+wk.add({
   mode    = "n",
   silent = false,
-  ["<Leader>H"]  = { name = "🕒  History" },
-  ["<Leader>Hc"] = { "<CR>q:", "  Command History" },
-  ["<Leader>Hs"] = { "<CR>q/", "  Forward Search History" },
-  ["<Leader>HS"] = { "<CR>q?", "  Backward Search History" },
+  { "<Leader>H", group = "🕒 History" },
+  { "<Leader>HS", "<CR>q?", desc = "  Backward Search History" },
+  { "<Leader>Hc", "<CR>q:", desc = "  Command History" },
+  { "<Leader>Hs", "<CR>q/", desc = "  Forward Search History" },
 })
 
 ---------------------------------------------------------------------------
@@ -74,16 +72,16 @@ keymap({ "c" },  "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            { d
 ---------------------------------------------------------------------------
 -- Search
 ---------------------------------------------------------------------------
-wk.register({
-  ["*"]   = { "<Plug>(asterisk-*)",   "  Search forward" },
-  ["#"]   = { "<Plug>(asterisk-#)",   "  Search backward" },
-  ["g*"]  = { "<Plug>(asterisk-g*)",  "  Partial Search forward" },
-  ["g#"]  = { "<Plug>(asterisk-g#)",  "  Partial search backward" },
-  ["gz*"] = { "<Plug>(asterisk-gz*)", "  Partial Search forward (in-place)" },
-  ["gz#"] = { "<Plug>(asterisk-gz#)", "  Partial search backward (in-place)" },
-  ["z"]   = { name = "   Search in-place" },
-  ["z*"]  = { "<Plug>(asterisk-z*)",  "  Search forward (in-place)" },
-  ["z#"]  = { "<Plug>(asterisk-z#)",  "  Search backward (in-place)" },
+wk.add({
+    { "#", "<Plug>(asterisk-#)",     desc = "   Search backward" },
+    { "*", "<Plug>(asterisk-*)",     desc = "   Search forward" },
+    { "g#", "<Plug>(asterisk-g#)",   desc = "   Partial search backward" },
+    { "g*", "<Plug>(asterisk-g*)",   desc = "   Partial Search forward" },
+    { "gz#", "<Plug>(asterisk-gz#)", desc = "   Partial search backward (in-place)" },
+    { "gz*", "<Plug>(asterisk-gz*)", desc = "   Partial Search forward (in-place)" },
+    { "z", group = " Search in-place" },
+    { "z#", "<Plug>(asterisk-z#)",   desc = "  Search backward (in-place)" },
+    { "z*", "<Plug>(asterisk-z*)",   desc = "  Search forward (in-place)" },
 }, nx)
 
 ---------------------------------------------------------------------------
@@ -93,13 +91,12 @@ keymap("n", "[b", "<CMD>bprev<CR>", { desc = "  Move to prev buffer" })
 keymap("n", "]b", "<CMD>bnext<CR>", { desc = "  Move to next buffer" })
 
 -- Buffer Naigation
-wk.register({
-  mode   = "n",
-  ["<Leader>b"]  = { name = "🖥  Buffer Navigation" },
-  ["<Leader>bb"] = { "<CMD>Telescope buffers<CR>",   "   Display buffers list" },
-  ["<Leader>bp"] = { "<CMD>BufferLineCyclePrev<CR>", "   Move to prev buffer" },
-  ["<Leader>bn"] = { "<CMD>BufferLineCycleNext<CR>", "   Move to next buffer" },
-  ["<Leader>bd"] = { "<CMD>bdelete<CR>",             "   Delete buffer" },
+wk.add({
+  { "<Leader>b", group = "🖥 Buffer Navigation" },
+  { "<Leader>bb", "<CMD>Telescope buffers<CR>",   desc = "  Display buffers list" },
+  { "<Leader>bd", "<CMD>bdelete<CR>",             desc = "  Delete buffer" },
+  { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", desc = "  Move to next buffer" },
+  { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", desc = "  Move to prev buffer" },
 }, opts)
 
 -- Tab Navigation
@@ -109,12 +106,11 @@ keymap("n", "[1", "<CMD>tabfirst<CR>",    { desc = "   Move to First tab" })
 keymap("n", "]9", "<CMD>tablast<CR>",     { desc = "   Move to Last tab"})
 
 -- Tab Control via Telescope
-wk.register({
-  mode    = "n",
-  ["<Leader>t"]  = { name = "📑  Tab" },
-  ["<Leader>te"] = { ":tabedit<Space>", "   Edit file in new tab" },
-  ["<Leader>tn"] = { ":tabnew<Space>",  "   Edit file in new tab" },
-  ["<Leader>tc"] = { "<CMD>tabclose<CR>",   "   Close current tab" },
+wk.add({
+    { "<Leader>t", group = "📑 Tab" },
+    { "<Leader>tc", "<CMD>tabclose<CR>", desc = "  Close current tab" },
+    { "<Leader>te", ":tabedit<Space>",   desc = "  Edit file in new tab" },
+    { "<Leader>tn", ":tabnew<Space>",    desc = "  Edit file in new tab" },
 }, opts)
 
 -- Window Moving
@@ -124,11 +120,10 @@ keymap("n", "]W", "<C-w>j", { desc = "   Move to Above Window" })
 keymap("n", "[W", "<C-w>k", { desc = "   Move to Below Window" })
 
 -- Split Window
-wk.register({
-  mode    = "n",
-  ["<Leader>s"]  = { name = "📖  Split Window" },
-  ["<Leader>sh"] = { ":split<Space>",  "   Split window horizontally" },
-  ["<Leader>sv"] = { ":vsplit<Space>", "   Split window vertically" },
+wk.add({
+  { "<Leader>s", group = "📖 Split Window" },
+  { "<Leader>sh", ":split<Space>",  desc = "  Split window horizontally" },
+  { "<Leader>sv", ":vsplit<Space>", desc = "  Split window vertically" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -157,25 +152,21 @@ keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Decrement variable" })
 ---------------------------------------------------------------------------
 keymap("n", "<C-p>", "<Nop>")
 
-wk.register({
-  mode   = "n",
-  silent = true,
-  [",q"]    = { "<CMD>TroubleToggle quickfix<CR>",              "   Toggle Quickfix list" },
-  ["[q"]    = { "<CMD>lua require'utils.trouble'.prev()<CR>zz", "   Prev trouble / quickfix item" },
-  ["]q"]    = { "<CMD>lua require'utils.trouble'.next()<CR>zz", "   Next trouble / quickfix item" },
-  ["<C-p>"] = { "<CMD>lua require'utils.trouble'.prev()<CR>",   "   Prev trouble / quickfix item" },
-  ["<C-n>"] = { "<CMD>lua require'utils.trouble'.next()<CR>",   "   Next trouble / quickfix item" },
-  ["<Leader>m"] = { "<CMD>make<Space>", "   Run make" },
+wk.add({
+  { ",q", "<CMD>TroubleToggle quickfix<CR>",               desc = "  Toggle Quickfix list" },
+  { "<C-n>", "<CMD>lua require'utils.trouble'.next()<CR>", desc = "  Next trouble / quickfix item" },
+  { "<C-p>", "<CMD>lua require'utils.trouble'.prev()<CR>", desc = "  Prev trouble / quickfix item" },
+  { "<Leader>m", "<CMD>make<Space>",                       desc = "  Run make" },
+  { "[q", "<CMD>lua require'utils.trouble'.prev()<CR>zz",  desc = "  Prev trouble / quickfix item" },
+  { "]q", "<CMD>lua require'utils.trouble'.next()<CR>zz",  desc = "  Next trouble / quickfix item" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- 🛠  overseer.nvim: Task Runner
 ---------------------------------------------------------------------------
-wk.register({
-  mode   = "n",
-  silent = false,
-  ["<Leader>rt"] = { "<CMD>OverseerToggle<CR>",  "  Toggle overseer window" },
-  ["<Leader>rr"] = { "<CMD>OverseerRun<CR>",     "  Run a task from a template" },
+wk.add({
+  { "<Leader>rr", "<CMD>OverseerRun<CR>",    desc = "  Run a task from a template" },
+  { "<Leader>rt", "<CMD>OverseerToggle<CR>", desc = "  Toggle overseer window" },
 })
 
 ---------------------------------------------------------------------------
@@ -184,34 +175,31 @@ wk.register({
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
 
-  wk.register({
-    mode   = "n",
-    ["<Leader>f"]  = { name = "🔭  Telescope: Fuzzy Finder" },
-    ["<Leader>F"]  = { "<CMD>Telescope find_files<CR>", "   Find files in current directory" },
-    ["<Leader>fo"] = { "<CMD>Telescope oldfiles<CR>",   "   Recently files" },
-    ["<Leader>fn"] = { "<CMD>Telescope notify<CR>",     "   Notification History" },
-    ["<Leader>fq"] = { "<CMD>Telescope quickfix<CR>",   "   Display Quickfix list" },
-    ["<Leader>fr"] = { "<CMD>Telescope resume<CR>",     "   Resume previous picker" },
-    ["<Leader>fh"] = { "<CMD>Telescope help_tags<CR>",  "   Help via Telescope" },
-    ["<Leader>ft"] = { "<CMD>TodoTelescope<CR>",        "   Display Project ToDo" },
-    ["<Leader>P"]  = { "<CMD>Lazy<CR>",                 "   Open lazy.nvim Window" },
+  wk.add({
+    { "<Leader>f", group = "🔭 Telescope: Fuzzy Finder" },
+    { "<C-g>", "<CMD>Telescope egrepify<CR>",            desc = "  Live grep with egrepify" },
+    { "<Leader><C-g>", "<CMD>Telescope grep_string<CR>", desc = "  Grep string in working directory" },
+    { "<Leader>F", "<CMD>Telescope find_files<CR>",      desc = "  Find files in current directory" },
+    { "<Leader>P", "<CMD>Lazy<CR>",                      desc = "  Open lazy.nvim Window" },
+    { "<Leader>fL", "<CMD>Telescope luasnip<CR>",        desc = "  LuaSnip Browser" },
+    { "<Leader>fb", "<CMD>Telescope file_browser<CR>",   desc = "  File Browser" },
 
-    ["<Leader>fg"]    = { "<CMD>Telescope live_grep<CR>",    "   Live grep with args" },
-    ["<C-g>"]         = { "<CMD>Telescope egrepify<CR>",     "   Live grep with egrepify" },
-    ["<Leader><C-g>"] = { "<CMD>Telescope grep_string<CR>",  "   Grep string in working directory" },
+    { "<Leader>fc", ":lua require'telescope'.extensions.chezmoi.find_files()<CR>",    desc = "  Search chezmoi files" },
+    { "<Leader>fdC", ":lua require'telescope'.extensinos.dap.commands()<CR>",         desc = "  DAP Commands" },
+    { "<Leader>fdc", ":lua require'telescope'.extensinos.dap.configurations()<CR>",   desc = "  DAP Configs" },
+    { "<Leader>fdf", ":lua require'telescope'.extensinos.dap.frames()<CR>",           desc = "  Show Frames" },
+    { "<Leader>fdl", ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", desc = "  Show Breakpoints" },
+    { "<Leader>fdv", ":lua require'telescope'.extensinos.dap.variables()<CR>",        desc = "  Show Variables" },
 
-    ["<Leader>ff"] = { "<CMD>Telescope frecency workspace=CWD<CR>", "   Frecency algorithm Search" },
-    ["<Leader>fb"] = { "<CMD>Telescope file_browser<CR>",           "   File Browser" },
-    ["<Leader>fl"] = { "<CMD>Telescope lazy<CR>",                   "   lazy.nvim Browser" },
-    ["<Leader>fL"] = { "<CMD>Telescope luasnip<CR>",                "   LuaSnip Browser" },
-
-    ["<Leader>fdc"] = { ":lua require'telescope'.extensinos.dap.configurations()<CR>",   "   DAP Configs" },
-    ["<Leader>fdC"] = { ":lua require'telescope'.extensinos.dap.commands()<CR>",         "   DAP Commands" },
-    ["<Leader>fdl"] = { ":lua require'telescope'.extensinos.dap.list_breakpoints()<CR>", "   Show Breakpoints" },
-    ["<Leader>fdv"] = { ":lua require'telescope'.extensinos.dap.variables()<CR>",        "   Show Variables" },
-    ["<Leader>fdf"] = { ":lua require'telescope'.extensinos.dap.frames()<CR>",           "   Show Frames" },
-
-    ["<Leader>fc"]  = { ":lua require'telescope'.extensions.chezmoi.find_files()<CR>", "   Search chezmoi files" },
+    { "<Leader>ff", "<CMD>Telescope frecency workspace=CWD<CR>", desc = "  Frecency algorithm Search" },
+    { "<Leader>fg", "<CMD>Telescope live_grep<CR>",              desc = "  Live grep with args" },
+    { "<Leader>fh", "<CMD>Telescope help_tags<CR>",              desc = "  Help via Telescope" },
+    { "<Leader>fl", "<CMD>Telescope lazy<CR>",                   desc = "  lazy.nvim Browser" },
+    { "<Leader>fn", "<CMD>Telescope notify<CR>",                 desc = "  Notification History" },
+    { "<Leader>fo", "<CMD>Telescope oldfiles<CR>",               desc = "  Recently files" },
+    { "<Leader>fq", "<CMD>Telescope quickfix<CR>",               desc = "  Display Quickfix list" },
+    { "<Leader>fr", "<CMD>Telescope resume<CR>",                 desc = "  Resume previous picker" },
+    { "<Leader>ft", "<CMD>TodoTelescope<CR>",                    desc = "  Display Project ToDo" },
   }, opts)
 
 end
@@ -220,41 +208,40 @@ end
 -- LSP: Language Server Protocol
 ---------------------------------------------------------------------------
 keymap("n", "K",  "<NOP>")
-keymap("n", "<Leader>M", "<CMD>Mason<CR>",                          { desc = "   Open mason.nvim Window" })
-keymap("n", "K",  "<CMD>lua vim.lsp.buf.hover()<CR>",           { desc = "   Hover Documentation" })
-keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",      { desc = "   Go to Definition" })
-keymap("n", "gD", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "   Go to Type Definition" })
-keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",  { desc = "   Go to implementation" })
-keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",      { desc = "   Go to references" })
+keymap("n", "<Leader>M", "<CMD>Mason<CR>",                      { desc = "  Open mason.nvim Window" })
+keymap("n", "K",  "<CMD>lua vim.lsp.buf.hover()<CR>",           { desc = "  Hover Documentation" })
+keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",      { desc = "  Go to Definition" })
+keymap("n", "gD", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "  Go to Type Definition" })
+keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",  { desc = "  Go to implementation" })
+keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",      { desc = "  Go to references" })
 
-keymap("n", "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "   Go to prev diagnostics" })
-keymap("n", "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "   Go to next diagnostics" })
-keymap("n", "go",  "<CMD>Lspsaga outline<CR>",              { desc = "   Code outline" })
-keymap("n", "gn",  "<CMD>Lspsaga rename<CR>",               { desc = "   Rename" })
-keymap("n", "gci", "<CMD>Lspsaga incoming_calls<CR>",       { desc = "   Call incoming hierarchy" })
-keymap("n", "gco", "<CMD>Lspsaga outcoming_calls<CR>",      { desc = "   Call outcoming hierarchy" })
-keymap(nv, "ga", "<CMD>Lspsaga code_action<CR>",       { desc = "   Code Action" })
+keymap("n", "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "  Go to prev diagnostics" })
+keymap("n", "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "  Go to next diagnostics" })
+keymap("n", "go",  "<CMD>Lspsaga outline<CR>",              { desc = "  Code outline" })
+keymap("n", "gn",  "<CMD>Lspsaga rename<CR>",               { desc = "  Rename" })
+keymap("n", "gci", "<CMD>Lspsaga incoming_calls<CR>",       { desc = "  Call incoming hierarchy" })
+keymap("n", "gco", "<CMD>Lspsaga outcoming_calls<CR>",      { desc = "  Call outcoming hierarchy" })
+keymap(nv, "ga", "<CMD>Lspsaga code_action<CR>",            { desc = "  Code Action" })
 
 --------------------------------------------------
 ---- 🚦  Keymap for LSP via Telescope
 --------------------------------------------------
-wk.register({
-  mode   = "n",
-  ["<Leader>l"]  = { name = "🚦  LSP via Telescope" },
-  ["<Leader>li"] = { "<CMD>LspInfo<CR>",                             "   Display LSP Information" },
-  ["<Leader>lr"] = { "<CMD>Telescope lsp_references<CR>",            "   References" },
-  ["<Leader>lD"] = { "<CMD>Telescope diagnostics<CR>",               "   Show diagnostic" },
-  ["<Leader>lI"] = { "<CMD>Telescope lsp_implementation<CR>",        "   Implementation" },
-  ["<Leader>lA"] = { "<CMD>Telescope lsp_range_code_actions<CR>",    "   Range Code Actions" },
-  ["<Leader>lg"] = { "<CMD>Telescope lsp_document_diagnostics<CR>",  "   Document Diagnostics" },
-  ["<Leader>lo"] = { "<CMD>Telescope lsp_workspace_diagnostics<CR>", "   Workspace Diagnostics" },
-  ["<Leader>ls"] = { "<CMD>Telescope lsp_document_symbols<CR>",      "   Document Symbol" },
+wk.add({
+  { "<Leader>l", group = "🚦 LSP via Telescope" },
+  { "<Leader>lA", "<CMD>Telescope lsp_range_code_actions<CR>",    desc = "  Range Code Actions" },
+  { "<Leader>lD", "<CMD>Telescope diagnostics<CR>",               desc = "  Show diagnostic" },
+  { "<Leader>lI", "<CMD>Telescope lsp_implementation<CR>",        desc = "  Implementation" },
+  { "<Leader>lg", "<CMD>Telescope lsp_document_diagnostics<CR>",  desc = "  Document Diagnostics" },
+  { "<Leader>li", "<CMD>LspInfo<CR>",                             desc = "  Display LSP Information" },
+  { "<Leader>lo", "<CMD>Telescope lsp_workspace_diagnostics<CR>", desc = "  Workspace Diagnostics" },
+  { "<Leader>lr", "<CMD>Telescope lsp_references<CR>",            desc = "  References" },
+  { "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>",      desc = "  Document Symbol" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapter Protocol
 ---------------------------------------------------------------------------
--- DAP keymap like VSCoed
+-- DAP keymap like VSCode
 keymap("n", "<F5>",    "<CMD>DapContinue<CR>",  { desc = ": Continue Process" })
 keymap("n", "<S-F5>",  "<CMD>DapTerminate<CR>", { desc = "□: Terminate Process" })
 keymap("n", "<F10>",   "<CMD>DapStepOver<CR>",  { desc = ": Step Over" })
@@ -262,47 +249,42 @@ keymap("n", "<F11>",   "<CMD>DapStepInto<CR>",  { desc = ": Step Into" })
 keymap("n", "<S-F11>", "<CMD>DapStepOut<CR>",   { desc = ": Step Out" })
 
 -- Debugger Control
-wk.register({
-  mode    = "n",
-  ["<Leader>d"]  = { name = "🐛  Debugger" },
-  ["<Leader>dd"] = { "<CMD>lua require'utils.dap'.toggle_ui()<CR>",     ": Toggle Debugger UI" },
-  ["<Leader>dw"] = { "<CMD>lua require'utils.dap'.float_watches()<CR>", "  Float watches" },
-  ["<Leader>ds"] = { "<CMD>lua require'utils.dap'.float_scopes()<CR>",  "  Float scopes" },
-  ["<Leader>dS"] = { "<CMD>lua require'utils.dap'.float_stacks()<CR>",  "  Float stacks" },
-  ["<Leader>dh"] = { "<CMD>lua require'utils.dap'.hover()<CR>",         "  Hover DAP widgets" },
-  ["<Leader>dp"] = { "<CMD>lua require'utils.dap'.preview()<CR>",       "  DAP Preview" },
-  ["<Leader>dl"] = { "<CMD>lua require'utils.dap'.open_log()<CR>",      "󰌱  Open DAP log" },
-
-  ["<Leader>db"] = { "<CMD>DapToggleBreakpoint<CR>", ": Toggle DAP Breakpoints" },
-  ["<Leader>dc"] = { "<CMD>DapContinue<CR>",         ": Continue Process" },
-  ["<Leader>di"] = { "<CMD>DapStepInto<CR>",         ": Step Into" },
-  ["<Leader>do"] = { "<CMD>DapStepOver<CR>",         ": Step Over" },
-  ["<Leader>dO"] = { "<CMD>DapStepOut<CR>",          ": Step Out" },
-  ["<Leader>dB"] = { "<CMD>DapStepBack<CR>",         ": Step Back" },
-  ["<Leader>dt"] = { "<CMD>DapTerminate<CR>",        "□: Terminate Process" },
-  ["<Leader>dL"] = { "<CMD>lua require'dap'.run_last()<CR>", "↻: Run Last" },
+wk.add({
+  { "<Leader>d", group = "🐛 Debugger" },
+  { "<Leader>db", "<CMD>DapToggleBreakpoint<CR>",                    desc = ": Toggle DAP Breakpoints" },
+  { "<Leader>dc", "<CMD>DapContinue<CR>",                            desc = ": Continue Process" },
+  { "<Leader>do", "<CMD>DapStepOver<CR>",                            desc = ": Step Over" },
+  { "<Leader>di", "<CMD>DapStepInto<CR>",                            desc = ": Step Into" },
+  { "<Leader>dO", "<CMD>DapStepOut<CR>",                             desc = ": Step Out" },
+  { "<Leader>dB", "<CMD>DapStepBack<CR>",                            desc = ": Step Back" },
+  { "<Leader>dt", "<CMD>DapTerminate<CR>",                           desc = "□: Terminate Process" },
+  { "<Leader>dd", "<CMD>lua require'utils.dap'.toggle_ui()<CR>",     desc = ": Toggle Debugger UI" },
+  { "<Leader>dp", "<CMD>lua require'utils.dap'.preview()<CR>",       desc = "  DAP Preview" },
+  { "<Leader>dh", "<CMD>lua require'utils.dap'.hover()<CR>",         desc = "  Hover DAP widgets" },
+  { "<Leader>dl", "<CMD>lua require'utils.dap'.open_log()<CR>",      desc = "󰌱  Open DAP log" },
+  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",            desc = "↻: Run Last" },
+  { "<Leader>ds", "<CMD>lua require'utils.dap'.float_scopes()<CR>",  desc = "  Float scopes" },
+  { "<Leader>dS", "<CMD>lua require'utils.dap'.float_stacks()<CR>",  desc = "  Float stacks" },
+  { "<Leader>dw", "<CMD>lua require'utils.dap'.float_watches()<CR>", desc = "  Float watches" },
 }, opts)
 
 -- Debugger
-wk.register({
-  mode    = "n",
-  ["<Leader>fd"]  = { name = "  Telescope DAP Integration" },
+wk.add({
+  { "<Leader>fd", group = " Telescope DAP Integration" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- Diffview
 ---------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  silent = false,
-  ["<Leader>g"]  = { name = "🧾  Diffview" },
-  ["<Leader>go"] = { "<CMD>DiffviewOpen<CR>",            "a Open Diffview" },
-  ["<Leader>gO"] = { ":DiffviewOpen<Space>",             "a Open Diffview with args" },
-  ["<Leader>gq"] = { "<CMD>DiffviewClose<CR>",           "  Close Diffview" },
-  ["<Leader>gt"] = { "<CMD>DiffviewToggleFiles<CR>",     "  Toggle file panels" },
-  ["<Leader>gh"] = { ":DiffviewFileHistory<Space>",      "  Open file history" },
-  ["<Leader>gf"] = { "<CMD>DiffviewFocusFiles<CR>",      "  Bring focus to the file panel" },
-  ["<Leader>gr"] = { "<CMD>DiffviewRefresh<CR>",         "  Refresh Diffview" },
+wk.add({
+  { "<Leader>g", group = "🧾 Diffview" },
+  { "<Leader>gO", ":DiffviewOpen<Space>",         desc = "a Open Diffview with args" },
+  { "<Leader>gf", "<CMD>DiffviewFocusFiles<CR>",  desc = "  Bring focus to the file panel" },
+  { "<Leader>gh", ":DiffviewFileHistory<Space>",  desc = "  Open file history" },
+  { "<Leader>go", "<CMD>DiffviewOpen<CR>",        desc = "a Open Diffview" },
+  { "<Leader>gq", "<CMD>DiffviewClose<CR>",       desc = "  Close Diffview" },
+  { "<Leader>gr", "<CMD>DiffviewRefresh<CR>",     desc = "  Refresh Diffview" },
+  { "<Leader>gt", "<CMD>DiffviewToggleFiles<CR>", desc = "  Toggle file panels" },
 })
 
 ---------------------------------------------------------------------------
@@ -311,24 +293,24 @@ wk.register({
 if not is_vscode then
 
   -- ChatGPT.nvim
-  wk.register({
+  wk.add({
     mode = nv,
-    ["<Leader>a"]  = { name = "🤖  ChatGPT" },
-    ["<Leader>ai"] = { "<CMD>ChatGPT<CR>",                     "   Open ChatGPT Interactive Window" },
-    ["<Leader>aa"] = { "<CMD>ChatGPTActAs<CR>",                "   Awesome ChatGPT Prompts" },
-    ["<Leader>ac"] = { "<CMD>ChatGPTCompleteCode<CR>",         "   Complete code with ChatGPT" },
-    ["<Leader>ae"] = { "<CMD>ChatGPTEditWithInstructions<CR>", "   Edit with instructions" },
+    { "<Leader>a", group = "🤖 ChatGPT" },
+    { "<Leader>ai", "<CMD>ChatGPT<CR>",                       desc = "  Open ChatGPT Interactive Window" },
+    { "<Leader>aa", "<CMD>ChatGPTActAs<CR>",                  desc = "  Awesome ChatGPT Prompts" },
 
-    ["<Leader>ag"] = { "<CMD>ChatGPTRun grammar_correction<CR>", "   Grammar Correction" },
-    ["<Leader>as"] = { "<CMD>ChatGPTRun summarize<CR>",          "   Summarize text" },
-    ["<Leader>at"] = { "<CMD>ChatGPTRun translate<CR>",          "   translate text" },
-    ["<Leader>ak"] = { "<CMD>ChatGPTRun keywords<CR>",           "   Keyword Generation" },
+    { "<Leader>ac", "<CMD>ChatGPTCompleteCode<CR>",           desc = "  Complete code with ChatGPT" },
+    { "<Leader>ae", "<CMD>ChatGPTEditWithInstructions<CR>",   desc = "  Edit with instructions" },
+    { "<Leader>ag", "<CMD>ChatGPTRun grammar_correction<CR>", desc = "  Grammar Correction" },
+    { "<Leader>as", "<CMD>ChatGPTRun summarize<CR>",          desc = "  Summarize text" },
+    { "<Leader>at", "<CMD>ChatGPTRun translate<CR>",          desc = "  translate text" },
+    { "<Leader>ak", "<CMD>ChatGPTRun keywords<CR>",           desc = "  Keyword Generation" },
 
-    ["<Leader>ad"] = { "<CMD>ChatGPTRun docstring<CR>",     "   Create docstring" },
-    ["<Leader>af"] = { "<CMD>ChatGPTRun fix_bugs<CR>",      "   Fix bugs" },
-    ["<Leader>aE"] = { "<CMD>ChatGPTRun explain_code<CR>",  "   Explain Code" },
-    ["<Leader>ao"] = { "<CMD>ChatGPTRun optimize_code<CR>", "   Optimize Code" },
-    ["<Leader>ar"] = { "<CMD>ChatGPTRun roxygen_edit<CR>",  "   Roxygen Edit" },
+    { "<Leader>ad", "<CMD>ChatGPTRun docstring<CR>",          desc = "  Create docstring" },
+    { "<Leader>af", "<CMD>ChatGPTRun fix_bugs<CR>",           desc = "  Fix bugs" },
+    { "<Leader>aE", "<CMD>ChatGPTRun explain_code<CR>",       desc = "  Explain Code" },
+    { "<Leader>ao", "<CMD>ChatGPTRun optimize_code<CR>",      desc = "  Optimize Code" },
+    { "<Leader>ar", "<CMD>ChatGPTRun roxygen_edit<CR>",       desc = "  Roxygen Edit" },
   }, opts)
 
 end
@@ -336,29 +318,28 @@ end
 ---------------------------------------------------------------------------
 -- obsidian.nvim
 ---------------------------------------------------------------------------
-wk.register({
-  mode = "n",
-  ["<Leader>o"]  = { name = "📝  Obsidian integration" },
-  ["<Leader>oo"] = { "<CMD>ObsidianOpen<CR>",        "  Open in Obsidian.app" },
-  ["<Leader>on"] = { "<CMD>ObsidianNew<CR>",         "  Create New Note" },
-  ["<Leader>ot"] = { "<CMD>ObsidianTemplate<CR>",    "  Insert Obsidian Template" },
-  ["<Leader>of"] = { "<CMD>ObsidianFollowLink<CR>",  "  Go To Link Under Cursor" },
-  ["<Leader>ob"] = { "<CMD>ObsidianBacklinks<CR>",   "  Get References To Current" },
-  ["<Leader>og"] = { "<CMD>ObsidianSearch<CR>",      "  Grep Search notes" },
-  ["<Leader>os"] = { "<CMD>ObsidianQuickSwitch<CR>", "  Quick Switch" },
-  ["<Leader>od"] = { "<CMD>ObsidianDailies<CR>",     "  Open Daily Notes" },
+wk.add({
+  { "<Leader>o", group = "📝 Obsidian integration" },
+  { "<Leader>ob", "<CMD>ObsidianBacklinks<CR>",   desc = "  Get References To Current" },
+  { "<Leader>od", "<CMD>ObsidianDailies<CR>",     desc = "  Open Daily Notes" },
+  { "<Leader>of", "<CMD>ObsidianFollowLink<CR>",  desc = "  Go To Link Under Cursor" },
+  { "<Leader>og", "<CMD>ObsidianSearch<CR>",      desc = "  Grep Search notes" },
+  { "<Leader>on", "<CMD>ObsidianNew<CR>",         desc = "  Create New Note" },
+  { "<Leader>oo", "<CMD>ObsidianOpen<CR>",        desc = "  Open in Obsidian.app" },
+  { "<Leader>os", "<CMD>ObsidianQuickSwitch<CR>", desc = "  Quick Switch" },
+  { "<Leader>ot", "<CMD>ObsidianTemplate<CR>",    desc = "  Insert Obsidian Template" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
-keymap(nt,  ",t", "<CMD>ToggleTerm<CR>",         { desc = "   Toggle Terminal" })
-keymap("n", ",f", "<CMD>Neotree toggle<CR>",     { desc = "   Toggle NeoTree" })
-keymap("n", ",s", "<CMD>ScrollbarToggle<CR>",    { desc = "   Toggle Scrollbar" })
-keymap("n", ",/", "<CMD>HlSearchLensToggle<CR>", { desc = "   Toggle Hlsearch lens" })
-keymap("n", ",m", "<CMD>TSJToggle<CR>",          { desc = "   Toggle node under cursor" })
-keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "   Toggle Colorizer" })
+keymap(nt,  ",t", "<CMD>ToggleTerm<CR>",         { desc = "  Toggle Terminal" })
+keymap("n", ",f", "<CMD>Neotree toggle<CR>",     { desc = "  Toggle NeoTree" })
+keymap("n", ",s", "<CMD>ScrollbarToggle<CR>",    { desc = "  Toggle Scrollbar" })
+keymap("n", ",/", "<CMD>HlSearchLensToggle<CR>", { desc = "  Toggle Hlsearch lens" })
+keymap("n", ",m", "<CMD>TSJToggle<CR>",          { desc = "  Toggle node under cursor" })
+keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "  Toggle Colorizer" })
 
-keymap("n", ",x", "<CMD>TroubleToggle workspace_diagnostics<CR>",         { desc = "   Toggle Diagnostic List" })
-keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics()<CR>", { desc = "   Toggle Diagnostic" })
+keymap("n", ",x", "<CMD>TroubleToggle workspace_diagnostics<CR>",         { desc = "  Toggle Diagnostic List" })
+keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics()<CR>", { desc = "  Toggle Diagnostic" })
