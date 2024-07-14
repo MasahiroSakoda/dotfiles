@@ -4,20 +4,21 @@ if not ok then
 end
 
 wk.setup({
-  presets = {
-    nav = true,
-  },
-  window = {
-    border   = "double",
-    margin   = { 1, 2, 1, 2 }, -- extra window margin [top, right, bottom, left]
-    padding  = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 25,
+  preset = "modern", ---@type "classic"|"modern"|"helix"
+  win = {
+    no_overlap = true,
+    padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+    title     = true,
+    title_pos = "center",
+    bo = {},
+    wo = {
+      winblend = 25,
+    },
   },
   layout = {
-    spacing = 2,
-    align   = "center",
+    spacing = 3,
+    align   = "center", ---@type "left"|"right"|"center"
 		width  = { min = 5, max = 50 }, -- min and max width of the columns
-    height = { min = 10, max = 25 }, -- min and max height of the columns
   },
   disable = {
     buftypes  = {},
