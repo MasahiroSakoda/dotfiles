@@ -16,7 +16,7 @@ progress-bar
 compressed
 
 # Set the maximum time in seconds to allow cURL's connection to take.
-connect-timeout = 120
+connect-timeout = 1200
 
 # Follow `Location:` headers and 3XX response codes.
 location
@@ -27,8 +27,12 @@ referer = ";auto"
 # Use the server-provided timestamp, if any.
 remote-time
 
+# Take filename from the URL, like wget
+remote-name-all
+
 # Retry the transfer if a transient error occurs.
-retry = 5
+retry = 10
+retry-delay = 20
 
 # Consider connections refused as transient errors.
 retry-connrefused
