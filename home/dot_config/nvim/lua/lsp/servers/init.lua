@@ -15,6 +15,7 @@ return {
   cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
+  taplo         = require("lsp.servers.taplo"),         -- TOML
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   cmake         = require("lsp.servers.cmake"),         -- CMake
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
