@@ -21,7 +21,7 @@ enabled  = true
 versions = ["latest"]
 
 [mise.python]
-enabled  = true
+enabled  = false
 versions = ["3.11", "3.12"]
 
 [mise.ruby]
