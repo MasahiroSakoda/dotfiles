@@ -1,0 +1,80 @@
+# -*-mode:toml-*- vim:ft=toml
+
+theme = "dracula_at_night"
+
+[editor]
+true-color      = true
+cursorline      = true
+color-modes     = true
+auto-completion = true
+auto-save       = true
+
+[editor.statusline]
+left   = [
+  "mode",
+  "spinner",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator"
+]
+center = []
+right  = [
+  "version-control",
+  "diagnostics",
+  "selections",
+  "position",
+  "position-percentage",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
+separator   = "│"
+mode.normal = " NOR"
+mode.insert = " INS"
+mode.select = " SEL"
+
+[editor.file-picker]
+max-depth = 6
+hidden    = false
+
+[editor.whitespace]
+render = "all"
+
+[editor.whitespace.characters]
+space   = "·"
+nbsp    = "⍽"
+tab     = "→"
+newline = "↲"
+
+[editor.cursor-shape]
+normal = "underline"
+insert = "bar"
+select = "block"
+
+[editor.indent-guides]
+render      = true
+character   = "|"
+skip-levels = 1
+
+[editor.lsp]
+display-inlay-hints         = true
+display-messages            = true
+display-signature-help-docs = true
+auto-signature-help = true
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 0
+wrap-indicator = ""
+wrap-at-text-width = false
+
+[keys.insert]
+j = { j = "normal_mode" }
+
+[keys.normal]
+tab   = ":bn"
+S-tab = ":bp"
