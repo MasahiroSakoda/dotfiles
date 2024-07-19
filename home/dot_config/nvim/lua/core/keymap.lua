@@ -10,12 +10,10 @@
 local keymap = vim.keymap.set -- instead of nvim_keymap_set()
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
-local nv, nx, nt = { "n", "v" }, { "n", "x" }, { "n", "t" }
+local nv, nx, nt, nxo = { "n", "v" }, { "n", "x" }, { "n", "t" }, { "n", "x", "o" }
 
 local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
-
-keymap("n", "<Leader>e", ':edit<Space>', { desc = "  Edit" })
 
 ---------------------------------------------------------------------------
 -- which-key commands
@@ -36,7 +34,6 @@ vim.cmd [[
 ]]
 
 wk.add({
-  mode    = "n",
   { "<Leader>h", group = "❓ Help" },
   { "<Leader>hh", ":horizontal above help<Space>",    desc = "  Open Help page above current buffer" },
   { "<Leader>hv", ":vertical belowright help<Space>", desc = "  Open Help page right side" },
@@ -46,7 +43,6 @@ wk.add({
 -- 🕒  History: <Leader>+h
 ---------------------------------------------------------------------------
 wk.add({
-  mode    = "n",
   silent = false,
   { "<Leader>H", group = "🕒 History" },
   { "<Leader>HS", "<CR>q?", desc = "  Backward Search History" },
@@ -61,9 +57,11 @@ wk.add({
 keymap("i", "jj", "<ESC>")
 
 -- flash.nvim
-local nxo = { "n", "x", "o" }
-keymap(nxo, "s", "<CMD>lua require'flash'.jump()<CR>",       { desc = "  Flash" })
-keymap(nxo, "S", "<CMD>lua require'flash'.treesitter()<CR>", { desc = "  Flash Treesitter" })
+wk.add({
+  mode = nxo,
+  { "s", "<CMD>lua require'flash'.jump()<CR>",       desc = "  Flash" },
+  { "s", "<CMD>lua require'flash'.treesitter()<CR>", desc = "  Flash Treesitter" },
+})
 
 keymap({ "o" },      "r", "<CMD>lua require'flash'.remote()<CR>",            { desc = "  Remote Flash" })
 keymap({ "o", "x" }, "R", "<CMD>lua require'flash'.treesitter_search()<CR>", { desc = "  Treesitter Search" })
@@ -87,8 +85,10 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
-keymap("n", "[b", "<CMD>bprev<CR>", { desc = "  Move to prev buffer" })
-keymap("n", "]b", "<CMD>bnext<CR>", { desc = "  Move to next buffer" })
+wk.add({
+  { "[b", "<CMD>bprev<CR>", desc = "  Move to prev buffer" },
+  { "]b", "<CMD>bnext<CR>", desc = "  Move to next buffer" },
+})
 
 -- Buffer Naigation
 wk.add({
@@ -100,10 +100,12 @@ wk.add({
 }, opts)
 
 -- Tab Navigation
-keymap("n", "[t", "<CMD>tabprevious<CR>", { desc = "   Move to prev tab" })
-keymap("n", "]t", "<CMD>tabnext<CR>",     { desc = "   Move to next tab" })
-keymap("n", "[1", "<CMD>tabfirst<CR>",    { desc = "   Move to First tab" })
-keymap("n", "]9", "<CMD>tablast<CR>",     { desc = "   Move to Last tab"})
+wk.add({
+  { "[t", "<CMD>tabprevious<CR>", desc = "   Move to prev tab" },
+  { "]t", "<CMD>tabnext<CR>",     desc = "   Move to next tab" },
+  { "[1", "<CMD>tabfirst<CR>",    desc = "   Move to First tab" },
+  { "]9", "<CMD>tablast<CR>",     desc = "   Move to Last tab" },
+})
 
 -- Tab Control via Telescope
 wk.add({
@@ -114,10 +116,12 @@ wk.add({
 }, opts)
 
 -- Window Moving
-keymap("n", "[w", "<C-w>h", { desc = "   Move to Left  Window" })
-keymap("n", "]w", "<C-w>l", { desc = "   Move to Right Window" })
-keymap("n", "]W", "<C-w>j", { desc = "   Move to Above Window" })
-keymap("n", "[W", "<C-w>k", { desc = "   Move to Below Window" })
+wk.add({
+  { "[w", "<C-w>h", desc = "   Move to Left  Window" },
+  { "]w", "<C-w>l", desc = "   Move to Right Window" },
+  { "[W", "<C-w>j", desc = "   Move to Above Window" },
+  { "]W", "<C-w>k", desc = "   Move to Below Window" },
+})
 
 -- Split Window
 wk.add({
@@ -130,35 +134,42 @@ wk.add({
 -- Line Number
 ---------------------------------------------------------------------------
 local ui = require("utils.ui")
-keymap("n", ",n", ui.toggle_line_number,     { desc = "   Toggle Line Number" })
-keymap("n", ",N", ui.toggle_relative_number, { desc = "   Toggle Relatieve Number" })
+wk.add({
+  { ",n", ui.toggle_line_number,     desc = "   Toggle Line Number" },
+  { ",N", ui.toggle_relative_number, desc = "   Toggle Relatieve Number" },
+})
 
 ---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin
 ---------------------------------------------------------------------------
 local map = require("dial.map")
-keymap("n", "<C-a>",  map.inc_normal(),  { desc = "   Increment variable" })
-keymap("n", "<C-a>",  map.inc_normal(),  { desc = "   Decrement variable" })
-keymap("n", "g<C-x>", map.dec_gnormal(), { desc = "   Increment variable" })
-keymap("n", "g<C-x>", map.dec_gnormal(), { desc = "   Decrement variable" })
+wk.add({
+  { "<C-a>",  map.inc_normal(),  desc = "   Increment variable" },
+  { "<C-x>",  map.dec_normal(),  desc = "   Decrement variable" },
+  { "g<C-a>", map.inc_gnormal(), desc = "   Increment variable" },
+  { "g<C-x>", map.dec_gnormal(), desc = "   Decrement variable" },
+})
 
-keymap("v", "<C-a>",  map.inc_visual(),  { desc = "   Increment variable" })
-keymap("v", "<C-a>",  map.inc_visual(),  { desc = "   Decrement variable" })
-keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Increment variable" })
-keymap("v", "g<C-x>", map.dec_gvisual(), { desc = "   Decrement variable" })
+wk.add({
+  mode = "v",
+  { "<C-a>",  map.inc_visual(),  desc = "   Increment variable" },
+  { "<C-x>",  map.dec_visual(),  desc = "   Decrement variable" },
+  { "g<C-a>", map.inc_gvisual(), desc = "   Increment variable" },
+  { "g<C-x>", map.dec_gvisual(), desc = "   Decrement variable" },
+})
 
 ---------------------------------------------------------------------------
 -- Quickfix
 ---------------------------------------------------------------------------
-keymap("n", "<C-p>", "<Nop>")
 
 wk.add({
-  { ",q", "<CMD>TroubleToggle quickfix<CR>",               desc = "  Toggle Quickfix list" },
-  { "<C-n>", "<CMD>lua require'utils.trouble'.next()<CR>", desc = "  Next trouble / quickfix item" },
-  { "<C-p>", "<CMD>lua require'utils.trouble'.prev()<CR>", desc = "  Prev trouble / quickfix item" },
-  { "<Leader>m", "<CMD>make<Space>",                       desc = "  Run make" },
-  { "[q", "<CMD>lua require'utils.trouble'.prev()<CR>zz",  desc = "  Prev trouble / quickfix item" },
-  { "]q", "<CMD>lua require'utils.trouble'.next()<CR>zz",  desc = "  Next trouble / quickfix item" },
+  { "<C-p>",     "<NOP>"},
+  { ",q",        "<CMD>Trouble qflist toggle<CR>",                desc = "  Toggle Quickfix list" },
+  { "<C-n>",     "<CMD>lua require'utils.trouble'.next()<CR>",    desc = "  Next trouble / quickfix item" },
+  { "<C-p>",     "<CMD>lua require'utils.trouble'.prev()<CR>",    desc = "  Prev trouble / quickfix item" },
+  { "<Leader>m", "<CMD>make<Space>",                              desc = "  Run make" },
+  { "[q",        "<CMD>lua require'utils.trouble'.prev()<CR>zz",  desc = "  Prev trouble / quickfix item" },
+  { "]q",        "<CMD>lua require'utils.trouble'.next()<CR>zz",  desc = "  Next trouble / quickfix item" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -180,7 +191,6 @@ if not is_vscode then
     { "<C-g>", "<CMD>Telescope egrepify<CR>",            desc = "  Live grep with egrepify" },
     { "<Leader><C-g>", "<CMD>Telescope grep_string<CR>", desc = "  Grep string in working directory" },
     { "<Leader>F", "<CMD>Telescope find_files<CR>",      desc = "  Find files in current directory" },
-    { "<Leader>P", "<CMD>Lazy<CR>",                      desc = "  Open lazy.nvim Window" },
     { "<Leader>fL", "<CMD>Telescope luasnip<CR>",        desc = "  LuaSnip Browser" },
     { "<Leader>fb", "<CMD>Telescope file_browser<CR>",   desc = "  File Browser" },
 
@@ -208,21 +218,28 @@ end
 ---------------------------------------------------------------------------
 -- LSP: Language Server Protocol
 ---------------------------------------------------------------------------
-keymap("n", "K",  "<NOP>")
-keymap("n", "<Leader>M", "<CMD>Mason<CR>",                      { desc = "  Open mason.nvim Window" })
-keymap("n", "K",  "<CMD>lua vim.lsp.buf.hover()<CR>",           { desc = "  Hover Documentation" })
-keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>",      { desc = "  Go to Definition" })
-keymap("n", "gD", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "  Go to Type Definition" })
-keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>",  { desc = "  Go to implementation" })
-keymap("n", "gr", "<CMD>lua vim.lsp.buf.references()<CR>",      { desc = "  Go to references" })
+wk.add({
+  { "K", "<NOP" },
+  { "<Leader>P", "<CMD>Lazy<CR>",                        desc = "  Open lazy.nvim Window" },
+  { "<Leader>M", "<CMD>Mason<CR>",                       desc = "  Open mason.nvim Window" },
 
-keymap("n", "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "  Go to prev diagnostics" })
-keymap("n", "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "  Go to next diagnostics" })
-keymap("n", "go",  "<CMD>Lspsaga outline<CR>",              { desc = "  Code outline" })
-keymap("n", "gn",  "<CMD>Lspsaga rename<CR>",               { desc = "  Rename" })
-keymap("n", "gci", "<CMD>Lspsaga incoming_calls<CR>",       { desc = "  Call incoming hierarchy" })
-keymap("n", "gco", "<CMD>Lspsaga outcoming_calls<CR>",      { desc = "  Call outcoming hierarchy" })
-keymap(nv, "ga", "<CMD>Lspsaga code_action<CR>",            { desc = "  Code Action" })
+  { "K",   "<CMD>lua vim.lsp.buf.hover()<CR>",           desc = "  Hover Documentation" },
+  { "gd",  "<CMD>lua vim.lsp.buf.definition()<CR>",      desc = "  Go to Definition" },
+  { "gD",  "<CMD>lua vim.lsp.buf.type_definition()<CR>", desc = "  Go to Type Definition" },
+  { "gi",  "<CMD>lua vim.lsp.buf.implementation()<CR>",  desc = "  Go to implementation" },
+  { "gr",  "<CMD>lua vim.lsp.buf.references()<CR>",      desc = "  Go to references" },
+  { "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>",      desc = "  Go to prev diagnostics" },
+  { "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>",      desc = "  Go to next diagnostics" },
+  { "go",  "<CMD>Lspsaga outline<CR>",                   desc = "  Code outline" },
+  { "gn",  "<CMD>Lspsaga rename<CR>",                    desc = "  Rename" },
+  { "gci", "<CMD>Lspsaga incoming_calls<CR>",            desc = "  Call incoming hierarchy" },
+  { "gco", "<CMD>Lspsaga outcoming_calls<CR>",           desc = "  Call outcoming hierarchy" },
+})
+
+wk.add({
+  mode = nv,
+  { "ga", "<CMD>Lspsaga code_action<CR>", desc = "  Code Action" },
+})
 
 --------------------------------------------------
 ---- 🚦  Keymap for LSP via Telescope
@@ -243,11 +260,13 @@ wk.add({
 -- 🐛  DAP: Debugger Adapter Protocol
 ---------------------------------------------------------------------------
 -- DAP keymap like VSCode
-keymap("n", "<F5>",    "<CMD>DapContinue<CR>",  { desc = ": Continue Process" })
-keymap("n", "<S-F5>",  "<CMD>DapTerminate<CR>", { desc = "□: Terminate Process" })
-keymap("n", "<F10>",   "<CMD>DapStepOver<CR>",  { desc = ": Step Over" })
-keymap("n", "<F11>",   "<CMD>DapStepInto<CR>",  { desc = ": Step Into" })
-keymap("n", "<S-F11>", "<CMD>DapStepOut<CR>",   { desc = ": Step Out" })
+wk.add({
+  { "<F5>",    "<CMD>Dap<CR>", desc = ": Continue Process" },
+  { "<S-F5>",  "<CMD>Dap<CR>", desc = "□: Terminate Process" },
+  { "<F10>",   "<CMD>Dap<CR>", desc = ": Step Over" },
+  { "<F11>",   "<CMD>Dap<CR>", desc = ": Step Into" },
+  { "<S-F11>", "<CMD>Dap<CR>", desc = ": Step Out" },
+})
 
 -- Debugger Control
 wk.add({
@@ -335,12 +354,17 @@ wk.add({
 -- Others
 ---------------------------------------------------------------------------
 -- Toggle Plugin
-keymap(nt,  ",t", "<CMD>ToggleTerm<CR>",         { desc = "  Toggle Terminal" })
-keymap("n", ",f", "<CMD>Neotree toggle<CR>",     { desc = "  Toggle NeoTree" })
-keymap("n", ",s", "<CMD>ScrollbarToggle<CR>",    { desc = "  Toggle Scrollbar" })
-keymap("n", ",/", "<CMD>HlSearchLensToggle<CR>", { desc = "  Toggle Hlsearch lens" })
-keymap("n", ",m", "<CMD>TSJToggle<CR>",          { desc = "  Toggle node under cursor" })
-keymap("n", ",c", "<CMD>ColorizerToggle<CR>",    { desc = "  Toggle Colorizer" })
+wk.add({
+  { ",f", "<CMD>Neotree toggle<CR>",                            desc = "  Toggle NeoTree" },
+  { ",s", "<CMD>ScrollbarToggle<CR>",                           desc = "  Toggle Scrollbar" },
+  { ",/", "<CMD>HlSearchLensToggle<CR>",                        desc = "  Toggle Hlsearch lens" },
+  { ",m", "<CMD>TSJToggle<CR>",                                 desc = "  Toggle node under cursor" },
+  { ",c", "<CMD>ColorizerToggle<CR>",                           desc = "  Toggle Colorizer" },
+  { ",x", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>",   desc = "  Toggle Diagnostic List" },
+  { ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", desc = "  Toggle Diagnostic" },
+})
 
-keymap("n", ",x", "<CMD>TroubleToggle workspace_diagnostics<CR>",         { desc = "  Toggle Diagnostic List" })
-keymap("n", ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics()<CR>", { desc = "  Toggle Diagnostic" })
+wk.add({
+  mode = nt,
+  { ",t", "<CMD>ToggleTerm<CR>", desc = "  Toggle Terminal" },
+})
