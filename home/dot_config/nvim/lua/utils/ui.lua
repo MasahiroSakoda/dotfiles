@@ -17,7 +17,7 @@ end
 
 M.toggle_relative_number = function()
   opt.signcolumn = opt.signcolumn == "yes" and "no" or "yes"
-  opt.relativenumber = not opt.relativenumber
+  opt.relativenumber = not vim.opt.relativenumber:get()
 end
 
 return M
