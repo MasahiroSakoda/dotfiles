@@ -175,16 +175,6 @@ wk.add({
 -- Quickfix
 ---------------------------------------------------------------------------
 
-wk.add({
-  { "<C-p>",     "<NOP>"},
-  { ",q", "<CMD>Trouble qflist toggle<CR>",                icon = " ", desc = "Toggle Quickfix list" },
-  { "<C-p>", "<CMD>lua require'utils.trouble'.prev()<CR>", icon = " ", desc = "Prev trouble / Qf item" },
-  { "<C-n>", "<CMD>lua require'utils.trouble'.next()<CR>", icon = " ", desc = "Next trouble / Qf item" },
-  { "<Leader>m", "<CMD>make<Space>",                       icon = " ", desc = "Run make" },
-  { "[q", "<CMD>lua require'utils.trouble'.prev()<CR>zz",  icon = " ", desc = "Prev trouble / Qf item" },
-  { "]q", "<CMD>lua require'utils.trouble'.next()<CR>zz",  icon = " ", desc = "Next trouble / Qf item" },
-}, opts)
-
 ---------------------------------------------------------------------------
 -- 🛠  overseer.nvim: Task Runner
 ---------------------------------------------------------------------------
@@ -399,7 +389,9 @@ wk.add({
   { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
   { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
 
-  { ",x", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>",   icon = " ", desc = "Toggle Diagnostic List" },
+  { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
+  { ",s", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
+  { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
   { ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", icon = " ", desc = "Toggle Diagnostic" },
 }, opts)
 

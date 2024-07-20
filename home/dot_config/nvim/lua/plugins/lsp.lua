@@ -44,7 +44,7 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
-    cmd    = { "TroubleToggle", "Trouble" },
+    cmd    = { "Trouble" },
     config = function() require("lsp.config.trouble") end,
   },
 
