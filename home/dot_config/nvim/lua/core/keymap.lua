@@ -7,7 +7,6 @@
 -- DAPの割り当て修飾キー: "<Space> + d"
 -- Gitの割り当て修飾キー: "<Space> + g"
 ---------------------------------------------------------------------------
-local keymap = vim.keymap.set -- instead of nvim_keymap_set()
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
 local nv, nx, nt, nxo, o, ox, c = {"n", "v"}, {"n", "x"}, {"n", "t"}, {"n", "x", "o"}, {"o"}, {"o", "x"}, {"c"}
@@ -53,29 +52,21 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
--- Insert Modeでjj/jk ESC
-keymap("i", "jj", "<ESC>")
-
--- flash.nvim
+local flash = require("flash")
 wk.add({
-  mode = nxo,
-  { "s", "<CMD>lua require'flash'.jump()<CR>",       icon = " ", desc = "Flash" },
-  { "S", "<CMD>lua require'flash'.treesitter()<CR>", icon = " ", desc = "Flash Treesitter" },
-}, opts)
+  { "jj", "<ESC>", mode = "i", icon = " ", desc = "Return to NORMAL mode" },
+  { "kk", "<ESC>", mode = "i", icon = " ", desc = "Return to NORMAL mode" },
 
-wk.add({
-  mode = o,
-  { "r", "<CMD>lua require'flash'.remote()<CR>", icon = " ", desc = "Remote Flash" }
-}, opts)
+  { "s", function() flash.jump() end,              mode = nxo, icon = " ", desc = "Flash" },
+  { "S", function() flash.treesitter() end,        mode = nxo, icon = " ", desc = "Flash Treesitter" },
 
-wk.add({
-  mode = ox,
-  { "r", "<CMD>lua require'flash'.treesitter_search()<CR>", icon = " ", desc = "Treesitter Search" }
-}, opts)
+  { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
+  { "R", function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = "Treesitter Search" },
 
-wk.add({
-  mode = c,
-  { "r", "<CMD>lua require'flash'.treesitter_search()<CR>", icon = " ", desc = "Toggle Flash Search" }
+  { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
+  { "R", function() flash.treesitter_search()end,  mode = ox,  icon = " ", desc = "Treesitter Search" },
+
+  { "<C-s>", function() flash.treesitter_search() end, mode = c, icon = " ", desc = "Toggle Flash Search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -101,43 +92,33 @@ wk.add({
 wk.add({
   { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
   { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
-}, opts)
 
--- Buffer Naigation
-wk.add({
+  -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
   { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
   { "<Leader>bd", "<CMD>bdelete<CR>",             icon = " ", desc = "Delete buffer" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-}, opts)
 
--- Tab Navigation
-wk.add({
+  -- Tab Navigation
   { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
   { "]t", "<CMD>tabnext<CR>",     icon = " ", desc = "Move to next tab" },
   { "[1", "<CMD>tabfirst<CR>",    icon = " ", desc = "Move to First tab" },
   { "]9", "<CMD>tablast<CR>",     icon = " ", desc = "Move to Last tab" },
-}, opts)
 
--- Tab Control via Telescope
-wk.add({
-    { "<Leader>t", group = "Tab", icon = "📑 " },
-    { "<Leader>tc", "<CMD>tabclose<CR>", icon = " ", desc = "Close current tab" },
-    { "<Leader>te", ":tabedit<Space>",   icon = " ", desc = "Edit file in new tab" },
-    { "<Leader>tn", ":tabnew<Space>",    icon = " ", desc = "Edit file in new tab" },
-}, opts)
+  -- Tab Control via Telescope
+  { "<Leader>t", group = "Tab", icon = "📑 " },
+  { "<Leader>tc", "<CMD>tabclose<CR>", icon = " ", desc = "Close current tab" },
+  { "<Leader>te", ":tabedit<Space>",   icon = " ", desc = "Edit file in new tab" },
+  { "<Leader>tn", ":tabnew<Space>",    icon = " ", desc = "Edit file in new tab" },
 
--- Window Moving
-wk.add({
+  -- Window Moving
   { "[w", "<C-w>h", icon = " ", desc = "Move to Left  Window" },
   { "]w", "<C-w>l", icon = " ", desc = "Move to Right Window" },
   { "[W", "<C-w>j", icon = " ", desc = "Move to Above Window" },
   { "]W", "<C-w>k", icon = " ", desc = "Move to Below Window" },
-})
 
--- Split Window
-wk.add({
+  -- Split Window
   { "<Leader>s", group = "Split Window", icon = "📖 " },
   { "<Leader>sh", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
   { "<Leader>sv", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
@@ -161,14 +142,11 @@ wk.add({
   { "<C-x>",  map.dec_normal(),  icon = " ", desc = "Decrement variable" },
   { "g<C-a>", map.inc_gnormal(), icon = " ", desc = "Increment variable" },
   { "g<C-x>", map.dec_gnormal(), icon = " ", desc = "Decrement variable" },
-}, opts)
 
-wk.add({
-  mode = "v",
-  { "<C-a>",  map.inc_visual(),  icon = " ", desc = "Increment variable" },
-  { "<C-x>",  map.dec_visual(),  icon = " ", desc = "Decrement variable" },
-  { "g<C-a>", map.inc_gvisual(), icon = " ", desc = "Increment variable" },
-  { "g<C-x>", map.dec_gvisual(), icon = " ", desc = "Decrement variable" },
+  { "<C-a>",  map.inc_visual(),  mode = "v", icon = " ", desc = "Increment variable" },
+  { "<C-x>",  map.dec_visual(),  mode = "v", icon = " ", desc = "Decrement variable" },
+  { "g<C-a>", map.inc_gvisual(), mode = "v", icon = " ", desc = "Increment variable" },
+  { "g<C-x>", map.dec_gvisual(), mode = "v", icon = " ", desc = "Decrement variable" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -186,6 +164,7 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🔭  Telescope
 ---------------------------------------------------------------------------
+local telescope = require("telescope")
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
 
@@ -199,39 +178,14 @@ if not is_vscode then
 
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
-    {
-      "<Leader>fdC",
-      "<CMD>lua require'telescope'.extensinos.dap.commands()<CR>",
-      icon = " ",
-      desc = "Commands",
-    },
-    {
-      "<Leader>fdc",
-      "<CMD>lua require'telescope'.extensinos.dap.configurations()<CR>",
-      icon = " ",
-      desc = "Configs",
-    },
-    {
-      "<Leader>fdf",
-      "<CMD>lua require'telescope'.extensinos.dap.frames()<CR>",
-      icon = " ",
-      desc = "Frames",
-    },
-    {
-      "<Leader>fdl",
-      "<CMD>lua require'telescope'.extensinos.dap.list_breakpoints()<CR>",
-      icon = " ",
-      desc = "Breakpoints",
-    },
-    {
-      "<Leader>fdv",
-      "<CMD>lua require'telescope'.extensinos.dap.variables()<CR>",
-      icon = " ",
-      desc = "Variables",
-    },
+    { "<Leader>fdC", function() telescope.extensions.dap.commands() end,         icon = " ", desc = "Commands" },
+    { "<Leader>fdc", function() telescope.extensions.dap.configurations() end,   icon = " ", desc = "Configs" },
+    { "<Leader>fdf", function() telescope.extensions.dap.frames() end,           icon = " ", desc = "Frames" },
+    { "<Leader>fdl", function() telescope.extensions.dap.list_breakpoints() end, icon = " ", desc = "Breakpoints" },
+    { "<Leader>fdv", function() telescope.extensions.dap.variables() end,        icon = " ", desc = "Variables" },
     {
       "<Leader>fc",
-      ":lua require'telescope'.extensions.chezmoi.find_files()<CR>",
+      function() telescope.extensions.chezmoi.find_files() end,
       icon = " ",
       desc = "Search chezmoi files",
     },
@@ -267,11 +221,8 @@ wk.add({
   { "gn",  "<CMD>Lspsaga rename<CR>",                    icon = " ", desc = "Rename" },
   { "gci", "<CMD>Lspsaga incoming_calls<CR>",            icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>Lspsaga outcoming_calls<CR>",           icon = " ", desc = "Call outcoming hierarchy" },
-}, opts)
 
-wk.add({
-  mode = nv,
-  { "ga", "<CMD>Lspsaga code_action<CR>", desc = "  Code Action" },
+  { "ga", "<CMD>Lspsaga code_action<CR>", mode = nv, icon = " ", desc = "Code Action" },
 }, opts)
 
 --------------------------------------------------
@@ -292,17 +243,15 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapter Protocol
 ---------------------------------------------------------------------------
--- DAP keymap like VSCode
 wk.add({
+  -- DAP keymap like VSCode
   { "<F5>",    "<CMD>DapContinue<CR>",  icon = "", desc = "Continue Process" },
   { "<S-F5>",  "<CMD>DapTerminate<CR>", icon = "□", desc = "Terminate Process" },
   { "<F10>",   "<CMD>DapStepOver<CR>",  icon = "", desc = "Step Over" },
   { "<F11>",   "<CMD>DapStepInto<CR>",  icon = "", desc = "Step Into" },
   { "<S-F11>", "<CMD>DapStepOut<CR>",   icon = "", desc = "Step Out" },
-}, opts)
 
--- Debugger Control
-wk.add({
+  -- Debugger Control
   { "<Leader>d", group = "Debugger", icon = "🐛 " },
   { "<Leader>db", "<CMD>DapToggleBreakpoint<CR>", icon = " ", desc = "Toggle DAP Breakpoints" },
   { "<Leader>dc", "<CMD>DapContinue<CR>",         icon = " ", desc = "Continue Process" },
@@ -360,7 +309,6 @@ if not is_vscode then
     { "<Leader>ao", "<CMD>ChatGPTRun optimize_code<CR>",      icon = " ", desc = "Optimize Code" },
     { "<Leader>ar", "<CMD>ChatGPTRun roxygen_edit<CR>",       icon = " ", desc = "Roxygen Edit" },
   }, opts)
-
 end
 
 ---------------------------------------------------------------------------
@@ -392,10 +340,6 @@ wk.add({
   { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
   { ",s", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
   { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
-  { ",d", "<CMD>lua require'utils.lsp'.toggle_diagnostics<CR>", icon = " ", desc = "Toggle Diagnostic" },
-}, opts)
 
-wk.add({
-  mode = nt,
-  { ",t", "<CMD>ToggleTerm<CR>", icon = " ", desc = "Toggle Terminal" },
+  { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
 }, opts)
