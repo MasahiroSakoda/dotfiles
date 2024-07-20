@@ -51,4 +51,19 @@ trouble.setup({
     },
   },
 
+  keys = {
+    ["?"]     = "help",
+    ["ESC"]   = "cancel",
+    ["<c-s>"] = "jump_split",
+    ["<c-v>"] = "jump_vsplit",
+
+    ["{"]  = "prev",
+    ["[["] = "prev",
+    ["}"]  = "next",
+    ["]]"] = "next",
+
+    i = "inspect",
+    p = "preview",
+    P = "toggle_preview",
+  },
 })
