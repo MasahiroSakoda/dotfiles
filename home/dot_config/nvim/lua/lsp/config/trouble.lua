@@ -18,4 +18,37 @@ trouble.setup({
   warn_no_results = false, -- show a warning when there are no results
   open_no_results = true,  -- open the trouble window when there are no results
 
+  modes = {
+    diagnostics = {
+      win = { position = 'bottom' },
+      preview = {
+        type     = 'split',
+        relative = 'win',
+        position = 'right',
+        size = 0.35,
+      },
+    },
+    symbols = {
+      win = { position = 'right', size = 0.25 },
+      preview = {
+        type     = 'split',
+        relative = 'win',
+        position = 'bottom',
+        size = 0.35,
+      },
+    },
+    lsp = {
+      win = { position = 'bottom' },
+    },
+    qflist = {
+      win = { position = 'bottom' },
+      preview = {
+        type     = 'split',
+        relative = 'win',
+        position = 'right',
+        size = 0.35,
+      },
+    },
+  },
+
 })
