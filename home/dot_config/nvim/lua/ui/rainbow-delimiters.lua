@@ -12,6 +12,7 @@ vim.g.rainbow_delimiters = {
     latex      = "rainbow-blocks",
     javascript = "rainbow-parens",
     typescript = "rainbow-parens",
+    tsx        = "rainbow-parens",
   },
   highlight = {
     "RainbowDelimiterRed",
