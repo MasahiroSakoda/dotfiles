@@ -7,11 +7,11 @@ vim.g.rainbow_delimiters = {
     vim  = rd.strategy["local"],
   },
   query = {
-    [""] = "rainbow-delimiters",
-    lua  = "rainbow-blocks",
-    latex = "rainbow-blocks",
-    javascript = "rainbow-delimiters-react",
-    typescript = "rainbow-delimiters-react",
+    [""]       = "rainbow-delimiters",
+    lua        = "rainbow-blocks",
+    latex      = "rainbow-blocks",
+    javascript = "rainbow-parens",
+    typescript = "rainbow-parens",
   },
   highlight = {
     "RainbowDelimiterRed",
