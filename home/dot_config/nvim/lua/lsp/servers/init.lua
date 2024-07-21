@@ -26,6 +26,7 @@ return {
 
   -- Linter
   actionlint   = {}, -- GitHub Actions workflow
+  checkmake    = {}, -- Makefile
   revive       = {}, -- Go
   ruff_lsp     = require("lsp.servers.ruff_lsp"), -- Python
   biome        = {}, -- JS/TS & JSON
