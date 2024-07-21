@@ -63,9 +63,6 @@ wk.add({
   { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
   { "R", function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = "Treesitter Search" },
 
-  { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
-  { "R", function() flash.treesitter_search()end,  mode = ox,  icon = " ", desc = "Treesitter Search" },
-
   { "<C-s>", function() flash.treesitter_search() end, mode = c, icon = " ", desc = "Toggle Flash Search" },
 }, opts)
 
@@ -186,10 +183,9 @@ if not is_vscode then
     { "<Leader>fj", "<CMD>Telescope jumplist<CR>",    icon = " ", desc = "Vim Jump list" },
 
     -- history
-    { "<Leader>fh", group = "History", icon = " " },
-    { "<Leader>fhc", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
-    { "<Leader>fhs", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
-    { "<Leader>fr",  "<CMD>Telescope resume<CR>",          icon = " ", desc = "Resume previous picker" },
+    { "<Leader>fC", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
+    { "<Leader>fS", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
+    { "<Leader>fr", "<CMD>Telescope resume<CR>",          icon = " ", desc = "Resume previous picker" },
 
     -- telescope.nvim extensions
     { "<Leader>ff", "<CMD>Telescope frecency<CR>",     icon = " ", desc = "Frecency algorithm Search" },
@@ -352,7 +348,7 @@ wk.add({
   { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
 
   { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
-  { ",s", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
+  { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
   { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
   { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
