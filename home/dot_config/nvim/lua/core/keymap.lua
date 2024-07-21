@@ -63,9 +63,6 @@ wk.add({
   { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
   { "R", function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = "Treesitter Search" },
 
-  { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
-  { "R", function() flash.treesitter_search()end,  mode = ox,  icon = " ", desc = "Treesitter Search" },
-
   { "<C-s>", function() flash.treesitter_search() end, mode = c, icon = " ", desc = "Toggle Flash Search" },
 }, opts)
 
