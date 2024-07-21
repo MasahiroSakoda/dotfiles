@@ -170,12 +170,35 @@ if not is_vscode then
 
   wk.add({
     { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
-    { "<C-g>", "<CMD>Telescope egrepify<CR>",            icon = " ", desc = "Live grep with egrepify" },
-    { "<Leader><C-g>", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
-    { "<Leader>F", "<CMD>Telescope find_files<CR>",      icon = " ", desc = "Find files in current directory" },
-    { "<Leader>fL", "<CMD>Telescope luasnip<CR>",        icon = " ", desc = "LuaSnip Browser" },
-    { "<Leader>fb", "<CMD>Telescope file_browser<CR>",   icon = " ", desc = "File Browser" },
 
+    -- Builtin
+    { "<Leader>F",  "<CMD>Telescope find_files<CR>",  icon = " ", desc = "Find files in current directory" },
+    { "<Leader>fo", "<CMD>Telescope oldfiles<CR>",    icon = " ", desc = "Recently files" },
+    { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
+    { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
+
+    -- Vim
+    { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
+    { "<Leader>fq", "<CMD>Telescope quickfix<CR>",    icon = " ", desc = "Quickfix list" },
+    { "<Leader>fb", "<CMD>Telescope buffers<CR>",     icon = " ", desc = "Buffer list" },
+    { "<Leader>fv", "<CMD>Telescope vim_options<CR>", icon = " ", desc = "Vim options" },
+    { "<Leader>fR", "<CMD>Telescope registers<CR>",   icon = " ", desc = "Vim Register list" },
+    { "<Leader>fj", "<CMD>Telescope jumplist<CR>",    icon = " ", desc = "Vim Jump list" },
+
+    -- history
+    { "<Leader>fh", group = "History", icon = " " },
+    { "<Leader>fhc", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
+    { "<Leader>fhs", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
+    { "<Leader>fr",  "<CMD>Telescope resume<CR>",          icon = " ", desc = "Resume previous picker" },
+
+    -- telescope.nvim extensions
+    { "<Leader>ff", "<CMD>Telescope frecency<CR>",     icon = " ", desc = "Frecency algorithm Search" },
+    { "<Leader>fF", "<CMD>Telescope file_browser<CR>", icon = " ", desc = "File Browser" },
+    { "<C-g>",      "<CMD>Telescope egrepify<CR>",     icon = " ", desc = "Live grep with egrepify" },
+    { "<Leader>fs", "<CMD>Telescope luasnip<CR>",      icon = " ", desc = "LuaSnip Browser" },
+    { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
+    { "<Leader>fn", "<CMD>Telescope notify<CR>",       icon = " ", desc = "Notification History" },
+    { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
     { "<Leader>fdC", function() telescope.extensions.dap.commands() end,         icon = " ", desc = "Commands" },
@@ -190,15 +213,6 @@ if not is_vscode then
       desc = "Search chezmoi files",
     },
 
-    { "<Leader>ff", "<CMD>Telescope frecency<CR>",  icon = " ", desc = "Frecency algorithm Search" },
-    { "<Leader>fg", "<CMD>Telescope live_grep<CR>", icon = " ", desc = "Live grep with args" },
-    { "<Leader>fh", "<CMD>Telescope help_tags<CR>", icon = " ", desc = "Help via Telescope" },
-    { "<Leader>fl", "<CMD>Telescope lazy<CR>",      icon = " ", desc = "lazy.nvim Browser" },
-    { "<Leader>fn", "<CMD>Telescope notify<CR>",    icon = " ", desc = "Notification History" },
-    { "<Leader>fo", "<CMD>Telescope oldfiles<CR>",  icon = " ", desc = "Recently files" },
-    { "<Leader>fq", "<CMD>Telescope quickfix<CR>",  icon = " ", desc = "Display Quickfix list" },
-    { "<Leader>fr", "<CMD>Telescope resume<CR>",    icon = " ", desc = "Resume previous picker" },
-    { "<Leader>ft", "<CMD>TodoTelescope<CR>",       icon = " ", desc = "Display Project ToDo" },
   }, opts)
 
 end
