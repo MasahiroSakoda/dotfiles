@@ -45,6 +45,7 @@ local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", 
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
 local sources = {
+  { name = "lazydev",  group_index = 0 },
   { name = "luasnip",  group_index = 1, priority = 100, max_item_count = 15 },
   { name = "nvim_lsp", group_index = 2, priority = 90,  max_item_count = 15 },
   { name = "path",     keyword_length = 3, max_item_count = 5 },
