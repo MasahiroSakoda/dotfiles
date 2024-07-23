@@ -11,7 +11,6 @@ return {
     config = function() require("lsp.config") end,
   },
   { "folke/lazydev.nvim", ft = "lua", opts = {} },
-  { "folke/neoconf.nvim", cmd = "Neoconf", config = function() require("lsp.config.neoconf") end },
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
