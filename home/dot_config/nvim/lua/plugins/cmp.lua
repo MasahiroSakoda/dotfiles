@@ -30,12 +30,6 @@ return {
         cond   = (not vim.g.vscode) and vim.g.copilot,
         config = function() require("lsp.cmp.copilot") end,
       },
-      {
-        "tzachar/cmp-tabnine",
-        build = './install.sh',
-        cond   = (not vim.g.vscode) and vim.g.tabnine,
-        config = function() require("lsp.cmp.tabnine") end,
-      },
     },
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
