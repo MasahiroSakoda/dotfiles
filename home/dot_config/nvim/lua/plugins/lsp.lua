@@ -6,12 +6,11 @@ return {
     dependencies = {
       { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
       { "williamboman/mason-lspconfig.nvim" },
-      { "folke/neodev.nvim", config = function() require("lsp.config.neodev") end },
     },
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
   },
-  { "folke/neoconf.nvim", cmd = "Neoconf", config = function() require("lsp.config.neoconf") end },
+  { "folke/lazydev.nvim", ft = "lua", opts = {} },
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },

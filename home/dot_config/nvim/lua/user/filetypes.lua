@@ -96,12 +96,6 @@ Filetypes.lsp = {
   markdownlint = { ".markdownlintrc", ".markdownlint.json", ".markdownlint.jsonc" },
 }
 
-Filetypes.tabnine = {
-  "*.rs", "*.go", "*.sh", "*.py", "*.rb", "*.lua",
-  "*.html", "*.css", "*.scss",
-  "*.js", "*.jsx", "*.ts", "*.tsx",
-}
-
 Filetypes.ignore = {
   archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
   vcs     = { ".git/", ".svn/", ".hg/" },

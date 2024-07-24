@@ -30,18 +30,6 @@ return {
         cond   = (not vim.g.vscode) and vim.g.copilot,
         config = function() require("lsp.cmp.copilot") end,
       },
-      {
-        "Exafunction/codeium.nvim",
-        build  = (not vim.g.vscode) and ":Codeium Auth",
-        cond   = vim.g.codeium,
-        config = function() require("lsp.cmp.codeium") end,
-      },
-      {
-        "tzachar/cmp-tabnine",
-        build = './install.sh',
-        cond   = (not vim.g.vscode) and vim.g.tabnine,
-        config = function() require("lsp.cmp.tabnine") end,
-      },
     },
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,

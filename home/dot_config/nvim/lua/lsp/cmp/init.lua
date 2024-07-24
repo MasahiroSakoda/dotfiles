@@ -26,8 +26,6 @@ local menu = {
   cmdline_history = "[Hist]",
   buffer          = "[Buf]",
   copilot         = "[Copilot]",
-  cmp_tabnine     = "[T9]",
-  codeium         = "[Codeium]",
 }
 
 local fd_opts = {
@@ -45,6 +43,7 @@ local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", 
 vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
 local sources = {
+  { name = "lazydev",  group_index = 0 },
   { name = "luasnip",  group_index = 1, priority = 100, max_item_count = 15 },
   { name = "nvim_lsp", group_index = 2, priority = 90,  max_item_count = 15 },
   { name = "path",     keyword_length = 3, max_item_count = 5 },
@@ -53,12 +52,6 @@ local sources = {
 
 if vim.g.copilot then
   vim.tbl_deep_extend("force", sources, { name = "copilot", group_index = 2, priority = 80, max_item_count = 10 })
-end
-if vim.g.codeium then
-  vim.tbl_deep_extend("force", sources, { name = "codeium", group_index = 2, priority = 80, max_item_count = 10 })
-end
-if vim.g.tabnine then
-  vim.tbl_deep_extend("force", sources, { name = "cmp_tabnine", group_index = 2, priority = 80,  max_item_count = 10 })
 end
 
 local comparators = {
@@ -77,9 +70,6 @@ local comparators = {
 if vim.g.copilot then
   vim.tbl_deep_extend("force", comparators, require("copilot_cmp.comparators").prioritize)
 end
-if vim.g.tabnine then
-  vim.tbl_deep_extend("force", comparators, require("cmp_tabnine.compare"))
-end
 
 cmp.setup({
   window = {
@@ -97,6 +87,7 @@ cmp.setup({
   },
 
   formatting = {
+    expandable_indicator = true,
     fields = { "abbr", "kind", "menu" },
     format = lspkind.cmp_format({
       mode = "symbol_text",
@@ -210,6 +201,7 @@ cmp.setup.cmdline(":", {
     { name = "path",            group_index = 2, priority = 2, max_item_count = 20, option = fd_opts },
   },
   formatting = {
+    expandable_indicator = true,
     fields = { "menu", "abbr", "kind" },
     format = lspkind.cmp_format({
       mode = "symbol_text",
