@@ -14,6 +14,16 @@ local nv, nx, nt, nxo, o, ox, c = {"n", "v"}, {"n", "x"}, {"n", "t"}, {"n", "x",
 local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
 
+-- Abbreviation for typo
+vim.cmd[[
+  cnoreabbrev Q q
+  cnoreabbrev q1 q!
+  cnoreabbrev Q1 q!
+  cnoreabbrev W w
+  cnoreabbrev Wq wq
+  cnoreabbrev WQ wq
+]]
+
 ---------------------------------------------------------------------------
 -- which-key commands
 ---------------------------------------------------------------------------
