@@ -4,6 +4,10 @@ if not ok then return end
 local enable  = { enable  = true }
 
 treesitter.setup({
+  modules = {},
+  sync_install = true,
+  auto_install = true,
+  ignore_install = {},
   ensure_installed = require("user.filetypes").treesitter,
   -- incremental_selection = enable,
   -- See https://alpha2phi.medium.com/neovim-pde-init-lua-a6c22bc63e80
