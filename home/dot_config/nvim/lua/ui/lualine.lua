@@ -9,7 +9,7 @@ lualine.setup {
     icons_enabled = true,
     -- Usable Themes: molokai / ayu_mirage / dracula / horizon / solarized_dark
     -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    theme = require("lualine.themes.material"),
+    theme = require("lualine.themes.ayu_mirage"),
     -- Separator
     component_separators = { left = "", right = "" },
     section_separators   = { left = "", right = "" },
@@ -23,38 +23,29 @@ lualine.setup {
     refresh = { statusline = 1000, tabline = 1000, winbar = 1000 },
   },
   sections = {
-    lualine_a = {
-      { "mode", icon = { "", color = { fg = "#0f0f0f" } } },
+    lualine_a = { "mode" },
+    lualine_b = {
+      { "branch" },
+      { "diff" },
+      { "diagnostics", separator = { right = "" } },
     },
-    lualine_b = { "branch", "diff" },
     lualine_c = {
       {
         "filename",
-        icon = { "", color = { fg = "#FFFFFF" } },
-        path = 1, --- @type 0|1|2|3|4
+        icon = "",
+        path = 1, -- 0: Filename, 1: Relative, 2: Absolute, 3: Absolute+ w/ home dir 4: Filename + Parent dir
         symbols = { modified = "", readonly = "", newfile  = "", unnamed  = "" }
       },
     },
     lualine_x = {
       {
-        -- TODO: Confirugre `overseer.nvim` detail options
-        "overseer",
-      },
-    },
-    lualine_y = { "encoding", "fileformat" },
-    lualine_z = { "progress", "location" },
-  },
-  winbar = {
-    lualine_a = {},
-    lualine_b = {
-      { "diagnostics", source = { "nvim-lsp", "nvim_diagnostic"} },
-    },
-    lualine_c = {
-      {
         function() return navic.get_location() end,
         cond = function() return navic.is_available() end,
+        separator = { left = "" },
       },
     },
+    lualine_y = { "overseer", "fileformat", "encoding" },
+    lualine_z = { "progress", "location" },
   },
   extensions = {
     "quickfix",
