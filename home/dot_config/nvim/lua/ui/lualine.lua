@@ -24,7 +24,11 @@ lualine.setup {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch", "diff", "diagnostics" },
+    lualine_b = {
+      { "branch" },
+      { "diff" },
+      { "diagnostics", separator = { right = "" } },
+    },
     lualine_c = {
       {
         "filename",
@@ -37,6 +41,7 @@ lualine.setup {
       {
         function() return navic.get_location() end,
         cond = function() return navic.is_available() end,
+        separator = { left = "" },
       },
     },
     lualine_y = { "overseer", "fileformat", "encoding" },
