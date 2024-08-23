@@ -9,7 +9,7 @@ lualine.setup {
     icons_enabled = true,
     -- Usable Themes: molokai / ayu_mirage / dracula / horizon / solarized_dark
     -- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-    theme = require("lualine.themes.material"),
+    theme = require("lualine.themes.ayu_mirage"),
     -- Separator
     component_separators = { left = "", right = "" },
     section_separators   = { left = "", right = "" },
