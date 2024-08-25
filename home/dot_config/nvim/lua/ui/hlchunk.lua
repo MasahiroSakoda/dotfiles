@@ -18,6 +18,7 @@ hlchunk.setup({
       { fg = "#00ffff" },
       { fg = "#c21f30" }, -- this fg is used to highlight wrong chunk
     },
+    delay = 50,
   },
   indent = {
     enable = true,
