@@ -10,11 +10,14 @@ hlchunk.setup({
     chars = {
       horizontal_line = "─",
       vertical_line   = "│",
-      left_top    = "┌",
-      left_bottom = "└",
-      right_arrow = "─",
+      left_top        = "╭",
+      left_bottom     = "╰",
+      right_arrow     = "─",
     },
-    style = "#00ffff",
+    style = {
+      { fg = "#00ffff" },
+      { fg = "#c21f30" }, -- this fg is used to highlight wrong chunk
+    },
   },
   indent = {
     enable = true,
