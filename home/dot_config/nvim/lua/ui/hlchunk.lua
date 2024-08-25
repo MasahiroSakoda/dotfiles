@@ -6,6 +6,7 @@ if not ok then return end
 -- https://github.com/shellRaining/hlchunk.nvim#setup
 hlchunk.setup({
   chunk = {
+    enable = true,
     chars = {
       horizontal_line = "─",
       vertical_line   = "│",
@@ -16,6 +17,7 @@ hlchunk.setup({
     style = "#00ffff",
   },
   indent = {
+    enable = true,
     chars = { "│", "¦", "┆", "┊", },
   },
 })
