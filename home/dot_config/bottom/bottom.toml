@@ -3,9 +3,10 @@ basic = false
 rate  = 500
 hide_time = false
 
-# CPU
+# CPU / GPU
 current_usage = true
 hide_avg_cpu = false
+enable_gpu = true
 
 # Process
 group_processes = false
