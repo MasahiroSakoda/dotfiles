@@ -32,7 +32,7 @@ hide_table_gap = true
   ratio = 3
   type  = "mem"
   [[row.child]]
-  ratio = 1
+  ratio = 2
   type  = "battery"
 [[row]]
   ratio = 3
@@ -43,7 +43,7 @@ hide_table_gap = true
   ratio = 3
   type  = "net"
   [[row.child]]
-  ratio = 1
+  ratio = 2
   type  = "temp"
 [[row]]
   ratio = 4
@@ -52,12 +52,22 @@ hide_table_gap = true
   default=true
 
 [colors]
-avg_cpu_color="Red"
-border_color="White"
-graph_color="Gray"
-highlighted_border_color="LightMagenta"
-selected_bg_color="Magenta"
-selected_text_color="Black"
-table_header_color="Blue"
-text_color="White"
-widget_title_color="Cyan"
+graph_color  = "Gray"
+
+# Border
+border_color = "White"
+highlighted_border_color = "LightMagenta"
+table_header_color = "Blue"
+
+# Text
+text_color = "White"
+selected_text_color = "Black"
+
+# Title
+widget_title_color = "Cyan"
+selected_bg_color = "Magenta"
+
+# CPU
+avg_cpu_color = "Red"
+cpu_core_colors = [ "#e78284", "#ef9f76", "#e5c890", "#a6d189", "#85c1dc", "#ca9ee6" ]
+gpu_core_colors = [ "#74c7ec", "#cba6f7", "#f38ba8", "#fab387", "#f9e2af", "#a6e3a1" ]
