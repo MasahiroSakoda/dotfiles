@@ -40,8 +40,7 @@ lualine.setup {
     lualine_x = {
       {
         function() return navic.get_location() end,
-        cond = function() return navic.is_available() end,
-        separator = { left = "" },
+        cond = function() return navic.is_available() and vim.g.navic_enabled end,
       },
     },
     lualine_y = { "overseer", "fileformat", "encoding" },

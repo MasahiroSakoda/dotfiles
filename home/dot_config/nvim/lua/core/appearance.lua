@@ -43,3 +43,5 @@ opt.listchars = { space = "･", eol = "↴", tab = "»-", trail = "-", nbsp = "
 
 -- nvim-scrollbar
 vim.g.scrollbar_enabled = false
+-- nvim-navic
+vim.g.navic_enabled = false
