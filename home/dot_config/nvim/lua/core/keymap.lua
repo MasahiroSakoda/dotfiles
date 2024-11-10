@@ -16,10 +16,10 @@ if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN)
 
 -- Abbreviation for typo
 vim.cmd[[
-  cnoreabbrev Q q
+  cnoreabbrev Q! q!
   cnoreabbrev q1 q!
   cnoreabbrev Q1 q!
-  cnoreabbrev W w
+  cnoreabbrev W! w!
   cnoreabbrev Wq wq
   cnoreabbrev WQ wq
 ]]
@@ -37,11 +37,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- ❓ Help: <Leader>+H
 ---------------------------------------------------------------------------
-vim.cmd [[
-  cnoreabbrev H vert help
-  cnoreabbrev HR vert bo h
-]]
-
 wk.add({
   { "<Leader>h", group = "Help", icon = "❓ " },
   { "<Leader>hh", ":horizontal above help<Space>",    icon = " ", desc = "Open Help page above buffer" },
