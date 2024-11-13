@@ -2,7 +2,8 @@
 
 return {
   -- colorscheme
-  { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
+  -- { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
+  { "navarasu/onedark.nvim",  config = function() require("ui.onedark") end },
 
   {
     "NvChad/nvim-colorizer.lua", -- Color code viewer
@@ -41,6 +42,7 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
+  { "nvchad/showkeys", cmd = "ShowkeysToggle" },
   {
     "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
     branch = "v3.x",
