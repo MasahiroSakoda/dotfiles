@@ -8,6 +8,7 @@ opt.rtp:prepend(lazypath)
 
 g.mapleader      = [[ ]]
 g.maplocalleader = [[,]]
+g.colorscheme = "onedark" --- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"|"onedark"
 
 local lazy_ok, lazy = pcall(require, "lazy")
 if not lazy_ok then return end
@@ -27,7 +28,7 @@ lazy.setup("plugins", {
   },
   install  = {
     missing = true,
-    colorscheme = { "nightfox", "kanagawa" },
+    colorscheme = { g.colorscheme },
   },
   performance = {
     cache= {

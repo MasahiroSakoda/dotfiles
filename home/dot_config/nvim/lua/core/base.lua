@@ -2,6 +2,13 @@ local opt, g = vim.opt, vim.g
 if vim.loader then vim.loader.enable() end
 
 opt.shell = 'fish'
+
+-- locale
+vim.cmd([[
+" language ja_JP.UTF-8
+language en_US.UTF-8
+]])
+
 -- Help
 opt.helplang = {'ja', 'en'}
 

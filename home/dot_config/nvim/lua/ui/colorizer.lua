@@ -21,6 +21,6 @@ colorizer.setup({
     css_fn   = true,  -- Enable all CSS *functions*: rgb_fn, hsl_fn
     ---@Usage Available modes for `mode`: foreground, background,  virtualtext
     mode = "virtualtext", -- Set the display mode.
-    virtualtext = "■■■■■",
+    virtualtext = "■■",
   }
 })
