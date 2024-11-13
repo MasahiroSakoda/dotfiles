@@ -305,25 +305,6 @@ wk.add({
 ---------------------------------------------------------------------------
 if not is_vscode then
 
-  -- ChatGPT.nvim
-  wk.add({
-    mode = nv,
-    { "<Leader>a", group = "ChatGPT", icon = "🤖 " },
-    { "<Leader>ai", "<CMD>ChatGPT<CR>",                     icon = " ", desc = "Open Interactive Window" },
-    { "<Leader>aa", "<CMD>ChatGPTActAs<CR>",                icon = " ", desc = "Awesome Prompts" },
-    { "<Leader>ac", "<CMD>ChatGPTCompleteCode<CR>",         icon = "",  desc = "Complete code" },
-    { "<Leader>ae", "<CMD>ChatGPTEditWithInstructions<CR>", icon = "",  desc = "Edit with instructions" },
-
-    { "<Leader>ag", "<CMD>ChatGPTRun grammar_correction<CR>", icon = " ", desc = "Grammar Correction" },
-    { "<Leader>as", "<CMD>ChatGPTRun summarize<CR>",          icon = " ", desc = "Summarize text" },
-    { "<Leader>at", "<CMD>ChatGPTRun translate<CR>",          icon = " ", desc = "translate text" },
-    { "<Leader>ak", "<CMD>ChatGPTRun keywords<CR>",           icon = " ", desc = "Keyword Generation" },
-    { "<Leader>ad", "<CMD>ChatGPTRun docstring<CR>",          icon = " ", desc = "Create docstring" },
-    { "<Leader>af", "<CMD>ChatGPTRun fix_bugs<CR>",           icon = " ", desc = "Fix bugs" },
-    { "<Leader>aE", "<CMD>ChatGPTRun explain_code<CR>",       icon = " ", desc = "Explain Code" },
-    { "<Leader>ao", "<CMD>ChatGPTRun optimize_code<CR>",      icon = " ", desc = "Optimize Code" },
-    { "<Leader>ar", "<CMD>ChatGPTRun roxygen_edit<CR>",       icon = " ", desc = "Roxygen Edit" },
-  }, opts)
 end
 
 ---------------------------------------------------------------------------
