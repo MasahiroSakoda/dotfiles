@@ -1,8 +1,15 @@
-local g, fn, opt, loop = vim.g, vim.fn, vim.opt, vim.loop
+local g, fn, opt = vim.g, vim.fn, vim.opt
 local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not loop.fs_stat(lazypath) then
-  fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath, })
+if not vim.loop.fs_stat(lazypath) then
+  fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
 opt.rtp:prepend(lazypath)
 
