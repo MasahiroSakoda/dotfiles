@@ -25,7 +25,6 @@ local menu = {
   luasnip         = "[Snip]",
   cmdline_history = "[Hist]",
   buffer          = "[Buf]",
-  copilot         = "[Copilot]",
 }
 
 local fd_opts = {
@@ -50,10 +49,6 @@ local sources = {
   { name = "buffer",   keyword_length = 3, max_item_count = 5, option = { keyword_pattern = anyWord } },
 }
 
-if vim.g.copilot then
-  vim.tbl_deep_extend("force", sources, { name = "copilot", group_index = 2, priority = 80, max_item_count = 10 })
-end
-
 local comparators = {
   compare.offset,
   compare.exact,
@@ -66,10 +61,6 @@ local comparators = {
   compare.length,
   compare.order,
 }
-
-if vim.g.copilot then
-  vim.tbl_deep_extend("force", comparators, require("copilot_cmp.comparators").prioritize)
-end
 
 cmp.setup({
   window = {

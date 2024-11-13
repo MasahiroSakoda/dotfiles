@@ -15,21 +15,6 @@ return {
       -- "tzachar/cmp-fuzzy-buffer",
       "hrsh7th/cmp-cmdline",
       "dmitmel/cmp-cmdline-history",
-
-      -- AI assisted completion
-      -- GitHub Copilot interaction
-      {
-        "zbirenbaum/copilot.lua",
-        build  = ":Copilot auth",
-        cond   = (not vim.g.vscode) and vim.g.copilot,
-        cmd    = "Copilot",
-        config = function() require("ai.copilot") end,
-      },
-      {
-        "zbirenbaum/copilot-cmp",
-        cond   = (not vim.g.vscode) and vim.g.copilot,
-        config = function() require("lsp.cmp.copilot") end,
-      },
     },
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
