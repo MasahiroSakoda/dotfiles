@@ -6,6 +6,8 @@ opacity = 0.75
 
 [terminal.wezterm]
 themes = [
+  "One Dark (Gogh)",
+  "One Half Black (Gogh)",
   "Oxocarbon Dark (Gogh)",
   "Thayer Bright (Gogh)",
   "Tokyo Night Storm (Gogh)",
