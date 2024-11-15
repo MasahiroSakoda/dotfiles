@@ -12,9 +12,6 @@ return {
     cmd = { "OverseerToggle", "OverseerRun" },
     config = function() require("user.overseer") end,
   },
-  -- Translate Engine
-  { "potamides/pantran.nvim", cmd = "Pantran", config = function() require("user.pantran") end },
-
   {
     "epwalsh/obsidian.nvim",
     version = "*",
