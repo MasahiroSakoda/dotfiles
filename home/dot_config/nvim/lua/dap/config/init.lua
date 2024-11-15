@@ -2,9 +2,6 @@ local dap_ok,   dap   = pcall(require, "dap")
 local dapui_ok, dapui = pcall(require, "dapui")
 if not (dap_ok or dapui_ok) then return end
 
--- INFO:
-require("dap.ext.vscode").json_decode = require("overseer.json").decode
-
 dapui.setup({
   icons = {
     expanded      = "",
@@ -88,7 +85,9 @@ dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() 
 dap.listeners.after.event_terminated["dapui_config"] = function() dapui.close() end
 dap.listeners.after.event_exited["dapui_config"] = function() dapui.open() end
 
-require("overseer").patch_dap(true)
+require("dap.ext.vscode").json_decode = require("overseer.json").decode
+-- https://github.com/stevearc/overseer.nvim/blob/master/doc/third_party.md#dap
+require("overseer").enable_dap()
 
 local bp = {
   breakpoint = {
