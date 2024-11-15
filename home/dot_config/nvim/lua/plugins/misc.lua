@@ -12,20 +12,4 @@ return {
     cmd = { "OverseerToggle", "OverseerRun" },
     config = function() require("user.overseer") end,
   },
-  -- Translate Engine
-  { "potamides/pantran.nvim", cmd = "Pantran", config = function() require("user.pantran") end },
-
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-    cmd = {
-      "ObsidianOpen", "ObsidianExtractNote", "ObsidianNew", "ObsidianWorkspace",
-      "ObsidianLink", "ObsidianLinkNew", "ObsidianFollowLink", "ObsidianBacklinks",
-      "ObsidianDailies", "ObsidianToday", "ObsidianTomorrow", "ObsidianYesterday",
-      "ObsidianSearch", "ObsidianQuickSwitch", "ObsidianRename", "ObsidianTags",
-      "ObsidianTemplate", "ObsidianPasteImg", "ObsidianToggleCheckbox",
-    },
-    config = function() require("user.obsidian") end,
-  },
 }

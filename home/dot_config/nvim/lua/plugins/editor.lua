@@ -53,10 +53,6 @@ return {
     config = function() require("lsp.cmp.autopairs") end
   },
 
-  -- Quickfix
-  { "kevinhwang91/nvim-bqf",     ft = "qf", config = function() require("user.quickfix.bqf") end },
-  { "gabrielpoca/replacer.nvim", ft = "qf" },
-
   -- File specific Highlighter
   { "MTDL9/vim-log-highlighting",  ft = { "log", "txt", "text" } },
   { "Decodetalkers/csv-tools.lua", ft = "csv" },
