@@ -54,7 +54,6 @@ return {
   },
 
   -- Quickfix
-  { "kevinhwang91/nvim-bqf",     ft = "qf", config = function() require("user.quickfix.bqf") end },
   { "gabrielpoca/replacer.nvim", ft = "qf" },
 
   -- File specific Highlighter
