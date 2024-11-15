@@ -281,9 +281,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### AI Assistant
 
-* [**ChatGPT.nvim**](https://github.com/jackMort/ChatGPT.nvim)
-* [**copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
-
 #### mise
 
 Runtime version management tool

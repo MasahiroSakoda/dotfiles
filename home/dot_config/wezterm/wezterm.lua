@@ -43,7 +43,7 @@ config.window_close_confirmation = "AlwaysPrompt" ---@type "AlwaysPrompt"|"Never
 
 wezterm.GLOBAL.background_index = wezterm.GLOBAL.background_index or 1
 config.window_background_image = require("background")[wezterm.GLOBAL.background_index]
-config.window_background_opacity = 0.75 ---@type float
+config.window_background_opacity = 0.75
 config.window_background_image_hsb = {
   brightness = 0.25,
   -- hue = 1.0,
@@ -54,10 +54,10 @@ config.window_frame = {
   font_size = fonts.window.size,
 }
 config.window_padding = {
-  left   = 0, ---@type float
-  right  = 0, ---@type float
-  top    = 0, ---@type float
-  bottom = 0, ---@type float
+  left   = 0,
+  right  = 0,
+  top    = 0,
+  bottom = 0,
 }
 config.native_macos_fullscreen_mode = true ---@type boolean
 config.macos_window_background_blur = 10   ---@type integer

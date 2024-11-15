@@ -19,8 +19,8 @@ i   = "install"
 o   = "outdated -Rv"
 
 [cargo-new]
-name  = {{ .git.user }}
-email = {{ .git.email }}
+name  = {{ .git.user | quote}}
+email = {{ .git.email | quote }}
 vcs   = "git"
 
 [expand]
