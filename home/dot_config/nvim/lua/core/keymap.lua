@@ -152,10 +152,6 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- Quickfix
----------------------------------------------------------------------------
-
----------------------------------------------------------------------------
 -- 🛠  overseer.nvim: Task Runner
 ---------------------------------------------------------------------------
 wk.add({
@@ -304,6 +300,18 @@ wk.add({
 -- 🤖  AI Interaction
 ---------------------------------------------------------------------------
 if not is_vscode then
+
+  -- avante.nvim
+  wk.add({
+    mode = nv,
+    { "<Leader>a", group = "avante.nvim", icon = "🤖 " },
+    { "<Leader>at", "<CMD>AvanteToggle<CR>",         icon = "", desc = "Toggle Avante Chat" },
+    { "<Leader>aa", "<CMD>AvanteAsk<CR>",            icon = "", desc = "Avante Ask" },
+    { "<Leader>ac", "<CMD>AvanteChat<CR>",           icon = "", desc = "Avante Chat" },
+    { "<Leader>ae", "<CMD>AvanteEdit<CR>",           icon = "", desc = "Avante Editor" },
+    { "<Leader>ar", "<CMD>AvanteRefresh<CR>",        icon = "", desc = "Refresh Avante Window" },
+    { "<Leader>ac", "<CMD>AvanteSwitchProvider<CR>", icon = "", desc = "Switch Avante Provider" },
+  }, opts)
 
 end
 
