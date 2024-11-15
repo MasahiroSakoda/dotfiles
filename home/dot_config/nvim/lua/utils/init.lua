@@ -6,21 +6,18 @@ M.file_exists = function (file)
   return f ~= nil
 end
 
-M.open_cfile = function(opts)
-  opts = opts or {}
-  local cfile = vim.fn.expand("<cfile>")
-  -- Open File or URL
-  if cfile:match("^https?://") then
-    if vim.fn.has("mac") then
-      vim.fn.system({"open", cfile})
-    elseif vim.fn.executable("xdg-open") then
-      vim.fn.system({"xdg-open", cfile})
-    end
-    -- INFO `vim.ui.open()` usable NeoVim nightly environment for now
-    -- vim.ui.open(cfile)
-  else
-    vim.cmd([[normal! gF]])
-  end
+---@param path string
+---@return string
+M.shorten_path = function(path)
+  ---@diagnostic disable-next-line: redundant-return-value
+  return path
+      -- Remove CWD
+    ---@diagnostic disable-next-line: undefined-field
+    :gsub(vim.pesc(vim.loop.cwd()) .. "/", "")
+    -- Remove home dir
+    :gsub(vim.pesc(vim.fn.expand "$HOME"), "~")
+    -- Remove trailing slash
+    :gsub("/$", "")
 end
 
 return M

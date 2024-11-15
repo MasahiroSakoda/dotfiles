@@ -15,6 +15,7 @@ telescope.setup({
   },
   extensions = {
     file_browser = {
+      prompt_title = string.format("Browse in %s", require("utils").shorten_path(vim.fn.getcwd())),
       layout_strategy  = "horizontal",
       hijack_netrw = true,
       -- Keymap

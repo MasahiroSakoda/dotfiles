@@ -6,6 +6,7 @@ if not (telescope_ok or actions_ok) then return end
 telescope.setup({
   extensions = {
     egrepify = {
+      prompt_title = string.format("Live Grep in %s", require("utils").shorten_path(vim.fn.getcwd())),
       prefixes = {
         ["!"] = {
           flag = "invert-match",
