@@ -9,11 +9,14 @@
 # Verbose mode.
 # verbose
 
+# Show error messages
+show-error
+
 # Display transfer progress as a progress bar.
 progress-bar
 
 # Support gzip responses.
-compressed
+# compressed
 
 # Set the maximum time in seconds to allow cURL's connection to take.
 connect-timeout = 1200
@@ -28,14 +31,14 @@ referer = ";auto"
 remote-time
 
 # Take filename from the URL, like wget
-remote-name-all
+# remote-name-all
 
 # Retry the transfer if a transient error occurs.
-retry = 10
-retry-delay = 20
+retry = 5
+retry-delay = 5
 
 # Consider connections refused as transient errors.
-retry-connrefused
+# retry-connrefused
 
 # Define the user agent identification header.
 {{ if eq .chezmoi.os "darwin" -}}
