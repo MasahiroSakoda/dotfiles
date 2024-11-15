@@ -11,9 +11,9 @@ dapjs.setup({
   debugger_path  = debugger_path,
   debugger_cmd   = { "js-debug-adapter" },
   adapters       = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
-  -- log_file_path     = "(stdpath cache)/dap_vscode_js.log", -- Path for file logging
+  log_file_path     = "(stdpath cache)/dap_vscode_js.log", -- Path for file logging
   log_file_level    = vim.log.levels.TRACE,
-  -- log_console_level = vim.log.levels.ERROR, -- Logging level for output to console. Set to false to disable console output.
+  log_console_level = vim.log.levels.ERROR, -- Logging level for output to console. Set to false to disable console output.
 })
 
 -- Language specific configurations
