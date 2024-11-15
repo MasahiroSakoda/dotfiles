@@ -16,19 +16,10 @@ set -gx ARCHFLAGS '-arch arm64'
 set -gx ARCHFLAGS '-arch x86_64'
 {{- end }}
 
-for pkg in bison curl openssl@3
-  fish_add_path $HOMEBREW_PREFIX/opt/$pkg/bin
-end
-
 # Editor
 set -gx EDITOR nvim
 set -gx VISUAL $EDITOR
 set -gx NVIM_APPNAME nvim
-
-# cURL
-set -gx HOMEBREW_FORCE_BREWED_CURL 1
-set -gx HOMEBREW_CURL_RETRIES 5
-set -gx HOMEBREW_CURLRC "$HOME/.config/curlrc"
 
 # w3m
 set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
