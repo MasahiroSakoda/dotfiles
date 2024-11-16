@@ -14,7 +14,7 @@ telescope.setup({
   extensions = {
     frecency = {
       default_workspace = "CWD",
-      prompt_title = string.format("Frecency Search in %s", require("utils").shorten_path(vim.fn.getcwd(), 5)),
+      prompt_title = string.format("Frecency Search in %s", require("utils").shorten_path(vim.fn.getcwd())),
       db_root = db_root,
       db_safe_mode     = true,
       auto_validate    = true,
