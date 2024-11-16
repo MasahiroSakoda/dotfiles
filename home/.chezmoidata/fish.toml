@@ -1,0 +1,28 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[plugins]
+fisher = [
+  "jorgebucaran/fisher",        # Plugin Manager
+
+  # Prompt
+  "jorgebucaran/autopair.fish", # auto-close pair braces & quotes
+
+  # Other shell
+  "edc/bass",                # Make Bash utilities usable in Fish shell
+
+  # Appearance
+  "dracula/fish",            # Dracula Theme
+  "decors/fish-colored-man", # Colored manual for fish
+
+  # Process
+  "franciscolourenco/done",  # process-done notifier
+  "meaningful-ooo/sponge",   # clean typos from history
+
+  # Fuzzy finder
+  "jethrokuan/fzf",          # fzf integration
+  "jethrokuan/z",            # z directory jumping
+  "PatrickF1/fzf.fish",      # fzf plugin
+
+  # Others
+  "decors/fish-ghq",         # ghq integration
+]
