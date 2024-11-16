@@ -1,5 +1,9 @@
 # -*-mode:fish-*- vim:ft=fish.gotexttmpl
 
+# Shell
+set -gx HISTFILE "$XDG_STATE_HOME/bash_history"
+set -gx ZSH_HISTORY_FILE "XDG_STATE_HOME/zsh_history"
+
 # Rust
 set -gx RUST_BACKTRACE full
 set -gx CARGO_HOME "{{ .chezmoi.homeDir }}/.cargo"
@@ -12,6 +16,7 @@ end
 set -gx PYTHONPATH "{{ .brew_prefix }}/lib/python3.11"
 set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
 set -gx PYTHON_BUILD_HTTP_CLIENT "aria2c"
+set -gx PYTHON_HISTORY "$XDG_STATE_HOME/python_history"
 
 {{ if eq .chezmoi.os "darwin" -}}
 set -gx PYTHON_CONFIGURE_OPTS "--enable-framework --enable-optimizations --with-lto=full --with-tcltk-includes='-I$(brew --prefix tcl-tk)/include' --with-tcltk-libs='-L$(brew --prefix tcl-tk)/lib -ltcl8.6 -ltk8.6'"
@@ -30,3 +35,6 @@ set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   fish_add_path $PNPM_HOME
 end
+
+# SQLite
+set -gx SQLITE_HISTORY "$XDG_STATE_HOME/sqlite_history"

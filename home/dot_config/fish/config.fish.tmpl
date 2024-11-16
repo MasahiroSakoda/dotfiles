@@ -32,12 +32,19 @@ starship init fish | source
 set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
 
 # Pager
-set -gx LESS_TERMCAP_mb \e'[01;31m'
-# set -gx PAGER "lv -c"
 set -gx PAGER "less"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --style=numbers'"
 set -gx BAT_THEME "Monokai Extended Origin"
-set -gx LV "-Ou8 -c -Sh1;36 -Su1;4;32 -Ss7;37;1;33"
+set -gx LESS "--ignore-case --RAW-CONTROL-CHARS --LONG-PROMPT -x-4 -z-4"
+set -gx LESSCHARSET "utf-8"
+set -gx LESS_TERMCAP_mb (printf "\e[01;31m")
+set -gx LESS_TERMCAP_md (printf "\e[01;31m")
+set -gx LESS_TERMCAP_me (printf "\e[0m")
+set -gx LESS_TERMCAP_se (printf "\e[0m")
+set -gx LESS_TERMCAP_so (printf "\e[01;42;30m")    # Search highlight
+set -gx LESS_TERMCAP_ue (printf "\e[0m")
+set -gx LESS_TERMCAP_us (printf "\e[01;32m")
+set -gx LESSHISTFILE "$XDG_DATA_HOME/lesshst"
 
 # Grep
 set -x GREP_OPTIONS "--color=always"
