@@ -4,27 +4,23 @@ local ok, overseer = pcall(require, "overseer")
 if not ok then return end
 
 overseer.setup({
+  -- DO NOT add chezmoi attributed prefix (e.g. "run_*")
+  -- See also: https://www.chezmoi.io/reference/source-state-attributes/
+  templates = { "builtin", "user.build_go", "user.test_go", "user.python" },
   task_list = {
-    direction  = "bottom",
-    min_height = 25,
-    max_height = 25,
+    direction  = "bottom", ---@type "left"|"right"|"bottom"
+    min_height = 10,
+    max_height = 15,
     default_detail = 1, ---@type 1|2|3
   },
   dap = false,
-  -- TODO: integration with `toggleterm`
-  -- strategy = {
-  --   "toggleterm",
-  --   use_shell = false,
-  --   -- have the toggleterm window close and delete the terminal buffer automatically after the task exits
-  --   close_on_exit = false,
-  --   -- have the toggleterm window close without deleting the terminal buffer
-  --   -- automatically after the task exits
-  --   quit_on_exit = "never", ---@type "always"|"success"|"never"
-  --   -- open the toggleterm window when a task starts
-  --   open_on_start = true,
-  -- },
-  templates = {
-    "builtin",
-    "user",
+  strategy = {
+    "toggleterm",
+    use_shell = false,
+    direction     = nil,      ---@type nil|"vertical"|"horizontal"|"tab"|"float"
+    close_on_exit = true,
+    quit_on_exit  = "always", ---@type "always"|"success"|"never"
+    open_on_start = true,
+    auto_scroll   = true,
   },
 })
