@@ -9,7 +9,7 @@ return {
   },
   {
     "stevearc/overseer.nvim",
-    cmd = { "OverseerToggle", "OverseerRun" },
+    cmd = { "Grep", "Make", "OverseerToggle", "OverseerRun" },
     config = function() require("user.overseer") end,
   },
 }
