@@ -15,7 +15,7 @@ tt.setup({
     },
   },
   float_opts = {
-    width  = function() return math.ceil(o.columns * 0.65) end,
+    width  = function() return math.ceil(o.columns * 0.85) end,
     -- height = function() return math.ceil(o.columns * 0.4) end,
     border   = "curved", ---@Usage "single", "double", "shadow", "curved"
     winblend = 20,
