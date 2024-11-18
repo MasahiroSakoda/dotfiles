@@ -59,11 +59,6 @@ set -x __done_min_cmd_duration 60000  # default: 5000 ms
 ## thefuck
 type -q thefuck && thefuck --alias | source
 
-# tabtab source for packages
-# uninstall by removing these lines
-# Note: this is required for `pnpm` completion
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
-
 # Fish
 abbr -a -- cl clear
 abbr -a -- x exit
