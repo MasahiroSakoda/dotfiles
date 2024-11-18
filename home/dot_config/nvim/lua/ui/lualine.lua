@@ -1,6 +1,7 @@
-local lualine_ok, lualine = pcall(require, "lualine")
-local navic_ok,   navic   = pcall(require, "nvim-navic")
-if not (lualine_ok or navic_ok) then return end
+local lualine_ok, lualine   = pcall(require, "lualine")
+local navic_ok,   navic     = pcall(require, "nvim-navic")
+local overseer_ok, overseer = pcall(require, "overseer")
+if not (lualine_ok or navic_ok or overseer_ok) then return end
 
 local ignore = require("core.ignore")
 
@@ -17,7 +18,7 @@ lualine.setup {
       statusline = ignore.lualine.statusline,
       winbar = ignore.lualine.winbar,
     },
-    ignore_focus = { "toggleterm" },
+    ignore_focus = {},
     always_divide_middle = true,
     globalstatus = true,
     refresh = { statusline = 1000, tabline = 1000, winbar = 1000 },
@@ -42,9 +43,25 @@ lualine.setup {
         function() return navic.get_location() end,
         cond = function() return navic.is_available() and vim.g.navic_enabled end,
       },
+      {
+        "overseer",
+        label = "",     -- Prefix for task counts
+        colored = true, -- Color the task icons and counts
+        symbols = {
+          [overseer.STATUS.FAILURE]  = " :",
+          [overseer.STATUS.CANCELED] = " :",
+          [overseer.STATUS.SUCCESS]  = " :",
+          [overseer.STATUS.RUNNING]  = " :",
+        },
+        unique     = false, -- Unique-ify non-running task count by name
+        name       = nil,   -- List of task names to search for
+        name_not   = false, -- When true, invert the name search
+        status     = nil,   -- List of task statuses to display
+        status_not = false, -- When true, invert the status search
+      }
     },
-    lualine_y = { "overseer", "fileformat", "encoding" },
-    lualine_z = { "progress", "location" },
+    lualine_y = { "fileformat", "encoding" },
+    lualine_z = { "location", "progress" },
   },
   extensions = {
     "quickfix",

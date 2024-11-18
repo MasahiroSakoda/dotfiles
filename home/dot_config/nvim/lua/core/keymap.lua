@@ -155,8 +155,16 @@ wk.add({
 -- 🛠  overseer.nvim: Task Runner
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>rr", "<CMD>OverseerRun<CR>",    icon = " ", desc = "Run a task from a template" },
-  { "<Leader>rt", "<CMD>OverseerToggle<CR>", icon = " ", desc = "Toggle overseer window" },
+  -- Async commands
+  { "<Leader>og", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = "Grep cursor word asynchronously" },
+  { "<Leader>om", "<CMD>Make<CR>",                  icon = " ", desc = "Run make asynchronously" },
+
+  -- overseed.nvim commands
+  { "<Leader>or", "<CMD>OverseerRun<CR>",         icon = " ", desc = "Run a task from a template" },
+  { "<Leader>ol", "<CMD>OverseerRestartLast<CR>", icon = " ", desc = "Restart Last Action" },
+  { "<Leader>ot", "<CMD>OverseerToggle<CR>",      icon = " ", desc = "Toggle overseer window" },
+  { "<Leader>oa", "<CMD>OverseerTaskAction<CR>",  icon = " ", desc = "Select a task to run an action on" },
+  { "<Leader>oq", "<CMD>OverseerQuickAction<CR>", icon = " ", desc = "Run an action on the most recent task" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -314,21 +322,6 @@ if not is_vscode then
   }, opts)
 
 end
-
----------------------------------------------------------------------------
--- obsidian.nvim
----------------------------------------------------------------------------
-wk.add({
-  { "<Leader>o", group = "Obsidian integration",  icon = "📝" },
-  { "<Leader>ob", "<CMD>ObsidianBacklinks<CR>",   icon = " ", desc = "Get References To Current" },
-  { "<Leader>od", "<CMD>ObsidianDailies<CR>",     icon = " ", desc = "Open Daily Notes" },
-  { "<Leader>of", "<CMD>ObsidianFollowLink<CR>",  icon = " ", desc = "Go To Link Under Cursor" },
-  { "<Leader>og", "<CMD>ObsidianSearch<CR>",      icon = " ", desc = "Grep Search notes" },
-  { "<Leader>on", "<CMD>ObsidianNew<CR>",         icon = " ", desc = "Create New Note" },
-  { "<Leader>oo", "<CMD>ObsidianOpen<CR>",        icon = " ", desc = "Open in Obsidian.app" },
-  { "<Leader>os", "<CMD>ObsidianQuickSwitch<CR>", icon = " ", desc = "Quick Switch" },
-  { "<Leader>ot", "<CMD>ObsidianTemplate<CR>",    icon = " ", desc = "Insert Obsidian Template" },
-}, opts)
 
 ---------------------------------------------------------------------------
 -- Others
