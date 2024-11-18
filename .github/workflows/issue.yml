@@ -17,7 +17,10 @@ jobs:
           configuration-path: ".github/labeler.yml"
   issue-assign:
     name: Assign author to Issue
+    if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Assign author to issue
         uses: technote-space/assign-author@v1

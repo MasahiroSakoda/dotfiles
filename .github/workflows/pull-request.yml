@@ -23,6 +23,7 @@ jobs:
         configuration-path: ".github/labeler.yml"
   pr-assigner:
     name: Assign author to PR
+    if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
     steps:
       - name: Assign author to PR
