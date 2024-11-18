@@ -1,31 +1,45 @@
-// -*-mode:json5-*- vim:ft=json5
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":dependencyDashboard",
-    "github>whitesource/merge-confidence:beta"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    ':dependencyDashboard',
+    'mergeConfidence:all-badges',
   ],
-  "automerge": true,
-  "requiredStatusChecks": null,
-  "timezone": "Asia/Tokyo",
-  "ignorePresets": [":prHourlyLimit2", ":prConcurrentLimit10"],
-
-  "major": {"stabilityDays": 7},
-  "minor": {"stabilityDays": 3},
-  "patch": {"stabilityDays": 2},
-
-  "packageRules":[
+  automerge: true,
+  ignoreTests: true,
+  timezone: 'Asia/Tokyo',
+  ignorePresets: [
+    ':prHourlyLimit2',
+    ':prConcurrentLimit10',
+  ],
+  major: {
+    minimumReleaseAge: '7 days',
+  },
+  minor: {
+    minimumReleaseAge: '3 days',
+  },
+  patch: {
+    minimumReleaseAge: '2 days',
+  },
+  packageRules: [
     {
-      "description": "Don't pin official action digests",
-      "matchPackagePrefixes": ["actions/"],
-      "pinDigests": false
+      description: "Don't pin official action digests",
+      pinDigests: false,
+      matchPackageNames: [
+        'actions/{/,}**',
+      ],
     },
     {
-      "description": "Schedule digest updates weekly",
-      "excludePackagePrefixes": ["actions/"],
-      "matchUpdateTypes": ["digest"],
-      "schedule": ["every 7 days"],
-    }
-  ]
+      description: 'Schedule digest updates weekly',
+      matchUpdateTypes: [
+        'digest',
+      ],
+      schedule: [
+        'every 7 day',
+      ],
+      matchPackageNames: [
+        '!actions/{/,}**',
+      ],
+    },
+  ],
 }
