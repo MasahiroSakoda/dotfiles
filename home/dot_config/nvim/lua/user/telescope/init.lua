@@ -30,20 +30,25 @@ end
 telescope.setup({
   defaults = {
     vimgrep_arguments = rg_cmd,
-    prompt_prefix = '🔍  ',
+    prompt_prefix   = "🔍  ",
     selection_caret = " ",
-    color_devicons = true,
-    layout_config    = {
-      width  = 0.9,
-      height = 0.9,
-      prompt_position = "top",    ---@Usage: "top", "bottom"
+    color_devicons  = true,
+    selection_strategy = "reset",      ---@type "reset"|"follow"|"row"|"closest"|"none"
+    sorting_strategy   = "ascending",  ---@type "ascending"|"descending"
+    layout_strategy    = "horizontal", ---@type "bottom_pane"|"center"|"cursor"|"horizontal"|"vertical"
+    layout_config = {
+      horizontal = {
+        width  = 0.85,
+        height = function(_, _, max_line) return max_line end,
+        preview_width   = 0.5,
+        prompt_position = "top",
+      },
     },
     borderchars = {
       prompt = borderchars,
       results = borderchars,
       preview = borderchars,
     },
-    sorting_strategy = "ascending", ---@Usage "ascending", "descending"
     winblend = 30,
     file_ignore_patterns = patterns.files,
     preview = {
