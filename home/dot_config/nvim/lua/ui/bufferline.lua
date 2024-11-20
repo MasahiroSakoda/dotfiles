@@ -9,7 +9,9 @@ bufferline.setup {
     diagnostics = "nvim_lsp",
 
     -- Format
+    ---@diagnostic disable-next-line: undefined-field
     name_formatter = function(opts) return string.format("%s", opts.name) end,
+    ---@diagnostic disable-next-line: undefined-field
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
     offset = {
