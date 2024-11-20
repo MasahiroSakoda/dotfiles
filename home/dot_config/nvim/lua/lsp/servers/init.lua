@@ -29,7 +29,7 @@ return {
   checkmake    = {}, -- Makefile
   revive       = {}, -- Go
   ruff_lsp     = require("lsp.servers.ruff_lsp"), -- Python
-  biome        = {}, -- JS/TS & JSON
+  biome        = require("lsp.servers.biome"),    -- JS/TS, JSON & others
   rubocop      = {}, -- Ruby Static Code Analyzer
   markdownlint = {}, -- Markdown
   hadolint     = {}, -- Dockerfile

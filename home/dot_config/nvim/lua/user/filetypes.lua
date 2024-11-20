@@ -7,7 +7,7 @@ Filetypes.markdown = { "markdown", "md", "vimwiki" }
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
   json  = { "json",  "json5", "jsonc" },
-  js    = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+  js    = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 }
 
 Filetypes.treesitter = {
@@ -91,7 +91,7 @@ Filetypes.lsp = {
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
   deno         = { "deno.json", "deno.jsonc" },
-  biome        = { "biome.json" },
+  biome        = { "biome.json", "biome.jsonc" },
   terraform    = { "terraform", "tf" },
   markdownlint = { ".markdownlintrc", ".markdownlint.json", ".markdownlint.jsonc" },
 }

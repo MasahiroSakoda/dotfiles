@@ -130,31 +130,6 @@ nl.setup({
       condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
     }),
 
-    -- biome: JavaScript, TypeScript
-    formatting.biome.with({
-      -- supported language https://biomejs.dev/internals/language-support/
-      filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json", "jsonc" },
-      condition = function(utils)
-        -- Use biome instead of prettier or eslint
-        if utils.has_file(filetypes.lsp.prettier) then
-          vim.fn.system({ "biome", "migrate", "prettier" , "--write" })
-          vim.notify("`prettier` config migrated to `biome.json`", vim.log.levels.INFO)
-        elseif utils.has_file(filetypes.lsp.eslint) then
-          vim.fn.system({ "biome", "migrate", "eslint", "--write" })
-          vim.notify("`eslint` config migrated to `biome.json`", vim.log.levels.INFO)
-        end
-        return utils.has_file(filetypes.lsp.biome)
-      end,
-      args = {
-        "check",
-        "--apply-unsafe",
-        "--formatter-enabled=true",
-        "--organize-imports-enabled=true",
-        "--skip-errors",
-        "$FILENAME",
-      },
-    }),
-
     diagnostics.markdownlint.with({
       extra_args = {},
       condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
