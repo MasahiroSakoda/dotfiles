@@ -98,7 +98,7 @@ wk.add({
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
   { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
-  { "<Leader>bd", "<CMD>bdelete<CR>",             icon = " ", desc = "Delete buffer" },
+  { "<Leader>bd", ":bdelete<Space>",             icon = " ", desc = "Delete buffer" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
 
