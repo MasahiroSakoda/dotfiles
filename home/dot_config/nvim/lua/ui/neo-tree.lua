@@ -20,6 +20,7 @@ nt.setup({
         nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
       },
       ["o"]     = "open",
+      ["<C-S>"] = "open_split",
       ["<C-v>"] = "open_vsplit",
       ["<C-t>"] = "open_tabnew",
       ["/"]     = "fuzzy_finder",
