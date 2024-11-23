@@ -1,0 +1,83 @@
+# -*-mode:zsh-*- vim:ft=zsh
+#
+abbr cl="clear"
+abbr x="exit"
+
+## File
+abbr o="open"
+abbr mv="mv -iv"
+abbr cp="cp -iv"
+abbr cpr="cp -R"
+abbr rm="rm -iv"
+
+## Directory
+abbr cwd="pwd | {{ .cmd.copy }}"
+abbr mkdir="mkdir -pv"
+
+abbr ..="cd .."
+abbr ...="cd ../../"
+abbr ....="cd ../../../"
+abbr .2="cd ../../"
+abbr .3="cd ../../../"
+abbr .4="cd ../../../../"
+
+## Permission
+abbr co="chown -v"
+abbr cmx="chown +x"
+
+## Git
+abbr lg="lazygit"
+abbr g="git "
+abbr gs="git status"
+abbr gss="git status --short"
+abbr gsb="git status --short --branch"
+abbr gl="git log --graph -all"
+abbr gd="git diff"
+abbr gds="git diff --staged"
+
+abbr ga="git add --verbose"
+abbr gaa="git add --verbose --all"
+abbr grm="git rm --verbose"
+abbr gmv="git mv --verbose"
+abbr gm="git mergge --verbose"
+abbr gma="git mergge --abort"
+abbr gms="git mergge --squash"
+
+abbr gcp="git cherry-pick"
+abbr gcpe="git cherry-pick -e"
+abbr gcpn="git cherry-pick -n"
+abbr gcpa="git cherry-pick --abort"
+abbr gcpc="git cherry-pick --continue"
+
+abbr gb="git branch --all"
+abbr gbd="git branch --delete"
+abbr gco="git checkout"
+abbr gcob="git checkout -b"
+abbr gcoo="git checkout --ours"
+abbr gcot="git checkout --theirs"
+
+abbr gcl="git clone"
+abbr gf="git fetch origin"
+
+abbr gpl="git pull origin"
+abbr gplu="git pull upstream"
+abbr gplr="git pull --rebase"
+
+abbr gpr="git pull-request"
+abbr gprd="git pull-request -d"
+abbr gprp="git pull-request -p"
+
+abbr gps="git push origin"
+abbr gpsu="git push upstream"
+abbr gpsd="git push --dry-run"
+
+abbr grb="git rebase"
+abbr grba="git rebase --abort"
+abbr grbc="git rebase --continue"
+abbr grbi="git rebase --interactive"
+abbr grbs="git rebase --skip"
+
+abbr gt="git tag"
+abbr gts="git tag --sign"
+
+#
