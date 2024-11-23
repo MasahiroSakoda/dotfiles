@@ -13,6 +13,7 @@ gem    = [ "bundler" ]
 
 [packages.brew]
 core  = [ "gnutls", "coreutils" ]
+disk  = [ "dua-cli", "tre-command" ]
 mac   = [ "pinentry-mac" ]
 linux = [ "util-linux", "cups" ]
 shell    = [ "fish", "starship" ]
