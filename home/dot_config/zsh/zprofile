@@ -1,0 +1,40 @@
+# -*-mode:zsh-*- vim:ft=zsh
+
+# ███████╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗
+# ╚══███╔╝██╔══██╗██╔══██╗██╔═══██╗██╔════╝██║██║     ██╔════╝
+#   ███╔╝ ██████╔╝██████╔╝██║   ██║█████╗  ██║██║     █████╗
+#  ███╔╝  ██╔═══╝ ██╔══██╗██║   ██║██╔══╝  ██║██║     ██╔══╝
+# ███████╗██║     ██║  ██║╚██████╔╝██║     ██║███████╗███████╗
+# ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
+
+# Language / Locale
+if [[ -z "$LANG" || -z "$LANGUAGE" || -z "$LC_CTYPE" ]]; then
+  export LANG="en_US.UTF-8"
+  export LANGUAGE="en_US.UTF-8"
+  export LC_CTYPE="en_US.UTF-8"
+fi
+
+# Editors
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Pager
+## less
+export PAGER="less"
+export LESS="--ignore-case --RAW-CONTROL-CHARS --LONG-PROMPT -x-4 -z-4"
+export LESSCHARSET="utf-8"
+export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+export LESS_TERMCAP_mb=$"\e[01;31m"
+export LESS_TERMCAP_md=$"\e[01;31m"
+export LESS_TERMCAP_me=$"\e[0m"
+export LESS_TERMCAP_se=$"\e[0m"
+export LESS_TERMCAP_so=$"\e[01;42;30m"
+export LESS_TERMCAP_ue=$"\e[0m"
+export LESS_TERMCAP_us=$"\e[01;32m"
+
+## bat
+export BAT_THEME="Monokai Extended Origin"
+export MANPAGER="sh -c 'col -bx | bat -l man -p --style=numbers'"
+
+# Grep
+export GREP_OPTIONS="--color=always"
