@@ -30,7 +30,7 @@ return {
     opts = {
       bigfile      = require("user.bigfile"),
       dashboard    = require("ui.dashboard"),
-      notifier     = { enabled = true },
+      notifier     = require("ui.notifier"),
       quickfile    = require("user.quickfile"),
       statuscolumn = { enabled = true },
       words        = { enabled = false },
