@@ -291,17 +291,9 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- Diffview
+-- Git
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>g", group = "Diffview", icon = "🧾 " },
-  { "<Leader>gO", ":DiffviewOpen<Space>",         icon = "a", desc = "Open Diffview with args" },
-  { "<Leader>gf", "<CMD>DiffviewFocusFiles<CR>",  icon = " ", desc = "Focus to the file panel" },
-  { "<Leader>gh", ":DiffviewFileHistory<Space>",  icon = " ", desc = "Open file history" },
-  { "<Leader>go", "<CMD>DiffviewOpen<CR>",        icon = "a", desc = "Open Diffview" },
-  { "<Leader>gq", "<CMD>DiffviewClose<CR>",       icon = " ", desc = "Close Diffview" },
-  { "<Leader>gr", "<CMD>DiffviewRefresh<CR>",     icon = " ", desc = "Refresh Diffview" },
-  { "<Leader>gt", "<CMD>DiffviewToggleFiles<CR>", icon = " ", desc = "Toggle file panels" },
 }, opts)
 
 ---------------------------------------------------------------------------

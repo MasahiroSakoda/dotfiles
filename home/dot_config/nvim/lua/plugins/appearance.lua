@@ -61,10 +61,4 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.gitsigns") end,
   },
-  {
-    "sindrets/diffview.nvim",
-    cond   = not vim.g.vscode,
-    cmd    = { "DiffviewOpen", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
-    config = function() require("ui.diffview") end,
-  },
 }
