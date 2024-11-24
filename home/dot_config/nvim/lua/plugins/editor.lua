@@ -23,6 +23,24 @@ return {
       require("core.keymap")
     end,
   },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy     = false,
+    opts = {
+      bigfile      = { enabled = true },
+      dashboard    = { enabled = true },
+      notifier     = { enabled = true },
+      quickfile    = { enabled = true },
+      statuscolumn = { enabled = true },
+      words        = { enabled = false },
+      styles       = {
+        notification = {
+          wo = { wrap = true } -- Wrap notifications
+        },
+      },
+    }
+  },
   -- Enhanced character motion
   {
     "folke/flash.nvim",
