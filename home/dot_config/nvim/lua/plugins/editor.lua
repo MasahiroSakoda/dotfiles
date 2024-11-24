@@ -15,13 +15,6 @@ return {
   },
 
   {
-    "goolord/alpha-nvim", -- startup dashboard
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cond   = not vim.g.is_vscode,
-    event  = "BufWinEnter",
-    config = function() require("ui.alpha") end,
-  },
-  {
     "folke/which-key.nvim", -- Shortcut / Keymap
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
