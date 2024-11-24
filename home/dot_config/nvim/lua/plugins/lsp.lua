@@ -36,9 +36,6 @@ return {
     cmd    = { "DapInstall", "DapUninstall" },
     config = function() require("dap.config.mason-dap") end,
   },
-  -- Status GUI for LSP
-  { "j-hui/fidget.nvim", event = "LspAttach", config = function() require("lsp.config.fidget") end },
-  -- Display diagnostics
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -9,24 +9,11 @@ return {
     config = function() require("ui.toggleterm") end,
   },
   {
-    "rcarriga/nvim-notify",
-    cond   = not vim.g.vscode,
-    event  = "VeryLazy",
-    config = function() require("ui.notify") end,
-  },
-  {
     "folke/noice.nvim",
     event  = "VeryLazy",
     config = function() require("ui.noice") end,
   },
 
-  {
-    "goolord/alpha-nvim", -- startup dashboard
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cond   = not vim.g.is_vscode,
-    event  = "BufWinEnter",
-    config = function() require("ui.alpha") end,
-  },
   {
     "folke/which-key.nvim", -- Shortcut / Keymap
     cond   = not vim.g.vscode,
@@ -35,6 +22,25 @@ return {
       require("user.which-key")
       require("core.keymap")
     end,
+  },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy     = false,
+    opts = {
+      bigfile      = require("user.bigfile"),
+      quickfile    = require("user.quickfile"),
+      dashboard    = require("ui.dashboard"),
+      notifier     = require("ui.notifier"),
+      terminal     = require("ui.terminal"),
+      statuscolumn = { enabled = true },
+      words        = { enabled = false },
+      styles       = {
+        notification = {
+          wo = { wrap = true } -- Wrap notifications
+        },
+      },
+    }
   },
   -- Enhanced character motion
   {
