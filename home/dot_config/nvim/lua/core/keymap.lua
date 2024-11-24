@@ -203,8 +203,9 @@ if not is_vscode then
     { "<C-g>",      "<CMD>Telescope egrepify<CR>",     icon = " ", desc = "Live grep with egrepify" },
     { "<Leader>fs", "<CMD>Telescope luasnip<CR>",      icon = " ", desc = "LuaSnip Browser" },
     { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
-    { "<Leader>fn", "<CMD>Telescope notify<CR>",       icon = " ", desc = "Notification History" },
     { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
+
+    { "<Leader>fn", function() Snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
     { "<Leader>fdC", function() telescope.extensions.dap.commands() end,         icon = " ", desc = "Commands" },
