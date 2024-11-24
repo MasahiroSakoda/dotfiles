@@ -296,6 +296,8 @@ wk.add({
 -- Git
 ---------------------------------------------------------------------------
 wk.add({
+  { "<Leader>gb", function() Snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
+  { "<Leader>gg", function() Snacks.lazygit() end,        icon = " ", desc = "Open lazygit" },
 }, opts)
 
 ---------------------------------------------------------------------------
