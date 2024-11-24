@@ -28,7 +28,7 @@ return {
     priority = 1000,
     lazy     = false,
     opts = {
-      bigfile      = { enabled = true },
+      bigfile      = require("user.bigfile"),
       dashboard    = { enabled = true },
       notifier     = { enabled = true },
       quickfile    = { enabled = true },
