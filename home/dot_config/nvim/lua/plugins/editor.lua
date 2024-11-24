@@ -29,7 +29,7 @@ return {
     lazy     = false,
     opts = {
       bigfile      = require("user.bigfile"),
-      dashboard    = { enabled = true },
+      dashboard    = require("ui.dashboard"),
       notifier     = { enabled = true },
       quickfile    = require("user.quickfile"),
       statuscolumn = { enabled = true },
