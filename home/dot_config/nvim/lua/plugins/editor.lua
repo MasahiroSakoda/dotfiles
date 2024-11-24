@@ -9,12 +9,6 @@ return {
     config = function() require("ui.toggleterm") end,
   },
   {
-    "rcarriga/nvim-notify",
-    cond   = not vim.g.vscode,
-    event  = "VeryLazy",
-    config = function() require("ui.notify") end,
-  },
-  {
     "folke/noice.nvim",
     event  = "VeryLazy",
     config = function() require("ui.noice") end,
