@@ -24,6 +24,7 @@ vim.cmd[[
   cnoreabbrev WQ wq
 ]]
 
+
 ---------------------------------------------------------------------------
 -- which-key commands
 ---------------------------------------------------------------------------
@@ -91,6 +92,7 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
+local snacks = require("snacks")
 wk.add({
   { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
   { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
@@ -100,8 +102,8 @@ wk.add({
   { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", function() Snacks.bufdelete() end,       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", function() Snacks.bufdelete.other() end, icon = " ", desc = "Delete other buffers" },
+  { "<Leader>bdc", function() snacks.bufdelete() end,       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bdo", function() snacks.bufdelete.other() end, icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
@@ -205,7 +207,7 @@ if not is_vscode then
     { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
     { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
 
-    { "<Leader>fn", function() Snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
+    { "<Leader>fn", function() snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
     { "<Leader>fdC", function() telescope.extensions.dap.commands() end,         icon = " ", desc = "Commands" },
@@ -296,8 +298,8 @@ wk.add({
 -- Git
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>gb", function() Snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
-  { "<Leader>gg", function() Snacks.lazygit() end,        icon = " ", desc = "Open lazygit" },
+  { "<Leader>gb", function() snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
+  { "<Leader>gg", function() snacks.lazygit() end,        icon = " ", desc = "Open lazygit" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -334,5 +336,6 @@ wk.add({
   { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
   { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
-  { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
+  -- { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
+  { ",t", function() snacks.terminal() end, mode = nt, icon = " ", desc = "Toggle Terminal"},
 }, opts)
