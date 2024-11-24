@@ -29,9 +29,10 @@ return {
     lazy     = false,
     opts = {
       bigfile      = require("user.bigfile"),
+      quickfile    = require("user.quickfile"),
       dashboard    = require("ui.dashboard"),
       notifier     = require("ui.notifier"),
-      quickfile    = require("user.quickfile"),
+      terminal     = require("ui.terminal"),
       statuscolumn = { enabled = true },
       words        = { enabled = false },
       styles       = {
