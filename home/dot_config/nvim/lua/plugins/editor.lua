@@ -31,7 +31,7 @@ return {
       bigfile      = require("user.bigfile"),
       dashboard    = { enabled = true },
       notifier     = { enabled = true },
-      quickfile    = { enabled = true },
+      quickfile    = require("user.quickfile"),
       statuscolumn = { enabled = true },
       words        = { enabled = false },
       styles       = {
