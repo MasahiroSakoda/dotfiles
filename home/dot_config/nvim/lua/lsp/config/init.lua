@@ -12,6 +12,7 @@ elseif not navic_ok then
   vim.notify('[lspconfig] Loading "nvim-navic" failed.', vim.log.levels.WARN)
 end
 
+require("lsp.config.diagnostics")
 require("lsp.config.handlers")
 
 local active_clients = vim.lsp.get_clients()
