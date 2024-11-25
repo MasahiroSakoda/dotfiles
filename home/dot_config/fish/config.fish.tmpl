@@ -267,13 +267,17 @@ abbr -a -- foreman 'bundle exec foreman'
 abbr -a -- guard   'bundle exec guard'
 
 {{ if eq .chezmoi.os "darwin" }}
-set -gx POCKET_CONSUMER_KEY (security find-generic-password -s "Pocket Consumer Key" -w)
-set -gx POCKET_ACCESS_TOKEN (security find-generic-password -s "Pocket Access Token" -w)
-set -gx OPENAI_API_KEY (security find-generic-password -s "OpenAI API Key" -w)
-set -gx GOOGLE_API_KEY (security find-generic-password -s "Google API Key" -w)
-set -gx DEEPL_API_KEY  (security find-generic-password -s "DeepL API Key" -w)
+set -gx POCKET_CONSUMER_KEY   (security find-generic-password -s "Pocket Consumer Key" -w)
+set -gx POCKET_ACCESS_TOKEN   (security find-generic-password -s "Pocket Access Token" -w)
+set -gx OPENAI_API_KEY        (security find-generic-password -s "OpenAI API Key" -w)
+set -gx GOOGLE_API_KEY        (security find-generic-password -s "Google API Key" -w)
+set -gx GEMINI_API_KEY        (security find-generic-password -s "Gemini API Key" -w)
+set -gx AZURE_OPENAPI_API_KEY (security find-generic-password -s "Azure API Key" -w)
+set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
-set -gx OPENAI_API_KEY (secret-tool lookup username $USER key_name "OpenAI API Key")
-set -gx GOOGLE_API_KEY (secret-tool lookup username $USER key_name "Google API Key")
-set -gx DEEPL_API_KEY  (secret-tool lookup username $USER key_name "DeepL API Key")
+set -gx OPENAI_API_KEY        (secret-tool lookup username $USER key_name "OpenAI API Key")
+set -gx GOOGLE_API_KEY        (secret-tool lookup username $USER key_name "Google API Key")
+set -gx GEMINI_API_KEY        (secret-tool lookup username $USER key_name "Gemini API Key")
+set -gx AZURE_OPENAPI_API_KEY (secret-tool lookup username $USER key_name "Azure API Key")
+set -gx DEEPL_API_KEY         (secret-tool lookup username $USER key_name "DeepL API Key")
 {{ end }}

@@ -6,6 +6,68 @@ avante.setup({
   ---@type Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "ollama",
 
+  claude = {
+    endpoint = "https://api.anthropic.com",
+    ---@see https://docs.anthropic.com/en/docs/about-claude/models
+    ---@type "claude-3-5-sonnet-latest"|"claude-3.5-haiku-latest"
+    model    = "claude-3-5-sonnet-latest",
+    timeout  = 30000, -- Timeout in milliseconds
+    temperature  = 0,
+    max_tokens   = 4096,
+    api_key_name = vim.env.ANTHROPIC_API_KEY,
+  },
+  openai = {
+    endpoint = "https://api.openai.com/v1",
+    ---@see https://platform.openai.com/docs/models
+    ---@type "gpt-3.5-turbo"|"gpt-4o"|"gpt-4o-mini"
+    model    = "gpt-4o",
+    timeout  = 30000, -- Timeout in milliseconds
+    temperature  = 0,
+    max_tokens   = 4096,
+    api_key_name = vim.env.OPENAI_API_KEY,
+  },
+  copilot = {
+    endpoint = "https://api.githubcopilot.com",
+    ---@see https://api.githubcopilot.com/models
+    ---@type "gpt-3.5-turbo"|"gpt-4o"|"o1-mini"
+    model    = "o1-mini",
+    proxy    = nil,         -- [protocol://]host[:port] Use this proxy
+    allow_insecure = false, -- Allow insecure server connections
+    timeout        = 30000, -- Timeout in milliseconds
+    temperature    = 0,
+    max_tokens     = 4096,
+    api_key_name   = vim.env.COPILOT_API_KEY,
+  },
+  azure = {
+    endpoint = string.format("https://%s.openai.azure.com", vim.env.AZURE_API_ENDPOINT),
+    deployment   = vim.env.AZURE_API_DEPLOY,
+    api_version  = vim.env.AZURE_API_VERSION,
+    timeout      = 30000, -- Timeout in milliseconds
+    temperature  = 0,
+    max_tokens   = 4096,
+    api_key_name = vim.env.AZURE_OPENAI_API_KEY,
+  },
+  gemini = {
+    endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+    ---@see https://ai.google.dev/gemini-api/docs/models/gemini
+    ---@type "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
+    model    = "gemini-1.5-pro",
+    timeout  = 30000, -- Timeout in milliseconds
+    temperature  = 0,
+    max_tokens   = 4096,
+    api_key_name = vim.env.GEMINI_API_KEY,
+  },
+  cohere = {
+    endpoint = "https://api.cohere.com/v2",
+    ---@see https://docs.cohere.com/v2/docs/models
+    ---@type "command-r-plus"
+    model    = "command-r-plus",
+    timeout  = 30000, -- Timeout in milliseconds
+    temperature  = 0,
+    max_tokens   = 3072,
+    api_key_name = vim.env.COHERE_API_KEY,
+  },
+
   -- Custom providers
   vendors = {
     ---@type AvanteProvider
