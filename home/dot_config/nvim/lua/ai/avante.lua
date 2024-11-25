@@ -3,14 +3,15 @@ local avante_ok, avante = pcall(require, "avante")
 if not avante_ok then return end
 
 avante.setup({
+  ---@type Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
   provider = "ollama",
 
+  -- Custom providers
   vendors = {
     ---@type AvanteProvider
     ollama = {
-      ["local"] = true,
-      endpoint  = "127.0.0.1:11434/v1",
-      model     = "phi3.5::3.8b", ---@type "codegemma:2b"|"phi3.5::3.8b"|"mistral:latest"
+      endpoint = "127.0.0.1:11434/v1",
+      model    = "mistral:latest", ---@type "codegemma:2b"|"phi3.5:3.8b"|"mistral:latest"
 
       parse_curl_args = function(opts, code_opts)
         return {
@@ -18,12 +19,12 @@ avante.setup({
           headers = {
             ["Accept"]       = "application/json",
             ["Content-Type"] = "application/json",
-            ['x-api-key']    = "ollama",
+            ["x-api-key"]    = "ollama",
           },
           body = {
             model = opts.model,
             -- you can make your own message, but this is very advanced
-            messages   = require('avante.providers').copilot.parse_messages(code_opts),
+            messages   = require("avante.providers").copilot.parse_messages(code_opts),
             max_tokens = 2048,
             stream     = true,
           },
@@ -32,6 +33,7 @@ avante.setup({
       parse_response_data = function(data_stream, event_state, opts)
         require("avante.providers").openai.parse_response(data_stream, event_state, opts)
       end,
+      api_key_name = "",
     }
   },
 
