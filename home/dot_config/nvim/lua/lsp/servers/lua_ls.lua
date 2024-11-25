@@ -15,9 +15,8 @@ return {
         -- Make the server aware of Neovim runtime files
         library = {
           vim.api.nvim_get_runtime_file("", true),
-          -- vim.fn.expand("$VIMRUNTIME"),
-          -- "${3rd}/luv/library",
-          -- "${3rd}/lfs/library",
+          "${3rd}/luv/library",
+          "${3rd}/busted/library",
         },
         maxPreload      = 2000,
         preloadFileSize = 1000,
