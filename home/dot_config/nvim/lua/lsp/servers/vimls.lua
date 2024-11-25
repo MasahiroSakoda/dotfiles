@@ -5,7 +5,7 @@ return {
   cmd       = { "vim-language-server", "--stdio" },
   filetypes = { "vim" },
   root_dir  = function(filename)
-    return lspconfig.util.find_git_ancestor(filename) or vim.loop.os_homedir()
+    return lspconfig.util.find_git_ancestor(filename) or (vim.uv or vim.loop).os_homedir()
   end,
   init_options = {
     diagnostic = { enable = true },
