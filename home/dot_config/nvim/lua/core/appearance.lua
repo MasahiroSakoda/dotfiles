@@ -36,7 +36,7 @@ opt.cmdheight  = 0
 opt.showcmd    = true
 opt.showmode   = true
 -- opt.ambiwidth  = 'double'
-opt.laststatus = 2
+opt.laststatus = 3
 
 opt.list = true
 opt.listchars = { space = "･", eol = "↴", tab = "»-", trail = "-", nbsp = "%", extends = "⟩", precedes = "⟨" }
