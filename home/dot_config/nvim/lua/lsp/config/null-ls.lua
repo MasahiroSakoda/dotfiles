@@ -41,9 +41,9 @@ end
 nl.setup({
   debug = false,
   -- ref: https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-  diagnostics_format = "#{m} (#{s}: #{c})",
   sources = {
     -- Common Configurations
+    diagnostics.trail_space,
     diagnostics.todo_comments,
     hover.dictionary.with({
       filetypes = { "tex", "text", "markdown", "vimwiki" },
