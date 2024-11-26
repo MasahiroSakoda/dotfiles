@@ -3,34 +3,26 @@ if not ok then return end
 
 local dlv_path = vim.fn.exepath("dlv")
 
--- dap.adapters.go = {
---   type = "server",
---   port = "${port}",
---   executable = {
---     command = dlv_path,
---     args = { "dap", "-l", "127.0.0.1:${port}" },
---   },
--- }
-
 dap.adapters.go = function(callback, _)
-  local stdout = vim.loop.new_pipe(false)
+  local stdout = (vim.uv or vim.loop).new_pipe(false)
   local handle, pid_or_err
   local port = 38697
-
-  handle, pid_or_err = vim.loop.spawn("dlv", {
-    stdio = { nil, stdout },
-    args  = { "dap", "-l", "127.0.0.1:" .. port },
+  local opts = {
+    stdio    = { nil, stdout },
+    args     = { "dap", "-l", "127.0.0.1:" .. port },
     detected = true,
-  }, function(code)
+  }
+
+  handle, pid_or_err = (vim.uv or vim.loop).spawn("dlv", opts, function(code)
+  ---@diagnostic disable-next-line: need-check-nil
     stdout:close()
     handle:close()
-    if code ~= 0 then
-      print("[delve] Exit Code:", code)
-    end
+    if code ~= 0 then print("[delve] Exit Code:", code) end
   end)
 
   assert(handle, "Error running dlv: " .. tostring(pid_or_err))
 
+  ---@diagnostic disable-next-line: need-check-nil
   stdout:read_start(function(err, chunk)
     assert(not err, err)
     if chunk then

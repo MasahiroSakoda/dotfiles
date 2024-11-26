@@ -1,21 +1,22 @@
-local g, fn, opt = vim.g, vim.fn, vim.opt
-local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
-
-if not vim.loop.fs_stat(lazypath) then
-  fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", lazyrepo, "--branch=stable", lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+      }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
-opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
-g.mapleader      = [[ ]]
-g.maplocalleader = [[,]]
-g.colorscheme = "onedark" --- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"|"onedark"
+vim.g.mapleader      = [[ ]]
+vim.g.maplocalleader = [[,]]
+vim.g.colorscheme = "onedark" --- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"|"onedark"
 
 local lazy_ok, lazy = pcall(require, "lazy")
 if not lazy_ok then return end
@@ -35,12 +36,12 @@ lazy.setup("plugins", {
   },
   install  = {
     missing = true,
-    colorscheme = { g.colorscheme },
+    colorscheme = { vim.g.colorscheme },
   },
   performance = {
     cache= {
       enabled = true,
-      path = fn.stdpath("cache") .. "/lazy/cache",
+      path = vim.fn.stdpath("cache") .. "/lazy/cache",
       disable_events = { "UIEnter", "BufReadPre" },
       ttl = 3600 * 24 * 2, -- keep unused modules for up to 2 days
     },

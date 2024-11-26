@@ -12,6 +12,7 @@ elseif not navic_ok then
   vim.notify('[lspconfig] Loading "nvim-navic" failed.', vim.log.levels.WARN)
 end
 
+require("lsp.config.diagnostics")
 require("lsp.config.handlers")
 
 local active_clients = vim.lsp.get_clients()
@@ -32,14 +33,14 @@ local on_attach = function(client, bufnr)
     for _, _client in ipairs(active_clients) do
       -- stop tsserver if denols is already active
       if _client.name == "denols" then
-        client.stop()
+        client:stop(true)
       end
     end
   elseif client.name == "denols" then
     -- prevent tsserver from starting if denols is already active
     for _, _client in ipairs(active_clients) do
       if _client.name == "tsserver" then
-        client.stop()
+        client:stop(true)
       end
     end
   end

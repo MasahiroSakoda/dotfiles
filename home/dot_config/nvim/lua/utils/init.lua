@@ -13,7 +13,7 @@ M.shorten_path = function(path)
   return path
       -- Remove CWD
     ---@diagnostic disable-next-line: undefined-field
-    :gsub(vim.pesc(vim.loop.cwd()) .. "/", "")
+    :gsub(vim.pesc(vim.uv.cwd()) .. "/", "")
     -- Remove home dir
     :gsub(vim.pesc(vim.fn.expand "$HOME"), "~")
     -- Remove trailing slash
