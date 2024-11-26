@@ -24,5 +24,4 @@ fisher = [
   "PatrickF1/fzf.fish",      # fzf plugin
 
   # Others
-  "decors/fish-ghq",         # ghq integration
 ]
