@@ -28,13 +28,13 @@ lualine.setup {
     lualine_b = {
       { "branch" },
       { "diff" },
-      { "diagnostics", separator = { right = "" } },
+      { "diagnostics" },
     },
     lualine_c = {
       {
         "filename",
         icon = "",
-        path = 1, -- 0: Filename, 1: Relative, 2: Absolute, 3: Absolute+ w/ home dir 4: Filename + Parent dir
+        path = 4, -- 0: Filename, 1: Relative, 2: Absolute, 3: Absolute+ w/ home dir 4: Filename + Parent dir
         symbols = { modified = "", readonly = "", newfile  = "", unnamed  = "" }
       },
     },
@@ -63,6 +63,8 @@ lualine.setup {
     lualine_y = { "fileformat", "encoding" },
     lualine_z = { "location", "progress" },
   },
+  tabline = {},
+  winbar  = {},
   extensions = {
     "quickfix",
     "overseer",
