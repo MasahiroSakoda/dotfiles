@@ -24,7 +24,6 @@ vim.cmd[[
   cnoreabbrev WQ wq
 ]]
 
-
 ---------------------------------------------------------------------------
 -- which-key commands
 ---------------------------------------------------------------------------
@@ -176,7 +175,6 @@ wk.add({
 local telescope = require("telescope")
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
-
   wk.add({
     { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
 
@@ -221,9 +219,7 @@ if not is_vscode then
       icon = " ",
       desc = "Search chezmoi files",
     },
-
   }, opts)
-
 end
 
 ---------------------------------------------------------------------------
@@ -306,7 +302,6 @@ wk.add({
 -- 🤖  AI Interaction
 ---------------------------------------------------------------------------
 if not is_vscode then
-
   -- avante.nvim
   wk.add({
     mode = nv,
@@ -316,9 +311,10 @@ if not is_vscode then
     { "<Leader>ac", "<CMD>AvanteChat<CR>",           icon = "", desc = "Avante Chat" },
     { "<Leader>ae", "<CMD>AvanteEdit<CR>",           icon = "", desc = "Avante Editor" },
     { "<Leader>ar", "<CMD>AvanteRefresh<CR>",        icon = "", desc = "Refresh Avante Window" },
-    { "<Leader>ac", "<CMD>AvanteSwitchProvider<CR>", icon = "", desc = "Switch Avante Provider" },
-  }, opts)
 
+    { "<Leader>as", ":AvanteSwitchProvider<Space>",  icon = "", desc = "Switch Avante Provider" },
+    { "<Leader>aS", "<CMD>lua require'utils.ai'.change_llm()<CR>", icon = "", desc = "Switch Local Language Model" },
+  }, opts)
 end
 
 ---------------------------------------------------------------------------
@@ -336,6 +332,6 @@ wk.add({
   { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
   { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
-  -- { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
-  { ",t", function() snacks.terminal() end, mode = nt, icon = " ", desc = "Toggle Terminal"},
+  { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
+  -- { ",t", function() snacks.terminal.toggle(nil, {}) end, mode = nt, icon = " ", desc = "Toggle Terminal"},
 }, opts)
