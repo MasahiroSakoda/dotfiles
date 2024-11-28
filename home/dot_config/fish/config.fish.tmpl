@@ -186,6 +186,7 @@ abbr -a -- dcr "docker compose run --rm"
 abbr -a -- dce "docker compose exec"
 abbr -a -- dcs "docker compose stop"
 
+{{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
 ## node.js
 ### npm
 abbr -a -- nl  "npm list"
@@ -216,13 +217,17 @@ abbr -a -- pr  "pnpm rebuild"
 abbr -a -- pd  "pnpm dev"
 abbr -a -- pe  "pnpm e2e"
 abbr -a -- pu  "pnpm unit"
+{{- end }}
 
+{{- if .mise.deno.enabled }}
 ### Deno
 abbr -a -- dn  "deno"
 abbr -a -- dnh "deno help | bat"
 abbr -a -- dnt "deno task"
 abbr -a -- dnr "deno run"
+{{- end }}
 
+{{- if .mise.ruby.enabled }}
 ## Ruby / Rails
 abbr -a -- rails   "bundle exec rails"
 abbr -a -- rake    "bundle exec rake"
@@ -231,6 +236,7 @@ abbr -a -- pry     "bundle exec pry"
 abbr -a -- rspec   "bundle exec rspec"
 abbr -a -- foreman "bundle exec foreman"
 abbr -a -- guard   "bundle exec guard"
+{{- end }}
 
 {{ if eq .chezmoi.os "darwin" }}
 set -gx POCKET_CONSUMER_KEY   (security find-generic-password -s "Pocket Consumer Key" -w)
