@@ -12,11 +12,7 @@ wezterm.on("gui-startup", function(cmd)
 end)
 
 wezterm.on("format-window-title", function(tab, _, tabs, _, _)
-  local index = ''
-  if #tabs > 1 then
-    index = string.format('[%d/%d] ', tab.tab_index + 1, #tabs)
-  end
-
+  local index = #tabs > 1 and string.format("[%d/%d] ", tab.tab_index + 1, #tabs) or ""
   return index .. ": " .. tab.active_pane.title
 end)
 
@@ -122,10 +118,6 @@ end)
 
 wezterm.on("toggle-ligature", function(window, _)
   local overrides = window.get_config_overrides() or {}
-  if not overrides.harfbuzz_features then
-    overrides.harfbuzz_features = { "calt=0", "alig=0", "liga=0" }
-  else
-    overrides.harfbuzz_features = nil
-  end
+  overrides.harfbuzz_features = not overrides.harfbuzz_features and { "calt=0", "alig=0", "liga=0" } or nil
   window:set_config_overrides(overrides)
 end)
