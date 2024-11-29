@@ -103,7 +103,9 @@ M.keyboard_status = function(window)
 end
 
 M.active_key_status = function(window)
-  local status = window:active_key_table() and window:active_key_table() or (window:leader_is_active() and fonts.fa_toggle_on or fonts.fa_toggle_off)
+  local status = window:active_key_table() and
+    window:active_key_table() or
+    (window:leader_is_active() and fonts.fa_toggle_on or fonts.fa_toggle_off)
   return fonts.pl_right_soft_divider .. " " .. status .. "  "
 end
 
