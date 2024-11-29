@@ -76,9 +76,8 @@ end
 
 M.battery_percentage = function()
   local battery = ""
-  local icon    = ""
   for _, b in ipairs(wezterm.battery_info()) do
-    local charge = b.state_of_charge * 100
+    local icon, charge = "", b.state_of_charge * 100
     if charge <= 10 then
       icon = fonts.md_battery_alert
     elseif charge > 10 and charge <= 30 then
