@@ -333,18 +333,12 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 
 | Package                        | Notes                           |
 | ------------------------------ | ------------------------------- |
-| [**font-codicon**][codicon]                   | Icon Font                       |
-| [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font                |
-| [**font-cica**][cica]                      | Monospaced Font for Japanese    |
+| [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font |
 | [**font-hackgen-nerd**][hackgen]              | Programming Font for Japanese   |
-| [**font-plemol-jp-nfj**][plemoljp]             | IBM Plex base Font for Japanese |
 | [**font-udev-gothic-nf**][udev-gothic]            | BIZ UD Gothic + JetBrains Mono for Japanese |
 
-[codicon]: https://github.com/microsoft/vscode-codicons
 [jetbrains-mono-nerd-font]: https://www.jetbrains.com/ja-jp/lp/mono/
-[cica]: https://github.com/miiton/Cica
 [hackgen]: https://github.com/yuru7/HackGen
-[plemoljp]: https://github.com/yuru7/PlemolJP
 [udev-gothic]: https://github.com/yuru7/udev-gothic
 
 #### Dev packages
