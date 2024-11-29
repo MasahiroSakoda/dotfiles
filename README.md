@@ -328,10 +328,8 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 | Package             | Configuration files |
 | ------------------- | ------------------- |
 | [**Karabiner-Elements**][karabiner-elements]  | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
-| [**Hammerspoon**][hammerspoon]         | [~/.hammerspoon](https://github.com/MasahiroSakoda/dotfiles/tree/main/home/dot_hammerspoon)      |
 
 [karabiner-elements]: https://karabiner-elements.pqrs.org/
-[hammerspoon]: https://www.hammerspoon.org/
 
 #### Fonts
 
@@ -349,7 +347,6 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 
 | Package            | Category   |
 | ------------------ | ---------- |
-| [**iTerm2**][iterm2]             | Terminal   |
 | [**Alacritty**][alacritty]          | Terminal   |
 | [**wezterm**][wezterm]            | Terminal   |
 | [**Visual Studio Code**][vscode] | IDE        |
@@ -359,7 +356,6 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 | [**termshark**][termshark]          | Network    |
 | [**TunnelBear**][tunnelbear]         | VPN        |
 
-[iTerm2]: https://iterm2.com/
 [alacritty]: https://github.com/alacritty/alacritty
 [wezterm]: https://github.com/wez/wezterm
 [vscode]: https://code.visualstudio.com/
