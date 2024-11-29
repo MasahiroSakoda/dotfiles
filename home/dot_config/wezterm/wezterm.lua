@@ -2,11 +2,7 @@
 local wezterm  = require("wezterm")
 local fonts    = require("fonts")
 local keybinds = require("keybinds")
-local config   = {}
-
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
+local config   = wezterm.config_builder and wezterm.config_builder() or {}
 
 -- config.default_prog = {
 --   "fish", "--login", "--command",
@@ -52,6 +48,8 @@ config.window_background_image_hsb = {
 config.window_frame = {
   font      = fonts.window.font,
   font_size = fonts.window.size,
+  inactive_titlebar_bg = "none",
+  active_titlebar_bg   = "none",
 }
 config.window_padding = {
   left   = 0,
