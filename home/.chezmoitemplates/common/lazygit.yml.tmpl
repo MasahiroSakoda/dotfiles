@@ -1,128 +1,128 @@
 # -*-mode:yaml-*- vim:ft=yaml.gotexttmpl
 os:
-  edit: "nvim"
-notARepository: skip
-promptToReturnFromSubprocess: true
-confirmOnQuit: true
+    edit: "nvim"
+    notARepository: skip
+    promptToReturnFromSubprocess: true
+    confirmOnQuit: true
 git:
-  parseEmoji: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
-    useConfig: false
+    parseEmoji: true
+    paging:
+        colorArg: always
+        pager: delta --dark --paging=never
+        useConfig: false
 gui:
-  sidePanelWidth: 0.25
-  language: auto
-  timeFormat: '2015-02-25 11:06:39 +0900 JST'
-  authorColors: {}
-  branchColors:
-    "main": cyan
-    "master": cyan
-    "feat": green
-    "fix": red
-    "develop": yellow
-  mouseEvents: true
-  skipUnstageLineWarning: false
-  skipStashWarning: false
-  showFileTree: true
-  showListFooter: true
-  showRandomTip: true
-  showBottomLine: true
-  showCommandLog: true
-  showIcons: true
-  theme:
-    activeBorderColor:
-      - green
-      - bold
-    inactiveBorderColor:
-      - white
-    optionsTextColor:
-      - blue
-    selectedLineBgColor:
-      - reverse
-      - underline
-    selectedRangeBgColor:
-      - blue
-      - underline
-    cherryPickedCommitBgColor:
-      - cyan
-    cherryPickedCommitFgColor:
-      - blue
-    unstagedChangesColor:
-      - red
+    sidePanelWidth: 0.25
+    language: auto
+    timeFormat: '2015-02-25 11:06:39 +0900 JST'
+    authorColors: {}
+    branchColors:
+        "main": cyan
+        "master": cyan
+        "feat": green
+        "fix": red
+        "develop": yellow
+    mouseEvents: true
+    skipDiscardChangeWarning: false
+    skipStashWarning: false
+    showFileTree: true
+    showListFooter: true
+    showRandomTip: true
+    showBottomLine: true
+    showCommandLog: true
+    showIcons: true
+    theme:
+        activeBorderColor:
+            - green
+            - bold
+        inactiveBorderColor:
+            - white
+        optionsTextColor:
+            - blue
+        selectedLineBgColor:
+            - reverse
+            - underline
+        selectedRangeBgColor:
+            - blue
+            - underline
+        cherryPickedCommitBgColor:
+            - cyan
+        cherryPickedCommitFgColor:
+            - blue
+        unstagedChangesColor:
+            - red
 keybinding:
-  universal:
-    quit: q
-    quit-alt1: <c-c>
-    togglePanel: <tab>
-    prevItem: <up>
-    nextItem: <down>
-    prevItem-alt: k
-    nextItem-alt: j
-    prevMatch: N
-    nextMatch: n
-  status:
-    checkForUpdate: u
-  files:
-    commitChanges: c
-    refreshFiles: r
-    fetch: f
-  branches:
-    checkoutBranchByName: c
-  commits:
-    tagCommit: T
-  commitFiles:
-    checkoutCommitFile: c
-  stash:
-    popStash: g
-  main:
-    submodules:
+    universal:
+        quit: q
+        quit-alt1: <c-c>
+        togglePanel: <tab>
+        prevItem: <up>
+        nextItem: <down>
+        prevItem-alt: k
+        nextItem-alt: j
+        prevMatch: N
+        nextMatch: n
+    status:
+        checkForUpdate: u
+    files:
+        commitChanges: c
+        refreshFiles: r
+        fetch: f
+    branches:
+        checkoutBranchByName: c
+    commits:
+        tagCommit: T
+    commitFiles:
+        checkoutCommitFile: c
+    stash:
+        popStash: g
+    main:
+        submodules: <disabled>
 refresher:
-  refreshInterval: 3
+    refreshInterval: 3
 customCommands:
-  - key: "C"
-    command: "cz"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    subprocess: true
-  - key: 'E'
-    description: 'Add empty commit'
-    context: 'commits'
-    command: 'git commit --allow-empty -m "empty commit"'
-    loadingText: 'Committing empty commit...'
-  - key: '<C-f>'
-    description: 'fetch a remote branch as a new local branch'
-    command: "git fetch {{ `{{index .SelectedRemote.Name }}` }} {{ `{{index .PromptResponses 0}}` }}:{{ `{{index .PromptResponses 1}}` }}"
-    context: 'remotes'
-    prompts:
-      - type: 'input'
-        title: 'Remote Branch Name'
-        initialValue: ''
-      - type: 'input'
-        title: 'New Local Branch Name'
-        initialValue: ''
-    loadingText: 'fetching branch'
-  - key: '<c-p>'
-    context: 'global'
-    loadingText: 'pushing'
-    prompts:
-      - type: 'input'
-        title: 'which branch do you want to push to?'
-    command: "git push origin {{ `{{index .PromptResponses 0}}` }}"
-  - key: '<C-P>'
-    description: "Pull from a specific remote repository"
-    context: 'files'
-    loadingText: 'Pulling ...'
-    command: git pull {{ `{{ .Form.Remote }}` }} {{ `{{ .Form.RemoteBranch }}` }}
-    prompts:
-      - type: 'input'
-        key: 'Remote'
-        title: "Remote:"
-        suggestions:
-          preset: 'remotes'
-      - type: 'input'
-        key: 'RemoteBranch'
-        title: "Remote branch:"
-        suggestions:
-          command: "git branch --remote --list '{{ `{{.Form.Remote}}` }}/*' --format='%(refname:short)' | sed 's/{{ `{{.Form.Remote}}` }}\\///'"
+    - key: "C"
+      command: "cz"
+      description: "commit with commitizen"
+      context: "files"
+      loadingText: "opening commitizen commit tool"
+      subprocess: true
+    - key: 'E'
+      description: 'Add empty commit'
+      context: 'commits'
+      command: 'git commit --allow-empty -m "empty commit"'
+      loadingText: 'Committing empty commit...'
+    - key: '<C-f>'
+      description: 'fetch a remote branch as a new local branch'
+      command: "git fetch {{ `{{index .SelectedRemote.Name }}` }} {{ `{{index .PromptResponses 0}}` }}:{{ `{{index .PromptResponses 1}}` }}"
+      context: 'remotes'
+      prompts:
+        - type: 'input'
+          title: 'Remote Branch Name'
+          initialValue: ''
+        - type: 'input'
+          title: 'New Local Branch Name'
+          initialValue: ''
+      loadingText: 'fetching branch'
+    - key: '<c-p>'
+      context: 'global'
+      loadingText: 'pushing'
+      prompts:
+        - type: 'input'
+          title: 'which branch do you want to push to?'
+      command: "git push origin {{ `{{index .PromptResponses 0}}` }}"
+    - key: '<C-P>'
+      description: "Pull from a specific remote repository"
+      context: 'files'
+      loadingText: 'Pulling ...'
+      command: git pull {{ `{{ .Form.Remote }}` }} {{ `{{ .Form.RemoteBranch }}` }}
+      prompts:
+        - type: 'input'
+          key: 'Remote'
+          title: "Remote:"
+          suggestions:
+            preset: 'remotes'
+        - type: 'input'
+          key: 'RemoteBranch'
+          title: "Remote branch:"
+          suggestions:
+            command: "git branch --remote --list '{{ `{{.Form.Remote}}` }}/*' --format='%(refname:short)' | sed 's/{{ `{{.Form.Remote}}` }}\\///'"
