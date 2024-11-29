@@ -122,6 +122,8 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
 | [autopair.fish][autopair]    | Auto-complete matching pairs in the Fish command line          |
 | [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
+| [bass][bass] | Make Bash utilities usable in fish shell |
+| [sponge][sponge] | cleean typos from history |
 
 [fisher]: https://github.com/jorgebucaran/fisher
 [fish-fzf]: https://github.com/jethrokuan/fzf
@@ -129,6 +131,8 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 [dracula]: https://github.com/dracula/fish
 [autopair]: https://github.com/jorgebucaran/autopair.fish
 [fish-done]: https://github.com/franciscolourenco/done
+[bass]: https://github.com/edc/bass
+[sponge]: https://github.com/meaningful-ooo/sponge
 
 #### NeoVim
 
@@ -333,18 +337,12 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 
 | Package                        | Notes                           |
 | ------------------------------ | ------------------------------- |
-| [**font-codicon**][codicon]                   | Icon Font                       |
-| [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font                |
-| [**font-cica**][cica]                      | Monospaced Font for Japanese    |
+| [**font-jetbrains-mono-nerd-font**][jetbrains-mono-nerd-font]  | Open Source Font |
 | [**font-hackgen-nerd**][hackgen]              | Programming Font for Japanese   |
-| [**font-plemol-jp-nfj**][plemoljp]             | IBM Plex base Font for Japanese |
 | [**font-udev-gothic-nf**][udev-gothic]            | BIZ UD Gothic + JetBrains Mono for Japanese |
 
-[codicon]: https://github.com/microsoft/vscode-codicons
 [jetbrains-mono-nerd-font]: https://www.jetbrains.com/ja-jp/lp/mono/
-[cica]: https://github.com/miiton/Cica
 [hackgen]: https://github.com/yuru7/HackGen
-[plemoljp]: https://github.com/yuru7/PlemolJP
 [udev-gothic]: https://github.com/yuru7/udev-gothic
 
 #### Dev packages
