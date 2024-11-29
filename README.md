@@ -122,6 +122,8 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [dracula][dracula]          | 🧛🏻‍♂️ Dark theme for fish                                |
 | [autopair.fish][autopair]    | Auto-complete matching pairs in the Fish command line          |
 | [done][fish-done]             | A fish-shell package to automatically receive notifications when long processes finish. |
+| [bass][bass] | Make Bash utilities usable in fish shell |
+| [sponge][sponge] | cleean typos from history |
 
 [fisher]: https://github.com/jorgebucaran/fisher
 [fish-fzf]: https://github.com/jethrokuan/fzf
@@ -129,6 +131,8 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 [dracula]: https://github.com/dracula/fish
 [autopair]: https://github.com/jorgebucaran/autopair.fish
 [fish-done]: https://github.com/franciscolourenco/done
+[bass]: https://github.com/edc/bass
+[sponge]: https://github.com/meaningful-ooo/sponge
 
 #### NeoVim
 
