@@ -10,7 +10,7 @@ versions = ["latest"]
 
 [mise.deno]
 enabled  = true
-versions = ["1"]
+versions = ["2"]
 
 [mise.bun]
 enabled  = false
