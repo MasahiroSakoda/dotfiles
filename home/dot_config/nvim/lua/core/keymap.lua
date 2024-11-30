@@ -1,11 +1,11 @@
 ---------------------------------------------------------------------------
 -- Binding Rules:
--- Vim由来のコマンドを割り当てる場合の修飾キーは"<Space> + h/H/b/t/s"
--- h: history, H: Help, b: Buffer, t: Tab, s: Split Window
--- Telescopeの割り当て修飾キーは"<Space> + f"
--- LSPの割り当て修飾キー: "<Space> + l"
--- DAPの割り当て修飾キー: "<Space> + d"
--- Gitの割り当て修飾キー: "<Space> + g"
+-- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, s: Split
+-- LSP keymap: <Leader> + l
+-- DAP keymap: <Leader> + d
+-- Git Keymap: <Leader> + g
+-- Fuzzy Finder: <Leader> + f
+-- Task Runner: <Leader> + o
 ---------------------------------------------------------------------------
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
@@ -25,7 +25,7 @@ vim.cmd[[
 ]]
 
 ---------------------------------------------------------------------------
--- which-key commands
+-- which-key: <Leader> + w
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>w", group = "Which-Key", icon = "⌨️ " },
@@ -35,7 +35,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- ❓ Help: <Leader>+H
+-- ❓ Help: <Leader> + H
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>h", group = "Help", icon = "❓ " },
@@ -44,7 +44,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🕒  History: <Leader>+h
+-- 🕒  History: <Leader> + h
 ---------------------------------------------------------------------------
 wk.add({
   silent = false,
@@ -138,7 +138,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- dial.nvim: Increment/Decrement plugin
+-- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 local map = require("dial.map")
 wk.add({
@@ -154,9 +154,11 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🛠  overseer.nvim: Task Runner
+-- 🛠  overseer.nvim: Task Runner: <Leader> + o
 ---------------------------------------------------------------------------
 wk.add({
+  { "<Leader>o", group = "Task Runner", icon = "✅  " },
+
   -- Async commands
   { "<Leader>og", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = "Grep cursor word asynchronously" },
   { "<Leader>om", "<CMD>Make<CR>",                  icon = " ", desc = "Run make asynchronously" },
@@ -170,7 +172,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🔭  Telescope
+-- 🔭  Telescope: <Leader> + f
 ---------------------------------------------------------------------------
 local telescope = require("telescope")
 -- Disable Telescope keymap for VSCode
@@ -223,7 +225,7 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- LSP: Language Server Protocol
+-- LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
   { "K", "<NOP" },
@@ -260,7 +262,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🐛  DAP: Debugger Adapter Protocol
+-- 🐛  DAP: Debugger Adapter Protocol: <Leader> + d
 ---------------------------------------------------------------------------
 wk.add({
   -- DAP keymap like VSCode
@@ -291,7 +293,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- Git
+-- Git: <Leader> + g
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>gb", function() snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
@@ -299,7 +301,7 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🤖  AI Interaction
+-- 🤖  AI Interaction: <Leader> + a
 ---------------------------------------------------------------------------
 if not is_vscode then
   -- avante.nvim
@@ -318,7 +320,7 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- Others
+-- Others:
 ---------------------------------------------------------------------------
 -- Toggle Plugin
 wk.add({
