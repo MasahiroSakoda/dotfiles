@@ -183,8 +183,16 @@ if not is_vscode then
     -- Builtin
     { "<Leader>F",  "<CMD>Telescope find_files<CR>",  icon = " ", desc = "Find files in current directory" },
     { "<Leader>fo", "<CMD>Telescope oldfiles<CR>",    icon = " ", desc = "Recently files" },
+
+    -- Grep
     { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
     { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
+    { "<Leader>fw", function()
+      require'telescope.builtin'.grep_string({ search = vim.fn.expand("<cword>") })
+    end, icon = " ", desc = "grep with cursor word" },
+    { "<Leader>fW", function()
+      require'telescope.builtin'.grep_string({ search = vim.fn.expand("<cWORD>") })
+    end, icon = " ", desc = "grep with cursor WORD" },
 
     -- Vim
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
