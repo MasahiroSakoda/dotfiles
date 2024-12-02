@@ -1,12 +1,10 @@
-local ok, tt = pcall(require, "toggleterm")
+local ok, toggleterm = pcall(require, "toggleterm")
 if not ok then return end
 
-local o = vim.o
-
-tt.setup({
-  direction = "float", ---@Usage "vertical", "horizontal", "tab", "float"
+toggleterm.setup({
+  direction = "float", ---@type "vertical"|"horizontal"|"tab"|"float"
   close_on_exit= true,
-  shell = o.shell,
+  shell = vim.o.shell,
 
   highlights = {
     FloatBorder = {
@@ -15,9 +13,9 @@ tt.setup({
     },
   },
   float_opts = {
-    width  = function() return math.ceil(o.columns * 0.85) end,
-    -- height = function() return math.ceil(o.columns * 0.4) end,
-    border   = "curved", ---@Usage "single", "double", "shadow", "curved"
+    width  = function() return math.ceil(vim.o.columns * 0.9) end,
+    height = function() return math.ceil(vim.o.lines   * 0.9) end,
+    border   = "curved", ---@type "single"|"double"|"shadow"|"curved"
     winblend = 20,
   },
 })
