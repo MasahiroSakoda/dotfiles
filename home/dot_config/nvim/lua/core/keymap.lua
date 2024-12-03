@@ -305,7 +305,8 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>gb", function() snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
-  { "<Leader>gg", function() snacks.lazygit() end,        icon = " ", desc = "Open lazygit" },
+  { "<Leader>gg", "<CMD>ToggleLazygit<CR>",               icon = " ", desc = "Toggle lazygit w/ terminal" },
+  { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>",            icon = " ", desc = "Toggle gh dash w/ terminal" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -342,6 +343,6 @@ wk.add({
   { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
   { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
-  { ",t", "<CMD>ToggleTerm<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
-  -- { ",t", function() snacks.terminal.toggle(nil, {}) end, mode = nt, icon = " ", desc = "Toggle Terminal"},
+  { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
+  { ",b", "<CMD>ToggleBottom<CR>", mode = nt, icon = " ", desc = "Toggle Process Monitor w/ Terminal" },
 }, opts)
