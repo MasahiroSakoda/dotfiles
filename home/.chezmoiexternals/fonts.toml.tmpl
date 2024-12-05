@@ -2,19 +2,22 @@
 
 {{- if and (eq .chezmoi.os "linux") (not .headless) }}
 [".local/share/fonts/JetBrainsMono"]
+{{- $repo := "ryanoasis/nerd-fonts" }}
 type = "archive"
-url  = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
+url  = {{ gitHubLatestReleaseAssetURL $repo (printf "%s.tar.xz" "JetBrainsMono") | quote }}
 refreshPeriod = "168h"
 
 [".local/share/fonts/HackGen"]
-{{- $latestVersion := (gitHubLatestRelease "yuru7/HackGen").TagName }}
+{{- $repo := "yuru7/HackGen" }}
+{{- $latestVersion := (gitHubLatestRelease $repo).TagName }}
 type = "archive"
-url  = "https://github.com/yuru7/HackGen/releases/download/{{ $latestVersion }}/HackGen_NF_{{ $latestVersion }}.zip"
+url  = {{ gitHubLatestReleaseAssetURL $repo (printf "HackGen_NF_%s" $latestVersion) | quote }}
 refreshPeriod = "168h"
 
 [".local/share/fonts/UDEV-Gothic"]
-{{- $latestVersion := (gitHubLatestRelease "yuru7/udev-gothic").TagName }}
+{{- $repo := "yuru7/udev-gothic" }}
+{{- $latestVersion := (gitHubLatestRelease $repo).TagName }}
 type = "archive"
-url  = "https://github.com/yuru7/udev-gothic/releases/download/{{ $latestVersion }}/UDEVGothic_NF_{{ $latestVersion }}.zip"
+url  = {{ gitHubLatestReleaseAssetURL $repo (printf "UDEVGothic_NF_%s.zip" $latestVersion) | quote }}
 refreshPeriod = "168h"
 {{- end }}
