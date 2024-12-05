@@ -43,12 +43,14 @@ cli:
     - any-glob-to-any-file:
       - "home/dot_config//*"
 
-fish:
+shell:
   - changed-files:
     - any-glob-to-any-file:
       - "home/dot_config/fish/*.fish.tmpl"
       - "home/dot_config/fish/**/*"
       - "home/dot_config/fish/fish_plugins"
+      - "home/dot_config/zsh/*"
+      - "home/dot_config/zsh/functions/*"
       - "home/.chezmoiscripts/run_once_after_10-fish.sh.tmpl"
 
 mise:
