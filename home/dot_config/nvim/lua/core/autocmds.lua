@@ -42,12 +42,6 @@ autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
   callback = function(_) highlight_url() end,
 })
 
--- autocmd("BufWritePost", {
---   group   = augroup "chezmoi_apply",
---   pattern = fn.expand("~") .. "/.local/share/chezmoi/*",
---   command = "silent! !chezmoi apply --force",
--- })
-
 autocmd("TextYankPost", {
   desc     = "Highlight on yank",
   group    = augroup "highlight_yank",
@@ -58,7 +52,7 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
   desc    = "Close specific filetype with <q>",
   group   = augroup "close_with_q",
-  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm" },
+  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
