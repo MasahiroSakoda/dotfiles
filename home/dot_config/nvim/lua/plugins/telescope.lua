@@ -39,11 +39,6 @@ return {
     config = function() require("user.telescope.lga") end,
   },
   {
-    "nvim-telescope/telescope-file-browser.nvim",
-    cond   = not vim.g.vscode,
-    config = function() require("user.telescope.file_browser") end,
-  },
-  {
     "benfowler/telescope-luasnip.nvim",
     cond   = not vim.g.vscode,
     module = "telescope._extensions.luasnip",
