@@ -44,16 +44,10 @@ return {
   },
   { "nvchad/showkeys", cmd = "ShowkeysToggle" },
   {
-    "nvim-neo-tree/neo-tree.nvim", -- File Explorer w/ tree style
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd    = "Neotree",
+    "stevearc/oil.nvim", -- File Explorer like buffer
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
-    config = function() require("ui.neo-tree") end,
+    config = function() require("ui.oil") end,
   },
   {
     "lewis6991/gitsigns.nvim", -- Git integration
