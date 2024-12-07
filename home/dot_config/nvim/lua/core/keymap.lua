@@ -174,7 +174,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🔭  Telescope: <Leader> + f
 ---------------------------------------------------------------------------
-local telescope = require("telescope")
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
   wk.add({
@@ -187,12 +186,8 @@ if not is_vscode then
     -- Grep
     { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
     { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
-    { "<Leader>fw", function()
-      require'telescope.builtin'.grep_string({ search = vim.fn.expand("<cword>") })
-    end, icon = " ", desc = "grep with cursor word" },
-    { "<Leader>fW", function()
-      require'telescope.builtin'.grep_string({ search = vim.fn.expand("<cWORD>") })
-    end, icon = " ", desc = "grep with cursor WORD" },
+    { "<Leader>fw", "<CMD>TelescopeSearchCword<CR>",  icon = " ", desc = "grep with cursor word" },
+    { "<Leader>fW", "<CMD>TelescopeSearchCWORD<CR>",  icon = " ", desc = "grep with cursor WORD" },
 
     -- Vim
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
@@ -218,17 +213,13 @@ if not is_vscode then
     { "<Leader>fn", function() snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
-    { "<Leader>fdC", function() telescope.extensions.dap.commands() end,         icon = " ", desc = "Commands" },
-    { "<Leader>fdc", function() telescope.extensions.dap.configurations() end,   icon = " ", desc = "Configs" },
-    { "<Leader>fdf", function() telescope.extensions.dap.frames() end,           icon = " ", desc = "Frames" },
-    { "<Leader>fdl", function() telescope.extensions.dap.list_breakpoints() end, icon = " ", desc = "Breakpoints" },
-    { "<Leader>fdv", function() telescope.extensions.dap.variables() end,        icon = " ", desc = "Variables" },
-    {
-      "<Leader>fc",
-      function() telescope.extensions.chezmoi.find_files() end,
-      icon = " ",
-      desc = "Search chezmoi files",
-    },
+    { "<Leader>fdC", "<CMD>TelescopeDapCommands<CR>",    icon = " ", desc = "Commands" },
+    { "<Leader>fdc", "<CMD>TelescopeDapConfig<CR>",      icon = " ", desc = "Configs" },
+    { "<Leader>fdf", "<CMD>TelescopeDapFrames<CR>",      icon = " ", desc = "Frames" },
+    { "<Leader>fdl", "<CMD>TelescopeDapBreakpoints<CR>", icon = " ", desc = "Breakpoints" },
+    { "<Leader>fdv", "<CMD>TelescopeDapVariables<CR>",   icon = " ", desc = "Variables" },
+
+    { "<Leader>fc",  "<CMD>TelescopeChezmoiFind",        icon = " ", desc = "Search chezmoi files" },
   }, opts)
 end
 
@@ -290,23 +281,23 @@ wk.add({
   { "<Leader>dB", "<CMD>DapStepBack<CR>",         icon = " ", desc = "Step Back" },
   { "<Leader>dt", "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
 
-  { "<Leader>dd", "<CMD>lua require'utils.dap'.toggle_ui()<CR>",     icon = ":", desc = "Toggle Debugger UI" },
-  { "<Leader>dp", "<CMD>lua require'utils.dap'.preview()<CR>",       icon = " ", desc = "DAP Preview" },
-  { "<Leader>dh", "<CMD>lua require'utils.dap'.hover()<CR>",         icon = " ", desc = "Hover DAP widgets" },
-  { "<Leader>dl", "<CMD>lua require'utils.dap'.open_log()<CR>",      icon = "󰌱 ", desc = "Open DAP log" },
-  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",            icon = "↻ ", desc = "Run Last" },
-  { "<Leader>ds", "<CMD>lua require'utils.dap'.float_scopes()<CR>",  icon = " ", desc = "Float scopes" },
-  { "<Leader>dS", "<CMD>lua require'utils.dap'.float_stacks()<CR>",  icon = " ", desc = "Float stacks" },
-  { "<Leader>dw", "<CMD>lua require'utils.dap'.float_watches()<CR>", icon = " ", desc = "Float watches" },
+  { "<Leader>dd", "<CMD>DapToggleUI<CR>",    icon = ":", desc = "Toggle Debugger UI" },
+  { "<Leader>dp", "<CMD>DapPreview<CR>",     icon = " ", desc = "DAP Preview" },
+  { "<Leader>dh", "<CMD>DapHover<CR>",       icon = " ", desc = "Hover DAP widgets" },
+  { "<Leader>dl", "<CMD>DapLog<CR>",         icon = "󰌱 ", desc = "Open DAP log" },
+  { "<Leader>dL", "<CMD>DapRunLast<CR>",     icon = "↻ ", desc = "Run Last" },
+  { "<Leader>ds", "<CMD>DapFloatScope<CR>",  icon = " ", desc = "Float scopes" },
+  { "<Leader>dS", "<CMD>DapFloatStacks<CR>", icon = " ", desc = "Float stacks" },
+  { "<Leader>dw", "<CMD>DapFloatWatch<CR>",  icon = " ", desc = "Float watches" },
 }, opts)
 
 ---------------------------------------------------------------------------
 -- Git: <Leader> + g
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>gb", function() snacks.git.blame_line() end, icon = " ", desc = "Git Blame Line" },
-  { "<Leader>gg", "<CMD>ToggleLazygit<CR>",               icon = " ", desc = "Toggle lazygit w/ terminal" },
-  { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>",            icon = " ", desc = "Toggle gh dash w/ terminal" },
+  { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
+  { "<Leader>gg", "<CMD>ToggleLazygit<CR>",    icon = " ", desc = "Toggle lazygit w/ terminal" },
+  { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>", icon = " ", desc = "Toggle gh dash w/ terminal" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -324,7 +315,7 @@ if not is_vscode then
     { "<Leader>ar", "<CMD>AvanteRefresh<CR>",        icon = "", desc = "Refresh Avante Window" },
 
     { "<Leader>as", ":AvanteSwitchProvider<Space>",  icon = "", desc = "Switch Avante Provider" },
-    { "<Leader>aS", "<CMD>lua require'utils.ai'.change_llm()<CR>", icon = "", desc = "Switch Local Language Model" },
+    { "<Leader>aS", "<CMD>AvanteSwitchLocalLLM<CR>", icon = "", desc = "Switch Local Language Model" },
   }, opts)
 end
 
