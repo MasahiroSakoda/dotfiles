@@ -268,7 +268,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Plugin                 | Notes                     |
 |:-----------------------|:--------------------------|
 | [**telescope-frecency**][ts-frecency] | [`Frecency algorithm`][frecency] search |
-| [**telescope-file-browser**][ts-file-browser] | File Browser |
 | [**telescope-egrepify**][ts-egrepify] | live grep extension |
 | [**telescope-lazy**][ts-lazy] | [`lazy.nvim`][lazy-nvim] extension |
 | [**telescope-dap**][ts-dap] | DAP Extension |
@@ -276,7 +275,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 ![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/859d9cb8-6af7-47f6-a167-e3dcee61b0e9)
 
 [ts-frecency]:     https://github.com/nvim-telescope/telescope-frecency.nvim
-[ts-file-browser]: https://github.com/nvim-telescope/telescope-file-browser.nvim
 [ts-egrepify]:     https://github.com/fdschmidt93/telescope-egrepify.nvim
 [ts-lazy]:         https://github.com/tsakirist/telescope-lazy.nvim
 [ts-dap]:          https://github.com/nvim-telescope/telescope-dap.nvim
