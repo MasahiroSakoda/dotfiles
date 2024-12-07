@@ -176,6 +176,8 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
+  require("utils.telescope")
+
   wk.add({
     { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
 
@@ -219,7 +221,7 @@ if not is_vscode then
     { "<Leader>fdl", "<CMD>TelescopeDapBreakpoints<CR>", icon = " ", desc = "Breakpoints" },
     { "<Leader>fdv", "<CMD>TelescopeDapVariables<CR>",   icon = " ", desc = "Variables" },
 
-    { "<Leader>fc",  "<CMD>TelescopeChezmoiFind",        icon = " ", desc = "Search chezmoi files" },
+    { "<Leader>fc",  "<CMD>TelescopeChezmoiFind<CR>",        icon = " ", desc = "Search chezmoi files" },
   }, opts)
 end
 
@@ -263,6 +265,8 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapter Protocol: <Leader> + d
 ---------------------------------------------------------------------------
+require("utils.dap")
+
 wk.add({
   -- DAP keymap like VSCode
   { "<F5>",    "<CMD>DapContinue<CR>",  icon = "", desc = "Continue Process" },
@@ -294,7 +298,10 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Git: <Leader> + g
 ---------------------------------------------------------------------------
+require("utils.git")
+
 wk.add({
+  { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
   { "<Leader>gg", "<CMD>ToggleLazygit<CR>",    icon = " ", desc = "Toggle lazygit w/ terminal" },
   { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>", icon = " ", desc = "Toggle gh dash w/ terminal" },
@@ -304,6 +311,8 @@ wk.add({
 -- 🤖  AI Interaction: <Leader> + a
 ---------------------------------------------------------------------------
 if not is_vscode then
+  require("utils.ai")
+
   -- avante.nvim
   wk.add({
     mode = nv,
@@ -322,18 +331,21 @@ end
 ---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
--- Toggle Plugin
-wk.add({
-  { ",f", "<CMD>Neotree toggle<CR>",     icon = " ", desc = "Toggle NeoTree" },
-  { ",s", "<CMD>ScrollbarToggle<CR>",    icon = " ", desc = "Toggle Scrollbar" },
-  { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
-  { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
-  { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
 
-  { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
-  { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
-  { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
+if not is_vscode then
+  require("utils.terminal")
+  -- Toggle Plugin
+  wk.add({
+    { ",s", "<CMD>ScrollbarToggle<CR>",    icon = " ", desc = "Toggle Scrollbar" },
+    { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
+    { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
+    { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
 
-  { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
-  { ",b", "<CMD>ToggleBottom<CR>", mode = nt, icon = " ", desc = "Toggle Process Monitor w/ Terminal" },
-}, opts)
+    { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
+    { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
+    { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
+
+    { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
+    { ",b", "<CMD>ToggleBottom<CR>", mode = nt, icon = " ", desc = "Toggle Process Monitor w/ Terminal" },
+  }, opts)
+end
