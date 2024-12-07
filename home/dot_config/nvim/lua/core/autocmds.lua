@@ -88,3 +88,10 @@ autocmd({ "VimResized" }, {
   command = "wincmd =",
   desc    = "Automatically resize windows when the host window size changes.",
 })
+
+api.nvim_create_augroup("OilRelativePathFix", {})
+autocmd({ "BufLeave" }, {
+  group    = "OilRelativePathFix",
+  pattern  = "oil:///*",
+  callback = function() vim.cmd("cd .") end,
+})
