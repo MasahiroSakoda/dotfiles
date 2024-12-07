@@ -16,6 +16,7 @@ return {
       { icon = " ", key = "g", desc = "[G]rep Search",   action = ":Telescope egrepify" },
       { icon = " ", key = "F", desc = "[F]ind File",     action = ":lua Snacks.dashboard.pick('files')" },
       { icon = " ", key = "h", desc = "[H]istory",       action = ":lua Snacks.dashboard.pick('oldfiles')" },
+      { icon = " ", key = "b", desc = "[B]rowse",        action = ":OilToggleFloatRoot" },
       { icon = "󱀸 ", key = "s", desc = "[S]ession",       section = "session" },
       { icon = " ", key = "q", desc = "[Q]uit",          action = ":qa" },
     },

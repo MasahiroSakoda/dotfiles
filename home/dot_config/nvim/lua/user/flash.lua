@@ -8,11 +8,5 @@ flash.setup({
     -- search/jump in all windows
     multi_window = false,
   },
-  exclude = {
-    "flash_prompt",
-    "notify",
-    "noice",
-    "neo-tree",
-    "cmp_menu",
-  },
+  exclude = require("core.ignore").flash,
 })

@@ -8,20 +8,14 @@ local float_args = {
 }
 
 local is_running = function() return string.len(dap.status()) > 0 end
-local wrap = function(callback)
-  return function()
-    if not is_running() then return vim.notify('Dap session not running', vim.log.levels.WARN) end
-    callback()
-  end
-end
 
-vim.api.nvim_create_user_command("DapRunLast",     wrap(dap.run_last()), {})
-vim.api.nvim_create_user_command("DapToggleUI",    wrap(dapui.toggle({ reset = true })), {})
-vim.api.nvim_create_user_command("DapPreview",     wrap(widgets.preview()), {})
-vim.api.nvim_create_user_command("DapHover",       wrap(widgets.hover()), {})
-vim.api.nvim_create_user_command("DapFloatStacks", wrap(dapui.float_element("stacks",  float_args)), {})
-vim.api.nvim_create_user_command("DapFloatWatch",  wrap(dapui.float_element("watches", float_args)), {})
-vim.api.nvim_create_user_command("DapFloatScope",  wrap(dapui.float_element("scope",   float_args)), {})
+vim.api.nvim_create_user_command("DapRunLast",     function() return is_running and dap.run_last() end, {})
+vim.api.nvim_create_user_command("DapToggleUI",    function() dapui.toggle({ reset = true }) end, {})
+vim.api.nvim_create_user_command("DapPreview",     function() widgets.preview() end, {})
+vim.api.nvim_create_user_command("DapHover",       function() widgets.hover() end, {})
+vim.api.nvim_create_user_command("DapFloatStacks", function() dapui.float_element("stacks",  float_args) end, {})
+vim.api.nvim_create_user_command("DapFloatWatch",  function() dapui.float_element("watches", float_args) end, {})
+vim.api.nvim_create_user_command("DapFloatScope",  function() dapui.float_element("scope",   float_args) end, {})
 vim.api.nvim_create_user_command("DapLog", function()
   vim.cmd("vsplit" .. vim.fn.stdpath("cache") .. "/dap.log")
 end, {})

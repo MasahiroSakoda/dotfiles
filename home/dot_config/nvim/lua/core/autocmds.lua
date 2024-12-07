@@ -42,12 +42,6 @@ autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
   callback = function(_) highlight_url() end,
 })
 
--- autocmd("BufWritePost", {
---   group   = augroup "chezmoi_apply",
---   pattern = fn.expand("~") .. "/.local/share/chezmoi/*",
---   command = "silent! !chezmoi apply --force",
--- })
-
 autocmd("TextYankPost", {
   desc     = "Highlight on yank",
   group    = augroup "highlight_yank",
@@ -58,7 +52,7 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
   desc    = "Close specific filetype with <q>",
   group   = augroup "close_with_q",
-  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm" },
+  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
@@ -66,11 +60,13 @@ autocmd("FileType", {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  desc     = "Surveillance chezmoi target files",
   pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
 autocmd({ "RecordingEnter" }, {
+  desc     = "Notify macrorecoding start",
   callback = function(_)
     local msg = string.format("Key:  %s", vim.fn.reg_recording())
     vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording" })
@@ -78,6 +74,7 @@ autocmd({ "RecordingEnter" }, {
 })
 
 autocmd({ "RecordingLeave" }, {
+  desc     = "Notify macrorecoding stop",
   callback = function()
     local msg = string.format("Key:  %s", vim.fn.reg_recording())
     vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording Ended" })
@@ -90,4 +87,11 @@ autocmd({ "VimResized" }, {
   pattern = "*",
   command = "wincmd =",
   desc    = "Automatically resize windows when the host window size changes.",
+})
+
+api.nvim_create_augroup("OilRelativePathFix", {})
+autocmd({ "BufLeave" }, {
+  group    = "OilRelativePathFix",
+  pattern  = "oil:///*",
+  callback = function() vim.cmd("cd .") end,
 })
