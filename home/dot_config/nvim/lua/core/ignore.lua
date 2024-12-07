@@ -8,15 +8,15 @@ end
 return {
   files = files,
   autopairs  = { "TelescopePrompt", "vim" },
-  illuminate = { "alpha", "lazy", "neo-tree*", "TelescopePrompt", "toggleterm", "Trouble" },
+  illuminate = { "alpha", "lazy", "oil", "TelescopePrompt", "toggleterm", "Trouble" },
 
   lualine = {
-    statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline",  "neo-tree*" },
-    winbar     = { "alpha", "dashboard", "dapui*", "neo-tree*", "Trouble" },
+    statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline" },
+    winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
   },
   scrollbar = {
-    buftypes  = { "nofile", "nowrite", "prompt", "TelescopePrompt", "toggleterm", "neo-tree*", "noice", "notify" },
-    filetypes = { "alpha", "dashboard", "dapui*", "neo-tree*", "noice", "notify", "qf", "TelescopePrompt" },
+    buftypes  = { "nofile", "nowrite", "prompt", "TelescopePrompt", "toggleterm", "oil", "noice", "notify" },
+    filetypes = { "alpha", "dashboard", "dapui*", "oil", "noice", "notify", "qf", "TelescopePrompt" },
   },
-  flash = { "flash_prompt", "notify", "noice", "neo-tree*", "cmp_menu" },
+  flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
 }

@@ -14,16 +14,6 @@ bufferline.setup {
     ---@diagnostic disable-next-line: undefined-field
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
-    offset = {
-      {
-        filetype   = "neo-tree",
-        highlight  = "Directory",
-        text       = "File Explorer",
-        text_align = "center",
-        separator  = true,
-      },
-    },
-
     -- Size / Length
     tab_size = 15,
     max_name_length = 14,

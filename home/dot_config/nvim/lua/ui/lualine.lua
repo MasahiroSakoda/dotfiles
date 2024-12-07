@@ -69,7 +69,7 @@ lualine.setup {
     "quickfix",
     "overseer",
     "trouble",
-    "neo-tree",
+    "oil",
     "fzf",
     "mason",
   },
