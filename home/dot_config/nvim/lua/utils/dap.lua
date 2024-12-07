@@ -1,5 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-local M = {}
 local dap, widgets, dapui = require("dap"), require("dap.ui.widgets"), require("dapui")
 local float_args = {
   enter    = true,
@@ -16,12 +15,13 @@ local wrap = function(callback)
   end
 end
 
-M.toggle_ui     = function() dapui.toggle({ reset = true }) end
-M.float_watches = wrap(function() dapui.float_element("watches", float_args) end)
-M.float_scopes  = wrap(function() dapui.float_element("scope",   float_args) end)
-M.float_stacks  = wrap(function() dapui.float_element("stacks",  float_args) end)
-M.hover         = wrap(function() widgets.hover() end)
-M.preview       = wrap(function() widgets.preview() end)
-M.open_log      = function() vim.cmd("vsplit " .. vim.fn.stdpath("cache") .. "/dap.log") end
-
-return M
+vim.api.nvim_create_user_command("DapRunLast",     wrap(dap.run_last()), {})
+vim.api.nvim_create_user_command("DapToggleUI",    wrap(dapui.toggle({ reset = true })), {})
+vim.api.nvim_create_user_command("DapPreview",     wrap(widgets.preview()), {})
+vim.api.nvim_create_user_command("DapHover",       wrap(widgets.hover()), {})
+vim.api.nvim_create_user_command("DapFloatStacks", wrap(dapui.float_element("stacks",  float_args)), {})
+vim.api.nvim_create_user_command("DapFloatWatch",  wrap(dapui.float_element("watches", float_args)), {})
+vim.api.nvim_create_user_command("DapFloatScope",  wrap(dapui.float_element("scope",   float_args)), {})
+vim.api.nvim_create_user_command("DapLog", function()
+  vim.cmd("vsplit" .. vim.fn.stdpath("cache") .. "/dap.log")
+end, {})
