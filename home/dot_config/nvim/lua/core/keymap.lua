@@ -206,7 +206,6 @@ if not is_vscode then
 
     -- telescope.nvim extensions
     { "<Leader>ff", "<CMD>Telescope frecency<CR>",     icon = " ", desc = "Frecency algorithm Search" },
-    { "<Leader>fF", "<CMD>Telescope file_browser<CR>", icon = " ", desc = "File Browser" },
     { "<C-g>",      "<CMD>Telescope egrepify<CR>",     icon = " ", desc = "Live grep with egrepify" },
     { "<Leader>fs", "<CMD>Telescope luasnip<CR>",      icon = " ", desc = "LuaSnip Browser" },
     { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
