@@ -60,11 +60,13 @@ autocmd("FileType", {
 })
 
 autocmd({ "BufRead", "BufNewFile" }, {
+  desc     = "Surveillance chezmoi target files",
   pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
 autocmd({ "RecordingEnter" }, {
+  desc     = "Notify macrorecoding start",
   callback = function(_)
     local msg = string.format("Key:  %s", vim.fn.reg_recording())
     vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording" })
@@ -72,6 +74,7 @@ autocmd({ "RecordingEnter" }, {
 })
 
 autocmd({ "RecordingLeave" }, {
+  desc     = "Notify macrorecoding stop",
   callback = function()
     local msg = string.format("Key:  %s", vim.fn.reg_recording())
     vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording Ended" })
