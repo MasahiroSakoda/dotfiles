@@ -252,13 +252,7 @@ wk.add({
 --------------------------------------------------
 wk.add({
   { "<Leader>l", group = "LSP via Telescope", icon = "🚦 " },
-  { "<Leader>lA", "<CMD>Telescope lsp_range_code_actions<CR>",    icon = " ", desc = "Range Code Actions" },
-  { "<Leader>lD", "<CMD>Telescope diagnostics<CR>",               icon = " ", desc = "Show diagnostic" },
-  { "<Leader>lI", "<CMD>Telescope lsp_implementation<CR>",        icon = " ", desc = "Implementation" },
-  { "<Leader>lg", "<CMD>Telescope lsp_document_diagnostics<CR>",  icon = " ", desc = "Document Diagnostics" },
   { "<Leader>li", "<CMD>LspInfo<CR>",                             icon = " ", desc = "Display LSP Info" },
-  { "<Leader>lo", "<CMD>Telescope lsp_workspace_diagnostics<CR>", icon = " ", desc = "Workspace Diagnostics" },
-  { "<Leader>lr", "<CMD>Telescope lsp_references<CR>",            icon = " ", desc = "References" },
   { "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>",      icon = " ", desc = "Document Symbol" },
 }, opts)
 
