@@ -329,6 +329,22 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+---File Explorer: <Leader> + e
+-----------------------------------------------------------------------
+if not is_vscode then
+  require("utils.explorer")
+
+  wk.add({
+    mode = nt,
+    { "<Leader>e", group = "oil.nvim", icon = "📁 " },
+    { "<Leader>eh", "<CMD>OilToggleHidden<CR>",    icon = " ", desc = "Toggle Hidden files" },
+    { "<Leader>ef", "<CMD>OilToggleFloat<CR>",     icon = " ", desc = "Explore parent directory" },
+    { "<Leader>er", "<CMD>OilToggleFloatRoot<CR>", icon = " ", desc = "Explore project root" },
+    { "<Leader>ed", ":OilToggleFloatDir<Space>",   icon = " ", desc = "Explore directory with arg" },
+  }, opts)
+end
+
+---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
 
