@@ -31,12 +31,6 @@ return {
     config = function() require("lsp.config.lspsaga") end,
   },
   {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-    cmd    = { "DapInstall", "DapUninstall" },
-    config = function() require("dap.config.mason-dap") end,
-  },
-  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
