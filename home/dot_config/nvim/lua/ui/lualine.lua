@@ -1,7 +1,6 @@
 local lualine_ok, lualine   = pcall(require, "lualine")
-local navic_ok,   navic     = pcall(require, "nvim-navic")
 local overseer_ok, overseer = pcall(require, "overseer")
-if not (lualine_ok or navic_ok or overseer_ok) then return end
+if not (lualine_ok or overseer_ok) then return end
 
 local ignore = require("core.ignore")
 
@@ -39,10 +38,6 @@ lualine.setup {
       },
     },
     lualine_x = {
-      {
-        function() return navic.get_location() end,
-        cond = function() return navic.is_available() and vim.g.navic_enabled end,
-      },
       {
         "overseer",
         label = "",     -- Prefix for task counts

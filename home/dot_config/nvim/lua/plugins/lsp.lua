@@ -17,12 +17,6 @@ return {
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
-  {
-    "SmiteshP/nvim-navic",
-    dependencies = { "neovim/nvim-lspconfig" },
-    cond   = not vim.g.vscode,
-    config = function() require("lsp.config.navic") end,
-  },
   -- Rich GUI for LSP
   {
     "nvimdev/lspsaga.nvim",

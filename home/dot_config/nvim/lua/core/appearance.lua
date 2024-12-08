@@ -40,6 +40,3 @@ opt.laststatus = 3
 
 opt.list = true
 opt.listchars = { space = "･", eol = "↴", tab = "»-", trail = "-", nbsp = "%", extends = "⟩", precedes = "⟨" }
-
--- nvim-navic
-vim.g.navic_enabled = false
