@@ -13,15 +13,3 @@ gitsigns.setup({
     untracked    = { text = "┆" },
   },
 })
-
-if vim.g.scrollbar_enabled then
-  require("scrollbar.handlers.gitsigns").setup()
-
-  vim.api.nvim_create_user_command("ScrollbarEnable", function()
-    local sg_ok, sg = pcall(require, "scrollbar.handlers.gitsigns")
-    if not sg_ok then
-      vim.notify("scrollbar.handlers.gitsigns could not be loaded")
-    end
-    sg.setup()
-  end, {})
-end

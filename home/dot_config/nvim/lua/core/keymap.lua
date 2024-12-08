@@ -345,7 +345,6 @@ if not is_vscode then
   require("utils.terminal")
   -- Toggle Plugin
   wk.add({
-    { ",s", "<CMD>ScrollbarToggle<CR>",    icon = " ", desc = "Toggle Scrollbar" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
