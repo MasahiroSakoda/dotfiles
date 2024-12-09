@@ -17,13 +17,6 @@ local highlight_url = function()
 end
 
 autocmd("BufWritePre", {
-  desc    = "Strip trailing whitespace ",
-  group   = augroup "TrailStripper",
-  pattern = "*",
-  command = "%s/s+$//e",
-})
-
-autocmd("BufWritePre", {
   desc    = "Strip trailing new lines at the end of file on save",
   group   = augroup "TrailStripper",
   pattern = "*",
