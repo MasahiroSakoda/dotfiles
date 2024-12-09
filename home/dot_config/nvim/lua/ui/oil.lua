@@ -24,7 +24,9 @@ oil.setup({
   view_options = {
     show_hidden   = true,
     natural_order = true,
-    is_always_hidden = function(name, _) return (name == "..") end
+    is_always_hidden = function(name, _)
+      return vim.tbl_contains(require("core.ignore").oil, name)
+    end
   },
 
   float = {

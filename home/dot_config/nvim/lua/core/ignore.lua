@@ -15,4 +15,9 @@ return {
     winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
   },
   flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
+  oil   = {
+    ".", "..", ".git", ".github", ".DS_Store",
+    ".venv", ".direnv", ".devenv", ".vscode", ".idea",
+    ".cargo", "node_modules", "__pycache__", ".mypy_cache", ".pytest_cache", ".ruff_cache",
+  },
 }
