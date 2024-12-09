@@ -17,17 +17,18 @@ local highlight_url = function()
 end
 
 autocmd("BufWritePre", {
-  desc    = "Strip trailing whitespace ",
-  group   = augroup "TrailStripper",
-  pattern = "*",
-  command = "%s/s+$//e",
-})
-
-autocmd("BufWritePre", {
   desc    = "Strip trailing new lines at the end of file on save",
   group   = augroup "TrailStripper",
   pattern = "*",
   command = ":%s/\\n\\+\\%$//e",
+})
+
+autocmd({ "BufWinEnter" }, {
+  desc     = "Open :help with vertical split",
+  pattern  = "*.txt",
+  callback = function()
+    if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end
+  end
 })
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {

@@ -38,9 +38,7 @@ wk.add({
 -- ❓ Help: <Leader> + H
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>h", group = "Help", icon = "❓ " },
-  { "<Leader>hh", ":horizontal above help<Space>",    icon = " ", desc = "Open Help page above buffer" },
-  { "<Leader>hv", ":vertical belowright help<Space>", icon = " ", desc = "Open Help page right side" },
+  { "<Leader>h", ":help<Space>", icon = "❓ ", desc = "Open Help page" },
 }, opts)
 
 ---------------------------------------------------------------------------
