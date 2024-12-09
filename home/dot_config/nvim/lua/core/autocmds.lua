@@ -23,6 +23,14 @@ autocmd("BufWritePre", {
   command = ":%s/\\n\\+\\%$//e",
 })
 
+autocmd({ "BufWinEnter" }, {
+  desc     = "Open :help with vertical split",
+  pattern  = "*.txt",
+  callback = function()
+    if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end
+  end
+})
+
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc    = "Check if we need to reload the file when it changed",
   group   = augroup("checktime"),
