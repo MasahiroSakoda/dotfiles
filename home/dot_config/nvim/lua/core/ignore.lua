@@ -14,9 +14,5 @@ return {
     statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline" },
     winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
   },
-  scrollbar = {
-    buftypes  = { "nofile", "nowrite", "prompt", "TelescopePrompt", "toggleterm", "oil", "noice", "notify" },
-    filetypes = { "alpha", "dashboard", "dapui*", "oil", "noice", "notify", "qf", "TelescopePrompt" },
-  },
   flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
 }

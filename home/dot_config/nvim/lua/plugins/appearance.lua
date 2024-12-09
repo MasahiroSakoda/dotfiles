@@ -24,11 +24,6 @@ return {
     config = function() require("ui.hlslens") end,
   },
   {
-    "petertriho/nvim-scrollbar", -- Extensible Scrollbar
-    cond   = not vim.g.vscode and vim.g.scrollbar_enabled,
-    config = function() require("ui.scrollbar") end,
-  },
-  {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,

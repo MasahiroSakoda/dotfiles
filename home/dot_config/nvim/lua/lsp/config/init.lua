@@ -2,14 +2,11 @@
 
 local lsp_ok, lspconfig       = pcall(require, "lspconfig")
 local mason_cfg_ok, mason_cfg = pcall(require, "mason-lspconfig")
-local navic_ok, navic         = pcall(require, "nvim-navic")
 
 if not lsp_ok  then
   vim.notify('[lspconfig] Loading "lspconfig" failed.', vim.log.levels.WARN)
 elseif not mason_cfg_ok then
   vim.notify('[lspconfig] Loading "mason-lspconfig" failed.', vim.log.levels.WARN)
-elseif not navic_ok then
-  vim.notify('[lspconfig] Loading "nvim-navic" failed.', vim.log.levels.WARN)
 end
 
 require("lsp.config.diagnostics")
@@ -43,11 +40,6 @@ local on_attach = function(client, bufnr)
         client:stop(true)
       end
     end
-  end
-
-  if client.server_capabilities.documentSymbolProvider then
-    -- vim.g.navic_silence = true
-    navic.attach(client, bufnr)
   end
 
   if client.server_capabilities.inlayHintProvider then

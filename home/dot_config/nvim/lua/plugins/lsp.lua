@@ -17,24 +17,12 @@ return {
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
-  {
-    "SmiteshP/nvim-navic",
-    dependencies = { "neovim/nvim-lspconfig" },
-    cond   = not vim.g.vscode,
-    config = function() require("lsp.config.navic") end,
-  },
   -- Rich GUI for LSP
   {
     "nvimdev/lspsaga.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
     event = "LspAttach",
     config = function() require("lsp.config.lspsaga") end,
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-    cmd    = { "DapInstall", "DapUninstall" },
-    config = function() require("dap.config.mason-dap") end,
   },
   {
     "folke/trouble.nvim",
