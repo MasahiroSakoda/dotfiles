@@ -1,5 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-
 local lsp_ok, lspconfig       = pcall(require, "lspconfig")
 local mason_cfg_ok, mason_cfg = pcall(require, "mason-lspconfig")
 
@@ -29,16 +28,12 @@ local on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     for _, _client in ipairs(active_clients) do
       -- stop tsserver if denols is already active
-      if _client.name == "denols" then
-        client:stop(true)
-      end
+      if _client.name == "denols" then client:stop(true) end
     end
   elseif client.name == "denols" then
     -- prevent tsserver from starting if denols is already active
     for _, _client in ipairs(active_clients) do
-      if _client.name == "tsserver" then
-        client:stop(true)
-      end
+      if _client.name == "tsserver" then client:stop(true) end
     end
   end
 
@@ -50,7 +45,10 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = require("lsp.servers")
-mason_cfg.setup({ ensure_installed = servers })
+mason_cfg.setup({
+  ensure_installed = servers,
+  automatic_installation = true,
+})
 
 local server_opts = {
   on_attach    = on_attach,
