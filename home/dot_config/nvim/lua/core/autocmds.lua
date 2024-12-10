@@ -90,6 +90,26 @@ autocmd({ "VimResized" }, {
   desc    = "Automatically resize windows when the host window size changes.",
 })
 
+local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", {})
+autocmd({ "LspAttach" }, {
+  desc  = "LSP Actions",
+  group = lsp_group,
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+    -- Configure LSP related keymap
+    local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+    local extend = vim.tbl_extend
+    vim.keymap.set("n", "K",  vim.lsp.buf.hover,          extend("force", bufopts, { desc = "Hover Docs" }))
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition,     extend("force", bufopts, { desc = "Definition" }))
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration,    extend("force", bufopts, { desc = "Declaration" }))
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, extend("force", bufopts, { desc = "Implementation" }))
+    vim.keymap.set("n", "gr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
+    vim.keymap.set("n", "ga", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
+  end
+})
+
 api.nvim_create_augroup("OilRelativePathFix", {})
 autocmd({ "BufLeave" }, {
   group    = "OilRelativePathFix",
