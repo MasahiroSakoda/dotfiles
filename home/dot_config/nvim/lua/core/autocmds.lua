@@ -107,6 +107,17 @@ autocmd({ "LspAttach" }, {
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, extend("force", bufopts, { desc = "Implementation" }))
     vim.keymap.set("n", "gr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
     vim.keymap.set("n", "ga", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
+
+    -- Format on save
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client ~= nil and client.supports_method("textDocument/formatting") then
+      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+        desc  = "Format on save via LSP",
+        group = lsp_group,
+        callback = function() require("lsp.config.format") end
+      })
+      -- vim.api.nvim_create_user_command("LspFormat", function() require("lsp.config.format") end, {})
+    end
   end
 })
 
