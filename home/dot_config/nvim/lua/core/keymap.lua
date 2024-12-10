@@ -294,23 +294,32 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🤖  AI Interaction: <Leader> + a
+-- 🤖  AI Interaction: <Leader> + c
 ---------------------------------------------------------------------------
 if not is_vscode then
-  require("utils.ai")
+  -- Abbreviation
+  vim.cmd[[cnoreabbrev cc CodeCompanion]]
 
-  -- avante.nvim
+  -- codecompanion.nvim
   wk.add({
     mode = nv,
-    { "<Leader>a", group = "avante.nvim", icon = "🤖 " },
-    { "<Leader>at", "<CMD>AvanteToggle<CR>",         icon = "", desc = "Toggle Avante Chat" },
-    { "<Leader>aa", "<CMD>AvanteAsk<CR>",            icon = "", desc = "Avante Ask" },
-    { "<Leader>ac", "<CMD>AvanteChat<CR>",           icon = "", desc = "Avante Chat" },
-    { "<Leader>ae", "<CMD>AvanteEdit<CR>",           icon = "", desc = "Avante Editor" },
-    { "<Leader>ar", "<CMD>AvanteRefresh<CR>",        icon = "", desc = "Refresh Avante Window" },
+    { "<Leader>c", group = "codecompanion.nvim", icon = "🤖 " },
+    { "<Leader>ci", "<CMD>CodeCompanion<CR>",            icon = " ", desc = "Inline Prompt" },
+    { "<Leader>cw", "<CMD>CodeCompanionChat Toggle<CR>", icon = " ", desc = "Toggle Chat Window" },
+    { "<Leader>ca", "<CMD>CodeCompanionActions<CR>",     icon = " ", desc = "Code completion action" },
+    { "<Leader>cA", "<CMD>CodeCompanionChat Add<CR>",    icon = " ", desc = "Add Code to Chat" },
 
-    { "<Leader>as", ":AvanteSwitchProvider<Space>",  icon = "", desc = "Switch Avante Provider" },
-    { "<Leader>aS", "<CMD>AvanteSwitchLocalLLM<CR>", icon = "", desc = "Switch Local Language Model" },
+    -- Builtin prompt libraries
+    { "<Leader>cb", "<CMD>CodeCompanion /buffer<CR>",    icon = " ", desc = "Send the current buffer" },
+    { "<Leader>cc", "<CMD>CodeCompanion /commit<CR>",    icon = " ", desc = "Commit message" },
+    { "<Leader>ce", "<CMD>CodeCompanion /explain<CR>",   icon = " ", desc = "Explain how selected code" },
+    { "<Leader>cf", "<CMD>CodeCompanion /fix<CR>",       icon = " ", desc = "Fix the selected code" },
+    { "<Leader>cl", "<CMD>CodeCompanion /lsp<CR>",       icon = " ", desc = "Explain the LSP diagnostics" },
+    { "<Leader>ct", "<CMD>CodeCompanion /test<CR>",      icon = " ", desc = "Generate unit tests for selected code" },
+
+    -- Custom prompt libraries
+    { "<Leader>cd", "<CMD>CodeCompanion /doc<CR>",       icon = " ", desc = "Generate docs to selected code" },
+    { "<Leader>cr", "<CMD>CodeCompanion /refactor<CR>",  icon = " ", desc = "Refactor the selected code" },
   }, opts)
 end
 
