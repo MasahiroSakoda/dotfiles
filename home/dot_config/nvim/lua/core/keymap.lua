@@ -229,11 +229,6 @@ wk.add({
   { "K", "<NOP" },
   { "<Leader>P", "<CMD>Lazy<CR>",                        icon = " ", desc = "Open lazy.nvim Window" },
   { "<Leader>M", "<CMD>Mason<CR>",                       icon = " ", desc = "Open mason.nvim Window" },
-  { "K",   "<CMD>lua vim.lsp.buf.hover()<CR>",           icon = " ", desc = "Hover Documentation" },
-  { "gd",  "<CMD>lua vim.lsp.buf.definition()<CR>",      icon = " ", desc = "Go to Definition" },
-  { "gD",  "<CMD>lua vim.lsp.buf.type_definition()<CR>", icon = " ", desc = "Go to Type Definition" },
-  { "gi",  "<CMD>lua vim.lsp.buf.implementation()<CR>",  icon = " ", desc = "Go to implementation" },
-  { "gr",  "<CMD>lua vim.lsp.buf.references()<CR>",      icon = " ", desc = "Go to references" },
   { "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>",      icon = " ", desc = "Go to prev diagnostics" },
   { "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>",      icon = " ", desc = "Go to next diagnostics" },
   { "go",  "<CMD>Lspsaga outline<CR>",                   icon = " ", desc = "Code outline" },
@@ -248,7 +243,7 @@ wk.add({
 ---- 🚦  Keymap for LSP via Telescope
 --------------------------------------------------
 wk.add({
-  { "<Leader>l", group = "LSP via Telescope", icon = "🚦 " },
+  { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>LspInfo<CR>",                             icon = " ", desc = "Display LSP Info" },
   { "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>",      icon = " ", desc = "Document Symbol" },
 }, opts)
