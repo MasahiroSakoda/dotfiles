@@ -297,13 +297,14 @@ wk.add({
 -- 🤖  AI Interaction: <Leader> + c
 ---------------------------------------------------------------------------
 if not is_vscode then
+  require("utils.ai")
   -- Abbreviation
   vim.cmd[[cnoreabbrev cc CodeCompanion]]
 
   -- codecompanion.nvim
   wk.add({
     mode = nv,
-    { "<Leader>c", group = "codecompanion.nvim", icon = "🤖 " },
+    { "<Leader>c", group = "AI Code Assistant", icon = "🤖 " },
     { "<Leader>ci", "<CMD>CodeCompanion<CR>",            icon = " ", desc = "Inline Prompt" },
     { "<Leader>cw", "<CMD>CodeCompanionChat Toggle<CR>", icon = " ", desc = "Toggle Chat Window" },
     { "<Leader>ca", "<CMD>CodeCompanionActions<CR>",     icon = " ", desc = "Code completion action" },
