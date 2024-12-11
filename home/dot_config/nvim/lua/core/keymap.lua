@@ -7,7 +7,6 @@
 -- Fuzzy Finder: <Leader> + f
 -- Task Runner: <Leader> + o
 ---------------------------------------------------------------------------
-local cmd, fn = vim.cmd, fn
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
 local nv, nx, nt, nxo, o, ox, c = {"n", "v"}, {"n", "x"}, {"n", "t"}, {"n", "x", "o"}, {"o"}, {"o", "x"}, {"c"}
@@ -16,7 +15,7 @@ local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
 
 -- Abbreviation for typo
-cmd[[
+vim.cmd[[
   cnoreabbrev Q! q!
   cnoreabbrev q1 q!
   cnoreabbrev Q1 q!
@@ -277,7 +276,7 @@ wk.add({
   { "<Leader>ds", "<CMD>lua require'dapui'.float('scope')<CR>",         icon = " ", desc = "Float scopes" },
   { "<Leader>dS", "<CMD>lua require'dapui'.float('stacks')<CR>",        icon = " ", desc = "Float stacks" },
   { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
-  { "<Leader>dl", cmd("vsplit" .. fn.stdpath("cache") .. "/dap.log"),   icon = "󰌱 ", desc = "Open DAP log" },
+  { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>",              icon = "󰌱", desc = "Open DAP log" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -298,7 +297,7 @@ wk.add({
 if not is_vscode then
   require("utils.ai")
   -- Abbreviation
-  cmd[[cnoreabbrev cc CodeCompanion]]
+  vim.cmd[[cnoreabbrev cc CodeCompanion]]
 
   -- codecompanion.nvim
   wk.add({
@@ -331,7 +330,7 @@ if not is_vscode then
 
   wk.add({
     mode = nt,
-    { "<Leader>e", group = "oil.nvim", icon = "📁 " },
+    { "<Leader>e", group = "Explore Directory & Files", icon = "📁 " },
     { "<Leader>eh", "<CMD>OilToggleHidden<CR>",    icon = " ", desc = "Toggle Hidden files" },
     { "<Leader>ef", "<CMD>OilToggleFloat<CR>",     icon = " ", desc = "Explore parent directory" },
     { "<Leader>er", "<CMD>OilToggleFloatRoot<CR>", icon = " ", desc = "Explore project root" },
