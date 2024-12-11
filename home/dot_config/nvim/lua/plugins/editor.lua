@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  { "vim-jp/vimdoc-ja", ft = "help" },
+  { "vim-jp/vimdoc-ja", event = { "CmdlineEnter" } },
   {
     "akinsho/toggleterm.nvim",
     cond   = not vim.g.vscode,
