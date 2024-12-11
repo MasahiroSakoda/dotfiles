@@ -98,8 +98,8 @@ wk.add({
   { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", function() snacks.bufdelete() end,       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", function() snacks.bufdelete.other() end, icon = " ", desc = "Delete other buffers" },
+  { "<Leader>bdc", Snacks.bufdelete(),       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bdo", Snacks.bufdelete.other(), icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
@@ -215,7 +215,7 @@ if not is_vscode then
     { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
     { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
 
-    { "<Leader>fn", function() snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
+    { "<Leader>fn", Snacks.notifier.show_history(), icon = " ", desc = "Notification History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
     { "<Leader>fdC", "<CMD>lua require'telescope'.extensions.dap.commands()<CR>",  icon = " ", desc = "Commands" },
