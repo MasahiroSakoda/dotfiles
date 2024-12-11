@@ -28,10 +28,10 @@ vim.cmd[[
 -- which-key: <Leader> + w
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>w", group = "Which-Key", icon = "⌨️ " },
-  { "<Leader>wk", "<CMD>WhichKey<CR>",            icon = " ", desc = "All maps" },
-  { "<Leader>wl", "<CMD>WhichKey <Leader><CR>",   icon = " ", desc = "All <Leader> maps" },
-  { "<Leader>wv", "<CMD>WhichKey <Leader> v<CR>", icon = " ", desc = "All <Leader> maps for VISUAL mode" },
+  { "<Leader>?", group = "Which-Key", icon = "⌨️ " },
+  { "<Leader>??", "<CMD>WhichKey<CR>",            icon = " ", desc = "All maps" },
+  { "<Leader>?l", "<CMD>WhichKey <Leader><CR>",   icon = " ", desc = "All <Leader> maps" },
+  { "<Leader>?v", "<CMD>WhichKey <Leader> v<CR>", icon = " ", desc = "All <Leader> maps for VISUAL mode" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -55,18 +55,17 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
-local flash = require("flash")
 wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = "Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = "Return to NORMAL mode" },
 
-  { "s", function() flash.jump() end,              mode = nxo, icon = " ", desc = "Flash" },
-  { "S", function() flash.treesitter() end,        mode = nxo, icon = " ", desc = "Flash Treesitter" },
+  { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
+  { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
 
-  { "r", function() flash.remote() end,            mode = o,   icon = " ", desc = "Remote Flash" },
-  { "R", function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = "Treesitter Search" },
+  { "r", "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = "Remote Flash" },
+  { "R", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = "Treesitter Search" },
 
-  { "<C-s>", function() flash.treesitter_search() end, mode = c, icon = " ", desc = "Toggle Flash Search" },
+  { "<C-s>", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = c, icon = " ", desc = "Toggle Flash Search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -89,7 +88,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
-local snacks = require("snacks")
 wk.add({
   { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
   { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
@@ -99,8 +97,8 @@ wk.add({
   { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", function() snacks.bufdelete() end,       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", function() snacks.bufdelete.other() end, icon = " ", desc = "Delete other buffers" },
+  { "<Leader>bdc", "<CMD>lua require'snacks'.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bdo", "<CMD>lua require'snacks'.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
@@ -138,17 +136,16 @@ wk.add({
 ---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
-local map = require("dial.map")
 wk.add({
-  { "<C-a>",  map.inc_normal(),  icon = " ", desc = "Increment variable" },
-  { "<C-x>",  map.dec_normal(),  icon = " ", desc = "Decrement variable" },
-  { "g<C-a>", map.inc_gnormal(), icon = " ", desc = "Increment variable" },
-  { "g<C-x>", map.dec_gnormal(), icon = " ", desc = "Decrement variable" },
+  { "<C-a>",  "<CMD>lua require'dial.map'.inc_normal()<CR>",  icon = " ", desc = "Increment vars" },
+  { "<C-x>",  "<CMD>lua require'dial.map'.dec_normal()<CR>",  icon = " ", desc = "Decrement vars" },
+  { "g<C-a>", "<CMD>lua require'dial.map'.inc_gnormal()<CR>", icon = " ", desc = "Increment vars" },
+  { "g<C-x>", "<CMD>lua require'dial.map'.dec_gnormal()<CR>", icon = " ", desc = "Decrement vars" },
 
-  { "<C-a>",  map.inc_visual(),  mode = "v", icon = " ", desc = "Increment variable" },
-  { "<C-x>",  map.dec_visual(),  mode = "v", icon = " ", desc = "Decrement variable" },
-  { "g<C-a>", map.inc_gvisual(), mode = "v", icon = " ", desc = "Increment variable" },
-  { "g<C-x>", map.dec_gvisual(), mode = "v", icon = " ", desc = "Decrement variable" },
+  { "<C-a>",  "<CMD>lua require'dial.map'.inc_visual()<CR>",  mode = "v", icon = " ", desc = "Increment vars" },
+  { "<C-x>",  "<CMD>lua require'dial.map'.dec_visual()<CR>",  mode = "v", icon = " ", desc = "Decrement vars" },
+  { "g<C-a>", "<CMD>lua require'dial.map'.inc_gvisual()<CR>", mode = "v", icon = " ", desc = "Increment vars" },
+  { "g<C-x>", "<CMD>lua require'dial.map'.dec_gvisual()<CR>", mode = "v", icon = " ", desc = "Decrement vars" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -174,8 +171,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
-  require("utils.telescope")
-
   wk.add({
     { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
 
@@ -186,8 +181,18 @@ if not is_vscode then
     -- Grep
     { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
     { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
-    { "<Leader>fw", "<CMD>TelescopeSearchCword<CR>",  icon = " ", desc = "grep with cursor word" },
-    { "<Leader>fW", "<CMD>TelescopeSearchCWORD<CR>",  icon = " ", desc = "grep with cursor WORD" },
+    {
+      "<Leader>fw",
+      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cword>') })<CR>",
+      icon = " ",
+      desc = "grep with cursor word",
+    },
+    {
+      "<Leader>fW",
+      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cWORD>') })<CR>",
+      icon = " ",
+      desc = "grep with cursor WORD",
+    },
 
     -- Vim
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
@@ -209,16 +214,24 @@ if not is_vscode then
     { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
     { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
 
-    { "<Leader>fn", function() snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
+    { "<Leader>fn", "<CMD>lua require'snacks'.notifier.show_history()<CR>", icon = " ", desc = "History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
-    { "<Leader>fdC", "<CMD>TelescopeDapCommands<CR>",    icon = " ", desc = "Commands" },
-    { "<Leader>fdc", "<CMD>TelescopeDapConfig<CR>",      icon = " ", desc = "Configs" },
-    { "<Leader>fdf", "<CMD>TelescopeDapFrames<CR>",      icon = " ", desc = "Frames" },
-    { "<Leader>fdl", "<CMD>TelescopeDapBreakpoints<CR>", icon = " ", desc = "Breakpoints" },
-    { "<Leader>fdv", "<CMD>TelescopeDapVariables<CR>",   icon = " ", desc = "Variables" },
-
-    { "<Leader>fc",  "<CMD>TelescopeChezmoiFind<CR>",        icon = " ", desc = "Search chezmoi files" },
+    { "<Leader>fdC", "<CMD>lua require'telescope'.extensions.dap.commands()<CR>",  icon = " ", desc = "Commands" },
+    { "<Leader>fdf", "<CMD>lua require'telescope'.extensions.dap.frames()<CR>",    icon = " ", desc = "Frames" },
+    { "<Leader>fdv", "<CMD>lua require'telescope'.extensions.dap.variables()<CR>", icon = " ", desc = "Variables" },
+    {
+      "<Leader>fdc",
+      "<CMD>lua require'telescope'.extensions.dap.configurations()<CR>",
+      icon = " ",
+      desc = "Configs",
+    },
+    {
+      "<Leader>fdb",
+      "<CMD>lua require'telescope'.extensions.dap.list_breakpoints()<CR>",
+      icon = " ",
+      desc = "Breakpoints",
+    },
   }, opts)
 end
 
@@ -251,8 +264,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapter Protocol: <Leader> + d
 ---------------------------------------------------------------------------
-require("utils.dap")
-
 wk.add({
   -- DAP keymap like VSCode
   { "<F5>",    "<CMD>DapContinue<CR>",  icon = "", desc = "Continue Process" },
@@ -271,14 +282,14 @@ wk.add({
   { "<Leader>dB", "<CMD>DapStepBack<CR>",         icon = " ", desc = "Step Back" },
   { "<Leader>dt", "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
 
-  { "<Leader>dd", "<CMD>DapToggleUI<CR>",    icon = ":", desc = "Toggle Debugger UI" },
-  { "<Leader>dp", "<CMD>DapPreview<CR>",     icon = " ", desc = "DAP Preview" },
-  { "<Leader>dh", "<CMD>DapHover<CR>",       icon = " ", desc = "Hover DAP widgets" },
-  { "<Leader>dl", "<CMD>DapLog<CR>",         icon = "󰌱 ", desc = "Open DAP log" },
-  { "<Leader>dL", "<CMD>DapRunLast<CR>",     icon = "↻ ", desc = "Run Last" },
-  { "<Leader>ds", "<CMD>DapFloatScope<CR>",  icon = " ", desc = "Float scopes" },
-  { "<Leader>dS", "<CMD>DapFloatStacks<CR>", icon = " ", desc = "Float stacks" },
-  { "<Leader>dw", "<CMD>DapFloatWatch<CR>",  icon = " ", desc = "Float watches" },
+  { "<Leader>dd", "<CMD>lua require'dapui'.toggle({reset = true})<CR>", icon = ":", desc = "Toggle Debugger UI" },
+  { "<Leader>dp", "<CMD>lua require'dap.ui.widgets'.preview()<CR>",     icon = " ", desc = "DAP Preview" },
+  { "<Leader>dh", "<CMD>lua require'dap.ui.widgets'.hover()<CR>",       icon = " ", desc = "Hover DAP widgets" },
+  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",               icon = "↻ ", desc = "Run Last" },
+  { "<Leader>ds", "<CMD>lua require'dapui'.float('scope')<CR>",         icon = " ", desc = "Float scopes" },
+  { "<Leader>dS", "<CMD>lua require'dapui'.float('stacks')<CR>",        icon = " ", desc = "Float stacks" },
+  { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
+  { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>",              icon = "󰌱", desc = "Open DAP log" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -289,8 +300,21 @@ require("utils.git")
 wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
-  { "<Leader>gg", "<CMD>ToggleLazygit<CR>",    icon = " ", desc = "Toggle lazygit w/ terminal" },
-  { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>", icon = " ", desc = "Toggle gh dash w/ terminal" },
+
+  {
+    "<Leader>gg",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='lazygit',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle lazygit w/ terminal",
+  },
+  {
+    "<Leader>gh",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='gh dash',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle gh dash w/ terminal",
+  },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -328,15 +352,13 @@ end
 ---File Explorer: <Leader> + e
 -----------------------------------------------------------------------
 if not is_vscode then
-  require("utils.explorer")
-
   wk.add({
     mode = nt,
-    { "<Leader>e", group = "oil.nvim", icon = "📁 " },
-    { "<Leader>eh", "<CMD>OilToggleHidden<CR>",    icon = " ", desc = "Toggle Hidden files" },
-    { "<Leader>ef", "<CMD>OilToggleFloat<CR>",     icon = " ", desc = "Explore parent directory" },
-    { "<Leader>er", "<CMD>OilToggleFloatRoot<CR>", icon = " ", desc = "Explore project root" },
-    { "<Leader>ed", ":OilToggleFloatDir<Space>",   icon = " ", desc = "Explore directory with arg" },
+    { "<Leader>e", group = "Explore Directory & Files", icon = "📁 " },
+    { "<Leader>eo", ":Oil<Space>",                                          icon = " ", desc = "Explore dir" },
+    { "<Leader>ef", "<CMD>lua require'oil'.toggle_float()<CR>",             icon = " ", desc = "Parent Dir" },
+    { "<Leader>er", "<CMD>lua require'oil'.toggle_float(vim.uv.cwd())<CR>", icon = " ", desc = "Root Dir" },
+    { "<Leader>eh", "<CMD>lua require'oil'.toggle_hidden()<CR>",            icon = " ", desc = "Toggle Hidden" },
   }, opts)
 end
 
@@ -345,7 +367,6 @@ end
 ---------------------------------------------------------------------------
 
 if not is_vscode then
-  require("utils.terminal")
   -- Toggle Plugin
   wk.add({
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
@@ -357,6 +378,12 @@ if not is_vscode then
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
     { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
-    { ",b", "<CMD>ToggleBottom<CR>", mode = nt, icon = " ", desc = "Toggle Process Monitor w/ Terminal" },
+  {
+    ",b",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle gh dash w/ terminal",
+  },
   }, opts)
 end
