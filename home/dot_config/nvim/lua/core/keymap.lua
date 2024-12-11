@@ -28,10 +28,10 @@ vim.cmd[[
 -- which-key: <Leader> + w
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>w", group = "Which-Key", icon = "⌨️ " },
-  { "<Leader>wk", "<CMD>WhichKey<CR>",            icon = " ", desc = "All maps" },
-  { "<Leader>wl", "<CMD>WhichKey <Leader><CR>",   icon = " ", desc = "All <Leader> maps" },
-  { "<Leader>wv", "<CMD>WhichKey <Leader> v<CR>", icon = " ", desc = "All <Leader> maps for VISUAL mode" },
+  { "<Leader>?", group = "Which-Key", icon = "⌨️ " },
+  { "<Leader>??", "<CMD>WhichKey<CR>",            icon = " ", desc = "All maps" },
+  { "<Leader>?l", "<CMD>WhichKey <Leader><CR>",   icon = " ", desc = "All <Leader> maps" },
+  { "<Leader>?v", "<CMD>WhichKey <Leader> v<CR>", icon = " ", desc = "All <Leader> maps for VISUAL mode" },
 }, opts)
 
 ---------------------------------------------------------------------------
