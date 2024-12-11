@@ -354,15 +354,13 @@ end
 ---File Explorer: <Leader> + e
 -----------------------------------------------------------------------
 if not is_vscode then
-  require("utils.explorer")
-
   wk.add({
     mode = nt,
     { "<Leader>e", group = "Explore Directory & Files", icon = "📁 " },
-    { "<Leader>eh", "<CMD>OilToggleHidden<CR>",    icon = " ", desc = "Toggle Hidden files" },
-    { "<Leader>ef", "<CMD>OilToggleFloat<CR>",     icon = " ", desc = "Explore parent directory" },
-    { "<Leader>er", "<CMD>OilToggleFloatRoot<CR>", icon = " ", desc = "Explore project root" },
-    { "<Leader>ed", ":OilToggleFloatDir<Space>",   icon = " ", desc = "Explore directory with arg" },
+    { "<Leader>eo", ":Oil<Space>",                                          icon = " ", desc = "Explore dir" },
+    { "<Leader>ef", "<CMD>lua require'oil'.toggle_float()<CR>",             icon = " ", desc = "Parent Dir" },
+    { "<Leader>er", "<CMD>lua require'oil'.toggle_float(vim.uv.cwd())<CR>", icon = " ", desc = "Root Dir" },
+    { "<Leader>eh", "<CMD>lua require'oil'.toggle_hidden()<CR>",            icon = " ", desc = "Toggle Hidden" },
   }, opts)
 end
 
