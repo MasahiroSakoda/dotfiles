@@ -38,6 +38,7 @@ lualine.setup {
       },
     },
     lualine_x = {
+      { require("ui.lualine-codecompanion") },
       {
         "overseer",
         label = "",     -- Prefix for task counts
