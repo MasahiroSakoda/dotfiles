@@ -71,12 +71,14 @@ config.hide_tab_bar_if_only_one_tab   = true ---@type boolean
 
 -- Cursor
 config.animation_fps     = 1
-config.cursor_blink_rate = 750
+config.cursor_blink_rate = 500
 
 ---@type "SteadyBlock"|"BlinkingBlock"|"SteadyUnderline"|"BlinkingUnderline"|"SteadyBar"|"BlinkingBar"
-config.default_cursor_style  = "SteadyUnderline"
+config.default_cursor_style  = "BlinkingBar"
 config.cursor_blink_ease_in  = "Constant" ---@type "Constant"|"Linear"
 config.cursor_blink_ease_out = "Constant" ---@type "Constant"|"Linear"
+
+config.hide_mouse_cursor_when_typing = true
 
 --------------------------------------------------
 -- Scroll
