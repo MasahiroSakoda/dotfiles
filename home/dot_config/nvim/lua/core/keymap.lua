@@ -7,6 +7,7 @@
 -- Fuzzy Finder: <Leader> + f
 -- Task Runner: <Leader> + o
 ---------------------------------------------------------------------------
+local cmd, fn = vim.cmd, fn
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
 local nv, nx, nt, nxo, o, ox, c = {"n", "v"}, {"n", "x"}, {"n", "t"}, {"n", "x", "o"}, {"o"}, {"o", "x"}, {"c"}
@@ -15,7 +16,7 @@ local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
 
 -- Abbreviation for typo
-vim.cmd[[
+cmd[[
   cnoreabbrev Q! q!
   cnoreabbrev q1 q!
   cnoreabbrev Q1 q!
@@ -251,8 +252,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- 🐛  DAP: Debugger Adapter Protocol: <Leader> + d
 ---------------------------------------------------------------------------
-require("utils.dap")
-
 wk.add({
   -- DAP keymap like VSCode
   { "<F5>",    "<CMD>DapContinue<CR>",  icon = "", desc = "Continue Process" },
@@ -271,14 +270,14 @@ wk.add({
   { "<Leader>dB", "<CMD>DapStepBack<CR>",         icon = " ", desc = "Step Back" },
   { "<Leader>dt", "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
 
-  { "<Leader>dd", "<CMD>DapToggleUI<CR>",    icon = ":", desc = "Toggle Debugger UI" },
-  { "<Leader>dp", "<CMD>DapPreview<CR>",     icon = " ", desc = "DAP Preview" },
-  { "<Leader>dh", "<CMD>DapHover<CR>",       icon = " ", desc = "Hover DAP widgets" },
-  { "<Leader>dl", "<CMD>DapLog<CR>",         icon = "󰌱 ", desc = "Open DAP log" },
-  { "<Leader>dL", "<CMD>DapRunLast<CR>",     icon = "↻ ", desc = "Run Last" },
-  { "<Leader>ds", "<CMD>DapFloatScope<CR>",  icon = " ", desc = "Float scopes" },
-  { "<Leader>dS", "<CMD>DapFloatStacks<CR>", icon = " ", desc = "Float stacks" },
-  { "<Leader>dw", "<CMD>DapFloatWatch<CR>",  icon = " ", desc = "Float watches" },
+  { "<Leader>dd", "<CMD>lua require'dapui'.toggle({reset = true})<CR>", icon = ":", desc = "Toggle Debugger UI" },
+  { "<Leader>dp", "<CMD>lua require'dap.ui.widgets'.preview()<CR>",     icon = " ", desc = "DAP Preview" },
+  { "<Leader>dh", "<CMD>lua require'dap.ui.widgets'.hover()<CR>",       icon = " ", desc = "Hover DAP widgets" },
+  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",               icon = "↻ ", desc = "Run Last" },
+  { "<Leader>ds", "<CMD>lua require'dapui'.float('scope')<CR>",         icon = " ", desc = "Float scopes" },
+  { "<Leader>dS", "<CMD>lua require'dapui'.float('stacks')<CR>",        icon = " ", desc = "Float stacks" },
+  { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
+  { "<Leader>dl", cmd("vsplit" .. fn.stdpath("cache") .. "/dap.log"),   icon = "󰌱 ", desc = "Open DAP log" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -299,7 +298,7 @@ wk.add({
 if not is_vscode then
   require("utils.ai")
   -- Abbreviation
-  vim.cmd[[cnoreabbrev cc CodeCompanion]]
+  cmd[[cnoreabbrev cc CodeCompanion]]
 
   -- codecompanion.nvim
   wk.add({
