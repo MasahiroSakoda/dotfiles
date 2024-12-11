@@ -14,17 +14,36 @@ require("lsp.config.handlers")
 local active_clients = vim.lsp.get_clients()
 
 local on_attach = function(client, bufnr)
-  local capabilities = client.server_capabilities
-  vim.bo[bufnr].tagfunc    = capabilities.definitionProvider              and "v:lua.vim.lsp.tagfunc"
-  vim.bo[bufnr].omnifunc   = capabilities.completionProvider              and "v:lua.vim.lsp.omnifunc"
-  vim.bo[bufnr].formatexpr = capabilities.documentRangeFormattingProvider and "v:lua.vim.lsp.formatexpr()"
-  capabilities.document_formatting        = true
-  capabilities.document_range_formatting  = true
-  capabilities.documentFormattingProvider = true
-  capabilities.offsetEncoding = { "utf-16" }
+  local caps = client.server_capabilities
+
+  -- Enable completion triggered by <C-X><C-O>
+  -- See `:help omnifunc` and `:help ins-completion` for more information.
+  if caps.completionProvider then
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+  end
+
+  -- Use LSP as the handler for formatexpr.
+  -- See `:help formatexpr` for more information.
+  if caps.documentFormattingProvider then
+    vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
+  end
+
+  -- tagfunc
+  -- See `:help tag-function` for more information.
+  if caps.definitionProvider then
+    vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+  end
+
+  caps.document_formatting        = true
+  caps.document_range_formatting  = true
+  caps.documentFormattingProvider = true
+  caps.offsetEncoding = { "utf-16" }
 
   -- Avoid confliction tsserver & denols
   if client.name == "tsserver" then
+    -- prevent prettier formatting confliction
+    caps.documentFormattingProvider = false
+    caps.documentRangeFormattingProvider = false
     for _, _client in ipairs(active_clients) do
       -- stop tsserver if denols is already active
       if _client.name == "denols" then client:stop(true) end
@@ -36,7 +55,7 @@ local on_attach = function(client, bufnr)
     end
   end
 
-  if client.server_capabilities.inlayHintProvider then
+  if caps.inlayHintProvider then
     vim.keymap.set("n", "gh", function()
       require("utils.lsp").toggle_inlay_hints(bufnr)
     end, { desc = "   Toggle Inlay Hints" })

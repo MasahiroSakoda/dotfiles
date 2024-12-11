@@ -1,18 +1,32 @@
 -- -*-mode:lua-*- vim:ft=lua
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport          = true
-capabilities.textDocument.completion.completionItem.preselectSupport        = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport    = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport     = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport       = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 }}
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = { "documentation", "detail", "additionalTextEdits", "documentHighlight" }
+local caps = vim.lsp.protocol.make_client_capabilities()
+caps = require("cmp_nvim_lsp").default_capabilities(caps)
+caps.textDocument.completion.completionList = {
+  itemDefaults = { "commitCharacters", "editRange", "insertTextFormat", "insertTextMode", "data" },
 }
-capabilities.textDocument.colorProvider = { dynamicRegistration = true }
-capabilities.textDocument.foldingRange  = { dynamicRegistration = false, lineFoldingOnly = true }
+caps.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+caps.textDocument.completion.completionItem.snippetSupport          = true
+caps.textDocument.completion.completionItem.preselectSupport        = true
+caps.textDocument.completion.completionItem.insertReplaceSupport    = true
+caps.textDocument.completion.completionItem.labelDetailsSupport     = true
+caps.textDocument.completion.completionItem.deprecatedSupport       = true
+caps.textDocument.completion.completionItem.commitCharactersSupport = true
+caps.textDocument.completion.completionItem.tagSupport = { valueSet = { 1, 2 }}
+caps.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+    "sortText",
+    "filterText",
+    "insertText",
+    "textEdit",
+    "insertTextFormat",
+    "insertTextMode",
+  }
+}
+caps.textDocument.colorProvider = { dynamicRegistration = true }
+caps.textDocument.foldingRange  = { dynamicRegistration = false, lineFoldingOnly = true }
 
-return capabilities
+return caps
