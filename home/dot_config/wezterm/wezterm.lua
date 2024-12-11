@@ -41,7 +41,7 @@ wezterm.GLOBAL.background_index = wezterm.GLOBAL.background_index or 1
 config.window_background_image = require("background")[wezterm.GLOBAL.background_index]
 config.window_background_opacity = 0.75
 config.window_background_image_hsb = {
-  brightness = 0.25,
+  brightness = 0.2,
   -- hue = 1.0,
   -- saturation = 1.0,
 }
@@ -71,12 +71,14 @@ config.hide_tab_bar_if_only_one_tab   = true ---@type boolean
 
 -- Cursor
 config.animation_fps     = 1
-config.cursor_blink_rate = 750
+config.cursor_blink_rate = 500
 
 ---@type "SteadyBlock"|"BlinkingBlock"|"SteadyUnderline"|"BlinkingUnderline"|"SteadyBar"|"BlinkingBar"
-config.default_cursor_style  = "SteadyUnderline"
+config.default_cursor_style  = "BlinkingBar"
 config.cursor_blink_ease_in  = "Constant" ---@type "Constant"|"Linear"
 config.cursor_blink_ease_out = "Constant" ---@type "Constant"|"Linear"
+
+config.hide_mouse_cursor_when_typing = true
 
 --------------------------------------------------
 -- Scroll
