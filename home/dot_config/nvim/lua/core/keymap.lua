@@ -302,8 +302,21 @@ require("utils.git")
 wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
-  { "<Leader>gg", "<CMD>ToggleLazygit<CR>",    icon = " ", desc = "Toggle lazygit w/ terminal" },
-  { "<Leader>gh", "<CMD>ToggleGitHubDash<CR>", icon = " ", desc = "Toggle gh dash w/ terminal" },
+
+  {
+    "<Leader>gg",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='lazygit',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle lazygit w/ terminal",
+  },
+  {
+    "<Leader>gh",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='gh dash',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle gh dash w/ terminal",
+  },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -358,7 +371,6 @@ end
 ---------------------------------------------------------------------------
 
 if not is_vscode then
-  require("utils.terminal")
   -- Toggle Plugin
   wk.add({
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
@@ -370,6 +382,12 @@ if not is_vscode then
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
     { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
-    { ",b", "<CMD>ToggleBottom<CR>", mode = nt, icon = " ", desc = "Toggle Process Monitor w/ Terminal" },
+  {
+    ",b",
+    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
+    mode = nt,
+    icon = " ",
+    desc = "Toggle gh dash w/ terminal",
+  },
   }, opts)
 end
