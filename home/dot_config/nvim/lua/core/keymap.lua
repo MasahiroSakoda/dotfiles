@@ -149,21 +149,22 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🛠  overseer.nvim: Task Runner: <Leader> + o
+-- 🛠  overseer.nvim: Task Runner: <Leader> + r
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>o", group = "Task Runner", icon = "✅  " },
+  { "<Leader>r", group = "Task Runner", icon = "✅  " },
 
   -- Async commands
-  { "<Leader>og", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = "Grep cursor word asynchronously" },
-  { "<Leader>om", "<CMD>Make<CR>",                  icon = " ", desc = "Run make asynchronously" },
+  { "<Leader>rg", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = "Grep cursor word asynchronously" },
+  { "<Leader>rm", "<CMD>Make<CR>",                  icon = " ", desc = "Run make asynchronously" },
 
   -- overseed.nvim commands
-  { "<Leader>or", "<CMD>OverseerRun<CR>",         icon = " ", desc = "Run a task from a template" },
-  { "<Leader>ol", "<CMD>OverseerRestartLast<CR>", icon = " ", desc = "Restart Last Action" },
-  { "<Leader>ot", "<CMD>OverseerToggle<CR>",      icon = " ", desc = "Toggle overseer window" },
-  { "<Leader>oa", "<CMD>OverseerTaskAction<CR>",  icon = " ", desc = "Select a task to run an action on" },
-  { "<Leader>oq", "<CMD>OverseerQuickAction<CR>", icon = " ", desc = "Run an action on the most recent task" },
+  { "<Leader>ri", "<CMD>OverseerInfo<CR>",        icon = " ", desc = "Display overseer.nvim Info" },
+  { "<Leader>rr", "<CMD>OverseerRun<CR>",         icon = " ", desc = "Run a task from a template" },
+  { "<Leader>rl", "<CMD>OverseerRestartLast<CR>", icon = " ", desc = "Restart Last Action" },
+  { "<Leader>ra", "<CMD>OverseerTaskAction<CR>",  icon = " ", desc = "Select a task to run an action on" },
+  { "<Leader>rq", "<CMD>OverseerQuickAction<CR>", icon = " ", desc = "Run an action on the most recent task" },
+  { "<Leader>rw", "<CMD>OverseerToggle<CR>",      icon = " ", desc = "Toggle overseer window" },
 }, opts)
 
 ---------------------------------------------------------------------------
