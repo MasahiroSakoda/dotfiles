@@ -174,8 +174,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Disable Telescope keymap for VSCode
 if not is_vscode then
-  require("utils.telescope")
-
   wk.add({
     { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
 
@@ -186,8 +184,18 @@ if not is_vscode then
     -- Grep
     { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
     { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
-    { "<Leader>fw", "<CMD>TelescopeSearchCword<CR>",  icon = " ", desc = "grep with cursor word" },
-    { "<Leader>fW", "<CMD>TelescopeSearchCWORD<CR>",  icon = " ", desc = "grep with cursor WORD" },
+    {
+      "<Leader>fw",
+      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cword>') })<CR>",
+      icon = " ",
+      desc = "grep with cursor word",
+    },
+    {
+      "<Leader>fW",
+      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cWORD>') })<CR>",
+      icon = " ",
+      desc = "grep with cursor WORD",
+    },
 
     -- Vim
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
@@ -212,13 +220,21 @@ if not is_vscode then
     { "<Leader>fn", function() snacks.notifier.show_history() end, icon = " ", desc = "Notification History" },
 
     { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
-    { "<Leader>fdC", "<CMD>TelescopeDapCommands<CR>",    icon = " ", desc = "Commands" },
-    { "<Leader>fdc", "<CMD>TelescopeDapConfig<CR>",      icon = " ", desc = "Configs" },
-    { "<Leader>fdf", "<CMD>TelescopeDapFrames<CR>",      icon = " ", desc = "Frames" },
-    { "<Leader>fdl", "<CMD>TelescopeDapBreakpoints<CR>", icon = " ", desc = "Breakpoints" },
-    { "<Leader>fdv", "<CMD>TelescopeDapVariables<CR>",   icon = " ", desc = "Variables" },
-
-    { "<Leader>fc",  "<CMD>TelescopeChezmoiFind<CR>",        icon = " ", desc = "Search chezmoi files" },
+    { "<Leader>fdC", "<CMD>lua require'telescope'.extensions.dap.commands()<CR>",  icon = " ", desc = "Commands" },
+    { "<Leader>fdf", "<CMD>lua require'telescope'.extensions.dap.frames()<CR>",    icon = " ", desc = "Frames" },
+    { "<Leader>fdv", "<CMD>lua require'telescope'.extensions.dap.variables()<CR>", icon = " ", desc = "Variables" },
+    {
+      "<Leader>fdc",
+      "<CMD>lua require'telescope'.extensions.dap.configurations()<CR>",
+      icon = " ",
+      desc = "Configs",
+    },
+    {
+      "<Leader>fdb",
+      "<CMD>lua require'telescope'.extensions.dap.list_breakpoints()<CR>",
+      icon = " ",
+      desc = "Breakpoints",
+    },
   }, opts)
 end
 
