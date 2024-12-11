@@ -137,15 +137,15 @@ wk.add({
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 wk.add({
-  { "<C-a>",  "<CMD>lua require'dial.map'.inc_normal()<CR>",  icon = " ", desc = "Increment vars" },
-  { "<C-x>",  "<CMD>lua require'dial.map'.dec_normal()<CR>",  icon = " ", desc = "Decrement vars" },
-  { "g<C-a>", "<CMD>lua require'dial.map'.inc_gnormal()<CR>", icon = " ", desc = "Increment vars" },
-  { "g<C-x>", "<CMD>lua require'dial.map'.dec_gnormal()<CR>", icon = " ", desc = "Decrement vars" },
+  { "<C-a>",  require'dial.map'.inc_normal(),  icon = " ", desc = "Increment vars" },
+  { "<C-x>",  require'dial.map'.dec_normal(),  icon = " ", desc = "Decrement vars" },
+  { "g<C-a>", require'dial.map'.inc_gnormal(), icon = " ", desc = "Increment vars" },
+  { "g<C-x>", require'dial.map'.dec_gnormal(), icon = " ", desc = "Decrement vars" },
 
-  { "<C-a>",  "<CMD>lua require'dial.map'.inc_visual()<CR>",  mode = "v", icon = " ", desc = "Increment vars" },
-  { "<C-x>",  "<CMD>lua require'dial.map'.dec_visual()<CR>",  mode = "v", icon = " ", desc = "Decrement vars" },
-  { "g<C-a>", "<CMD>lua require'dial.map'.inc_gvisual()<CR>", mode = "v", icon = " ", desc = "Increment vars" },
-  { "g<C-x>", "<CMD>lua require'dial.map'.dec_gvisual()<CR>", mode = "v", icon = " ", desc = "Decrement vars" },
+  { "<C-a>",  require'dial.map'.inc_visual(),  mode = "v", icon = " ", desc = "Increment vars" },
+  { "<C-x>",  require'dial.map'.dec_visual(),  mode = "v", icon = " ", desc = "Decrement vars" },
+  { "g<C-a>", require'dial.map'.inc_gvisual(), mode = "v", icon = " ", desc = "Increment vars" },
+  { "g<C-x>", require'dial.map'.dec_gvisual(), mode = "v", icon = " ", desc = "Decrement vars" },
 }, opts)
 
 ---------------------------------------------------------------------------
