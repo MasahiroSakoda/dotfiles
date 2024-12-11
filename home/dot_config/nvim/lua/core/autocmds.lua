@@ -25,7 +25,7 @@ autocmd("BufWritePre", {
 
 autocmd({ "BufWinEnter" }, {
   desc     = "Open :help with vertical split",
-  pattern  = "*.txt",
+  pattern  = { "*.txt", "*.jax" },
   callback = function()
     if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end
   end
