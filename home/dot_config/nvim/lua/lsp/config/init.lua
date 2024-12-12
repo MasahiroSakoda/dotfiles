@@ -55,6 +55,16 @@ local on_attach = function(client, bufnr)
     end
   end
 
+  -- Workaround semantic token problem go/gopls #54531
+  if client.name == "gopls" and not caps.semanticTokensProvider then
+    local semantic = client.config.capabilities.textDocument.semanticTokens
+    caps.semanticTokensProvider = {
+      full = true,
+      legend = { tokenModifiers = semantic.tokenModifiers, tokenTypes = semantic.tokenTypes },
+      range = true,
+    }
+  end
+
   if caps.inlayHintProvider then
     vim.keymap.set("n", "gh", function()
       require("utils.lsp").toggle_inlay_hints(bufnr)
