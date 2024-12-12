@@ -47,6 +47,7 @@ vim.api.nvim_create_user_command("Grep", function(params)
     cmd = cmd,
     cwd = cwd,
     name = "grep " .. args,
+    strategy = { "toggleterm", open_on_start = false },
     components = {
       {
         "on_output_quickfix",
