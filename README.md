@@ -228,7 +228,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Linter       | Notes                              |
 |:------------ |:---------------------------------- |
 | [**typos**][typos]        | Source code spell checker |
-| [**revive**][revive]       | Fast Linter for `golang`             |
+| [**golangci-lint**][golangci] | Go linters aggregator |
 | [**ruff-lsp**][ruff-lsp]     | Python Linter/Formatter |
 | [**rubocop**][rubocop]      | Ruby linter/formatter              |
 | [**vint**][vint]         | `VimScript` linter                   |
@@ -237,7 +237,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**markdownlint**][mdlint] | `markdown` linter/formatter |
 
 [typos]:    https://github.com/crate-ci/typos
-[revive]:   https://github.com/mgechev/revive
+[golangci]: https://golangci-lint.run
 [ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
 [rubocop]:  https://rubocop.org
 [vint]:     https://github.com/Vimjas/vint
