@@ -6,7 +6,7 @@ if not ok then return end
 overseer.setup({
   -- DO NOT add chezmoi attributed prefix (e.g. "run_*")
   -- See also: https://www.chezmoi.io/reference/source-state-attributes/
-  templates = { "builtin", "user.build_go", "user.test_go", "user.python" },
+  templates = { "builtin" },
   task_list = {
     direction  = "bottom", ---@type "left"|"right"|"bottom"
     min_height = 10,
@@ -47,6 +47,7 @@ vim.api.nvim_create_user_command("Grep", function(params)
     cmd = cmd,
     cwd = cwd,
     name = "grep " .. args,
+    strategy = { "toggleterm", open_on_start = false },
     components = {
       {
         "on_output_quickfix",

@@ -90,6 +90,18 @@ autocmd({ "VimResized" }, {
   desc    = "Automatically resize windows when the host window size changes.",
 })
 
+local task_group = vim.api.nvim_create_augroup("UserMakePrg", { clear = true })
+autocmd({ "BufEnter" }, {
+  desc  = "Detect Taskfile",
+  group = task_group,
+  pattern = { "*" },
+  callback = function(_)
+    local scan  = require("plenary.scandir")
+    local files = scan.scan_dir(".", { hidden = false, depth = 1, search_pattern = "Taskfile.*" })
+    if #files > 0 then vim.o.makeprg = "task" end
+  end,
+})
+
 local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", {})
 autocmd({ "LspAttach" }, {
   desc  = "LSP Actions",
