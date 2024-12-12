@@ -6,6 +6,7 @@ Filetypes.markdown = { "markdown", "md", "vimwiki" }
 
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
+  go    = { "go", "gomod", "gosum", "templ", "gotempl" },
   json  = { "json",  "json5", "jsonc" },
   js    = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 }
@@ -83,7 +84,7 @@ Filetypes.matchup = {
 Filetypes.lsp = {
   clang_format = { ".clang_format" },
   stylua       = { "stylua.toml", ".stylua.toml" },
-  revive       = { "revive.toml" },
+  golangci     = { ".golangci.yml", ".golangci.yaml", ".golangci.toml", ".golangci.json" },
   pyright      = { ".venv", "venv", "setup.py", "setup.cfg", "requirements.txt", "pyproject.toml" },
   ruff         = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
   ruby         = { ".git", "Gemfile" },

@@ -25,15 +25,15 @@ return {
   typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
 
   -- Linter
-  actionlint   = {}, -- GitHub Actions workflow
-  checkmake    = {}, -- Makefile
-  revive       = {}, -- Go
-  ruff_lsp     = require("lsp.servers.ruff_lsp"), -- Python
-  biome        = require("lsp.servers.biome"),    -- JS/TS, JSON & others
-  rubocop      = {}, -- Ruby Static Code Analyzer
-  markdownlint = {}, -- Markdown
-  hadolint     = {}, -- Dockerfile
-  vint         = {}, -- VimScript
+  actionlint    = {}, -- GitHub Actions workflow
+  checkmake     = {}, -- Makefile
+  golangci_lint = {}, -- Go
+  ruff_lsp      = require("lsp.servers.ruff_lsp"), -- Python
+  biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
+  rubocop       = {}, -- Ruby Static Code Analyzer
+  markdownlint  = {}, -- Markdown
+  hadolint      = {}, -- Dockerfile
+  vint          = {}, -- VimScript
 
   -- Formetter
   clang_format  = {}, -- C/C++, ObjC, Java, JS, C#, etc..

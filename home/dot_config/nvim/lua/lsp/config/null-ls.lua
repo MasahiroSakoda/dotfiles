@@ -98,10 +98,10 @@ nl.setup({
     }),
 
     -- Go
-    diagnostics.revive.with({
-      condition = function(utils)
-        return utils.root_has_file(filetypes.lsp.revive)
-      end
+    diagnostics.golangci_lint.with({
+      filetypes  = filetypes.lang.go,
+      extra_args = { "--fast" },
+      condition  = function(utils) return utils.root_has_file(filetypes.lsp.golangci) end,
     }),
 
     -- Shell
