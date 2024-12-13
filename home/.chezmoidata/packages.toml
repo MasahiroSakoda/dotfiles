@@ -38,6 +38,7 @@ kubernetes = [ "kubernetes-cli", "helm", "k3d", "k3sup", "k9s", "kind", "krew", 
 media  = [ "ffmpeg", "media-info" ]
 image  = [ "imagemagick", "exiftool" ]
 devops = [ "terraform", "awscli", "azure-cli" ]
+update = [ "topgrade" ]
 
 [packages.cask]
 tap = [ "Homebrew/services" ]
