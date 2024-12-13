@@ -7,9 +7,10 @@ return {
   root_dir  = lspconfig.util.root_pattern("go.mod", "go.work", ".git"),
   settings  = {
     gopls = {
+      ---@See https://github.com/golang/tools/blob/master/gopls/doc/settings.md
       gofumpt = true,
       semanticTokens = true,
-      staticcheck = false, -- leave it to `revive`
+      staticcheck = true,
       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
 
       -- Completion settings
@@ -38,13 +39,14 @@ return {
         upgrade_dependency = true,
       },
 
-      -- the following diagnostics options are leave it to `revive`
-      -- staticcheck = true,
-      -- analyses = {
-      --   unusedparams = true,
-      --   unreachable  = true,
-      --   shadow       = false,
-      -- },
+      analyses = {
+        nilness      = true,
+        shadow       = true,
+        unreachable  = true,
+        unusedparams = true,
+        unusedwrite  = true,
+        useany       = true,
+      },
       buildFlags = { os.getenv("GOFLAGS") }
     },
   },
