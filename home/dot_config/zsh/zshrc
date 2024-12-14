@@ -55,9 +55,6 @@ unset key
 ############################################################
 # Initialize custom CLI config
 ############################################################
-## init thefuck
-command -v thefuck >/dev/null && eval "$(thefuck --alias)";
-
 ## fzf
 source <(fzf --zsh)
 

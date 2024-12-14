@@ -24,9 +24,6 @@ set -gx NVIM_APPNAME nvim
 # w3m
 set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
 
-# ripgrep config
-# set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
-
 # Pager
 set -gx PAGER "less"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --style=numbers'"
@@ -46,14 +43,8 @@ set -gx LESSHISTFILE "$XDG_DATA_HOME/lesshst"
 set -x GREP_OPTIONS "--color=always"
 
 # Fish Plugin
-## Configure fish plugins
-set fish_plugins theme git osx brew rails bundler gem pbcopy
-
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
-
-## thefuck
-type -q thefuck && thefuck --alias | source
 
 # Fish abbreviations
 abbr -a -- cl "clear"
