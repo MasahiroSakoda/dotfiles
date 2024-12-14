@@ -58,9 +58,6 @@ unset key
 ## init thefuck
 command -v thefuck >/dev/null && eval "$(thefuck --alias)";
 
-## init starship prompt
-command -v starship >/dev/null && eval "$(starship init zsh)";
-
 ## fzf
 source <(fzf --zsh)
 

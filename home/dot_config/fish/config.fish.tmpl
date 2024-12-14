@@ -27,10 +27,6 @@ set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
 # ripgrep config
 # set -gx RIPGREP_CONFIG_PATH $HOME/.config/rg/ripgreprc
 
-# Prompt configuration
-starship init fish | source
-set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
-
 # Pager
 set -gx PAGER "less"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --style=numbers'"
