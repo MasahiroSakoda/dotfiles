@@ -17,11 +17,9 @@ local filetypes = require("user.filetypes")
 
 local lsp_formatting = function(bufnr)
   buf.format({
-    filter = function(client)
-      -- Only use null-ls for formatting to avoid conflicts with other LSPs
-      return client.name == "null-ls"
-    end,
-    bufnr = bufnr
+    -- Only use null-ls for formatting to avoid conflicts with other LSPs
+    filter = function(client) return client.name == "null-ls" end,
+    bufnr  = bufnr
   })
 end
 
@@ -31,9 +29,7 @@ local on_attach = function(client, bufnr)
     api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
       buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
+      callback = function() lsp_formatting(bufnr) end,
     })
   end
 end
@@ -126,7 +122,6 @@ nl.setup({
     -- stylua:
     formatting.stylua.with({
       filetypes  = { "lua" },
-      extra_args = { "--config", vim.fn.stdpath "config" .. "/format/stylua.toml" },
       condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
     }),
 
