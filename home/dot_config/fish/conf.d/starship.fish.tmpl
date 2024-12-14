@@ -1,0 +1,8 @@
+# -*-mode:fish-*- vim:ft=fish.gotexttmpl
+
+# Prompt configuration
+set -gx STARSHIP_CONFIG "$XDG_CONFIG_HOME/starship/starship.toml"
+
+{{ if lookPath "starship" }}
+{{- output "starship" "init" "fish" "--print-full-init" | trim }}
+{{ end }}

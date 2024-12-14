@@ -55,15 +55,6 @@ unset key
 ############################################################
 # Initialize custom CLI config
 ############################################################
-## init mise
-command -v mise >/dev/null && eval "$(mise activate zsh)" && eval $"$(mise completion zsh)"
-
-## init thefuck
-command -v thefuck >/dev/null && eval "$(thefuck --alias)";
-
-## init starship prompt
-command -v starship >/dev/null && eval "$(starship init zsh)";
-
 ## fzf
 source <(fzf --zsh)
 

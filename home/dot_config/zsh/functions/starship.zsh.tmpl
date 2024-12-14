@@ -1,0 +1,6 @@
+# -*-mode:zsh-*- vim:ft=zsh
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+{{ if lookPath "starship" }}
+{{ output "starship" "init" "zsh" "--print-full-init" | trim }}
+{{ end }}
