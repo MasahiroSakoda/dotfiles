@@ -30,6 +30,7 @@ return {
     opts = {
       bigfile      = require("user.bigfile"),
       quickfile    = require("user.quickfile"),
+      indent       = require("user.indent"),
       dashboard    = require("ui.dashboard"),
       notifier     = require("ui.notifier"),
       terminal     = require("ui.terminal"),
