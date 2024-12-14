@@ -1,0 +1,162 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+############################################################
+# Manager: Global config
+############################################################
+[manager]
+ratio = [1, 3, 3]
+sort_by = "natural"
+sort_reverse   = true
+sort_sensitive = true
+sort_dir_first = true
+show_hidden    = true
+show_symlink   = true
+title_format   = "Yazi: {cwd}"
+
+############################################################
+# Preview config
+############################################################
+[preview]
+tab_size   = 2
+max_width  = 2000
+max_height = 1200
+
+############################################################
+# File operation rules
+############################################################
+[[open.rules]]
+mime = "*/"
+use  = [ "edit", "editVS", "open", "reveal" ]
+
+[[open.rules]]
+mime = "text/*"
+use  = [ "edit", "editVS", "open", "reveal" ]
+
+[[open.rules]]
+mime = "application/json"
+use  = [ "edit", "editVS", "reveal" ]
+
+[[open.rules]]
+mime = "*/javascript"
+use  = [ "edit", "editVS", "reveal" ]
+
+[[open.rules]]
+mime = "image/*"
+use  = [ "open", "reveal" ]
+
+[[open.rules]]
+mime = "video/*"
+use  = [ "play", "open", "reveal" ]
+
+[[open.rules]]
+mime = "audio/*"
+use  = [ "play", "open", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-empty"
+use  = [ "edit", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-tar"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/zip"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/gzip"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-tar"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-bzip"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-bzip2"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-7z-compresseed"
+use  = [ "extract", "reveal" ]
+
+[[open.rules]]
+mime = "application/x-rar"
+use  = [ "extract", "reveal" ]
+
+############################################################
+# Applicaiton opening config
+############################################################
+[[opener.open]]
+desc  = "Open"
+for   = "macos"
+run   = "open \"$@\""
+block = true
+
+[[opener.open]]
+desc  = "Open "
+for   = "linux"
+run   = "xdg-open \"$@\""
+block = true
+
+[[opener.reveal]]
+desc = "Reveal in Finder.app"
+run  = "open -R \"$1\""
+for  = "macos"
+
+[[opener.reveal]]
+desc = "Reveal in Explorer"
+run  = "explorer /select, \"%1\""
+for  = "windows"
+
+[[opener.edit]]
+desc   = "Edit via $EDITOR "
+for    = "unix"
+run    = "$EDITOR \"$@\""
+block  = true
+
+[[opener.edit]]
+desc   = "Edit via $EDITOR "
+for    = "windows"
+run    = "%EDITOR% %*"
+orphan = true
+
+[[opener.editVS]]
+desc   = "Edit via VSCode"
+for    = "unix"
+run    = "code \"$@\""
+block  = true
+
+[[opener.editVS]]
+desc   = "Edit via VSCode"
+for    = "windows"
+run    = "code \"%*\""
+orphan = true
+
+[[opener.play]]
+desc   = "Play media with mpv"
+run    = "mpv --player-operation-mode=pseudo-gui \"$@\""
+for    = "linux"
+block  = true
+
+[[opener.play]]
+desc   = "play media via mpv"
+for    = "windows"
+run    = "mpv \"%1\""
+orphan = true
+
+[[opener.extract]]
+desc  = "Extract here"
+for   = "unix"
+run   = "unar \"$1\""
+block = true
+
+[[opener.extract]]
+desc  = "Extract here"
+for   = "windows"
+run   = "start \"%1\""
+block = true
