@@ -1,8 +1,11 @@
 # -*-mode:fish-*- vim:ft=fish.gotexttmpl
 
 # Language/Locale Configuration
-set -x LANG en_US.UTF-8
-set -x LC_CTYPE en_US.UTF-8
+set -x LANG ja_JP.UTF-8
+set -x LC_CTYPE ja_JP.UTF-8
+
+# prevent layout collapsing in CLI tool
+set -gx RUNEWIDTH_EASTASIAN 0
 
 # Path Configuration
 fish_add_path {{ .brew_prefix }}/bin
@@ -77,11 +80,6 @@ abbr -a -- co  "chown -v"
 abbr -a -- cmx "chmod +x"
 abbr -a -- cmr "chmod -R"
 
-# tmux
-abbr -a -- tm  "tmux"
-abbr -a -- tmd "tmux a -t default || tmux new -s default\\; source $XDG_CONFIG_HOME/tmux/default.session.conf"
-abbr -a -- tmn "tmux new -s"
-
 ## Git
 abbr -a -- g  "git"
 abbr -a -- lg "lazygit"
@@ -94,7 +92,7 @@ abbr -a -- gd  "git diff"
 
 abbr -a -- ga  "git add --verbose"
 abbr -a -- gaa "git add --verbose --all"
-abbr -a -- grm "git rm --verbose"
+abbr -a -- grm "git rm"
 abbr -a -- gmv "git mv --verbose"
 abbr -a -- gm  "git merge --verbose"
 abbr -a -- gma "git merge --abort"
@@ -137,24 +135,6 @@ abbr -a -- grbs "git rebase --skip"
 abbr -a -- gt  "git tag -a"
 abbr -a -- gts "git tag --sign"
 
-## GitHub cli
-abbr -a -- ghs  "gh status"
-abbr -a -- ghi  "gh issue"
-abbr -a -- ghil "gh issue list"
-abbr -a -- ghis "gh issue status"
-abbr -a -- ghic "gh issue create"
-abbr -a -- ghiC "gh issue close"
-abbr -a -- ghiv "gh issue view"
-abbr -a -- ghw  "gh workflow"
-abbr -a -- ghwl "gh workflow list"
-abbr -a -- ghe  "gh extension"
-abbr -a -- ghel "gh extension list"
-abbr -a -- ghes "gh extension search"
-abbr -a -- gheb "gh extension browse"
-abbr -a -- ghei "gh extension install"
-abbr -a -- gher "gh extension remove"
-abbr -a -- gho __ghq_browse_github
-
 ## Docker
 abbr -a -- d docker
 abbr -a -- dps "docker ps"
@@ -172,6 +152,14 @@ abbr -a -- dcl "docker compose logs"
 abbr -a -- dcr "docker compose run --rm"
 abbr -a -- dce "docker compose exec"
 abbr -a -- dcs "docker compose stop"
+
+# Taskfile
+abbr -a -- tb "task build"
+abbr -a -- tr "task run"
+abbr -a -- tc "task clean"
+abbr -a -- tl "task lint"
+abbr -a -- tt "task test"
+abbr -a -- th "task help"
 
 {{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
 ## node.js
