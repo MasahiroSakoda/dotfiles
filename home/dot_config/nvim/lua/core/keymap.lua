@@ -384,7 +384,7 @@ if not is_vscode then
     "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
     mode = nt,
     icon = " ",
-    desc = "Toggle gh dash w/ terminal",
+    desc = "Open `btm` command w/ terminal",
   },
   }, opts)
 end
