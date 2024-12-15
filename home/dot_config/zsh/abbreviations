@@ -5,10 +5,13 @@ abbr x="exit"
 
 ## File
 abbr o="open"
+abbr oa="open -a"
 abbr mv="mv -iv"
 abbr cp="cp -iv"
 abbr cpr="cp -R"
 abbr rm="rm -iv"
+abbr rmf="rm -if"
+abbr rmrf="rm -rf"
 
 ## Directory
 abbr cwd="pwd | {{ .cmd.copy }}"
@@ -20,10 +23,12 @@ abbr ....="cd ../../../"
 abbr .2="cd ../../"
 abbr .3="cd ../../../"
 abbr .4="cd ../../../../"
+abbr .5="cd ../../../../../"
 
 ## Permission
 abbr co="chown -v"
 abbr cmx="chown +x"
+abbr cmr="chmod -R"
 
 ## Git
 abbr lg="lazygit"
@@ -80,4 +85,29 @@ abbr grbs="git rebase --skip"
 abbr gt="git tag"
 abbr gts="git tag --sign"
 
-#
+# Docker
+abbr d="docker"
+abbr dps="docker ps"
+abbr dk="docker kill"
+abbr dp="docker pull"
+abbr dP="docker push"
+abbr dr="docker run"
+abbr dR="docker run --rm"
+
+## docker compose
+abbr dc="docker compose"
+abbr dcb="docker compose build"
+abbr dcu="docker compose up --build -d"
+abbr dcd="docker compose down"
+abbr dcl="docker compose logs"
+abbr dcr="docker compose run --rm"
+abbr dce="docker compose exec"
+abbr dcs="docker compose sleep"
+
+# Taskfile
+abbr tb="tesk build"
+abbr tr="tesk run"
+abbr tc="tesk clean"
+abbr tl="tesk lint"
+abbr tt="tesk test"
+abbr th="tesk help"
