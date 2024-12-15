@@ -4,6 +4,9 @@
 set -x LANG ja_JP.UTF-8
 set -x LC_CTYPE ja_JP.UTF-8
 
+# prevent layout collapsing in CLI tool
+set -gx RUNEWIDTH_EASTASIAN 0
+
 # Path Configuration
 fish_add_path {{ .brew_prefix }}/bin
 fish_add_path {{ .brew_prefix }}/sbin

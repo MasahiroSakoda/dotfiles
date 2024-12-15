@@ -11,6 +11,8 @@
 export LANG=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
 
+export RUNEWIDTH_EASTASIAN=0
+
 # History
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 export HISTSIZE=10000
