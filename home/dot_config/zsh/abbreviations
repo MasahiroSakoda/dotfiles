@@ -37,7 +37,7 @@ abbr gds="git diff --staged"
 
 abbr ga="git add --verbose"
 abbr gaa="git add --verbose --all"
-abbr grm="git rm --verbose"
+abbr grm="git rm"
 abbr gmv="git mv --verbose"
 abbr gm="git mergge --verbose"
 abbr gma="git mergge --abort"
