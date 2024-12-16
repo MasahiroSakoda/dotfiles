@@ -14,6 +14,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    cond   = not vim.g.vscode,
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
@@ -21,7 +22,8 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
-    event = "LspAttach",
+    cond   = not vim.g.vscode,
+    event  = "LspAttach",
     config = function() require("lsp.config.lspsaga") end,
   },
   {
