@@ -10,6 +10,7 @@ return {
   },
   {
     "folke/noice.nvim",
+    cond   = not vim.g.vscode,
     event  = "VeryLazy",
     config = function() require("ui.noice") end,
   },
@@ -55,6 +56,7 @@ return {
   },
   {
     "windwp/nvim-autopairs", -- autopair: like if/end
+    cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
   },
