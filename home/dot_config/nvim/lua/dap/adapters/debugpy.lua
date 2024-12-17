@@ -4,12 +4,11 @@ if not ok then return end
 --------------------------------------------------
 -- DAP configuration for Python
 --------------------------------------------------
-local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/debugpy-adapter"
 local venv = os.getenv('VIRTUAL_ENV')
 
 dap.adapters.python = {
   type    = "executable";
-  command = path,
+  command = require("utils.mason").install_path("debugpy") .. "/debugpy-adapter",
 }
 
 dap.configurations.python = {

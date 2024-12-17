@@ -1,10 +1,7 @@
 local ok, dap = pcall(require, "dap")
 if not ok then return end
 
----@param pkg string Debug adapter name
-local adapter_path  = function(pkg)
-  return require("mason-registry").get_package(pkg):get_install_path()
-end
+local mason = require("utils.mason")
 
 -- Configure Debug Server
 local adapters  = { "pwa-node", "pwa-chrome" }
@@ -18,7 +15,7 @@ for _, adapter in ipairs(adapters) do
       port = "${port}",
       executable = {
         command = "node",
-        args = { adapter_path("js-debug-adapter") .. "/js-debug/src/dapDebugServer.js", "${port}" },
+        args = { mason.adapter_path("js-debug-adapter") .. "/js-debug/src/dapDebugServer.js", "${port}" },
       },
     }
   end
@@ -29,7 +26,7 @@ local firefoxExe = vim.fn.has("mac") and "/Applications/Firefox.app/Contents/Mac
 dap.adapters.firefox = {
   type    = "executable",
   command = "node",
-  args = { adapter_path("firefox-debug-adapter") .. "/dist/adapter.bundle.js" },
+  args = { mason.adapter_path("firefox-debug-adapter") .. "/dist/adapter.bundle.js" },
 }
 
 -- Configure debugger client config
