@@ -4,16 +4,14 @@ if not ok then return end
 dap.adapters.chrome = {
   type    = "executable",
   command = "node",
-  -- TODO: Configure Chgome debug environment
-  args = { os.getenv("HOME") .. "/path/to/vscode-chrome-debug/out/src/chromeDebug.js"},
+  args = { vim.fn.stdpath("data") .. "/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
 }
 local firefoxExecutable = "~/Applications/Firefox.app/Contents/MacOS/firefox"
 
 dap.adapters.firefox = {
   type    = "executable",
   command = "node",
-  -- TODO: Configure Firefox debug environment
-  args = { os.getenv("HOME") .. "/path/to/firefox-debug/out/src/firefoxDebug.js"},
+  args = { vim.fn.stdpath("data") .. "/mason/packages/firefox-debug-adapter/out/src/firefoxDebug.js" },
 }
 
 dap.configurations.typescript = {
