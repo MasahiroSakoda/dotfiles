@@ -1,79 +1,142 @@
-local dap_ok, dap     = pcall(require, "dap")
-local dapjs_ok, dapjs = pcall(require, "dap-vscode-js")
-if not (dap_ok or dapjs_ok) then return end
+local ok, dap = pcall(require, "dap")
+if not ok then return end
 
-local fn  = vim.fn
-local debugger_path = fn.stdpath("data") .. "/mason/packages/js-debug-adapter"
+local M = {}
+local mason, util = require("utils.mason"), require("utils.javascript")
+local cwd = vim.fs.root(0, "package.json") or vim.fn.getcwd()
+local npm = vim.fn.executable("pnpm") and "pnpm " or "npm "
 
--- Base Configurations
-dapjs.setup({
-  node_path      = "node",
-  debugger_path  = debugger_path,
-  debugger_cmd   = { "js-debug-adapter" },
--- which adapters to register in nvim-dap
-  adapters       = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-  log_file_path     = "(stdpath cache)/dap_vscode_js.log", -- Path for file logging
-  log_file_level    = vim.log.levels.TRACE,
-  -- Logging level for output to console. Set to false to disable console output.
-  log_console_level = vim.log.levels.ERROR,
-})
+---@param adapters table<string, any> Debug adapter: server side
+M.dap_adapter = function(adapters)
+  for _, adapter in ipairs(adapters) do
+    if not dap.adapters[adapter] then
+      dap.adapters[adapter] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = { mason.install_path("js-debug-adapter") .. "/js-debug/src/dapDebugServer.js", "${port}" },
+        },
+      }
+    end
+  end
+end
 
--- Language specific configurations
-local languages = { "javascript", "typescript", "typescriptreaact" }
+local braveExe = os.getenv("HOME") .. "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
-for _, lang in ipairs(languages) do
-  dap.configurations[lang] = {
-    {
-      type      = "pwa-node",
-      name      = "Launch file",
-      request   = "launch",
-      program   = "${file}",
-      cwd       = "${workspaceFolder}",
-    },
-    {
-      type      = "pwa-node",
-      name      = "Attach",
-      request   = "attach",
-      processId = require("dap.utils").pick_process,
-      cwd       = "${workspaceFolder}",
-    },
-    {
-      type      = "pwa-node",
-      name      = "Debug Jest Tests",
-      request   = "launch",
-      -- trace = true, -- include debugger info
-      cwd       = "${workspaceFolder}",
-      rootPath  = "${workspaceFolder}",
-      console   = "integratedTerminal",
-      runtimeExecutable = "node",
-      runtimeArgs = {
-        "./node_modules/jest/bin/jest.js",
-        "--runInBand",
+M.dap_configuration = function(_)
+  if not dap.configurations.javascript then
+    dap.configurations.javascript = {
+      {
+        name    = "Launch File",
+        type    = "pwa-node",
+        request = "launch",
+        cwd     = "${workspaceFolder}",
+        program = "${file}",
       },
-      internalConsoleOptions = "neverOpen",
-    },
-  }
+      {
+        name    = "Launch Project",
+        type    = "pwa-node",
+        request = "launch",
+        cwd     = cwd,
+      },
+      {
+        name        = "Attach Process",
+        type        = "pwa-node",
+        request     = "attach",
+        processId   = require("dap.utils").pick_process({ filter = "node" }),
+        cwd         = "${workspaceFolder}",
+      },
+      {
+        name     = "Attach - Remote Debugging (pwa-chrome)",
+        type     = "pwa-chrome",
+        request  = "attach",
+        port     = 9222,
+        webRoot  = "${workspaceFolder}",
+        protocol = "inspector",
+        runtimeExecutable = braveExe,
+        runtimeArgs = { "--incognito" },
+        sourceMaps = true,
+        sourceMapPathOverrides = {
+          -- Sourcemap override for nextjs
+          ["webpack://_N_E/./*"] = "${webRoot}/*",
+          ["webpack:///./*"]     = "${webRoot}/*",
+        },
+        resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+      },
+    }
+    if util.is_jest_available() then
+      table.insert(dap.configurations.javascript, {
+        name     = "Debug Jest Tests",
+        type     = "pwa-node",
+        request  = "launch",
+        cwd      = "${workspaceFolder}",
+        rootPath = "${workspaceFolder}",
+        console  = "integratedTerminal",
+        internalConsoleOptions = "neverOpen",
+        runtimeExecutable = "node",
+        runtimeArgs       = { "./node_modules/jest/bin/jest.js", "--runInBand" },
+      })
+    end
+
+    if util.is_next_project() then
+      table.insert(dap.configurations.javascript, {
+        name    = "Next.js: debug server side",
+        type    = "node-terminal",
+        request = "launch",
+        webRoot = "${workspaceFolder}",
+        command = npm .. "run dev",
+        sourceMaps = true,
+        sourceMapPathOverrides = {
+          -- Sourcemap override for nextjs
+          ["webpack://_N_E/./*"] = "${webRoot}/*",
+          ["webpack:///./*"]     = "${webRoot}/*",
+        },
+      })
+      table.insert(dap.configurations.javascript, {
+        name    = "Next.js: debug client side",
+        type    = "pwa-chrome",
+        request = "launch",
+        webRoot = "${workspaceFolder}",
+        url     = "http://localhost:3000",
+        runtimeExecutable = braveExe,
+        runtimeArgs = { "--incognito" },
+        sourceMaps = true,
+        sourceMapPathOverrides = {
+          -- Sourcemap override for nextjs
+          ["webpack://_N_E/./*"] = "${webRoot}/*",
+          ["webpack:///./*"]     = "${webRoot}/*",
+        },
+      })
+      table.insert(dap.configurations.javascript, {
+        name    = "Next.js: debug full stack",
+        type    = "node-terminal",
+        request = "launch",
+        webRoot = "${workspaceFolder}",
+        url     = "http://localhost:3000",
+        command = npm .. "run dev",
+        console = "integratedTerminal",
+        serverReadyAction = {
+          pattern   = "started server on .+, url: (https?://.+)",
+          uriFormat = "%s",
+          action    = "debugWithChrome",
+        },
+        runtimeExecutable = braveExe,
+        runtimeArgs = { "--incognito" },
+        sourceMaps = true,
+        sourceMapPathOverrides = {
+          -- Sourcemap override for nextjs
+          ["webpack://_N_E/./*"] = "${webRoot}/*",
+          ["webpack:///./*"]     = "${webRoot}/*",
+        },
+      })
+    end
+  end
+
+  dap.configurations.typescript      = dap.configurations.javascript
+  dap.configurations.javascriptreact = dap.configurations.javascript
+  dap.configurations.typescriptreact = dap.configurations.javascript
 end
 
--- Language specific config for remote debug
-for _, lang in ipairs(languages) do
-  dap.configurations[lang] = {
-    {
-      type       = "pwa-chrome",
-      name       = "Attach - Remote Debugging",
-      request    = "attach",
-      protocol   = "inspector",
-      program    = "${file}",
-      sourceMaps = true,
-      port       = 9222,
-      cwd        = fn.getcwd(),
-      webRoot    = "${workspaceFolder}",
-    },
-    {
-      type       = "pwa-chrome",
-      name       = "Launch Chrome",
-      request    = "launch",
-      url        = "http://localhost:3000",
-    },
-  }
-end
+return M
