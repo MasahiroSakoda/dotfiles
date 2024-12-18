@@ -25,11 +25,7 @@ end
 
 local braveExe = os.getenv("HOME") .. "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
----@param languages table<string, any> Target language for debugging
-M.dap_configuration = function(languages)
-  -- require("dap.ex.vscode").type_to_filetypes["node"]     = languages
-  -- require("dap.ex.vscode").type_to_filetypes["pwa-node"] = languages
-
+M.dap_configuration = function(_)
   if not dap.configurations.javascript then
     dap.configurations.javascript = {
       {
