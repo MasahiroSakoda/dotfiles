@@ -52,18 +52,6 @@ M.dap_configuration = function(_)
         name     = "Attach - Remote Debugging (pwa-chrome)",
         type     = "pwa-chrome",
         request  = "attach",
-        url      = function()
-          local co = coroutine.running()
-          return coroutine.create(function()
-            vim.ui.input({ prompt = "Enter URL: ", default = "http://localhost:3000" }, function(url)
-              if url == nil or url == "" then
-                return
-              else
-                coroutine.resume(co, url)
-              end
-            end)
-          end)
-        end,
         port     = 9222,
         webRoot  = "${workspaceFolder}",
         protocol = "inspector",
