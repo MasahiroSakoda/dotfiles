@@ -19,6 +19,8 @@ return {
   },
   {
     "microsoft/vscode-js-debug",
-    build = { "npm install", "npx gulp vsDebugServerBundle", "mv dist out" },
+    build  = { "npm install", "npx gulp vsDebugServerBundle", "mv dist out" },
+    ft     = require("user.filetypes").lang.js,
+    config = function() require("dap.config.js") end,
   },
 }
