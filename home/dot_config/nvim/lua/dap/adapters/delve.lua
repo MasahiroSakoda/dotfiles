@@ -16,10 +16,12 @@ dap.adapters.go = function(callback, config)
   }
 
   handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
-    _ = stdout and stdout:close()
-    _ = stderr and stderr:close()
+    if stdout ~= nil and stderr ~= nil then
+      stdout:close()
+      stderr:close()
+    end
     handle:close()
-    _ = code ~= 0 and vim.notify("dlv exited with code " .. code, vim.log.levels.WARN)
+    if code ~= 0 then vim.notify("dlv exited with code " .. code, vim.log.levels.WARN) end
   end)
   assert(handle, "Error running dlv: " .. tostring(pid_or_err))
 
@@ -28,8 +30,10 @@ dap.adapters.go = function(callback, config)
     if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
   end
 
-  _ = stdout and stdout:read_start(onread)
-  _ = stderr and stderr:read_start(onread)
+  if stdout ~= nil and stderr ~= nil then
+    stdout:read_start(onread)
+    stderr:read_start(onread)
+  end
 
   -- Wait for delve to start
   vim.defer_fn(function() callback({ type = "server", host = host, port = port }) end, 100)
