@@ -121,6 +121,18 @@ and additional notes sections are well-structured and informative.
   },
 
   adapters = {
+    copilot = function()
+      return require("codecompanion.adapters").extend("copilot", {
+        schema = {
+          model = {
+            ---@see https://github.com/copilot
+            ---@type "gpt-4o"|"claude-3.5-sonnet"
+            default = "claude-3.5-sonnet",
+          },
+        },
+      })
+    end,
+
     openai = function()
       return require("codecompanion.adapters").extend("openai", {
         schema = {
@@ -130,9 +142,7 @@ and additional notes sections are well-structured and informative.
             default = "gpt-4o-mini",
           },
         },
-        env = {
-          api_key = vim.env.OPENAI_API_KEY,
-        },
+        env = { api_key = vim.env.OPENAI_API_KEY },
       })
     end,
 
@@ -145,9 +155,7 @@ and additional notes sections are well-structured and informative.
             default = "claude-3-5-sonnet-latest",
           },
         },
-        env = {
-          api_key = vim.env.ANTHROPIC_API_KEY,
-        },
+        env = { api_key = vim.env.ANTHROPIC_API_KEY },
       })
     end,
 
@@ -155,9 +163,7 @@ and additional notes sections are well-structured and informative.
       return require("codecompanion.adapters").extend("ollama", {
         name   = "mistral",
         schema = {
-          model = {
-            default = vim.g.local_llm,
-          },
+          model = { default = vim.g.local_llm },
         },
       })
     end,
@@ -174,4 +180,5 @@ and additional notes sections are well-structured and informative.
       adapter = "ollama",
     },
   },
+
 })
