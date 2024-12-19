@@ -1,12 +1,13 @@
 local ok, dap = pcall(require, "dap")
 if not ok then return end
 
+---@param callback fun(arg: table): any
+---@param config table<string, any>
+---@return any
 dap.adapters.go = function(callback, config)
   local stdout, stderr = vim.uv.new_pipe(false), vim.uv.new_pipe(false)
   local handle, pid_or_err
-  ---@diagnostic disable-next-line: undefined-field
   local host = config.host or "127.0.0.1"
-  ---@diagnostic disable-next-line: undefined-field
   local port = config.port or "38697"
   local opts = {
     stdio    = { nil, stdout, stderr },
@@ -20,17 +21,15 @@ dap.adapters.go = function(callback, config)
     handle:close()
     _ = code ~= 0 and vim.notify("dlv exited with code " .. code, vim.log.levels.WARN)
   end)
-
   assert(handle, "Error running dlv: " .. tostring(pid_or_err))
-  _ = stdout and stdout:read_start(function(err, chunk)
-    assert(not err, err)
-    if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
-  end)
 
-  _ = stderr and stderr:read_start(function(err, chunk)
+  local onread = function(err, chunk)
     assert(not err, err)
     if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
-  end)
+  end
+
+  _ = stdout and stdout:read_start(onread)
+  _ = stderr and stderr:read_start(onread)
 
   -- Wait for delve to start
   vim.defer_fn(function() callback({ type = "server", host = host, port = port }) end, 100)
