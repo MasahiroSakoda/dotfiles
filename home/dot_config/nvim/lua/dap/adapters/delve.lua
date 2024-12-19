@@ -1,68 +1,81 @@
 local ok, dap = pcall(require, "dap")
 if not ok then return end
 
-local dlv_path = vim.fn.exepath("dlv")
-
-dap.adapters.go = function(callback, _)
-  local stdout = (vim.uv or vim.loop).new_pipe(false)
+---@param callback fun(arg: table): any
+---@param config table<string, any>
+---@return any
+dap.adapters.go = function(callback, config)
+  local stdout, stderr = vim.uv.new_pipe(false), vim.uv.new_pipe(false)
   local handle, pid_or_err
-  local port = 38697
+  local host = config.host or "127.0.0.1"
+  local port = config.port or "38697"
   local opts = {
-    stdio    = { nil, stdout },
-    args     = { "dap", "-l", "127.0.0.1:" .. port },
+    stdio    = { nil, stdout, stderr },
+    args     = { "dap", "-l", string.format("%s:%s", host, port) },
     detected = true,
   }
 
-  handle, pid_or_err = (vim.uv or vim.loop).spawn("dlv", opts, function(code)
-  ---@diagnostic disable-next-line: need-check-nil
-    stdout:close()
+  handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+    if stdout ~= nil and stderr ~= nil then
+      stdout:close()
+      stderr:close()
+    end
     handle:close()
-    if code ~= 0 then print("[delve] Exit Code:", code) end
+    if code ~= 0 then vim.notify("dlv exited with code " .. code, vim.log.levels.WARN) end
   end)
-
   assert(handle, "Error running dlv: " .. tostring(pid_or_err))
 
-  ---@diagnostic disable-next-line: need-check-nil
-  stdout:read_start(function(err, chunk)
+  local onread = function(err, chunk)
     assert(not err, err)
-    if chunk then
-      vim.schedule(function()
-        require("dap.repl").append(chunk)
-        print("[delve]", chunk)
-      end)
-    end
-  end)
+    if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
+  end
+
+  if stdout ~= nil and stderr ~= nil then
+    stdout:read_start(onread)
+    stderr:read_start(onread)
+  end
 
   -- Wait for delve to start
-  vim.defer_fn(function()
-    callback { type = "server", host = "127.0.0.1", port = port }
-  end, 100)
+  vim.defer_fn(function() callback({ type = "server", host = host, port = port }) end, 100)
 end
 
+---@see https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
 dap.configurations.go = {
   {
+    name    = "Debug File",
     type    = "go",
-    name    = "Debug",
     request = "launch",
     showLog = true,
     program = "${file}",
-    dlvToolPath = dlv_path,
+    dlvToolPath = vim.fn.exepath("dlv"),
   },
   {
+    name    = "Debug Package",
     type    = "go",
-    name    = "Test Current File",
     request = "launch",
-    mode    = "test",
     showLog = true,
-    program = ".",
-    dlvToolPath = dlv_path,
+    program = "${fileDirName}",
+    dlvToolPath = vim.fn.exepath("dlv"),
   },
   {
-    type    = "go",
+    name      = "Attach Process",
+    type      = "go",
+    mode      = "local",
+    request   = "attach",
+    processId = function()
+      return require("dap.utils").pick_process({ filter = vim.fn.input("Process Name: ") })
+    end,
+    dlvToolPath = vim.fn.exepath("dlv"),
+  },
+  {
     name    = "Debug test (go.mod)",
+    type    = "go",
     request = "launch",
     mode    = "test",
+    cwd     = "${workspaceFolder}",
     program = "./${relativeFileDirname}",
-    dlvToolPath = dlv_path,
+    console = "integratedTerminal",
+    showLog = true,
+    dlvToolPath = vim.fn.exepath("dlv"),
   },
 }
