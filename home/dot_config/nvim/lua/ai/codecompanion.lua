@@ -159,6 +159,19 @@ and additional notes sections are well-structured and informative.
       })
     end,
 
+    gemini = function()
+      return require("codecompanion.adapters").extend("gemini", {
+        schema = {
+          model = {
+            ---@see https://ai.google.dev/gemini-api/docs/models/gemini
+            ---@type "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
+            default = "gemini-1.5-pro",
+          },
+        },
+        env = { api_key = vim.env.GEMINI_API_KEY },
+      })
+    end,
+
     ollama = function()
       return require("codecompanion.adapters").extend("ollama", {
         name   = "mistral",
