@@ -194,4 +194,14 @@ and additional notes sections are well-structured and informative.
     },
   },
 
+  display  = {
+    chat = {
+      render_headers = false,
+      show_settings  = true,
+    },
+    diff = {
+      layout   = "vertical", ---@type "horizontal"|"vertical"
+      provider = "default",  ---@type "default"|"mini_diff"
+    },
+  },
 })
