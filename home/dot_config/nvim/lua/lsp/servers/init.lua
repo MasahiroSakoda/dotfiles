@@ -28,7 +28,7 @@ return {
   actionlint    = {}, -- GitHub Actions workflow
   checkmake     = {}, -- Makefile
   golangci_lint = {}, -- Go
-  ruff_lsp      = require("lsp.servers.ruff_lsp"), -- Python
+  ruff          = require("lsp.servers.ruff"), -- Python
   biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
   rubocop       = {}, -- Ruby Static Code Analyzer
   markdownlint  = {}, -- Markdown
