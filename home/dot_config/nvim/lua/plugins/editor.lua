@@ -33,6 +33,7 @@ return {
       quickfile    = require("user.quickfile"),
       indent       = require("user.indent"),
       dashboard    = require("ui.dashboard"),
+      input        = require("ui.input"),
       notifier     = require("ui.notifier"),
       terminal     = require("ui.terminal"),
       statuscolumn = { enabled = true },
