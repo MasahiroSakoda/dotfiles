@@ -90,6 +90,13 @@ autocmd({ "VimResized" }, {
   desc    = "Automatically resize windows when the host window size changes.",
 })
 
+autocmd({ "QuickFixCmdPre" }, {
+  desc  = "Override Quickfix to trouble.nvim qflist",
+  callback = function()
+    vim.schedule(function() vim.cmd([[Trouble qflist open focus=true]]) end)
+  end,
+})
+
 local task_group = vim.api.nvim_create_augroup("UserMakePrg", { clear = true })
 autocmd({ "BufEnter" }, {
   desc  = "Detect Taskfile",
