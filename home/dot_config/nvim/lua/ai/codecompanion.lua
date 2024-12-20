@@ -44,52 +44,92 @@ Use Markdown formatting and include the programming language name at the start o
         },
         {
           role = "user", ---@type "system"|"user"
-          content = function(context)
-            local code = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
-            return "Please document the selected code:\n\n```" .. context.filetype .. "\n" .. code .. "\n```\n\n"
+          content = function(ctx)
+            local code = require("codecompanion.helpers.actions").get_code(ctx.start_line, ctx.end_line)
+            return string.format("Please document the selected code:\n\n```%s\n%s\n```\n\n",
+              ctx.filetype, ctx.filetype, code)
           end,
           opts = { contains_code = true },
         },
       },
     },
-    ["Refactor"] = {
+    ["Refactor Code in chat"] = {
       strategy = "chat", ---@type "inline"|"chat"
-      description = "Refactor the selected code for readability, maintainability and performances",
+      description = "Refactor the selected code to improve its structure and quality",
       opts = {
         index = 12,
         default_prompt = true,
         mapping = "<localLeader>ar",
         modes = { "v" },
-        slash_cmd = "refactor",
+        slash_cmd = "refchat",
         auto_submit = true,
         user_prompt = false,
         stop_context_insertion = true,
-        prompt = {
-          {
-            role = "system", ---@type "system"|"user"
-            content = [[
-When asked to optimize code, follow these steps:
-1. **Analyze the Code**: Understand the functionality and identify potential bottlenecks.
-2. **Implement the Optimization**: Apply the optimizations including best practices to the code.
-3. **Shorten the code**: Remove unnecessary code and refactor the code to be more concise.
-3. **Review the Optimized Code**: Ensure the code is optimized for performance and readability. Ensure the code:
-  - Maintains the original functionality.
-  - Is more efficient in terms of time and space complexity.
-  - Follows best practices for readability and maintainability.
-  - Is formatted correctly.
-
-Use Markdown formatting and include the programming language name at the start of the code block.]],
-            opts = { visible = false },
-          },
-          {
-            role = "user", ---@type "system"|"user"
-            content = function(context)
-              local code = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
-              return "Please optimize the selected code:\n\n```" .. context.filetype .. "\n" .. code .. "\n```\n\n"
-            end,
-            opts = { contains_code = true },
-          }
+      },
+      prompt = {
+        {
+          role = "system", ---@type "system"|"user"
+          content = [[
+You are an expert in code refactoring. When refactoring code, follow these principles:
+1. Apply SOLID principles where appropriate
+2. Use design patterns effectively
+3. Improve code modularity and reusability
+4. Enhance readability and maintainability
+5. Remove code duplication
+6. Follow language-specific best practices
+7. Preserve the original functionality
+Return only the refactored code without explanations.]],
+          opts = { visible = false },
         },
+        {
+          role = "user", ---@type "system"|"user"
+          content = function(ctx)
+            local code = require("codecompanion.helpers.actions").get_code(ctx.start_line, ctx.end_line)
+            return string.format("Please refactor this %s code:\n```%s\n%s\n```", ctx.filetype, ctx.filetype, code)
+          end,
+          opts = { contains_code = true },
+        },
+      },
+    },
+    ["Refactor Code inline"] = {
+      strategy = "inline", ---@type "inline"|"chat"
+      description = "Refactor the selected code to improve its structure and quality",
+      opts = {
+        index = 12,
+        is_default = true,
+        modes = { "v" },
+        short_name = "refinline",
+        auto_submit = true,
+        user_prompt = false,
+        stop_context_insertion = true,
+      },
+      prompt = {
+        {
+          role = "system",
+          content = [[
+You are an expert in code refactoring. When refactoring code, follow these principles:
+1. Apply SOLID principles where appropriate
+2. Use design patterns effectively
+3. Improve code modularity and reusability
+4. Enhance readability and maintainability
+5. Remove code duplication
+6. Follow language-specific best practices
+7. Preserve the original functionality
+Return only the refactored code without explanations.]],
+          opts = { visible = false },
+        },
+        {
+          role = "user",
+          content = function(ctx)
+            local code = require("codecompanion.helpers.actions").get_code(
+              ctx.start_line,
+              ctx.end_line,
+              { show_line_numbers = true }
+            )
+            return string.format("Please refactor this %s code:\n```%s\n%s\n```", ctx.filetype, ctx.filetype, code)
+          end,
+          opts = { contains_code = true },
+        }
       },
     },
     ["PullRequest"] = {
@@ -123,11 +163,9 @@ and additional notes sections are well-structured and informative.
   adapters = {
     copilot = function()
       return require("codecompanion.adapters").extend("copilot", {
-        schema = {
+        schema = { ---@see https://github.com/copilot
           model = {
-            ---@see https://github.com/copilot
-            ---@type "gpt-4o"|"claude-3.5-sonnet"
-            default = "claude-3.5-sonnet",
+            default = "claude-3.5-sonnet", ---@type "gpt-4o"|"claude-3.5-sonnet"
           },
         },
       })
@@ -135,11 +173,9 @@ and additional notes sections are well-structured and informative.
 
     openai = function()
       return require("codecompanion.adapters").extend("openai", {
-        schema = {
+        schema = { ---@see https://platform.openai.com/docs/models
           model = {
-            ---@see https://platform.openai.com/docs/models
-            ---@type "gpt-3.5-turbo"|"gpt-4o"|"gpt-4o-mini"
-            default = "gpt-4o-mini",
+            default = "gpt-4o-mini", ---@type "gpt-3.5-turbo"|"gpt-4o"|"gpt-4o-mini"
           },
         },
         env = { api_key = vim.env.OPENAI_API_KEY },
@@ -148,11 +184,9 @@ and additional notes sections are well-structured and informative.
 
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
-        schema = {
+        schema = { ---@see https://docs.anthropic.com/en/docs/about-claude/models
           model = {
-            ---@see https://docs.anthropic.com/en/docs/about-claude/models
-            ---@type "claude-3-5-sonnet-latest"|"claude-3.5-haiku-latest"
-            default = "claude-3-5-sonnet-latest",
+            default = "claude-3-5-sonnet-latest", ---@type "claude-3-5-sonnet-latest"|"claude-3.5-haiku-latest"
           },
         },
         env = { api_key = vim.env.ANTHROPIC_API_KEY },
@@ -161,11 +195,9 @@ and additional notes sections are well-structured and informative.
 
     gemini = function()
       return require("codecompanion.adapters").extend("gemini", {
-        schema = {
+        schema = { ---@see https://ai.google.dev/gemini-api/docs/models/gemini
           model = {
-            ---@see https://ai.google.dev/gemini-api/docs/models/gemini
-            ---@type "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
-            default = "gemini-1.5-pro",
+            default = "gemini-1.5-pro", ---@type "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
           },
         },
         env = { api_key = vim.env.GEMINI_API_KEY },
@@ -183,15 +215,9 @@ and additional notes sections are well-structured and informative.
   },
 
   strategies = {
-    chat   = {
-      adapter = "ollama",
-    },
-    inline = {
-      adapter = "ollama",
-    },
-    agent  = {
-      adapter = "ollama",
-    },
+    chat   = { adapter = "ollama" },
+    inline = { adapter = "ollama" },
+    agent  = { adapter = "ollama" },
   },
 
   display  = {
