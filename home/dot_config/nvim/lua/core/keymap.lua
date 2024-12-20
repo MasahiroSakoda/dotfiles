@@ -204,9 +204,9 @@ if not is_vscode then
     { "<Leader>fj", "<CMD>Telescope jumplist<CR>",    icon = " ", desc = "Vim Jump list" },
 
     -- history
-    { "<Leader>fC", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
-    { "<Leader>fS", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
-    { "<Leader>fr", "<CMD>Telescope resume<CR>",          icon = " ", desc = "Resume previous picker" },
+    { "<Leader>fHc", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
+    { "<Leader>fHs", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
+    { "<Leader>fr", "<CMD>Telescope resume<CR>",           icon = " ", desc = "Resume previous picker" },
 
     -- telescope.nvim extensions
     { "<Leader>ff", "<CMD>Telescope frecency<CR>",     icon = " ", desc = "Frecency algorithm Search" },
@@ -291,6 +291,8 @@ wk.add({
   { "<Leader>dS", "<CMD>lua require'dapui'.float('stacks')<CR>",        icon = " ", desc = "Float stacks" },
   { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
   { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>",              icon = "󰌱", desc = "Open DAP log" },
+
+  { "<Leader>dL", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger w/ OSV" },
 }, opts)
 
 ---------------------------------------------------------------------------
