@@ -17,6 +17,7 @@ return {
     dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
     config = function() require("dap.config.virtual_text") end,
   },
+  { "jbyuki/one-small-step-for-vimkind" },
   {
     "microsoft/vscode-js-debug",
     build  = { "npm install", "npx gulp vsDebugServerBundle", "mv dist out" },
