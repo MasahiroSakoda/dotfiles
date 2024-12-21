@@ -32,7 +32,6 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.lualine") end,
   },
-  { "nvchad/showkeys", cmd = "ShowkeysToggle" },
   {
     "stevearc/oil.nvim", -- File Explorer like buffer
     dependencies = { "nvim-tree/nvim-web-devicons" },

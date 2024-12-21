@@ -19,7 +19,6 @@ return {
     event  = { "InsertEnter", "CmdlineEnter" },
     config = function() require("lsp.cmp") end,
   },
-  { "mtoohey31/cmp-fish",   ft = "fish" },
 
   { "saadparwaiz1/cmp_luasnip", event = { "BufReadPre", "BufNewFile" } },
   {
