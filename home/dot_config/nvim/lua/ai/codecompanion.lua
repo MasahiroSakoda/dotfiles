@@ -95,7 +95,7 @@ Return only the refactored code without explanations.]],
       strategy = "inline", ---@type "inline"|"chat"
       description = "Refactor the selected code to improve its structure and quality",
       opts = {
-        index = 12,
+        index = 13,
         is_default = true,
         modes = { "v" },
         short_name = "refinline",
@@ -136,7 +136,7 @@ Return only the refactored code without explanations.]],
       strategy = "chat",
       description = "Generate a Pull Request message description",
       opts = {
-        index = 13,
+        index = 14,
         default_prompt = true,
         mapping = "<localLeader>cp",
         slash_cmd = "pr",
@@ -152,8 +152,11 @@ You are an expert at writing detailed and clear pull request descriptions
 Please create a pull request message following standard convention from the provided diff changes.
 Ensure the title, description, type of change, checklist, related issues,
 and additional notes sections are well-structured and informative.
-\n\n```diff\n
-            ]], vim.fn.system("git diff $(git merge-base HEAD main)") .. "\n```")
+
+```diff
+%s
+```
+            ]], vim.fn.system("git diff $(git merge-base HEAD main)...HEAD"))
           end,
         },
       },
