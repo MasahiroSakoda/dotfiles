@@ -382,12 +382,15 @@ if not is_vscode then
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
     { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
-  {
-    ",b",
-    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
-    mode = nt,
-    icon = " ",
-    desc = "Open `btm` command w/ terminal",
-  },
+
+    { ",z", "<CMD>lua require'snacks'.zen.zoom()<CR>",   icon = " ", desc = "Toggle Zoom"},
+    { ",Z", "<CMD>lua require'snacks'.toggle.zen()<CR>", icon = " ", desc = "Toggle Zen mode"},
+    {
+      ",b",
+      "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
+      mode = nt,
+      icon = " ",
+      desc = "Open `btm` command w/ terminal",
+    },
   }, opts)
 end

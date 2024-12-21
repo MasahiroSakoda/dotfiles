@@ -32,10 +32,12 @@ return {
       bigfile      = require("user.bigfile"),
       quickfile    = require("user.quickfile"),
       indent       = require("user.indent"),
+      toggle       = require("user.toggle"),
       dashboard    = require("ui.dashboard"),
       input        = require("ui.input"),
       notifier     = require("ui.notifier"),
       terminal     = require("ui.terminal"),
+      zen          = require("ui.zen"),
       statuscolumn = { enabled = true },
       words        = { enabled = false },
       styles       = {
