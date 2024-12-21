@@ -80,12 +80,18 @@ codecompanion.setup({
 
   display  = {
     chat = {
+      window = {
+        layout = "vertical", ---@type "float"|"vertical"|"horizontal"|"buffer"
+      },
       render_headers = false,
-      show_settings  = true,
+      show_settings  = false,
     },
     diff = {
       layout   = "vertical", ---@type "horizontal"|"vertical"
       provider = "default",  ---@type "default"|"mini_diff"
+    },
+    inline = {
+      layout = "vertical",   ---@type "vertical"|"horizontal"|"buffer"
     },
   },
 })
