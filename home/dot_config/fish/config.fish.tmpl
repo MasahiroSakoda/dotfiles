@@ -220,11 +220,13 @@ set -gx OPENAI_API_KEY        (security find-generic-password -s "OpenAI API Key
 set -gx GOOGLE_API_KEY        (security find-generic-password -s "Google API Key" -w)
 set -gx GEMINI_API_KEY        (security find-generic-password -s "Gemini API Key" -w)
 set -gx AZURE_OPENAPI_API_KEY (security find-generic-password -s "Azure API Key" -w)
+set -gx GROQ_API_KEY          (security find-generic-password -s "Groq API Key" -w)
 set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
 set -gx OPENAI_API_KEY        (secret-tool lookup username $USER key_name "OpenAI API Key")
 set -gx GOOGLE_API_KEY        (secret-tool lookup username $USER key_name "Google API Key")
 set -gx GEMINI_API_KEY        (secret-tool lookup username $USER key_name "Gemini API Key")
 set -gx AZURE_OPENAPI_API_KEY (secret-tool lookup username $USER key_name "Azure API Key")
+set -gx GROQ_API_KEY          (secret-tool lookup username $USER key_name "Groq API Key")
 set -gx DEEPL_API_KEY         (secret-tool lookup username $USER key_name "DeepL API Key")
 {{ end }}
