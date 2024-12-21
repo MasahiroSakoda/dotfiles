@@ -2,6 +2,8 @@
 local ok, codecompanion = pcall(require, "codecompanion")
 if not ok then return end
 
+local adapters = require("codecompanion.adapters")
+
 require("utils.ai")
 
 codecompanion.setup({
@@ -19,44 +21,44 @@ codecompanion.setup({
   },
 
   adapters = {
+    ---@see https://github.com/copilot
     copilot = function()
-      return require("codecompanion.adapters").extend("copilot", {
-        schema = { ---@see https://github.com/copilot
-          model = {
-            default = "claude-3.5-sonnet", ---@type "gpt-4o"|"claude-3.5-sonnet"
-          },
+      return adapters.extend("copilot", {
+        schema = {
+          ---@usage "gpt-4o"|"claude-3.5-sonnet"
+          model = { default = "claude-3.5-sonnet" },
         },
       })
     end,
 
+    ---@see https://platform.openai.com/docs/models
     openai = function()
-      return require("codecompanion.adapters").extend("openai", {
-        schema = { ---@see https://platform.openai.com/docs/models
-          model = {
-            default = "gpt-4o-mini", ---@type "gpt-3.5-turbo"|"gpt-4o"|"gpt-4o-mini"
-          },
+      return adapters.extend("openai", {
+        schema = {
+          ---@usage "gpt-3.5-turbo"|"gpt-4o"|"gpt-4o-mini"
+          model = { default = "gpt-4o-mini" },
         },
         env = { api_key = vim.env.OPENAI_API_KEY },
       })
     end,
 
+    ---@see https://docs.anthropic.com/en/docs/about-claude/models
     anthropic = function()
-      return require("codecompanion.adapters").extend("anthropic", {
-        schema = { ---@see https://docs.anthropic.com/en/docs/about-claude/models
-          model = {
-            default = "claude-3-5-sonnet-latest", ---@type "claude-3-5-sonnet-latest"|"claude-3.5-haiku-latest"
-          },
+      return adapters.extend("anthropic", {
+        schema = {
+          ---@usage "claude-3-5-sonnet-latest"|"claude-3.5-haiku-latest"
+          model = { default = "claude-3-5-sonnet-latest" },
         },
         env = { api_key = vim.env.ANTHROPIC_API_KEY },
       })
     end,
 
+    ---@see https://ai.google.dev/gemini-api/docs/models/gemini
     gemini = function()
-      return require("codecompanion.adapters").extend("gemini", {
-        schema = { ---@see https://ai.google.dev/gemini-api/docs/models/gemini
-          model = {
-            default = "gemini-1.5-pro", ---@type "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
-          },
+      return adapters.extend("gemini", {
+        schema = {
+          ---@usage "gemini-1.5-flash"|"gemini-1.5-flash-8b"|"gemini-1.5-pro"
+          model = { default = "gemini-1.5-pro" },
         },
         env = { api_key = vim.env.GEMINI_API_KEY },
       })
@@ -65,9 +67,7 @@ codecompanion.setup({
     ollama = function()
       return require("codecompanion.adapters").extend("ollama", {
         name   = "mistral",
-        schema = {
-          model = { default = vim.g.local_llm },
-        },
+        schema = { model = { default = vim.g.local_llm } },
       })
     end,
   },
