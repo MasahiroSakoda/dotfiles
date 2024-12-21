@@ -66,5 +66,4 @@ return {
 
   -- File specific Highlighter
   { "MTDL9/vim-log-highlighting",  ft = { "log", "txt", "text" } },
-  { "Decodetalkers/csv-tools.lua", ft = "csv" },
 }
