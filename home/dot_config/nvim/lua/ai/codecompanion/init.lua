@@ -2,8 +2,6 @@
 local ok, codecompanion = pcall(require, "codecompanion")
 if not ok then return end
 
-local adapters = require("codecompanion.adapters")
-
 require("utils.ai")
 
 codecompanion.setup({
