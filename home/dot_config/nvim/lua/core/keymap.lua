@@ -346,9 +346,10 @@ if not is_vscode then
     { "<Leader>ct", "<CMD>CodeCompanion /test<CR>",    icon = " ", desc = "Generate unit tests for selected code" },
 
     -- Custom prompt libraries
-    { "<Leader>cd", "<CMD>CodeCompanion /doc<CR>",       icon = " ", desc = "Generate docs to selected code" },
-    { "<Leader>cr", "<CMD>CodeCompanion /refchat<CR>",   icon = " ", desc = "Refactor in chat window" },
-    { "<Leader>cR", "<CMD>CodeCompanion /refinline<CR>", icon = " ", desc = "Refactor inline" },
+    { "<Leader>cd",  "<CMD>CodeCompanion /doc<CR>",       icon = " ", desc = "Generate docs to selected code" },
+    { "<Leader>crc", "<CMD>CodeCompanion /refchat<CR>",   icon = " ", desc = "Refactor in chat window" },
+    { "<Leader>cri", "<CMD>CodeCompanion /refinline<CR>", icon = " ", desc = "Refactor inline" },
+    { "<Leader>cR",  "<CMD>CodeCompanion /review<CR>",    icon = " ", desc = "Review code in buffer" },
   }, opts)
 end
 
