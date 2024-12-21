@@ -1,27 +1,24 @@
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then return end
 
-bufferline.setup {
+bufferline.setup({
   options = {
-    -- Usable mode: tabs / buffers
-    mode = "tabs",
-    ---@Usable diagnostics: nvim_lsp / coc
-    diagnostics = "nvim_lsp",
+    mode        = "tabs",     ---@type "tabs"|"buffers"
+    diagnostics = "nvim_lsp", ---@type "nvim_lsp"|"coc"
 
     -- Format
-    ---@diagnostic disable-next-line: undefined-field
+  ---@param opts table<string, any>
     name_formatter = function(opts) return string.format("%s", opts.name) end,
-    ---@diagnostic disable-next-line: undefined-field
+  ---@param opts table<string, any>
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
     -- Size / Length
-    tab_size = 15,
-    max_name_length = 14,
+    tab_size          = 15,
+    max_name_length   = 14,
     max_prefix_length = 13,
 
-    ---@Usable style: slant / padded_slant / thick / thin
-    separator_style = 'slope',
-    enforce_regular_tabs = false,
+    separator_style        = "slope", ---@type "slope"|"slant"|"padded_slant"|"thick"|"thin"
+    enforce_regular_tabs   = false,
     always_show_bufferline = true,
 
     -- Icon
@@ -43,38 +40,17 @@ bufferline.setup {
     --   return "" .. icon .. count
     -- end,
 
-    indicator = {
-      icon  = "| ",
-      style = "underline",
-    },
+    indicator = { icon  = "| ", style = "underline" },
 
     -- Hover
-    hover = {
-      enabled = true,
-      delay   = 150,
-      reveal  = {'close'}
-    },
+    hover = { enabled = true, delay   = 150, reveal  = { "close" } },
   },
 
   highlights = {
-    separator = {
-      fg = '#073642',
-      bg = '#002b36',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36',
-    },
-    buffer_selected = {
-      fg = '#fdf6e3',
-      bold   = true,
-      italic = true,
-    },
-    fill = {
-      bg = '#073642'
-    }
+    separator          = { fg = "#073642", bg = "#002b36" },
+    separator_selected = { fg = "#073642" },
+    background         = { fg = "#657b83", bg = "#002b36" },
+    buffer_selected    = { fg = "#fdf6e3", bold   = true, italic = true },
+    fill               = { bg = "#073642" }
   },
-}
+})
