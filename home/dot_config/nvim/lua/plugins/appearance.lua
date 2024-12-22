@@ -6,8 +6,7 @@ return {
   { "navarasu/onedark.nvim",  config = function() require("ui.onedark") end },
 
   {
-    "NvChad/nvim-colorizer.lua", -- Color code viewer
-    -- event  = { "BufReadPost", "BufNewFile" },
+    "catgoose/nvim-colorizer.lua",-- Color code viewer
     cmd = { "ColorizerToggle" },
     config = function() require("ui.colorizer") end,
   },
