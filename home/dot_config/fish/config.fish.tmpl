@@ -161,58 +161,6 @@ abbr -a -- tl "task lint"
 abbr -a -- tt "task test"
 abbr -a -- th "task help"
 
-{{- if or .mise.node.enabled .mise.deno.enabled .mise.bun.enabled }}
-## node.js
-### npm
-abbr -a -- nl  "npm list"
-abbr -a -- ni  "npm install"
-abbr -a -- nid "npm install -D"
-abbr -a -- nig "npm install -d"
-abbr -a -- nu  "npm update"
-abbr -a -- nt  "npm run test"
-abbr -a -- nb  "npm run build"
-abbr -a -- nd  "npm run dev"
-abbr -a -- nci "npm ci"
-
-### pnpm
-abbr -a -- p pnpm
-abbr -a -- pa  "pnpm add"
-abbr -a -- ph  "pnpm help"
-abbr -a -- pi  "pnpm install"
-abbr -a -- pid "pnpm install -D"
-abbr -a -- pim "pnpm import"
-abbr -a -- pls "pnpm ls"
-abbr -a -- psa "pnpm store add"
-abbr -a -- psp "pnpm store prune"
-abbr -a -- pss "pnpm store status"
-abbr -a -- pst "pnpm start"
-abbr -a -- pt  "pnpm test"
-abbr -a -- pb  "pnpm build"
-abbr -a -- pr  "pnpm rebuild"
-abbr -a -- pd  "pnpm dev"
-abbr -a -- pe  "pnpm e2e"
-abbr -a -- pu  "pnpm unit"
-{{- end }}
-
-{{- if .mise.deno.enabled }}
-### Deno
-abbr -a -- dn  "deno"
-abbr -a -- dnh "deno help | bat"
-abbr -a -- dnt "deno task"
-abbr -a -- dnr "deno run"
-{{- end }}
-
-{{- if .mise.ruby.enabled }}
-## Ruby / Rails
-abbr -a -- rails   "bundle exec rails"
-abbr -a -- rake    "bundle exec rake"
-abbr -a -- irb     "bundle exec irb"
-abbr -a -- pry     "bundle exec pry"
-abbr -a -- rspec   "bundle exec rspec"
-abbr -a -- foreman "bundle exec foreman"
-abbr -a -- guard   "bundle exec guard"
-{{- end }}
-
 {{ if eq .chezmoi.os "darwin" }}
 set -gx POCKET_CONSUMER_KEY   (security find-generic-password -s "Pocket Consumer Key" -w)
 set -gx POCKET_ACCESS_TOKEN   (security find-generic-password -s "Pocket Access Token" -w)

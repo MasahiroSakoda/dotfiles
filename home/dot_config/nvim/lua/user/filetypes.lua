@@ -29,7 +29,7 @@ Filetypes.treesitter = {
   -- Shader Languages
   "glsl", "hlsl", "wgsl",
   -- Shell
-  "awk", "bash", "fish", -- "zsh",
+  "awk", "bash", "fish", "nu",
   -- Command
   "vimdoc", "diff", "regex",
   -- Security
