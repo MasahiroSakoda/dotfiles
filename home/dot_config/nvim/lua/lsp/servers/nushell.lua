@@ -25,7 +25,8 @@ vim.opt.shelltemp = false
 vim.opt.shellcmdflag = "--stdin --no-newline -c"
 
 -- string to be used with `:make` command to:
--- 1. save the stderr of `makeprg` in the temp file which Neovim reads using `errorformat` to populate the `quickfix` buffer
+-- 1. save the stderr of `makeprg` in the temp files
+--    which Neovim reads using `errorformat` to populate the `quickfix` buffer
 -- 2. show the stdout, stderr and the return_code on the screen
 -- NOTE: `ansi strip` removes all ansi coloring from nushell errors
 vim.opt.shellpipe =
