@@ -897,10 +897,31 @@ $env.config = {
             mode: emacs
             event: { edit: selectall }
         }
+		{
+			name: open_ghq_project
+			modifier: control
+			keycode: char_g
+			mode: [emacs, vi_normal, vi_insert]
+			event: {
+				send: ExecuteHostCommand,
+				cmd: "openGhqProject"
+			}
+		}
+		{
+			name: open_nvim_plugin
+			modifier: control
+			keycode: char_x
+			mode: [emacs, vi_normal, vi_insert]
+			event: {
+				send: ExecuteHostCommand,
+				cmd: "openNvimPlugin"
+			}
+		}
     ]
 }
 
-source ~/.config/nushell/conf.d/index.nu
+use scripts/ *
+use functions/ *
 
 # Completions
 source eza-completions.nu
