@@ -4,7 +4,10 @@ return function()
     url = "https://api.groq.com/openai/v1/chat/completions",
     schema = {
       ---@see https://console.groq.com/docs/models
-      model = { default = "llama3-70b-8192" },
+      model = {
+        default = "llama-3.3-70b-versatile",
+        choices = { "llama3-70b-8192", "llama-3.3-70b-versatile", "gemma2-9b-it", "mixtral-8x7b-32768" },
+      },
       temperature = { default = 0.0 },
       max_tokens  = { default = 512 },
     },

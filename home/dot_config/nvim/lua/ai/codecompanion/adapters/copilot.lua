@@ -4,7 +4,10 @@ return function()
     schema = {
       ---@see https://github.com/copilot
       ---@usage "gpt-4o"|"claude-3.5-sonnet"
-      model = { default = "claude-3.5-sonnet" },
+      model = {
+        default = "claude-3.5-sonnet",
+        choices = { "gpt-4o", "claude-3.5-sonnet" },
+      },
     },
   })
 end
