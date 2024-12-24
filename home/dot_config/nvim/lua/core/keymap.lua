@@ -94,7 +94,6 @@ wk.add({
 
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
-  { "<Leader>bb", "<CMD>Telescope buffers<CR>",   icon = " ", desc = "Display buffers list" },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
   { "<Leader>bdc", "<CMD>lua require'snacks'.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
