@@ -326,7 +326,11 @@ wk.add({
 if not is_vscode then
   require("utils.ai")
   -- Abbreviation
-  vim.cmd[[cnoreabbrev cc CodeCompanion]]
+  vim.cmd[[
+    cnoreabbrev cc  CodeCompanion
+    cnoreabbrev ccc CodeCompanionChat
+    cnoreabbrev cca CodeCompanionActions
+  ]]
 
   -- codecompanion.nvim
   wk.add({
