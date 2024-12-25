@@ -137,6 +137,15 @@ autocmd({ "LspAttach" }, {
       })
       -- vim.api.nvim_create_user_command("LspFormat", function() require("lsp.config.format") end, {})
     end
+
+    -- Inlay Hints
+    if client~= nil and client.server_capabilities.inlayHintProvider then
+      vim.api.nvim_create_user_command("LspInlayHintsToggle", function()
+        local enabled = not vim.lsp.inlay_hint.is_enabled()
+        vim.lsp.inlay_hint.enable(enabled)
+        vim.notify("LSP inlay hints " .. (enabled and "enabled" or "disabled"))
+      end, {})
+    end
   end
 })
 

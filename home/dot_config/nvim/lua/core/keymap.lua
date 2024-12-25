@@ -244,6 +244,7 @@ wk.add({
   { "<Leader>M", "<CMD>Mason<CR>",                       icon = " ", desc = "Open mason.nvim Window" },
   { "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>",      icon = " ", desc = "Go to prev diagnostics" },
   { "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>",      icon = " ", desc = "Go to next diagnostics" },
+  { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
   { "go",  "<CMD>Lspsaga outline<CR>",                   icon = " ", desc = "Code outline" },
   { "gn",  "<CMD>Lspsaga rename<CR>",                    icon = " ", desc = "Rename" },
   { "gci", "<CMD>Lspsaga incoming_calls<CR>",            icon = " ", desc = "Call incoming hierarchy" },

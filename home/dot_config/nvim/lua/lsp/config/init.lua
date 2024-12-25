@@ -64,12 +64,6 @@ local on_attach = function(client, bufnr)
       range = true,
     }
   end
-
-  if caps.inlayHintProvider then
-    vim.keymap.set("n", "gh", function()
-      require("utils.lsp").toggle_inlay_hints(bufnr)
-    end, { desc = "   Toggle Inlay Hints" })
-  end
 end
 
 local servers = require("lsp.servers")
