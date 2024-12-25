@@ -47,7 +47,14 @@ dial.augends:register_group({
       cyclic = true,
       preserve_case = true,
     }),
+    augend.constant.new({
+      elements = { "ollama", "groq", "copilot", "openai", "anthropic", "google" },
+      word = true,
+      cyclic = true,
+      preserve_case = true,
+    }),
   },
+
 
   -- augend:on_filetype({
   --   lua = {

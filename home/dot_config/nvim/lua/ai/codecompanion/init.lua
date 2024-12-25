@@ -39,7 +39,7 @@ codecompanion.setup({
         layout = "vertical", ---@type "float"|"vertical"|"horizontal"|"buffer"
       },
       render_headers = false,
-      show_settings  = false,
+      show_settings  = true,
     },
     diff = {
       layout   = "vertical", ---@type "horizontal"|"vertical"
