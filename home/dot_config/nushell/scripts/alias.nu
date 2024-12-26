@@ -4,10 +4,6 @@
 export alias cl = clear
 export alias x  = exit
 
-export alias l  = ls
-export alias ls = ls -a
-export alias ll = ls -al
-
 export alias rg = rg --no-heading --with-filename --line-number --column --smart-case --trim
 
 ## File
