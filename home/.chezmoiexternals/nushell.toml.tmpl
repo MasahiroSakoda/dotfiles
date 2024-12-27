@@ -1,144 +1,46 @@
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
-
-# [".config/nushell/nu_scripts"]
-# type  = "git-repo"
-# url   = "https://github.com/nushell/nu_scripts"
-# exact = true
-# refreshPeriod = "168h"
+{{ $baseURL := "https://raw.githubusercontent.com/nushell/nu_scripts/main" }}
 
 ############################################################
 # Theme
 ############################################################
-[".local/share/nushell/themes/onedark.nu"]
+# TODO: This might be replaced `nupm`
+{{- range $theme := .nushell.themes }}
+[".local/share/nushell/themes/{{ $theme }}.nu"]
 type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/refs/heads/main/themes/nu-themes/onedark.nu"
+url  = {{ (printf "%s/themes/nu-themes/%s.nu" $baseURL $theme ) | quote }}
 refreshPeriod = "168h"
+{{- end }}
 
 ############################################################
 # Completions
 ############################################################
-## Primary Commands:
-[".local/share/nushell/completions/eza-completions.nu"]
+# TODO: This might be replaced `nupm`
+{{- range $completion := .nushell.completions }}
+[".local/share/nushell/completions/{{ $completion }}-completions.nu"]
 type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/eza/eza-completions.nu"
+url  = {{ (printf "%s/custom-completions/%s/%s-completions.nu" $baseURL $completion $completion ) | quote }}
 refreshPeriod = "168h"
-
-[".local/share/nushell/completions/less-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/less/less-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/bat-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/bat/bat-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/btm-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/btm/btm-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/curl-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/curl/curl-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/tar-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/tar/tar-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/make-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/make/make-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/ssh-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/ssh/ssh-completions.nu"
-refreshPeriod = "168h"
-
-## Git
-[".local/share/nushell/completions/git-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/git/git-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/gh-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/gh/gh-completions.nu"
-refreshPeriod = "168h"
-
-## Docker
-[".local/share/nushell/completions/docker-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/docker/docker-completions.nu"
-refreshPeriod = "168h"
-
-## Language Environment
-### Rust
-[".local/share/nushell/completions/cargo-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/cargo/cargo-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/rustup-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/rustup/rustup-completions.nu"
-refreshPeriod = "168h"
-
-### Node.js
-[".local/share/nushell/completions/npm-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/npm/npm-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/yarn-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/yarn/yarn-v4-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/pnpm-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/pnpm/pnpm-completions.nu"
-refreshPeriod = "168h"
-
-### Python
-[".local/share/nushell/completions/poetry-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/poetry/poetry-completions.nu"
-refreshPeriod = "168h"
-
-## Other Commanands
-[".local/share/nushell/completions/rg-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/rg/rg-completions.nu"
-refreshPeriod = "168h"
-
-[".local/share/nushell/completions/vscode-completions.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/custom-completions/vscode/vscode-completions.nu"
-refreshPeriod = "168h"
+{{- end }}
 
 ############################################################
 # Modules from nu_scripts
 ############################################################
-[".config/nushell/scripts/system/mod.nu"]
+# TODO: This might be replaced `nupm`
+{{- range $module := .nushell.modules }}
+[".config/nushell/scripts/{{ $module }}/mod.nu"]
 type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/modules/system/mod.nu"
+url  = {{ (printf "%s/modules/%s/mod.nu" $baseURL $module) | quote }}
 refreshPeriod = "168h"
-
-[".config/nushell/scripts/argx/mod.nu"]
-type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/modules/argx/mod.nu"
-refreshPeriod = "168h"
+{{- end }}
 
 ## fzf: fuzzy finder
 [".config/nushell/scripts/fzf/fuzzy_history_search.nu"]
 type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/modules/fuzzy/fuzzy_history_search.nu"
+url  = {{ (printf "%s/modules/fuzzy/fuzzy_history_search.nu" $baseURL ) | quote }}
 refreshPeriod = "168h"
+
 [".config/nushell/scripts/fzf/fuzzy_command_search.nu"]
 type = "file"
-url  = "https://raw.githubusercontent.com/nushell/nu_scripts/main/modules/fuzzy/fuzzy_command_search.nu"
+url  = {{ (printf "%s/modules/fuzzy/fuzzy_command_search.nu" $baseURL ) | quote }}
 refreshPeriod = "168h"
