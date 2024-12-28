@@ -1,4 +1,5 @@
 require("core.base")
+require("core.shell")
 require("core.encoding")
 require("core.search")
 require("core.theme")
