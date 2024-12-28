@@ -11,6 +11,10 @@
 {{- $cloud      := false -}}{{/* true if this machine is going to use cloud */}}
 {{- "" -}}
 
+{{/* selectable feature tags */}}
+{{- $shell := "fish" }}{{/* primary shell */}}
+{{- "" -}}
+
 {{- $osID := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
@@ -28,6 +32,10 @@
 {{- end -}}
 {{- if and (not $email) stdinIsATTY -}}
 {{- $email = promptStringOnce . "email" "Enter your git email: " -}}
+{{- end -}}
+{{- if and (not $shell) stdinIsATTY -}}
+{{- $choices := list "zsh" "fish" "nushell" -}}
+{{- $shell   := promptChoiceOnce . "shell" "Primary Shell: " $choices -}}
 {{- end -}}
 
 {{/* Discover the homebrew prefix */}}
@@ -60,6 +68,7 @@ graphics  = {{ $graphics }}
 cloud     = {{ $cloud }}
 osid      = {{ $osID | quote }}
 osicon    = {{ $osIcon | quote }}
+shell     = {{ $shell | quote }}
 brew_prefix = {{ $brew_prefix | quote }}
 
 [data.git]
