@@ -345,8 +345,8 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 
 | Package            | Category   |
 |:------------------ |:---------- |
-| [**Alacritty**][alacritty] | Terminal |
 | [**wezterm**][wezterm] | Terminal |
+| [**Ghostty**][ghostty] | Terminal |
 | [**Visual Studio Code**][vscode] | IDE |
 | [**Docker**][docker] | Container |
 | [**TablePlus**][tableplus] | Database |
@@ -354,8 +354,8 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 | [**termshark**][termshark] | Network |
 | [**TunnelBear**][tunnelbear] | VPN |
 
-[alacritty]:  https://github.com/alacritty/alacritty
 [wezterm]:    https://github.com/wez/wezterm
+[ghostty]:    https://github.com/ghostty-org/ghostty
 [vscode]:     https://code.visualstudio.com/
 [docker]:     https://www.docker.com/
 [tableplus]:  https://tableplus.com/
