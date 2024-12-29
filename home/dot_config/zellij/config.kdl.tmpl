@@ -185,10 +185,10 @@ keybinds {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+    tab-bar         { path "tab-bar"; }
+    status-bar      { path "status-bar"; }
+    strider         { path "strider"; }
+    compact-bar     { path "compact-bar"; }
     session-manager { path "session-manager"; }
 }
 
@@ -311,7 +311,7 @@ default_layout "compact"
 // that will be used by default if this option is not set.
 // Examples:
 //
-copy_command {{ .cmd.copy }}
+copy_command {{ .cmd.copy | quote }}
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
