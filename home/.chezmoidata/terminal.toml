@@ -17,3 +17,7 @@ images = [
   "daft-punk-music-black-background-helmet-wallpaper.jpg",
   "daft-punk-punk-edm-music-wallpaper.jpg",
 ]
+
+[terminal.ghostty]
+theme = "FirefoxDev"
+opacity = 0.85
