@@ -190,6 +190,15 @@ plugins {
     strider         { path "strider"; }
     compact-bar     { path "compact-bar"; }
     session-manager { path "session-manager"; }
+
+    // Additional Plugins
+    autolock  location="file:$XDG_DATA_HOME/zellij/plugins/zellij-autolock.wasm" {
+        // Lock when any open these programs open.
+        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        // Reaction to input occurs after this many seconds. (default=0.3)
+        // (An existing scheduled reaction prevents additional reactions.)
+        reaction_seconds "0.3"
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
