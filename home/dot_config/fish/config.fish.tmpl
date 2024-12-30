@@ -161,6 +161,13 @@ abbr -a -- tl "task lint"
 abbr -a -- tt "task test"
 abbr -a -- th "task help"
 
+# Zellij
+abbr -a -- zld "zellij-default"
+abbr -a -- zlc "zellij-coding"
+abbr -a -- zlm "zellij-monitor"
+abbr -a -- zls "zellij-session"
+abbr -a -- zll "zellij-layout"
+
 {{ if eq .chezmoi.os "darwin" }}
 set -gx POCKET_CONSUMER_KEY   (security find-generic-password -s "Pocket Consumer Key" -w)
 set -gx POCKET_ACCESS_TOKEN   (security find-generic-password -s "Pocket Access Token" -w)

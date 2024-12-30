@@ -185,11 +185,20 @@ keybinds {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+    tab-bar         { path "tab-bar"; }
+    status-bar      { path "status-bar"; }
+    strider         { path "strider"; }
+    compact-bar     { path "compact-bar"; }
     session-manager { path "session-manager"; }
+
+    // Additional Plugins
+    autolock  location="file:$XDG_DATA_HOME/zellij/plugins/zellij-autolock.wasm" {
+        // Lock when any open these programs open.
+        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        // Reaction to input occurs after this many seconds. (default=0.3)
+        // (An existing scheduled reaction prevents additional reactions.)
+        reaction_seconds "0.3"
+    }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -210,11 +219,7 @@ simplified_ui false
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-{{- if eq .chezmoi.os "darwin" }}
-default_shell "fish"
-{{- else if eq .chezmoi.os "linux" }}
-default_shell "bash"
-{{- end }}
+default_shell {{ .shell | quote }}
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
@@ -276,12 +281,13 @@ default_shell "bash"
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dracula"
+// https://zellij.dev/documentation/theme-list
+theme "onedark"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "compact"
+default_layout "default"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
@@ -311,7 +317,7 @@ default_layout "compact"
 // that will be used by default if this option is not set.
 // Examples:
 //
-copy_command {{ .cmd.copy }}
+copy_command {{ .cmd.copy | quote }}
 
 // Choose the destination for copied text
 // Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
@@ -341,7 +347,7 @@ scrollback_editor "{{ .brew_prefix }}/bin/nvim"
 
 // The folder in which Zellij will look for layouts
 //
-// layout_dir "/path/to/my/layout_dir"
+// layout_dir "$XDG_CONFIG_HOME/zellij/layouts"
 
 // The folder in which Zellij will look for themes
 //
