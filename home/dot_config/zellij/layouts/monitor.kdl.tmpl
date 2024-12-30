@@ -15,18 +15,22 @@ layout {
             format_right "#[fg=blue,bg=bg]{datetime}"
             format_space "#[bg=fg]"
 
+            mode_locked      "#[fg={{ $mode_fg }},bg={{ .zellij.locked.bg }},bold]  {name} #[fg={{ .zellij.locked.bg }},bg={{ $mode_bg }}]"
+            mode_normal      "#[fg={{ $mode_fg }},bg={{ .zellij.normal.bg }},bold]  {name} #[fg={{ .zellij.normal.bg }},bg={{ $mode_bg }}]"
+            mode_resize      "#[fg={{ $mode_fg }},bg={{ .zellij.resize.bg }},bold]  {name} #[fg={{ .zellij.resize.bg }},bg={{ $mode_bg }}]"
+            mode_scroll      "#[fg={{ $mode_fg }},bg={{ .zellij.scroll.bg }},bold]  {name} #[fg={{ .zellij.scroll.bg }},bg={{ $mode_bg }}]"
+            mode_tab         "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
+            mode_resize_tab  "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
+            mode_pane        "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
+            mode_rename_pane "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
+            mode_session     "#[fg={{ $mode_fg }},bg={{ .zellij.session.bg }},bold]  {name} #[fg={{ .zellij.session.bg }},bg={{ $mode_bg }}]"
+
             datetime          "#[fg={{ $mode_fg }},bg=blue]{format}"
-            datetime_format   "   %H:%M "
+            datetime_format   "   %b %d (%a) %H:%M "
             datetime_timezone "Asia/Tokyo"
 
-            mode_normal   "#[fg={{ $mode_fg }},bg={{ .zellij.mode.normal.bg}},bold] NORMAL #[fg={{ .zellij.mode.normal.bg }},bg=#383E5A]"
-            mode_pane     "#[fg={{ $mode_fg }},bg={{ .zellij.mode.pane.bg}},bold] PANE #[fg={{ .zellij.mode.pane.bg }},bg={{ $mode_bg }}]"
-            mode_session  "#[fg={{ $mode_fg }},bg={{ .zellij.mode.session.bg }},bold] SESSION #[fg={{ .zellij.mode.session.bg }},bg={{ $mode_bg }}]"
-            mode_tab      "#[fg={{ $mode_fg }},bg={{ .zellij.mode.tab.bg }},bold] TAB #[fg={{ .zellij.mode.tab.bg }},bg={{ $mode_bg }}]"
-
-            tab_normal  "#[fg={{ .zellij.tab.normal.fg }},bg=fg] [{index}] {name}"
+            tab_normal  "#[fg={{ .zellij.tab.fg }},bg=fg] [{index}] {name}"
             tab_active  "#[fg={{ .zellij.tab.active.fg }},bg=fg,bold,italic] [{index}] {name}"
-
         }
     }
     default_tab_template { children; statusline size=1; }

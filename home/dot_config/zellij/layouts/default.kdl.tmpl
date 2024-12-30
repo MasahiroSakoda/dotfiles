@@ -8,32 +8,28 @@ layout {
             plugin location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm" {
                 hide_frame_for_single_pane "true"
 
-                format_left "#[fg=#181825,bg=#b1bbfa]  {session} #[fg=#89B4FA,bold]{mode}"
-                // format_center "#[bg=$bg,fg=$fg_alt]  Zellij: #[bg=$bg,fg=$fg_alt]{session}"
-                format_center "{tabs}"
-                format_right "{datetime}"
-                format_space "#[bg=#181825]"
+                {{- $mode_fg := .zellij.mode.fg }}
+                {{- $mode_bg := .zellij.mode.bg }}
+                format_left  "{mode}#[fg=blue,bg={{ $mode_bg }},bold]  {session} #[fg={{ $mode_bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
+                format_right "#[fg=blue,bg=bg]{datetime}"
+                format_space "#[bg=fg]"
 
-                mode_normal             "#[fg=#181825,bg=#AFFA00] Normal "
-                mode_pane               "#[fg=#ffffffe,bg=#af0000] Pane "
-                mode_move               "#[fg=#ffffffe,bg=#009688] Move "
-                mode_resize             "#[fg=#181825,bg=#CDDC39] Resize "
-                mode_search             "#[fg=#181825,bg=#FFEB3B] Search "
-                mode_enter_search       "#[fg=#181825,bg=#FFEB3B] Enter Search "
-                mode_rename_pane        "#[fg=#181825,bg=#FFEB3B] Rename Pane "
-                mode_rename_tab         "#[fg=#181825,bg=#FFEB3B] Rename Tab "
+                mode_locked      "#[fg={{ $mode_fg }},bg={{ .zellij.locked.bg }},bold]  {name} #[fg={{ .zellij.locked.bg }},bg={{ $mode_bg }}]"
+                mode_normal      "#[fg={{ $mode_fg }},bg={{ .zellij.normal.bg }},bold]  {name} #[fg={{ .zellij.normal.bg }},bg={{ $mode_bg }}]"
+                mode_resize      "#[fg={{ $mode_fg }},bg={{ .zellij.resize.bg }},bold]  {name} #[fg={{ .zellij.resize.bg }},bg={{ $mode_bg }}]"
+                mode_scroll      "#[fg={{ $mode_fg }},bg={{ .zellij.scroll.bg }},bold]  {name} #[fg={{ .zellij.scroll.bg }},bg={{ $mode_bg }}]"
+                mode_tab         "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
+                mode_resize_tab  "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
+                mode_pane        "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
+                mode_rename_pane "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
+                mode_session     "#[fg={{ $mode_fg }},bg={{ .zellij.session.bg }},bold]  {name} #[fg={{ .zellij.session.bg }},bg={{ $mode_bg }}]"
 
-                tab_normal              "#[fg=#9e9e9e,bg=#4C4C59] {index}  {name} "
-                tab_normal_fullscreen   "#[fg=#dadada,bg=#4C4C59] {index}  {name} [F] "
-                tab_normal_sync         "#[fg=#dadada,bg=#4C4C59] {index}  {name} [S] "
-                tab_active              "#[fg=#181825,bg=#ffffff,bold] {index}  {name} "
-                tab_active_fullscreen   "#[fg=#181825,bg=#ffffff,bold] {index}  {name} [F] "
-                tab_active_sync         "#[fg=#181825,bg=#ffffff,bold] {index}  {name} [S] "
-
-
-                datetime          "#[fg=#181825,bg=#b1bbfa,italic] {format} "
-                datetime_format   "  %m/%d(%a) %H:%M"
+                datetime          "#[fg={{ $mode_fg }},bg=blue]{format}"
+                datetime_format   "   %b %d (%a) %H:%M "
                 datetime_timezone "Asia/Tokyo"
+
+                tab_normal  "#[fg={{ .zellij.tab.fg }},bg=fg] [{index}] {name}"
+                tab_active  "#[fg={{ .zellij.tab.active.fg }},bg=fg,bold,italic] [{index}] {name}"
             }
         }
     }
