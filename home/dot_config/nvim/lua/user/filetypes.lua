@@ -51,7 +51,7 @@ Filetypes.treesitter = {
   -- Package manager
   "nix",
   -- Others
-  "ini", "comment",
+  "ini", "comment", "editorconfig",
 }
 
 Filetypes.actions = { "yaml.github" }
