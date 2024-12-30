@@ -1,0 +1,40 @@
+// -*-mode:kdl-*- vim:ft=kdl.gotexttmpl
+
+layout {
+    default_tab_template name="Tab" {
+        children
+
+        pane size=1 borderless=true {
+            plugin location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm" {
+                hide_frame_for_single_pane "true"
+
+                format_left "#[fg=#181825,bg=#b1bbfa]  {session} #[fg=#89B4FA,bold]{mode}"
+                // format_center "#[bg=$bg,fg=$fg_alt]  Zellij: #[bg=$bg,fg=$fg_alt]{session}"
+                format_center "{tabs}"
+                format_right "{datetime}"
+                format_space "#[bg=#181825]"
+
+                mode_normal             "#[fg=#181825,bg=#AFFA00] Normal "
+                mode_pane               "#[fg=#ffffffe,bg=#af0000] Pane "
+                mode_move               "#[fg=#ffffffe,bg=#009688] Move "
+                mode_resize             "#[fg=#181825,bg=#CDDC39] Resize "
+                mode_search             "#[fg=#181825,bg=#FFEB3B] Search "
+                mode_enter_search       "#[fg=#181825,bg=#FFEB3B] Enter Search "
+                mode_rename_pane        "#[fg=#181825,bg=#FFEB3B] Rename Pane "
+                mode_rename_tab         "#[fg=#181825,bg=#FFEB3B] Rename Tab "
+
+                tab_normal              "#[fg=#9e9e9e,bg=#4C4C59] {index}  {name} "
+                tab_normal_fullscreen   "#[fg=#dadada,bg=#4C4C59] {index}  {name} [F] "
+                tab_normal_sync         "#[fg=#dadada,bg=#4C4C59] {index}  {name} [S] "
+                tab_active              "#[fg=#181825,bg=#ffffff,bold] {index}  {name} "
+                tab_active_fullscreen   "#[fg=#181825,bg=#ffffff,bold] {index}  {name} [F] "
+                tab_active_sync         "#[fg=#181825,bg=#ffffff,bold] {index}  {name} [S] "
+
+
+                datetime          "#[fg=#181825,bg=#b1bbfa,italic] {format} "
+                datetime_format   "  %m/%d(%a) %H:%M"
+                datetime_timezone "Asia/Tokyo"
+            }
+        }
+    }
+}

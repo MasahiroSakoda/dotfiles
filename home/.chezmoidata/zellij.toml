@@ -1,0 +1,23 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[zellij.mode]
+fg = "#1A1B26"
+bg = "#383E5A"
+
+[zellij.mode.normal]
+bg = "blue"
+
+[zellij.mode.pane]
+bg = "magenta"
+
+[zellij.mode.session]
+bg = "yellow"
+
+[zellij.mode.tab]
+bg = "green"
+
+[zellij.tab.normal]
+fg = "#A9B1D6"
+
+[zellij.tab.active]
+fg = "green"
