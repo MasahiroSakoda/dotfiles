@@ -219,11 +219,7 @@ simplified_ui false
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-{{- if eq .chezmoi.os "darwin" }}
-default_shell "fish"
-{{- else if eq .chezmoi.os "linux" }}
-default_shell "bash"
-{{- end }}
+default_shell {{ .shell | quote }}
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
