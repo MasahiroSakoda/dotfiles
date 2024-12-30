@@ -276,7 +276,8 @@ default_shell "bash"
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dracula"
+// https://zellij.dev/documentation/theme-list
+theme "onedark"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -341,7 +342,7 @@ scrollback_editor "{{ .brew_prefix }}/bin/nvim"
 
 // The folder in which Zellij will look for layouts
 //
-// layout_dir "/path/to/my/layout_dir"
+// layout_dir "$XDG_CONFIG_HOME/zellij/layouts"
 
 // The folder in which Zellij will look for themes
 //
