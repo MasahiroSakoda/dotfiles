@@ -111,3 +111,11 @@ abbr tc="tesk clean"
 abbr tl="tesk lint"
 abbr tt="tesk test"
 abbr th="tesk help"
+
+# Zellij
+abbr zld="zellij-default"
+abbr zlc="zellij-coding"
+abbr zlj="zellij-jsdev"
+abbr zlm="zellij-monitor"
+abbr zls="zellij-session"
+abbr zll="zellij-layout"
