@@ -16,7 +16,7 @@ Filetypes.treesitter = {
   "c", "cpp", "objc", "arduino", "swift", "llvm",
   "c_sharp", "java", "scala", "kotlin", "clojure",
   "erlang", "elixir",
-  "go", "gomod", "gosum", "gowork", "templ",
+  "go", "gomod", "gosum", "gowork", "gotmpl", "templ",
   "haskell", "rust", "zig", "nasm", "cuda",
   -- Script Languages
   "perl", "php", "python", "requirements", "ruby", "lua", "luadoc", "vim", "r", "matlab",
@@ -51,7 +51,7 @@ Filetypes.treesitter = {
   -- Package manager
   "nix",
   -- Others
-  "ini", "comment",
+  "ini", "comment", "editorconfig",
 }
 
 Filetypes.actions = { "yaml.github" }
