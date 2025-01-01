@@ -21,7 +21,7 @@ function zellij-session() {
 }
 
 function zellij-layout() {
-  local layout_dir="$XDG_DATA_HOME/zellij/layouts"
+  local layout_dir="$XDG_CONFIG_HOME/zellij/layouts"
   local layout="$(fd . ${layout_dir} --full-path -min-depth=1 --max-depth=1 --extension kdl | fzf --ansi)"
   [ -n "$layout" ] && zellij --layout $layout
   zle accept-line
