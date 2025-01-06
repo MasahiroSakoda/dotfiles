@@ -1,11 +1,12 @@
 ---------------------------------------------------------------------------
 -- Binding Rules:
 -- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, s: Split
--- LSP keymap: <Leader> + l
--- DAP keymap: <Leader> + d
--- Git Keymap: <Leader> + g
--- Fuzzy Finder: <Leader> + f
--- Task Runner: <Leader> + o
+-- LSP keymap:   `<Leader> + l`
+-- DAP keymap:   `<Leader> + d`
+-- Git Keymap:   `<Leader> + g`
+-- Fuzzy Finder: `<Leader> + f`
+-- Task Runner:  `<Leader> + o`
+-- Toggle keymap `,`
 ---------------------------------------------------------------------------
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
@@ -292,7 +293,7 @@ wk.add({
   { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
   { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>",              icon = "󰌱", desc = "Open DAP log" },
 
-  { "<Leader>dL", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger w/ OSV" },
+  { "<Leader>dv", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger w/ OSV" },
 }, opts)
 
 ---------------------------------------------------------------------------
