@@ -17,7 +17,7 @@ return {
   flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
   oil   = {
     ".", "..", ".git", ".DS_Store",
-    ".venv", ".direnv", ".devenv", ".vscode", ".idea",
+    ".venv", ".direnv", ".devenv", ".idea",
     ".cargo", "node_modules", "__pycache__", ".mypy_cache", ".pytest_cache", ".ruff_cache",
   },
 }
