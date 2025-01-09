@@ -26,7 +26,7 @@ versions = ["3.13"]
 
 [mise.ruby]
 enabled  = true
-versions = ["3.3"]
+versions = ["3.4"]
 
 [mise.usage]
 enabled  =  true

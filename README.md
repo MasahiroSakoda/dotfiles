@@ -307,7 +307,7 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 | -------------- | ------- |
 | [**`Go`**][mise-go] | latest  |
 | [**`Python`**][mise-python] | 3.12.x |
-| [**`Ruby`**][mise-ruby] | 3.3.x |
+| [**`Ruby`**][mise-ruby] | 3.4.x |
 | [**`Node.js`**][mise-node] | 22.x |
 | [**`Deno`**][mise-deno] | 2.x |
 | [**`Bun`**][mise-bun] | 1.x |
