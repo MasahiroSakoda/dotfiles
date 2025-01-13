@@ -348,7 +348,7 @@ if not is_vscode then
     { "<Leader>ce", "<CMD>CodeCompanion /explain<CR>", icon = " ", desc = "Explain how selected code" },
     { "<Leader>cf", "<CMD>CodeCompanion /fix<CR>",     icon = " ", desc = "Fix the selected code" },
     { "<Leader>cl", "<CMD>CodeCompanion /lsp<CR>",     icon = " ", desc = "Explain the LSP diagnostics" },
-    { "<Leader>ct", "<CMD>CodeCompanion /test<CR>",    icon = " ", desc = "Generate unit tests for selected code" },
+    { "<Leader>ct", "<CMD>CodeCompanion /tests<CR>",    icon = " ", desc = "Generate unit tests for selected code" },
 
     -- Custom prompt libraries
     { "<Leader>cd",  "<CMD>CodeCompanion /doc<CR>",       icon = " ", desc = "Generate docs to selected code" },
