@@ -56,7 +56,7 @@ blink.setup({
       max_items = 15,
       selection = {
         preselect   = function(ctx) return ctx.mode ~= "cmdline" end,
-        auto_insert = function(ctx) return ctx.mode ~= "cmdline" end,
+        auto_insert = function(ctx) return ctx.mode == "cmdline" end,
       },
     },
     trigger = {
