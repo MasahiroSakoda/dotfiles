@@ -41,6 +41,8 @@ blink.setup({
     },
   },
 
+  snippets = { preset = "luasnip" },
+
   completion = {
     ghost_text = { enabled = true },
     accept = { auto_brackets = { enabled = true } },
