@@ -29,7 +29,7 @@ blink.setup({
   },
 
   sources = {
-    default = { "lsp", "path", "buffer", "snippets" },
+    default = { "lsp", "lazydev", "path", "buffer", "snippets" },
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2 end },
       path     = { min_keyword_length = 3 },
@@ -37,6 +37,7 @@ blink.setup({
       snippets = { min_keyword_length = 2 },
 
       -- Third party plugin integration
+      lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lazy_dev" } },
     },
   },
 
