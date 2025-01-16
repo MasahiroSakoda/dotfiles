@@ -16,8 +16,6 @@ blink.setup({
 
     ["<Up>"]   = { "select_prev", "fallback" },
     ["<Down>"] = { "select_next", "fallback" },
-    ["<C-j>"]  = { "select_next", "fallback" },
-    ["<C-k>"]  = { "select_prev", "fallback" },
     ["<C-f>"]  = { "scroll_documentation_up",   "fallback" },
     ["<C-b>"]  = { "scroll_documentation_down", "fallback" },
   },
@@ -64,9 +62,9 @@ blink.setup({
       show_on_accept_on_trigger_character = false,
     },
     menu = {
-      winblend   = 5,
-      min_width  = 15,
-      max_height = 15,
+      winblend   = 20,
+      min_width  = 25,
+      max_height = 40,
       auto_show = function(ctx)
         return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
       end,
