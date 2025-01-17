@@ -5,19 +5,25 @@ if not ok then return end
 ---@module "blink.cmp"
 ---@type blink.cmp.Config
 blink.setup({
+  ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
     -- preset = "default",
     ["<C-e>"]     = { "hide", "fallback" },
+    ["<C-c>"]     = { "cancel", "fallback" },
     ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
     ["<CR>"]      = { "accept", "fallback" },
 
     ["<Tab>"]   = { function(cmp) return cmp.select_next() end, "snippet_forward",  "fallback" },
     ["<S-Tab>"] = { function(cmp) return cmp.select_prev() end, "snippet_backward", "fallback" },
 
-    ["<Up>"]   = { "select_prev", "fallback" },
-    ["<Down>"] = { "select_next", "fallback" },
-    ["<C-f>"]  = { "scroll_documentation_up",   "fallback" },
-    ["<C-b>"]  = { "scroll_documentation_down", "fallback" },
+    ["<Up>"]    = { "select_prev", "fallback" },
+    ["<Down>"]  = { "select_next", "fallback" },
+    ["<C-p>"]   = { "select_prev", "fallback" },
+    ["<C-n>"]   = { "select_next", "fallback" },
+    ["<C-f>"]   = { "scroll_documentation_up",   "fallback" },
+    ["<C-b>"]   = { "scroll_documentation_down", "fallback" },
+    ["<Left>"]  = { "hide", "fallback" },
+    ["<Right>"] = { "select_and_accept" },
   },
 
   appearance = {
