@@ -76,7 +76,7 @@ blink.setup({
       auto_show = function(ctx)
         return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
       end,
-      border = "rounded",
+      border = {"┏", "━", "┓", "┃", "┛", "━", "┗", "┃"},
       draw = {
         columns = {
           { "kind_icon", gap = 1 },
