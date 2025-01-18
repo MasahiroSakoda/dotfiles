@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 local caps = vim.lsp.protocol.make_client_capabilities()
-caps = require("cmp_nvim_lsp").default_capabilities(caps)
+caps = require("blink.cmp").get_lsp_capabilities(caps)
 caps.textDocument.completion.completionList = {
   itemDefaults = { "commitCharacters", "editRange", "insertTextFormat", "insertTextMode", "data" },
 }

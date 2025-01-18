@@ -30,12 +30,8 @@ local menu = {
 local fd_opts = {
   fd_timeout_msec = 2500,
   fd_cmd = {
-    "fd", "--hidden",
-    "-d", "15",
-    "-E", ".git/**", "-E", ".github/**",
-    "-E", ".venv/**", "-E", "*.pyc",
-    "-E", "node_modules/**",
-    "-E", "*.o",
+    "fd", "--hidden", "-d", "20",
+    "-E", ".git/**", "-E", "node_modules/**", "-E", ".venv/**", "-E", "*.pyc", "-E", "vendor",
   },
 }
 local ignore_cmds = { "Man", "!", "q", "qa", "w", "wq", "x", "xa", "cq", "cqa", "cw", "cwq", "cx", "cxa" }
