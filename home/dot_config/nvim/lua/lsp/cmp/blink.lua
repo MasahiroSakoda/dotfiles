@@ -20,6 +20,7 @@ blink.setup({
     ["<Down>"]  = { "select_next", "fallback" },
     ["<C-p>"]   = { "select_prev", "fallback" },
     ["<C-n>"]   = { "select_next", "fallback" },
+
     ["<C-f>"]   = { "scroll_documentation_up",   "fallback" },
     ["<C-b>"]   = { "scroll_documentation_down", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
@@ -51,7 +52,9 @@ blink.setup({
 
   completion = {
     ghost_text = { enabled = true },
-    accept = { auto_brackets = { enabled = true } },
+    accept     = { auto_brackets = { enabled = true } },
+    keyword    = { range = "full" },
+
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
