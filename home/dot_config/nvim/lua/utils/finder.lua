@@ -1,8 +1,15 @@
 -- -*-mode:lua-*- vim:ft=lua
 local fzf = require("fzf-lua")
-local M = {}
 
-M.search_snippets = function()
+vim.api.nvim_create_user_command("FzfGrep", function()
+  fzf.grep({ cwd = vim.fn.getcwd(), search = vim.fn.input("Grep "), no_esc = true })
+end, { desc = "Custom Grep", nargs = 0 })
+
+vim.api.nvim_create_user_command("FzfVGrep", function()
+  fzf.grep_visual({ cwd = vim.fn.getcwd(), search = vim.fn.input("Grep "), no_esc = true })
+end, { desc = "Custom Grep", nargs = 0 })
+
+vim.api.nvim_create_user_command("FzfSnippets", function()
   local luasnip = require("luasnip")
   local snippets = luasnip.available()
   local entries = {}
@@ -18,7 +25,7 @@ M.search_snippets = function()
 
   -- Use fzf-lua to search through snippets
   fzf.fzf_exec(entries, {
-    prompt = "Select Snippet> ",
+    prompt = "Snippet ",
     actions = {
       ["default"] = function(selected)
         if #selected > 0 then
@@ -32,9 +39,9 @@ M.search_snippets = function()
       end,
     },
   })
-end
+end, { desc = "Snippet Seaerch", nargs = 0 })
 
-M.search_plugins = function()
+vim.api.nvim_create_user_command("FzfPlugins", function()
   local path = vim.fn.stdpath("data") .. "/lazy/"
   local dirs = vim.fs.dir(path)
   local plugins = {}
@@ -42,14 +49,26 @@ M.search_plugins = function()
     table.insert(plugins, dir)
   end
 
-  fzf.fzf_exec({
-    prompt = "Plugin> ",
+  fzf.fzf_exec(plugins, {
+    prompt = "Plugin ",
     actions = {
       ["default"] = {
         function(selected) fzf.files({ cwd = path .. selected[1] }) end,
       },
     },
   })
-end
+end, { desc = "NeoVim Plugins Search", nargs = 0 })
 
-return M
+vim.api.nvim_create_user_command("FzfChezmoi", function()
+  local commands = require("chezmoi.commands")
+  fzf.fzf_exec(commands.list({}), {
+    actions = {
+      ["default"] = function(selected, _)
+        commands.edit({
+          targets = { "~/" .. selected[1] },
+          args    = { "--watch" },
+        })
+      end,
+    },
+  })
+end, { desc = "Chezmoi files", nargs = 0 })
