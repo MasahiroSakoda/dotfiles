@@ -44,7 +44,7 @@ return {
   {
     "folke/todo-comments.nvim", -- Comment highlighter
     dependencies = { "nvim-lua/plenary.nvim" },
-    cmd    = "TodoTelescope",
+    cmd    = "TodoFzfLua",
     config = function() require("todo-comments").setup() end,
   },
 }
