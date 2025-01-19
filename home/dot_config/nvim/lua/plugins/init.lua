@@ -8,7 +8,7 @@ local list = {
   "plugins.cmp",
   "plugins.dap",
   "plugins.treesitter",
-  "plugins.telescope",
+  "plugins.finder",
   "plugins.ai",
   "plugins.misc",
 }
