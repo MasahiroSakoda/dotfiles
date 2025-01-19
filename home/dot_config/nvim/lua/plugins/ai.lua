@@ -9,7 +9,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
 
       -- Optional plugins
-      "hrsh7th/nvim-cmp",             -- For using slash commands and variables in the chat buffer
       "stevearc/dressing.nvim",        -- Improves `vim.ui.select`
       { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
