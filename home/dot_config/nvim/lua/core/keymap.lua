@@ -175,20 +175,21 @@ if not is_vscode then
     { "<Leader>f", group = "fzf-lua: Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
-    { "<Leader>ff", "<CMD>FzfLua files<CR>",      icon = " ", desc = "Find Files (cwd)" },
-    { "<Leader>fr", "<CMD>FzfLua resume<CR>",     icon = " ", desc = "Resume Previous Picker" },
-    { "<Leader>fk", "<CMD>FzfLua keymaps<CR>",    icon = " ", desc = "Keymaps" },
-    { "<Leader>fo", "<CMD>FzfLua oldfiles<CR>",   icon = " ", desc = "Recent files" },
-    { "<Leader>fw", "<CMD>FzfLua grep_cword<CR>", icon = " ", desc = "grep with cword" },
-    { "<Leader>fW", "<CMD>FzfLua grep_cWORD<CR>", icon = " ", desc = "grep with cWORD" },
+    { "<Leader>ff", "<CMD>FzfLua files<CR>",                  icon = " ", desc = "Find Files (cwd)" },
+    { "<Leader>fr", "<CMD>FzfLua resume<CR>",                 icon = " ", desc = "Resume Previous Picker" },
+    { "<Leader>fk", "<CMD>FzfLua keymaps<CR>",                icon = " ", desc = "Keymaps" },
+    { "<Leader>fo", "<CMD>FzfLua oldfiles sort_mru=true<CR>", icon = " ", desc = "Recent files" },
+    { "<Leader>fb", "<CMD>FzfLua buffers sort_mru=true<CR>",  icon = " ", desc = "Buffers" },
 
     { "<Leader>fhs", "<CMD>FzfLua search_history<CR>",  icon = " ", desc = "Search History" },
     { "<Leader>fhc", "<CMD>FzfLua command_history<CR>", icon = " ", desc = "Command History" },
 
     -- Grep
-    { "<C-g>",      "<CMD>FzfLua live_grep<CR>",                    icon = " ", desc = "Live Grep" },
-    { "<Leader>fg", "<CMD>FzfLua grep<CR>",        mode = "n", icon = " ", desc = "Grep (Normal)" },
-    { "<Leader>fg", "<CMD>FzfLua grep_visual<CR>", mode = "v", icon = " ", desc = "Grep (Visual)" },
+    { "<C-g>",      "<CMD>FzfLua live_grep<CR>",               icon = " ", desc = "Live Grep" },
+    { "<Leader>fw", "<CMD>FzfLua grep_cword<CR>",              icon = " ", desc = "grep with cword" },
+    { "<Leader>fW", "<CMD>FzfLua grep_cWORD<CR>",              icon = " ", desc = "grep with cWORD" },
+    { "<Leader>fg", "<CMD>FzfLua grep<CR>",        mode = "n", icon = " ", desc = "Grep (Normal)" },
+    { "<Leader>fg", "<CMD>FzfLua grep_visual<CR>", mode = "v", icon = " ", desc = "Grep (Visual)" },
 
     -- Vim
     { "<Leader>fH", "<CMD>FzfLua help_tags<CR>", icon = " ", desc = "Help via fzf-lua" },
@@ -196,7 +197,6 @@ if not is_vscode then
     { "<Leader>fa", "<CMD>FzfLua autocmds<CR>",  icon = " ", desc = "autocmds list" },
     { "<Leader>fR", "<CMD>FzfLua registers<CR>", icon = " ", desc = "Register list" },
     { "<Leader>fj", "<CMD>FzfLua jumps<CR>",     icon = " ", desc = "Jump list" },
-    { "<Leader>fb", "<CMD>FzfLua buffers sort_mru=true sort_lastused=true<CR>", icon = " ", desc = "Buffers" },
 
     -- Git
     { "<Leader>gf", "<CMD>FzfLua git_files<CR>",   icon = " ", desc = "Find files (Git)" },
@@ -217,8 +217,8 @@ if not is_vscode then
     { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
 
     -- Custom Actions
-    { "<Leader>fs", "<CMD>lua require'utils.finder'.search_snippets()<CR>", icon = " ", desc = "LuaSnip Browser" },
-    { "<Leader>fl", "<CMD>lua require'utils.finder'.search_plugins()<CR>",  icon = " ", desc = "lazy.nvim Browser" },
+    { "<Leader>fs", "<CMD>lua require'utils.finder'.search_snippets()<CR>", icon = " ", desc = "LuaSnip Browser" },
+    { "<Leader>fl", "<CMD>lua require'utils.finder'.search_plugins()<CR>",  icon = " ", desc = "NeoVim Plugin Browser" },
 
     { "<Leader>fn", "<CMD>lua require'snacks'.notifier.show_history()<CR>", icon = " ", desc = "Notify History" },
 
