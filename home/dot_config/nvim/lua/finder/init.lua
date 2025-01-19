@@ -2,8 +2,20 @@
 local ok, fzf = pcall(require, "fzf-lua")
 if not ok then return end
 
+require("utils.finder")
+
 fzf.setup({
   commands = { sort_lastused = true },
+  global_resume       = true,
+  global_resume_query = true,
+
+  fzf_opts   = {
+    ["--header"] = " ", -- add space between prompt and results
+    ["--no-scrollbar"] = true,
+
+    ["--marker"]            = "┃",
+    ["--marker-multi-line"] = "╻┃╹",
+  },
 
   -- ---------------------------------------------------------------------------
   -- Window Optiosn
