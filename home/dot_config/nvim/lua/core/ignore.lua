@@ -7,8 +7,8 @@ end
 
 return {
   files = files,
-  autopairs  = { "TelescopePrompt", "vim" },
-  illuminate = { "alpha", "lazy", "oil", "TelescopePrompt", "toggleterm", "Trouble" },
+  autopairs  = { "fzf", "vim" },
+  illuminate = { "alpha", "lazy", "oil", "fzf", "toggleterm", "Trouble" },
 
   lualine = {
     statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline" },

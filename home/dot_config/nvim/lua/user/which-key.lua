@@ -22,6 +22,6 @@ wk.setup({
   },
   disable = {
     buftypes  = {},
-    filetypes = { "TelescopePrompt" },
+    filetypes = { "fzf" },
   },
 })
