@@ -35,6 +35,7 @@ return {
       toggle       = require("user.toggle"),
       dashboard    = require("ui.dashboard"),
       input        = require("ui.input"),
+      picker       = require("ui.picker"),
       notifier     = require("ui.notifier"),
       terminal     = require("ui.terminal"),
       zen          = require("ui.zen"),
