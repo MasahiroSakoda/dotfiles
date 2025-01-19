@@ -12,9 +12,9 @@ return {
     -- When using a function, the `items` argument are the default keymaps.
     keys = {
       { icon = " ", key = "n", desc = "[N]ew File",      action = ":ene | startinsert" },
-      { icon = " ", key = "f", desc = "[F]recency File", action = ":Telescope frecency" },
-      { icon = " ", key = "g", desc = "[G]rep Search",   action = ":Telescope egrepify" },
-      { icon = " ", key = "F", desc = "[F]ind File",     action = ":lua Snacks.dashboard.pick('files')" },
+      { icon = " ", key = "o", desc = "[O]ld Files",     action = ":FzfLua oldfiles" },
+      { icon = " ", key = "g", desc = "[G]rep Search",   action = ":FzfLua live_grep" },
+      { icon = " ", key = "f", desc = "[F]ind File",     action = ":lua Snacks.dashboard.pick('files')" },
       { icon = " ", key = "h", desc = "[H]istory",       action = ":lua Snacks.dashboard.pick('oldfiles')" },
       { icon = " ", key = "b", desc = "[B]rowse",        action = ":OilToggleFloatRoot" },
       { icon = "󱀸 ", key = "s", desc = "[S]ession",       section = "session" },

@@ -106,7 +106,7 @@ wk.add({
   { "[1", "<CMD>tabfirst<CR>",    icon = " ", desc = "Move to First tab" },
   { "]9", "<CMD>tablast<CR>",     icon = " ", desc = "Move to Last tab" },
 
-  -- Tab Control via Telescope
+  -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
   { "<Leader>tc", "<CMD>tabclose<CR>", icon = " ", desc = "Close current tab" },
   { "<Leader>te", ":tabedit<Space>",   icon = " ", desc = "Edit file in new tab" },
@@ -168,76 +168,67 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🔭  Telescope: <Leader> + f
+-- fzf-lua: <Leader> + f
 ---------------------------------------------------------------------------
--- Disable Telescope keymap for VSCode
 if not is_vscode then
   wk.add({
-    { "<Leader>f", group = "Telescope: Fuzzy Finder", icon = "🔭 " },
+    { "<Leader>f", group = "fzf-lua: Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
-    { "<Leader>F",  "<CMD>Telescope find_files<CR>",  icon = " ", desc = "Find files in current directory" },
-    { "<Leader>fo", "<CMD>Telescope oldfiles<CR>",    icon = " ", desc = "Recently files" },
+    { "<Leader>ff", "<CMD>FzfLua files<CR>",                  icon = " ", desc = "Find Files (cwd)" },
+    { "<Leader>fr", "<CMD>FzfLua resume<CR>",                 icon = " ", desc = "Resume Previous Picker" },
+    { "<Leader>fk", "<CMD>FzfLua keymaps<CR>",                icon = " ", desc = "Keymaps" },
+    { "<Leader>fo", "<CMD>FzfLua oldfiles sort_mru=true<CR>", icon = " ", desc = "Recent files" },
+    { "<Leader>fb", "<CMD>FzfLua buffers sort_mru=true<CR>",  icon = " ", desc = "Buffers" },
+
+    { "<Leader>fhs", "<CMD>FzfLua search_history<CR>",  icon = " ", desc = "Search History" },
+    { "<Leader>fhc", "<CMD>FzfLua command_history<CR>", icon = " ", desc = "Command History" },
 
     -- Grep
-    { "<Leader>fg", "<CMD>Telescope live_grep<CR>",   icon = " ", desc = "Live grep with args" },
-    { "<Leader>fG", "<CMD>Telescope grep_string<CR>", icon = " ", desc = "Grep string in working directory" },
-    {
-      "<Leader>fw",
-      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cword>') })<CR>",
-      icon = " ",
-      desc = "grep with cursor word",
-    },
-    {
-      "<Leader>fW",
-      "<CMD>lua require'telescope.builtin'.grep_string({ search = vim.fn.expand('<cWORD>') })<CR>",
-      icon = " ",
-      desc = "grep with cursor WORD",
-    },
+    { "<C-g>",      "<CMD>FzfLua live_grep<CR>",     icon = " ", desc = "Live Grep" },
+    { "<Leader>fw", "<CMD>FzfLua grep_cword<CR>",    icon = " ", desc = "grep with cword" },
+    { "<Leader>fW", "<CMD>FzfLua grep_cWORD<CR>",    icon = " ", desc = "grep with cWORD" },
+    { "<Leader>fg", "<CMD>FzfGrep<CR>",  mode = "n", icon = " ", desc = "Grep (Normal)" },
+    { "<Leader>fG", "<CMD>FzfVGrep<CR>", mode = "x", icon = " ", desc = "Grep (Visual)" },
 
     -- Vim
-    { "<Leader>fh", "<CMD>Telescope help_tags<CR>",   icon = " ", desc = "Help via Telescope" },
-    { "<Leader>fq", "<CMD>Telescope quickfix<CR>",    icon = " ", desc = "Quickfix list" },
-    { "<Leader>fb", "<CMD>Telescope buffers<CR>",     icon = " ", desc = "Buffer list" },
-    { "<Leader>fv", "<CMD>Telescope vim_options<CR>", icon = " ", desc = "Vim options" },
-    { "<Leader>fR", "<CMD>Telescope registers<CR>",   icon = " ", desc = "Vim Register list" },
-    { "<Leader>fj", "<CMD>Telescope jumplist<CR>",    icon = " ", desc = "Vim Jump list" },
+    { "<Leader>fH", "<CMD>FzfLua help_tags<CR>", icon = " ", desc = "Help via fzf-lua" },
+    { "<Leader>fq", "<CMD>FzfLua quickfix<CR>",  icon = " ", desc = "Quickfix list" },
+    { "<Leader>fa", "<CMD>FzfLua autocmds<CR>",  icon = " ", desc = "autocmds list" },
+    { "<Leader>fR", "<CMD>FzfLua registers<CR>", icon = " ", desc = "Register list" },
+    { "<Leader>fj", "<CMD>FzfLua jumps<CR>",     icon = " ", desc = "Jump list" },
 
-    -- history
-    { "<Leader>fHc", "<CMD>Telescope command_history<CR>", icon = " ", desc = "Command history" },
-    { "<Leader>fHs", "<CMD>Telescope search_history<CR>",  icon = " ", desc = "Search history" },
-    { "<Leader>fr", "<CMD>Telescope resume<CR>",           icon = " ", desc = "Resume previous picker" },
+    -- Git
+    { "<Leader>gf", "<CMD>FzfLua git_files<CR>",   icon = " ", desc = "Find files (Git)" },
+    { "<Leader>gs", "<CMD>FzfLua git_status<CR>",  icon = " ", desc = "Git Status" },
+    { "<Leader>gc", "<CMD>FzfLua git_commits<CR>", icon = " ", desc = "Git Commits" },
 
-    -- telescope.nvim extensions
-    { "<Leader>ff", "<CMD>Telescope frecency<CR>",     icon = " ", desc = "Frecency algorithm Search" },
-    { "<C-g>",      "<CMD>Telescope egrepify<CR>",     icon = " ", desc = "Live grep with egrepify" },
-    { "<Leader>fs", "<CMD>Telescope luasnip<CR>",      icon = " ", desc = "LuaSnip Browser" },
-    { "<Leader>fl", "<CMD>Telescope lazy<CR>",         icon = " ", desc = "lazy.nvim Browser" },
-    { "<Leader>ft", "<CMD>TodoTelescope<CR>",          icon = " ", desc = "Display Project ToDo" },
+    -- LSP
+    { "<Leader>ls", "<CMD>FzfLua lsp_document_symbols<CR>", icon = " ", desc = "Go to Symbols" },
+    { "<Leader>ld", "<CMD>FzfLua lsp_definitions<CR>",      icon = " ", desc = "Go to Definition" },
+    { "<Leader>lt", "<CMD>FzfLua lsp_type_defs<CR>",        icon = " ", desc = "Go to Type Definition" },
+    { "<Leader>lr", "<CMD>FzfLua lsp_references<CR>",       icon = " ", desc = "References" },
+    { "<Leader>lc", "<CMD>FzfLua lsp_code_actions<CR>",     icon = " ", desc = "Code Actions" },
 
-    { "<Leader>fn", "<CMD>lua require'snacks'.notifier.show_history()<CR>", icon = " ", desc = "History" },
+    -- DAP
+    { "<Leader>fdb", "<CMD>FzfLua dap_breakpoints<CR>",    icon = " ", desc = "Breakpoints" },
+    { "<Leader>fdc", "<CMD>FzfLua dap_configurations<CR>", icon = " ", desc = "Debug Config" },
+    { "<Leader>fdC", "<CMD>FzfLua dap_commands<CR>",       icon = " ", desc = "DAP Commands" },
+    { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
 
-    { "<Leader>fd", group = "Telescope DAP Integration", icon = " " },
-    { "<Leader>fdC", "<CMD>lua require'telescope'.extensions.dap.commands()<CR>",  icon = " ", desc = "Commands" },
-    { "<Leader>fdf", "<CMD>lua require'telescope'.extensions.dap.frames()<CR>",    icon = " ", desc = "Frames" },
-    { "<Leader>fdv", "<CMD>lua require'telescope'.extensions.dap.variables()<CR>", icon = " ", desc = "Variables" },
-    {
-      "<Leader>fdc",
-      "<CMD>lua require'telescope'.extensions.dap.configurations()<CR>",
-      icon = " ",
-      desc = "Configs",
-    },
-    {
-      "<Leader>fdb",
-      "<CMD>lua require'telescope'.extensions.dap.list_breakpoints()<CR>",
-      icon = " ",
-      desc = "Breakpoints",
-    },
-  }, opts)
+    -- Custom Actions
+    { "<Leader>fs", "<CMD>FzfSnippets<CR>", icon = " ", desc = "LuaSnip Browser" },
+    { "<Leader>fl", "<CMD>FzfPlugins<CR>",  icon = " ", desc = "NeoVim Plugin Browser" },
+    { "<Leader>fc", "<CMD>FzfChezmoi<CR>",  icon = " ", desc = "Chezmoi Files" },
+
+    { "<Leader>fn", "<CMD>lua require'snacks'.notifier.show_history()<CR>", icon = " ", desc = "Notify History" },
+
+    { "<Leader>ft", "<CMD>TodoFzfLua<CR>", icon = " ", desc = "TODO list" },
+  })
 end
 
 ---------------------------------------------------------------------------
--- LSP: Language Server Protocol: <Leader> + l
+-- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
   { "K", "<NOP" },
@@ -252,15 +243,9 @@ wk.add({
   { "gco", "<CMD>Lspsaga outcoming_calls<CR>",           icon = " ", desc = "Call outcoming hierarchy" },
 
   { "ga", "<CMD>Lspsaga code_action<CR>", mode = nv, icon = " ", desc = "Code Action" },
-}, opts)
 
---------------------------------------------------
----- 🚦  Keymap for LSP via Telescope
---------------------------------------------------
-wk.add({
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>LspInfo<CR>",                             icon = " ", desc = "Display LSP Info" },
-  { "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>",      icon = " ", desc = "Document Symbol" },
 }, opts)
 
 ---------------------------------------------------------------------------

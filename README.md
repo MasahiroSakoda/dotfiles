@@ -141,7 +141,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Linter support](#linter)
 * [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][snippets]
-* [Fuzzy Finder](#telescope-extensions): [**`Telescope`**][Telescope]
+* Fuzzy Finder: [**`fzf-lua`**][fzf-lua]
 * [AI Assistant](#ai-assistant) available
 
 ![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/702a2de8-1264-4688-87b0-d682f2441b98)
@@ -150,7 +150,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 [snippets]:  https://github.com/rafamadriz/friendly-snippets
 [dap]:       https://github.com/mfussenegger/nvim-dap
 [dap-ui]:    https://github.com/rcarriga/nvim-dap-ui
-[Telescope]:   https://github.com/nvim-telescope/telescope.nvim
+[fzf-lua]:   https://github.com/ibhagwan/fzf-lua
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
@@ -262,24 +262,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 [sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
 [stylua]:        https://github.com/JohnnyMorganz/StyLua
 [yamlfmt]:       https://github.com/google/yamlfmt
-
-##### Telescope extensions
-
-| Plugin                 | Notes                     |
-|:-----------------------|:--------------------------|
-| [**telescope-frecency**][ts-frecency] | [`Frecency algorithm`][frecency] search |
-| [**telescope-egrepify**][ts-egrepify] | live grep extension |
-| [**telescope-lazy**][ts-lazy] | [`lazy.nvim`][lazy-nvim] extension |
-| [**telescope-dap**][ts-dap] | DAP Extension |
-
-![NeoVim-telescope nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/859d9cb8-6af7-47f6-a167-e3dcee61b0e9)
-
-[ts-frecency]:     https://github.com/nvim-telescope/telescope-frecency.nvim
-[ts-egrepify]:     https://github.com/fdschmidt93/telescope-egrepify.nvim
-[ts-lazy]:         https://github.com/tsakirist/telescope-lazy.nvim
-[ts-dap]:          https://github.com/nvim-telescope/telescope-dap.nvim
-[frecency]:        https://web.archive.org/web/20210421120120/https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm
-[lazy-nvim]:       https://github.com/folke/lazy.nvim
 
 ##### AI Assistant
 
