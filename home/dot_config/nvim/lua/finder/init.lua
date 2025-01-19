@@ -4,6 +4,7 @@ if not ok then return end
 
 fzf.setup({
   commands = { sort_lastused = true },
+
   -- ---------------------------------------------------------------------------
   -- Window Optiosn
   -- ---------------------------------------------------------------------------
@@ -16,8 +17,9 @@ fzf.setup({
     fullscreen = false,
 
     preview = {
-      vertical       = "down:45%",
-      horizontal     = "right:50%",
+      vertical   = "down:45%",  -- up|down:size
+      horizontal = "right:50%", -- left|right:size
+      scrollbar  = "float",
     },
   },
 
@@ -40,24 +42,24 @@ fzf.setup({
     fd_opts = [[--color=always --type f --hidden --follow --exclude .git]],
   },
   git = {
-    files  = { prompt = " " },
-    status = { prompt = " " },
-    commit = { prompt = " " },
-    branch = { prompt = " " },
-    tags   = { prompt = " " },
+    files  = { prompt = "  " },
+    status = { prompt = "  " },
+    commit = { prompt = "  " },
+    branch = { prompt = "  " },
+    tags   = { prompt = "  " },
   },
   grep = {
-    prompt = " ",
+    prompt = "  ",
     multiline = 1,
   },
-  args = { prompt = " " },
+  args = { prompt = "  " },
   oldfiles = {
-    prompt = " ",
+    prompt = "  ",
     include_current_session = true,
   },
-  buffers = { prompt = " " },
-  tabs    = { prompt = " " },
-  lines   = { prompt = " " },
-  tags    = { prompt = " " },
-  keyamp  = { prompt = " " },
+  buffers = { prompt = "  ", sort_lastused = true },
+  tabs    = { prompt = "  " },
+  lines   = { prompt = "  ", sort_lastused = true },
+  tags    = { prompt = "  " },
+  keyamp  = { prompt = "  " },
 })
