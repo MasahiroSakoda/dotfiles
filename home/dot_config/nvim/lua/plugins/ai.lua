@@ -9,7 +9,6 @@ return {
       "nvim-treesitter/nvim-treesitter",
 
       -- Optional plugins
-      "stevearc/dressing.nvim",        -- Improves `vim.ui.select`
       { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
     cond = not vim.g.vscode,
