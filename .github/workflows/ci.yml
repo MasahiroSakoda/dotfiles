@@ -54,7 +54,7 @@ jobs:
 
       - name: Setup Homebrew
         if: always()
-        uses: Homebrew/actions/setup-homebrew@13341b4d5e459a98bbe0b122b12c11bf90518cc8
+        uses: Homebrew/actions/setup-homebrew@ab0c7f49b7a4e61a4b9b98140484e1b2453620e7
 
       - name: Install Homebrew packages with Brewfile
         if: always()
