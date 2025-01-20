@@ -328,13 +328,13 @@ if not is_vscode then
     { "<Leader>cA", "<CMD>CodeCompanionChat Add<CR>",    icon = " ", desc = "Add Code to Chat" },
 
     -- Builtin prompt libraries
-    { "<Leader>cb", "<CMD>CodeCompanion /buffer<CR>",  icon = " ", desc = "Send the current buffer" },
-    { "<Leader>cc", "<CMD>CodeCompanion /commit<CR>",  icon = " ", desc = "Commit message" },
-    { "<Leader>ce", "<CMD>CodeCompanion /explain<CR>", icon = " ", desc = "Explain how selected code" },
-    { "<Leader>cf", "<CMD>CodeCompanion /fix<CR>",     icon = " ", desc = "Fix the selected code" },
-    { "<Leader>cl", "<CMD>CodeCompanion /lsp<CR>",     icon = " ", desc = "Explain the LSP diagnostics" },
-    { "<Leader>cT", "<CMD>CodeCompanion /terinal<CR>", icon = " ", desc = "" },
-    { "<Leader>ct", "<CMD>CodeCompanion /tests<CR>",   icon = " ", desc = "Generate unit tests for selected code" },
+    { "<Leader>cb", "<CMD>CodeCompanion /buffer<CR>",   icon = " ", desc = "Send the current buffer" },
+    { "<Leader>cc", "<CMD>CodeCompanion /commit<CR>",   icon = " ", desc = "Commit message" },
+    { "<Leader>ce", "<CMD>CodeCompanion /explain<CR>",  icon = " ", desc = "Explain how selected code" },
+    { "<Leader>cf", "<CMD>CodeCompanion /fix<CR>",      icon = " ", desc = "Fix the selected code" },
+    { "<Leader>cl", "<CMD>CodeCompanion /lsp<CR>",      icon = " ", desc = "Explain the LSP diagnostics" },
+    { "<Leader>cT", "<CMD>CodeCompanion /terminal<CR>", icon = " ", desc = "Insert Terminal Output" },
+    { "<Leader>ct", "<CMD>CodeCompanion /tests<CR>",    icon = " ", desc = "Generate unit tests for selected code" },
 
     -- Custom prompt libraries
     { "<Leader>cd",  "<CMD>CodeCompanion /doc<CR>",       icon = " ", desc = "Generate docs to selected code" },
