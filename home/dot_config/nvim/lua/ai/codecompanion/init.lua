@@ -29,6 +29,16 @@ codecompanion.setup({
 
   strategies = {
     chat   = { adapter = "ollama" },
+    slash_commands = {
+      ["buffer"]   = { opts = { provider = "fzf_lua" } },
+      ["fetch"]    = { opts = {} },
+      ["file"]     = { opts = { provider = "fzf_lua" } },
+      ["files"]    = { opts = { provider = "fzf_lua" } },
+      ["help"]     = { opts = { provider = "fzf_lua" } },
+      ["now"]      = { opts = {} },
+      ["symbols"]  = { opts = { provider = "fzf_lua" } },
+      ["terminal"] = { opts = {} },
+    },
     inline = { adapter = "ollama" },
     agent  = { adapter = "ollama" },
   },
