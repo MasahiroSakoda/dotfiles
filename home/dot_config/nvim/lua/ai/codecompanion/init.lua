@@ -16,6 +16,8 @@ codecompanion.setup({
     ["Refactor Code inline"]  = require("ai.codecompanion.prompts.refactor_inline"),
     ["Review"]                = require("ai.codecompanion.prompts.review"),
     ["PullRequest"]           = require("ai.codecompanion.prompts.pull_request"),
+    ["Correct Grammar"]       = require("ai.codecompanion.prompts.grammar"),
+    ["Translate"]             = require("ai.codecompanion.prompts.translate"),
   },
 
   adapters = {
@@ -29,6 +31,16 @@ codecompanion.setup({
 
   strategies = {
     chat   = { adapter = "ollama" },
+    slash_commands = {
+      ["buffer"]   = { opts = { provider = "fzf_lua" } },
+      ["fetch"]    = { opts = {} },
+      ["file"]     = { opts = { provider = "fzf_lua" } },
+      ["files"]    = { opts = { provider = "fzf_lua" } },
+      ["help"]     = { opts = { provider = "fzf_lua" } },
+      ["now"]      = { opts = {} },
+      ["symbols"]  = { opts = { provider = "fzf_lua" } },
+      ["terminal"] = { opts = {} },
+    },
     inline = { adapter = "ollama" },
     agent  = { adapter = "ollama" },
   },
