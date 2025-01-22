@@ -7,8 +7,3 @@ function __nvim_browse_plugin -d "Browse NeoVim plugin repository"
     read -l repo_path
   [ -n "$repo_path" ]; and cd "$repo_path"; and nvim
 end
-
-bind \cx "__nvim_browse_plugin"
-if bind -M insert >/dev/null 2>/dev/null
-  bind -M insert \cx "__nvim_browse_plugin"
-end
