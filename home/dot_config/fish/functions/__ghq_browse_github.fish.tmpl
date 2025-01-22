@@ -1,7 +1,0 @@
-# -*-mode:fish-*- vim:ft=fish
-
-function __ghq_browse_github -d "Browse remote repository on github"
-  ghq list | fzf | read -l repo_path
-  set -l repo_name (string split -m1 "/" $repo_path)[2]
-  {{ .cmd.open }} https://github.com/$repo_name
-end
