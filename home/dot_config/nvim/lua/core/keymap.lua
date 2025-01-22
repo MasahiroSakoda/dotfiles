@@ -341,6 +341,7 @@ if not is_vscode then
     { "<Leader>crc", "<CMD>CodeCompanion /refchat<CR>",   icon = " ", desc = "Refactor in chat window" },
     { "<Leader>cri", "<CMD>CodeCompanion /refinline<CR>", icon = " ", desc = "Refactor inline" },
     { "<Leader>cR",  "<CMD>CodeCompanion /review<CR>",    icon = " ", desc = "Review code in buffer" },
+    { "<Leader>cg",  "<CMD>CodeCompanion /grammar<CR>",   icon = " ", desc = "Correct Grammar" },
   }, opts)
 end
 

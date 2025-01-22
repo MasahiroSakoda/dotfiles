@@ -16,6 +16,7 @@ codecompanion.setup({
     ["Refactor Code inline"]  = require("ai.codecompanion.prompts.refactor_inline"),
     ["Review"]                = require("ai.codecompanion.prompts.review"),
     ["PullRequest"]           = require("ai.codecompanion.prompts.pull_request"),
+    ["Correct Grammar"]       = require("ai.codecompanion.prompts.grammar"),
   },
 
   adapters = {
