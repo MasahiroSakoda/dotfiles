@@ -6,6 +6,6 @@ function __ghq_browse_repository -d "Browse ghq repository"
         --bind "ctrl-u:preview-up,ctrl-d:preview-down" --exit-0 | \
     read -l repo_path
 
-  [ -n "$repo_path" ]; and cd "$repo_path"
+  [ -n "$repo_path" ]; and cd "$repo_path"; and nvim
   commandline -f repaint
 end
