@@ -2,6 +2,10 @@ local ok, noice = pcall(require, "noice")
 if not ok then return end
 
 noice.setup({
+  debug        = false,
+  log          = vim.fn.stdpath "state" .. "/noice.log",
+  log_max_size = 1024 * 1024 * 2,
+
   -- you can enable a preset for easier configuration
   presets = {
     bottom_search         = false, -- use a classic bottom cmdline for search
@@ -24,9 +28,17 @@ noice.setup({
     signature = { enable = false },
   },
 
-  noitfy   = { enable = false },
-  cmdline  = { enable = false },
-  poupmenu = { enable = true },
+  noitfy    = { enable = false },
+  cmdline   = { enable = false },
+  popupmenu = { enable = true },
+  redirect  = {},
+  commands  = {},
+  notify    = {},
+  markdown  = {},
+  health    = {},
+  throttle  = 1000 / 30,
+  status    = {},
+  format    = {},
 
   messages = {
     -- Using kevinhwang91/nvim-hlslens because virtualtext is hard to read
