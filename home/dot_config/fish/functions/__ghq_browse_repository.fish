@@ -7,4 +7,5 @@ function __ghq_browse_repository -d "Browse ghq repository"
     read -l repo_path
 
   [ -n "$repo_path" ]; and cd "$repo_path"
+  commandline -f repaint
 end
