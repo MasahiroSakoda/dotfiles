@@ -4,7 +4,19 @@ if not ok then
 end
 
 wk.setup({
-  preset = "modern", ---@type "classic"|"modern"|"helix"
+  debug     = false,
+  show_help = true,
+  show_keys = true,
+
+  preset   = "modern", ---@type "classic"|"modern"|"helix"
+  delay    = function(ctx) return ctx.plugin and 0 or 200 end,
+  filter   = function(_) return true end,
+  spec     = {},
+  notify   = true,
+  triggers = { "<auto>", "nxso" },
+  defer    = function(ctx) return ctx.mode == "V" or ctx.mode == "<C-V>" end,
+
+  plugins = {},
   win = {
     no_overlap = true,
     padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
@@ -20,6 +32,11 @@ wk.setup({
     align   = "center", ---@type "left"|"right"|"center"
 		width  = { min = 5, max = 50 }, -- min and max width of the columns
   },
+  keys    = {},
+  sort    = {},
+  expand  = 0,
+  replace = {},
+  icons   = {},
   disable = {
     buftypes  = {},
     filetypes = { "fzf" },
