@@ -4,4 +4,9 @@
 return {
   enabled = true,
   prompt = " ",
+
+  matcher = {
+    cwd_bonus = true,
+    frecency  = true,
+  },
 }
