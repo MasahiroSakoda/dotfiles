@@ -35,6 +35,7 @@ return {
     "stevearc/oil.nvim", -- File Explorer like buffer
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
+    cmd    = { "Oil" },
     config = function() require("ui.oil") end,
   },
   {
