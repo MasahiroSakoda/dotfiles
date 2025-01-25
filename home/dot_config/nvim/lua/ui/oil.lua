@@ -3,17 +3,14 @@
 local ok, oil = pcall(require, "oil")
 if not ok then return end
 
-local width, height = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
+local detailed_columns = true
+local columns          = detailed_columns and { "icon", "permissions", "size", "mtime" } or { "icon", "size" }
+local width, height    = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
 
 oil.setup({
   default_file_explorer = true,
 
-  columns = {
-    "icon",
-    -- "permissions",
-    "size",
-    -- "mtime",
-  },
+  columns = columns,
 
   win_options = {
     wrap = true,
