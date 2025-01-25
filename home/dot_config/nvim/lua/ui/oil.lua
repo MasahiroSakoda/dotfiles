@@ -6,6 +6,8 @@ if not ok then return end
 local width, height = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
 
 oil.setup({
+  default_file_explorer = true,
+
   columns = {
     "icon",
     -- "permissions",
