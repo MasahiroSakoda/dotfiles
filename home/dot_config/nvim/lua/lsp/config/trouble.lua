@@ -2,6 +2,7 @@ local ok, trouble = pcall(require, "trouble")
 if not ok then return end
 
 trouble.setup({
+  debug = false,
   auto_close    = false, -- auto close when there are no items
   auto_open     = false, -- auto open when there are items
   auto_preview  = true,  -- automatically open preview when on an item
@@ -17,6 +18,9 @@ trouble.setup({
 
   warn_no_results = false, -- show a warning when there are no results
   open_no_results = true,  -- open the trouble window when there are no results
+  win = {},                -- window options for the results window. Can be a split or a floating window.
+  preview = { type = "main", scratch = true },
+  throttle = {},
 
   modes = {
     diagnostics = {
@@ -66,4 +70,6 @@ trouble.setup({
     p = "preview",
     P = "toggle_preview",
   },
+
+  icons = {},
 })
