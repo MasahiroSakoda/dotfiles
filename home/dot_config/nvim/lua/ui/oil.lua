@@ -3,15 +3,14 @@
 local ok, oil = pcall(require, "oil")
 if not ok then return end
 
-local width, height = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
+local detailed_columns = true
+local columns          = detailed_columns and { "icon", "permissions", "size", "mtime" } or { "icon", "size" }
+local width, height    = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
 
 oil.setup({
-  columns = {
-    "icon",
-    -- "permissions",
-    "size",
-    -- "mtime",
-  },
+  default_file_explorer = true,
+
+  columns = columns,
 
   win_options = {
     wrap = true,
@@ -35,14 +34,22 @@ oil.setup({
     max_height = math.floor(height * 0.8),
   },
 
+  use_default_keymaps = true,
   keymap = {
-    ["g?"]    = { "actions.show_help", mode = "n" },
-    ["<C-c>"] = { "actions.close",     mode = "n" },
-    ["<CR>"]  = "actions.select",
-    ["<C-r>"] = "actions.refresh",
-    ["<C-p>"] = "actions.preview",
-    ["<C-v>"] = { "actions.select", opts = { vertical = true } },
+    ["g?"]    = { "actions.show_help",   mode = "n" },
+    ["gs"]    = { "actions.change_sort", mode = "n" },
+    ["<C-c>"] = { "actions.close",       mode = "n" },
+    ["<CR>"]  =   "actions.select",
+    ["<C-l>"] =   "actions.refresh",
+    ["<C-p>"] =   "actions.preview",
+    ["<C-s>"] = { "actions.select", opts = { vertical = true } },
     ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
     ["<C-t>"] = { "actions.select", opts = { tab = true } },
+    ["-"]     = { "actions.parent", mode = "n" },
+    ["_"]     = { "actions.open_cwd", mode = "n" },
+    ["`"]     = { "actions.cd", mode = "n" },
+    ["~"]     = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+    ["g."]    = { "actions.toggle_hidden", mode = "n" },
+    ["gx"]    =   "actions.open_external",
   },
 })
