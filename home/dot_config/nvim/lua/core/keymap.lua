@@ -352,10 +352,8 @@ if not is_vscode then
   wk.add({
     mode = nt,
     { "<Leader>e", group = "Explore Directory & Files", icon = "📁 " },
-    { "<Leader>eo", ":Oil<Space>",                                          icon = " ", desc = "Explore dir" },
-    { "<Leader>ef", "<CMD>lua require'oil'.toggle_float()<CR>",             icon = " ", desc = "Parent Dir" },
-    { "<Leader>er", "<CMD>lua require'oil'.toggle_float(vim.uv.cwd())<CR>", icon = " ", desc = "Root Dir" },
-    { "<Leader>eh", "<CMD>lua require'oil'.toggle_hidden()<CR>",            icon = " ", desc = "Toggle Hidden" },
+    { "<Leader>ee", "<CMD>Oil --float .<CR>", icon = " ", desc = "Explore Directory" },
+    { "<Leader>ef", "<CMD>Oil --float<CR>",   icon = " ", desc = "Open Parent Directory" },
   }, opts)
 end
 
