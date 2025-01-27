@@ -2,7 +2,7 @@
 local ok, codecompanion = pcall(require, "codecompanion")
 if not ok then return end
 
-require("utils.ai")
+vim.g.local_llm = "dolphin3:latest"
 
 codecompanion.setup({
   opts = {
