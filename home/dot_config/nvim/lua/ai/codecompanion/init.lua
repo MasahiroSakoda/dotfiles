@@ -18,6 +18,7 @@ codecompanion.setup({
     ["PullRequest"]           = require("ai.codecompanion.prompts.pull_request"),
     ["Correct Grammar"]       = require("ai.codecompanion.prompts.grammar"),
     ["Translate"]             = require("ai.codecompanion.prompts.translate"),
+    ["Summarize"]             = require("ai.codecompanion.prompts.summarize"),
   },
 
   adapters = {
