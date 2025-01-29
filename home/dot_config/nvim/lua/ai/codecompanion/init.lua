@@ -2,7 +2,7 @@
 local ok, codecompanion = pcall(require, "codecompanion")
 if not ok then return end
 
-require("utils.ai")
+vim.g.local_llm = "dolphin3:latest"
 
 codecompanion.setup({
   opts = {
@@ -18,6 +18,7 @@ codecompanion.setup({
     ["PullRequest"]           = require("ai.codecompanion.prompts.pull_request"),
     ["Correct Grammar"]       = require("ai.codecompanion.prompts.grammar"),
     ["Translate"]             = require("ai.codecompanion.prompts.translate"),
+    ["Summarize"]             = require("ai.codecompanion.prompts.summarize"),
   },
 
   adapters = {

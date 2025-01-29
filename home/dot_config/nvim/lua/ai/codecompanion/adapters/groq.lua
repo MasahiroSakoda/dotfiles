@@ -6,7 +6,13 @@ return function()
       ---@see https://console.groq.com/docs/models
       model = {
         default = "llama-3.3-70b-versatile",
-        choices = { "llama3-70b-8192", "llama-3.3-70b-versatile", "gemma2-9b-it", "mixtral-8x7b-32768" },
+        choices = {
+          "llama3-70b-8192",
+          "llama-3.3-70b-versatile",
+          "gemma2-9b-it",
+          "mixtral-8x7b-32768",
+          "deepseek-r1-distill-llama-70b",
+        },
       },
       temperature = { default = 0.0 },
       max_tokens  = { default = 512 },
