@@ -48,10 +48,6 @@ vim.opt.breakindent = true
 
 vim.opt.backspace   = "eol,indent,start"
 
--- Font
-vim.opt.guifont     = "JetBrainsMono Nerd Font Mono:h11"
-vim.opt.guifontwide = "HackGen35Nerd Console:h11"
-
 -- Disable
 -- disable menu loading
 vim.g.did_install_default_menus = 1
