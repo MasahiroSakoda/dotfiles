@@ -1,0 +1,5 @@
+-- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+    ---@diagnostic disable-next-line: malformed-number, undefined-global
+vim.opt.guifont     = string.format("%s:h%s", {{ .font.family.ascii | quote }}, {{ .font.size.medium | quote }})
+    ---@diagnostic disable-next-line: malformed-number, undefined-global
+vim.opt.guifontwide = string.format("%s:h%s", {{ .font.family.combined | quote }}, {{ .font.size.medium | quote }})
