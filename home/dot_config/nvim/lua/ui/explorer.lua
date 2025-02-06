@@ -2,5 +2,6 @@
 
 ---@class snacks.explorer.Config
 return {
-  enable = true,
+  enabled = true,
+  replace_netrw = true,
 }
