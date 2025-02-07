@@ -5,9 +5,15 @@ return {
   enabled = true,
   prompt = " ",
 
+  ---@class snacks.picker.matcher.Config
   matcher = {
     cwd_bonus = true,
     frecency  = true,
+  },
+
+  sort = {
+    -- default sort is by score, text length and index
+    fields = { "score:desc", "#text", "idx" },
   },
 
   win = {
