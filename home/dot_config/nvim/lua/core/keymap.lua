@@ -374,6 +374,7 @@ if not is_vscode then
 
     { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
 
+    { ",f", "<CMD>lua require'snacks'.explorer()<CR>",   icon = " ", desc = "Toggle Zoom"},
     { ",z", "<CMD>lua require'snacks'.zen.zoom()<CR>",   icon = " ", desc = "Toggle Zoom"},
     { ",Z", "<CMD>lua require'snacks'.toggle.zen()<CR>", icon = " ", desc = "Toggle Zen mode"},
     {
