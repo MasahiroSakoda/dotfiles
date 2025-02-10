@@ -17,7 +17,7 @@ bufferline.setup({
     -- Size / Length
     tab_size          = 21,
     max_name_length   = 21,
-    max_prefix_length = 13,
+    max_prefix_length = 18,
 
     separator_style        = "slope", ---@type "slope"|"slant"|"padded_slant"|"thick"|"thin"
     enforce_regular_tabs   = false,
