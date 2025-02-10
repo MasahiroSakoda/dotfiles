@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader      = [[ ]]
 vim.g.maplocalleader = [[,]]
 vim.g.colorscheme = "onedark" --- @type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"|"onedark"
+vim.g.themestyle  = "darker"
 
 local lazy_ok, lazy = pcall(require, "lazy")
 if not lazy_ok then return end
