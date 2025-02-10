@@ -15,7 +15,7 @@ bufferline.setup({
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
     -- Size / Length
-    tab_size          = 15,
+    tab_size          = 21,
     max_name_length   = 14,
     max_prefix_length = 13,
 
