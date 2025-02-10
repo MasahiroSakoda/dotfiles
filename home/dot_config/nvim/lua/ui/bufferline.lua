@@ -7,8 +7,10 @@ bufferline.setup({
     diagnostics = "nvim_lsp", ---@type "nvim_lsp"|"coc"
 
     -- Format
-  ---@param opts table<string, any>
-    name_formatter = function(opts) return string.format("%s", opts.name) end,
+  ---@param buf table<string, any>
+    name_formatter = function(buf)
+      return buf.name:match("%.md") and vim.fn.fnamemodify(buf.name, ":t:r") or buf.name
+    end,
   ---@param opts table<string, any>
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
