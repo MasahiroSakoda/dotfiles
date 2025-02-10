@@ -1,21 +1,25 @@
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then return end
 
+local palette = require("onedark.palette")[vim.g.themestyle]
+
 bufferline.setup({
   options = {
     mode        = "tabs",     ---@type "tabs"|"buffers"
     diagnostics = "nvim_lsp", ---@type "nvim_lsp"|"coc"
 
     -- Format
-  ---@param opts table<string, any>
-    name_formatter = function(opts) return string.format("%s", opts.name) end,
+  ---@param buf table<string, any>
+    name_formatter = function(buf)
+      return buf.name:match("%.md") and vim.fn.fnamemodify(buf.name, ":t:r") or buf.name
+    end,
   ---@param opts table<string, any>
     numbers        = function(opts) return string.format("%s", opts.ordinal) end,
 
     -- Size / Length
-    tab_size          = 15,
-    max_name_length   = 14,
-    max_prefix_length = 13,
+    tab_size          = 21,
+    max_name_length   = 21,
+    max_prefix_length = 18,
 
     separator_style        = "slope", ---@type "slope"|"slant"|"padded_slant"|"thick"|"thin"
     enforce_regular_tabs   = false,
@@ -47,10 +51,10 @@ bufferline.setup({
   },
 
   highlights = {
-    separator          = { fg = "#073642", bg = "#002b36" },
-    separator_selected = { fg = "#073642" },
-    background         = { fg = "#657b83", bg = "#002b36" },
-    buffer_selected    = { fg = "#fdf6e3", bold   = true, italic = true },
-    fill               = { bg = "#073642" }
+    separator          = { fg = palette.bg1, bg = palette.black },
+    separator_selected = { fg = palette.bg1 },
+    background         = { fg = palette.light_grey, bg = palette.black },
+    buffer_selected    = { fg = "#fdf6e3", bold = true, italic = true },
+    fill               = { bg = palette.bg1 }
   },
 })
