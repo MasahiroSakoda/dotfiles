@@ -81,6 +81,9 @@ bind-key g home
 bind-key G end
 bind-key ^B bookmark
 
+# Macro
+macro c set browser "echo %u | {{ .cmd.copy }}" ; open-in-browser ; set browser linkhandler
+
 # Bookmark
 bookmark-cmd "~/.local/bin/save2pocket.sh"
 bookmark-autopilot yes
