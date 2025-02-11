@@ -25,8 +25,20 @@ return {
   win = {
     input = {
       keys = {
-        ["<a-s>"] = { "flash", mode = { "n", "i" }},
+        ["<c-c>"] = { "close",               mode = { "i", "n" } },
+        ["<c-u>"] = { "preview_scroll_up",   mode = { "i", "n" } },
+        ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+        ["<c-b>"] = { "list_scroll_up",      mode = { "i", "n" } },
+        ["<c-f>"] = { "list_scroll_down",    mode = { "i", "n" } },
+        ["<c-t>"] = { "edit_tab",            mode = { "i", "n" } },
+
+        ["<a-s>"] = { "flash",    mode = { "n", "i" } },
         ["s"]     = { "flash" },
+      },
+    },
+    list = {
+      keys = {
+        ["<c-t>"] = "edit_tab",
       },
     },
   },
