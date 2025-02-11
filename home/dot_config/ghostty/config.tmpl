@@ -23,14 +23,15 @@ clipboard-read  = allow
 
 ## OS specific configurations
 {{ if eq .chezmoi.os "darwin" }}
-window-decoration           = true
-macos-titlebar-style        = tabs
-macos-titlebar-proxy-icon   = hidden
-macos-titlebar-style        = transparent
-macos-non-native-fullscreen = false
-macos-option-as-alt         = true
-macos-window-shadow         = false
-macos-auto-secure-input     = true
+window-decoration             = true
+macos-titlebar-style          = tabs
+macos-titlebar-proxy-icon     = hidden
+macos-titlebar-style          = transparent
+macos-non-native-fullscreen   = false
+macos-option-as-alt           = true
+macos-window-shadow           = false
+macos-auto-secure-input       = true
+macos-secure-input-indication = false
 {{ else if eq .chezmoi.os "linux"}}
 window-decoration   = false
 gtk-titlebar        = false
