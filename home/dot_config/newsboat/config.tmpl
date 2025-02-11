@@ -62,6 +62,7 @@ unbind-key L
 unbind-key g
 unbind-key G
 
+bind-key , macro-prefix
 bind-key j down
 bind-key k up
 bind-key h quit
@@ -79,6 +80,9 @@ bind-key a toggle-article-read
 bind-key g home
 bind-key G end
 bind-key ^B bookmark
+
+# Macro
+macro c set browser "echo %u | {{ .cmd.copy }}" ; open-in-browser ; set browser linkhandler
 
 # Bookmark
 bookmark-cmd "~/.local/bin/save2pocket.sh"
