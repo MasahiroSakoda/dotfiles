@@ -6,6 +6,7 @@
 
 # App behavior
 auto-update = off
+fullscreen  = true
 shell-integration-features = cursor,sudo,no-title
 quit-after-last-window-closed = true
 desktop-notifications = true
@@ -22,11 +23,15 @@ clipboard-read  = allow
 
 ## OS specific configurations
 {{ if eq .chezmoi.os "darwin" }}
-window-decoration         = true
-macos-titlebar-style      = tabs
-macos-titlebar-proxy-icon = hidden
-macos-option-as-alt       = true
-macos-window-shadow       = false
+window-decoration             = true
+macos-titlebar-style          = tabs
+macos-titlebar-proxy-icon     = hidden
+macos-titlebar-style          = transparent
+macos-non-native-fullscreen   = false
+macos-option-as-alt           = true
+macos-window-shadow           = false
+macos-auto-secure-input       = true
+macos-secure-input-indication = false
 {{ else if eq .chezmoi.os "linux"}}
 window-decoration   = false
 gtk-titlebar        = false
@@ -59,6 +64,7 @@ unfocused-split-opacity = 0.8
 ## Mouse
 mouse-hide-while-typing = true
 mouse-shift-capture     = never
+mouse-scroll-multiplier = 2
 focus-follows-mouse     = true
 
 ## Font: `ghostty +list-fonts`
