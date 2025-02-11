@@ -16,6 +16,12 @@ return {
     fields = { "score:desc", "#text", "idx" },
   },
 
+  sources = {
+    files = { hidden = true },
+    smart = { hidden = true, filter = { cwd = true } },
+    grep  = { hidden = true },
+  },
+
   win = {
     input = {
       keys = {
