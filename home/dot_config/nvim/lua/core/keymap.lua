@@ -290,20 +290,8 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
-  {
-    "<Leader>gg",
-    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='lazygit',hidden=true,direction='float'}):toggle()<CR>",
-    mode = nt,
-    icon = " ",
-    desc = "Toggle lazygit w/ terminal",
-  },
-  {
-    "<Leader>gh",
-    "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='gh dash',hidden=true,direction='float'}):toggle()<CR>",
-    mode = nt,
-    icon = " ",
-    desc = "Toggle gh dash w/ terminal",
-  },
+  { "<Leader>gg", "<CMD>lua Snacks.terminal({'lazygit'})<CR>",    mode = nt, icon = " ", desc = "Toggle lazygit" },
+  { "<Leader>gh", "<CMD>lua Snacks.terminal({'gh', 'dash'})<CR>", mode = nt, icon = " ", desc = "Toggle gh dash" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -372,16 +360,10 @@ if not is_vscode then
     { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
-    { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
+    { ",t", "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>", icon = " ", desc = "Toggle File Explorer"},
     { ",z", "<CMD>lua Snacks.zen.zoom()<CR>", icon = " ", desc = "Toggle Zoom"},
-    {
-      ",b",
-      "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
-      mode = nt,
-      icon = " ",
-      desc = "Open `btm` command w/ terminal",
-    },
+    { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt, icon = " ", desc = "Toggle btm" },
   }, opts)
 end
