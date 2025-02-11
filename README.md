@@ -141,7 +141,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Linter support](#linter)
 * [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][snippets]
-* Fuzzy Finder: [**`fzf-lua`**][fzf-lua]
+* Fuzzy Finder: [**`Snacks.picker`**][picker]
 * [AI Assistant](#ai-assistant) available
 
 ![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/702a2de8-1264-4688-87b0-d682f2441b98)
@@ -150,7 +150,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 [snippets]:  https://github.com/rafamadriz/friendly-snippets
 [dap]:       https://github.com/mfussenegger/nvim-dap
 [dap-ui]:    https://github.com/rcarriga/nvim-dap-ui
-[fzf-lua]:   https://github.com/ibhagwan/fzf-lua
+[picker]:    https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
