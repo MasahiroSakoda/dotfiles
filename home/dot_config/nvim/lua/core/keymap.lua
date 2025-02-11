@@ -97,8 +97,8 @@ wk.add({
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
   { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
   { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", "<CMD>lua require'snacks'.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", "<CMD>lua require'snacks'.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
+  { "<Leader>bdc", function() Snacks.bufdelete() end,       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bdo", function() Snacks.bufdelete.other() end, icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
@@ -168,62 +168,58 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- fzf-lua: <Leader> + f
+-- 📂 Fuzzy Finder: <Leader> + f
 ---------------------------------------------------------------------------
 if not is_vscode then
+  local nvim_path = vim.fn.stdpath("data")
   wk.add({
-    { "<Leader>f", group = "fzf-lua: Fuzzy Finder", icon = "🔎 " },
+    { "<Leader>f", group = "Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
-    { "<Leader>ff", "<CMD>FzfLua files<CR>",                  icon = " ", desc = "Find Files (cwd)" },
-    { "<Leader>fr", "<CMD>FzfLua resume<CR>",                 icon = " ", desc = "Resume Previous Picker" },
-    { "<Leader>fk", "<CMD>FzfLua keymaps<CR>",                icon = " ", desc = "Keymaps" },
-    { "<Leader>fo", "<CMD>FzfLua oldfiles sort_mru=true<CR>", icon = " ", desc = "Recent files" },
-    { "<Leader>fb", "<CMD>FzfLua buffers sort_mru=true<CR>",  icon = " ", desc = "Buffers" },
+    { "<Leader>ff", function() Snacks.picker.smart()    end, icon = " ", desc = "Frecency Search" },
+    { "<Leader>fr", function() Snacks.picker.resume()   end, icon = " ", desc = "Resume Prev Picker" },
+    { "<Leader>fk", function() Snacks.picker.keymaps()  end ,icon = " ", desc = "Keymaps" },
+    { "<Leader>fb", function() Snacks.picker.buffers()  end, icon = " ", desc = "Buffers" },
+    { "<Leader>fc", function() Snacks.picker.commands() end, icon = " ", desc = "Commands" },
+    { "<Leader>fp", function() Snacks.picker.projects() end, icon = " ", desc = "Project" },
 
-    { "<Leader>fhs", "<CMD>FzfLua search_history<CR>",  icon = " ", desc = "Search History" },
-    { "<Leader>fhc", "<CMD>FzfLua command_history<CR>", icon = " ", desc = "Command History" },
+    { "<Leader>fn", function() Snacks.picker.notifications()   end, icon = " ", desc = "Notify History" },
+    { "<Leader>f/", function() Snacks.picker.search_history()  end, icon = " ", desc = "Search History" },
+    { "<Leader>f:", function() Snacks.picker.command_history() end, icon = " ", desc = "Command History" },
 
     -- Grep
-    { "<C-g>",      "<CMD>FzfLua live_grep<CR>",     icon = " ", desc = "Live Grep" },
-    { "<Leader>fw", "<CMD>FzfLua grep_cword<CR>",    icon = " ", desc = "grep with cword" },
-    { "<Leader>fW", "<CMD>FzfLua grep_cWORD<CR>",    icon = " ", desc = "grep with cWORD" },
-    { "<Leader>fg", "<CMD>FzfGrep<CR>",  mode = "n", icon = " ", desc = "Grep (Normal)" },
-    { "<Leader>fG", "<CMD>FzfVGrep<CR>", mode = "x", icon = " ", desc = "Grep (Visual)" },
+    { "<C-g>",      function() Snacks.picker.grep({ live = true }) end,  icon = " ", desc = "Live Grep" },
+    { "<Leader>fw", function() Snacks.picker.grep_word() end, mode = nx, icon = " ", desc = "grep with cword" },
 
     -- Vim
-    { "<Leader>fH", "<CMD>FzfLua help_tags<CR>", icon = " ", desc = "Help via fzf-lua" },
-    { "<Leader>fq", "<CMD>FzfLua quickfix<CR>",  icon = " ", desc = "Quickfix list" },
-    { "<Leader>fa", "<CMD>FzfLua autocmds<CR>",  icon = " ", desc = "autocmds list" },
-    { "<Leader>fR", "<CMD>FzfLua registers<CR>", icon = " ", desc = "Register list" },
-    { "<Leader>fj", "<CMD>FzfLua jumps<CR>",     icon = " ", desc = "Jump list" },
+    { "<Leader>fh", function() Snacks.picker.help()      end, icon = " ", desc = "Help" },
+    { "<Leader>fq", function() Snacks.picker.qflist()    end, icon = " ", desc = "Quickfix list" },
+    { "<Leader>fa", function() Snacks.picker.autocmds()  end, icon = " ", desc = "autocmds list" },
+    { "<Leader>fR", function() Snacks.picker.registers() end, icon = " ", desc = "Register list" },
+    { "<Leader>fu", function() Snacks.picker.undo()      end, icon = " ", desc = "Undo Tree" },
 
     -- Git
-    { "<Leader>gf", "<CMD>FzfLua git_files<CR>",   icon = " ", desc = "Find files (Git)" },
-    { "<Leader>gs", "<CMD>FzfLua git_status<CR>",  icon = " ", desc = "Git Status" },
-    { "<Leader>gc", "<CMD>FzfLua git_commits<CR>", icon = " ", desc = "Git Commits" },
+    { "<Leader>gf", function() Snacks.picker.git_files()  end, icon = " ", desc = "Git Files" },
+    { "<Leader>gs", function() Snacks.picker.git_status() end, icon = " ", desc = "Git Status" },
+    { "<Leader>gl", function() Snacks.picker.git_log()    end, icon = " ", desc = "Commit Log" },
 
     -- LSP
-    { "<Leader>ls", "<CMD>FzfLua lsp_document_symbols<CR>", icon = " ", desc = "Go to Symbols" },
-    { "<Leader>ld", "<CMD>FzfLua lsp_definitions<CR>",      icon = " ", desc = "Go to Definition" },
-    { "<Leader>lt", "<CMD>FzfLua lsp_type_defs<CR>",        icon = " ", desc = "Go to Type Definition" },
-    { "<Leader>lr", "<CMD>FzfLua lsp_references<CR>",       icon = " ", desc = "References" },
-    { "<Leader>lc", "<CMD>FzfLua lsp_code_actions<CR>",     icon = " ", desc = "Code Actions" },
+    { "<Leader>fd", function() Snacks.picker.diagnostics()          end, icon = " ", desc = "Diagnostics" },
+    { "<Leader>ls", function() Snacks.picker.lsp_symbols()          end, icon = " ", desc = "Symbols" },
+    { "<Leader>ld", function() Snacks.picker.lsp_definitions()      end, icon = " ", desc = "Definition" },
+    { "<Leader>lt", function() Snacks.picker.lsp_type_definitions() end, icon = " ", desc = "Type Definition" },
+    { "<Leader>lr", function() Snacks.picker.lsp_references()       end, icon = " ", desc = "References" },
 
     -- DAP
-    { "<Leader>fdb", "<CMD>FzfLua dap_breakpoints<CR>",    icon = " ", desc = "Breakpoints" },
-    { "<Leader>fdc", "<CMD>FzfLua dap_configurations<CR>", icon = " ", desc = "Debug Config" },
-    { "<Leader>fdC", "<CMD>FzfLua dap_commands<CR>",       icon = " ", desc = "DAP Commands" },
-    { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
+    -- TODO: Replace DAP commands with `Snacks.picker.*()`
+    -- { "<Leader>fdb", "<CMD>FzfLua dap_breakpoints<CR>",    icon = " ", desc = "Breakpoints" },
+    -- { "<Leader>fdc", "<CMD>FzfLua dap_configurations<CR>", icon = " ", desc = "Debug Config" },
+    -- { "<Leader>fdC", "<CMD>FzfLua dap_commands<CR>",       icon = " ", desc = "DAP Commands" },
+    -- { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
 
-    -- Custom Actions
-    { "<Leader>fs", "<CMD>FzfSnippets<CR>", icon = " ", desc = "LuaSnip Browser" },
-    { "<Leader>fl", "<CMD>FzfPlugins<CR>",  icon = " ", desc = "NeoVim Plugin Browser" },
-    { "<Leader>fc", "<CMD>FzfChezmoi<CR>",  icon = " ", desc = "Chezmoi Files" },
-
-    { "<Leader>fn", "<CMD>lua require'snacks'.notifier.show_history()<CR>", icon = " ", desc = "Notify History" },
-
-    { "<Leader>ft", "<CMD>TodoFzfLua<CR>", icon = " ", desc = "TODO list" },
+    -- Others
+    { "<Leader>fl", function() Snacks.picker.smart({cwd = nvim_path}) end, icon = " ", desc = "nvim plugins" },
+    { "<Leader>ft", function() Snacks.picker.todo_comments()          end, icon = " ", desc = "TODO list" },
   })
 end
 
@@ -374,9 +370,8 @@ if not is_vscode then
 
     { ",t", "<CMD>ToggleTerm<CR>",   mode = nt, icon = " ", desc = "Toggle Terminal" },
 
-    { ",f", "<CMD>lua require'snacks'.explorer()<CR>",   icon = " ", desc = "Toggle Zoom"},
-    { ",z", "<CMD>lua require'snacks'.zen.zoom()<CR>",   icon = " ", desc = "Toggle Zoom"},
-    { ",Z", "<CMD>lua require'snacks'.toggle.zen()<CR>", icon = " ", desc = "Toggle Zen mode"},
+    { ",f", function() Snacks.explorer() end, icon = " ", desc = "Toggle File Explorer"},
+    { ",z", function() Snacks.zen.zoom() end, icon = " ", desc = "Toggle Zoom"},
     {
       ",b",
       "<CMD>lua require'toggleterm.terminal'.Terminal:new({cmd='btm',hidden=true,direction='float'}):toggle()<CR>",
