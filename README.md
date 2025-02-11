@@ -84,31 +84,16 @@ chezmoi update
 
 | Package  | Category         | Notes       |
 |:-------- |:---------------- |:----------- |
-| [**Fish**][fish]     | Shell            |             |
-| [**starship**][starship] | Prompt           |             |
-| [**tmux**][tmux]     | Screen           | [tmux.conf][tmux.conf]   |
-| [**NeoVim**][neovim]   | Editor           | See [Detail](#neovim)  |
-| [**mise**][mise]     | Version Control  | See [Detail](#mise)  |
-| [**fzf**][fzf]      | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
-| [**ripgrep**][rg]  | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
-| [**fd**][fd]       | `find` alternative |             |
-| [**bat**][bat]      | `cat` alternative  | [config][batconfig]      |
-| [**bottom**][bottom]   | `top` alternative  | [bottom.toml][bottom.toml] |
-
-[fish]:     https://github.com/fish-shell/fish-shell
-[starship]: https://starship.rs/
-[tmux]:     https://github.com/tmux/tmux
-[neovim]:   https://github.com/neovim/neovim
-[mise]:     https://github.com/jdx/mise
-[fzf]:      https://github.com/junegunn/fzf
-[rg]:       https://github.com/BurntSushi/ripgrep
-[fd]:       https://github.com/sharkdp/fd
-[bat]:      https://github.com/sharkdp/bat
-[bottom]:   https://github.com/ClementTsang/bottom
-
-[tmux.conf]:   https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl
-[batconfig]:   https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bat/config
-[bottom.toml]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml
+| [**Fish**](https://github.com/fish-shell/fish-shell) | Shell            |             |
+| [**starship**](https://starship.rs/) | Prompt           |             |
+| [**tmux**](https://github.com/tmux/tmux) | Screen           | [tmux.conf](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl) |
+| [**NeoVim**](https://github.com/neovim/neovim) | Editor           | See [Detail](#neovim)  |
+| [**mise**](https://github.com/jdx/mise) | Version Control  | See [Detail](#mise)  |
+| [**fzf**](https://github.com/junegunn/fzf) | Fuzzy finder     | [Wiki](https://github.com/junegunn/fzf/wiki)        |
+| [**ripgrep**](https://github.com/BurntSushi/ripgrep) | `grep` alternative | [User Guide](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)  |
+| [**fd**](https://github.com/sharkdp/fd) | `find` alternative |             |
+| [**bat**](https://github.com/sharkdp/bat) | `cat` alternative  | [config](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bat/config)      |
+| [**bottom**](https://github.com/ClementTsang/bottom) | `top` alternative  | [bottom.toml](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/bottom/bottom.toml) |
 
 Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Brewfile.tmpl)
 
@@ -116,41 +101,26 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 | Plugin           | Notes                                                          |
 |:---------------- |:-------------------------------------------------------------- |
-| [fisher][fisher] | A plugin manager for Fish |
-| [fzf][fish-fzf] | Ef-🐟-ient fish keybindings for fzf |
-| [z][fish-z] | Pure-fish z directory jumping |
-| [dracula][dracula] | 🧛🏻‍♂️ Dark theme for fish |
-| [autopair.fish][autopair] | Auto-complete matching pairs in the Fish command line |
-| [done][done] | A notifier for fish process |
-| [bass][bass] | Make Bash utilities usable in fish shell |
-| [sponge][sponge] | cleean typos from history |
-
-[fisher]:   https://github.com/jorgebucaran/fisher
-[fish-fzf]: https://github.com/jethrokuan/fzf
-[fish-z]:   https://github.com/jethrokuan/z
-[dracula]:  https://github.com/dracula/fish
-[autopair]: https://github.com/jorgebucaran/autopair.fish
-[done]:     https://github.com/franciscolourenco/done
-[bass]:     https://github.com/edc/bass
-[sponge]:   https://github.com/meaningful-ooo/sponge
+| [fisher](https://github.com/jorgebucaran/fisher) | A plugin manager for Fish |
+| [fzf](https://github.com/jethrokuan/fzf) | Ef-🐟-ient fish keybindings for fzf |
+| [z](https://github.com/jethrokuan/z) | Pure-fish z directory jumping |
+| [dracula](https://github.com/dracula/fish) | 🧛🏻‍♂️ Dark theme for fish |
+| [autopair.fish](https://github.com/jorgebucaran/autopair.fish) | Auto-complete matching pairs in the Fish command line |
+| [done](https://github.com/franciscolourenco/done) | A notifier for fish process |
+| [bass](https://github.com/edc/bass) | Make Bash utilities usable in fish shell |
+| [sponge](https://github.com/meaningful-ooo/sponge) | cleean typos from history |
 
 #### NeoVim
 
 * [Builtin LSP Supported](#lsp)
-* [DAP supported](#dap) with [**`nvim-dap`**][dap], [**`nvim-dap-ui`**][dap-ui]
+* [DAP supported](#dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
 * [Linter support](#linter)
 * [Formatter support](#formatter)
-* Snippet support: [**`LuaSnip`**][LuaSnip], [**`friendly-snippets`**][snippets]
-* Fuzzy Finder: [**`Snacks.picker`**][picker]
+* Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
+* Fuzzy Finder: [**`Snacks.picker`**](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
 * [AI Assistant](#ai-assistant) available
 
 ![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/702a2de8-1264-4688-87b0-d682f2441b98)
-
-[LuaSnip]:   https://github.com/L3MON4D3/LuaSnip
-[snippets]:  https://github.com/rafamadriz/friendly-snippets
-[dap]:       https://github.com/mfussenegger/nvim-dap
-[dap-ui]:    https://github.com/rcarriga/nvim-dap-ui
-[picker]:    https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
@@ -159,47 +129,26 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Language Server            | Language                |
 |:---------------------------|:------------------------|
-| [**bash-language-server**][bashls] | Bash |
-| [**clangd**][clangd] | C/C++ |
-| [**rust-analyzer**][rust-analyzer] | Rust                   |
-| [**gopls**][gopls] | Go |
-| [**pyright**][pyright] | Python |
-| [**ruby-lsp**][ruby-lsp] | Ruby |
-| [**deno**][denols] | JS / TS  |
-| [**ts_ls**][tsserver] | JS / TS  |
-| [**lua_ls**][luals] | Lua |
-| [**vim-language-server**][vimls] | VimScript |
-| [**html-lsp**][html-lsp]| HTML |
-| [**css-lsp**][css-lsp] | CSS, SCSS, LESS |
-| [**json-lsp**][json-lsp] | JSON |
-| [**yaml-language-server**][yaml-lsp] | YAML |
-| [**sqlls**][sqlls] | SQL |
-| [**graphql-language-service**][graphqlls] | GraphQL                 |
-| [**cmake-language-server**][cmakels] | CMake                   |
-| [**dockerfile-language-server**][dockerfilels] | Dockerfile              |
-| [**terraform-ls**][terraformls] | Terraform               |
-| [**Marksman**][marksman] | Markdown                |
-
-[bashls]:        https://github.com/bash-lsp/bash-language-server
-[clangd]:        https://clangd.llvm.org
-[rust-analyzer]: https://github.com/rust-lang/rust-analyzer
-[gopls]:         https://pkg.go.dev/golang.org/x/tools/gopls
-[pyright]:       https://github.com/microsoft/pyright
-[ruby-lsp]:      https://github.com/Shopify/ruby-lsp
-[denols]:        https://deno.land
-[tsserver]:      https://github.com/typescript-language-server/typescript-language-server
-[luals]:         https://github.com/LuaLS/lua-language-server
-[vimls]:         https://github.com/iamcco/vim-language-server
-[html-lsp]:      https://github.com/microsoft/vscode-html-languageservice
-[css-lsp]:       https://github.com/microsoft/vscode-css-languageservice
-[json-lsp]:      https://github.com/microsoft/vscode-json-languageservice
-[yaml-lsp]:      https://github.com/redhat-developer/yaml-language-server
-[sqlls]:         https://github.com/joe-re/sql-language-server
-[graphqlls]:     https://www.npmjs.com/package/graphql-language-service-cli
-[cmakels]:       https://github.com/regen100/cmake-language-server
-[dockerfilels]:  https://github.com/rcjsuen/dockerfile-language-server-nodejs
-[terraformls]:   https://github.com/hashicorp/terraform-ls
-[marksman]:      https://github.com/artempyanykh/marksman
+| [**bash-language-server**](https://github.com/bash-lsp/bash-language-server) | Bash |
+| [**clangd**](https://clangd.llvm.org) | C/C++ |
+| [**rust-analyzer**](https://github.com/rust-lang/rust-analyzer) | Rust                   |
+| [**gopls**](https://pkg.go.dev/golang.org/x/tools/gopls) | Go |
+| [**pyright**](https://github.com/microsoft/pyright) | Python |
+| [**ruby-lsp**](https://github.com/Shopify/ruby-lsp) | Ruby |
+| [**deno**](https://deno.land) | JS / TS  |
+| [**ts_ls**](https://github.com/typescript-language-server/typescript-language-server) | JS / TS  |
+| [**lua_ls**](https://github.com/LuaLS/lua-language-server) | Lua |
+| [**vim-language-server**](https://github.com/iamcco/vim-language-server) | VimScript |
+| [**html-lsp**](https://github.com/microsoft/vscode-html-languageservice) | HTML |
+| [**css-lsp**](https://github.com/microsoft/vscode-css-languageservice) | CSS, SCSS, LESS |
+| [**json-lsp**](https://github.com/microsoft/vscode-json-languageservice) | JSON |
+| [**yaml-language-server**](https://github.com/redhat-developer/yaml-language-server) | YAML |
+| [**sqlls**](https://github.com/joe-re/sql-language-server) | SQL |
+| [**graphql-language-service**](https://www.npmjs.com/package/graphql-language-service-cli) | GraphQL                 |
+| [**cmake-language-server**](https://github.com/regen100/cmake-language-server) | CMake                   |
+| [**dockerfile-language-server**](https://github.com/rcjsuen/dockerfile-language-server-nodejs) | Dockerfile              |
+| [**terraform-ls**](https://github.com/hashicorp/terraform-ls) | Terraform               |
+| [**Marksman**](https://github.com/artempyanykh/marksman) | Markdown                |
 
 ![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/d20f648c-f520-485c-ad2b-3762ee60dfc1)
 
@@ -207,19 +156,12 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Adapter            | Language              |
 |:-------------------|:----------------------|
-| [**bash-debug-adapter**][bash-da] | Bash                  |
-| [**codelldb**][codelldb]           | C/C++, Rust           |
-| [**cpptools**][cpptools]           | C/C++, Rust           |
-| [**delve**][delve]              | Go                    |
-| [**debugpy**][debugpy]            | Python                |
-| [**js-debug-adapter**][js-da]   | Javascript/TyptScript |
-
-[bash-da]:  https://github.com/rogalmic/vscode-bash-debug
-[codelldb]: https://github.com/vadimcn/vscode-lldb
-[cpptools]: https://github.com/microsoft/vscode-cpptools
-[delve]:    https://github.com/go-delve/delve
-[debugpy]:  https://github.com/microsoft/debugpy
-[js-da]:    https://github.com/microsoft/vscode-js-debug
+| [**bash-debug-adapter**](https://github.com/rogalmic/vscode-bash-debug) | Bash                  |
+| [**codelldb**](https://github.com/vadimcn/vscode-lldb) | C/C++, Rust           |
+| [**cpptools**](https://github.com/microsoft/vscode-cpptools) | C/C++, Rust           |
+| [**delve**](https://github.com/go-delve/delve) | Go                    |
+| [**debugpy**](https://github.com/microsoft/debugpy) | Python                |
+| [**js-debug-adapter**](https://github.com/microsoft/vscode-js-debug) | Javascript/TyptScript |
 
 ![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/91de198d-993f-437c-a5dd-5fe52091924e)
 
@@ -227,41 +169,25 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Linter       | Notes                              |
 |:------------ |:---------------------------------- |
-| [**typos**][typos]        | Source code spell checker |
-| [**golangci-lint**][golangci] | Go linters aggregator |
-| [**ruff-lsp**][ruff-lsp]     | Python Linter/Formatter |
-| [**rubocop**][rubocop]      | Ruby linter/formatter              |
-| [**vint**][vint]         | `VimScript` linter                   |
-| [**biome**][biome]        | `eslint` & `prettier` alternative |
-| [**hadolint**][hadolint]     | `Dockerfile` linter |
-| [**markdownlint**][mdlint] | `markdown` linter/formatter |
-
-[typos]:    https://github.com/crate-ci/typos
-[golangci]: https://golangci-lint.run
-[ruff-lsp]: https://github.com/astral-sh/ruff-lsp/
-[rubocop]:  https://rubocop.org
-[vint]:     https://github.com/Vimjas/vint
-[biome]:    https://github.com/biomejs/biome
-[hadolint]: https://github.com/hadolint/hadolint
-[mdlint]:   https://github.com/igorshubovych/markdownlint-cli
+| [**typos**](https://github.com/crate-ci/typos) | Source code spell checker |
+| [**golangci-lint**](https://golangci-lint.run) | Go linters aggregator |
+| [**ruff-lsp**](https://github.com/astral-sh/ruff-lsp/) | Python Linter/Formatter |
+| [**rubocop**](https://rubocop.org) | Ruby linter/formatter              |
+| [**vint**](https://github.com/Vimjas/vint) | `VimScript` linter                   |
+| [**biome**](https://github.com/biomejs/biome) | `eslint` & `prettier` alternative |
+| [**hadolint**](https://github.com/hadolint/hadolint) | `Dockerfile` linter |
+| [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
 
 ##### Formatter
 
 | Formatter     | Notes                      |
 |:------------- |:-------------------------- |
-| [**clang-format**][clang-format]  | `C++`formatter               |
-| [**jq**][jq]            | `JSON` formatter             |
-| [**yq**][yq]            | `YAML` formatter             |
-| [**sql-formatter**][sql-formatter] | `SQL` formatter              |
-| [**stylua**][stylua]        | `Lua` formatter              |
-| [**yamlfmt**][yamlfmt]       | `YAML` formatter             |
-
-[clang-format]:  https://pypi.org/project/clang-format/
-[jq]:            https://github.com/stedolan/jq
-[yq]:            https://github.com/mikefarah/yq
-[sql-formatter]: https://sql-formatter-org.github.io/sql-formatter/
-[stylua]:        https://github.com/JohnnyMorganz/StyLua
-[yamlfmt]:       https://github.com/google/yamlfmt
+| [**clang-format**](https://pypi.org/project/clang-format/) | `C++`formatter               |
+| [**jq**](https://github.com/stedolan/jq) | `JSON` formatter             |
+| [**yq**](https://github.com/mikefarah/yq) | `YAML` formatter             |
+| [**sql-formatter**](https://sql-formatter-org.github.io/sql-formatter/) | `SQL` formatter              |
+| [**stylua**](https://github.com/JohnnyMorganz/StyLua) | `Lua` formatter              |
+| [**yamlfmt**](https://github.com/google/yamlfmt) | `YAML` formatter             |
 
 ##### AI Assistant
 
@@ -271,35 +197,24 @@ Runtime version management tool
 
 `.tool-versions` used by `asdf` is deactivated to prevent confliction & confusion.
 
-global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
+global language environment predefined in [**`.chezmoidata.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/.chezmoidata.toml)
 
 | File                         | Usage           |
 |:-----------------------------|:----------------|
-| [**`~/.config/mise/settings.toml`**][mise-settings] | System settings |
-| [**`~/.config/mise/config.toml`**][mise-global]   | Global config   |
+| [**`~/.config/mise/settings.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/settings.toml.tmpl) | System settings |
+| [**`~/.config/mise/config.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/config.toml.tmpl) | Global config   |
 | `.mise.toml`                   | Local config    |
-
-[chezmoidata]:   https://github.com/MasahiroSakoda/dotfiles/blob/main/home/.chezmoidata.toml
-[mise-global]:   https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/config.toml.tmpl
-[mise-settings]: https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/settings.toml.tmpl
 
 ##### configured tools
 
 | Runtime        | Version |
 | -------------- | ------- |
-| [**`Go`**][mise-go] | latest  |
-| [**`Python`**][mise-python] | 3.12.x |
-| [**`Ruby`**][mise-ruby] | 3.4.x |
-| [**`Node.js`**][mise-node] | 22.x |
-| [**`Deno`**][mise-deno] | 2.x |
-| [**`Bun`**][mise-bun] | 1.x |
-
-[mise-go]:     https://mise.jdx.dev/lang/go.html
-[mise-python]: https://mise.jdx.dev/lang/python.html
-[mise-ruby]:   https://mise.jdx.dev/lang/ruby.html
-[mise-node]:   https://mise.jdx.dev/lang/node.html
-[mise-deno]:   https://mise.jdx.dev/lang/deno.html
-[mise-bun]:    https://mise.jdx.dev/lang/bun.html
+| [**`Go`**](https://mise.jdx.dev/lang/go.html) | latest  |
+| [**`Python`**](https://mise.jdx.dev/lang/python.html) | 3.12.x |
+| [**`Ruby`**](https://mise.jdx.dev/lang/ruby.html) | 3.4.x |
+| [**`Node.js`**](https://mise.jdx.dev/lang/node.html) | 22.x |
+| [**`Deno`**](https://mise.jdx.dev/lang/deno.html) | 2.x |
+| [**`Bun`**](https://mise.jdx.dev/lang/bun.html) | 1.x |
 
 ### Homebrew cask packages
 
@@ -307,43 +222,28 @@ global language environment predefined in [**`.chezmoidata.toml`**][chezmoidata]
 
 | Package             | Configuration files |
 |:------------------- |:------------------- |
-| [**Karabiner-Elements**][karabiner-elements]  | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
-
-[karabiner-elements]: https://karabiner-elements.pqrs.org/
+| [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/) | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
 
 #### Fonts
 
 | Package                        | Notes                           |
 |:------------------------------ |:------------------------------- |
-| [**font-jetbrains-mono-nerd-font**][jb-mono]  | Open Source Font |
-| [**font-hackgen-nerd**][hackgen] | Programming Font for Japanese   |
-| [**font-udev-gothic-nf**][udev-gothic] | BIZ UD Gothic + JetBrains Mono for Japanese |
-
-[jb-mono]:     https://www.jetbrains.com/ja-jp/lp/mono/
-[hackgen]:     https://github.com/yuru7/HackGen
-[udev-gothic]: https://github.com/yuru7/udev-gothic
+| [**font-jetbrains-mono-nerd-font**](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
+| [**font-hackgen-nerd**](https://github.com/yuru7/HackGen) | Programming Font for Japanese   |
+| [**font-udev-gothic-nf**](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono for Japanese |
 
 #### Dev packages
 
 | Package            | Category   |
 |:------------------ |:---------- |
-| [**wezterm**][wezterm] | Terminal |
-| [**Ghostty**][ghostty] | Terminal |
-| [**Visual Studio Code**][vscode] | IDE |
-| [**Docker**][docker] | Container |
-| [**TablePlus**][tableplus] | Database |
-| [**drawio**][drawio] | Diagram |
-| [**termshark**][termshark] | Network |
-| [**TunnelBear**][tunnelbear] | VPN |
-
-[wezterm]:    https://github.com/wez/wezterm
-[ghostty]:    https://github.com/ghostty-org/ghostty
-[vscode]:     https://code.visualstudio.com/
-[docker]:     https://www.docker.com/
-[tableplus]:  https://tableplus.com/
-[drawio]:     https://www.drawio.com/
-[termshark]:  https://github.com/gcla/termshark
-[tunnelbear]: https://www.tunnelbear.com/
+| [**wezterm**](https://github.com/wez/wezterm) | Terminal |
+| [**Ghostty**](https://github.com/ghostty-org/ghostty) | Terminal |
+| [**Visual Studio Code**](https://code.visualstudio.com/) | IDE |
+| [**Docker**](https://www.docker.com/) | Container |
+| [**TablePlus**](https://tableplus.com/) | Database |
+| [**drawio**](https://www.drawio.com/) | Diagram |
+| [**termshark**](https://github.com/gcla/termshark) | Network |
+| [**TunnelBear**](https://www.tunnelbear.com/) | VPN |
 
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Caskfile.tmpl)
 
