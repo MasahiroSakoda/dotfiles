@@ -8,7 +8,7 @@ Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
   go    = { "go", "gomod", "gosum", "templ", "gotempl" },
   json  = { "json",  "json5", "jsonc" },
-  js    = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
 }
 
 Filetypes.treesitter = {
@@ -21,7 +21,7 @@ Filetypes.treesitter = {
   -- Script Languages
   "perl", "php", "python", "requirements", "ruby", "lua", "luadoc", "vim", "r", "matlab",
   -- Javascript
-  "javascript", "typescript", "tsx", "vue",
+  "javascript", "typescript", "tsx", "vue", "svelte",
   "json", "json5", "jsonc", "jsdoc", "jq",
   -- Markup Languages
   "html", "css", "scss",
