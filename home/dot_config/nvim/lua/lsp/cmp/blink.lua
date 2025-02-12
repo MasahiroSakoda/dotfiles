@@ -36,7 +36,7 @@ blink.setup({
   sources = {
     default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "codecompanion" },
     providers = {
-      lsp      = { min_keyword_length = 2 },
+      lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
       path     = { min_keyword_length = 0 },
       buffer   = { min_keyword_length = 5 },
       snippets = { min_keyword_length = 2 },
