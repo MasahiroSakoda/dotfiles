@@ -33,6 +33,8 @@ blink.setup({
     kind_icons = require("lspkind").presets,
   },
 
+  signature = { enabled = true }, -- Experimental option
+
   sources = {
     default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "codecompanion" },
 
