@@ -4,4 +4,5 @@ if not ok then return end
 
 rm.setup({
   file_types   = { "markdown", "vimwiki", "codecompanion" },
+  render_modes = { "n", "c", "t" },
 })
