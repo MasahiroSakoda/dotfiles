@@ -61,12 +61,5 @@ lualine.setup {
   },
   tabline = {},
   winbar  = {},
-  extensions = {
-    "quickfix",
-    "overseer",
-    "trouble",
-    "oil",
-    "fzf",
-    "mason",
-  },
+  extensions = { "quickfix", "overseer", "trouble", "oil", "mason" },
 }
