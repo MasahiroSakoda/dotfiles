@@ -9,7 +9,11 @@ return {
       "nvim-treesitter/nvim-treesitter",
 
       -- Optional plugins
-      { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "vimwiki", "codecompanion" },
+        config = require("user.render-markdown"),
+      },
     },
     cond = not vim.g.vscode,
     cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionAdd", "CodeCompanionChat", "CodeCompanionToggle" },
