@@ -4,6 +4,15 @@ if not (lualine_ok or overseer_ok) then return end
 
 local ignore = require("core.ignore")
 
+local show_macro_recording = function()
+  local register = vim.fn.reg_recording()
+  if register == "" then
+    return ""
+  else
+    return "Recording @" .. register
+  end
+end
+
 lualine.setup {
   options = {
     icons_enabled = true,
@@ -13,10 +22,7 @@ lualine.setup {
     -- Separator
     component_separators = { left = "", right = "" },
     section_separators   = { left = "", right = "" },
-    disabled_filetypes = {
-      statusline = ignore.lualine.statusline,
-      winbar = ignore.lualine.winbar,
-    },
+    disabled_filetypes   = { statusline = ignore.lualine.statusline, winbar = ignore.lualine.winbar },
     ignore_focus = {},
     always_divide_middle = true,
     globalstatus = true,
@@ -39,6 +45,7 @@ lualine.setup {
     },
     lualine_x = {
       { require("ui.lualine-codecompanion") },
+      { "macro-recording", fmt = show_macro_recording },
       {
         "overseer",
         label = "",     -- Prefix for task counts
