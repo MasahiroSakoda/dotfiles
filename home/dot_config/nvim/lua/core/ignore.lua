@@ -11,7 +11,7 @@ return {
   illuminate = { "alpha", "lazy", "oil", "fzf", "toggleterm", "Trouble" },
 
   lualine = {
-    statusline = { "alpha", "dashboard", "lazy", "lspsagaoutline" },
+    statusline = { "alpha", "dashboard", "lazy" },
     winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
   },
   flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
