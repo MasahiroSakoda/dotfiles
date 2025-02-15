@@ -232,20 +232,21 @@ end
 ---------------------------------------------------------------------------
 wk.add({
   { "K", "<NOP" },
-  { "<Leader>P", "<CMD>Lazy<CR>",                        icon = " ", desc = "Open lazy.nvim Window" },
-  { "<Leader>M", "<CMD>Mason<CR>",                       icon = " ", desc = "Open mason.nvim Window" },
-  { "g[",  "<CMD>Lspsaga diagnostic_jump_prev<CR>",      icon = " ", desc = "Go to prev diagnostics" },
-  { "g]",  "<CMD>Lspsaga diagnostic_jump_next<CR>",      icon = " ", desc = "Go to next diagnostics" },
-  { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
-  { "go",  "<CMD>Lspsaga outline<CR>",                   icon = " ", desc = "Code outline" },
-  { "gn",  "<CMD>Lspsaga rename<CR>",                    icon = " ", desc = "Rename" },
-  { "gci", "<CMD>Lspsaga incoming_calls<CR>",            icon = " ", desc = "Call incoming hierarchy" },
-  { "gco", "<CMD>Lspsaga outcoming_calls<CR>",           icon = " ", desc = "Call outcoming hierarchy" },
-
-  { "ga", "<CMD>Lspsaga code_action<CR>", mode = nv, icon = " ", desc = "Code Action" },
+  { "<Leader>P",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
+  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = "Open mason.nvim Window" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>li", "<CMD>LspInfo<CR>",                             icon = " ", desc = "Display LSP Info" },
+  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = "Display LSP Info" },
+
+  { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
+  { "g[",  "<CMD>lua vim.lsp.diagnostic.go_prev()<CR>",  icon = " ", desc = "Go to prev diagnostics" },
+  { "g]",  "<CMD>lua vim.lsp.diagnostic.go_next()<CR>",  icon = " ", desc = "Go to next diagnostics" },
+  { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
+  { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
+  { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
+
+  { "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", mode = nv, icon = " ", desc = "Code Action" },
+
 }, opts)
 
 ---------------------------------------------------------------------------

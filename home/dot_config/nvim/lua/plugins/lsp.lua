@@ -18,14 +18,6 @@ return {
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
-  -- Rich GUI for LSP
-  {
-    "nvimdev/lspsaga.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
-    cond   = not vim.g.vscode,
-    event  = "LspAttach",
-    config = function() require("lsp.config.lspsaga") end,
-  },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
