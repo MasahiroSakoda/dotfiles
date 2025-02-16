@@ -13,9 +13,8 @@ blink.setup({
     ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
     ["<CR>"]      = { "accept", "fallback" },
 
-    ["<Tab>"]   = { function(cmp) return cmp.select_next() end, "snippet_forward",  "fallback" },
-    ["<S-Tab>"] = { function(cmp) return cmp.select_prev() end, "snippet_backward", "fallback" },
-
+    ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
+    ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     ["<Up>"]    = { "select_prev", "fallback" },
     ["<Down>"]  = { "select_next", "fallback" },
     ["<C-p>"]   = { "select_prev", "fallback" },
@@ -59,6 +58,7 @@ blink.setup({
       ["<C-c>"]   = { "cancel", "fallback" },
       ["<Left>"]  = { "hide",   "fallback" },
       ["<Right>"] = { "select_and_accept" },
+
       ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
     },
     sources = function()
