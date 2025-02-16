@@ -33,13 +33,13 @@ codecompanion.setup({
   strategies = {
     chat   = { adapter = "ollama" },
     slash_commands = {
-      ["buffer"]   = { opts = { provider = "fzf_lua" } },
+      ["buffer"]   = { opts = { provider = "snacks" } },
       ["fetch"]    = { opts = {} },
-      ["file"]     = { opts = { provider = "fzf_lua" } },
-      ["files"]    = { opts = { provider = "fzf_lua" } },
-      ["help"]     = { opts = { provider = "fzf_lua" } },
+      ["file"]     = { opts = { provider = "snacks" } },
+      ["files"]    = { opts = { provider = "snacks" } },
+      ["help"]     = { opts = { provider = "snacks" } },
       ["now"]      = { opts = {} },
-      ["symbols"]  = { opts = { provider = "fzf_lua" } },
+      ["symbols"]  = { opts = { provider = "snacks" } },
       ["terminal"] = { opts = {} },
     },
     inline = { adapter = "ollama" },
