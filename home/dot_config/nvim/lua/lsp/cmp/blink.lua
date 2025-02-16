@@ -59,6 +59,9 @@ blink.setup({
       ["<Left>"]  = { "hide",   "fallback" },
       ["<Right>"] = { "select_and_accept" },
 
+      ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+
       ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
     },
     sources = function()
