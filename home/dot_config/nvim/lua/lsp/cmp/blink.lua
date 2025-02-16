@@ -13,9 +13,8 @@ blink.setup({
     ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
     ["<CR>"]      = { "accept", "fallback" },
 
-    ["<Tab>"]   = { function(cmp) return cmp.select_next() end, "snippet_forward",  "fallback" },
-    ["<S-Tab>"] = { function(cmp) return cmp.select_prev() end, "snippet_backward", "fallback" },
-
+    ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
+    ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
     ["<Up>"]    = { "select_prev", "fallback" },
     ["<Down>"]  = { "select_next", "fallback" },
     ["<C-p>"]   = { "select_prev", "fallback" },
@@ -38,13 +37,6 @@ blink.setup({
   sources = {
     default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "codecompanion" },
 
-    cmdline  = function()
-      local type = vim.fn.getcmdtype()
-      if type == "/" or type == "?" then return { "buffer" } end
-      if type == ":" or type == "@" then return { "cmdline" } end
-      return {}
-    end,
-
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
       path     = { min_keyword_length = 0 },
@@ -56,6 +48,28 @@ blink.setup({
       markdown      = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
       codecompanion = { name = "CodeCompanion",  module = "codecompanion.providers.completion.blink" },
     },
+  },
+
+  cmdline = {
+    keymap = {
+      preset = "default",
+      ["<C-e>"]   = { "hide",   "fallback" },
+      ["<CR>"]    = { "accept", "fallback" },
+      ["<C-c>"]   = { "cancel", "fallback" },
+      ["<Left>"]  = { "hide",   "fallback" },
+      ["<Right>"] = { "select_and_accept" },
+
+      ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+
+      ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
+    },
+    sources = function()
+      local type = vim.fn.getcmdtype()
+      if type == "/" or type == "?" then return { "buffer" } end
+      if type == ":" or type == "@" then return { "cmdline" } end
+      return {}
+    end,
   },
 
   snippets = { preset = "luasnip" },
