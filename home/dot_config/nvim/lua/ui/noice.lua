@@ -56,21 +56,14 @@ noice.setup({
     -- Hide written messages
     -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#hide-written-messages
     {
-      filter  = {
-        event = "msg_show",
-        kind  = "",
-        find  = "written",
-      },
-      opts = { skip = true },
+      filter = { event = "msg_show", kind  = "", find  = "written" },
+      opts   = { skip = true },
     },
     -- Hide Search Virtaual Text
     -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#hide-search-virtual-text
     {
-      filter  = {
-        event = "msg_show",
-        kind  = "search_count",
-      },
-      opts = { skip = true },
+      filter = { event = "msg_show", kind  = "search_count" },
+      opts   = { skip = true },
     },
   },
 
@@ -88,6 +81,9 @@ noice.setup({
     },
     win_options = {
       winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+    },
+    notiify = {
+      backend = { "snacks", "notify" },
     },
   },
 })
