@@ -66,22 +66,6 @@ autocmd({ "BufRead", "BufNewFile" }, {
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
-autocmd({ "RecordingEnter" }, {
-  desc     = "Notify macrorecoding start",
-  callback = function(_)
-    local msg = string.format("Key:  %s", vim.fn.reg_recording())
-    vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording" })
-  end,
-})
-
-autocmd({ "RecordingLeave" }, {
-  desc     = "Notify macrorecoding stop",
-  callback = function()
-    local msg = string.format("Key:  %s", vim.fn.reg_recording())
-    vim.notify(msg, vim.log.levels.INFO, { title = "Macro Recording Ended" })
-  end,
-})
-
 local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
 autocmd({ "VimResized" }, {
   group   = wr_group,
