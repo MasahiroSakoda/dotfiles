@@ -14,10 +14,10 @@ treesitter.setup({
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection    = "<C-Space>",
-      node_incremental  = "<C-Space>",
-      node_decremental  = "<M-S>",
-      scope_incremental = "<C-s>>",
+      init_selection    = "gss",
+      node_incremental  = "gsi",
+      node_decremental  = "gsd",
+      scope_incremental = "gsc",
     },
   },
   autopairs = enable,
