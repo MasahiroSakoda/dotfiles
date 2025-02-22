@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@class snacks.dashboard.Config
 return {
   row = nil, -- dashboard position. nil for center
   col = nil, -- dashboard position. nil for center

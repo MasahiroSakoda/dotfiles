@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@class snacks.zen.Config
 return {
   enabled = true,
   toggles = {
