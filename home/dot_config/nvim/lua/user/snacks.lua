@@ -9,6 +9,7 @@ snacks.setup({
   indent       = require("user.indent"),
   toggle       = require("user.toggle"),
   dashboard    = require("ui.dashboard"),
+  dim          = require("ui.dim"),
   input        = require("ui.input"),
   explorer     = require("ui.explorer"),
   picker       = require("ui.picker"),
