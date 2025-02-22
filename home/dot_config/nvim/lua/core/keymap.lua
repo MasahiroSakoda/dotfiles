@@ -291,7 +291,7 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
-  { "<Leader>gg", "<CMD>lua Snacks.terminal({'lazygit'})<CR>",    mode = nt, icon = " ", desc = "Toggle lazygit" },
+  { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>",                mode = nt, icon = " ", desc = "Toggle lazygit" },
   { "<Leader>gh", "<CMD>lua Snacks.terminal({'gh', 'dash'})<CR>", mode = nt, icon = " ", desc = "Toggle gh dash" },
 }, opts)
 
