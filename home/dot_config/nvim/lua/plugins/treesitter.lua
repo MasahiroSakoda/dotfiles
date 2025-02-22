@@ -5,15 +5,10 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        init = function() require("user.treesitter.textobjects") end,
-      },
-      -- { "RRethy/nvim-treesitter-textsubjects" },
+      { "nvim-treesitter/nvim-treesitter-textobjects", config = function() require"user.treesitter.textobjects" end },
+      { "RRethy/nvim-treesitter-textsubjects",         config = function() require"user.treesitter.textsubjects" end },
     },
-    build  = function()
-      if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end
-    end,
+    build  = function() if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end end,
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter") end,
   },
