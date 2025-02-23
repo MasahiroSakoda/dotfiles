@@ -362,6 +362,7 @@ if not is_vscode then
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                   icon = " ", desc = "Toggle File Explorer"},
+    { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",        icon = " ", desc = "Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",        icon = " ", desc = "Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt, icon = " ", desc = "Toggle Terminal" },
     { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt, icon = " ", desc = "Toggle btm w/ terminal" },
