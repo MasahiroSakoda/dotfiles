@@ -11,6 +11,7 @@ snacks.setup({
   dashboard    = require("ui.dashboard"),
   dim          = require("ui.dim"),
   input        = require("ui.input"),
+  image        = require("ui.image"),
   explorer     = require("ui.explorer"),
   picker       = require("ui.picker"),
   notifier     = require("ui.notifier"),
