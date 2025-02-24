@@ -176,7 +176,7 @@ if not is_vscode then
 
     -- Builtin
     { "<Leader>ff", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = "Frecency Search" },
-    { "<Leader>fr", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = "Resume Prev Picker" },
+    { "<Leader>f.", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = "Resume Prev Picker" },
     { "<Leader>fk", "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = "Keymaps" },
     { "<Leader>fb", "<CMD>lua Snacks.picker.buffers()<CR>",  icon = " ", desc = "Buffers" },
     { "<Leader>fc", "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = "Commands" },
@@ -194,7 +194,7 @@ if not is_vscode then
     { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",      icon = " ", desc = "Help" },
     { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",    icon = " ", desc = "Quickfix list" },
     { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",  icon = " ", desc = "autocmds list" },
-    { "<Leader>fR", "<CMD>lua Snacks.picker.registers()<CR>", icon = " ", desc = "Register list" },
+    { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>", icon = " ", desc = "Register list" },
     { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",      icon = " ", desc = "Undo Tree" },
 
     -- Git
@@ -291,7 +291,7 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
-  { "<Leader>gg", "<CMD>lua Snacks.terminal({'lazygit'})<CR>",    mode = nt, icon = " ", desc = "Toggle lazygit" },
+  { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>",                mode = nt, icon = " ", desc = "Toggle lazygit" },
   { "<Leader>gh", "<CMD>lua Snacks.terminal({'gh', 'dash'})<CR>", mode = nt, icon = " ", desc = "Toggle gh dash" },
 }, opts)
 
@@ -361,10 +361,10 @@ if not is_vscode then
     { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
-    { ",t", "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = "Toggle Terminal" },
-
-    { ",f", "<CMD>lua Snacks.explorer()<CR>", icon = " ", desc = "Toggle File Explorer"},
-    { ",z", "<CMD>lua Snacks.zen.zoom()<CR>", icon = " ", desc = "Toggle Zoom"},
-    { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt, icon = " ", desc = "Toggle btm" },
+    { ",f", "<CMD>lua Snacks.explorer()<CR>",                   icon = " ", desc = "Toggle File Explorer"},
+    { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",        icon = " ", desc = "Toggle Dim mode"},
+    { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",        icon = " ", desc = "Toggle Zen mode"},
+    { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt, icon = " ", desc = "Toggle Terminal" },
+    { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt, icon = " ", desc = "Toggle btm w/ terminal" },
   }, opts)
 end
