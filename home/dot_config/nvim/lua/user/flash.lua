@@ -10,7 +10,7 @@ flash.setup({
     multi_window = false,
   },
   jump  = { autojump = true },
-  label = { uppercase = false },
+  label = { uppercase = false, rainbow = { enabled = false } },
   highlight = {},
   pattern  = "",
   continue = false,
