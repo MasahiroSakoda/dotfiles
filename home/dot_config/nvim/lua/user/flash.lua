@@ -2,14 +2,15 @@
 local ok, flash = pcall(require, "flash")
 if not ok then return end
 
+---@type Flash.Config
 flash.setup({
   labels = "hjklasdfgyuiopqwertnmzxcvb",
   search = {
     -- search/jump in all windows
     multi_window = false,
   },
-  jump = {},
-  label = {},
+  jump  = { autojump = true },
+  label = { uppercase = false, rainbow = { enabled = false } },
   highlight = {},
   pattern  = "",
   continue = false,
