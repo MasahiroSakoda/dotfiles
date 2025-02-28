@@ -2,8 +2,6 @@
 local ok, codecompanion = pcall(require, "codecompanion")
 if not ok then return end
 
-vim.g.local_llm = "dolphin3:latest"
-
 codecompanion.setup({
   opts = {
     log_level = "TRACE",   ---@type "DEBUG"|"TRACE"
