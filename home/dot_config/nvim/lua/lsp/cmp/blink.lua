@@ -51,6 +51,7 @@ blink.setup({
   },
 
   cmdline = {
+    enabled = true,
     keymap = {
       preset = "default",
       ["<C-e>"]   = { "hide",   "fallback" },
