@@ -51,6 +51,7 @@ blink.setup({
   },
 
   cmdline = {
+    enabled = true,
     keymap = {
       preset = "default",
       ["<C-e>"]   = { "hide",   "fallback" },
@@ -64,12 +65,7 @@ blink.setup({
 
       ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
     },
-    sources = function()
-      local type = vim.fn.getcmdtype()
-      if type == "/" or type == "?" then return { "buffer" } end
-      if type == ":" or type == "@" then return { "cmdline" } end
-      return {}
-    end,
+    sources = {},
   },
 
   snippets = { preset = "luasnip" },
