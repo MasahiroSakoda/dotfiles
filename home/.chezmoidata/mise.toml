@@ -1,5 +1,8 @@
 # -*-mode:toml-*- vim:ft=toml
 
+# Runtime
+
+## Node.js
 [mise.node]
 enabled  = true
 versions = ["22"]
@@ -16,18 +19,26 @@ versions = ["2"]
 enabled  = false
 versions = ["1"]
 
+## Go
 [mise.go]
 enabled  = true
 versions = ["latest"]
 
+## Python
 [mise.python]
 enabled  = true
 versions = ["3.13"]
 
+[mise.uv]
+enabled = true
+versions = ["latest"]
+
+## Ruby
 [mise.ruby]
 enabled  = true
 versions = ["3.4"]
 
+## Usage
 [mise.usage]
 enabled  =  true
 versions = ["latest"]
