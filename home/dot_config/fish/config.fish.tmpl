@@ -49,6 +49,9 @@ set -x GREP_OPTIONS "--color=always"
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
 
+# Keybinds
+bind ctrl-alt-h backward-kill-word
+
 # Fish abbreviations
 abbr -a -- cl "clear"
 abbr -a -- x  "exit"
