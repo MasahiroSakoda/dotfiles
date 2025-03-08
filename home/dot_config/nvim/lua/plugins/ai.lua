@@ -16,7 +16,15 @@ return {
       },
     },
     cond = not vim.g.vscode,
-    cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionAdd", "CodeCompanionChat", "CodeCompanionToggle" },
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionActions",
+      "CodeCompanionAdd",
+      "CodeCompanionChat",
+      "CodeCompanionToggle",
+      "CodeCompanionHistorySave",
+      "CodeCompanionHistoryLoad",
+    },
     config = function() require("ai.codecompanion") end,
   },
 }

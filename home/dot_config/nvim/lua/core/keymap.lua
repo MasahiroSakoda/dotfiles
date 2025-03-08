@@ -330,6 +330,10 @@ if not is_vscode then
     { "<Leader>cri", "<CMD>CodeCompanion /refinline<CR>", mode = "v", icon = " ", desc = "Refactor inline" },
     { "<Leader>cR",  "<CMD>CodeCompanion /review<CR>",    mode = "v", icon = " ", desc = "Review code in buffer" },
     { "<Leader>cg",  "<CMD>CodeCompanion /grammar<CR>",   mode = "v", icon = " ", desc = "Correct Grammar" },
+
+    -- Other command
+    { "<Leader>chs", "<CMD>CodeCompanionHistorySave<CR>", mode = nv, icon = " ", desc = "Save chat history" },
+    { "<Leader>chl", "<CMD>CodeCompanionHistoryLoad<CR>", mode = nv, icon = " ", desc = "Load chat history" },
   }, opts)
 end
 
