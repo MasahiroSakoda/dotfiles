@@ -53,7 +53,6 @@ blink.setup({
   cmdline = {
     enabled = true,
     keymap = { preset = "cmdline" },
-    sources = {},
   },
 
   snippets = { preset = "luasnip" },
