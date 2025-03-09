@@ -52,19 +52,7 @@ blink.setup({
 
   cmdline = {
     enabled = true,
-    keymap = {
-      preset = "default",
-      ["<C-e>"]   = { "hide",   "fallback" },
-      ["<CR>"]    = { "accept", "fallback" },
-      ["<C-c>"]   = { "cancel", "fallback" },
-      ["<Left>"]  = { "hide",   "fallback" },
-      ["<Right>"] = { "select_and_accept" },
-
-      ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
-      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-
-      ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
-    },
+    keymap = { preset = "cmdline" },
     sources = {},
   },
 
