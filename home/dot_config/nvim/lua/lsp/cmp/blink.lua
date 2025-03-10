@@ -38,6 +38,7 @@ blink.setup({
     },
   },
 
+  ---@see https://cmp.saghen.dev/modes/cmdline.html
   cmdline = {
     enabled = true,
     keymap = {
