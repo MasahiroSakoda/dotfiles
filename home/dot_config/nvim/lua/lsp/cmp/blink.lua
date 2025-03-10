@@ -40,7 +40,11 @@ blink.setup({
 
   cmdline = {
     enabled = true,
-    keymap = { preset = "cmdline" },
+    keymap = {
+      preset = "cmdline",
+      ["<Left>"]  = { "hide", "fallback" },
+      ["<Right>"] = { "select_and_accept", "fallback" },
+    },
     completion = {
       menu = {
         auto_show = true,
