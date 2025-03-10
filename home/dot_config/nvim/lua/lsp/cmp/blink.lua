@@ -53,6 +53,17 @@ blink.setup({
   cmdline = {
     enabled = true,
     keymap = { preset = "cmdline" },
+    completion = {
+      menu = {
+        auto_show = true,
+        draw = {
+          columns = {
+            { "kind_icon", "label", gap = 1 },
+            { "kind" },
+          },
+        },
+      },
+    },
   },
 
   snippets = { preset = "luasnip" },
