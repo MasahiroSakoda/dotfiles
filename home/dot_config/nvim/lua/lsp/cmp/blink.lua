@@ -7,21 +7,9 @@ if not ok then return end
 blink.setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
-    -- preset = "default",
-    ["<C-e>"]     = { "hide", "fallback" },
-    ["<C-c>"]     = { "cancel", "fallback" },
-    ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-    ["<CR>"]      = { "accept", "fallback" },
-
-    ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
-    ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-    ["<Up>"]    = { "select_prev", "fallback" },
-    ["<Down>"]  = { "select_next", "fallback" },
-    ["<C-p>"]   = { "select_prev", "fallback" },
-    ["<C-n>"]   = { "select_next", "fallback" },
-
-    ["<C-f>"]   = { "scroll_documentation_up",   "fallback" },
-    ["<C-b>"]   = { "scroll_documentation_down", "fallback" },
+    preset = "super-tab",
+    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
+    ["<C-c>"]   = { "cancel", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
     ["<Right>"] = { "select_and_accept" },
   },
@@ -87,6 +75,7 @@ blink.setup({
       },
     },
     trigger = {
+      show_in_snippet = false,
       show_on_insert_on_trigger_character = false,
       show_on_accept_on_trigger_character = false,
     },
