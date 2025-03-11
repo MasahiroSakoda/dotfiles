@@ -1,12 +1,13 @@
 ---------------------------------------------------------------------------
 -- Binding Rules:
 -- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, s: Split
--- LSP keymap:   `<Leader> + l`
--- DAP keymap:   `<Leader> + d`
--- Git Keymap:   `<Leader> + g`
--- Fuzzy Finder: `<Leader> + f`
--- Task Runner:  `<Leader> + o`
--- Toggle keymap `,`
+-- LSP keymap:    `<Leader> + l`
+-- DAP keymap:    `<Leader> + d`
+-- Git Keymap:    `<Leader> + g`
+-- Fuzzy Finder:  `<Leader> + f`
+-- Task Runner:   `<Leader> + o`
+-- File Explorer: `<Leader> + e`
+-- Toggle keymap  `,`
 ---------------------------------------------------------------------------
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
