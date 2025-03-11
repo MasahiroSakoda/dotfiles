@@ -90,21 +90,23 @@ wk.add({
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
 wk.add({
-  { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
+  -- { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
+  -- { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
 
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
-  { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
-  { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
+  { "]b",         "<CMD>BufferLineCycleNext<CR>",          icon = " ", desc = "Next buffer" },
+  { "[b",         "<CMD>BufferLineCyclePrev<CR>",          icon = " ", desc = "Prev buffer" },
+  { "]B",         "<CMD>BufferLineMoveNext<CR>",           icon = " ", desc = "Move to next buffer" },
+  { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = "Move to prev buffer" },
+  { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
-  { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
-  { "]t", "<CMD>tabnext<CR>",     icon = " ", desc = "Move to next tab" },
-  { "[1", "<CMD>tabfirst<CR>",    icon = " ", desc = "Move to First tab" },
-  { "]9", "<CMD>tablast<CR>",     icon = " ", desc = "Move to Last tab" },
+  { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
+  { "]t", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
+  { "[1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
+  { "]9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
 
   -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
