@@ -7,23 +7,12 @@ if not ok then return end
 blink.setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
-    -- preset = "default",
-    ["<C-e>"]     = { "hide", "fallback" },
-    ["<C-c>"]     = { "cancel", "fallback" },
-    ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-    ["<CR>"]      = { "accept", "fallback" },
-
-    ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
-    ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-    ["<Up>"]    = { "select_prev", "fallback" },
-    ["<Down>"]  = { "select_next", "fallback" },
-    ["<C-p>"]   = { "select_prev", "fallback" },
-    ["<C-n>"]   = { "select_next", "fallback" },
-
-    ["<C-f>"]   = { "scroll_documentation_up",   "fallback" },
-    ["<C-b>"]   = { "scroll_documentation_down", "fallback" },
+    preset = "super-tab",
+    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
+    ["<C-c>"]   = { "cancel", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
-    ["<Right>"] = { "select_and_accept" },
+    ["<Right>"] = { "select_and_accept", "fallback" },
+    ["<CR>"]    = { "select_and_accept" },
   },
 
   appearance = {
@@ -50,22 +39,39 @@ blink.setup({
     },
   },
 
+  ---@see https://cmp.saghen.dev/modes/cmdline.html
   cmdline = {
     enabled = true,
     keymap = {
-      preset = "default",
-      ["<C-e>"]   = { "hide",   "fallback" },
-      ["<CR>"]    = { "accept", "fallback" },
-      ["<C-c>"]   = { "cancel", "fallback" },
-      ["<Left>"]  = { "hide",   "fallback" },
-      ["<Right>"] = { "select_and_accept" },
-
-      ["<Tab>"]   = { "select_next", "snippet_forward",  "fallback" },
-      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-
-      ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
+      preset = "cmdline",
+      ["<Left>"]  = { "hide", "fallback" },
+      ["<Right>"] = { "select_and_accept", "fallback" },
     },
-    sources = {},
+    completion = {
+      menu = {
+        auto_show = true,
+        draw = {
+          columns = {
+            { "kind_icon", "label", gap = 1 },
+            { "kind" },
+          },
+        },
+      },
+    },
+  },
+
+  -- TODO: Enable terminal completion & configure keymap after proper release
+  term = {
+    enabled = false,
+    keymap  = { preset = "none" },
+    sources = { "path", "buffer" },
+    completion = {
+      list = {
+        selection = { preselect   = false, auto_insert = false },
+      },
+      menu       = { auto_show = false },
+      ghost_text = { enabled   = true }
+    },
   },
 
   snippets = { preset = "luasnip" },
@@ -89,6 +95,7 @@ blink.setup({
       },
     },
     trigger = {
+      show_in_snippet = false,
       show_on_insert_on_trigger_character = false,
       show_on_accept_on_trigger_character = false,
     },
