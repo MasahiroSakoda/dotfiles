@@ -239,8 +239,8 @@ wk.add({
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = "Display LSP Info" },
 
   { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
-  { "g[",  "<CMD>lua vim.lsp.diagnostic.go_prev()<CR>",  icon = " ", desc = "Go to prev diagnostics" },
-  { "g]",  "<CMD>lua vim.lsp.diagnostic.go_next()<CR>",  icon = " ", desc = "Go to next diagnostics" },
+  { "g[",  "<CMD>lua vim.diagnostic.goto_prev()<CR>",    icon = " ", desc = "Go to prev diagnostics" },
+  { "g]",  "<CMD>lua vim.diagnostic.goto_next()<CR>",    icon = " ", desc = "Go to next diagnostics" },
   { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
