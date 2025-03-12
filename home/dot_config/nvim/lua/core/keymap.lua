@@ -236,7 +236,7 @@ end
 wk.add({
   { "J", "<NOP>" },
   { "K", "<NOP>" },
-  { "<Leader>P",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
+  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
   { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = "Open mason.nvim Window" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
