@@ -3,6 +3,7 @@
 return {
   -- LSP
   clangd        = require("lsp.servers.clangd"),        -- C/C++, ObjC, Swift, Rust
+  glsl_analyzer = require("lsp.servers.glsl_analyzer"), -- GLSL
   gopls         = require("lsp.servers.gopls"),         -- Go
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust
   bashls        = require("lsp.servers.bashls"),        -- bash
