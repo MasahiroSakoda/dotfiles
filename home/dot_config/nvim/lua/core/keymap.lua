@@ -1,12 +1,13 @@
 ---------------------------------------------------------------------------
 -- Binding Rules:
 -- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, s: Split
--- LSP keymap:   `<Leader> + l`
--- DAP keymap:   `<Leader> + d`
--- Git Keymap:   `<Leader> + g`
--- Fuzzy Finder: `<Leader> + f`
--- Task Runner:  `<Leader> + o`
--- Toggle keymap `,`
+-- LSP keymap:    `<Leader> + l`
+-- DAP keymap:    `<Leader> + d`
+-- Git Keymap:    `<Leader> + g`
+-- Fuzzy Finder:  `<Leader> + f`
+-- Task Runner:   `<Leader> + o`
+-- File Explorer: `<Leader> + e`
+-- Toggle keymap  `,`
 ---------------------------------------------------------------------------
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
@@ -90,21 +91,23 @@ wk.add({
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
 wk.add({
-  { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
+  -- { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
+  -- { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
 
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
-  { "<Leader>bn", "<CMD>BufferLineCycleNext<CR>", icon = " ", desc = "Move to next buffer" },
-  { "<Leader>bp", "<CMD>BufferLineCyclePrev<CR>", icon = " ", desc = "Move to prev buffer" },
-  { "<Leader>bdc", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
-  { "<Leader>bdo", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
+  { "]b",         "<CMD>BufferLineCycleNext<CR>",          icon = " ", desc = "Next buffer" },
+  { "[b",         "<CMD>BufferLineCyclePrev<CR>",          icon = " ", desc = "Prev buffer" },
+  { "]B",         "<CMD>BufferLineMoveNext<CR>",           icon = " ", desc = "Move to next buffer" },
+  { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = "Move to prev buffer" },
+  { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
+  { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
 
   -- Tab Navigation
-  { "[t", "<CMD>tabprevious<CR>", icon = " ", desc = "Move to prev tab" },
-  { "]t", "<CMD>tabnext<CR>",     icon = " ", desc = "Move to next tab" },
-  { "[1", "<CMD>tabfirst<CR>",    icon = " ", desc = "Move to First tab" },
-  { "]9", "<CMD>tablast<CR>",     icon = " ", desc = "Move to Last tab" },
+  { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
+  { "]t", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
+  { "[1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
+  { "]9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
 
   -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
@@ -231,16 +234,17 @@ end
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
-  { "K", "<NOP" },
-  { "<Leader>P",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
+  { "J", "<NOP>" },
+  { "K", "<NOP>" },
+  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
   { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = "Open mason.nvim Window" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = "Display LSP Info" },
 
   { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
-  { "g[",  "<CMD>lua vim.lsp.diagnostic.go_prev()<CR>",  icon = " ", desc = "Go to prev diagnostics" },
-  { "g]",  "<CMD>lua vim.lsp.diagnostic.go_next()<CR>",  icon = " ", desc = "Go to next diagnostics" },
+  { "g[",  "<CMD>lua vim.diagnostic.goto_prev()<CR>",    icon = " ", desc = "Go to prev diagnostics" },
+  { "g]",  "<CMD>lua vim.diagnostic.goto_next()<CR>",    icon = " ", desc = "Go to next diagnostics" },
   { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },

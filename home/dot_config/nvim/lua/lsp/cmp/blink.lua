@@ -12,7 +12,7 @@ blink.setup({
     ["<C-c>"]   = { "cancel", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
     ["<Right>"] = { "select_and_accept", "fallback" },
-    ["<CR>"]    = { "select_and_accept" },
+    -- ["<CR>"]    = { "select_and_accept" },
   },
 
   appearance = {
