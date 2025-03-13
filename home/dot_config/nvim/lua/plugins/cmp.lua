@@ -32,8 +32,8 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load({
         override_priority = 1000,
       })
-      require("luasnip.loaders.from_lua").load({
-        paths = {vim.fn.stdpath("config") .. "lua/snippets" },
+      require("luasnip.loaders.from_lua").lazy_load({
+        paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
         override_priority = 2000,
       })
     end,
