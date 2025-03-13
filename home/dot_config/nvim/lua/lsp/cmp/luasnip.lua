@@ -37,3 +37,17 @@ luasnip.config.set_config({
     python = { "ipynb" },
   })
 })
+
+vim.api.nvim_create_user_command("LuaSnipBrowse", function()
+  local snippets, entries = luasnip.available(), {}
+  for category, lists in pairs(snippets) do
+    if type(lists) ~= "table" then return end
+    for _, snippet in ipairs(lists) do
+      local desc = snippet.description[1] or ""
+      local entry = string.format("[%s] %s - %s: %s", category, snippet.trigger, snippet.name, desc)
+      table.insert(entries, { text = entry })
+    end
+  end
+
+  Snacks.picker.pick({ items = entries, soruce = "snippets", format = "text", preview = "none" })
+end, { desc = "", nargs = "*", bang = true })
