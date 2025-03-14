@@ -44,7 +44,7 @@ vim.api.nvim_create_user_command("LuaSnipBrowse", function()
     if type(lists) ~= "table" then return end
     for _, snippet in ipairs(lists) do
       local desc = snippet.description[1] or ""
-      local entry = string.format("[%s] %s - %s: %s", category, snippet.trigger, snippet.name, desc)
+      local entry = string.format("[%s] %-06s - %s: %s", category, snippet.trigger, snippet.name, desc)
       table.insert(entries, { text = entry })
     end
   end
