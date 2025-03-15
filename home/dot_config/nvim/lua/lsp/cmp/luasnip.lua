@@ -1,6 +1,8 @@
 local ok, luasnip = pcall(require, "luasnip")
 if not ok then return end
 
+local types = require("luasnip.util.types")
+
 luasnip.filetype_extend("c",      { "cdoc" })
 luasnip.filetype_extend("cpp",    { "cppdoc" })
 luasnip.filetype_extend("rust",   { "rustdoc" })
@@ -26,6 +28,15 @@ luasnip.config.setup({
   enable_autosnippets = true,
 
   ft_func = require("luasnip.extras.filetype_functions").from_cursor,
+
+  ext_opts = {
+    [types.insertNode] = {
+      active    = { virt_text = { { "●", "GruvboxBlue"  } },  hl_mode = "combine" },
+    },
+    [types.choiceNode] = {
+      active    = { virt_text = { { "●", "GruvboxOrange" } }, hl_mode = "combine" },
+    },
+  },
 
   -- extend filetypes
   load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
