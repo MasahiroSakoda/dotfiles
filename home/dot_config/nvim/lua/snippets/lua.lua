@@ -31,14 +31,14 @@ local snippets = {
     ]], { i(1, "-- Snippets goes here") })
   ),
   -- single line snippet
-  s("snip", fmt('s("{}", fmt("{}", {{ i({}) }})),', { i(1), i(2), i(3) })),
+  s("snip", fmt('s("{}", fmt(\'{}\', {{ i(1, "{}") }})),', { i(1, "trigger"), i(2, "snip"), i(3, "name") })),
   -- multiline snippet
   s("SNIP", fmt([=[
     s("{}", fmt([[
         {}
       ]], {{ {}, {} }})
-    )
-    ]=], { i(1, "name"), i(2, "body"), i(3, "node"), i(0, "") })
+    ),
+    ]=], { i(1, "trigger"), i(2, "snip"), i(3, "node"), i(0, "") })
   ),
 
   s("fn",  fmt('function({})\n\t{}\nend\n',            { i(1, "parameter"), i(2, "code") })),
