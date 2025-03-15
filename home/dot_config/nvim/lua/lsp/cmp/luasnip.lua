@@ -14,13 +14,14 @@ luasnip.filetype_extend("typescript", { "typescript", "html" })
 luasnip.filetype_extend("javascriptreact", { "javascript", "html" })
 luasnip.filetype_extend("typescriptreact", { "typescript", "html" })
 
-luasnip.config.set_config({
+luasnip.config.setup({
   history = true,
 
   -- Update more often, :h events for more info.
-  updateevents = "TextChanged,TextChangedI",
+  update_events = "TextChanged,TextChangedI",
 
   -- This can be especially useful when `history` is enabled.
+  region_check_events = "CursorMoved",
   delete_check_events = "TextChanged",
   enable_autosnippets = true,
 
