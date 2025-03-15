@@ -39,6 +39,15 @@ luasnip.config.setup({
   })
 })
 
+vim.api.nvim_create_user_command("LuaSnipReload", function()
+  require("utils.snippet").reload()
+end, { desc = "Reload luasnip snippets", nargs = "*", bang = true })
+
+vim.api.nvim_create_user_command("LuaSnipEdit", function()
+  -- require("luasnip.loaders").edit_snippet_files({})
+  Snacks.picker.smart({ cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/dot_config/nvim/lua/snippets" })
+end, { desc = "", nargs = "*", bang = true })
+
 vim.api.nvim_create_user_command("LuaSnipBrowse", function()
   local snippets, entries = luasnip.available(), {}
   for category, lists in pairs(snippets) do
