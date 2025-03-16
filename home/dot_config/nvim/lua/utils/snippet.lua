@@ -8,6 +8,29 @@ function M.reload()
  })
 end
 
+---@return snacks.picker.Item[]
+function M.snippets()
+  local snippets = {} ---@type snacks.picker.Item[]
+  for ft, file in pairs(ls.available()) do
+    -- if not type(file) == "table" then break end
+    local i = 1
+    for _, snip in ipairs(file) do
+      ---@type snacks.picker.Item
+      local snippet = {
+        idx = i,
+        score = 0,
+        file  = ft,
+        trig  = snip.trigger,
+        name  = snip.name,
+        desc  = snip.description[1] or "",
+        text  = string.format("(%s) %-04s, %s", ft, snip.trigger, snip.description[1] or ""),
+      }
+      table.insert(snippets, snippet)
+    end
+  end
+  return snippets
+end
+
 local current_nsid, current_win = vim.api.nvim_create_namespace("LuaSnipChoiceListSelections"), nil
 local function window_for_choiceNode(choiceNode)
   local buf = vim.api.nvim_create_buf(false, true)
