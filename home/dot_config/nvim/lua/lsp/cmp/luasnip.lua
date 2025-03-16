@@ -46,6 +46,25 @@ luasnip.config.setup({
   })
 })
 
+local choice_popup_g = vim.api.nvim_create_augroup("LuaSnipChoicePopup", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  pattern  = "LuasnipChoiceNodeEnter",
+  group    = choice_popup_g,
+  callback = function(_) require("utils.snippet").choice_popup(luasnip.session.event_node) end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern  = "LuasnipChoiceNodeLeave",
+  group    = choice_popup_g,
+  callback = function(_) require("utils.snippet").choice_popup_close() end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern  = "LuasnipChangeChoice",
+  group    = choice_popup_g,
+  callback = function(_) require("utils.snippet").update_choice_popup(luasnip.session.event_node) end,
+})
+
 vim.api.nvim_create_user_command("LuaSnipReload", function()
   require("utils.snippet").reload()
 end, { desc = "Reload luasnip snippets", nargs = "*", bang = true })
