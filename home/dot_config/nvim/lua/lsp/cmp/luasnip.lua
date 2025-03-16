@@ -56,15 +56,20 @@ vim.api.nvim_create_user_command("LuaSnipEdit", function()
 end, { desc = "", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("LuaSnipBrowse", function()
-  local snippets, entries = luasnip.available(), {}
-  for category, lists in pairs(snippets) do
-    if type(lists) ~= "table" then return end
-    for _, snippet in ipairs(lists) do
-      local desc = snippet.description[1] or ""
-      local entry = string.format("[%s] %-06s - %s: %s", category, snippet.trigger, snippet.name, desc)
-      table.insert(entries, { text = entry })
-    end
-  end
-
-  Snacks.picker.pick({ items = entries, soruce = "snippets", format = "text", preview = "none" })
+  local items = require("utils.snippet").snippets()
+  Snacks.picker.pick({
+    items  = items,
+    format = function(item, _)
+      local snip, a = {}, Snacks.picker.util.align
+      local icon, icon_hl = Snacks.util.icon(item.file, "snippet")
+      snip[#snip + 1] = { a(string.format("%-03d", item.idx), 3) }
+      snip[#snip + 1] = { a(icon, 3), icon_hl }
+      snip[#snip + 1] = { a(item.file, 10) }
+      snip[#snip + 1] = { a(item.trig, 15) }
+      snip[#snip + 1] = { a(item.name, 20) }
+      return snip
+    end,
+    preview = "none",
+    confirm = function(picker, item) picker:close() end,
+  })
 end, { desc = "", nargs = "*", bang = true })
