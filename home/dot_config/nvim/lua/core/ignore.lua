@@ -7,7 +7,7 @@ end
 
 return {
   files = files,
-  autopairs  = { "fzf", "vim" },
+  autopairs  = { "fzf", "vim", "snacks_picker_input" },
   illuminate = { "alpha", "lazy", "oil", "fzf", "toggleterm", "Trouble", "codecompnion" },
 
   lualine = {
