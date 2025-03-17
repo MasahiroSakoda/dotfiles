@@ -11,14 +11,16 @@ local conds, condse = require("luasnip.extras.conditions"), require("luasnip.ext
 local rep = require("luasnip.extras").rep
 
 local snippets = {
-  s("type", fmt('type {} {} {{\n{}\n}}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code") })),
-  s("ife", fmt('if err != nil {{\n\t{}\n}}{}', { c(1, {
+  s({ trig = "type", name = "", dscr = "" },
+    fmt('type {} {} {{\n{}\n}}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code") })
+  ),
+  s({ trig = "ife", name = "if - end", dscr = "if - end block" }, fmt('if err != nil {{\n\t{}\n}}{}', { c(1, {
     t("return err"),
     t("return nil, err"),
     t("t.Fatal(err)"),
     t("log.Fatal(err)"),
   }), i(2) })),
-  s("3pkg", fmt('"github.com/{}', { c(1, {
+  s({ trig = "3pkg", name = "", dscr = "" }, fmt('"github.com/{}', { c(1, {
     t('"stretchr/testify"'),
     t('"spf13/cobra"'),
     t('"spf13/viper"'),
@@ -30,8 +32,10 @@ local snippets = {
   })})),
 
   -- Test
-  s("terr", fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n}}', { i(1, "error msg") })),
-  s("test", fmt([[
+  s({ trig = "terr", name = "error check (test)", dscr = "error check in test code" },
+    fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n}}', { i(1, "error msg") })
+  ),
+  s({ trig = "test", name = "test function", dscr = "test function template" }, fmt([[
       func Test{}(t *testing.T) {{
           tests := []struct {{
               name string
@@ -49,32 +53,34 @@ local snippets = {
   ]], { i(1, "func"), i(2), i(3), i(4, "assert") })),
 
   -- Cobra
-  s("cobra", fmt([[
+  s({ trig = "cobra", name = "Cobra", dscr = "spf13/cobra CLI library template" },
+    fmt([[
       import (
           "github.com/spf13/cobra"
       )
 
       func rootCmd() *cobra.Command {{
-	        return &cobra.Command{{
-		          Use:   "",
-		          Short: "",
-		          Long:  "",
-		          RunE:  func (_ *cobra.Command, args []string) error {{
-			            p.Quit()
-			            return nil
-		          }},
-	        }}
+          return &cobra.Command{{
+              Use:   "",
+              Short: "",
+              Long:  "",
+              RunE:  func (_ *cobra.Command, args []string) error {{
+                  p.Quit()
+                  return nil
+              }},
+          }}
       }}
 
       // Execute : root command
       func Execute(args []string) int {{
-	        cmd := rootCmd()
-	        if err := cmd.Execute(); err != nil {{
-		          return 1
-	        }}
-	        return 0
+          cmd := rootCmd()
+          if err := cmd.Execute(); err != nil {{
+              return 1
+          }}
+          return 0
       }}
-  ]], {})),
+  ]], {})
+  ),
 
   -- Viper
   -- TODO: Crate template for Viper
@@ -86,7 +92,8 @@ local snippets = {
   --   ]], {})
   -- ),
 
-  s("config", fmt([[
+  s({ trig = "config", name = "Config", dscr = "Config package template" },
+    fmt([[
       // Package config provides function to use config
       package config
 
@@ -98,7 +105,8 @@ local snippets = {
   ),
 
   -- XDG directories
-  s("xdgc", fmt([[
+  s({ trig = "xdgc", name = "XDG Directory", dscr = "Define XDG directory as constants" },
+    fmt([[
       import (
           "github.com/adrg/xdg"
       )
@@ -130,17 +138,26 @@ local snippets = {
   ),
 
   -- Bubbletea
-  s("team", fmt('type Model struct{{\n\t{}\n}}\n\nfunc New() *Model{{\n\treturn Model{{\n\t}}\n}}', { i(1) })),
-  s("teai", fmt('func (m Model) Init() tea.Cmd {{\n\treturn tea.Batch(\n\t\t{}\n\t)\n}}', { i(1) })),
-  s("teap", fmt([[
-    p := tea.NewProgram()
-    if _, err := p.Run(); err != nil {{
-        os.Exit(1)
-    }}
-    p.Quit()
-  ]], {})),
-  s("teav", fmt('func (m Model) View() string {{\n\treturn {}\n}}', { i(1) })),
-  s("teau", fmt([[
+  s({ trig = "team", name = "Bubbletea model", dscr = "Bubbletea required model methods" },
+    fmt('type Model struct{{\n\t{}\n}}\n\nfunc New() *Model{{\n\treturn Model{{\n\t}}\n}}', { i(1) })
+  ),
+  s({ trig = "teai", name = "Bubbletea init", dscr = "Bubbletea initialize methods" },
+    fmt('func (m Model) Init() tea.Cmd {{\n\treturn tea.Batch(\n\t\t{}\n\t)\n}}', { i(1) })
+  ),
+  s({ trig = "teap", name = "Bubbletea program", dscr = "Bubbletea laungh template" },
+    fmt([[
+      p := tea.NewProgram()
+      if _, err := p.Run(); err != nil {{
+          os.Exit(1)
+      }}
+      p.Quit()
+    ]], {})
+  ),
+  s({ trig = "teav", name = "Bubbletea view", dscr = "Bubbletea required view method" },
+    fmt('func (m Model) View() string {{\n\treturn {}\n}}', { i(1) })
+  ),
+  s({ trig = "teau", name = "Bubbletea update", dscr = "Bubbletea required update method" },
+    fmt([[
       func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {{
           var (
               cmd    tea.Cmd
@@ -154,22 +171,25 @@ local snippets = {
           }}
 	        return m, tea.Batch(cmds...)
       }}
-  ]], {})),
+    ]], {})
+  ),
   -- bubbles
-  s("bubbles", fmt('{}', { c(1, {
-    t("spinner"),
-    t("textinput"),
-    t("textarea"),
-    t("table"),
-    t("progress"),
-    t("paginator"),
-    t("viewport"),
-    t("list"),
-    t("filepicker"),
-    t("timer"),
-    t("stopwatch"),
-    t("help"),
-    t("key"),
-  }) })),
+  s({ trig = "bubbles", name = "Bubbles collection", dscr = "The collection of UI libraries for Bubbletea" },
+    fmt('{}', { c(1, {
+      t("spinner"),
+      t("textinput"),
+      t("textarea"),
+      t("table"),
+      t("progress"),
+      t("paginator"),
+      t("viewport"),
+      t("list"),
+      t("filepicker"),
+      t("timer"),
+      t("stopwatch"),
+      t("help"),
+      t("key"),
+    }) })
+  ),
 }
 return snippets
