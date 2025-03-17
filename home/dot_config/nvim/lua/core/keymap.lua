@@ -182,11 +182,12 @@ if not is_vscode then
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = "grep with cword" },
 
     -- Vim
-    { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",      icon = " ", desc = "Help" },
-    { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",    icon = " ", desc = "Quickfix list" },
-    { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",  icon = " ", desc = "autocmds list" },
-    { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>", icon = " ", desc = "Register list" },
-    { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",      icon = " ", desc = "Undo Tree" },
+    { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = "Help" },
+    { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = "Quickfix list" },
+    { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = "autocmds list" },
+    { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = "Register list" },
+    { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = "Undo Tree" },
+    { "<Leader>fH", "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = "Hilight list" },
 
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",  icon = " ", desc = "Git Files" },
