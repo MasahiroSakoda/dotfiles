@@ -1,5 +1,7 @@
-.mode column
 .headers on
+.mode markdown
 .width 0
 .timer on
+.changes on
 .nullvalue NULL
+.tables
