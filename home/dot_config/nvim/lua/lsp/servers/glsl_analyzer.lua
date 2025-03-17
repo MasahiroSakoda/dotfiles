@@ -2,7 +2,7 @@
 
 return {
   cmd       = { "glsl_analyzer" },
-  filetypes = { "glsl" },
+  filetypes = require("user.filetypes").lang.glsl,
   capabilities = {
     textDocument = {
       completion = { editsNearCursor = true },
