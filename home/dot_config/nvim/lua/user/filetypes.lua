@@ -9,6 +9,7 @@ Filetypes.lang = {
   go    = { "go", "gomod", "gosum", "templ", "gotempl" },
   json  = { "json",  "json5", "jsonc" },
   js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+  glsl  = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
 }
 
 Filetypes.treesitter = {

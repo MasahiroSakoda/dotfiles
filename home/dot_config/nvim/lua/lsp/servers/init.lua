@@ -11,7 +11,7 @@ return {
   pyright       = require("lsp.servers.pyright"),       -- Python
   ruby_ls       = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
-  tsserver      = require("lsp.servers.tsserver"),      -- JS/TS
+  ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
   denols        = require("lsp.servers.denols"),        -- Deno
   html          = require("lsp.servers.html"),          -- HTML
   cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS
