@@ -26,3 +26,7 @@ snacks.setup({
     },
   }
 })
+
+vim.api.nvim_create_user_command("SnacksPickerLazyPlugin", function()
+  Snacks.picker.smart({ cwd = vim.fn.stdpath("data") .. "/lazy" })
+end, { desc = "", nargs = "*", bang = true })
