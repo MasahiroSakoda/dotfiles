@@ -10,6 +10,8 @@ local conds, condse = require("luasnip.extras.conditions"), require("luasnip.ext
 ---@diagnostic disable-next-line: unused-local
 local rep = require("luasnip.extras").rep
 
+ls.filetype_extend("ruby",   { "rdoc", "rails" })
+
 local snippets = {
   -- Rails
   s("controller", fmt('class {}Controller < ApplicationController\n\t{}\nend', { i(1, "name"), i(0, "code") })),
