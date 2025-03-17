@@ -1,0 +1,14 @@
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+{{- define "repo" }}
+type = "git-repo"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+{{- end }}
+
+# TODO: Add custom Metal shader for macOS
+{{- if eq .chezmoi.os "linux" }}
+[".local/share/ghostty/shaders"]
+{{ template "repo" }}
+url = "https://github.com/hackr-sh/ghostty-shaders"
+{{- end }}
