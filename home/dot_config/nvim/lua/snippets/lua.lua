@@ -9,6 +9,8 @@ local fmt, fmta = require("luasnip.extras.fmt").fmt, require("luasnip.extras.fmt
 local conds, condse = require("luasnip.extras.conditions"), require("luasnip.extras.conditions.expand")
 local rep = require("luasnip.extras").rep
 
+ls.filetype_extend("lua",    { "luadoc" })
+
 local snippets = {
   -- snippet file template
   s({ trig = "luasnip", name = "snippet file template", dscr = "LuaSnip snippet file template" }, fmt([[
@@ -36,9 +38,9 @@ local snippets = {
   s({ trig = "SNIP", name = "multiline snippet", dscr = "multiline snippet definition" }, fmt([=[
     s({{ trig = "{}", name = "{}", dscr = "{}" }}, fmt([[
         {}
-      ]], {{ {}, {} }})
+      ]], {{ {} }})
     ),
-    ]=], { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "node"), i(0, "") })
+    ]=], { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "node") })
   ),
 
   s({ trig = "fn", name = "function template", dscr = "normal function template" },
