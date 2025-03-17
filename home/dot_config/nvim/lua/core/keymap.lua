@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------
 -- Binding Rules:
--- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, s: Split
+-- Builtin keymap: <Leader> + h: help, H: history, b: Buffer, t: Tab, w: Window
 -- LSP keymap:    `<Leader> + l`
 -- DAP keymap:    `<Leader> + d`
 -- Git Keymap:    `<Leader> + g`
@@ -115,16 +115,13 @@ wk.add({
   { "<Leader>te", ":tabedit<Space>",   icon = " ", desc = "Edit file in new tab" },
   { "<Leader>tn", ":tabnew<Space>",    icon = " ", desc = "Edit file in new tab" },
 
-  -- Window Moving
-  { "[w", "<C-w>h", icon = " ", desc = "Move to Left  Window" },
-  { "]w", "<C-w>l", icon = " ", desc = "Move to Right Window" },
-  { "[W", "<C-w>j", icon = " ", desc = "Move to Above Window" },
-  { "]W", "<C-w>k", icon = " ", desc = "Move to Below Window" },
+  -- Window Control
+  { "[w", "<C-w>h", icon = " ", desc = "Move to Left  Window" },
+  { "]w", "<C-w>l", icon = " ", desc = "Move to Right Window" },
 
-  -- Split Window
-  { "<Leader>s", group = "Split Window", icon = "📖 " },
-  { "<Leader>sh", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
-  { "<Leader>sv", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
+  { "<Leader>w", group = "Window Control", icon = "📖 " },
+  { "<Leader>ws", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
+  { "<Leader>wS", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
 }, opts)
 
 ---------------------------------------------------------------------------
