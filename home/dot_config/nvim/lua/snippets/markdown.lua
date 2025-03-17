@@ -5,7 +5,8 @@ local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
 local snippets = {
-  s({ trig = "README", name = "README.md", dscr = "README.md template" }, fmt([[
+  s({ trig = "README", name = "README.md", dscr = "README.md template" },
+    fmt([[
       # {}
       {}
 
@@ -30,7 +31,9 @@ local snippets = {
       - [ ] {}
 
       ## Contributing
-      Contributions are welcome! Please follow the [contribution guidelines](CONTRIBUTING.md) before making any pull requests.
+
+      Contributions are welcome!
+      Please follow the [contribution guidelines](CONTRIBUTING.md) before making any pull requests.
 
       ## License
       {} is released under the [MIT license](LICENSE)
