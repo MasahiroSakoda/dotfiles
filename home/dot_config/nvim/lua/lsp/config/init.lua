@@ -18,40 +18,34 @@ local on_attach = function(client, bufnr)
 
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
-  if caps.completionProvider then
-    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-  end
+  if caps.completionProvider then vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc" end
 
   -- Use LSP as the handler for formatexpr.
   -- See `:help formatexpr` for more information.
-  if caps.documentFormattingProvider then
-    vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
-  end
+  if caps.documentFormattingProvider then vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()" end
 
   -- tagfunc
   -- See `:help tag-function` for more information.
-  if caps.definitionProvider then
-    vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
-  end
+  if caps.definitionProvider then vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc" end
 
   caps.document_formatting        = true
   caps.document_range_formatting  = true
   caps.documentFormattingProvider = true
   caps.offsetEncoding = { "utf-16" }
 
-  -- Avoid confliction tsserver & denols
-  if client.name == "tsserver" then
+  -- Avoid confliction ts_ls & denols
+  if client.name == "ts_ls" then
     -- prevent prettier formatting confliction
     caps.documentFormattingProvider = false
     caps.documentRangeFormattingProvider = false
     for _, _client in ipairs(active_clients) do
-      -- stop tsserver if denols is already active
+      -- stop ts_ls if denols is already active
       if _client.name == "denols" then client:stop(true) end
     end
   elseif client.name == "denols" then
-    -- prevent tsserver from starting if denols is already active
+    -- prevent ts_ls from starting if denols is already active
     for _, _client in ipairs(active_clients) do
-      if _client.name == "tsserver" then client:stop(true) end
+      if _client.name == "ts_ls" then client:stop(true) end
     end
   end
 
