@@ -22,7 +22,7 @@ copy-on-select  = true
 clipboard-read  = allow
 
 ## OS specific configurations
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 window-decoration             = true
 macos-titlebar-style          = tabs
 macos-titlebar-proxy-icon     = hidden
@@ -32,13 +32,13 @@ macos-option-as-alt           = true
 macos-window-shadow           = false
 macos-auto-secure-input       = true
 macos-secure-input-indication = false
-{{ else if eq .chezmoi.os "linux"}}
+{{- else if eq .chezmoi.os "linux"}}
 window-decoration   = false
 gtk-titlebar        = false
 gtk-single-instance = true
 gtk-tabs-location   = bottom
 gtk-wide-tabs       = false
-{{ end }}
+{{- end }}
 
 ## Quick Terminal
 quick-terminal-position = bottom
@@ -51,6 +51,12 @@ window-step-resize = true
 window-padding-x = 0
 window-padding-y = 0
 window-save-state = default
+
+{{- if .ghostty.shader.enabled }}
+## Shader
+custom-shader = {{ .chezmoi.homeDir }}/.local/share/ghostty/shaders/{{ .ghostty.shader.module }}.glsl
+custom-shader-animation = {{ .ghostty.shader.animate }}
+{{- end }}
 
 ## Appearance
 ## colors: `ghostty +list-colors`
