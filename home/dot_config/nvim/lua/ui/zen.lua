@@ -4,7 +4,7 @@
 return {
   enabled = true,
   toggles = {
-    dim             = true,
+    dim             = false,
     git_signs       = true,
     mini_diff_signs = false,
   },
