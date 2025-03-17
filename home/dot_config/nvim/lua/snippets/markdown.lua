@@ -11,7 +11,7 @@ local conds, condse = require("luasnip.extras.conditions"), require("luasnip.ext
 local rep = require("luasnip.extras").rep
 
 local snippets = {
-  s("readme", fmt([[
+  s({ trig = "README", name = "README.md", dscr = "README.md template" }, fmt([[
       # {}
       {}
 
@@ -43,7 +43,8 @@ local snippets = {
 
     ]], { i(1, "name"), i(2, "shorthand"), i(3, "todo1"), i(4, "todo2"), i(5, "todo3"), rep(1) })
   ),
-  s("security", fmt([[
+  s({ trig = "SECURITY", name = "SECURITY.md", dscr = "SECURITY.md template" },
+    fmt([[
       # Security Policy
 
       ## Reporting a Vulnerability
@@ -61,7 +62,8 @@ local snippets = {
       [new-discussion]: https://github.com/{}/discussions
     ]], { i(1, "repo"), rep(1), rep(1) })
   ),
-  s("contributing", fmt([[
+  s({ trig = "CONTRIBUTING", name = "CONTRIBUTING.md", dscr = "CONTRIBUTING.md template" },
+    fmt([[
       # Contributing Guidlines
 
       ## Type of Contributions
@@ -118,20 +120,49 @@ local snippets = {
     ]], { i(1, "repo"), rep(1), rep(1), rep(1), rep(1), rep(1), rep(1) })
   ),
 
-  s("osbadge", fmt([[
-      ![{}](https://img.shields.io/badge/{}%20-yellow.svg?style=flat-square&logo={}&logoColor=black)
-    ]], { i(1, "os"), rep(1), rep(1) })
+  s({ trig = "!badge", name = "README.md badge", dscr = "README.md badge template" },
+    fmt([[
+      [[![{}](https://img.shields.io/badge/-{}-{}?style={}&logo={}&logoColor={})
+    ]], {
+      i(1, "alt text"),
+      i(2, "Display name"),
+      i(3, "The background color for the text, either a hex without `#` or a string"),
+      c(4, { t("flat"), t("flat-square"), t("plastic"), t("for-the-badge"), t("soocial") }),
+      i(5, "Logo icon from Simple Icons (https://simpleicons.org)"),
+      i(6, "RGB / RGBA / HSL / HSLA / Color Name"),
+
+    })
   ),
 
-  s("sh",   fmt('```sh\n{}\n```{}',         { i(1, "code"), i(0, "") })),
-  s("bash", fmt('```bash\n{}\n```{}',       { i(1, "code"), i(0, "") })),
-  s("py",   fmt('```python\n{}\n```{}',     { i(1, "code"), i(0, "") })),
-  s("rb",   fmt('```ruby\n{}\n```{}',       { i(1, "code"), i(0, "") })),
-  s("lua",  fmt('```lua\n{}\n```{}',        { i(1, "code"), i(0, "") })),
-  s("js",   fmt('```javascript\n{}\n```{}', { i(1, "code"), i(0, "") })),
-  s("ts",   fmt('```typescript\n{}\n```{}', { i(1, "code"), i(0, "") })),
-  s("cpp",  fmt('```c++\n{}\n```{}',        { i(1, "code"), i(0, "") })),
-  s("rs",   fmt('```rust\n{}\n```{}',       { i(1, "code"), i(0, "") })),
-  s("go",   fmt('```go\n{}\n```{}',         { i(1, "code"), i(0, "") })),
+  s({ trig = "sh",   name = "snippet for shell",  dscr = "Code snippet for shell" },
+    fmt('```sh\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "bash", name = "snippet for bash",   dscr = "Code snippet for bash" },
+    fmt('```bash\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "py",   name = "snippet for python", dscr = "Code snippet for python" },
+    fmt('```python\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "rb",   name = "snippet for ruby",   dscr = "Code snippet for ruby" },
+    fmt('```ruby\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "lua",  name = "snippet for lua",    dscr = "Code snippet for lua" },
+    fmt('```lua\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "js",   name = "snippet for js",     dscr = "Code snippet for JavaScript" },
+    fmt('```javascript\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "ts",   name = "snippet for ts",     dscr = "Code snippet for TypeScript" },
+    fmt('```typescript\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "cpp",  name = "snippet for cpp",    dscr = "Code snippet for C++" },
+    fmt('```c++\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "rs",   name = "snippet for rust",   dscr = "Code snippet for Rust" },
+    fmt('```rust\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
+  s({ trig = "go",   name = "snippet for go",     dscr = "Code snippet for Go" },
+    fmt('```go\n{}\n```{}', { i(1, "code"), i(0, "") })
+  ),
 }
 return snippets
