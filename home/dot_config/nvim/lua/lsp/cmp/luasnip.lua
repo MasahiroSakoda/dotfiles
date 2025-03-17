@@ -151,16 +151,16 @@ end, { desc = "Reload luasnip snippets", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("LuaSnipEdit", function()
   -- require("luasnip.loaders").edit_snippet_files({})
-  Snacks.picker.smart({ cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/dot_config/nvim/lua/snippets" })
+  require("snacks.picker").smart({ cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/dot_config/nvim/lua/snippets" })
 end, { desc = "", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("LuaSnipBrowse", function()
   local items = require("utils.snippet").snippets()
-  Snacks.picker.pick({
+  require("snacks.picker").pick({
     items  = items,
     format = function(item, _)
-      local snip, a = {}, Snacks.picker.util.align
-      local icon, icon_hl = Snacks.util.icon(item.ft, "snippet")
+      local snip, a = {}, require("snacks.picker").util.align
+      local icon, icon_hl = require("snacks.util").icon(item.ft, "snippet")
       snip[#snip + 1] = { a(string.format("%-03d", item.idx), 3) }
       snip[#snip + 1] = { a(icon, 3), icon_hl }
       snip[#snip + 1] = { a(item.ft, 10) }
