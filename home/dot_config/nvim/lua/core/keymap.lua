@@ -137,6 +137,15 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- LuaSnip
+---------------------------------------------------------------------------
+wk.add({
+  { "<Leader>fs", "<CMD>LuaSnipBrowse<CR>", icon = " ", desc = "Browse LuaSnip snippets" },
+  { "<Leader>sr", "<CMD>LuaSnipReload<CR>", icon = " ", desc = "Reload LusSnip config" },
+  { "<Leader>se", "<CMD>LuaSnipEdit<CR>",   icon = " ", desc = "Edit LuaSnip file" },
+}, opts)
+
+---------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 wk.add({
@@ -226,7 +235,7 @@ if not is_vscode then
       icon = " ",
       desc = "nvim plugins",
     },
-    { "<Leader>ft", "<CMD>lua Snacks.picker.todo_comments()<CR>",          icon = " ", desc = "TODO list" },
+    { "<Leader>ft", "<CMD>lua Snacks.picker.todo_comments()<CR>", icon = " ", desc = "TODO list" },
   })
 end
 
