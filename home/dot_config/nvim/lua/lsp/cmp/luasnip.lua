@@ -169,6 +169,6 @@ vim.api.nvim_create_user_command("LuaSnipBrowse", function()
       return snip
     end,
     preview = "none",
-    confirm = function(picker, item) picker:close() end,
+    confirm = function(picker, _) picker:close() end,
   })
 end, { desc = "", nargs = "*", bang = true })
