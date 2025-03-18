@@ -1,9 +1,9 @@
 -- -*-mode:lua-*- vim:ft=lua
 local ls = require("luasnip")
 local s  = ls.snippet
--- local t  = ls.text_node
+local t  = ls.text_node
 local i  = ls.insert_node
--- local c  = ls.choice_node
+local c  = ls.choice_node
 -- local r  = ls.restore_node
 -- local f  = ls.function_node
 -- local sn = ls.snippet_node
@@ -110,7 +110,7 @@ local snippets = {
   ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
-    fmt('-- stylua: ignore\n{}', { i(0) }, { condition = conds.line_begin })
+    fmt('-- stylua: ignore {}\n{}', {c(1, {t(""), t("start"), t("end")}), i(0)}, { condition = conds.line_begin })
   ),
 
   s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" }, fmt([[
