@@ -1,27 +1,50 @@
 -- -*-mode:lua-*- vim:ft=lua
 local ls = require("luasnip")
-local s, t, i = ls.snippet, ls.text_node, ls.insert_node
-local fmt = require("luasnip.extras.fmt").fmt
-local conds = require("luasnip.extras.conditions")
-local rep = require("luasnip.extras").rep
+local s  = ls.snippet
+-- local t  = ls.text_node
+local i  = ls.insert_node
+-- local c  = ls.choice_node
+-- local r  = ls.restore_node
+-- local f  = ls.function_node
+-- local sn = ls.snippet_node
+local extras = require("luasnip.extras")
+local rep    = extras.rep
+-- local m      = extras.m
+-- local l      = extras.l
+local fmt    = require("luasnip.extras.fmt")
+-- local fmta   = require("luasnip.extras.fmta")
+local conds  = require("luasnip.extras.conditions")
+local condse = require("luasnip.extras.conditions.expand")
 
 ls.filetype_extend("lua", { "luadoc" })
 
 local snippets = {
   -- snippet file template
-  s({ trig = "luasnip", name = "snippet file template", dscr = "LuaSnip snippet file template" }, fmt([[
+  s({ trig = "luasnip", name = "snippet file template", dscr = "LuaSnip snippet file template" },
+    fmt([[
       local ls = require("luasnip")
-      local s, t, i, c, r, f, sn =
-        ls.snippet, ls.text_node, ls.insert_node, ls.choice_node, ls.restore_node, ls.function_node, ls.snippet_node
-      local fmt, fmta = require("luasnip.extras.fmt").fmt, require("luasnip.extras.fmt").fmta
-      local conds, condse = require("luasnip.extras.conditions"), require("luasnip.extras.conditions.expand")
-      local rep = require("luasnip.extras").rep
+      local s  = ls.snippet
+      local t  = ls.text_node
+      local i  = ls.insert_node
+      local c  = ls.choice_node
+      local r  = ls.restore_node
+      local f  = ls.function_node
+      local sn = ls.snippet_node
+      local extras = require("luasnip.extras")
+      local rep    = extras.rep
+      local m      = extras.m
+      local l      = extras.l
+      local fmt    = require("luasnip.extras.fmt")
+      local fmta   = require("luasnip.extras.fmta")
+      local conds  = require("luasnip.extras.conditions")
+      local condse = require("luasnip.extras.conditions.expand")
 
       local snippets = {{
         {}
       }}
       return snippets
-    ]], { i(1, "-- Snippets goes here") })
+      {}
+    ]],{ i(1, "-- Snippets goes here"), i(0) }, { condition = conds.line_begin, show_condition = condse.line_begin })
   ),
   s({ trig = "snipf", name = "simplified snippet", dscr = "simple snippet template" },
     fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ i(1, "{}") }})\n),\n{}',
