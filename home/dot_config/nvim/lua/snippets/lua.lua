@@ -41,6 +41,23 @@ local snippets = {
     })
   ),
 
+  s({ trig = "snipc", name = "choice snippet", dscr = "choice snippet" },
+    fmt([[
+      s({{ trig = "{}", name = "{}", dscr = "{}" }},
+        fmt('{{}} {{}}\n{{}}', {{
+          i(1),
+          c(2, {{
+            t("{}"), t("{}"), t("{}"),
+          }})
+          i(0),
+        }})
+      )
+      {}
+    ]], {i(1, "trigger"), i(2, "name"), i(3, "description"), i(4, "c1"), i(5, "c2"), i(6, "c3"), i(0)}
+    )
+  ),
+
+
   s({ trig = "fn", name = "function template", dscr = "normal function template" },
     fmt('function({})\n\t{}\nend\n{}', { i(1, "parameter"), i(2, "code"), i(0) })
   ),
