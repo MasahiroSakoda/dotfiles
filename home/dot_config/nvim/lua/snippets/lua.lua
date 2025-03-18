@@ -5,7 +5,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 local conds = require("luasnip.extras.conditions")
 local rep = require("luasnip.extras").rep
 
-ls.filetype_extend("lua",    { "luadoc" })
+ls.filetype_extend("lua", { "luadoc" })
 
 local snippets = {
   -- snippet file template
@@ -84,8 +84,14 @@ local snippets = {
     ]], { i(1, "module"), rep(1), rep(1), body = i(3, "body") })
   ),
 
-  s({ trig = "keymap", name = "keymap config", dscr = "keymap config for which-key.nvim" },
-    fmt('{{ "{}", "{}", icon = " ", dscr = "{}" }},', { i(1, "keymap"), i(2, "cmd"), i(3, "description") })
+  s({ trig = "keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
+    fmt('{{ "<Leader>{}", "<CMD>{}<CR>", icon = " ", desc = "{}" }},\n{}', {
+      i(1, "keymap"),
+      i(2, "command"),
+      -- TODO: enable choice selection from codicons.nvim
+      i(3, "description"),
+      i(0),
+    })
   ),
 }
 
