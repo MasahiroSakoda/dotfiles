@@ -1,6 +1,5 @@
 local ok, luasnip = pcall(require, "luasnip")
 if not ok then return end
-
 local types = require("luasnip.util.types")
 
 -- luasnip.log.set_loglevel("debug")
@@ -41,6 +40,14 @@ luasnip.config.setup({
     typescriptreact = { "javascript", "typescript", "javascriptreact" },
     python = { "ipynb" },
   })
+})
+
+require("luasnip.loaders.from_vscode").lazy_load({
+  override_priority = 1000,
+})
+require("luasnip.loaders.from_lua").lazy_load({
+  paths = { vim.fn.stdpath("config") .. "/lua/snippets" },
+  override_priority = 2000,
 })
 
 local current_nsid = vim.api.nvim_create_namespace("LuaSnipChoiceListSelections")
