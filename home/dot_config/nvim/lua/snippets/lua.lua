@@ -13,8 +13,8 @@ local rep    = extras.rep
 -- local l      = extras.l
 local fmt    = require("luasnip.extras.fmt").fmt
 -- local fmta   = require("luasnip.extras.fmta")
-local conds  = require("luasnip.extras.conditions")
-local condse = require("luasnip.extras.conditions.expand")
+-- local conds  = require("luasnip.extras.conditions")
+-- local condse = require("luasnip.extras.conditions.expand")
 
 ls.filetype_extend("lua", { "luadoc" })
 
@@ -68,6 +68,9 @@ local snippets = {
   s({ trig = "snipi", name = "insert node", dscr = "insert node snippet" }, fmt('i({}){}', { i(1, "index"), i(0) })),
   s({ trig = "snipc", name = "choice node", dscr = "choice node snippet" },
     fmt('c({}, {{\n{}\n}}),{}', { i(1, "index"), i(2, "choices"), i(0) })
+  ),
+  s({ trig = "snips", name = "snippet node", dscr = "snippet node snippet" },
+    fmt('sn({}, {{ {} }}){}', { i(1, "jump index"), i(2, "node"), i(0) })
   ),
 
   s({ trig = "fn", name = "function template", dscr = "selectable function template" },
