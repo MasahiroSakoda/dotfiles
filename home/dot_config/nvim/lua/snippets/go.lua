@@ -7,8 +7,8 @@ local c  = ls.choice_node
 -- local r  = ls.restore_node
 -- local f  = ls.function_node
 -- local sn = ls.snippet_node
--- local extras = require("luasnip.extras")
--- local rep    = extras.rep
+local extras = require("luasnip.extras")
+local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
 local fmt    = require("luasnip.extras.fmt").fmt
@@ -28,17 +28,19 @@ local snippets = {
     i(0),
   }), i(2) })),
   s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
-    fmt('"github.com/{}\n{}', { c(1, {
-      t('"stretchr/testify"'),
-      t('"spf13/cobra"'),
-      t('"spf13/viper"'),
-      t('"charmbracelet/bubbletea"'),
-      t('"charmbracelet/bubbles"'),
-      t('"charmbracelet/lipgloss"'),
-      t('"charmbracelet/log"'),
-      t('"adrg/xdg"'),
+    fmt('"github.com/{}\n{}', {
+      c(1, {
+        t('"stretchr/testify"'),
+        t('"spf13/cobra"'),
+        t('"spf13/viper"'),
+        t('"charmbracelet/bubbletea"'),
+        t('"charmbracelet/bubbles"'),
+        t('"charmbracelet/lipgloss"'),
+        t('"charmbracelet/log"'),
+        t('"adrg/xdg"'),
+      }),
       i(0),
-    })})
+    })
   ),
 
   -- Test
@@ -189,23 +191,25 @@ local snippets = {
     ]], { i(0) })
   ),
   -- bubbles
-  s({ trig = "bubbles", name = "Bubbles collection", dscr = "The collection of UI libraries for Bubbletea" },
-    fmt('{}\n{}', { c(1, {
-      t("spinner"),
-      t("textinput"),
-      t("textarea"),
-      t("table"),
-      t("progress"),
-      t("paginator"),
-      t("viewport"),
-      t("list"),
-      t("filepicker"),
-      t("timer"),
-      t("stopwatch"),
-      t("help"),
-      t("key"),
+  s({ trig = "bubbles", name = "Bubbles collection", dscr = "Bubbletea UI Collectioin" },
+    fmt('{}\n{}', {
+      c(1, {
+        t("spinner"),
+        t("textinput"),
+        t("textarea"),
+        t("table"),
+        t("progress"),
+        t("paginator"),
+        t("viewport"),
+        t("list"),
+        t("filepicker"),
+        t("timer"),
+        t("stopwatch"),
+        t("help"),
+        t("key"),
+      }),
       i(0),
-    }) })
+    })
   ),
 }
 return snippets
