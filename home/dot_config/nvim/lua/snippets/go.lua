@@ -6,28 +6,32 @@ local rep = require("luasnip.extras").rep
 
 local snippets = {
   s({ trig = "type", name = "", dscr = "" },
-    fmt('type {} {} {{\n{}\n}}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code") })
+    fmt('type {} {} {{\n{}\n}}\n{}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code"), i(0) })
   ),
-  s({ trig = "ife", name = "if - end", dscr = "if - end block" }, fmt('if err != nil {{\n\t{}\n}}{}', { c(1, {
+  s({ trig = "ife", name = "if - end", dscr = "if - end block" }, fmt('if err != nil {{\n\t{}\n}}\n{}', { c(1, {
     t("return err"),
     t("return nil, err"),
     t("t.Fatal(err)"),
     t("log.Fatal(err)"),
+    i(0),
   }), i(2) })),
-  s({ trig = "3pkg", name = "", dscr = "" }, fmt('"github.com/{}', { c(1, {
-    t('"stretchr/testify"'),
-    t('"spf13/cobra"'),
-    t('"spf13/viper"'),
-    t('"charmbracelet/bubbletea"'),
-    t('"charmbracelet/bubbles"'),
-    t('"charmbracelet/lipgloss"'),
-    t('"charmbracelet/log"'),
-    t('"adrg/xdg"'),
-  })})),
+  s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
+    fmt('"github.com/{}\n{}', { c(1, {
+      t('"stretchr/testify"'),
+      t('"spf13/cobra"'),
+      t('"spf13/viper"'),
+      t('"charmbracelet/bubbletea"'),
+      t('"charmbracelet/bubbles"'),
+      t('"charmbracelet/lipgloss"'),
+      t('"charmbracelet/log"'),
+      t('"adrg/xdg"'),
+      i(0),
+    })})
+  ),
 
   -- Test
   s({ trig = "terr", name = "error check (test)", dscr = "error check in test code" },
-    fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n}}', { i(1, "error msg") })
+    fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n}}\n{}', { i(1, "error msg"), i(0) })
   ),
   s({ trig = "test", name = "test function", dscr = "test function template" }, fmt([[
       func Test{}(t *testing.T) {{
@@ -44,7 +48,8 @@ local snippets = {
               }})
           }}
       }}
-  ]], { i(1, "func"), i(2), i(3), i(4, "assert") })),
+      {}
+  ]], { i(1, "func"), i(2), i(3), i(4, "assert"), i(0) })),
 
   -- Cobra
   s({ trig = "cobra", name = "Cobra", dscr = "spf13/cobra CLI library template" },
@@ -95,7 +100,8 @@ local snippets = {
       type Config struct {{
           {} {} `mapstructure:"{}"`
       }}
-    ]], { i(1, "config item"), i(2, "type"), rep(1) })
+      {}
+    ]], { i(1, "config item"), i(2, "type"), rep(1), i(0) })
   ),
 
   -- XDG directories
@@ -128,15 +134,16 @@ local snippets = {
       var MusicDir     = xdg.UserDirs.Music
       var VideosDir    = xdg.UserDirs.Videos
       var PublicDir    = xdg.UserDirs.PublicShare
-    ]], { i(1, "command name") })
+      {}
+    ]], { i(1, "command name"), i(0) })
   ),
 
   -- Bubbletea
   s({ trig = "team", name = "Bubbletea model", dscr = "Bubbletea required model methods" },
-    fmt('type Model struct{{\n\t{}\n}}\n\nfunc New() *Model{{\n\treturn Model{{\n\t}}\n}}', { i(1) })
+    fmt('type Model struct{{\n\t{}\n}}\n\nfunc New() *Model{{\n\treturn Model{{\n\t}}\n}}\n{}', { i(1), i(0) })
   ),
   s({ trig = "teai", name = "Bubbletea init", dscr = "Bubbletea initialize methods" },
-    fmt('func (m Model) Init() tea.Cmd {{\n\treturn tea.Batch(\n\t\t{}\n\t)\n}}', { i(1) })
+    fmt('func (m Model) Init() tea.Cmd {{\n\treturn tea.Batch(\n\t\t{}\n\t)\n}}\n{}', { i(1), i(0) })
   ),
   s({ trig = "teap", name = "Bubbletea program", dscr = "Bubbletea laungh template" },
     fmt([[
@@ -145,10 +152,11 @@ local snippets = {
           os.Exit(1)
       }}
       p.Quit()
-    ]], {})
+      {}
+    ]], { i(0) })
   ),
   s({ trig = "teav", name = "Bubbletea view", dscr = "Bubbletea required view method" },
-    fmt('func (m Model) View() string {{\n\treturn {}\n}}', { i(1) })
+    fmt('func (m Model) View() string {{\n\treturn {}\n}}\n{}', { i(1, "code"), i(0) })
   ),
   s({ trig = "teau", name = "Bubbletea update", dscr = "Bubbletea required update method" },
     fmt([[
@@ -165,11 +173,12 @@ local snippets = {
           }}
 	        return m, tea.Batch(cmds...)
       }}
-    ]], {})
+      {}
+    ]], { i(0) })
   ),
   -- bubbles
   s({ trig = "bubbles", name = "Bubbles collection", dscr = "The collection of UI libraries for Bubbletea" },
-    fmt('{}', { c(1, {
+    fmt('{}\n{}', { c(1, {
       t("spinner"),
       t("textinput"),
       t("textarea"),
@@ -183,6 +192,7 @@ local snippets = {
       t("stopwatch"),
       t("help"),
       t("key"),
+      i(0),
     }) })
   ),
 }

@@ -5,14 +5,15 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 local snippets = {
   s({ trig = "console", name = "console log/warn/error", dscr = "console output templates" },
-    fmt('console.{}({})', {
+    fmt('console.{}({})\n{}', {
       c(1, { t("log"), t("warn"), t("error") }),
       i(2, "variable"),
+      i(0),
     })
   ),
 
   s({ trig = "js", name = "json stringify/parse", dscr = "json stringify or parse template" },
-    fmt('JSON.{}({})', { c(1, { t("stringify"), t("parse") }), i(2, "variable") })
+    fmt('JSON.{}({})\n{}', { c(1, { t("stringify"), t("parse") }), i(2, "variable"), i(0) })
   ),
 }
 return snippets

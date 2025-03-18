@@ -8,22 +8,22 @@ ls.filetype_extend("metal", { "cpp" })
 local snippets = {
   -- Vector / Matrix
   s({ trig = "vec2", name = "vec2 template", dsrc = "2 element vector function template" },
-    fmt('vec2({}, {})', { i(1, "param1"), i(2, "param2") })
+    fmt('vec2({}, {})\n{}', { i(1, "param1"), i(2, "param2"), i(0) })
   ),
   s({ trig = "vec3", name = "vec3 template", dsrc = "3 element vector function template" },
-    fmt('vec3({}, {}, {})',     { i(1, "param1"), i(2, "param2"), i(3, "param3") })
+    fmt('vec3({}, {}, {})\n{}',     { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(0) })
   ),
   s({ trig = "vec4", name = "vec4 template", dsrc = "4 element vector function template" },
-    fmt('vec3({}, {}, {}, {})', { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(4, "param4") })
+    fmt('vec3({}, {}, {}, {})\n{}', { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(4, "param4"), i(0) })
   ),
   s({ trig = "mat2", name = "mat2 template", dsrc = "2 dimention matrix template" },
-    fmt('mat2({}, {})', { i(1, "param1"), i(2, "param2") })
+    fmt('mat2({}, {})\n{}', { i(1, "param1"), i(2, "param2"), i(0) })
   ),
   s({ trig = "mat3", name = "mat3 template", dsrc = "3 dimention matrix template" },
-    fmt('mat3({}, {}, {})',      { i(1, "param1"), i(2, "param2"), i(3, "param3") })
+    fmt('mat3({}, {}, {})\n{}',      { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(0) })
   ),
   s({ trig = "mat4", name = "mat4 template", dsrc = "4 dimention matrix template" },
-    fmt('mat4({}, {}, {}, P{})', { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(4, "param4") })
+    fmt('mat4({}, {}, {}, P{})\n{}', { i(1, "param1"), i(2, "param2"), i(3, "param3"), i(4, "param4"), i(0) })
   ),
 
   s({ trig = "metal", name = "metal shader setup", dscr = "metal shader primary template" },
@@ -57,8 +57,8 @@ local snippets = {
       fragment float4 fragment_main(VertexOutput in \[\[stage_in\]\]) {{
           return float4(1.0);
       }}
-    }}
-    ]], { i(1, "") })
+      {}
+    ]], { i(0) })
   ),
 }
 return snippets

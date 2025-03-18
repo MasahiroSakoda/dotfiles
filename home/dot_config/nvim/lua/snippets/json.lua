@@ -9,10 +9,11 @@ local snippets = {
       {{
         "{}": {}
       }}
-    ]], { i(1, "key"), i(2, "value") })
+      {}
+    ]], { i(1, "key"), i(2, "value"), i(0) })
   ),
   s({ trig = "pair", name = "key-value pair", dscr = "key-value pair object content" },
-    fmt('"{}": {},', { i(1, "key"), i(2, "value") })
+    fmt('"{}": {},\n{}', { i(1, "key"), i(2, "value"), i(0) })
   ),
   s({ trig = "array", name = "array object", dscr = "array object" },
     fmt([[
@@ -24,7 +25,8 @@ local snippets = {
           "{}", {},
         }},
       ]
-    ]], { i(1, "key1"), i(2, "value2"), i(3, "key2"), i(4, "value2") })
+      {}
+    ]], { i(1, "key1"), i(2, "value2"), i(3, "key2"), i(4, "value2"), i(0) })
   ),
   s({ trig = "list", name = "list object", dscr = "list object" },
     fmt([[
@@ -33,7 +35,8 @@ local snippets = {
         {},
         {}
       ]
-    ]], { i(1, "value1"), i(2, "value2"), i(3, "value3") })
+      {}
+    ]], { i(1, "value1"), i(2, "value2"), i(3, "value3"), i(0) })
   ),
 }
 return snippets

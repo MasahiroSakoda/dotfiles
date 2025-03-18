@@ -7,7 +7,7 @@ ls.filetype_extend("cpp", { "cppdoc" })
 
 local snippets = {
   s({ trig = "head", name = "standard header", dscr = "standard header template" },
-    fmt('#include <{}>\n', { c(1, {
+    fmt('#include <{}>\n{}', { c(1, {
       t("iostream"),
       t("string"),
       t("arraay"),
@@ -20,6 +20,7 @@ local snippets = {
       t("memory"),
       t("iostream"),
       t("iostream"),
+      i(0),
     }) })
   ),
   s({ trig = "main", name = "main func", dscr = "main function template" }, fmt([[
@@ -32,7 +33,8 @@ local snippets = {
         cout << "" << endl;
         return 0;
     }}
-  ]], { i(1, "code") })),
+    {}
+  ]], { i(1, "code"), i(0) })),
 
   s({ trig = "class", name = "class definition", dscr = "class definition template" }, fmt([[
     class {} {{
@@ -41,6 +43,7 @@ local snippets = {
     protected:
     private:
     }};
-  ]], { i(1, "member") })),
+    {}
+  ]], { i(1, "member"), i(0) })),
 }
 return snippets

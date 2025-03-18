@@ -15,17 +15,26 @@ local snippets = {
     fmt('{}', c(1, {t("#/usr/bin/env bash"), t("#/usr/bin/env zsh"), t("#/usr/bin/env fish")}))
   ),
 
-  s({ trig = "TODO", name = "TODO choices", dscr = "TDOO choices template" }, fmt('{} {}: {}', {
+  s({ trig = "TODO", name = "TODO choices", dscr = "TDOO choices template" }, fmt('{} {}: {}\n{}', {
     f(function() return vim.bo.commentstring:gsub("%%s", "") end),
     c(2, {t("TODO"), t("FIXME"), t("WARN"), t("INFO"), t("PREF"), t("NOTE"), t("TEST")}),
+    i(3, "todo string"),
     i(0),
   })),
 
   s({ trig = "hlink", name = "html link", dscr = "html link template" },
-    fmt('<a href="{}">{}</a>', { f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end), i(1)})
+    fmt('<a href="{}">{}</a>\n{}', {
+      f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end),
+      i(1, "link title"),
+      i(0),
+    })
   ),
   s({ trig = "mlink", name = "markdown link", dscr = "markdown link template" },
-    fmt('[{}]({}){}', { i(1), f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end), i(0) })
+    fmt('[{}]({})\n{}', {
+      i(1, "link title"),
+      f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end),
+      i(0),
+    })
   ),
 
   s({ trig = "MIT", name = "MIT License", dscr = "MIT License template", prioriy = -1000 },
@@ -51,10 +60,11 @@ local snippets = {
       LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
       OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
       THE SOFTWARE.
-
+      {}
     ]], {
       f(function() return os.date("%Y") end, {}),
-      i(0, "project")
+      i(1, "project"),
+      i(0),
     })
   ),
   s({ trig = "APACHE", name = "Apache License", dscr = "Apache License template", prioriy = -1000 },
@@ -72,9 +82,11 @@ local snippets = {
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       See the License for the specific language governing permissions and
       limitations under the License.
+      {}
     ]], {
       f(function() return os.date("%Y") end, {}),
-      i(0, "project")
+      i(2, "project"),
+      i(0),
     })
   ),
 }
