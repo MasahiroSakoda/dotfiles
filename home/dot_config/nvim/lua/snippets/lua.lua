@@ -64,22 +64,10 @@ local snippets = {
     })
   ),
 
-  s({ trig = "snipc", name = "choice snippet", dscr = "choice snippet" },
-    fmt([[
-      s({{ trig = "{}", name = "{}", dscr = "{}" }},
-        fmt('{{}} {{}}\n{{}}', {{
-          i(1),
-          c(2, {{
-            t("{}"), t("{}"), t("{}"),
-          }})
-          i(0),
-        }})
-      )
-      {}
-    ]], {i(1, "trigger"), i(2, "name"), i(3, "description"), i(4, "c1"), i(5, "c2"), i(6, "c3"), i(0)}
-    )
+  -- snippet components
+  s({ trig = "snipc", name = "choice node", dscr = "choice node snippet" },
+    fmt('c({}, {{\n{}\n}}),{}', { i(1, "index"), i(2, "choices"), i(0) })
   ),
-
 
   s({ trig = "fn", name = "function template", dscr = "selectable function template" },
     fmt('{}{}({})\n{}', {
