@@ -23,11 +23,11 @@ local snippets = {
       return snippets
     ]], { i(1, "-- Snippets goes here") })
   ),
-  s({ trig = "snip", name = "simplified snippet", dscr = "simple snippet template" },
+  s({ trig = "snipf", name = "simplified snippet", dscr = "simple snippet template" },
     fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ i(1, "{}") }})\n),\n{}',
       { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "name"), i(0) })
   ),
-  s({ trig = "SNIP", name = "multiline snippet", dscr = "multiline snippet definition" }, fmt([=[
+  s({ trig = "SNIPF", name = "multiline snippet", dscr = "multiline snippet definition" }, fmt([=[
     s({{ trig = "{}", name = "{}", dscr = "{}" }}, fmt([[
         {}
       ]], {{ {} }})
