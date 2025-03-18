@@ -11,7 +11,7 @@ local extras = require("luasnip.extras")
 local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt    = require("luasnip.extras.fmt")
+local fmt    = require("luasnip.extras.fmt").fmt
 -- local fmta   = require("luasnip.extras.fmta")
 local conds  = require("luasnip.extras.conditions")
 local condse = require("luasnip.extras.conditions.expand")
@@ -44,7 +44,7 @@ local snippets = {
       }}
       return snippets
       {}
-    ]],{ i(1, "-- Snippets goes here"), i(0) }, { condition = conds.line_begin, show_condition = condse.line_begin })
+    ]],{ i(1, "-- Snippets goes here"), i(0) })
   ),
   s({ trig = "snipf", name = "simplified snippet", dscr = "simple snippet template" },
     fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ i(1, "{}") }})\n),\n{}',
@@ -59,7 +59,7 @@ local snippets = {
     ]=], { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "node"), i(0) })
   ),
   s({ trig = "snipt", name = "text snippet", dscr = "simple text snippet" },
-    fmt('s({{ trig = "{}", name = "{}", dscr = "{}", {{\n\tt("{}")\n}} }},\n{})', {
+    fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }}, {{\n\tt("{}")\n}},\n{})', {
       i(1, "trigger"), i(2, "name"), i(3, "description"), i(4, "snippet text"), i(0)
     })
   ),
@@ -109,7 +109,7 @@ local snippets = {
   ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
-    fmt('-- stylua: ignore {}\n{}', {c(1, {t(""), t("start"), t("end")}), i(0)}, { condition = conds.line_begin })
+    fmt('-- stylua: ignore {}\n{}', { c(1, { t(""), t("start"), t("end") }), i(0) })
   ),
 
   s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" }, fmt([[
