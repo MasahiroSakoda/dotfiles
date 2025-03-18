@@ -35,6 +35,11 @@ local snippets = {
     {}
     ]=], { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "node"), i(0) })
   ),
+  s({ trig = "snipt", name = "text snippet", dscr = "simple text snippet" },
+    fmt('s({{ trig = "{}", name = "{}", dscr = "{}", {{\n\tt("{}")\n}} }},\n{})', {
+      i(1, "trigger"), i(2, "name"), i(3, "description"), i(4, "snippet text"), i(0)
+    })
+  ),
 
   s({ trig = "fn", name = "function template", dscr = "normal function template" },
     fmt('function({})\n\t{}\nend\n{}', { i(1, "parameter"), i(2, "code"), i(0) })
