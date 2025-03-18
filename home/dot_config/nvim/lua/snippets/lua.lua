@@ -82,7 +82,12 @@ local snippets = {
 
 
   s({ trig = "fn", name = "function template", dscr = "selectable function template" },
-    fmt('{}{}({})', {c(1, {t("function "), t("local function "), t("function M.")}), i(2, "name"), i(3, "param")})
+    fmt('{}{}({})\n{}', {
+      c(1, {t("function "), t("local function "), t("function M.")}),
+      i(2, "name"),
+      i(3, "param"),
+      i(0),
+    })
   ),
   s({ trig = "l2", name = "define two variables", dscr = "define two local variables" },
     fmt('local {}, {} = {}, {}\n{}', { i(1, "var1"), i(2, "var2"), i(3, "c1"), i(4, "c2"), i(0) })
