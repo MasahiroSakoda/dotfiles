@@ -65,6 +65,7 @@ local snippets = {
   ),
 
   -- snippet components
+  s({ trig = "snipi", name = "insert node", dscr = "insert node snippet" }, fmt('i({}){}', { i(1, "index"), i(0) })),
   s({ trig = "snipc", name = "choice node", dscr = "choice node snippet" },
     fmt('c({}, {{\n{}\n}}),{}', { i(1, "index"), i(2, "choices"), i(0) })
   ),
