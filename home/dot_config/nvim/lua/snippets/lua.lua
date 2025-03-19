@@ -50,12 +50,13 @@ local snippets = {
     fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ i(1, "{}") }})\n),\n{}',
       { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "name"), i(0) })
   ),
-  s({ trig = "SNIPF", name = "multiline snippet", dscr = "multiline snippet definition" }, fmt([=[
-    s({{ trig = "{}", name = "{}", dscr = "{}" }}, fmt([[
+  s({ trig = "SNIPF", name = "multiline snippet", dscr = "multiline snippet definition" },
+    fmt([=[
+    s({{ trig = "{}", name = "{}", dscr = "{}" }},
+      fmt([[
         {}
       ]], {{ {} }})
-    ),
-    {}
+    ),{}
     ]=], { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "node"), i(0) })
   ),
   s({ trig = "snipt", name = "text snippet", dscr = "simple text snippet" },
@@ -88,7 +89,8 @@ local snippets = {
   s({ trig = "augroup", name = "augroup template", dscr = "vim.api.nvim_create_augroup template" },
     fmt('vim.api.nvim_create_augroup("{}", {{ clear = true }})\n{}', { i(1, "group"), i(0)})
   ),
-  s({ trig = "autocmd", name = "autocmd template", dscr = "vim.api.nvim_create_autocmd template" }, fmt([[
+  s({ trig = "autocmd", name = "autocmd template", dscr = "vim.api.nvim_create_autocmd template" },
+    fmt([[
       vim.api.nvim_create_autocmd("{}", {{
         desc     = "{}",
         group    = vim.api.nvim_create_augroup("{}", {{ clear = true }}),
@@ -104,7 +106,8 @@ local snippets = {
     fmt('-- stylua: ignore {}\n{}', { c(1, { t(""), t("start"), t("end") }), i(0) })
   ),
 
-  s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" }, fmt([[
+  s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" },
+    fmt([[
       {{
         "{}",
         event  = {{ "{}" }},
@@ -113,7 +116,8 @@ local snippets = {
       {}
     ]], { i(1, "path"), i(2, "event"), i(3, "module"), i(0) })
   ),
-  s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" }, fmt([[
+  s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" },
+    fmt([[
       local ok, {} = pcall(require, "{}")
       if not ok then return end
 
@@ -125,7 +129,7 @@ local snippets = {
   ),
 
   s({ trig = "keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
-    fmt('{{ "<Leader>{}", "<CMD>{}<CR>", icon = " ", desc = "{}" }}\n{}', {
+    fmt('{{ "<Leader>{}", {}, icon = " ", desc = "{}" }}\n{}', {
       i(1, "keymap"),
       i(2, "command"),
       -- TODO: enable choice selection from codicons.nvim
