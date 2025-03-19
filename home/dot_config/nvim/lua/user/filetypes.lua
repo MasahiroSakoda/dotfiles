@@ -85,6 +85,7 @@ Filetypes.matchup = {
 Filetypes.lsp = {
   clang_format = { ".clang_format" },
   stylua       = { "stylua.toml", ".stylua.toml" },
+  rust         = { "Cargo.toml", "rust-project.json" },
   golangci     = { ".golangci.yml", ".golangci.yaml", ".golangci.toml", ".golangci.json" },
   pyright      = { ".venv", "venv", "setup.py", "setup.cfg", "requirements.txt", "pyproject.toml" },
   ruff         = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
