@@ -1,7 +1,20 @@
 -- -*-mode:lua-*- vim:ft=lua
 local ls = require("luasnip")
-local s, t, i, c, sn = ls.snippet,ls.text_node, ls.insert_node, ls.choice_node, ls.snippet_node
-local fmt = require("luasnip.extras.fmt").fmt
+local s  = ls.snippet
+local t  = ls.text_node
+local i  = ls.insert_node
+local c  = ls.choice_node
+-- local r  = ls.restore_node
+-- local f  = ls.function_node
+local sn = ls.snippet_node
+-- local extras = require("luasnip.extras")
+-- local rep    = extras.rep
+-- local m      = extras.m
+-- local l      = extras.l
+local fmt    = require("luasnip.extras.fmt").fmt
+-- local fmta   = require("luasnip.extras.fmta")
+-- local conds  = require("luasnip.extras.conditions")
+-- local condse = require("luasnip.extras.conditions.expand")
 
 local snippets = {
 
@@ -13,10 +26,11 @@ local snippets = {
         createdAt DateTime @default(now())
         updatedAt DateTime @updatedAt
       }}
-    ]], { i(1, "model") })
+      {}
+    ]], { i(1, "model"), i(0) })
   ),
   s({ trig = "field", name = "model field", dscr = "prisma model field template" },
-    fmt('{} {}{} {}\n', {
+    fmt('{} {}{} {}\n{}', {
       i(1, "field"),
       c(2, {
         t("Int"),
@@ -51,11 +65,12 @@ local snippets = {
         t("@@ignore"),
         t("@schema"),
       }),
+      i(0)
     })
   ),
 
   s({ trig = "attr", name = "field attribute", dscr = "field attribute template" },
-    fmt('{}', {
+    fmt('{}\n{}', {
       c(1, {
         t("@relation"),
         t("@unique"),
@@ -71,16 +86,18 @@ local snippets = {
         t("@@ignore"),
         t("@@schema"),
       }),
+      i(0),
     })
   ),
 
   s({ trig = "pf", name = "filter methods", dscr = "prisma filter method templates" },
-    fmt('await prisma.{}.{};', {
+    fmt('await prisma.{}.{};\n{}', {
       i(1, "model"),
       c(2, {
         t("findFirst()"),
         fmt('findMany({})', { c(1, { t(""), sn(nil, fmt('{{\n\twhere: {{\n\t\t{}\n\t}}\n}}', i(1, "filter"))) }) }),
-      })
+      }),
+      i(0),
     })
   ),
 
@@ -91,7 +108,8 @@ local snippets = {
           {}
         }}
       }})
-    ]], { i(1, "model"), i(2, "data") })
+      {}
+    ]], { i(1, "model"), i(2, "data"), i(0) })
   ),
 
   s({ trig = "pu", name = "update record", dscr = "prisma update method templates" },
@@ -104,7 +122,8 @@ local snippets = {
           {}
         }},
       }})
-    ]], { i(1, "model"), i(2, "filter"), i(3, "content") })
+      {}
+    ]], { i(1, "model"), i(2, "filter"), i(3, "content"), i(0) })
   ),
 
   s({ trig = "pd", name = "delete record", dscr = "prisma delete method templates" },
@@ -114,29 +133,35 @@ local snippets = {
           {}
         }}
       }})
-    ]], { i(1, "model"), i(2, "filter") })
+      {}
+    ]], { i(1, "model"), i(2, "filter"), i(0) })
   ),
 
   s({ trig = "enum", name = "enum template", dscr = "prisma enum template" },
-    fmt('enum {} {{\n\t{}\n}}', { i(1, "name"), i(2, "value") })
+    fmt('enum {} {{\n\t{}\n}}\n{}', { i(1, "name"), i(2, "value"), i(0) })
   ),
 
   s({ trig = "many", name = "many relationship", dscr = "define many relationship" },
-    fmt('{} {}[]', { i(1, "field"), i(2, "type") })
+    fmt('{} {}[]\n{}', { i(1, "field"), i(2, "type"), i(0) })
   ),
 
   s({ trig = "belongs", name = "belong relationship", dscr = "define belong relationship" },
-    fmt('{} {} @relation(fields: [{}], references: [{}], onDelete: {})', {
+    fmt('{} {} @relation(fields: [{}], references: [{}], onDelete: {})\n{}', {
       i(1, "field"),
       i(2, "type"),
       i(3, "ID reference from this model"),
       i(4, "Foreign key"),
-      c(5, { t("SetNull"), t("NoAction"), t("Cascade") })
+      c(5, { t("SetNull"), t("NoAction"), t("Cascade") }),
+      i(0),
     })
   ),
 
-  s({ trig = "index",  name = "index template",  dscr = "define index" },  fmt('@@index([{}])',  { i(1, "field") })),
-  s({ trig = "unique", name = "unique template", dscr = "define unique" }, fmt('@@unique([{}])', { i(1, "field") })),
+  s({ trig = "index",  name = "index template",  dscr = "define index" },
+    fmt('@@index([{}])\n{}',  { i(1, "field"), i(0) })
+  ),
+  s({ trig = "unique", name = "unique template", dscr = "define unique" },
+    fmt('@@unique([{}])\n{}', { i(1, "field"), i(0) })
+  ),
 }
 
 return snippets
