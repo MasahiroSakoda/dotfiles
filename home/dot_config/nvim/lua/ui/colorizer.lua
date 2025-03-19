@@ -8,6 +8,7 @@ colorizer.setup({
   filetypes = {
     "*",
     "!lazy",
+    "!noice",
     -- "lua", "css",
   },
   buftype = { "*", "!prompt", "!nofile" },
