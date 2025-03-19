@@ -84,12 +84,12 @@ local snippets = {
               Short: "",
               Long:  "",
               RunE:  func (_ *cobra.Command, args []string) error {{
-						      m := tui.New()
-						  	  p := tea.NewProgram(m, tea.WithAltScreen())
-						  	  if _, err := p.Run(); err != nil {{
-								      log.Error("Bubbletea program fail: ", err)
-							        return err
-			        	  }}
+                  m := tui.New()
+                  p := tea.NewProgram(m, tea.WithAltScreen())
+                  if _, err := p.Run(); err != nil {{
+                      log.Error("Bubbletea program fail: ", err)
+                      return err
+                  }}
                   p.Quit()
                   return nil
               }},
@@ -138,14 +138,14 @@ local snippets = {
 
       const (
           // CommandName is to use as binary name
-	        CommandName string = "{}"
-	        // CurrentVersion is to use current version
-	        CurrentVersion string = "v0.1.0"
+          CommandName string = "{}"
+          // CurrentVersion is to use current version
+          CurrentVersion string = "v0.1.0"
 
-	        // DefaultConfigFileName is name of config file (without extension)
-	        DefaultConfigFileName string = "config"
-	        // DefaultConfigFileType is extension of config file
-	        DefaultConfigFileType string = "toml"
+          // DefaultConfigFileName is name of config file (without extension)
+          DefaultConfigFileName string = "config"
+          // DefaultConfigFileType is extension of config file
+          DefaultConfigFileType string = "toml"
       )
 
       var HomeDir  = xdg.Home + "/"
@@ -190,13 +190,13 @@ local snippets = {
               cmd    tea.Cmd
               cmds []tea.Cmd
           )
-	        switch msg := msg.(type) {{
-	        case tea.WindowSizeMsg:
+          switch msg := msg.(type) {{
+          case tea.WindowSizeMsg:
           case tea.KeyMsg:
-	        case tea.QuitMsg:
-		          return m, tea.Quit
+          case tea.QuitMsg:
+              return m, tea.Quit
           }}
-	        return m, tea.Batch(cmds...)
+          return m, tea.Batch(cmds...)
       }}
       {}
     ]], { i(0) })
