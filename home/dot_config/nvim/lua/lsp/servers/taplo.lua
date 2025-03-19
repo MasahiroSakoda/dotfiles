@@ -6,7 +6,8 @@ return {
   cmd       = { "taplo", "lsp", "stdio" },
   filetypes = { "toml" },
   root_dir = function(fname)
-    return lspconfig.util.root_pattern('*.toml')(fname) or lspconfig.util.find_git_ancestor(fname)
+    return lspconfig.util.root_pattern('*.toml')(fname)
+      or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
   end,
   settings = {
     evenBetterToml = {

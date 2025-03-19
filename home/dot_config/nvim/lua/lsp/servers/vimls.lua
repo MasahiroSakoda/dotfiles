@@ -1,11 +1,10 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
 return {
   cmd       = { "vim-language-server", "--stdio" },
   filetypes = { "vim" },
-  root_dir  = function(filename)
-    return lspconfig.util.find_git_ancestor(filename) or (vim.uv or vim.loop).os_homedir()
+  root_dir  = function(fname)
+    return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
   end,
   init_options = {
     diagnostic = { enable = true },

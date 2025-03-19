@@ -3,7 +3,9 @@
 return {
   cmd       = { "bash-language-server", "start" },
   filetypes = { "sh", "bash", "zsh" },
-  root_dir = vim.lsp.util.find_git_ancestor,
+  root_dir  = function(fname)
+    return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+  end,
   autostart = true,
 
   settings = {
