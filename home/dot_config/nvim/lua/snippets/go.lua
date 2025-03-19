@@ -18,26 +18,31 @@ local fmt    = require("luasnip.extras.fmt").fmt
 
 local snippets = {
   s({ trig = "type", name = "", dscr = "" },
-    fmt('type {} {} {{\n{}\n}}\n{}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code"), i(0) })
+    fmt('type {} {} {{\n\t{}\n}}\n{}', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code"), i(0) })
   ),
-  s({ trig = "ife", name = "if - end", dscr = "if - end block" }, fmt('if err != nil {{\n\t{}\n}}\n{}', { c(1, {
-    t("return err"),
-    t("return nil, err"),
-    t("t.Fatal(err)"),
-    t("log.Fatal(err)"),
-    i(0),
-  }), i(2) })),
-  s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
-    fmt('"github.com/{}\n{}', {
+  s({ trig = "ife", name = "if - end", dscr = "if - end block" }, fmt('if err != nil {{\n\t{}\n}}\n{}',
+    {
       c(1, {
-        t('"stretchr/testify"'),
-        t('"spf13/cobra"'),
-        t('"spf13/viper"'),
-        t('"charmbracelet/bubbletea"'),
-        t('"charmbracelet/bubbles"'),
-        t('"charmbracelet/lipgloss"'),
-        t('"charmbracelet/log"'),
-        t('"adrg/xdg"'),
+        t("return err"),
+        t("return nil, err"),
+        t("t.Fatal(err)"),
+        t("log.Fatal(err)"),
+        i(0),
+      }),
+      i(0)
+    }
+  )),
+  s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
+    fmt('"github.com/{}"{}', {
+      c(1, {
+        t('stretchr/testify'),
+        t('spf13/cobra'),
+        t('spf13/viper'),
+        t('charmbracelet/bubbletea'),
+        t('charmbracelet/bubbles'),
+        t('charmbracelet/lipgloss'),
+        t('charmbracelet/log'),
+        t('adrg/xdg'),
       }),
       i(0),
     })
@@ -45,13 +50,14 @@ local snippets = {
 
   -- Test
   s({ trig = "terr", name = "error check (test)", dscr = "error check in test code" },
-    fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n}}\n{}', { i(1, "error msg"), i(0) })
+    fmt('if err != nil {{\n\tt.Errorf("{}: %v", err)\n{}}}\n', { i(1, "error msg"), i(0) })
   ),
   s({ trig = "test", name = "test function", dscr = "test function template" }, fmt([[
       func Test{}(t *testing.T) {{
           tests := []struct {{
               name string
-              wantErr error{}
+              wantErr error
+              {}
           }}{{
               {{ name: "{}" }},
           }}
@@ -63,7 +69,7 @@ local snippets = {
           }}
       }}
       {}
-  ]], { i(1, "func"), i(2), i(3), i(4, "assert"), i(0) })),
+  ]], { i(1, "func"), i(2, "field"), i(3, "description"), i(4, "assert"), i(0) })),
 
   -- Cobra
   s({ trig = "cobra", name = "Cobra", dscr = "spf13/cobra CLI library template" },
@@ -78,6 +84,12 @@ local snippets = {
               Short: "",
               Long:  "",
               RunE:  func (_ *cobra.Command, args []string) error {{
+						      m := tui.New()
+						  	  p := tea.NewProgram(m, tea.WithAltScreen())
+						  	  if _, err := p.Run(); err != nil {{
+								      log.Error("Bubbletea program fail: ", err)
+							        return err
+			        	  }}
                   p.Quit()
                   return nil
               }},
@@ -112,9 +124,8 @@ local snippets = {
 
       // Config defines type to use viper
       type Config struct {{
-          {} {} `mapstructure:"{}"`
+          {} {} `mapstructure:"{}"`{}
       }}
-      {}
     ]], { i(1, "config item"), i(2, "type"), rep(1), i(0) })
   ),
 
@@ -192,7 +203,7 @@ local snippets = {
   ),
   -- bubbles
   s({ trig = "bubbles", name = "Bubbles collection", dscr = "Bubbletea UI Collectioin" },
-    fmt('{}\n{}', {
+    fmt('{}{}', {
       c(1, {
         t("spinner"),
         t("textinput"),
