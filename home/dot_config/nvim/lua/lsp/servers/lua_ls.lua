@@ -32,7 +32,8 @@ return {
         showWord   = true,
         postfix = "@",
       },
-    }
+    },
+    codelens = { enable = true },
   },
   -- single_file_support = true,
 }
