@@ -1,11 +1,11 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
 
 return {
   cmd       = { "vscode-json-language-server", "--stdio" },
   filetypes = require("user.filetypes").lang.json,
-  root_dir = lspconfig.util.find_git_ancestor,
+  root_dir  = function(fname)
+    return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+  end,
   init_options = {
     provideFormatter = true,
   },

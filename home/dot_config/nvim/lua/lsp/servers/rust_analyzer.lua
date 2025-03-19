@@ -4,7 +4,7 @@ if not ok then return end
 return {
   cmd       = { "rust-analyzer" },
   filetypes = { "rust" },
-  root_dir  = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
+  root_dir  = lspconfig.util.root_pattern(require("user.filetypes").lsp.rust),
   settings  = {
     -- Refer to all available options here: https://rust-analyzer.github.io/manual.html
     ["rust-analyzer"] = {
