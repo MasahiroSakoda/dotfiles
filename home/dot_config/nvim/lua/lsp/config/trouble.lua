@@ -55,6 +55,15 @@ trouble.setup({
     },
   },
 
+  picker = {
+    actions = require("trouble.sources.snacks").actions,
+    win = {
+      input = {
+        keys = { ["<c-t>"] = { "trouble_open", mode = { "n", "i" } } },
+      },
+    },
+  },
+
   keys = {
     ["?"]     = "help",
     ["ESC"]   = "cancel",
