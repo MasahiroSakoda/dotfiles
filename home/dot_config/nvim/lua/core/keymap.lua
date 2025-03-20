@@ -231,7 +231,6 @@ wk.add({
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = "Display LSP Info" },
 
-  { "gh",  "<CMD>LspInlayHintsToggle<CR>",               icon = " ", desc = "Toggle Inlay Hints" },
   { "g[",  "<CMD>lua vim.diagnostic.goto_prev()<CR>",    icon = " ", desc = "Go to prev diagnostics" },
   { "g]",  "<CMD>lua vim.diagnostic.goto_next()<CR>",    icon = " ", desc = "Go to next diagnostics" },
   { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
@@ -345,7 +344,6 @@ end
 ---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
-
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
@@ -358,6 +356,7 @@ if not is_vscode then
     { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                   icon = " ", desc = "Toggle File Explorer"},
+    { ",h", "<CMD>lua Snacks.toggle.inlay_hits()",              icon = " ", desc = "Toggle Inlay Hints" },
     { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",        icon = " ", desc = "Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",        icon = " ", desc = "Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt, icon = " ", desc = "Toggle Terminal" },
