@@ -209,6 +209,7 @@ if not is_vscode then
     -- { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
 
     -- Others
+    { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>", icon = " ", desc = "Search Icons" },
     {
       "<Leader>fl",
       "<CMD>lua Snacks.picker.smart({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",
