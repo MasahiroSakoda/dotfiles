@@ -44,7 +44,7 @@ lualine.setup {
       },
     },
     lualine_x = {
-      { require("ui.lualine-codecompanion") },
+      { "codecompanion" },
       { "macro-recording", fmt = show_macro_recording },
       {
         "overseer",
