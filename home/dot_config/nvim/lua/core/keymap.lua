@@ -107,15 +107,6 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- Line Number
----------------------------------------------------------------------------
-local ui = require("utils.ui")
-wk.add({
-  { ",n", ui.toggle_line_number,     icon = " ", desc = "Toggle Line Number" },
-  { ",N", ui.toggle_relative_number, icon = " ", desc = "Toggle Relatieve Number" },
-}, opts)
-
----------------------------------------------------------------------------
 -- LuaSnip
 ---------------------------------------------------------------------------
 wk.add({
@@ -362,5 +353,13 @@ if not is_vscode then
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",        icon = " ", desc = "Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt, icon = " ", desc = "Toggle Terminal" },
     { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt, icon = " ", desc = "Toggle btm w/ terminal" },
+    { ",n", "<CMD>lua Snacks.picker.toggle_number()<CR>",       icon = " ", desc = "Toggle Line Number" },
+    {
+      ",N", function()
+        vim.opt.relativenumber = not vim.o.relativenumber and vim.api.nvim_get_mode().mode ~= "i"
+      end,
+      icon = " ",
+      desc = "Toggle Relative Line Number",
+    }
   }, opts)
 end
