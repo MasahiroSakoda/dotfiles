@@ -10,7 +10,11 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+      { "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
+    }
   },
   {
     "theHamsta/nvim-dap-virtual-text",
