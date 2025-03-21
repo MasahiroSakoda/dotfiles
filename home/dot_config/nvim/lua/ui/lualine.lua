@@ -36,15 +36,10 @@ lualine.setup {
       { "diagnostics" },
     },
     lualine_c = {
-      {
-        "filename",
-        icon = "",
-        path = 4, -- 0: Filename, 1: Relative, 2: Absolute, 3: Absolute+ w/ home dir 4: Filename + Parent dir
-        symbols = { modified = "", readonly = "", newfile  = "", unnamed  = "" }
-      },
+      { "smartpath", parent_num = 2, abbrev_dot = true },
     },
     lualine_x = {
-      { require("ui.lualine-codecompanion") },
+      { "codecompanion" },
       { "macro-recording", fmt = show_macro_recording },
       {
         "overseer",
