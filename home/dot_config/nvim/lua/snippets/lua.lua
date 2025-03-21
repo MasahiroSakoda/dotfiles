@@ -4,9 +4,9 @@ local s  = ls.snippet
 local t  = ls.text_node
 local i  = ls.insert_node
 local c  = ls.choice_node
--- local r  = ls.restore_node
+local r  = ls.restore_node
 -- local f  = ls.function_node
--- local sn = ls.snippet_node
+local sn = ls.snippet_node
 local extras = require("luasnip.extras")
 local rep    = extras.rep
 -- local m      = extras.m
@@ -47,8 +47,8 @@ local snippets = {
     ]],{ i(1, "-- Snippets goes here"), i(0) })
   ),
   s({ trig = "snipf", name = "simplified snippet", dscr = "simple snippet template" },
-    fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ i(1, "{}") }})\n),\n{}',
-      { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(5, "name"), i(0) })
+    fmt('s({{ trig = "{}", name = "{}", dscr = "{}" }},\n\tfmt(\'{}\', {{ {} }})\n),',
+      { i(1, "trigger"), i(2, "name"), i(3, "desc"), i(4, "snip"), i(0) })
   ),
   s({ trig = "SNIPF", name = "multiline snippet", dscr = "multiline snippet definition" },
     fmt([=[
@@ -75,8 +75,8 @@ local snippets = {
   ),
 
   s({ trig = "fn", name = "function template", dscr = "selectable function template" },
-    fmt('{}{}({})\n{}', {
-      c(1, {t("function "), t("local function "), t("function M.")}),
+    fmt('{}{}({})\n\t{}\nend\n', {
+      c(1, { t("function "), t("local function "), t("function M.") }),
       i(2, "name"),
       i(3, "param"),
       i(0),
@@ -103,7 +103,7 @@ local snippets = {
   ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
-    fmt('-- stylua: ignore {}\n{}', { c(1, { t(""), t("start"), t("end") }), i(0) })
+    fmt('-- stylua: ignore{}\n{}', { c(1, { t(""), t(" start"), t(" end") }), i(0) })
   ),
 
   s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" },
@@ -129,11 +129,17 @@ local snippets = {
   ),
 
   s({ trig = "keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
-    fmt('{{ "<Leader>{}", {}, icon = " ", desc = "{}" }}\n{}', {
-      i(1, "keymap"),
-      i(2, "command"),
-      -- TODO: enable choice selection from codicons.nvim
-      i(3, "description"),
+    fmt('{{ "{}", {}, icon = " ", desc = "{}" }},', {
+      c(1, {
+        sn(1, { t("<Leader>"), r(1, "user_lhs") }),
+        sn(1, { t(","), r(1, "user_lhs") }),
+        sn(1, { r(1, "user_lhs") }),
+      }),
+      c(2, {
+        { t("\"<CMD>"),     r(1, "user_rhs"), t("<CR>\"") },
+        { t("function() "), r(1, "user_rhs"), t(" end") },
+        { r(1, "use_rhs")},
+      }),
       i(0),
     })
   ),
