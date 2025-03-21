@@ -92,6 +92,13 @@ local snippets = {
     fmt('print(vim.inspect({}))', { i(0) })
   ),
 
+  s({ trig = "notify", name = "vim.notify template", dscr = "vim.notify template" },
+    fmt('vim.notify({}, vim.log.levels.{}{})', {
+      i(1, "string"),
+      c(2, { t("DEBUG"), t("INFO"), t("WARN"), t("ERROR"), t("TRACE") }),
+      i(0),
+    })
+  ),
   s({ trig = "augroup", name = "augroup template", dscr = "vim.api.nvim_create_augroup template" },
     fmt('vim.api.nvim_create_augroup("{}", {{ clear = true }})\n{}', { i(1, "group"), i(0)})
   ),
