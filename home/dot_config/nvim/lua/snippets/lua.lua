@@ -88,6 +88,9 @@ local snippets = {
   s({ trig = "module", name = "lua module template", dscr = "lua module template" },
     fmt('local M = {{}}\n\n{}\n\nreturn M', { i(0) })
   ),
+  s({ trig = "pp", name = "print lua table", dscr = "print lua table beautifully" },
+    fmt('print(vim.inspect({}))', { i(0) })
+  ),
 
   s({ trig = "augroup", name = "augroup template", dscr = "vim.api.nvim_create_augroup template" },
     fmt('vim.api.nvim_create_augroup("{}", {{ clear = true }})\n{}', { i(1, "group"), i(0)})
