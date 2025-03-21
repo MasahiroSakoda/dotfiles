@@ -40,7 +40,7 @@ luasnip.config.setup({
 
   -- extend filetypes
   load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
-    markdown   = { "html", "css", "lua", "json", "yaml", "javascript", "typescript", "typescriptreact" },
+    markdown   = { "lua", "json", "yaml" },
     html       = { "css", "javascript", "json", "graphql" },
     javascript = { "html", "css", "graphql" },
     typescript = { "html", "css", "graphql" },
