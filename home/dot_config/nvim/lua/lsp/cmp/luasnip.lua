@@ -26,8 +26,16 @@ luasnip.config.setup({
   ft_func = require("luasnip.extras.filetype_functions").from_cursor,
 
   ext_opts = {
-    [types.insertNode] = { active = { virt_text = { { "●", "GruvboxBlue" } },   hl_mode = "combine" } },
-    [types.choiceNode] = { active = { virt_text = { { "●", "GruvboxOrange" } }, hl_mode = "combine" } },
+    [types.insertNode] = {
+      active    = { virt_text = { { "●", "yellow" } } },
+      unvisited = { virt_text = { { "|", "Conceal" } }, hl_mode = "combine" },
+    },
+    [types.choiceNode] = {
+      active    = { virt_text = { { "●", "Special" } }, hl_mode = "combine" },
+    },
+    [types.exitNode] = {
+      unvisited = { virt_text = { { "|", "Conceal" } }, hl_mode = "combine" },
+    }
   },
 
   -- extend filetypes
