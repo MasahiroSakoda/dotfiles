@@ -85,6 +85,9 @@ local snippets = {
   s({ trig = "l2", name = "define two variables", dscr = "define two local variables" },
     fmt('local {}, {} = {}, {}\n{}', { i(1, "var1"), i(2, "var2"), i(3, "c1"), i(4, "c2"), i(0) })
   ),
+  s({ trig = "module", name = "lua module template", dscr = "lua module template" },
+    fmt('local M = {{}}\n\n{}\n\nreturn M', { i(0) })
+  ),
 
   s({ trig = "augroup", name = "augroup template", dscr = "vim.api.nvim_create_augroup template" },
     fmt('vim.api.nvim_create_augroup("{}", {{ clear = true }})\n{}', { i(1, "group"), i(0)})
