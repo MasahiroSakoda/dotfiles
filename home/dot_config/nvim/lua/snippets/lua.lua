@@ -114,6 +114,13 @@ local snippets = {
       {}
     ]], { i(1, "event"), i(2, "desc"), i(3, "group"), i(4, "callback code"), i(0) })
   ),
+  s({ trig = "command", name = "user command", dscr = "create user command" },
+    fmt([[
+      vim.api.nvim_create_user_command("{}", function({})
+        {}
+      end, {{ desc = "{}", nargs = "*", bang = true }})
+    ]], { i(1, "Command Name"), i(2, "parameter"), i(3, "code"), i(0) })
+  ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
     fmt('-- stylua: ignore{}\n{}', { c(1, { t(""), t(" start"), t(" end") }), i(0) })
