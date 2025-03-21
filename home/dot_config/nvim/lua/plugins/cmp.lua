@@ -28,6 +28,36 @@ return {
     version = "v2.*",
     event   = "InsertEnter",
     config  = function () require("lsp.cmp.luasnip") end,
+    keys = {
+      -- {
+      --   "<Tab>",
+      --   function() return require("luasnip").expand_or_jumpable() and require("luasnip").expand_or_jump() end,
+      --   expr   = true,
+      --   silent = true,
+      --   mode   = { "i", "s" },
+      -- },
+      -- {
+      --   "<S-Tab>",
+      --   function() return require("luasnip").jumpable(-1) and require("luasnip").jump(-1) end,
+      --   expr   = true,
+      --   silent = true,
+      --   mode   = { "i", "s" },
+      -- },
+      {
+        "<C-p>",
+        function() return require("luasnip").choice_active() and "<Plug>luasnip-prev-choice" or "<C-e>" end,
+        expr   = true,
+        silent = true,
+        mode   = { "i", "s" },
+      },
+      {
+        "<C-n>",
+        function() return require("luasnip").choice_active() and "<Plug>luasnip-next-choice" or "<C-e>" end,
+        expr   = true,
+        silent = true,
+        mode   = { "i", "s" },
+      },
+    },
   },
   {
     "saghen/blink.cmp",
