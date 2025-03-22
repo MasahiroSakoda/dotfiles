@@ -2,22 +2,22 @@
 ---@diagnostic disable: unused-local
 local ls = require("luasnip")
 local s  = ls.snippet
-local t  = ls.text_node
-local i  = ls.insert_node
-local c  = ls.choice_node
-local d  = ls.dynamic_node
-local r  = ls.restore_node
-local f  = ls.function_node
-local sn = ls.snippet_node
+local t  = ls.text_node     -- luacheck: no unused
+local i  = ls.insert_node   -- luacheck: no unused
+local c  = ls.choice_node   -- luacheck: no unused
+local d  = ls.dynamic_node  -- luacheck: no unused
+local r  = ls.restore_node  -- luacheck: no unused
+local f  = ls.function_node -- luacheck: no unused
+local sn = ls.snippet_node  -- luacheck: no unused
 local extras = require("luasnip.extras")
-local rep    = extras.rep
-local m      = extras.m
-local l      = extras.l
+local rep    = extras.rep   -- luacheck: no unused
+local m      = extras.m     -- luacheck: no unused
+local l      = extras.l     -- luacheck: no unused
 local fmt     = require("luasnip.extras.fmt").fmt
-local fmta    = require("luasnip.extras.fmt").fmta
-local postfix = require("luasnip.extras.postfix").postfix
-local conds   = require("luasnip.extras.conditions")
-local condse  = require("luasnip.extras.conditions.expand")
+local fmta    = require("luasnip.extras.fmt").fmta          -- luacheck: no unused
+local postfix = require("luasnip.extras.postfix").postfix   -- luacheck: no unused
+local conds   = require("luasnip.extras.conditions")        -- luacheck: no unused
+local condse  = require("luasnip.extras.conditions.expand") -- luacheck: no unused
 
 local snippets = {
 
