@@ -26,13 +26,21 @@ luasnip.config.setup({
   ft_func = require("luasnip.extras.filetype_functions").from_cursor,
 
   ext_opts = {
-    [types.insertNode] = { active = { virt_text = { { "●", "GruvboxBlue" } },   hl_mode = "combine" } },
-    [types.choiceNode] = { active = { virt_text = { { "●", "GruvboxOrange" } }, hl_mode = "combine" } },
+    [types.insertNode] = {
+      active    = { virt_text = { { "●", "yellow" } } },
+      unvisited = { virt_text = { { "|", "Conceal" } }, hl_mode = "combine" },
+    },
+    [types.choiceNode] = {
+      active    = { virt_text = { { "●", "Special" } }, hl_mode = "combine" },
+    },
+    [types.exitNode] = {
+      unvisited = { virt_text = { { "|", "Conceal" } }, hl_mode = "combine" },
+    }
   },
 
   -- extend filetypes
   load_ft_func = require("luasnip.extras.filetype_functions").extend_load_ft({
-    markdown   = { "html", "css", "lua", "json", "yaml", "javascript", "typescript", "typescriptreact" },
+    markdown   = { "lua", "json", "yaml" },
     html       = { "css", "javascript", "json", "graphql" },
     javascript = { "html", "css", "graphql" },
     typescript = { "html", "css", "graphql" },
@@ -109,7 +117,7 @@ local function choice_popup(choiceNode)
 end
 
 local function update_choice_popup(choiceNode)
-  ---@cast current_win -nil
+  if not current_win then return end
   vim.api.nvim_win_close(current_win.win_id, true)
   vim.api.nvim_buf_del_extmark(current_win.buf, current_nsid, current_win.extmark)
   local create_win = window_for_choiceNode(choiceNode)
@@ -119,7 +127,7 @@ local function update_choice_popup(choiceNode)
 end
 
 local function choice_popup_close()
-  ---@cast current_win -nil
+  if not current_win then return end
 	vim.api.nvim_win_close(current_win.win_id, true)
   vim.api.nvim_buf_del_extmark(current_win.buf, current_nsid, current_win.extmark)
         -- now we are checking if we still have previous choice we were in after exit nested choice
