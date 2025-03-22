@@ -24,10 +24,11 @@ std = {
     "tostring",
   },
   ignore = {
-    "122", -- Mutating read-only global variable
-    "131", -- Unused global variable
-    "211", -- Unused variable
-    "221", -- Variable is never set
-    "231", -- Variable is never accessed
+    "122",    -- Mutating read-only global variable
+    "131",    -- Unused global variable
+    "211/_*", -- Unused variable
+    "212/_*", -- Unused argument.
+    "221/_*", -- Variable is never set
+    "231/_*", -- Variable is never accessed
   },
 }
