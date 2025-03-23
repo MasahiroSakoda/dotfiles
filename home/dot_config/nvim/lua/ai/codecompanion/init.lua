@@ -25,11 +25,12 @@ codecompanion.setup({
     openai    = require("ai.codecompanion.adapters.openai"),
     anthropic = require("ai.codecompanion.adapters.anthropic"),
     google    = require("ai.codecompanion.adapters.google"),
-    ollama    = require("ai.codecompanion.adapters.ollama"),
+    qwen      = require("ai.codecompanion.adapters.qwen"),
+    dolhin    = require("ai.codecompanion.adapters.dolphin"),
   },
 
   strategies = {
-    chat   = { adapter = "ollama" },
+    chat   = { adapter = "qwen" },
     slash_commands = {
       ["buffer"]   = { opts = { provider = "snacks" } },
       ["fetch"]    = { opts = {} },
@@ -40,7 +41,7 @@ codecompanion.setup({
       ["symbols"]  = { opts = { provider = "snacks" } },
       ["terminal"] = { opts = {} },
     },
-    inline = { adapter = "ollama" },
+    inline = { adapter = "qwen" },
     agent  = { adapter = "ollama" },
   },
 
@@ -50,7 +51,8 @@ codecompanion.setup({
         layout = "vertical", ---@type "float"|"vertical"|"horizontal"|"buffer"
       },
       render_headers = false,
-      show_settings  = true,
+      show_settings  = false,
+      show_header_separator = true,
     },
     diff = {
       layout   = "vertical", ---@type "horizontal"|"vertical"
