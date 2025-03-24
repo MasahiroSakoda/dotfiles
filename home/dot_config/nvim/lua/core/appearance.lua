@@ -24,13 +24,6 @@ env.NVIM_TUI_ENABLE_TRUE_COLOR = 1
 opt.termguicolors = true
 opt.background    = "dark"
 
-vim.cmd [[
-  augroup extra-whitespace
-    autocmd VimEnter,WinEnter * call matchadd('ExtraWhitespace', "[\u00A0\u2000-\u200B\u3000]")
-    autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=magenta guibg=magenta
-  augroup END
-]]
-
 -- Command
 opt.cmdheight  = 0
 opt.showcmd    = true
