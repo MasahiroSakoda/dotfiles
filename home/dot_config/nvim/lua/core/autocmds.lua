@@ -1,8 +1,6 @@
-local g, bo, fn, api, keymap =  vim.g, vim.bo, vim.fn, vim.api, vim.keymap.set
-local autocmd = api.nvim_create_autocmd
-local augroup = function(name)
-  return api.nvim_create_augroup("dotfiles_" .. name, { clear = true })
-end
+local g, bo, fn, keymap =  vim.g, vim.bo, vim.fn, vim.keymap.set
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
 
 local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
 local lowlight_url = function()
@@ -18,7 +16,7 @@ end
 
 autocmd("BufWritePre", {
   desc    = "Strip trailing new lines at the end of file on save",
-  group   = augroup "TrailStripper",
+  group   = augroup("TrailStripper"),
   pattern = "*",
   command = ":%s/\\n\\+\\%$//e",
 })
@@ -26,9 +24,7 @@ autocmd("BufWritePre", {
 autocmd({ "BufWinEnter" }, {
   desc     = "Open :help with vertical split",
   pattern  = { "*.txt", "*.jax" },
-  callback = function()
-    if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end
-  end
+  callback = function() if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end end
 })
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -45,15 +41,15 @@ autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
 
 autocmd("TextYankPost", {
   desc     = "Highlight on yank",
-  group    = augroup "highlight_yank",
+  group    = augroup("highlight_yank"),
   pattern  = "*",
   callback = function(_) vim.highlight.on_yank() end,
 })
 
 autocmd("FileType", {
-  desc    = "Close specific filetype with <q>",
-  group   = augroup "close_with_q",
-  pattern = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
+  desc     = "Close specific filetype with <q>",
+  group    = augroup("close_with_q"),
+  pattern  = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
@@ -66,37 +62,33 @@ autocmd({ "BufRead", "BufNewFile" }, {
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
-local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
 autocmd({ "VimResized" }, {
-  group   = wr_group,
+  desc    = "Automatically resize windows when the host window size changes.",
+  group   = augroup("WinResize"),
   pattern = "*",
   command = "wincmd =",
-  desc    = "Automatically resize windows when the host window size changes.",
 })
 
 autocmd({ "QuickFixCmdPre" }, {
-  desc  = "Override Quickfix to trouble.nvim qflist",
+  desc     = "Override Quickfix to trouble.nvim qflist",
   callback = function()
     vim.schedule(function() vim.cmd([[Trouble qflist open focus=true]]) end)
   end,
 })
 
-local task_group = vim.api.nvim_create_augroup("UserMakePrg", { clear = true })
 autocmd({ "BufEnter" }, {
-  desc  = "Detect Taskfile",
-  group = task_group,
-  pattern = { "*" },
+  desc     = "Detect Taskfile",
+  group    = augroup("UserMakePrg"),
+  pattern  = { "*" },
   callback = function(_)
-    local scan  = require("plenary.scandir")
-    local files = scan.scan_dir(".", { hidden = false, depth = 1, search_pattern = "Taskfile.*" })
-    if #files > 0 then vim.o.makeprg = "task" end
+    local f = require("plenary.scandir").scan_dir(".", { hidden = false, depth = 1, search_pattern = "Taskfile.*" })
+    if #f > 0 then vim.o.makeprg = "task" end
   end,
 })
 
-local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", {})
 autocmd({ "LspAttach" }, {
-  desc  = "LSP Actions",
-  group = lsp_group,
+  desc     = "LSP Actions (keymaps, auto format)",
+  group    = augroup("UserLspConfig"),
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -115,18 +107,16 @@ autocmd({ "LspAttach" }, {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client ~= nil and client.supports_method("textDocument/formatting") then
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        desc  = "Format on save via LSP",
-        group = lsp_group,
+        desc     = "Format on save via LSP",
+        group    = augroup("UserLspConfig"),
         callback = function() require("lsp.config.format") end
       })
-      -- vim.api.nvim_create_user_command("LspFormat", function() require("lsp.config.format") end, {})
     end
   end
 })
 
-api.nvim_create_augroup("OilRelativePathFix", {})
 autocmd({ "BufLeave" }, {
-  group    = "OilRelativePathFix",
+  group    = augroup("OilRelativePathFix"),
   pattern  = "oil:///*",
   callback = function() vim.cmd("cd .") end,
 })
