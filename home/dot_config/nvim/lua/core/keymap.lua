@@ -45,6 +45,8 @@ wk.add({
 
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
+  { "<Leader><Leader>w", "<CMD>FlashJumpWord<CR>", icon = " ", desc = "Jump to the word" },
+  { "<Leader><Leader>l", "<CMD>FlashJumpLine<CR>", icon = " ", desc = "Jump to the line" },
 
   { "r", "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = "Remote Flash" },
   { "R", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = "Treesitter Search" },
