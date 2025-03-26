@@ -35,5 +35,13 @@ return function(callback, config)
   end
 
   -- Wait for delve to start
-  vim.defer_fn(function() callback({ type = "server", host = host, port = port }) end, 100)
+  vim.defer_fn(function() callback({
+    type = "server",
+    host = host,
+    port = port,
+    executable = {
+      command = "dlv",
+      args = { "dap", "-l", "127.0.0.1:${port}" },
+    },
+  }) end, 100)
 end

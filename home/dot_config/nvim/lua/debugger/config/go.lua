@@ -8,15 +8,13 @@ return {
     request = "launch",
     showLog = true,
     program = "${file}",
-    dlvToolPath = vim.fn.exepath("dlv"),
   },
   {
     name    = "Debug Package",
     type    = "delve",
     request = "launch",
     showLog = true,
-    program = "${fileDirName}",
-    dlvToolPath = vim.fn.exepath("dlv"),
+    program = "${fileDirname}",
   },
   {
     name      = "Attach Process",
@@ -24,7 +22,6 @@ return {
     mode      = "local",
     request   = "attach",
     processId = require("dap.utils").pick_process,
-    dlvToolPath = vim.fn.exepath("dlv"),
   },
   {
     type = "go",
@@ -33,7 +30,6 @@ return {
     mode = "test",
     program = "${file}",
     showLog = true,
-    dlvToolPath = vim.fn.exepath("dlv"),
   },
   {
     name    = "Debug test (go.mod)",
@@ -44,6 +40,5 @@ return {
     program = "./${relativeFileDirname}",
     console = "integratedTerminal",
     showLog = true,
-    dlvToolPath = vim.fn.exepath("dlv"),
   },
 }
