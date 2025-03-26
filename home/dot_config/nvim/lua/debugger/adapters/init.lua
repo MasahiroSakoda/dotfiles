@@ -7,6 +7,6 @@ return {
   ["debugpy"]    = require("debugger.adapters.debugpy"),
   ["ruby"]       = require("debugger.adapters.ruby"),
   ["nlua"]       = require("debugger.adapters.nlua"),
-  ["pwa-node"]   = require("debugger.adapters.javascript"),
-  ["pwa-chrome"] = require("debugger.adapters.javascript"),
+  ["pwa-node"]   = require("debugger.adapters.pwa-node"),
+  ["pwa-chrome"] = require("debugger.adapters.pwa-chrome"),
 }
