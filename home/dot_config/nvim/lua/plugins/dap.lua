@@ -6,7 +6,11 @@ return {
     dependencies = {
     },
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
-    config = function() require("dap.config") end,
+    opts = {
+      adapters       = require("debugger.adapters"),
+      configurations = require("debugger.config"),
+    },
+    config = function() require("debugger.setup") end,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -19,13 +23,13 @@ return {
   {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
-    config = function() require("dap.config.virtual_text") end,
+    config = function() require("debugger.virtual_text") end,
   },
   { "jbyuki/one-small-step-for-vimkind" },
   {
     "microsoft/vscode-js-debug",
     build  = { "npm install", "npx gulp vsDebugServerBundle", "mv dist out" },
     ft     = require("user.filetypes").lang.js,
-    config = function() require("dap.config.js") end,
+    config = function() require("debugger.config.js") end,
   },
 }
