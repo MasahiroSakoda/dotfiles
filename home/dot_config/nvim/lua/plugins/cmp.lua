@@ -61,7 +61,7 @@ return {
   },
   {
     "saghen/blink.cmp",
-    version = "0.*",
+    version = "1.*",
     dependencies = {
       "saghen/blink.compat",
       "onsails/lspkind.nvim",
