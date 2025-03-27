@@ -5,7 +5,7 @@ return function()
       ---@see https://platform.openai.com/docs/models
       model = {
         default = "gpt-4o-mini",
-        choices = { "gpt-3.5-turbo", "gpt-4o", "gpt-4o-mini" },
+        choices = { "gpt-4o", "gpt-4o-mini", "o1-mini", "o3-mini" },
       },
     },
     env = { api_key = vim.env.OPENAI_API_KEY },
