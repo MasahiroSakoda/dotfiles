@@ -22,9 +22,14 @@ autocmd("BufWritePre", {
 })
 
 autocmd({ "BufWinEnter" }, {
-  desc     = "Open :help with vertical split",
+  desc     = "help config (vertical split & no number)",
   pattern  = { "*.txt", "*.jax" },
-  callback = function() if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end end
+  callback = function()
+    if vim.bo.filetype == "help" then
+      vim.cmd.wincmd("L")
+      vim.opt_local.number = false
+    end
+  end
 })
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -53,6 +58,30 @@ autocmd("FileType", {
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
+  end,
+})
+
+local cursor_grp = augroup("CustomCursor")
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  desc    = "enable cursorcolumn automatically",
+  pattern = "*",
+  group   = cursor_grp,
+  callback = function()
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+      vim.opt.cursorcolumn = true
+    end
+  end,
+})
+
+autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  desc    = "disable cursorcolumn automatically",
+  pattern = "*",
+  group   = cursor_grp,
+  callback = function()
+    if vim.o.nu then
+      vim.opt.cursorcolumn = false
+      vim.cmd("redraw")
+    end
   end,
 })
 
