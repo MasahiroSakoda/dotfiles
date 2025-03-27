@@ -10,7 +10,6 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.numberwidth = 2
 -- display line number for help
-vim.cmd[[autocmd! FileType help setlocal number]]
 
 -- Cursor
 local palette = require("onedark.palette")[vim.g.themestyle]

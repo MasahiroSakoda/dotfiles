@@ -22,9 +22,14 @@ autocmd("BufWritePre", {
 })
 
 autocmd({ "BufWinEnter" }, {
-  desc     = "Open :help with vertical split",
+  desc     = "help config (vertical split & no number)",
   pattern  = { "*.txt", "*.jax" },
-  callback = function() if vim.bo.filetype == "help" then vim.cmd.wincmd("L") end end
+  callback = function()
+    if vim.bo.filetype == "help" then
+      vim.cmd.wincmd("L")
+      vim.opt_local.number = false
+    end
+  end
 })
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
