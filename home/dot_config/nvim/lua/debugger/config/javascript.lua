@@ -1,12 +1,12 @@
 -- -*-mode:lua-*- vim:ft=lua
 local util = require("utils.javascript")
-local cwd  = vim.fs.root(0, "package.json") or vim.fn.getcwd()
+-- local cwd  = vim.fs.root(0, "package.json") or vim.fn.getcwd()
 local npm  = vim.fn.executable("pnpm") and "pnpm " or "npm "
 local braveExe = os.getenv("HOME") .. "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
 local configs = {
   {
-    name    = "Launch Current File (pwa-node)",
+    name    = "Launch File (pwa-node)",
     type    = "pwa-node",
     request = "launch",
     cwd     = "${workspaceFolder}",
@@ -17,51 +17,20 @@ local configs = {
     runtimeArgs       = { "run-script", "dev" },
   },
   {
-    name    = "Launch Project",
-    type    = "pwa-node",
-    request = "launch",
-    cwd     = cwd,
+    name      = "Attach Process (pwa-node)",
+    type      = "pwa-node",
+    request   = "attach",
+    processId = require("dap.utils").pick_process({ filter = "node" }),
+    cwd       = "${workspaceFolder}",
   },
   {
-    name        = "Attach Process (pwa-node)",
-    type        = "pwa-node",
-    request     = "attach",
-    processId   = require("dap.utils").pick_process({ filter = "node" }),
-    cwd         = "${workspaceFolder}",
-  },
-  {
-    name     = "Attach - Remote Debugging (pwa-chrome)",
-    type     = "pwa-chrome",
-    request  = "attach",
-    port     = 9222,
-    webRoot  = "${workspaceFolder}",
-    protocol = "inspector",
-    runtimeExecutable = braveExe,
-    runtimeArgs = { "--incognito" },
-    sourceMaps = true,
-    sourceMapPathOverrides = {
-      -- Sourcemap override for nextjs
-      ["webpack://_N_E/./*"] = "${webRoot}/*",
-      ["webpack:///./*"]     = "${webRoot}/*",
-    },
-    resolveSourceMapLocations = {
-      "${webRoot}/*",
-      "${webRoot}/apps/**/**",
-      "${workspaceFolder}/apps/**/**",
-      "${webRoot}/packages/**/**",
-      "${workspaceFolder}/packages/**/**",
-      "${workspaceFolder}/**",
-      "!**/node_modules/**",
-    },
-  },
-  {
-    name    = "Launch Chrome with \"localhost\"",
+    name    = "Launch Chrome (pwa-chrome)",
     type    = "pwa-chrome",
     request = "launch",
     webRoot = "${workspaceFolder}",
     url = function()
       local co = coroutine.running()
-      vim.ui.input({ prompt = "", default = "https://localhost:3000" }, function(url)
+      vim.ui.input({ prompt = "", default = "http://localhost:3000" }, function(url)
         if url == nil or url == "" then
           return
         else
@@ -84,7 +53,7 @@ local configs = {
 }
 if util.is_jest_available() then
   table.insert(configs, {
-    name     = "Debug Jest Tests (pwa-node with Jest)",
+    name     = "Debug Jest Tests (pwa-node)",
     type     = "pwa-node",
     request  = "launch",
     cwd      = "${workspaceFolder}",
@@ -96,8 +65,10 @@ if util.is_jest_available() then
     runtimeArgs       = { "./node_modules/jest/bin/jest.js", "--runInBand" },
     args              = { "${file}", "--coverage", "false" },
   })
+end
+if util.is_next_project() then
   table.insert(configs, {
-    name    = "Next.js: debug server side (pwa-node)",
+    name    = "Next.js: debug server-side (pwa-node)",
     type    = "pwa-node",
     request = "attach",
     cwd     = "${workspaceFolder}",
@@ -105,7 +76,7 @@ if util.is_jest_available() then
     skipFiles = { "<node_internals>/**", "node_modules/**" },
   })
   table.insert(configs, {
-    name    = "Next.js: debug full stack",
+    name    = "node-terminal: Next.js: debug full stack",
     type    = "node-terminal",
     request = "launch",
     webRoot = "${workspaceFolder}",
