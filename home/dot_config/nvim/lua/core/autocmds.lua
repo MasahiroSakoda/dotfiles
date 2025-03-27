@@ -56,6 +56,30 @@ autocmd("FileType", {
   end,
 })
 
+local cursor_grp = augroup("CustomCursor")
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  desc    = "enable cursorcolumn automatically",
+  pattern = "*",
+  group   = cursor_grp,
+  callback = function()
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+      vim.opt.cursorcolumn = true
+    end
+  end,
+})
+
+autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  desc    = "disable cursorcolumn automatically",
+  pattern = "*",
+  group   = cursor_grp,
+  callback = function()
+    if vim.o.nu then
+      vim.opt.cursorcolumn = false
+      vim.cmd("redraw")
+    end
+  end,
+})
+
 autocmd({ "BufRead", "BufNewFile" }, {
   desc     = "Surveillance chezmoi target files",
   pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
