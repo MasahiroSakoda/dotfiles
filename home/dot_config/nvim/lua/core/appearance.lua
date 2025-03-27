@@ -12,9 +12,6 @@ vim.opt.numberwidth = 2
 -- display line number for help
 vim.cmd[[autocmd! FileType help setlocal number]]
 
--- opt.cursorline   = true
--- opt.cursorcolumn = true
-
 -- Cursor
 local palette = require("onedark.palette")[vim.g.themestyle]
 vim.opt.colorcolumn = { "120" }
