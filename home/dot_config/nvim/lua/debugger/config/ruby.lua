@@ -1,25 +1,6 @@
-local ok, dap = pcall(require, "dap")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
---------------------------------------------------
--- DAP configuration for Ruby
---------------------------------------------------
-dap.adapters.ruby = function(callback, config)
-  callback {
-    type = "server",
-    host = "127.0.0.1",
-    port = "${port}",
-    executable = {
-      command = "bundle",
-      args = {
-        "exec", "rdbg", "-n", "--open", "--port", "${port}", "-c", "--",
-        "bundle", "exec", config.command, config.script,
-      },
-    },
-  }
-end
-
-dap.configurations.ruby = {
+return {
   {
     type    = "ruby",
     name    = "debug current file",

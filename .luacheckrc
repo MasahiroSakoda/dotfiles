@@ -15,6 +15,7 @@ std = {
     "rawget",
     "os",
     "io",
+    "coroutine",
     "type",
     "string",
     "table",

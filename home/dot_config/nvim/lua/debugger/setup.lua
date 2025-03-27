@@ -58,10 +58,8 @@ dapui.setup({
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width  = nil, -- Floats will be treated as percentage of your screen.
-    border = "rounded", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
+    border     = "rounded", -- Border style. Can be "single", "double" or "rounded"
+    mappings   = { close = { "q", "<Esc>" } },
   },
 
   controls = {
@@ -90,19 +88,9 @@ require("dap.ext.vscode").json_decode = require("overseer.json").decode
 require("overseer").enable_dap()
 
 local bp = {
-  breakpoint = {
-    text   = " ",
-    texthl = "LspDiagnosticsSignError",
-    linehl = "",
-    numhl  = "",
-  },
-  rejected = {
-    text   = " ",
-    texthl = "LspDiagnosticsSignHint",
-    linehl = "",
-    numhl  = "",
-  },
-  stopped  = {
+  breakpoint = { text = " ", texthl = "LspDiagnosticsSignError", linehl = "", numhl = "" },
+  rejected   = { text = " ", texthl = "LspDiagnosticsSignHint",  linehl = "", numhl = "" },
+  stopped    = {
     text   = "➤ ",
     texthl = "LspDiagnosticsSignInformation",
     linehl = "DiagnosticUnderlineInfo",
@@ -110,10 +98,18 @@ local bp = {
   },
 }
 
-local fn  = vim.fn
-fn.sign_define("DapBreakpoint",         bp.breakpoint)
-fn.sign_define("DapBreakpointRejected", bp.rejected)
-fn.sign_define("DapStopped",            bp.stopped)
+vim.fn.sign_define("DapBreakpoint",         bp.breakpoint)
+vim.fn.sign_define("DapBreakpointRejected", bp.rejected)
+vim.fn.sign_define("DapStopped",            bp.stopped)
 
--- require("dap.adapters.cppdbg")
--- require("dap.adapters.codelldb")
+for name, adapter in pairs(require("debugger.adapters")) do
+  if not dap.adapters[name] then
+    dap.adapters[name] = adapter
+  end
+end
+
+for filetype, configs in pairs(require("debugger.config")) do
+  if not dap.configurations[filetype] then
+    dap.configurations[filetype] = configs
+  end
+end
