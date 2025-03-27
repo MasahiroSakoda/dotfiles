@@ -1,5 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local package = "bash-debug-adapter"
+local pkg = "bash-debug-adapter"
 
 return {
   {
@@ -7,8 +7,8 @@ return {
     type    = "bashdb",
     request = "launch",
     program = "${file}",
-    pathBashdb  = vim.fn.stdpath("data") .. "/mason/packages/" .. package .. "/extension/bashdb_dir/bashdb",
-    pathBashLib  = vim.fn.stdpath("data") .. "/mason/packages/" .. package .. "/extension/bashdb_dir",
+    pathBashdb   = require("mason-registry").get_package(pkg):get_install_path() .. "/extension/bashdb_dir/bashdb",
+    pathBashLib  = require("mason-registry").get_package(pkg):get_install_path() .. "/extension/bashdb_dir",
     cwd     = "${workspaceFolder}",
     stopOnEntry   = false,
     runInTerminal = false,

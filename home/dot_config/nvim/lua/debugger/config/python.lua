@@ -1,6 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 local venv = os.getenv('VIRTUAL_ENV')
-local package = "debugpy"
+local pkg = "debugpy"
 
 return {
   {
@@ -9,7 +9,8 @@ return {
     name       = "Debug single file",
     cwd        = "${workspaceFolder}",
     program    = "${file}",
-    pythonPath = venv and (venv .. "/bin/python") or vim.fn.stdpath("data") .. "/mason/packages/" .. package .. "/venv/bin/python",
+    pythonPath = venv and (venv .. "/bin/python") or
+      require("mason-registry").get_package(pkg):get_install_path() .. "/venv/bin/python"
   },
   {
     type    = "python",
