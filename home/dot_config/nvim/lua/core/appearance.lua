@@ -9,7 +9,6 @@ vim.opt.shell = "fish"
 vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.numberwidth = 2
--- display line number for help
 
 -- Cursor
 local palette = require("onedark.palette")[vim.g.themestyle]
