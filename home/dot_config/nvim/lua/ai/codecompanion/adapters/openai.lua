@@ -1,6 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 return function()
-  return require("adapters").extend("openai", {
+  return require("codecompanion.adapters").extend("openai", {
     schema = {
       ---@see https://platform.openai.com/docs/models
       model = {
