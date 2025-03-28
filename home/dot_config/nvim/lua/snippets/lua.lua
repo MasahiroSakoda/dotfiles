@@ -144,16 +144,10 @@ local snippets = {
   ---------------------------------------------------------------------------------------
   ---Others
   ---------------------------------------------------------------------------------------
-  s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" },
-    fmt([[
-      {{
-        "{}",
-        event  = {{ "{}" }},
-        config = function() require("{}") end,
-      }},
-      {}
-    ]], { i(1, "path"), i(2, "event"), i(3, "module"), i(0) })
+  s({ trig = "@lazy", name = "lazy.nvim plugin config", dscr = "plugin config via lazy.nvim" },
+    fmt('{{\n\t"{}",\n\tconfig = function() require("{}") end,\n}},', { i(1, "plugin"), i(0) })
   ),
+
   s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" },
     fmt([[
       local ok, {} = pcall(require, "{}")
