@@ -31,13 +31,6 @@ local snippets = {
     fmt('{}', c(1, {t("#/usr/bin/env bash"), t("#/usr/bin/env zsh"), t("#/usr/bin/env fish")}))
   ),
 
-  s({ trig = "TODO", name = "TODO choices", dscr = "TDOO choices template" }, fmt('{} {}: {}\n{}', {
-    f(function() return vim.bo.commentstring:gsub("%%s", "") end),
-    c(2, {t("TODO"), t("FIXME"), t("WARN"), t("INFO"), t("PREF"), t("NOTE"), t("TEST")}),
-    i(3, "todo string"),
-    i(0),
-  })),
-
   s({ trig = "hlink", name = "html link", dscr = "html link template" },
     fmt('<a href="{}">{}</a>\n{}', {
       f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end),
