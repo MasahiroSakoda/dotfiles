@@ -148,7 +148,7 @@ local snippets = {
     fmt('{{\n\t"{}",\n\tconfig = function() require("{}") end,\n}},', { i(1, "plugin"), i(0) })
   ),
 
-  s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" },
+  s({ trig = "@setup", name = "Plugin setup", dscr = "Plugin setup template" },
     fmt([[
       local ok, {} = pcall(require, "{}")
       if not ok then return end
@@ -159,7 +159,7 @@ local snippets = {
     ]], { i(1, "module"), rep(1), rep(1), i(0) })
   ),
 
-  s({ trig = "keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
+  s({ trig = "@keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
     fmt('{{ "{}", {}, icon = "{} ", desc = "{}" }},', {
       c(1, {
         sn(1, { t("<Leader>"), r(1, "user_lhs") }),
