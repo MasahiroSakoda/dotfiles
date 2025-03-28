@@ -136,6 +136,26 @@ local snippets = {
       end, {{ desc = "{}", nargs = "*", bang = true }})
     ]], { i(1, "Command Name"), i(2, "parameter"), i(3, "code"), i(0) })
   ),
+  s({ trig = "vinput", name = "vim.ui.input", dscr = "vim.ui.input" },
+    fmt([[
+      vim.ui.input({{ prompt = "{}", default = "{}", function(name)
+        {}
+      end}})
+    ]], { i(1, "prompt"), i(2, "default value"), i(0) })
+  ),
+  s({ trig = "vselect", name = "vim.ui.select", dscr = "vim.ui.select" },
+    fmt([[
+      vim.ui.select({}, {{
+        prompt = "{}",
+        format_item = function(item)
+          {}
+        end,
+        }}, function(choice)
+          {}
+        end,
+      )
+    ]], { i(1, "array"), i(2, "prompt"), i(3, "format code"), i(0) })
+  ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
     fmt('-- stylua: ignore{}\n{}', { c(1, { t(""), t(" start"), t(" end") }), i(0) })
