@@ -22,6 +22,9 @@ local fmt     = require("luasnip.extras.fmt").fmt
 ls.filetype_extend("lua", { "luadoc" })
 
 local snippets = {
+  ---------------------------------------------------------------------------------------
+  ---Snippet templates
+  ---------------------------------------------------------------------------------------
   -- snippet file template
   s({ trig = "luasnip", name = "snippet file template", dscr = "LuaSnip snippet file template" },
     fmt([[
@@ -80,6 +83,9 @@ local snippets = {
     fmt('sn({}, {{ {} }}){}', { i(1, "jump index"), i(2, "node"), i(0) })
   ),
 
+  ---------------------------------------------------------------------------------------
+  ---Lua snippets
+  ---------------------------------------------------------------------------------------
   s({ trig = "fn", name = "function template", dscr = "selectable function template" },
     fmt('{}{}({})\n\t{}\nend\n', {
       c(1, { t("function "), t("local function "), t("function M.") }),
@@ -98,6 +104,9 @@ local snippets = {
     fmt('print(vim.inspect({}))', { i(0) })
   ),
 
+  ---------------------------------------------------------------------------------------
+  ---Vim snippets
+  ---------------------------------------------------------------------------------------
   s({ trig = "notify", name = "vim.notify template", dscr = "vim.notify template" },
     fmt('vim.notify({}, vim.log.levels.{}{})', {
       i(1, "string"),
@@ -127,22 +136,39 @@ local snippets = {
       end, {{ desc = "{}", nargs = "*", bang = true }})
     ]], { i(1, "Command Name"), i(2, "parameter"), i(3, "code"), i(0) })
   ),
+  s({ trig = "vinput", name = "vim.ui.input", dscr = "vim.ui.input" },
+    fmt([[
+      vim.ui.input({{ prompt = "{}", default = "{}", function(name)
+        {}
+      end}})
+    ]], { i(1, "prompt"), i(2, "default value"), i(0) })
+  ),
+  s({ trig = "vselect", name = "vim.ui.select", dscr = "vim.ui.select" },
+    fmt([[
+      vim.ui.select({}, {{
+        prompt = "{}",
+        format_item = function(item)
+          {}
+        end,
+        }}, function(choice)
+          {}
+        end,
+      )
+    ]], { i(1, "array"), i(2, "prompt"), i(3, "format code"), i(0) })
+  ),
 
   s({ trig = "ign", name = "Disable formatting", dscr = "Disable formatting via stylua" },
     fmt('-- stylua: ignore{}\n{}', { c(1, { t(""), t(" start"), t(" end") }), i(0) })
   ),
 
-  s({ trig = "lazyadd", name = "Plugin config to use `lazy.nvim`", dscr = "plugin config via lazy.nvim" },
-    fmt([[
-      {{
-        "{}",
-        event  = {{ "{}" }},
-        config = function() require("{}") end,
-      }},
-      {}
-    ]], { i(1, "path"), i(2, "event"), i(3, "module"), i(0) })
+  ---------------------------------------------------------------------------------------
+  ---Others
+  ---------------------------------------------------------------------------------------
+  s({ trig = "@lazy", name = "lazy.nvim plugin config", dscr = "plugin config via lazy.nvim" },
+    fmt('{{\n\t"{}",\n\tconfig = function() require("{}") end,\n}},', { i(1, "plugin"), i(0) })
   ),
-  s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" },
+
+  s({ trig = "@setup", name = "Plugin setup", dscr = "Plugin setup template" },
     fmt([[
       local ok, {} = pcall(require, "{}")
       if not ok then return end
@@ -153,18 +179,19 @@ local snippets = {
     ]], { i(1, "module"), rep(1), rep(1), i(0) })
   ),
 
-  s({ trig = "keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
-    fmt('{{ "{}", {}, icon = " ", desc = "{}" }},', {
+  s({ trig = "@keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
+    fmt('{{ "{}", {}, icon = "{} ", desc = "{}" }},', {
       c(1, {
         sn(1, { t("<Leader>"), r(1, "user_lhs") }),
         sn(1, { t(","), r(1, "user_lhs") }),
         sn(1, { r(1, "user_lhs") }),
       }),
       c(2, {
-        { t("\"<CMD>"),     r(1, "user_rhs"), t("<CR>\"") },
-        { t("function() "), r(1, "user_rhs"), t(" end") },
-        { r(1, "use_rhs")},
+        sn(1, { r(1, "user_rhs") }),
+        sn(1, { t("\"<CMD>"), r(1, "user_lhs"), t("<CR>\"") }),
+        sn(1, { t("function() "), r(1, "user_rhs"), t(" end") }),
       }),
+      i(3, "icon"),
       i(0),
     })
   ),
