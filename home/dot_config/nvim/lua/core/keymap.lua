@@ -45,6 +45,7 @@ wk.add({
 
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
+  { "<Leader><Leader>", group = "flash.nvim", icon = "⚡️ " },
   { "<Leader><Leader>w", "<CMD>FlashJumpWord<CR>", icon = " ", desc = "Jump to the word" },
   { "<Leader><Leader>l", "<CMD>FlashJumpLine<CR>", icon = " ", desc = "Jump to the line" },
 
@@ -109,10 +110,12 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- LuaSnip
+-- 🔖  LuaSnip
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>fs", "<CMD>LuaSnipBrowse<CR>", icon = " ", desc = "Browse LuaSnip snippets" },
+
+  { "<Leader>s", group = "Snippets", icon = "🔖 " },
   { "<Leader>sr", "<CMD>LuaSnipReload<CR>", icon = " ", desc = "Reload LusSnip config" },
   { "<Leader>se", "<CMD>LuaSnipEdit<CR>",   icon = " ", desc = "Edit LuaSnip file" },
 }, opts)
