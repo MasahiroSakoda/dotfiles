@@ -84,13 +84,10 @@ wk.add({
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
 wk.add({
-  -- { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
-  -- { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
-
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
-  { "]b",         "<CMD>BufferLineCycleNext<CR>",          icon = " ", desc = "Next buffer" },
-  { "[b",         "<CMD>BufferLineCyclePrev<CR>",          icon = " ", desc = "Prev buffer" },
+  { "[b",         "<CMD>bprev<CR>",                        icon = " ", desc = "Move to prev buffer" },
+  { "]b",         "<CMD>bnext<CR>",                        icon = " ", desc = "Move to next buffer" },
   { "]B",         "<CMD>BufferLineMoveNext<CR>",           icon = " ", desc = "Move to next buffer" },
   { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = "Move to prev buffer" },
   { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
