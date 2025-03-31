@@ -14,7 +14,7 @@ return function(callback, config)
     detected = true,
   }
 
-  handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+  handle, pid_or_err = vim.uv.spawn("dlv", opts, function(code)
     if stdout ~= nil and stderr ~= nil then
       stdout:close()
       stderr:close()
