@@ -48,7 +48,7 @@ autocmd("TextYankPost", {
   desc     = "Highlight on yank",
   group    = augroup("highlight_yank"),
   pattern  = "*",
-  callback = function(_) vim.highlight.on_yank() end,
+  callback = function(_) vim.hl.on_yank() end,
 })
 
 autocmd("FileType", {
