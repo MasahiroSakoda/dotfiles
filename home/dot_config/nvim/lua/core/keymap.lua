@@ -37,6 +37,14 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- Command line
+---------------------------------------------------------------------------
+wk.add({
+  mode = "n",
+  { "<Leader>;", ":lua<Space>", icon = " ", desc = "Open lua prompt" },
+})
+
+---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
 wk.add({
@@ -45,6 +53,7 @@ wk.add({
 
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
+  { "<Leader><Leader>", group = "flash.nvim", icon = "⚡️ " },
   { "<Leader><Leader>w", "<CMD>FlashJumpWord<CR>", icon = " ", desc = "Jump to the word" },
   { "<Leader><Leader>l", "<CMD>FlashJumpLine<CR>", icon = " ", desc = "Jump to the line" },
 
@@ -75,17 +84,19 @@ wk.add({
 -- 📑  Tab / Buffer / Window
 ---------------------------------------------------------------------------
 wk.add({
-  -- { "[b", "<CMD>bprev<CR>", icon = " ", desc = "Move to prev buffer" },
-  -- { "]b", "<CMD>bnext<CR>", icon = " ", desc = "Move to next buffer" },
-
   -- Buffer Naigation
   { "<Leader>b", group = "Buffer Navigation", icon = "🖥 " },
-  { "]b",         "<CMD>BufferLineCycleNext<CR>",          icon = " ", desc = "Next buffer" },
-  { "[b",         "<CMD>BufferLineCyclePrev<CR>",          icon = " ", desc = "Prev buffer" },
+  { "[b",         "<CMD>bprev<CR>",                        icon = " ", desc = "Move to prev buffer" },
+  { "]b",         "<CMD>bnext<CR>",                        icon = " ", desc = "Move to next buffer" },
   { "]B",         "<CMD>BufferLineMoveNext<CR>",           icon = " ", desc = "Move to next buffer" },
   { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = "Move to prev buffer" },
   { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
   { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
+
+  { ";j", "<CMD>resize -3<CR>",          icon = " ", desc = "Decrease window height" },
+  { ";k", "<CMD>resize +3<CR>",          icon = " ", desc = "Increase window height" },
+  { ";h", "<CMD>vertical resize -3<CR>", icon = " ", desc = "Decrease window width" },
+  { ";l", "<CMD>vertical resize +3<CR>", icon = " ", desc = "Increase window width" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
@@ -109,10 +120,12 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- LuaSnip
+-- 🔖  LuaSnip
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>fs", "<CMD>LuaSnipBrowse<CR>", icon = " ", desc = "Browse LuaSnip snippets" },
+
+  { "<Leader>s", group = "Snippets", icon = "🔖 " },
   { "<Leader>sr", "<CMD>LuaSnipReload<CR>", icon = " ", desc = "Reload LusSnip config" },
   { "<Leader>se", "<CMD>LuaSnipEdit<CR>",   icon = " ", desc = "Edit LuaSnip file" },
 }, opts)
