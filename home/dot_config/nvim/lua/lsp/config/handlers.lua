@@ -5,5 +5,5 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.buf.signat
   border = "rounded",
   silent = true,
   -- focusable = false,
-  close_events = { "CursorMoved", "BufHidden", "InsertCharPre", "InsertLeave" },
+  close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre" },
 })

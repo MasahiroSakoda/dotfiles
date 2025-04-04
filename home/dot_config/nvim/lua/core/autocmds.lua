@@ -119,9 +119,6 @@ autocmd({ "LspAttach" }, {
   desc     = "LSP Actions (keymaps, auto format)",
   group    = augroup("UserLspConfig"),
   callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
     -- Configure LSP related keymap
     local bufopts = { noremap = true, silent = true, buffer = ev.buf }
     local extend = vim.tbl_extend
@@ -133,6 +130,12 @@ autocmd({ "LspAttach" }, {
     vim.keymap.set("n", "ga", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    -- Enable completion
+    if client ~= nil and client:supports_method("textDocument/completion", ev.buf) then
+      vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+
     -- Format on save
     if client ~= nil and client:supports_method("textDocument/formatting", ev.buf) then
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
