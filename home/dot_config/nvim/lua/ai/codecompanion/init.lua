@@ -12,16 +12,18 @@ codecompanion.setup({
   adapters       = require("ai.codecompanion.adapters"),
 
   strategies = {
-    chat   = { adapter = "qwen" },
-    slash_commands = {
-      ["buffer"]   = { opts = { provider = "snacks" } },
-      ["fetch"]    = { opts = {} },
-      ["file"]     = { opts = { provider = "snacks" } },
-      ["files"]    = { opts = { provider = "snacks" } },
-      ["help"]     = { opts = { provider = "snacks" } },
-      ["now"]      = { opts = {} },
-      ["symbols"]  = { opts = { provider = "snacks" } },
-      ["terminal"] = { opts = {} },
+    chat = {
+      adapter = "qwen",
+      slash_commands = {
+        ["buffer"]   = { opts = { provider = "snacks" } },
+        ["fetch"]    = { opts = {} },
+        ["file"]     = { opts = { provider = "snacks" } },
+        ["files"]    = { opts = { provider = "snacks" } },
+        ["help"]     = { opts = { provider = "snacks" } },
+        ["now"]      = { opts = {} },
+        ["symbols"]  = { opts = { provider = "snacks" } },
+        ["terminal"] = { opts = {} },
+      },
     },
     inline = { adapter = "qwen" },
     agent  = { adapter = "ollama" },
