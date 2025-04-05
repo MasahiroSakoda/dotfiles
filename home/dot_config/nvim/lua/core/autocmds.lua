@@ -67,7 +67,7 @@ autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }
   pattern = "*",
   group   = cursor_grp,
   callback = function()
-    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" and vim.bo.filetype ~= "codecompanion" then
       vim.opt.cursorcolumn = true
     end
   end,
