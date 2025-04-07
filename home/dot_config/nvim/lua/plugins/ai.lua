@@ -32,5 +32,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd    = "MCPHub",
     build  = "pnpm install -g mcp-hub@latest",
+    config = function() require("ai.mcp.mcphub") end,
   },
 }
