@@ -27,4 +27,10 @@ return {
     },
     config = function() require("ai.codecompanion") end,
   },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    cmd    = "MCPHub",
+    build  = "pnpm install -g mcp-hub@latest",
+  },
 }
