@@ -334,6 +334,9 @@ if not is_vscode then
     -- Other command
     { "<Leader>chs", "<CMD>CodeCompanionHistorySave<CR>", mode = nv, icon = " ", desc = "Save chat history" },
     { "<Leader>chl", "<CMD>CodeCompanionHistoryLoad<CR>", mode = nv, icon = " ", desc = "Load chat history" },
+
+    -- MCP Integration
+    { "<Leader>m", "<CMD>MCPHub<CR>", icon = " ", desc = "Open MCPHub window" },
   }, opts)
 end
 

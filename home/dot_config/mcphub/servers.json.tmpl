@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "time":  { "command": "uvx", "args": [ "mcp-server-time" ],  "disabled": true },
+    "git":   { "command": "uvx", "args": [ "mcp-server-git" ],   "disabled": true },
+    "fetch": { "command": "uvx", "args": [ "mcp-server-fetch" ], "disabled": true },
+    "filesystem": {
+      "command": "npx",
+      "args": [ "-y", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ],
+      "disabled": true
+    },
+    "github": {
+      "command": "npx",
+      "args": [ "-y", "@modelcontextprotocol/server-github" ],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": null },
+      "disabled": true
+    }
+  },
+  "nativeMCPServers": []
+}
+{{- /*
+  -*-mode:json-*- vim:ft=json
+*/ -}}
