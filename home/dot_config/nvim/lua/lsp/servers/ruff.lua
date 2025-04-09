@@ -4,7 +4,7 @@ if not ok then return end
 
 local ft = require("user.filetypes")
 return {
-  cmd = { "ruff", "server", "--preview" },
+  cmd = { "ruff", "server" },
   root_dir = function(filename)
     return lspconfig.util.root_pattern(ft.lsp.ruff)(filename) or vim.fn.getcwd()
   end,
