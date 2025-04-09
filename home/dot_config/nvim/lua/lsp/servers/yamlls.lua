@@ -11,17 +11,12 @@ return {
     redhat = { telemetry = { enabled = false } },
     yaml = {
       keyOrdering = false,
-      schemaStore = {
-        enable = true,
-        url = "https://www.schemastore.org/api/json/catalog.json",
-      },
-      format = {
-        enabled = true,
-        singleQuote = false,
-      },
-      validate = true,
-      completion = true,
-      hover = true
+      schemas     = require("schemastore").yaml.schemas(),
+      schemastore = { enabled = false, url = "" },
+      format      = { enabled = true, singleQuote = false },
+      validate    = true,
+      completion  = true,
+      hover       = true
     },
   },
 }
