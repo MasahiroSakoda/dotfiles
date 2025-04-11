@@ -12,9 +12,17 @@ return {
   settings = {
     evenBetterToml = {
       schema = {
-        enabled = true,
-        repositoryEnabled = true,
-        repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
+        enabled = false,
+        catalog = {
+          "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/api/json/catalog.json",
+          "https://taplo.tamasfe.dev/schema_index.json",
+        },
+      },
+      formatter = {
+        columnWidth       = 120,
+        arrayAutoExpand   = true, -- Prevent array multi-line expansion
+        arrayAutoCollapse = false, -- Automatically collapse arrays if they fit in one line.
+        compactArrays     = true, -- Remove array whitespace
       },
       cachePath = vim.fn.stdpath("cache") .. "/taplo",
     },

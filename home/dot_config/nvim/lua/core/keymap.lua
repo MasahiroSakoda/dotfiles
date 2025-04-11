@@ -379,6 +379,7 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
+    { ",l", "<CMD>LspStatusToggle<CR>",    icon = " ", desc = "Toggle LSP status" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
