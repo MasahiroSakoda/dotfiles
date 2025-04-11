@@ -1,6 +1,17 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "folke/snacks.nvim",
+    },
+    cmd    = { "Octo" },
+    cond   = not vim.g.vscode,
+    config = function() require("user.octo") end,
+  },
   -- chezmoi integration
   {
     "xvzc/chezmoi.nvim",

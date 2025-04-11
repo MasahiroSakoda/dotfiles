@@ -291,9 +291,30 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
-  { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>",                mode = nt, icon = " ", desc = "Toggle lazygit" },
-  { "<Leader>gh", "<CMD>lua Snacks.terminal({'gh', 'dash'})<CR>", mode = nt, icon = " ", desc = "Toggle gh dash" },
+  { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = "Toggle lazygit" },
 }, opts)
+
+---------------------------------------------------------------------------
+-- octo.nvim: <Leader> + o
+---------------------------------------------------------------------------
+if not is_vscode then
+  wk.add({
+    { "<Leader>o", group = "octo.nvim", icon = " " },
+    { "<Leader>O",  ":Octo<Space>", icon = " ", desc = "Open Octo" },
+
+    -- Issues
+    { "<Leader>gi", group = "Issues cmd via octo.nvim", icon = " " },
+    { "<Leader>gis", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
+    { "<Leader>gic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
+
+    -- Pull Request
+    { "<Leader>gp", group = "Pull Request cmd via octo.nvim", icon = " " },
+    { "<Leader>gpr", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
+    { "<Leader>gpc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
+    { "<Leader>gpd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
+    { "<Leader>gpC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
+  })
+end
 
 ---------------------------------------------------------------------------
 -- 🤖  AI Interaction: <Leader> + c
