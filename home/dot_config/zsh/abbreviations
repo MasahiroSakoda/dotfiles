@@ -85,6 +85,13 @@ abbr grbs="git rebase --skip"
 abbr gt="git tag"
 abbr gts="git tag --sign"
 
+## GitHub CLI
+abbr ghd="gh dash"
+abbr ghg="gh graph"
+abbr ghn="gh notify"
+abbr ghs="gh s"
+abbr ghm="gh markdown-preview"
+
 # Docker
 abbr d="docker"
 abbr dps="docker ps"

@@ -81,3 +81,10 @@ export alias grbs = git rebase --skip
 
 export alias gt  = git tag -a
 export alias gts = git tag --sign
+
+## GitHub cLI
+export alias ghd = gh dash
+export alias ghg = gh graph
+export alias ghn = gh notify
+export alias ghs = gh s
+export alias ghm = gh markdown-preview
