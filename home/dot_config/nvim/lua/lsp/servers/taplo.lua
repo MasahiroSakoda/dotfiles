@@ -12,9 +12,11 @@ return {
   settings = {
     evenBetterToml = {
       schema = {
-        enabled = true,
-        repositoryEnabled = true,
-        repositoryUrl = "https://taplo.tamasfe.dev/schema_index.json",
+        enabled = false,
+        catalog = {
+          "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/api/json/catalog.json",
+          "https://taplo.tamasfe.dev/schema_index.json",
+        },
       },
       cachePath = vim.fn.stdpath("cache") .. "/taplo",
     },
