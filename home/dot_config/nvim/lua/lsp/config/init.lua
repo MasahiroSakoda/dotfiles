@@ -8,6 +8,7 @@ elseif not mason_cfg_ok then
   vim.notify('[lspconfig] Loading "mason-lspconfig" failed.', vim.log.levels.WARN)
 end
 
+require("lsp.config.status")
 require("lsp.config.diagnostics")
 require("lsp.config.handlers")
 
