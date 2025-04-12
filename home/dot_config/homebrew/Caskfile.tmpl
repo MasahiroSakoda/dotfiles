@@ -1,5 +1,3 @@
-# -*-mode:ruby-*- vim:ft=ruby.gotexttmpl
-
 {{- if eq .chezmoi.os "darwin" }}
 
 # Homwbrew Cask
@@ -62,6 +60,11 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
+# Previewer
+{{- range .packages.cask.previewer | uniq }}
+cask {{ . | quote }}
+{{- end }}
+
 ## Editor
 {{- range .packages.cask.editor | uniq }}
 cask {{ . | quote }}
@@ -93,6 +96,11 @@ cask {{ . | quote }}
 ### Diagram
 {{- range .packages.cask.diagram | uniq }}
 cask {{ . | quote }}
+{{- end }}
+
+# Tex
+{{- range .packages.cask.tex | uniq }}
+brew {{ . | quote }}
 {{- end }}
 
 ## Media
@@ -151,3 +159,6 @@ vscode {{ . | quote }}
 
 {{- end }}
 {{- end }}
+{{- /*
+  -*-mode:ruby-*- vim:ft=ruby.gotexttmpl
+*/}}
