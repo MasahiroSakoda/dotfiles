@@ -10,6 +10,7 @@ Filetypes.lang = {
   json  = { "json",  "json5", "jsonc" },
   js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
   glsl  = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
+  latex = { "tex", "plaintex", "bib" },
 }
 
 Filetypes.treesitter = {
@@ -97,6 +98,7 @@ Filetypes.lsp = {
   biome        = { "biome.json", "biome.jsonc" },
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
   markdownlint = { ".markdownlintrc", ".markdownlint.json", ".markdownlint.jsonc" },
+  texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
 }
 
 Filetypes.ignore = {

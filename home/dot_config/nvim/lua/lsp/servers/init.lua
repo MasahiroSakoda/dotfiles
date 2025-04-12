@@ -24,6 +24,7 @@ return {
   terraformls   = require("lsp.servers.terraformls"),   -- Terraform
   sqlls         = require("lsp.servers.sqlls"),         -- SQL
   vimls         = require("lsp.servers.vimls"),         -- VimScript
+  texlab        = require("lsp.servers.texlab"),        -- LaTex
   typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
 
   -- Linter
