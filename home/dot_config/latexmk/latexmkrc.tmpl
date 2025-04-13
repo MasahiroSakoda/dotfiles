@@ -1,0 +1,27 @@
+{{- /*
+  -*-mode:perl-*- vim:ft=perl
+*/ -}}
+#!/usr/bin/env perl
+
+# $latex         = 'platex -synctex=1 -halt-on-error -file-line-error %O %S';
+$latex         = 'platex -guess-input-enc -src-specials -interaction=nonstopmode -synctex=1';
+$latex_silent  = 'platex -interaction=batchmode';
+$dvips         = 'dvips';
+$bibtex        = 'pbibtex %O %S';
+$biber         = 'biber --bblencoding=utf8 -u -U --output_safechars %O %S';
+
+$makeindex     = 'mendex -r -c -s jind.ist';
+$makeindex     = 'mendex %O -o %D %S';
+
+$dvipdf        = 'dvipdfmx %O -o %D %S';
+$dvi_previewer = 'start dviout'; # -pv option
+
+{{ if eq .chezmoi.os "darwin" }}
+$pdf_previewer = '{{ .cmd.open }} -a %S';
+{{ else if eq .chezmoi.os "linux" }}
+$pdf_previewer = '{{ .cmd.open }} %S';
+{{ end }}
+$preview_continuous_mode = 1;
+
+$pdf_mode          = 3;
+$pdf_update_method = 4;
