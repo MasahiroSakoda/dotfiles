@@ -47,6 +47,12 @@ return {
     config = function() require("lsp.cmp.autopairs") end
   },
 
+  {
+    "lervag/vimtex",
+    ft     = require("user.filetypes").lang.latex,
+    config = function() require("user.latex") end,
+  },
+
   -- File specific Highlighter
   { "MTDL9/vim-log-highlighting",  ft = { "log", "txt", "text" } },
 }
