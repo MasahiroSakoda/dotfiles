@@ -379,6 +379,8 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
+    { ",s", "<CMD>ToogleCopilotSuggest<CR>", mode = { "n", "i" }, icon = " ", desc = "Toggle Copilot suggesion" },
+
     { ",l", "<CMD>LspStatusToggle<CR>",    icon = " ", desc = "Toggle LSP status" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
