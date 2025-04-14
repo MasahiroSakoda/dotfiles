@@ -59,4 +59,8 @@ vscode = [
   "charliermarsh.ruff",
   ## JS/TS
   "biomejs.biome",
+  ## Tex
+  "goessner.mdmath",
+  ## Math
+  "yfzhao.ultra-math-preview"
 ]
