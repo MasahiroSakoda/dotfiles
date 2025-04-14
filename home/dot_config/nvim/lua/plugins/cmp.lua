@@ -66,7 +66,8 @@ return {
       "saghen/blink.compat",
       "onsails/lspkind.nvim",
     },
-    event = { "InsertEnter" },
+    cond   = not vim.g.vscode,
+    event  = { "InsertEnter" },
     config = function() require("lsp.cmp.blink") end,
   },
 }
