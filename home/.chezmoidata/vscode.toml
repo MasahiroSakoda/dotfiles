@@ -61,4 +61,6 @@ vscode = [
   "biomejs.biome",
   ## Tex
   "goessner.mdmath",
+  ## Math
+  "yfzhao.ultra-math-preview"
 ]
