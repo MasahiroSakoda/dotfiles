@@ -11,7 +11,7 @@ blink.setup({
     ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
     ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
     ["<C-c>"]   = { "cancel", "fallback" },
-    ["<C-e>"]    = { "hide", "fallback" },
+    ["<C-e>"]   = { "hide", "fallback" },
     ["<Tab>"]   = {
       function(cmp) return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept() end,
       "snippet_forward",
@@ -37,7 +37,7 @@ blink.setup({
   signature = { enabled = true }, -- Experimental option
 
   sources = {
-    default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "codecompanion" },
+    default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "copilot", "codecompanion" },
 
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
@@ -49,6 +49,7 @@ blink.setup({
       lazydev       = { name = "LazyDev",        module = "lazydev.integrations.blink",  fallbacks = { "lazy_dev" } },
       markdown      = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
       codecompanion = { name = "CodeCompanion",  module = "codecompanion.providers.completion.blink" },
+      copilot       = { name = "copilot",        module = "blink-copilot", score_offset = 100, async = true, },
     },
   },
 
@@ -79,9 +80,7 @@ blink.setup({
     keymap  = { preset = "none" },
     sources = { "path", "buffer" },
     completion = {
-      list = {
-        selection = { preselect   = false, auto_insert = false },
-      },
+      list       = { selection = { preselect = false, auto_insert = false } },
       menu       = { auto_show = false },
       ghost_text = { enabled   = true }
     },

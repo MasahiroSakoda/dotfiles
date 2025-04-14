@@ -63,10 +63,11 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     dependencies = {
-      "saghen/blink.compat",
+      "fang2hou/blink-copilot",
       "onsails/lspkind.nvim",
     },
-    event = { "InsertEnter" },
+    cond   = not vim.g.vscode,
+    event  = { "InsertEnter" },
     config = function() require("lsp.cmp.blink") end,
   },
 }
