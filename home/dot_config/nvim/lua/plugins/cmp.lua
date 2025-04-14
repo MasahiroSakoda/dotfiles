@@ -63,6 +63,7 @@ return {
     "saghen/blink.cmp",
     version = "1.*",
     dependencies = {
+      "fang2hou/blink-copilot",
       "onsails/lspkind.nvim",
     },
     cond   = not vim.g.vscode,
