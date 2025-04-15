@@ -12,6 +12,14 @@ mcphub.setup({
   -- on_error = function(err)
   -- end,
 
+  extensions= {
+    codecompanion = {
+      show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
+      make_vars           = true, -- Make chat #variables from MCP server resources
+      make_slash_commands = true, -- Create slash commands for prompts
+    },
+  },
+
   log = {
     level     = vim.log.levels.WARN,
     to_file   = false,
