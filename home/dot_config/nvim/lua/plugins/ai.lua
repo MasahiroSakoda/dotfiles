@@ -5,8 +5,8 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cond   = not vim.g.vscode,
-    event  = { "InsertEnter" },
-    config = function() require("ai.copilot.init") end,
+    cmd    = "Copilot",
+    config = function() require("ai.copilot") end,
   },
   {
     "olimorris/codecompanion.nvim",
