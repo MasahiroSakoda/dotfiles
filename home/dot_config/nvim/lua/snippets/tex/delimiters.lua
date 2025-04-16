@@ -9,11 +9,12 @@ local c  = ls.choice_node
 -- local r  = ls.restore_node
 -- local f  = ls.function_node
 -- local sn = ls.snippet_node
+local as = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local extras = require("luasnip.extras")
 local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
--- local fmt     = require("luasnip.extras.fmt").fmt
+local fmt     = require("luasnip.extras.fmt").fmt
 local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
@@ -22,32 +23,11 @@ local fmta    = require("luasnip.extras.fmt").fmta
 local cond = require("snippets.tex.util.conditions")
 
 local snippets = {
-  s({ trig = "im", name = "Inline math", dscr = "Inline math", snippetType = "autosnippet" },
-    fmta([[$<>$]], { i(0) }),
-    { condition = not cond.in_math }
-  ),
-  s({ trig = "mbs", name = "Block math", dscr = "Block math (single line)", snippetType = "autosnippet" },
-    fmta([[$$<>$$]], { i(0) }),
-    { condition = not cond.in_math }
-  ),
-  s({ trig = "mbm", name = "Block math", dscr = "Block math (multiline)", snippetType = "autosnippet" },
-    fmta([[
-    $$
-    <>
-    $$]], { i(0) }),
-    { condition = not cond.in_math }
-  ),
-
-  s({ trig = "math", name = "Math environment", dscr = "Math environment", snippetType = "autosnippet" },
-    fmta([[
-    \begin{<>}
-    <>
-    \end{<>}
-    ]], {
-      c(1, { t("math"), t("displaymath") }),
-      i(0, "formula"),
-      rep(1)
-    }),
+  as({ trig = "im",   dscr = "Inline math" },         fmta([[$<>$]],    { i(0) }), { condition = not cond.in_math }),
+  as({ trig = "mbs",  dscr = "Block math (single)" }, fmt('$${}$$',     { i(0) }), { condition = not cond.in_math }),
+  as({ trig = "mbm",  dscr = "Block math (multi)" },  fmt('$$\n{}\n$$', { i(0) }), { condition = not cond.in_math }),
+  as({ trig = "math", dscr = "Math environment" },
+    fmta('\\begin{<>}\n<>\n\\end{<>}', { c(1, { t("math"), t("displaymath") }), i(0), rep(1) }),
     { condition = not cond.in_math }
   ),
 }
