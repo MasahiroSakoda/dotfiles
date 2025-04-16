@@ -42,7 +42,7 @@ local snippets = {
 
   -- Rspec
   s({ trig = "rspec", name = "Rspec template", dscr = "Rspec file template" },
-    fmt('require "{}_helper"\n\nRspec.describe {}{} do\n\t{}\nend\n{}', {
+    fmt('require "{}_helper"\n\nRspec.describe {}{} do\n\t{}\nend\n', {
       c(1, {t("spec"), t("rails")}),
       i(2),
       c(3, {
