@@ -19,23 +19,23 @@ local fmta    = require("luasnip.extras.fmt").fmta
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
-local util = require("utils.luasnip")
+local cond = require("snippets.tex.util.conditions")
 
 local snippets = {
   s({ trig = "im", name = "Inline math", dscr = "Inline math", snippetType = "autosnippet" },
     fmta([[$<>$]], { i(0) }),
-    { condition = not util.in_math }
+    { condition = not cond.in_math }
   ),
   s({ trig = "mbs", name = "Block math", dscr = "Block math (single line)", snippetType = "autosnippet" },
     fmta([[$$<>$$]], { i(0) }),
-    { condition = not util.in_math }
+    { condition = not cond.in_math }
   ),
   s({ trig = "mbm", name = "Block math", dscr = "Block math (multiline)", snippetType = "autosnippet" },
     fmta([[
     $$
     <>
     $$]], { i(0) }),
-    { condition = not util.in_math }
+    { condition = not cond.in_math }
   ),
 
   s({ trig = "math", name = "Math environment", dscr = "Math environment", snippetType = "autosnippet" },
@@ -48,7 +48,7 @@ local snippets = {
       i(0, "formula"),
       rep(1)
     }),
-    { condition = not util.in_math }
+    { condition = not cond.in_math }
   ),
 }
 return snippets
