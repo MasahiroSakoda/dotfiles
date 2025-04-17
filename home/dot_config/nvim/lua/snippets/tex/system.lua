@@ -20,7 +20,7 @@ local fmta    = require("luasnip.extras.fmt").fmta
 -- local conds   = require("luasnip.extras.conditions")
 local condse  = require("luasnip.extras.conditions.expand")
 local cond    = require("snippets.tex.util.conditions")
-local util    = require("utils.luasnip")
+local util    = require("utils.snippet")
 
 local snippets = {
   as({ trig = ":pkg", dscr = "LaTeX package" },
