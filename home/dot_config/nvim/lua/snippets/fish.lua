@@ -13,51 +13,27 @@ local i  = ls.insert_node
 -- local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt     = require("luasnip.extras.fmt").fmt
--- local fmta    = require("luasnip.extras.fmt").fmta
+-- local fmt     = require("luasnip.extras.fmt").fmt
+local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
-  s({ trig = "path", name = "path",    dscr = "fish_add_path template" },
-    fmt('fish_add_path {}\n{}', { i(1, "path"), i(0) })
-  ),
-  s({ trig = "setx", name = "set -x",  dscr = "var definition" },
-    fmt('set -x {} {}\n{}', { i(1, "arg1"), i(2, "arg2"), i(0) })
-  ),
-  s({ trig = "setlx", name = "set -lx", dscr = "var definition (local)" },
-    fmt('set -lx {} {}\n{}', { i(1, "arg1"), i(2, "arg2"), i(0) })
-  ),
-  s({ trig = "setgx", name = "set -gx", dscr = "var definition (global)" },
-    fmt('set -gx {} {}\n{}', { i(1, "arg1"), i(2, "arg2"), i(0) })
-  ),
-  s({ trig = "bind", name = "bind", dscr = "keybind definitionn" },
-    fmt('bind {} {}\n{}', { i(1, "arg1"), i(2, "arg2"), i(0) })
-  ),
-  s({ trig = "cmd", name = "command", dscr = "represent command" },
-    fmt('command {}\n{}', { i(1, "arg"), i(0) })
-  ),
-  s({ trig = "abbr", name = "abbreviation", dscr = "fish abbriviation" },
-    fmt('abbr -a -- {} "{}"\n{}', { i(1, "shorthand"), i(2, "command"), i(0) })
-  ),
+  s({ trig = "path",  dscr = "fish_add_path" },   fmta('fish_add_path <>',  { i(0, "path") })),
+  s({ trig = "setx",  dscr = "var definition" },  fmta('set -x <> <>',  { i(1, "var"), i(2, "content") })),
+  s({ trig = "setlx", dscr = "local variable" },  fmta('set -lx <> <>', { i(1, "var"), i(2, "content") })),
+  s({ trig = "setgx", dscr = "global variable" }, fmta('set -gx <> <>', { i(1, "var"), i(2, "content") })),
+  s({ trig = "bind",  dscr = "keybind" },         fmta('bind <> <>',    { i(1, "key"), i(2, "cmd") })),
 
-  s({ trig = "if", name = "if - end", dscr = "if - end block template" },
-    fmt('if {}\n\t{}\nend\n{}', { i(1, "condition"), i(2, "code"), i(0) })
-  ),
-  s({ trig = "elif", name = "else if", dscr = "else if block" },
-    fmt('else if {} {}\n{}', { i(1, "condition"), i(2, "code"), i(0) })
-  ),
-  s({ trig = "for", name = "for loop", dscr = "for loop block" },
-    fmt('for {} in {}\n\t{}\nend\n{}', { i(1, "var"),       i(2, "list"), i(3, "code"), i(0) })
-  ),
-  s({ trig = "while", name = "while loop", dscr = "while loop block" },
-    fmt('while {}\n\t{}\nend\n{}', { i(1, "condition"), i(2, "code"), i(0) })
-  ),
+  s({ trig = "cmd",   dscr = "represent cmd" },   fmta('command <>',         { i(0) })),
+  s({ trig = "abbr",  dscr = "fish abbrev" },     fmta('abbr -a -- <> "<>"', { i(1), i(0) })),
 
-  s({ trig = "fn", name = "function", dscr = "function definition" },
-    fmt('function {} --description "{}"\n\t{}\nend\n{}', { i(1, "func"), i(2, "desc"), i(0, "code"), i(0) })
-  ),
+  s({ trig = "if",    dscr = "if - end" }, fmta('if <>\n\t<>\nend\n',        { i(1), i(2) })),
+  s({ trig = "elif",  dscr = "else if" },  fmta('else if <> <>\n',           { i(1), i(2) })),
+  s({ trig = "for",   dscr = "for loop" }, fmta('for <> in <>\n\t<>\nend\n', { i(1), i(2), i(3) })),
+  s({ trig = "while", dscr = "while" },    fmta('while <>\n\t<>\nend\n',     { i(1), i(2) })),
+  s({ trig = "fn",    dscr = "function" }, fmta('function <> --description "<>"\n\t<>\nend\n', { i(1), i(2), i(0) })),
 }
 
 return snippets

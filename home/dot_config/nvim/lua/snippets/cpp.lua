@@ -13,8 +13,8 @@ local c  = ls.choice_node
 -- local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt     = require("luasnip.extras.fmt").fmt
--- local fmta    = require("luasnip.extras.fmt").fmta
+-- local fmt     = require("luasnip.extras.fmt").fmt
+local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
@@ -23,7 +23,7 @@ ls.filetype_extend("cpp", { "cppdoc" })
 
 local snippets = {
   s({ trig = "head", name = "standard header", dscr = "standard header template" },
-    fmt('#include <{}>\n{}', { c(1, {
+    fmta('#include <<>>\n<>', { c(1, {
       t("iostream"),
       t("string"),
       t("arraay"),
@@ -39,27 +39,21 @@ local snippets = {
       i(0),
     }) })
   ),
-  s({ trig = "main", name = "main func", dscr = "main function template" }, fmt([[
+  s({ trig = "main", name = "main func", dscr = "main function template" }, fmta([[
     #include <iostream>
 
     using namespace std;
 
-    int main(int argc, char *argv[]) {{
-        {}
+    int main(int argc, char *argv[]) {
+        <>
         cout << "" << endl;
         return 0;
-    }}
-    {}
+    }
+    <>
   ]], { i(1, "code"), i(0) })),
 
-  s({ trig = "class", name = "class definition", dscr = "class definition template" }, fmt([[
-    class {} {{
-    public:
-        {}
-    protected:
-    private:
-    }};
-    {}
-  ]], { i(1, "member"), i(0) })),
+  s({ trig = "class", name = "class definition", dscr = "class definition template" },
+    fmta('class <> {\npublic:\n\t<>\nprotected:\nprivate:\n};\n<>', { i(1, "member"), i(0) })
+  )
 }
 return snippets
