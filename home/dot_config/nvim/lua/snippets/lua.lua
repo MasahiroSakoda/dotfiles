@@ -7,7 +7,7 @@ local i  = ls.insert_node
 local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 local r  = ls.restore_node
--- local f  = ls.function_node
+local f  = ls.function_node
 local sn = ls.snippet_node
 -- local as = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 local extras = require("luasnip.extras")
@@ -97,6 +97,15 @@ local snippets = {
       c(1, { t("function "), t("local function "), t("function M.") }), i(2, "name"), i(3, "param"), i(0),
     })
   ),
+  s({ trig = "lm", name = "init module as variable", dscr = "init module as variable" },
+    fmta('local <> = require("<>")', {
+      f(function(values)
+        local path = vim.split(values[1][1], "%.")
+        return path[#path]
+      end, { 1 }),
+      i(1)
+    })
+  ),
   s({ trig = "l2", name = "define two variables", dscr = "define two local variables" },
     fmta('local <>, <> = <>, <>\n<>', { i(1, "var1"), i(2, "var2"), i(3, "c1"), i(4, "c2"), i(0) })
   ),
@@ -105,6 +114,14 @@ local snippets = {
   ),
   s({ trig = "pp", name = "print lua table", dscr = "print lua table beautifully" },
     fmta('print(vim.inspect(<>))', { i(0) })
+  ),
+  s({ trig = "for", name = "for loop", dscr = "for loop" },
+    fmta('for <>, <> in <> do\n\t<>\nend', {
+      i(1, "key"),
+      i(2, "value"),
+      c(3, { sn(nil, { t("pairs("), r(1, "table"), t(")") }), sn(nil, { t("ipairs("), r(1, "table"), t(")") }) }),
+      i(0)
+    })
   ),
 
   ---------------------------------------------------------------------------------------
