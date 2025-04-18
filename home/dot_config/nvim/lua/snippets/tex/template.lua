@@ -17,16 +17,25 @@ local i  = ls.insert_node
 local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
--- local condse  = require("luasnip.extras.conditions.expand")
+local condse  = require("luasnip.extras.conditions.expand")
+local cond    = require("snippets.tex.util.conditions")
 
 local snippets = {
-  s("exp",  fmta('export <>=<>\n<>', { i(1, "var"), i(2, "value"), i(0) })),
-  s("loc",  fmta('local <>=<>\n<>',  { i(1, "var"), i(2, "value"), i(0) })),
+  s({ trig = "tex", name = "tex template", dscr = "tex template" },
+    fmta([[
+    \documentclass[<>,<>]{<>}
+    \usepackage{amsmath}
 
-  s("func", fmta('function <>(<>) {\n\t<>\n}',   { i(1, "name"), i(2, "param"), i(0) })),
-  s("for",  fmta('for <> in <> do\n\t<>\ndone',  { i(1, "item"), i(2, "list"), i(0) })),
+    \title{<>}
+    \author{<>}
+    \date{\today}
 
-  s("if",   fmta('if <> ; then\n\t<>\nfi', { i(1, "condition"), i(0) }))
+    \begin{document}
+    <>
+    \end{document}
+    ]], { i(1, "size"), i(2, "font size"), i(3, "style"), i(3, "title"), i(4, "author"), i(0) }),
+    { condition = condse.line_begin and not cond.in_math }
+  ),
 
 }
 return snippets

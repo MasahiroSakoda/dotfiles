@@ -13,15 +13,15 @@ local c  = ls.choice_node
 -- local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt     = require("luasnip.extras.fmt").fmt
--- local fmta    = require("luasnip.extras.fmt").fmta
+-- local fmt     = require("luasnip.extras.fmt").fmt
+local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
   s({ trig = "console", name = "console log/warn/error", dscr = "console output templates" },
-    fmt('console.{}({})\n{}', {
+    fmta('console.<>(<>)\n<>', {
       c(1, { t("log"), t("warn"), t("error") }),
       i(2, "variable"),
       i(0),
@@ -29,7 +29,7 @@ local snippets = {
   ),
 
   s({ trig = "js", name = "json stringify/parse", dscr = "json stringify or parse template" },
-    fmt('JSON.{}({})\n{}', { c(1, { t("stringify"), t("parse") }), i(2, "variable"), i(0) })
+    fmta('JSON.<>(<>)\n<>', { c(1, { t("stringify"), t("parse") }), i(2, "variable"), i(0) })
   ),
 }
 return snippets

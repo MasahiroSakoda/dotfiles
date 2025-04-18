@@ -13,8 +13,8 @@ local i  = ls.insert_node
 -- local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt     = require("luasnip.extras.fmt").fmt
--- local fmta    = require("luasnip.extras.fmt").fmta
+-- local fmt     = require("luasnip.extras.fmt").fmt
+local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
@@ -22,13 +22,7 @@ local fmt     = require("luasnip.extras.fmt").fmt
 local snippets = {
 
   s({ trig = "nxp", name = "Next.js page", dscr = "Next.js page" },
-    fmt([[
-      export default function {}({}) {{
-        return (
-          {}
-        )
-      }}
-    ]], { i(1, "Page Name"), i(2, "Parameters"), i(0) })
+    fmta('export default function <>(<>) {\n\treturn (\n\t<>\n)\n}', { i(1, "Page Name"), i(2, "Parameters"), i(0) })
   ),
 }
 return snippets
