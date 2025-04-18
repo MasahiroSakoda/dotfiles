@@ -1,9 +1,9 @@
 {
   "mcpServers": {
-    "time":   { "command": "uvx", "args": [ "mcp-server-time", "--local-timezone=Asia/Tokyo" ] },
-    "git":    { "command": "uvx", "args": [ "mcp-server-git" ] },
-    "fetch":  { "command": "uvx", "args": [ "mcp-server-fetch" ] },
-    "docker": { "command": "uvx", "args": [ "mcp-server-docker" ] },
+    "time":   { "command": "uv", "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ] },
+    "git":    { "command": "uv", "args": [ "tool", "run", "mcp-server-git" ] },
+    "fetch":  { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
+    "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
     "filesystem": {
       "command": "npx",
       "args": [ "-y", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
