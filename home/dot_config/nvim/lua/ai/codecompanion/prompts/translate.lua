@@ -9,7 +9,7 @@ return {
     index = 16,
     is_default = true,
     modes = { "v" },
-    short_name = "",
+    short_name = "translate",
     auto_submit = true,
     user_prompt = false,
     stop_context_insertion = true,
