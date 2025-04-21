@@ -1,11 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
-local lsp_ok, lspconfig       = pcall(require, "lspconfig")
 local mason_cfg_ok, mason_cfg = pcall(require, "mason-lspconfig")
-
-if not lsp_ok  then
-  vim.notify('[lspconfig] Loading "lspconfig" failed.', vim.log.levels.WARN)
-elseif not mason_cfg_ok then
-  vim.notify('[lspconfig] Loading "mason-lspconfig" failed.', vim.log.levels.WARN)
+if not mason_cfg_ok then
+  vim.notify('Loading "mason-lspconfig" failed.', vim.log.levels.WARN)
 end
 
 require("lsp.config.status")
@@ -73,7 +69,7 @@ local server_opts = {
 }
 mason_cfg.setup_handlers {
   function (server)
-    local opts = vim.tbl_deep_extend("force", server_opts, servers[server] or {})
-    lspconfig[server].setup(opts)
+    vim.lsp.config(server, vim.tbl_deep_extend("force", server_opts, servers[server] or {}))
+    vim.lsp.enable(server)
   end,
 }

@@ -133,7 +133,12 @@ autocmd({ "LspAttach" }, {
     -- Enable completion
     if client ~= nil and client:supports_method("textDocument/completion", ev.buf) then
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, ev.buf, {
+        autotrigger = true,
+        convert = function(item)
+          return { abbr = item.label:gsub("%b()", "") }
+        end
+      })
     end
 
     -- Format on save
