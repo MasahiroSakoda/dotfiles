@@ -2,8 +2,9 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "glsl_analyzer" },
-  filetypes = require("user.filetypes").lang.glsl,
+  cmd          = { "glsl_analyzer" },
+  filetypes    = require("user.filetypes").lang.glsl,
+  root_markers = { ".git" },
   capabilities = {
     textDocument = {
       completion = { editsNearCursor = true },

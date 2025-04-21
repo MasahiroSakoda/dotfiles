@@ -3,9 +3,9 @@ local ft = require("user.filetypes")
 
 ---@type vim.lsp.Config
 return {
-  cmd = { "texlab" },
-  filetypes = ft.lang.latex,
-  root_dir  = ft.lsp.texlab,
+  cmd          = { "texlab" },
+  filetypes    = ft.lang.latex,
+  root_markers = { ".git" },
   settings = {
     texlab = {
       build = {

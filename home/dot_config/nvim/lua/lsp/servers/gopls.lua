@@ -1,12 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "gopls", "serve" },
-  filetypes = { "go", "gomod", "gotmpl" },
-  root_dir  = lspconfig.util.root_pattern("go.mod", "go.work", ".git"),
+  cmd          = { "gopls", "serve" },
+  filetypes    = { "go", "gowork", "gomod", "gotmpl" },
+  root_markers = { "go.work", "go.mod", ".git" },
   settings  = {
     gopls = {
       ---@See https://github.com/golang/tools/blob/master/gopls/doc/settings.md

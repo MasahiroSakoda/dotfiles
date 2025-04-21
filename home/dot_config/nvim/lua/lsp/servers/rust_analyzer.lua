@@ -1,12 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "rust-analyzer" },
-  filetypes = { "rust" },
-  root_dir  = lspconfig.util.root_pattern(require("user.filetypes").lsp.rust),
+  cmd          = { "rust-analyzer" },
+  filetypes    = { "rust" },
+  root_markers = require("user.filetypes").lsp.rust,
   settings  = {
     -- Refer to all available options here: https://rust-analyzer.github.io/manual.html
     ["rust-analyzer"] = {

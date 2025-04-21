@@ -1,5 +1,4 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
 local lsp, api = vim.lsp, vim.api
 local virtual_text_document_handler = function(uri, result)
@@ -53,8 +52,8 @@ local ft = require("user.filetypes")
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "deno", "lsp" },
-  root_dir  = lspconfig.util.root_pattern(ft.lsp.deno),
+  cmd          = { "deno", "lsp" },
+  root_markers = ft.lsp.deno,
   autostart = true,
   init_options = {
     enable    = true,

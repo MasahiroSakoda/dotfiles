@@ -1,16 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
-
-local ft = require("user.filetypes")
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "pyright-langserver", "--stdio" },
-  filetypes = { "python" },
-  root_dir  = function(filename)
-    return lspconfig.util.root_pattern(ft.lsp.pyright)(filename) or vim.fn.getcwd()
-  end,
+  cmd          = { "pyright-langserver", "--stdio" },
+  filetypes    = { "python" },
+  root_markers = require("user.filetypes").lsp.pyright,
   single_file_support = true,
   settings = {
     pyright = {

@@ -2,11 +2,9 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "bash-language-server", "start" },
-  filetypes = { "sh", "bash", "zsh" },
-  root_dir  = function(fname)
-    return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-  end,
+  cmd          = { "bash-language-server", "start" },
+  filetypes    = { "sh", "bash", "zsh" },
+  root_markers = { ".git" },
   autostart = true,
 
   settings = {
