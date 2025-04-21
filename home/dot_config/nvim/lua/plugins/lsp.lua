@@ -2,14 +2,16 @@
 
 return {
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      { "williamboman/mason.nvim", config = function() require("lsp.config.mason") end },
-      { "williamboman/mason-lspconfig.nvim" },
-    },
+    "williamboman/mason.nvim",
+    cmd = { "Mason" },
+    config = function() require("lsp.config.mason") end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
   },
+  { "neovim/nvim-lspconfig" },
   { "folke/lazydev.nvim", ft = "lua", opts = {} },
   {
     "nvimtools/none-ls.nvim",
