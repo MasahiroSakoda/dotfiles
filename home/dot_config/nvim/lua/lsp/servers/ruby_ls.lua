@@ -14,6 +14,7 @@ local cmd = function()
   return { "ruby-lsp" }
 end
 
+---@type vim.lsp.Config
 return {
   cmd = cmd,
   filetypes = { "ruby" },

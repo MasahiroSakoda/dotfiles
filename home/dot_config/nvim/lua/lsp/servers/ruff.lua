@@ -2,6 +2,7 @@
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
+---@type vim.lsp.Config
 local ft = require("user.filetypes")
 return {
   cmd = { "ruff", "server" },

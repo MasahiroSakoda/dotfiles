@@ -1,3 +1,4 @@
+-- -*-mode:lua-*- vim:ft=lua
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
@@ -15,6 +16,7 @@ local settings = {
   },
 }
 
+---@type vim.lsp.Config
 return {
   cmd       = { "typescript-language-server", "--stdio" },
   root_dir  = function (filename)

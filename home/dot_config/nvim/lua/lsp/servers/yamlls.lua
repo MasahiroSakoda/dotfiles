@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
   cmd       = { "yaml-language-server", "--stdio" },
   root_dir  = function(fname)

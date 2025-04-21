@@ -1,3 +1,6 @@
+-- -*-mode:lua-*- vim:ft=lua
+
+---@type vim.lsp.Config
 return {
   settings = {
     Lua = {

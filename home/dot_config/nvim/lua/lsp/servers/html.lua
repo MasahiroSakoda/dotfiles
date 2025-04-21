@@ -1,6 +1,8 @@
+-- -*-mode:lua-*- vim:ft=lua
 local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
+---@type vim.lsp.Config
 return {
   cmd       = { "html-languageserver", "--stdio" },
   filetypes = { "html", "eruby" },

@@ -3,6 +3,8 @@ local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
 local ft = require("user.filetypes")
+
+---@type vim.lsp.Config
 return {
   cmd       = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },

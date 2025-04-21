@@ -1,6 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 local ft = require("user.filetypes")
 
+---@type vim.lsp.Config
 return {
   cmd = { "texlab" },
   filetypes = ft.lang.latex,

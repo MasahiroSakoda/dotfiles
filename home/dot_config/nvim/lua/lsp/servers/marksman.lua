@@ -1,6 +1,8 @@
+-- -*-mode:lua-*- vim:ft=lua
 local ok, util = pcall(require, "lspconfig.util")
 if not ok then return end
 
+---@type vim.lsp.Config
 return {
   defaunt_config = {
     cmd       = { "marksman", "server" },

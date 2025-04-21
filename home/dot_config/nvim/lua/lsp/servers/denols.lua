@@ -50,6 +50,8 @@ local denols_handler = function(err, result, ctx)
 end
 
 local ft = require("user.filetypes")
+
+---@type vim.lsp.Config
 return {
   cmd       = { "deno", "lsp" },
   root_dir  = lspconfig.util.root_pattern(ft.lsp.deno),

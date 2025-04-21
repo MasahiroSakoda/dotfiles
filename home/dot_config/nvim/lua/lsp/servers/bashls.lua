@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
   cmd       = { "bash-language-server", "start" },
   filetypes = { "sh", "bash", "zsh" },

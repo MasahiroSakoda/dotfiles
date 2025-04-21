@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
   cmd       = { "vscode-json-language-server", "--stdio" },
   filetypes = require("user.filetypes").lang.json,

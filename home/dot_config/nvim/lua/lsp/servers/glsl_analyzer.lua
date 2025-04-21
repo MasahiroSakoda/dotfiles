@@ -1,5 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
   cmd       = { "glsl_analyzer" },
   filetypes = require("user.filetypes").lang.glsl,
