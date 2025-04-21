@@ -1,5 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-require("core.complete")
 
 return {
   -- {
