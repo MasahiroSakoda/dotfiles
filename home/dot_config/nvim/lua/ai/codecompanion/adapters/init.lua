@@ -7,5 +7,5 @@ return {
   anthropic = require("ai.codecompanion.adapters.anthropic"),
   google    = require("ai.codecompanion.adapters.google"),
   qwen      = require("ai.codecompanion.adapters.qwen"),
-  dolhin    = require("ai.codecompanion.adapters.dolphin"),
+  ollama    = require("ai.codecompanion.adapters.ollama"),
 }

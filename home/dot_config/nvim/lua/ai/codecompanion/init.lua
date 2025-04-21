@@ -27,7 +27,7 @@ codecompanion.setup({
       tools = {
         mcp = {
           description = "Call tools and resources from the MCP Servers",
-          callback = function() return require("mcphub.extentions.codecompanion") end,
+          callback = function() return require("mcphub.extensions.codecompanion") end,
           opts = { requires_approval = true },
         },
       },
