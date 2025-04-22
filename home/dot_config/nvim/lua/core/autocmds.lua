@@ -133,7 +133,16 @@ autocmd({ "LspAttach" }, {
     -- Enable completion
     if client ~= nil and client:supports_method("textDocument/completion", ev.buf) then
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+
+      local kinds_ok, kinds = pcall(require, "lspkind")
+      vim.lsp.completion.enable(true, client.id, ev.buf, {
+        autotrigger = true,
+        convert = function(item)
+          local kind = vim.lsp.protocol.CompletionItemKind[item.kind] or "Unknown"
+          local icon = kinds_ok and string.format("%s", kinds.presets.default[kind]) or kind
+          return { abbr = icon .. " " .. item.label, kind = kind, menu = item.detail or "", icase = 1 }
+        end
+      })
     end
 
     -- Format on save

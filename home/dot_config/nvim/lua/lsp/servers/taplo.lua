@@ -1,14 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
 
+---@type vim.lsp.Config
 return {
-  cmd       = { "taplo", "lsp", "stdio" },
-  filetypes = { "toml" },
-  root_dir = function(fname)
-    return lspconfig.util.root_pattern('*.toml')(fname)
-      or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-  end,
+  cmd          = { "taplo", "lsp", "stdio" },
+  filetypes    = { "toml" },
+  root_markers = { ".git" },
   settings = {
     evenBetterToml = {
       schema = {

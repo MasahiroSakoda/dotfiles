@@ -1,5 +1,4 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
 local settings = {
   completions = { completeFunctionCalls = true },
@@ -15,17 +14,12 @@ local settings = {
   },
 }
 
+---@type vim.lsp.Config
 return {
   cmd       = { "typescript-language-server", "--stdio" },
-  root_dir  = function (filename)
-    return lspconfig.util.root_pattern(
-      "jsconfig.json",
-      "tsconfig.json",
-      "package.json"
-    )(filename) or vim.fn.getcwd()
-  end,
-  autostart = false,
   filetypes = require("user.filetypes").lang.js,
+  root_markers = { "package.json", "jsconfig.json", "tsconfig.json", ".git" },
+  autostart = false,
 
   settings = {
     javascript = settings,

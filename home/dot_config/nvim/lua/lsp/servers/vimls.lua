@@ -1,11 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
-  cmd       = { "vim-language-server", "--stdio" },
-  filetypes = { "vim" },
-  root_dir  = function(fname)
-    return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-  end,
+  cmd          = { "vim-language-server", "--stdio" },
+  filetypes    = { "vim" },
+  root_markers = { ".git" },
   init_options = {
     diagnostic = { enable = true },
     indexes = {

@@ -1,6 +1,6 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
   cmd       = {
     "clangd",
@@ -23,16 +23,6 @@ return {
     "cppm", "cxxm",
     "objc", "objcpp"
   },
-  root_dir = function(filename)
-   return  lspconfig.util.root_pattern(
-    "src",
-    ".clangd",
-    ".clang-tidy",
-    -- ".clang-format",
-    "compile_commands.json",
-    "compile_flags.txt",
-    "configure.ac",
-    ".git")(filename) or vim.fn.getcwd()
-  end,
+  root_markers = { ".git" },
   single_file_support = true,
 }

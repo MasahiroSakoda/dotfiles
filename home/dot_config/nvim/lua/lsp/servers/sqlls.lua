@@ -1,10 +1,10 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
-  cmd       = { "sql-language-server", "up", "--method", "stdio" },
-  filetypes = { "sql", "mysql" },
-  root_dir  = lspconfig.util.root_pattern(".sqllsrc.json"),
+  cmd          = { "sql-language-server", "up", "--method", "stdio" },
+  filetypes    = { "sql", "mysql" },
+  root_markers = { ".git" },
   single_file_support = true,
   setrings  = {},
 }

@@ -1,8 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
 
-local ft  = require("user.filetypes")
 local cmd = function()
   local code = nil
   local jid = vim.fn.jobstart(
@@ -14,10 +11,11 @@ local cmd = function()
   return { "ruby-lsp" }
 end
 
+---@type vim.lsp.Config
 return {
   cmd = cmd,
-  filetypes = { "ruby" },
-  root_dir = lspconfig.util.root_pattern(ft.lsp.ruby),
+  filetypes    = { "ruby" },
+  root_markers = require("user.filetypes").lsp.ruby,
   init_options = {
     enabledFeatures = {
       "documentHighlights",

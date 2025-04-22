@@ -1,17 +1,10 @@
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then return end
+-- -*-mode:lua-*- vim:ft=lua
 
+---@type vim.lsp.Config
 return {
-  cmd       = { "vscode-css-language-server", "--stdio" },
-  filetypes = { "css", "scss", "less" },
-  root_dir  = function (filename)
-    return lspconfig.util.root_pattern(
-      "package.json",
-      ".gitignore",
-      ".git",
-      "README.md",
-      "src")(filename) or vim.fn.getcwd()
-  end,
+  cmd          = { "vscode-css-language-server", "--stdio" },
+  filetypes    = { "css", "scss", "less" },
+  root_markers = { "package.json", ".git" },
 
   settings = {
     css  = { validate = true },

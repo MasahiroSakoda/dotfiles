@@ -21,7 +21,7 @@ return {
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   cmake         = require("lsp.servers.cmake"),         -- CMake
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
-  terraformls   = require("lsp.servers.terraformls"),   -- Terraform
+  terraformls   = require("lsp.servers.terraform"),     -- Terraform
   sqlls         = require("lsp.servers.sqlls"),         -- SQL
   vimls         = require("lsp.servers.vimls"),         -- VimScript
   texlab        = require("lsp.servers.texlab"),        -- LaTex
