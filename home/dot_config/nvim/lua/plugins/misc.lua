@@ -23,4 +23,12 @@ return {
     cmd = { "Grep", "Make", "OverseerToggle", "OverseerRun" },
     config = function() require("user.overseer") end,
   },
+  {
+    "neo451/feed.nvim",
+    dependencies = { "gregorias/coop.nvim" },
+    cmd    = { "Feed" },
+    cond   = not vim.g.vscode,
+    config = function() require("user.feed") end,
+  },
+
 }
