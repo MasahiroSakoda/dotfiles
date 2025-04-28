@@ -1,0 +1,10 @@
+default: true
+
+MD007:
+  indent: 2
+MD004: false # Unordered list style
+MD012: false # no-multiple-blanks - Multiple consecutive blank lines
+MD013: false # line-length - Line length
+MD024: false # no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
+MD033: false # no-inline-html - Inline HTML
+MD041: false # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
