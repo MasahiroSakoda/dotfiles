@@ -2,7 +2,7 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd          = { "html-languageserver", "--stdio" },
+  cmd          = { "vscode-html-languageserver", "--stdio" },
   filetypes    = { "html", "eruby" },
   root_markers = { "package.json", ".git" },
   single_file_support = true,
