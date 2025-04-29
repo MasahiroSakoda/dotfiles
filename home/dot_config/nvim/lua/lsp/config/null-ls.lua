@@ -72,7 +72,7 @@ nl.setup({
     -- Linter for make
     diagnostics.checkmake.with({
       filetypes  = filetypes.makefile,
-       extra_args = { "--config", vim.fn.stdpath "config" .. "/format/checkmake.toml" },
+      extra_args = { "--config", vim.fn.stdpath "config" .. "/format/checkmake.toml" },
     }),
 
     -- C/C++
@@ -126,12 +126,12 @@ nl.setup({
     }),
 
     diagnostics.markdownlint.with({
-      extra_args = {},
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
+      filetypes  = filetypes.markdown,
+      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
     }),
     formatting.markdownlint.with({
-      filetypes = filetypes.markdown,
-      condition = function(utils) return utils.root_has_file(filetypes.lsp.markdownlint) end
+      filetypes  = filetypes.markdown,
+      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
     }),
 
     -- VimScript

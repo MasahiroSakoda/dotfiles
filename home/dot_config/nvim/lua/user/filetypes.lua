@@ -96,7 +96,6 @@ Filetypes.lsp = {
   deno         = { "deno.json", "deno.jsonc" },
   biome        = { "biome.json", "biome.jsonc" },
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
-  markdownlint = { ".markdownlintrc", ".markdownlint.json", ".markdownlint.jsonc" },
   texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
 }
 
