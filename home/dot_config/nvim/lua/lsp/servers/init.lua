@@ -36,6 +36,7 @@ return {
   rubocop       = {}, -- Ruby Static Code Analyzer
   markdownlint  = {}, -- Markdown
   hadolint      = {}, -- Dockerfile
+  sqruff        = {}, -- SQL
   vint          = {}, -- VimScript
 
   -- Formetter
