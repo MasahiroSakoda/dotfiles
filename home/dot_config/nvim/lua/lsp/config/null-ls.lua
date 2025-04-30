@@ -139,6 +139,14 @@ nl.setup({
       args = { "'--enable-neovim", "-s", "-j", "$FILENAME" },
       condition = function() return vim.fn.executable("vint") > 0 end,
     }),
+
+    --SQL
+    diagnostics.sqruff.with({
+      filetypes = { "sql", "mysql" },
+    }),
+    formatting.sqruff.with({
+      filetypes = { "sql", "mysql" },
+    }),
   },
   on_attach = on_attach,
 })
