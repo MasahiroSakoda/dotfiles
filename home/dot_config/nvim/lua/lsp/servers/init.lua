@@ -22,7 +22,7 @@ return {
   cmake         = require("lsp.servers.cmake"),         -- CMake
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   terraformls   = require("lsp.servers.terraform"),     -- Terraform
-  sqlls         = require("lsp.servers.sqlls"),         -- SQL
+  -- sqlls         = require("lsp.servers.sqlls"),         -- SQL
   vimls         = require("lsp.servers.vimls"),         -- VimScript
   texlab        = require("lsp.servers.texlab"),        -- LaTex
   typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
@@ -36,6 +36,7 @@ return {
   rubocop       = {}, -- Ruby Static Code Analyzer
   markdownlint  = {}, -- Markdown
   hadolint      = {}, -- Dockerfile
+  sqruff        = {}, -- SQL
   vint          = {}, -- VimScript
 
   -- Formetter
