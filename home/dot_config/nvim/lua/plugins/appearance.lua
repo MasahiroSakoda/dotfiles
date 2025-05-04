@@ -42,6 +42,6 @@ return {
     "lewis6991/gitsigns.nvim", -- Git integration
     cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.gitsigns") end,
+    -- config = function() require("user.gitsigns") end,
   },
 }
