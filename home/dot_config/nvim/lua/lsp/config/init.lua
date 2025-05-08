@@ -60,16 +60,14 @@ end
 local servers = require("lsp.servers")
 mason_cfg.setup({
   ensure_installed = servers,
-  automatic_installation = true,
+  automatic_enable = true,
 })
 
 local server_opts = {
   on_attach    = on_attach,
   capabilities = require("lsp.config.capabilities"),
 }
-mason_cfg.setup_handlers {
-  function (server)
-    vim.lsp.config(server, vim.tbl_deep_extend("force", server_opts, servers[server] or {}))
-    vim.lsp.enable(server)
-  end,
-}
+for server, _ in pairs(servers) do
+  vim.lsp.config(server, vim.tbl_deep_extend("keep", server_opts, servers[server] or {}))
+  -- vim.lsp.enable(server)
+end
