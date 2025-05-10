@@ -1,8 +1,6 @@
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then return end
 
-local palette = require("onedark.palette")[vim.g.themestyle]
-
 bufferline.setup({
   options = {
     mode        = "tabs",     ---@type "tabs"|"buffers"
@@ -50,11 +48,4 @@ bufferline.setup({
     hover = { enabled = true, delay   = 150, reveal  = { "close" } },
   },
 
-  highlights = {
-    separator          = { fg = palette.bg1, bg = palette.black },
-    separator_selected = { fg = palette.bg1 },
-    background         = { fg = palette.light_grey, bg = palette.black },
-    buffer_selected    = { fg = "#fdf6e3", bold = true, italic = true },
-    fill               = { bg = palette.bg1 }
-  },
 })
