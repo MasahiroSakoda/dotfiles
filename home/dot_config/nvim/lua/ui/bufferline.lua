@@ -34,7 +34,7 @@ bufferline.setup({
     modified_icon      = "●",
     left_trunc_marker  = "",
     right_trunc_marker = "",
-    -- close_command      = "Bdelete %d",
+    close_command = function(bufnr) require("snacks").bufdelete.delete(bufnr) end,
     -- right_mouse_command = "Bdelete! %d",
 
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
