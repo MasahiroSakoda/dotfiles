@@ -30,12 +30,9 @@ lualine.setup {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = {
-      { "branch" },
-      { "diff" },
-      { "diagnostics" },
-    },
+    lualine_b = { "branch", "diff" },
     lualine_c = {
+      { "diagnostics" },
       { "smartpath", parent_num = 2, abbrev_dot = true },
     },
     lualine_x = {

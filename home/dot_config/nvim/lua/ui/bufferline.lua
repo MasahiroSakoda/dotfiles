@@ -1,8 +1,6 @@
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then return end
 
-local palette = require("onedark.palette")[vim.g.themestyle]
-
 bufferline.setup({
   options = {
     mode        = "tabs",     ---@type "tabs"|"buffers"
@@ -36,7 +34,7 @@ bufferline.setup({
     modified_icon      = "●",
     left_trunc_marker  = "",
     right_trunc_marker = "",
-    -- close_command      = "Bdelete %d",
+    close_command = function(bufnr) require("snacks").bufdelete.delete(bufnr) end,
     -- right_mouse_command = "Bdelete! %d",
 
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -50,11 +48,4 @@ bufferline.setup({
     hover = { enabled = true, delay   = 150, reveal  = { "close" } },
   },
 
-  highlights = {
-    separator          = { fg = palette.bg1, bg = palette.black },
-    separator_selected = { fg = palette.bg1 },
-    background         = { fg = palette.light_grey, bg = palette.black },
-    buffer_selected    = { fg = "#fdf6e3", bold = true, italic = true },
-    fill               = { bg = palette.bg1 }
-  },
 })
