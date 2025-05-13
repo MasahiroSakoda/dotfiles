@@ -27,7 +27,6 @@ feed.setup({
     { "r/LocalLLaMA",  name = "Local LLM",   tags = { "reddit", "ai", "llama" } },
 
     { "https://neovim.io/news.xml",         name = "NeoVim News", tags = { "news", "neovim" } },
-    { "https://news.ycombinator.com/rss",   name = "Hacker News", tags = { "news", "tech" } },
     { "https://gigazine.net/news/rss_2.0/", name = "GIGAZINE",    tags = { "news", "tech" } },
     { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = { "news", "tech" } },
     { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = { "news", "tech" } },
@@ -35,15 +34,12 @@ feed.setup({
     -- Releases via GitHub
     { "ghostty-org/ghostry/releases", name = "Ghostty Releases",   tags = { "release", "terminal" } },
     { "wezterm/wezterm/releases",     name = "WezTerm Releases",   tags = { "release", "terminal" } },
-    { "zellij-org/zellij/releases",   name = "Zellij Releases",    tags = { "release", "terminal" }},
-    { "twpayne/chezmoi/releases",     name = "chezmoi Releases",   tags = { "release", "dotfiles" } },
+    { "zellij-org/zellij/releases",   name = "Zellij Releases",    tags = { "release", "terminal" } },
     { "saghen/blink.cmp/releases",    name = "blink.cmp Releases", tags = { "release", "neovim" } },
-    { "neo451/feed.nvim/releases",    name = "feed.nvim Releases", tags = { "release", "neovim" } },
-    { "ollama/ollama/releases",       name = "Ollama Releases",    tags = { "release", "llama" } },
 
     -- Security
     { "https://github.com/security-advisories",       name = "Security Advisories", tags = { "security", "github" } },
-    { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert", tags = { "security" }},
+    { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert", tags = { "security" } },
 
     -- Status
     { "https://www.githubstatus.com/history.rss",  name = "GitHub Status",    tags = { "status", "github" } },
