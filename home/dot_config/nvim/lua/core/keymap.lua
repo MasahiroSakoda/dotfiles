@@ -374,6 +374,21 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+-- Feed: <Leader> + n
+---------------------------------------------------------------------------
+if not is_vscode then
+  wk.add({
+    mode = "n",
+    { "<Leader>nm", "<CMD>Feed<CR>",       icon = " ", desc = "Feed menu" },
+    { "<Leader>ni", "<CMD>Feed index<CR>", icon = " ", desc = "Feed index" },
+    { "<Leader>nu", "<CMD>Feed index<CR>", icon = "󰚰 ", desc = "Update Feed" },
+    { "<Leader>nl", "<CMD>Feed list<CR>",  icon = "󰚰 ", desc = "Update Feed" },
+    { "<Leader>ns", "<CMD>Feed sync<CR>",  icon = "󰚰 ", desc = "Update Feed" },
+    { "<Leader>nS", "<CMD>Feed sync!<CR>", icon = "󰚰 ", desc = "Update Feed" },
+  })
+end
+
+---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
 if not is_vscode then
