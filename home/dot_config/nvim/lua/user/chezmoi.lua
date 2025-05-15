@@ -7,10 +7,10 @@ chezmoi.setup({
     watch = false,
     force = false,
   },
-  notification = {
-    on_open  = true, -- notify file opened
-    on_apply = true, -- notify `chezmoi apply` after file saved
-    on_watch = false,
+  events = {
+    on_open  = { enabled = true,  opts = {} },
+    on_watch = { enabled = false, opts = {} },
+    on_apply = { enabled = true,  opts = {} },
   },
   telescope = {
     select = { "<CR>" },
