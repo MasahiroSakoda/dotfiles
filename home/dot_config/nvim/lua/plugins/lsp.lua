@@ -2,12 +2,12 @@
 
 return {
   {
-    "williamboman/mason.nvim",
-    cmd = { "Mason" },
+    "mason-org/mason.nvim",
+    cmd    = { "Mason", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll","MasonUpdate" },
     config = function() require("lsp.config.mason") end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config") end,
   },
