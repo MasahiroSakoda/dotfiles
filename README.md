@@ -130,6 +130,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Language Server            | Language                |
 |:---------------------------|:------------------------|
 | [**bash-language-server**](https://github.com/bash-lsp/bash-language-server) | Bash |
+| [**nushell**](https://www.nushell.sh) | Nushell |
 | [**clangd**](https://clangd.llvm.org) | C/C++ |
 | [**rust-analyzer**](https://github.com/rust-lang/rust-analyzer) | Rust                   |
 | [**gopls**](https://pkg.go.dev/golang.org/x/tools/gopls) | Go |
@@ -148,7 +149,9 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**cmake-language-server**](https://github.com/regen100/cmake-language-server) | CMake                   |
 | [**dockerfile-language-server**](https://github.com/rcjsuen/dockerfile-language-server-nodejs) | Dockerfile              |
 | [**terraform-ls**](https://github.com/hashicorp/terraform-ls) | Terraform               |
+| [**taplo**](https://taplo.tamasfe.dev/) | TOML |
 | [**Marksman**](https://github.com/artempyanykh/marksman) | Markdown                |
+| [**texlab**](https://github.com/latex-lsp/texlab) | LaTex |
 
 ![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/d20f648c-f520-485c-ad2b-3762ee60dfc1)
 
@@ -158,7 +161,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 |:-------------------|:----------------------|
 | [**bash-debug-adapter**](https://github.com/rogalmic/vscode-bash-debug) | Bash                  |
 | [**codelldb**](https://github.com/vadimcn/vscode-lldb) | C/C++, Rust           |
-| [**cpptools**](https://github.com/microsoft/vscode-cpptools) | C/C++, Rust           |
 | [**delve**](https://github.com/go-delve/delve) | Go                    |
 | [**debugpy**](https://github.com/microsoft/debugpy) | Python                |
 | [**js-debug-adapter**](https://github.com/microsoft/vscode-js-debug) | Javascript/TyptScript |
@@ -174,6 +176,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**ruff-lsp**](https://github.com/astral-sh/ruff-lsp/) | Python Linter/Formatter |
 | [**rubocop**](https://rubocop.org) | Ruby linter/formatter              |
 | [**vint**](https://github.com/Vimjas/vint) | `VimScript` linter                   |
+| [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
 | [**biome**](https://github.com/biomejs/biome) | `eslint` & `prettier` alternative |
 | [**hadolint**](https://github.com/hadolint/hadolint) | `Dockerfile` linter |
 | [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
