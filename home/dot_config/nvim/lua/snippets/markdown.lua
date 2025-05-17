@@ -146,35 +146,13 @@ local snippets = {
     })
   ),
 
-  s({ trig = "sh",   name = "snippet for shell",  dscr = "Code snippet for shell" },
-    fmt('```sh\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "bash", name = "snippet for bash",   dscr = "Code snippet for bash" },
-    fmt('```bash\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "py",   name = "snippet for python", dscr = "Code snippet for python" },
-    fmt('```python\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "rb",   name = "snippet for ruby",   dscr = "Code snippet for ruby" },
-    fmt('```ruby\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "lua",  name = "snippet for lua",    dscr = "Code snippet for lua" },
-    fmt('```lua\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "js",   name = "snippet for js",     dscr = "Code snippet for JavaScript" },
-    fmt('```javascript\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "ts",   name = "snippet for ts",     dscr = "Code snippet for TypeScript" },
-    fmt('```typescript\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "cpp",  name = "snippet for cpp",    dscr = "Code snippet for C++" },
-    fmt('```c++\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "rs",   name = "snippet for rust",   dscr = "Code snippet for Rust" },
-    fmt('```rust\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
-  s({ trig = "go",   name = "snippet for go",     dscr = "Code snippet for Go" },
-    fmt('```go\n{}\n```{}', { i(1, "code"), i(0, "") })
-  ),
+  s({ trig = "code", name = "code block", dscr = "Code block" }, fmt('```{}\n{}\n```\n', { i(1, "lang"), i(0) })),
+  s({ trig = "h1", name = "h1", dscr = "h1: heading" }, fmt('# {}', { i(0) })),
+  s({ trig = "h2", name = "h2", dscr = "h2: heading" }, fmt('## {}', { i(0) })),
+  s({ trig = "h3", name = "h3", dscr = "h3: heading" }, fmt('### {}', { i(0) })),
+  s({ trig = "h4", name = "h4", dscr = "h4: heading" }, fmt('#### {}', { i(0) })),
+  s({ trig = "h5", name = "h5", dscr = "h5: heading" }, fmt('##### {}', { i(0) })),
+  s({ trig = "h6", name = "h6", dscr = "h6: heading" }, fmt('###### {}', { i(0) })),
+
 }
 return snippets
