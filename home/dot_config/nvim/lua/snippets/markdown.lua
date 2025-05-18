@@ -7,7 +7,7 @@ local i  = ls.insert_node
 local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
--- local f  = ls.function_node
+local f  = ls.function_node
 -- local sn = ls.snippet_node
 local extras = require("luasnip.extras")
 local rep    = extras.rep
@@ -18,6 +18,8 @@ local fmt     = require("luasnip.extras.fmt").fmt
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
+
+local util = require("utils.snippet")
 
 local snippets = {
   s({ trig = "README", name = "README.md", dscr = "README.md template" },
@@ -154,5 +156,14 @@ local snippets = {
   s({ trig = "h5", name = "h5", dscr = "h5: heading" }, fmt('##### {}', { i(0) })),
   s({ trig = "h6", name = "h6", dscr = "h6: heading" }, fmt('###### {}', { i(0) })),
 
+  s({ trig = "image", name = "image", dscr = "Image" }, fmt('![{}]({})', { i(1, "URL"), i(0) })),
+  s({ trig = "link",  name = "link",  dscr = "Link" },  fmt('[{}]({})',  { i(1, "URL"), i(0) })),
+  -- TODO: add option for target="_blank"
+  s({ trig = "linkc", name = "link",  dscr = "Link from clipboard" },
+    fmt('[{}]({})', {
+      i(1, "title"),
+      f(util.clipboard, {}),
+    })
+  ),
 }
 return snippets
