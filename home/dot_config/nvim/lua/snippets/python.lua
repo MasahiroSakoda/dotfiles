@@ -22,6 +22,9 @@ local fmt     = require("luasnip.extras.fmt").fmt
 ls.filetype_extend("python", { "pydoc", "django" })
 
 local snippets = {
+  s({ trig = "main", name = "main", dscr = "main" },
+    fmt('#!/usr/bin/env python\n\ndef main():\t{}\n\nif __name__ == "__main__":\n\tmain()\n', { i(0) })
+  ),
   s({ trig = "imp", name = "import package", dscr = "import package template" },
     fmt('{}\n{}', { c(1, {
       sn(nil, { t("import "), i(1, "package"), c(2, { t(""), sn(nil, t(" as "), i(1, "alias")) }) } ),
