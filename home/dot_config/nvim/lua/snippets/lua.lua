@@ -106,6 +106,9 @@ local snippets = {
       i(1)
     })
   ),
+  s({ trig = "diagnostic", name = "diagnostic", dscr = "diagnostic" },
+    fmta('---@diagnostic <>: <>', { c(1, { t("disable"), t("disable-next-line") }), i(0) })
+  ),
   s({ trig = "l2", name = "define two variables", dscr = "define two local variables" },
     fmta('local <>, <> = <>, <>\n<>', { i(1, "var1"), i(2, "var2"), i(3, "c1"), i(4, "c2"), i(0) })
   ),
@@ -164,7 +167,9 @@ local snippets = {
           <>
         end,
         }, function(choice)
-          <>
+          if choice then
+            <>
+          end
         end,
       )
     ]], { i(1, "array"), i(2, "prompt"), i(3, "format code"), i(0) })
