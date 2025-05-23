@@ -22,7 +22,7 @@ local fmta    = require("luasnip.extras.fmt").fmta
 local snippets = {
   s({ trig = "console", name = "console log/warn/error", dscr = "console output templates" },
     fmta('console.<>(<>)\n<>', {
-      c(1, { t("log"), t("warn"), t("error") }),
+      c(1, { t("debug"), t("log"), t("info"), t("warn"), t("error"), t("crit") }),
       i(2, "variable"),
       i(0),
     })
