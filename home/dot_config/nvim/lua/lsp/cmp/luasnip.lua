@@ -3,14 +3,9 @@ if not ok then return end
 local types = require("luasnip.util.types")
 
 -- luasnip.log.set_loglevel("debug")
-luasnip.filetype_extend("c",      { "cdoc" })
 luasnip.filetype_extend("rust",   { "rustdoc" })
 luasnip.filetype_extend("kotlin", { "kdoc" })
 luasnip.filetype_extend("php",    { "phpdoc" })
-luasnip.filetype_extend("javascript", { "javascriptreact", "html" })
-luasnip.filetype_extend("typescript", { "typescript", "html" })
-luasnip.filetype_extend("javascriptreact", { "javascript", "html" })
-luasnip.filetype_extend("typescriptreact", { "typescript", "html" })
 
 luasnip.config.setup({
   history = true,
