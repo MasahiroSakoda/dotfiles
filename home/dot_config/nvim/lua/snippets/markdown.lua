@@ -53,6 +53,7 @@ local snippets = {
       Please follow the [contribution guidelines](CONTRIBUTING.md) before making any pull requests.
 
       ## License
+
       {} is released under the [MIT license](LICENSE)
 
     ]], { i(1, "name"), i(2, "shorthand"), i(3, "todo1"), i(4, "todo2"), i(5, "todo3"), rep(1) })
@@ -81,14 +82,16 @@ local snippets = {
       # Contributing Guidlines
 
       ## Type of Contributions
+
       1. **Report Bugs**: [Report Bug](https://github.com/{}/issues)
       2. **Request Features**: [Request Feature](https://github.com/{}/issues)
       3. **Improve Documentation**: Create an issue with the `documentation` label
-      6. **Report Security Issues**: [Security](https://github.com/{}/security)
+      4. **Report Security Issues**: [Security](https://github.com/{}/security)
 
       ## Issues
 
       ### Find existing issues:
+
       We welcome you to use the GitHub issue tracker to report bugs or suggest features.
 
       Before submitting issue, please check [existing issue](https://github.com/{}/issues),
@@ -100,9 +103,11 @@ local snippets = {
       ## Pull Request
 
       ### Step 1: Fork this repository
+
       - Fork this repository by clicking on the fork button at the top of this page.
 
       ### Step 2: Clone the repository
+
       - Keep reference to the original project in `upstream` remote.
       ```sh
       git clone forked_repo_url
@@ -111,20 +116,24 @@ local snippets = {
       ````
 
       ### Step 2: Create a branch
+
       ```sh
       git checkout -b branch_name
       ```
 
       ### Step 3: Commit your changes
+
       Commit your changes using [Conventiional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
       ### Step 4: Push changes to GitHub
+
       Push your changes to prepare Pull Request.
       ```sh
       git push origin -u branch_name
       ```
 
       ### Step 5: Submit your changes for review
+
       - Go to your repo in browser and click on `Compare and Pull Requests`.
       - Then fill title & description to your PR that explain contribution.
       - Your PR will be reviewed by the moderators and merged.
@@ -161,5 +170,6 @@ local snippets = {
   s({ trig = "[c", name = "linkc", dscr = "Link from clipboard"},
     fmt('[{}]({})', {i(1, "title"), f(util.clipboard, {})})
   ),
+
 }
 return snippets
