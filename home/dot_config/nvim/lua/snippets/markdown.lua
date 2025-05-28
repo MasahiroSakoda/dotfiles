@@ -156,14 +156,10 @@ local snippets = {
   s({ trig = "h5", name = "h5", dscr = "h5: heading" }, fmt('##### {}', { i(0) })),
   s({ trig = "h6", name = "h6", dscr = "h6: heading" }, fmt('###### {}', { i(0) })),
 
-  s({ trig = "image", name = "image", dscr = "Image" }, fmt('![{}]({})', { i(1, "URL"), i(0) })),
-  s({ trig = "link",  name = "link",  dscr = "Link" },  fmt('[{}]({})',  { i(1, "URL"), i(0) })),
-  -- TODO: add option for target="_blank"
-  s({ trig = "linkc", name = "link",  dscr = "Link from clipboard" },
-    fmt('[{}]({})', {
-      i(1, "title"),
-      f(util.clipboard, {}),
-    })
+  s({ trig = "![", name = "image", dscr = "Image" }, fmt('![{}]({})', { i(1, "URL"), i(0) })),
+  s({ trig = "[",  name = "link",  dscr = "Link" },  fmt('[{}]({})',  { i(1, "URL"), i(0) })),
+  s({ trig = "[c", name = "linkc", dscr = "Link from clipboard"},
+    fmt('[{}]({})', {i(1, "title"), f(util.clipboard, {})})
   ),
 }
 return snippets
