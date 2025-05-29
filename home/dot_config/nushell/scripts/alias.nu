@@ -29,7 +29,6 @@ export alias cat = bat
 export alias v   = nvim
 export alias vi  = nvim
 export alias vim = nvim
-export alias hx  = helix
 
 ## Git
 export alias lg  = lazygit
