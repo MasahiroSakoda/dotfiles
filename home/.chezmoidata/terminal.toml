@@ -1,9 +1,5 @@
 # -*-mode:toml-*- vim:ft=toml
 
-[terminal.alacritty]
-theme = "dracula"
-opacity = 0.75
-
 [terminal.wezterm]
 themes = [
   "One Dark (Gogh)",

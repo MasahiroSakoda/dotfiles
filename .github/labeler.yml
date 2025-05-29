@@ -79,8 +79,6 @@ vscode:
 terminal:
   - changed-files:
     - any-glob-to-any-file:
-      - "home/dot_config/alacritty/*"
-      - "home/.chezmoiexternals/alacritty.toml.tmpl"
       - "home/.chezmoiexternals/tmux.toml.tmpl"
       - "home/dot_config/wezterm/*"
       - "home/dot_config/zellij/*"
