@@ -61,4 +61,8 @@ function M.get_visual(_, parent)
   end
 end
 
+function M.clipborad()
+  return vim.fn.getreg("+")
+end
+
 return M

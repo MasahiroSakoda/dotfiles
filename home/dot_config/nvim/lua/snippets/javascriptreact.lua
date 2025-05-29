@@ -7,8 +7,9 @@ local i  = ls.insert_node
 local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
--- local f  = ls.function_node
+local f  = ls.function_node
 -- local sn = ls.snippet_node
+-- local as = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 -- local extras = require("luasnip.extras")
 -- local rep    = extras.rep
 -- local m      = extras.m
@@ -20,16 +21,23 @@ local fmta    = require("luasnip.extras.fmt").fmta
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
-  s({ trig = "console", name = "console log/warn/error", dscr = "console output templates" },
-    fmta('console.<>(<>)\n<>', {
-      c(1, { t("debug"), t("log"), t("info"), t("warn"), t("error"), t("crit") }),
-      i(2, "variable"),
+  s({ trig = "st", name = "useState", dscr = "useState" },
+    fmta('const [<>, <>] = useState(<>)', {
+      i(1),
+      f(function(args) return args[1][1]:gsub("^%l", string.upper) end, { 1 }),
       i(0),
     })
   ),
-
-  s({ trig = "js", name = "json stringify/parse", dscr = "json stringify or parse template" },
-    fmta('JSON.<>(<>)\n<>', { c(1, { t("stringify"), t("parse") }), i(2, "variable"), i(0) })
+  s({ trig = "ef", name = "useEffect", dscr = "useEffect" },
+    fmta('useEffect(() => {\n\t<>\n}<>);', { c(1, { t(""), t(", []") }), i(0) })
   ),
+  s({ trig = "async func", name = "async func", dscr = "async func" },
+    fmta([[
+<>async function <>(): Promise<<>> {
+  <>
+}
+    ]], { c(1, { t(""), t("export") }), i(2), i(3), i(0) })
+  ),
+
 }
 return snippets

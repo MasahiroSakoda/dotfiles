@@ -20,7 +20,8 @@ local fmta    = require("luasnip.extras.fmt").fmta
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
-  s({ trig = "type", name = "", dscr = "" },
+  s({ trig = "gof",  name = "go func",  dscr = "go func" }, fmta('go func(<>) {\n\t<>\n}()', { i(1, "param"), i(0) })),
+  s({ trig = "type", name = "type definition", dscr = "type definition" },
     fmta('type <> <> {\n\t<>\n}\n<>', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code"), i(0) })
   ),
   s({ trig = "ife", name = "if - end", dscr = "if - end block" },
