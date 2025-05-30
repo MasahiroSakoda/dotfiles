@@ -35,7 +35,6 @@ return {
   markdownlint  = {}, -- Markdown
   hadolint      = {}, -- Dockerfile
   sqruff        = {}, -- SQL
-  vint          = {}, -- VimScript
 
   -- Formetter
   clang_format  = {}, -- C/C++, ObjC, Java, JS, C#, etc..
