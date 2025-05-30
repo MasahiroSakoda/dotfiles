@@ -130,7 +130,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Language Server            | Language                |
 |:---------------------------|:------------------------|
 | [**bash-language-server**](https://github.com/bash-lsp/bash-language-server) | Bash |
-| [**nushell**](https://www.nushell.sh) | Nushell |
 | [**clangd**](https://clangd.llvm.org) | C/C++ |
 | [**rust-analyzer**](https://github.com/rust-lang/rust-analyzer) | Rust                   |
 | [**gopls**](https://pkg.go.dev/golang.org/x/tools/gopls) | Go |

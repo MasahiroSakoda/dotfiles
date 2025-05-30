@@ -34,7 +34,7 @@
 {{- $email = promptStringOnce . "email" "Enter your git email: " -}}
 {{- end -}}
 {{- if and (not $shell) stdinIsATTY -}}
-{{- $choices := list "zsh" "fish" "nushell" -}}
+{{- $choices := list "zsh" "fish" -}}
 {{- $shell   := promptChoiceOnce . "shell" "Primary Shell: " $choices -}}
 {{- end -}}
 
