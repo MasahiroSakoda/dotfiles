@@ -25,7 +25,6 @@ return {
     cmd = {
       "CodeCompanion",
       "CodeCompanionActions",
-      "CodeCompanionAdd",
       "CodeCompanionChat",
       "CodeCompanionToggle",
       "CodeCompanionHistorySave",
