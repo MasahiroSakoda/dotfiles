@@ -18,7 +18,6 @@ return {
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
   taplo         = require("lsp.servers.taplo"),         -- TOML
   marksman      = require("lsp.servers.marksman"),      -- Markdown
-  cmake         = require("lsp.servers.cmake"),         -- CMake
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   terraformls   = require("lsp.servers.terraform"),     -- Terraform
   -- sqlls         = require("lsp.servers.sqlls"),         -- SQL
