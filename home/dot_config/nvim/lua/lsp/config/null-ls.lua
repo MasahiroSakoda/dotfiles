@@ -134,12 +134,6 @@ nl.setup({
       extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
     }),
 
-    -- VimScript
-    diagnostics.vint.with({
-      args = { "'--enable-neovim", "-s", "-j", "$FILENAME" },
-      condition = function() return vim.fn.executable("vint") > 0 end,
-    }),
-
     --SQL
     diagnostics.sqruff.with({
       filetypes = { "sql", "mysql" },

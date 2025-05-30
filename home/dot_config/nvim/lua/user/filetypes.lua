@@ -96,6 +96,7 @@ Filetypes.lsp = {
   deno         = { "deno.json", "deno.jsonc" },
   biome        = { "biome.json", "biome.jsonc" },
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
+  tombi        = { "tombi.toml", "pyprojet.toml", ".git" },
   texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
 }
 
