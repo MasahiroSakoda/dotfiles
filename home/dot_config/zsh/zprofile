@@ -34,7 +34,8 @@ export LESS_TERMCAP_us=$"\e[01;32m"
 
 ## bat
 export BAT_THEME="Monokai Extended Origin"
-export MANPAGER="sh -c 'col -bx | bat -l man -p --style=numbers'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p --style=numbers'"
+export MANPAGER="nvim +Man!"
 
 # Grep
 export GREP_OPTIONS="--color=always"

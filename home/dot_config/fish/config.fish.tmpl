@@ -29,7 +29,8 @@ set -gx W3M_DIR "$XDG_CONFIG_HOME/w3m"
 
 # Pager
 set -gx PAGER "less"
-set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --style=numbers'"
+# set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --style=numbers'"
+set -gx MANPAGER "nvim +Man!"
 set -gx BAT_THEME "Monokai Extended Origin"
 set -gx LESS "--ignore-case --RAW-CONTROL-CHARS --LONG-PROMPT -x-4 -z-4"
 set -gx LESSCHARSET "utf-8"
