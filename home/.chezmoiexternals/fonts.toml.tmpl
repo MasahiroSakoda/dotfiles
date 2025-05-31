@@ -7,11 +7,11 @@ type = "archive"
 url  = {{ gitHubLatestReleaseAssetURL $repo (printf "%s.tar.xz" "JetBrainsMono") | quote }}
 refreshPeriod = "168h"
 
-[".local/share/fonts/HackGen"]
-{{- $repo := "yuru7/HackGen" }}
+[".local/share/fonts/PlemolJP"]
+{{- $repo := "yuru7/PlemolJP" }}
 {{- $latestVersion := (gitHubLatestRelease $repo).TagName }}
 type = "archive"
-url  = {{ gitHubLatestReleaseAssetURL $repo (printf "HackGen_NF_%s" $latestVersion) | quote }}
+url  = {{ gitHubLatestReleaseAssetURL $repo (printf "PlemolJP_NF_%s" $latestVersion) | quote }}
 refreshPeriod = "168h"
 
 [".local/share/fonts/UDEV-Gothic"]
