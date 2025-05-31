@@ -14,13 +14,16 @@
 --embed-subs
 --write-subs
 --write-auto-subs
---sub-lang "en,jp"
+--sub-langs "en,ja"
+
+# Chapters
+--embed-chapters
 
 # Avoid vp9 because we have no HW acceleration in LXC
--S vcodec:h264
+-S vcodec:h264,res:720,acodec:m4a
 
 # Quality
---format 'bestvideo[ext=mp4][height<=1080][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080][fps<=30]/best'
+# --format 'bestvideo[ext=mp4][height<=1080][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080][fps<=30]/best'
 
 # Output format
 --output "%(title)s.%(ext)s"
