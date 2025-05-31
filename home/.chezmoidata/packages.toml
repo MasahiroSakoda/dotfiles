@@ -48,12 +48,7 @@ finder   = [ "syntax-highlight", "webpquicklook", "symboliclinker" ]
 keyboard = [ "karabiner-elements" ]
 ime      = [ "google-japanese-ime" ]
 editor   = [ "coteditor" ]
-font     = [
-  "font-codicon",
-  "font-jetbrains-mono-nerd-font",
-  "font-plemol-jp-nf",
-  "font-udev-gothic-nf"
-]
+font     = [ "font-codicon", "font-jetbrains-mono-nerd-font", "font-plemol-jp-nf", "font-udev-gothic-nf" ]
 archive   = [ "suspicious-package" ]
 launcher  = [ "raycast" ]
 browser   = [ "google-chrome", "brave-browser", "firefox" ]
@@ -76,7 +71,7 @@ chat      = [ "slack", "discord", "franz" ]
 storage   = [ "dropbox" ]
 
 [[packages.mas]]
-name = "Moom"
+name = "Moom Classic"
 id   = 419330170
 
 [[packages.mas]]
