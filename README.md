@@ -231,7 +231,7 @@ global language environment predefined in [**`.chezmoidata.toml`**](https://gith
 | Package                        | Notes                           |
 |:------------------------------ |:------------------------------- |
 | [**font-jetbrains-mono-nerd-font**](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
-| [**font-hackgen-nerd**](https://github.com/yuru7/HackGen) | Programming Font for Japanese   |
+| [**font-plemol-jp-nf**](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
 | [**font-udev-gothic-nf**](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono for Japanese |
 
 #### Dev packages

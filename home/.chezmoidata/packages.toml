@@ -51,7 +51,6 @@ editor   = [ "coteditor" ]
 font     = [
   "font-codicon",
   "font-jetbrains-mono-nerd-font",
-  "font-hackgen-nerd",
   "font-plemol-jp-nf",
   "font-udev-gothic-nf"
 ]
