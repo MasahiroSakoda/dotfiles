@@ -9,6 +9,7 @@ Filetypes.lang = {
   go    = { "go", "gomod", "gosum", "templ", "gotempl" },
   json  = { "json",  "json5", "jsonc" },
   js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+  html  = { "html", "templ", "htmldjango", "eruby" },
   glsl  = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
   latex = { "tex", "plaintex", "bib" },
 }
