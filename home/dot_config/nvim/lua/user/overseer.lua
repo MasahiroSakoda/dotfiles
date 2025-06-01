@@ -13,15 +13,7 @@ overseer.setup({
     default_detail = 1, ---@type 1|2|3
   },
   dap = false,
-  strategy = {
-    "toggleterm",
-    use_shell = false,
-    direction     = nil,      ---@type nil|"vertical"|"horizontal"|"tab"|"float"
-    close_on_exit = true,
-    quit_on_exit  = "always", ---@type "always"|"success"|"never"
-    open_on_start = true,
-    auto_scroll   = true,
-  },
+  strategy = { "jobstart" },
 })
 
 -- Latest task command
