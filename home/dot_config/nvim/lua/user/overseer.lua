@@ -26,6 +26,39 @@ vim.api.nvim_create_user_command("OverseerRestartLast", function()
   end
 end, {})
 
+vim.api.nvim_create_user_command("Grep", function(params)
+  local args = vim.fn.expandcmd(params.args)
+  local cmd, num_subs = vim.o.grepprg:gsub("%$%*", args)
+  if num_subs == 0 then
+    cmd = cmd .. " " .. args
+  end
+
+  local cwd
+  local has_oil, oil = pcall(require, "oil")
+  if has_oil then
+    cwd = oil.get_current_dir()
+  end
+
+  local task = require("overseer").new_task({
+    cmd  = cmd,
+    cwd  = cwd,
+    name = "grep " .. args,
+    components = {
+      {
+        "on_output_quickfix",
+        errorformat = vim.o.grepformat,
+        open        = not params.bang,
+        open_height = 8,
+        items_only  = true,
+      },
+      -- We don't care to keep this around as long as most tasks
+      { "on_complete_dispose", timeout = 30 },
+      "default",
+    },
+  })
+  task:start()
+end, { desc = "Run vimgrep ", nargs = "*", bang = true, bar = true, complete = "file" })
+
 -- Async make command
 vim.api.nvim_create_user_command("Make", function(params)
   -- Insert args at the '$*' in the makeprg
