@@ -13,24 +13,51 @@ overseer.setup({
     default_detail = 1, ---@type 1|2|3
   },
   dap = false,
-  strategy = {
-    "toggleterm",
-    use_shell = false,
-    direction     = nil,      ---@type nil|"vertical"|"horizontal"|"tab"|"float"
-    close_on_exit = true,
-    quit_on_exit  = "always", ---@type "always"|"success"|"never"
-    open_on_start = true,
-    auto_scroll   = true,
-  },
+  strategy = { "jobstart" },
 })
 
 -- Latest task command
 vim.api.nvim_create_user_command("OverseerRestartLast", function()
   local tasks = overseer.list_tasks({ recent_first = true })
-  return vim.tbl_isempty(tasks) and
-    vim.notify("No tasks found", vim.log.levels.WARN) or
+  if vim.tbl_isempty(tasks) then
+    vim.notify("No tasks found", vim.log.levels.WARN)
+  else
     overseer.run_action(tasks[1], "restart")
+  end
 end, {})
+
+vim.api.nvim_create_user_command("Grep", function(params)
+  local args = vim.fn.expandcmd(params.args)
+  local cmd, num_subs = vim.o.grepprg:gsub("%$%*", args)
+  if num_subs == 0 then
+    cmd = cmd .. " " .. args
+  end
+
+  local cwd
+  local has_oil, oil = pcall(require, "oil")
+  if has_oil then
+    cwd = oil.get_current_dir()
+  end
+
+  local task = require("overseer").new_task({
+    cmd  = cmd,
+    cwd  = cwd,
+    name = "grep " .. args,
+    components = {
+      {
+        "on_output_quickfix",
+        errorformat = vim.o.grepformat,
+        open        = not params.bang,
+        open_height = 8,
+        items_only  = true,
+      },
+      -- We don't care to keep this around as long as most tasks
+      { "on_complete_dispose", timeout = 30 },
+      "default",
+    },
+  })
+  task:start()
+end, { desc = "Run vimgrep ", nargs = "*", bang = true, bar = true, complete = "file" })
 
 -- Async make command
 vim.api.nvim_create_user_command("Make", function(params)
