@@ -87,20 +87,8 @@ name = "WinArchiver"
 id   = 414855915
 
 [[packages.mas]]
-name = "Twitter"
-id   = 1482454543
-
-[[packages.mas]]
 name = "LINE"
 id   = 539883307
-
-[[packages.mas]]
-name = "LanguageTranslator"
-id   = 1218781096
-
-[[packages.mas]]
-name = "App Language Chooser"
-id   = 451732904
 
 [[packages.mas]]
 name = "Pages"
@@ -109,10 +97,6 @@ id   = 409201541
 [[packages.mas]]
 name = "Numbers"
 id   = 409203825
-
-[[packages.mas]]
-name = "Pocket"
-id   = 568494494
 
 [[packages.mas]]
 name = "Vimari"
