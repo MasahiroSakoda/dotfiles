@@ -115,11 +115,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Hash
-{{- range .packages.brew.hash | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
