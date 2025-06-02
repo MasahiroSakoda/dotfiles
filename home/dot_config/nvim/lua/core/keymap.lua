@@ -396,15 +396,15 @@ if not is_vscode then
   wk.add({
     { ",s", "<CMD>ToogleCopilotSuggest<CR>", mode = { "n", "i" }, icon = " ", desc = "Toggle Copilot suggesion" },
 
-    { ",l", "<CMD>LspStatusToggle<CR>",    icon = " ", desc = "Toggle LSP status" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
     { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = "Toggle theme style" },
 
-    { ",x", "<CMD>Trouble diagnostics toggle<CR>", icon = " ", desc = "Toggle Diagnostics" },
-    { ",X", "<CMD>Trouble symbols toggle<CR>",     icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>Trouble qflist toggle<CR>",      icon = " ", desc = "Toggle Quickfix list" },
+    { ",x", "<CMD>Trouble diagnostics toggle<CR>",      icon = " ", desc = "Toggle Diagnostics" },
+    { ",X", "<CMD>Trouble symbols toggle<CR>",          icon = " ", desc = "Toggle Symbols" },
+    { ",q", "<CMD>cclose | Trouble qflist toggle<CR>",  icon = " ", desc = "Toggle Quickfix list" },
+    { ",l", "<CMD>lclose | Trouble loclist toggle<CR>", icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
     { ",h", "<CMD>lua Snacks.toggle.inlay_hits()",               icon = " ", desc = "Toggle Inlay Hints" },
