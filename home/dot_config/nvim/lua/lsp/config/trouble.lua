@@ -24,34 +24,37 @@ trouble.setup({
 
   modes = {
     diagnostics = {
-      win = { position = 'bottom' },
+      win = { position = "bottom" },
       preview = {
-        type     = 'split',
-        relative = 'win',
-        position = 'right',
+        type     = "split",
+        relative = "win",
+        position = "right",
         size = 0.35,
       },
     },
     symbols = {
-      win = { position = 'right', size = 0.25 },
+      win = { position = "right", size = 0.25 },
       preview = {
-        type     = 'split',
-        relative = 'win',
-        position = 'bottom',
+        type     = "split",
+        relative = "win",
+        position = "bottom",
         size = 0.35,
       },
     },
     lsp = {
-      win = { position = 'bottom' },
+      win = { position = "bottom" },
     },
     qflist = {
-      win = { position = 'bottom' },
+      win = { position = "bottom" },
       preview = {
-        type     = 'split',
-        relative = 'win',
-        position = 'right',
+        type     = "split",
+        relative = "win",
+        position = "right",
         size = 0.35,
       },
+    },
+    loclist = {
+      win = { position = "right", size = 0.15 },
     },
   },
 
