@@ -1,5 +1,4 @@
 local g, bo, fn, keymap =  vim.g, vim.bo, vim.fn, vim.keymap.set
-local autocmd = vim.api.nvim_create_autocmd
 local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
 
 local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
@@ -14,14 +13,14 @@ local highlight_url = function()
   if g.highlighturl_enabled then fn.matchadd("HighlightURL", url_pattern, 15) end
 end
 
-autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWritePre", {
   desc    = "Strip trailing new lines at the end of file on save",
   group   = augroup("TrailStripper"),
   pattern = "*",
   command = ":%s/\\n\\+\\%$//e",
 })
 
-autocmd({ "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   desc     = "help config (vertical split & no number)",
   pattern  = { "*.txt", "*.jax" },
   callback = function()
@@ -32,26 +31,26 @@ autocmd({ "BufWinEnter" }, {
   end
 })
 
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc    = "Check if we need to reload the file when it changed",
   group   = augroup("checktime"),
   command = "checktime",
 })
 
-autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
   desc     = "URL Highlighting",
   group    = augroup "highlight_url",
   callback = function(_) highlight_url() end,
 })
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
   desc     = "Highlight on yank",
   group    = augroup("highlight_yank"),
   pattern  = "*",
   callback = function(_) vim.hl.on_yank() end,
 })
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   desc     = "Close specific filetype with <q>",
   group    = augroup("close_with_q"),
   pattern  = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
@@ -62,7 +61,7 @@ autocmd("FileType", {
 })
 
 local cursor_grp = augroup("CustomCursor")
-autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
   desc    = "enable cursorcolumn automatically",
   pattern = "*",
   group   = cursor_grp,
@@ -73,7 +72,7 @@ autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }
   end,
 })
 
-autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
   desc    = "disable cursorcolumn automatically",
   pattern = "*",
   group   = cursor_grp,
@@ -85,27 +84,27 @@ autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, 
   end,
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   desc     = "Surveillance chezmoi target files",
   pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
-autocmd({ "VimResized" }, {
+vim.api.nvim_create_autocmd({ "VimResized" }, {
   desc    = "Automatically resize windows when the host window size changes.",
   group   = augroup("WinResize"),
   pattern = "*",
   command = "wincmd =",
 })
 
-autocmd({ "QuickFixCmdPre" }, {
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   desc     = "Override Quickfix to trouble.nvim qflist",
   callback = function()
-    vim.schedule(function() vim.cmd([[Trouble qflist open focus=true]]) end)
+    vim.cmd([[cclose | Trouble qflist open focus=true]])
   end,
 })
 
-autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
   desc     = "Detect Taskfile",
   group    = augroup("UserMakePrg"),
   pattern  = { "*" },
@@ -115,7 +114,7 @@ autocmd({ "BufEnter" }, {
   end,
 })
 
-autocmd({ "LspAttach" }, {
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
   desc     = "LSP Actions (keymaps, auto format)",
   group    = augroup("UserLspConfig"),
   callback = function(ev)
@@ -156,7 +155,7 @@ autocmd({ "LspAttach" }, {
   end
 })
 
-autocmd({ "BufLeave" }, {
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
   group    = augroup("OilRelativePathFix"),
   pattern  = "oil:///*",
   callback = function() vim.cmd("cd .") end,
