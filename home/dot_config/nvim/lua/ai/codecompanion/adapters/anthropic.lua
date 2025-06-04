@@ -4,8 +4,8 @@ return function()
     schema = {
       ---@see https://docs.anthropic.com/en/docs/about-claude/models
       model = {
-        default = "claude-3-7-sonnet-latest",
-        choices = { "claude-3-7-sonnet-latest", "claude-3.5-haiku-latest" },
+        default = "claude-sonnet-4-0",
+        choices = { "claude-sonnet-4-0", "claude-opus-4-0" },
       },
     },
     env = { api_key = vim.env.ANTHROPIC_API_KEY },
