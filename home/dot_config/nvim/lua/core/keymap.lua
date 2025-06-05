@@ -217,7 +217,7 @@ if not is_vscode then
     -- Others
     { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>", icon = " ", desc = "Search Icons" },
     {
-      "<Leader>fl",
+      "<Leader>fL",
       "<CMD>lua Snacks.picker.smart({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",
       icon = " ",
       desc = "nvim plugins",
