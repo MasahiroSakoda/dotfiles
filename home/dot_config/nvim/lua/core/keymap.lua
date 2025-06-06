@@ -408,7 +408,7 @@ if not is_vscode then
     { ",l", "<CMD>lclose | Trouble loclist toggle<CR>", icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
-    { ",h", "<CMD>lua Snacks.toggle.inlay_hits()",               icon = " ", desc = "Toggle Inlay Hints" },
+    { ",h", "<CMD>lua Snacks.toggle.inlay_hits()<CR>",           icon = " ", desc = "Toggle Inlay Hints" },
     { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = "Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = "Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt,  icon = " ", desc = "Toggle Terminal" },
