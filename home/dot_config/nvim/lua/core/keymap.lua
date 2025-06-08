@@ -240,7 +240,6 @@ wk.add({
   { "g[",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = "Go to prev diagnostics" },
   { "g]",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = "Go to next diagnostics" },
 
-  { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
 
