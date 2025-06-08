@@ -231,8 +231,6 @@ end
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
-  { "J", "<NOP>" },
-  { "K", "<NOP>" },
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
   { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = "Open mason.nvim Window" },
 
@@ -245,8 +243,6 @@ wk.add({
   { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
-
-  { "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", mode = nv, icon = " ", desc = "Code Action" },
 
 }, opts)
 
@@ -290,7 +286,7 @@ require("utils.git")
 
 wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
-  { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
+  -- { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
   { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = "Toggle lazygit" },
 }, opts)
