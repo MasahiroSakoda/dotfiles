@@ -121,12 +121,13 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     -- Configure LSP related keymap
     local bufopts = { noremap = true, silent = true, buffer = ev.buf }
     local extend = vim.tbl_extend
-    vim.keymap.set("n", "K",  vim.lsp.buf.hover,          extend("force", bufopts, { desc = "Hover Docs" }))
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition,     extend("force", bufopts, { desc = "Definition" }))
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration,    extend("force", bufopts, { desc = "Declaration" }))
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, extend("force", bufopts, { desc = "Implementation" }))
-    vim.keymap.set("n", "gr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
-    vim.keymap.set("n", "ga", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
+    vim.keymap.set("n", "K",   vim.lsp.buf.hover,          extend("force", bufopts, { desc = "Hover Docs" }))
+    vim.keymap.set("n", "gd",  vim.lsp.buf.definition,     extend("force", bufopts, { desc = "Definition" }))
+    vim.keymap.set("n", "gD",  vim.lsp.buf.declaration,    extend("force", bufopts, { desc = "Declaration" }))
+    vim.keymap.set("n", "gri", vim.lsp.buf.implementation, extend("force", bufopts, { desc = "Implementation" }))
+    vim.keymap.set("n", "grn", vim.lsp.buf.rename,         extend("force", bufopts, { desc = "Rename" }))
+    vim.keymap.set("n", "grr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
+    vim.keymap.set("n", "gra", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
 
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     -- Enable completion
