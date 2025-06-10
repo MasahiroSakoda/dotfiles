@@ -385,6 +385,7 @@ if not is_vscode then
     { "<Leader>ni", "<CMD>Feed index<CR>",  icon = " ", desc = "Feed index" },
     { "<Leader>nu", "<CMD>Feed update<CR>", icon = "󰚰 ", desc = "Update Feed" },
     { "<Leader>nl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = "Show feed list" },
+    { "<Leader>nw", "<CMD>Feed web<CR>",    icon = "󰚰 ", desc = "Show feed list" },
     { "<Leader>ns", "<CMD>Feed sync<CR>",   icon = "󰚰 ", desc = "Sync feed" },
     { "<Leader>nS", "<CMD>Feed sync!<CR>",  icon = "󰚰 ", desc = "Sync feed" },
   })
