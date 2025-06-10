@@ -296,19 +296,24 @@ wk.add({
 if not is_vscode then
   wk.add({
     { "<Leader>o", group = "octo.nvim", icon = " " },
-    { "<Leader>O",  ":Octo<Space>", icon = " ", desc = "Open Octo" },
-
     -- Issues
-    { "<Leader>gi", group = "Issues cmd via octo.nvim", icon = " " },
-    { "<Leader>gis", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
-    { "<Leader>gic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
+    { "<Leader>oi", group = "Issues cmd via octo.nvim", icon = " " },
+    { "<Leader>oim", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
+    { "<Leader>ois", "<CMD>Octo issue search state:open<CR>",              icon = " ", desc = "Search issues" },
+    { "<Leader>oic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
+    { "<Leader>oix", "<CMD>Octo issue close<CR>",                          icon = " ", desc = "Close issue" },
+    { "<Leader>oir", "<CMD>Octo issue reopen<CR>",                         icon = " ", desc = "Reopen closed issue" },
+    { "<Leader>oiu", "<CMD>Octo issue url<CR>",                            icon = " ", desc = "Copy issue URL " },
 
     -- Pull Request
-    { "<Leader>gp", group = "Pull Request cmd via octo.nvim", icon = " " },
-    { "<Leader>gpr", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
-    { "<Leader>gpc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
-    { "<Leader>gpd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
-    { "<Leader>gpC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
+    { "<Leader>op", group = "Pull Request cmd via octo.nvim", icon = " " },
+    { "<Leader>opm", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
+    { "<Leader>ops", "<CMD>Octo pr search state:open<CR>",              icon = " ", desc = "Search PRs" },
+    { "<Leader>opc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
+    { "<Leader>opx", "<CMD>Octo pr close<CR>",                          icon = " ", desc = "Close PR" },
+    { "<Leader>opd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
+    { "<Leader>opC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
+    { "<Leader>opu", "<CMD>Octo pr url<CR>",                            icon = " ", desc = "Copy PR URL " },
   })
 end
 
