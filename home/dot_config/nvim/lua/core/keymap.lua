@@ -190,6 +190,7 @@ if not is_vscode then
     -- Vim
     { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = "Help" },
     { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = "Quickfix list" },
+    { "<Leader>fl", "<CMD>lua Snacks.picker.loclist()<CR>",    icon = " ", desc = "Location list" },
     { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = "autocmds list" },
     { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = "Register list" },
     { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = "Undo Tree" },
@@ -217,7 +218,7 @@ if not is_vscode then
     -- Others
     { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>", icon = " ", desc = "Search Icons" },
     {
-      "<Leader>fl",
+      "<Leader>fL",
       "<CMD>lua Snacks.picker.smart({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",
       icon = " ",
       desc = "nvim plugins",
@@ -230,8 +231,6 @@ end
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
-  { "J", "<NOP>" },
-  { "K", "<NOP>" },
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = "Open lazy.nvim Window" },
   { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = "Open mason.nvim Window" },
 
@@ -241,11 +240,8 @@ wk.add({
   { "g[",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = "Go to prev diagnostics" },
   { "g]",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = "Go to next diagnostics" },
 
-  { "gn",  "<CMD>lua vim.lsp.buf.rename()<CR>",          icon = " ", desc = "Rename" },
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
-
-  { "ga", "<CMD>lua vim.lsp.buf.code_action()<CR>", mode = nv, icon = " ", desc = "Code Action" },
 
 }, opts)
 
@@ -289,7 +285,7 @@ require("utils.git")
 
 wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
-  { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
+  -- { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = "Git Blame Line" },
 
   { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = "Toggle lazygit" },
 }, opts)
@@ -300,19 +296,24 @@ wk.add({
 if not is_vscode then
   wk.add({
     { "<Leader>o", group = "octo.nvim", icon = " " },
-    { "<Leader>O",  ":Octo<Space>", icon = " ", desc = "Open Octo" },
-
     -- Issues
-    { "<Leader>gi", group = "Issues cmd via octo.nvim", icon = " " },
-    { "<Leader>gis", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
-    { "<Leader>gic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
+    { "<Leader>oi", group = "Issues cmd via octo.nvim", icon = " " },
+    { "<Leader>oim", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
+    { "<Leader>ois", "<CMD>Octo issue search state:open<CR>",              icon = " ", desc = "Search issues" },
+    { "<Leader>oic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
+    { "<Leader>oix", "<CMD>Octo issue close<CR>",                          icon = " ", desc = "Close issue" },
+    { "<Leader>oir", "<CMD>Octo issue reopen<CR>",                         icon = " ", desc = "Reopen closed issue" },
+    { "<Leader>oiu", "<CMD>Octo issue url<CR>",                            icon = " ", desc = "Copy issue URL " },
 
     -- Pull Request
-    { "<Leader>gp", group = "Pull Request cmd via octo.nvim", icon = " " },
-    { "<Leader>gpr", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
-    { "<Leader>gpc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
-    { "<Leader>gpd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
-    { "<Leader>gpC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
+    { "<Leader>op", group = "Pull Request cmd via octo.nvim", icon = " " },
+    { "<Leader>opm", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
+    { "<Leader>ops", "<CMD>Octo pr search state:open<CR>",              icon = " ", desc = "Search PRs" },
+    { "<Leader>opc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
+    { "<Leader>opx", "<CMD>Octo pr close<CR>",                          icon = " ", desc = "Close PR" },
+    { "<Leader>opd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
+    { "<Leader>opC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
+    { "<Leader>opu", "<CMD>Octo pr url<CR>",                            icon = " ", desc = "Copy PR URL " },
   })
 end
 
@@ -379,12 +380,14 @@ end
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "<Leader>nm", "<CMD>Feed<CR>",       icon = " ", desc = "Feed menu" },
-    { "<Leader>ni", "<CMD>Feed index<CR>", icon = " ", desc = "Feed index" },
-    { "<Leader>nu", "<CMD>Feed index<CR>", icon = "󰚰 ", desc = "Update Feed" },
-    { "<Leader>nl", "<CMD>Feed list<CR>",  icon = "󰚰 ", desc = "Update Feed" },
-    { "<Leader>ns", "<CMD>Feed sync<CR>",  icon = "󰚰 ", desc = "Update Feed" },
-    { "<Leader>nS", "<CMD>Feed sync!<CR>", icon = "󰚰 ", desc = "Update Feed" },
+    { "<Leader>n", group = "feed.nvim", icon = "📰 " },
+    { "<Leader>nm", "<CMD>Feed<CR>",        icon = " ", desc = "Feed menu" },
+    { "<Leader>ni", "<CMD>Feed index<CR>",  icon = " ", desc = "Feed index" },
+    { "<Leader>nu", "<CMD>Feed update<CR>", icon = "󰚰 ", desc = "Update Feed" },
+    { "<Leader>nl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = "Show feed list" },
+    { "<Leader>nw", "<CMD>Feed web<CR>",    icon = "󰚰 ", desc = "Show feed list" },
+    { "<Leader>ns", "<CMD>Feed sync<CR>",   icon = "󰚰 ", desc = "Sync feed" },
+    { "<Leader>nS", "<CMD>Feed sync!<CR>",  icon = "󰚰 ", desc = "Sync feed" },
   })
 end
 
@@ -407,7 +410,7 @@ if not is_vscode then
     { ",l", "<CMD>lclose | Trouble loclist toggle<CR>", icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
-    { ",h", "<CMD>lua Snacks.toggle.inlay_hits()",               icon = " ", desc = "Toggle Inlay Hints" },
+    { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = "Toggle Inlay Hints" },
     { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = "Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = "Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt,  icon = " ", desc = "Toggle Terminal" },
