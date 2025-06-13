@@ -96,6 +96,11 @@ Filetypes.lsp = {
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
   deno         = { "deno.json", "deno.jsonc" },
   biome        = { "biome.json", "biome.jsonc" },
+  tailwindcss  = {
+    "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.mjs", "tailwind.config.ts",
+    "postcss.config.js", "postcss.config.cjs", "postcss.config.mjs", "postcss.config.ts",
+    "app/assets/stylesheets/application.tailwind.css", "app/assets/tailwind/application.css",
+  },
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
   tombi        = { "tombi.toml", "pyprojet.toml", ".git" },
   texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
