@@ -1,6 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 return function()
-  vim.lsp.format({
+  vim.lsp.buf.format({
     async = true,
     timeout_ms = 2000,
     filter = function(client)

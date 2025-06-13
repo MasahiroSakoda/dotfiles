@@ -150,7 +150,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         desc     = "Format on save via LSP",
         group    = augroup("UserLspConfig"),
-        callback = function() require("lsp.config.format") end
+        callback = require("lsp.config.format"),
       })
     end
   end
