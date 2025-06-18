@@ -49,4 +49,9 @@ return {
       })
     end, {})
   end,
+
+  settings = {
+    javascript = settings,
+    typescript = settings,
+  },
 }
