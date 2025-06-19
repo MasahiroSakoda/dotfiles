@@ -3,39 +3,39 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "gopls", "serve" },
-  filetypes    = { "go", "gowork", "gomod", "gotmpl" },
+  filetypes    = require("user.filetypes").lang.go,
   root_markers = { "go.work", "go.mod", ".git" },
   settings  = {
     gopls = {
       ---@See https://github.com/golang/tools/blob/master/gopls/doc/settings.md
-      gofumpt = true,
+      gofumpt        = true,
       semanticTokens = true,
-      staticcheck = true,
+      staticcheck    = true,
       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
 
       -- Completion settings
-      usePlaceholders = true,
-      completeUnimported = true,
-      experimentalPostfixCompletions = true,
+      usePlaceholders         = true,
+      completeUnimported      = true,
       completionDocumentation = true,
-      deepCompletion = true,
+      deepCompletion          = true,
+      experimentalPostfixCompletions = true,
 
       -- Inlay hints
       ["ui.inlayhint.hints"] = {
-        assignVariableTypes = true,
+        assignVariableTypes    = true,
         compositeLiteralFields = true,
-        constantValues = true,
-        parameterNames = true,
-        rangeVariableTypes = true,
+        constantValues         = true,
+        parameterNames         = true,
+        rangeVariableTypes     = true,
       },
 
       -- codelens
       codelenses = {
-        generate = true, -- show the `go generate` lens.
+        generate   = true, -- show the `go generate` lens.
         gc_details = false, --  // Show a code lens toggling the display of gc's choices.
-        test = true,
-        tidy = true,
-        vendor = true,
+        test       = true,
+        tidy       = true,
+        vendor     = true,
         upgrade_dependency = true,
       },
 
