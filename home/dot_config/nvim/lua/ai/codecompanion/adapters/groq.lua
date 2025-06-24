@@ -7,8 +7,9 @@ return function()
       model = {
         default = "llama-3.3-70b-versatile",
         choices = {
-          "llama3-70b-8192",
           "llama-3.3-70b-versatile",
+          "meta-llama/llama-guard-4-12b",
+          "qwen/qwen3-32b",
           "deepseek-r1-distill-llama-70b",
         },
       },
