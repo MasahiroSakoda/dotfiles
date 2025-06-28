@@ -5,12 +5,12 @@
     "fetch":  { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
     "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
     "filesystem": {
-      "command": "npx",
-      "args": [ "-y", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
+      "command": "pnpm",
+      "args": [ "dlx", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
     },
     "github": {
-      "command": "npx",
-      "args": [ "-y", "@modelcontextprotocol/server-github" ],
+      "command": "pnpm",
+      "args": [ "dlx", "@modelcontextprotocol/server-github" ],
       "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}" }
     }
   },
