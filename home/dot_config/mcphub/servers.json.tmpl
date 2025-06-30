@@ -24,6 +24,15 @@
     }
   },
   "nativeMCPServers": {
+    "neovim": {
+      "disabled": false,
+      "autoApprove": ["list_directory", "find_files"],
+      "disabled_tools": ["delete_item", "replace_in_file", "read_file", "write_file", "execute_command", "execute_lua"]
+    },
+    "mcphub": {
+      "disabled": false,
+      "autoApprove": ["get_current_servers"]
+    }
   }
 }
 {{- /*
