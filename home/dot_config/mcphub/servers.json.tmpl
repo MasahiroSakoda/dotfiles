@@ -1,9 +1,23 @@
 {
   "mcpServers": {
-    "time":   { "command": "uv", "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ] },
-    "git":    { "command": "uv", "args": [ "tool", "run", "mcp-server-git" ] },
-    "fetch":  { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
-    "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
+    "time": {
+      "command": "uv",
+      "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ],
+      "autoApprove": [ "get_current_time", "convert_time" ]
+    },
+    "git": {
+      "command": "uv",
+      "args": [ "tool", "run", "mcp-server-git" ]
+    },
+    "fetch": {
+      "command": "uv",
+      "args": [ "tool", "run", "mcp-server-fetch" ],
+      "autoApprove": [ "fetch" ]
+    },
+    "docker": {
+      "command": "uv",
+      "args": [ "tool", "run", "mcp-server-docker" ]
+    },
     "filesystem": {
       "command": "pnpm",
       "args": [ "dlx", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
@@ -11,7 +25,8 @@
     "sequentialthinking": {
       "disabled": true,
       "command": "pnpm",
-      "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking" ]
+      "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking" ],
+      "autoApprove": ["sequentialthinking"]
     },
     "github": {
       "command": "pnpm",
@@ -26,12 +41,19 @@
   "nativeMCPServers": {
     "neovim": {
       "disabled": false,
-      "autoApprove": ["list_directory", "find_files"],
-      "disabled_tools": ["delete_item", "replace_in_file", "read_file", "write_file", "execute_command", "execute_lua"]
+      "autoApprove": [ "list_directory", "find_files" ],
+      "disabled_tools": [
+        "delete_item",
+        "replace_in_file",
+        "read_file",
+        "write_file",
+        "execute_command",
+        "execute_lua"
+      ]
     },
     "mcphub": {
       "disabled": false,
-      "autoApprove": ["get_current_servers"]
+      "autoApprove": [ "get_current_servers" ]
     }
   }
 }
