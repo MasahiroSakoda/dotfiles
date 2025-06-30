@@ -3,12 +3,6 @@
 return {
   --  AI-powered coding
   {
-    "zbirenbaum/copilot.lua",
-    cond   = not vim.g.vscode,
-    cmd    = "Copilot",
-    config = function() require("ai.copilot") end,
-  },
-  {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",

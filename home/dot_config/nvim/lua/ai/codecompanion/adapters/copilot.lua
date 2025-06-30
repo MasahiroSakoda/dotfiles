@@ -3,10 +3,12 @@ return function()
   return require("codecompanion.adapters").extend("copilot", {
     schema = {
       ---@see https://github.com/copilot
-      ---@usage "gpt-4o"|"claude-3.5-sonnet"
       model = {
         default = "claude-3.7-sonnet",
-        choices = { "gpt-4o", "gpt-4o-mini", "o3-mini", "claude-3.7-sonnet" },
+        choices = { "claude-3.7-sonnet", "claude-sonent-4", "o3-mini-2025-01-31" },
+      },
+      reasoning_effort = {
+        default = "medium", ---@type "high"|"medium"|"low"
       },
     },
   })

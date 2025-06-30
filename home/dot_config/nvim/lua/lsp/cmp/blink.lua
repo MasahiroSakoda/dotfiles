@@ -37,7 +37,7 @@ blink.setup({
   signature = { enabled = true }, -- Experimental option
 
   sources = {
-    default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "copilot", "codecompanion" },
+    default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown", "codecompanion" },
 
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
@@ -49,7 +49,6 @@ blink.setup({
       lazydev       = { name = "LazyDev",        module = "lazydev.integrations.blink",  fallbacks = { "lazy_dev" } },
       markdown      = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
       codecompanion = { name = "CodeCompanion",  module = "codecompanion.providers.completion.blink" },
-      copilot       = { name = "copilot",        module = "blink-copilot", score_offset = 100, async = true, },
     },
   },
 

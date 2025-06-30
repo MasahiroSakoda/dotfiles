@@ -24,13 +24,6 @@ codecompanion.setup({
         ["symbols"]  = { opts = { provider = "snacks" } },
         ["terminal"] = { opts = {} },
       },
-      tools = {
-        mcp = {
-          description = "Call tools and resources from the MCP Servers",
-          callback = function() return require("mcphub.extensions.codecompanion") end,
-          opts = { requires_approval = true },
-        },
-      },
     },
     inline = { adapter = "qwen" },
     agent  = { adapter = "ollama" },
@@ -51,6 +44,17 @@ codecompanion.setup({
     },
     inline = {
       layout = "vertical",   ---@type "vertical"|"horizontal"|"buffer"
+    },
+  },
+
+  extensions = {
+    mcphub = {
+      callback = "mcphub.extensions.codecompanion",
+      opts = {
+        show_result_in_chat = true,
+        make_vars           = true,
+        make_slash_commands = true,
+      },
     },
   },
 })
