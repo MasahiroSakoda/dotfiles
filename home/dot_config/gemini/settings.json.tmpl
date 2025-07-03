@@ -1,0 +1,59 @@
+{
+  {{/* General Settings */ -}}
+  "selectedAuthType": "oauth-personal",
+  "theme": "GitHub",
+  "contextFileName": "GEMINI.md",
+  "preferredEditor": "vim",
+
+  {{/* Model Config */ -}}
+  "model": "gemini-2.0-flash",
+
+  {{/* Tool Settings */ -}}
+  "coreTools": [],
+  "excludeTools": [],
+  "autoAccept": false,
+
+  {{/* Sandbox Settings */ -}}
+  "sandbox": false,
+
+  {{/* File Filter Settings */ -}}
+  "fileFiltering": {
+    "respectGitIgnore": true,
+    "enableRecursiveFileSearch": true
+  },
+
+  {{/* General Settings */ -}}
+  "mcpServers": {
+    "time":   { "command": "uv", "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ] },
+    "git":    { "command": "uv", "args": [ "tool", "run", "mcp-server-git" ] },
+    "fetch":  { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
+    "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
+
+    "filesystem": {
+      "command": "pnpm",
+      "args": [ "dlx", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
+    },
+    "sequentialthinking": {
+      "command": "pnpm",
+      "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking" ]
+    }
+  },
+
+  {{/* Chekcpoint */ -}}
+  "checkpointing": {
+    "enabled": true
+  },
+
+  {{/* Telemetry */ -}}
+  "telemetry": {
+    "enabled": false,
+    "target": "local",
+    "otlpEndpoint": "http://localhost:4317",
+    "logPrompts": true
+  },
+
+  "usageStatisticsEnabled": false
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}
