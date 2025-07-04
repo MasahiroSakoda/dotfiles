@@ -16,7 +16,7 @@ enabled  = true
 versions = ["2"]
 
 [mise.bun]
-enabled  = false
+enabled  = true
 versions = ["1"]
 
 ## Go
@@ -30,7 +30,7 @@ enabled  = true
 versions = ["3.13"]
 
 [mise.uv]
-enabled = true
+enabled  = true
 versions = ["latest"]
 
 ## Ruby
@@ -40,5 +40,5 @@ versions = ["3.4"]
 
 ## Usage
 [mise.usage]
-enabled  =  true
+enabled  = true
 versions = ["latest"]
