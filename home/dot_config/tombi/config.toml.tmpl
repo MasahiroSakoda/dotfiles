@@ -1,0 +1,45 @@
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+
+# INFO: https://tombi-toml.github.io/tombi/docs/configuration
+
+toml-version = "1.0.0"
+include = ["**/*.toml"]
+exclude = []
+
+[format]
+
+[lint]
+[lint.rules]
+dotted-keys-out-of-order = "warn"
+key-empty                = "warn"
+tables-out-of-order      = "warn"
+
+[lsp]
+code-action.enabled          = true
+completion.enabled           = true
+diagnostics.enabled          = true
+document-link.enabled        = true
+formatting.enabled           = true
+goto-declaration.enabled     = true
+goto-definition.enabled      = true
+goto-type-definition.enabled = true
+hover.enabled = true
+
+[schema]
+enabled = true
+strict  = true
+catalog = {
+  paths = [ "tombi:///json/catalog.json", "https://json.schemastore.org/api/json/catalog.json" ],
+}
+
+# Root Schema
+[[schemas]]
+toml-version = "1.0.0"
+path = "https://example.com/schema.json"
+include = ["example.toml"]
+
+# Sub Schema
+[[schemas]]
+root = "tool.taskipy"
+path = "schemas/partial-taskipy.schema.json"
+include = ["pyproject.toml"]
