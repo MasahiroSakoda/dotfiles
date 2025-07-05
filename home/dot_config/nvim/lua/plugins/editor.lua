@@ -3,12 +3,6 @@
 return {
   { "vim-jp/vimdoc-ja", event = { "CmdlineEnter" } },
   {
-    "akinsho/toggleterm.nvim",
-    cond   = not vim.g.vscode,
-    cmd    = "ToggleTerm",
-    config = function() require("ui.toggleterm") end,
-  },
-  {
     "folke/noice.nvim",
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
