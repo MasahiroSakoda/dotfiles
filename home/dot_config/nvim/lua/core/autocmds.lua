@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("FileType", {
   desc     = "Close specific filetype with <q>",
   group    = augroup("close_with_q"),
-  pattern  = { "help", "man", "qf", "lspinfo", "notify", "toggleterm", "oil" },
+  pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil" },
   callback = function (event)
     bo[event.buf].buflisted = false
     keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
@@ -101,16 +101,6 @@ vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   desc     = "Override Quickfix to trouble.nvim qflist",
   callback = function()
     vim.cmd([[cclose | Trouble qflist open focus=true]])
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  desc     = "Detect Taskfile",
-  group    = augroup("UserMakePrg"),
-  pattern  = { "*" },
-  callback = function(_)
-    local f = require("plenary.scandir").scan_dir(".", { hidden = false, depth = 1, search_pattern = "Taskfile.*" })
-    if #f > 0 then vim.o.makeprg = "task" end
   end,
 })
 
