@@ -5,7 +5,7 @@ return {
   cmd          = { "vscode-json-language-server", "--stdio" },
   filetypes    = require("user.filetypes").lang.json,
   root_markers = { ".git" },
-  init_options = { provideFormatter = true },
+  init_options = { provideFormatter = false, documentRangeFormattingProvide = false },
   single_file_support = true,
 
   settings = {
