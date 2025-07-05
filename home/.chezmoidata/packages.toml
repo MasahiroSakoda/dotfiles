@@ -3,7 +3,6 @@
 [packages]
 npm = [
   "neovim",
-  "create-{react,next}-app",
   "commitizen",
   "cz-conventional-changelog",
 ]
