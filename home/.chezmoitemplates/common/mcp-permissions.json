@@ -1,0 +1,9 @@
+{
+  "allow": [],
+  "deny": [
+    "Bash(rm -rf /)",
+    "Bash(rm -rf ~)",
+    "Bash(rm -rf ~/*)",
+    "Bash(rm -rf /*)"
+  ]
+}
