@@ -12,8 +12,9 @@ Examples:
 
 Poor	Good
 add tests for foo.py	write a new test case for foo.py, covering the edge case where the user is logged out. avoid mocks
-why does ExecutionFactory have such a weird api?	look through ExecutionFactory's git history and summarize how its api came to be
-add a calendar widget	look at how existing widgets are implemented on the home page to understand the patterns and specifically how code and interfaces are separated out. HotDogWidget.php is a good example to start with. then, follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year. Build from scratch without libraries other than the ones already used in the rest of the codebase.
+why does ExecutionFactory have such a weird api?	look through ExecutionFactory's git history and summarize how its api came to be add a calendar widget	look at how existing widgets are implemented on the home page to understand the patterns and specifically how code and interfaces are separated out.
+	HotDogWidget.php is a good example to start with. then, follow the pattern to implement a new calendar widget that lets the user select a month and paginate forwards/backwards to pick a year.
+	Build from scratch without libraries other than the ones already used in the rest of the codebase.
 
 
 ## General Instruction Guidelines
