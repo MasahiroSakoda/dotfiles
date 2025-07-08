@@ -7,12 +7,8 @@ bufferline.setup({
     diagnostics = "nvim_lsp", ---@type "nvim_lsp"|"coc"
 
     -- Format
-  ---@param buf table<string, any>
-    name_formatter = function(buf)
-      return buf.name:match("%.md") and vim.fn.fnamemodify(buf.name, ":t:r") or buf.name
-    end,
   ---@param opts table<string, any>
-    numbers        = function(opts) return string.format("%s", opts.ordinal) end,
+    numbers = function(opts) return string.format("%s: ", opts.ordinal) end,
 
     -- Size / Length
     tab_size          = 21,
