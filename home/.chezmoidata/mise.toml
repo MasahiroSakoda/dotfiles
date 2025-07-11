@@ -9,7 +9,7 @@ versions = ["22"]
 
 [mise.pnpm]
 enabled  = true
-versions = ["latest"]
+versions = ["10"]
 
 [mise.deno]
 enabled  = true
