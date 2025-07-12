@@ -55,3 +55,12 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 - **Testing**: Always write tests where possible; do not break existing tests.
 - **Security**: Always write code with security in mind to prevent vulnerabilities like SQL injection or XSS
 - **Git Commits**: Follow existing style; imperative mood; explain "what" and "why"
+
+### Commandline Requirements
+
+- **Always Use modern tools** when available
+  - Use [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep) instead of traditional `grep` command
+  - Use [`fd`](https://github.com/sharkdp/fd) instead of traditional `find` command
+  - Use [`bat`](https://github.com/sharkdp/bat) instead of `cat` command
+  - Use [`tre`](https://github.com/dduan/tre) instead of `tree` command
+  - Use [`dua`](https://github.com/Byron/dua-cli) instead of `du` command
