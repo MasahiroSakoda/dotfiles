@@ -37,6 +37,14 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 
 ## Development Instruction Guidelines
 
+### Coding Principle
+
+- **YAGNI (You Aren't Gonna Need It)**: Avoid building functionality on speculation. Implement features only when they are needed, not when you anticipate they might be useful in the future.
+- **DRY (Don't Repeat Yourself)**: Avoid code duplication.
+- **KISS (Keep It Simple, Stupid)**: Keep the code simple and straightforward.
+- **Don't do more than what is asked, don't add extra features or code.**
+- **Do not add debug logs or console logs unless explicitly requested.**
+
 ### Coding Styles
 
 - **File Format**: UTF-8, LF Line endings; no trailing whiitespaces.
