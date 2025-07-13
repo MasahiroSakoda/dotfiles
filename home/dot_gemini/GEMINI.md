@@ -47,7 +47,7 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 
 ### Coding Styles
 
-- **File Format**: UTF-8, LF Line endings; no trailing whiitespaces.
+- **File Format**: UTF-8, LF Line endings; no trailing whitespaces.
 - **Identation**: 2 Spaces default unless specified otherwise.
 - **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
 - **Documentation**: Create only when explicitly requested.
@@ -58,9 +58,12 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 
 ### Commandline Requirements
 
-- **Always Use modern tools** when available
-  - Use [`rg`](https://github.com/BurntSushi/ripgrep) (ripgrep) instead of traditional `grep` command
-  - Use [`fd`](https://github.com/sharkdp/fd) instead of traditional `find` command
-  - Use [`bat`](https://github.com/sharkdp/bat) instead of `cat` command
-  - Use [`tre`](https://github.com/dduan/tre) instead of `tree` command
-  - Use [`dua`](https://github.com/Byron/dua-cli) instead of `du` command
+- **Always Use modern alternative tools** when available
+  - **Pattern Search**: Use [`rg`](https://github.com/BurntSushi/ripgrep) instead of traditional `grep`
+  - **File Search**: Use [`fd`](https://github.com/sharkdp/fd) instead of traditional `find`
+  - **List files**: Use [`eza`](https://github.com/eza-community/eza) instead of `ls`
+  - **Comparator**: Use [`delta`](https://github.com/dandavison/delta) instead of `diff`
+  - **Previewer**: Use [`bat`](https://github.com/sharkdp/bat) instead of `cat`
+  - **File tree**: Use [`tre`](https://github.com/dduan/tre) instead of `tree`
+  - **Disk Usage**: Use [`dua`](https://github.com/Byron/dua-cli) instead of `du`
+  - **Process**: Use [`procs`](https://github.com/dalance/procs) instead of `ps`
