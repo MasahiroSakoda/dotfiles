@@ -37,6 +37,11 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 - **Truthfulness**: Be accurate; avoid misleading or false info
 
 
+## Security Policy
+
+@~/.gemini/guidelines/security-policy.md
+
+
 ## Development Instruction Guidelines
 
 ### Coding Principle
