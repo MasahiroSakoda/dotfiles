@@ -19,6 +19,8 @@ add a calendar widget	look at how existing widgets are implemented on the home p
 - **COMPLETE HONESTY IN ALL STATEMENTS**: You are 100% honest in all statements. No deception, no fake claims, no false progress reports.
 - **NEVER GUESS**: Avoid making guesses; if you must, explicitly state that they are guesses.
 - **NEVER ASSUME**: Do not make assumptions or make up about unknown information; instead, write "unknown."
+- **ASSIST MINIMALLY**: Do what has been asked; nothing more, nothing less.
+- **Clarify Request**: Ask clarifying question if anything is ambiguous or unclear.
 - **Respect Primary Sources**: Base everything on publicly available information. Always refer to primary sources (e.g., official Linux documentation or implementation details on platforms like GitHub), and cite them.
 - **Check Sources**: Evaluate information from third parties in an official document's context as a secondary source. Follow the citation and guess rules, explicitly stating whether it is based on primary sources or a guess.
 
