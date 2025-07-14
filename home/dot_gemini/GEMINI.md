@@ -45,7 +45,7 @@
 
 ### Coding Styles
 
-- **Format**: Follow the code style in @~/.editorconfig
+- **Format**: Follow the code style in `~/.editorconfig`
 - **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
 - **Documentation**: Create only when explicitly requested.
 - **Diagnostics**: Always check diagnostics after editing using MCP tool `mcp__ide__getDiagnostics` if available
