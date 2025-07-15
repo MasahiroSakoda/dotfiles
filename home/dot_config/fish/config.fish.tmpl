@@ -182,8 +182,7 @@ abbr -a -- zls "zellij-session"
 abbr -a -- zll "zellij-layout"
 
 {{ if eq .chezmoi.os "darwin" }}
-set -gx POCKET_CONSUMER_KEY   (security find-generic-password -s "Pocket Consumer Key" -w)
-set -gx POCKET_ACCESS_TOKEN   (security find-generic-password -s "Pocket Access Token" -w)
+set -gx GITHUB_ACCESS_TOKEN   (security find-generic-password -s "MCP Server for GitHub" -w)
 set -gx OPENAI_API_KEY        (security find-generic-password -s "OpenAI API Key" -w)
 set -gx GOOGLE_API_KEY        (security find-generic-password -s "Google API Key" -w)
 set -gx GEMINI_API_KEY        (security find-generic-password -s "Gemini API Key" -w)
@@ -191,6 +190,7 @@ set -gx AZURE_OPENAPI_API_KEY (security find-generic-password -s "Azure API Key"
 set -gx GROQ_API_KEY          (security find-generic-password -s "Groq API Key" -w)
 set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
+set -gx GITHUB_ACCESS_TOKEN   (secret-tool lookup username $USER key_name "MCP Server for GitHub")
 set -gx OPENAI_API_KEY        (secret-tool lookup username $USER key_name "OpenAI API Key")
 set -gx GOOGLE_API_KEY        (secret-tool lookup username $USER key_name "Google API Key")
 set -gx GEMINI_API_KEY        (secret-tool lookup username $USER key_name "Gemini API Key")
