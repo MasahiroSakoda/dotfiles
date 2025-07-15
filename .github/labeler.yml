@@ -82,3 +82,12 @@ terminal:
       - "home/.chezmoiexternals/tmux.toml.tmpl"
       - "home/dot_config/wezterm/*"
       - "home/dot_config/zellij/*"
+
+ai:
+  - changed-files:
+    - any-glob-to-any-file:
+      - "home/.chezmoitemplates/common/mcp-servers.json"
+      - "home/.chezmoitemplates/common/mcp-permissions.json"
+      - "home/dot_config/mcphub/*"
+      - "home/dot_config/nvim/lua/ai/*"
+      - "home/dot_gemini/*"

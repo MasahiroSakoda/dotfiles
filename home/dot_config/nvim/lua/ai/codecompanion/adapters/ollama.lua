@@ -2,7 +2,7 @@
 
 return function()
   return require("codecompanion.adapters").extend("ollama", {
-    name   = "Cogito v1 preview",
-    schema = { model = { default = "cogito:8b" } },
+    name   = "JOSTIEFIED Qwen3 8b",
+    schema = { model = { default = "goekdenizguelmez/JOSIEFIED-Qwen3:8b" } },
   })
 end

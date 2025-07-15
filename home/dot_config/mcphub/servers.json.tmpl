@@ -1,43 +1,5 @@
 {
-  "mcpServers": {
-    "time": {
-      "command": "uv",
-      "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ],
-      "autoApprove": [ "get_current_time", "convert_time" ]
-    },
-    "git": {
-      "command": "uv",
-      "args": [ "tool", "run", "mcp-server-git" ]
-    },
-    "fetch": {
-      "command": "uv",
-      "args": [ "tool", "run", "mcp-server-fetch" ],
-      "autoApprove": [ "fetch" ]
-    },
-    "docker": {
-      "command": "uv",
-      "args": [ "tool", "run", "mcp-server-docker" ]
-    },
-    "filesystem": {
-      "command": "pnpm",
-      "args": [ "dlx", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
-    },
-    "sequentialthinking": {
-      "disabled": true,
-      "command": "pnpm",
-      "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking" ],
-      "autoApprove": ["sequentialthinking"]
-    },
-    "github": {
-      "command": "pnpm",
-      "args": [ "dlx", "@modelcontextprotocol/server-github" ],
-      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}" }
-    },
-    "youtube": {
-      "command": "pnpm",
-      "args": [ "dlx", "@anaisbetts/mcp-youtube" ]
-    }
-  },
+  "mcpServers": {{ template "common/mcp-servers.json" . }},
   "nativeMCPServers": {
     "neovim": {
       "disabled": false,

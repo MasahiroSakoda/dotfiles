@@ -5,16 +5,20 @@
   "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
   "filesystem": {
     "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-filesystem", "{{ .chezmoi.homeDir }}/Dev/repos" ]
+    "args": [ "dlx", "@modelcontextprotocol/server-filesystem@latest", "{{ .chezmoi.homeDir }}/Dev/repos" ]
   },
   "sequentialthinking": {
     "disabled": true,
     "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking" ]
+    "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking@latest" ]
+  },
+  "context7": {
+    "command": "pnpm",
+    "args": [ "dlx", "@upstash/context7-mcp@latest" ]
   },
   "github": {
     "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-github" ],
+    "args": [ "dlx", "@modelcontextprotocol/server-github@latest" ],
     "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}" }
   },
   "youtube": {
