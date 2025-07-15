@@ -1,4 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
 
-vim.opt_lcoal.spell     = true
-vim.opt_lcoal.spelllang = "en"
+vim.opt_local.spell     = true
+vim.opt_local.spelllang = "en"
