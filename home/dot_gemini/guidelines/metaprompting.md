@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD013 -->
 # Metaprompting Guideline
 
 If I give you a bad prompt, suggest an improved version of the prompt and ask me to confirm.
