@@ -66,6 +66,7 @@ CRITICAL: DRY and KISS are strictly enforced
 - **Go**: @./rules/dev/go.md
 - **Python**: @./rules/dev/python.md
 - **Node.js**: @./rules/dev/node.md
+- **TypeScript**: @./rules/dev/typescript.md
 
 ### Commandline Requirements
 
