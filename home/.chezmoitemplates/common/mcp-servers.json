@@ -8,7 +8,6 @@
     "args": [ "dlx", "@modelcontextprotocol/server-filesystem@latest", "{{ .chezmoi.homeDir }}/Dev/repos" ]
   },
   "sequentialthinking": {
-    "disabled": true,
     "command": "pnpm",
     "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking@latest" ]
   },
@@ -19,7 +18,7 @@
   "github": {
     "command": "pnpm",
     "args": [ "dlx", "@modelcontextprotocol/server-github@latest" ],
-    "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}" }
+    "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_ACCESS_TOKEN" }
   },
   "youtube": {
     "command": "pnpm",
