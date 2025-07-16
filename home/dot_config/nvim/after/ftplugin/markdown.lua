@@ -1,8 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local opt = vim.opt
-opt.linebreak    = true
-opt.foldmethod   = "expr"
-opt.spell        = true
-opt.conceallevel = 2
 
--- vim.treesitter.start(0, "markdown")
+vim.opt_local.linebreak = true
+vim.opt_local.spell     = true
+vim.opt_local.spelllang = "en"

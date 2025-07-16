@@ -20,17 +20,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = ":%s/\\n\\+\\%$//e",
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  desc     = "help config (vertical split & no number)",
-  pattern  = { "*.txt", "*.jax" },
-  callback = function()
-    if vim.bo.filetype == "help" then
-      vim.cmd.wincmd("L")
-      vim.opt_local.number = false
-    end
-  end
-})
-
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   desc    = "Check if we need to reload the file when it changed",
   group   = augroup("checktime"),
