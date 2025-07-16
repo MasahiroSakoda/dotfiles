@@ -3,6 +3,7 @@
   "git": { "command": "uv", "args": [ "tool", "run", "mcp-server-git" ] },
   "fetch": { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
   "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
+  "markitdown": { "command": "uv", "args": [ "tool", "run", "markitdown-mcp" ] },
   "filesystem": {
     "command": "pnpm",
     "args": [ "dlx", "@modelcontextprotocol/server-filesystem@latest", "{{ .chezmoi.homeDir }}/Dev/repos" ]
