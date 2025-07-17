@@ -27,5 +27,4 @@ return {
     cmd    = { "Trouble" },
     config = function() require("lsp.config.trouble") end,
   },
-  { "b0o/SchemaStore.nvim" },
 }
