@@ -7,7 +7,14 @@ npm = [
   "cz-conventional-changelog",
 ]
 go     = []
-python = [ ]
+python = [
+  "mcp-cli",
+  "mcp-server-time",
+  "mcp-server-git",
+  "mcp-server-fetch",
+  "mcp-server-docker",
+  "markitdown-mcp"
+]
 gem    = [ "bundler" ]
 
 [packages.brew]
