@@ -131,3 +131,24 @@ treesitter.setup({
     },
   },
 })
+
+-- Register Extended filetypes
+vim.filetype.add({
+  extension = {
+    scpt  = "applescript",
+    plist = "xml",
+    ttx   = "xml",
+    mdx   = "markdown.mdx",
+    mdc   = "markdown.mdc",
+  },
+  filetypes = {
+    Brewfile = "ruby",
+    Caskfile = "ruby",
+    Masfile  = "ruby",
+  },
+  pattern = {
+    ["env%..*"]     = "dotenv",
+    [".*%.env%..*"] = "dotenv",
+  },
+})
+vim.treesitter.language.register("markdown", { "mdx", "mdc" })
