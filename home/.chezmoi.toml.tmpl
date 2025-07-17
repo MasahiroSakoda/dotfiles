@@ -25,14 +25,15 @@
 {{-   $headless = true -}}
 {{- end -}}
 {{- $hostname := .chezmoi.hostname -}}
-{{- $user  := env "GIT_USERNAME" -}}
-{{- $email := env "GIT_EMAIL" -}}
+{{- $user     := env "GIT_USERNAME" -}}
+{{- $email    := env "GIT_EMAIL" -}}
 {{- if and (not $user) stdinIsATTY -}}
 {{- $user  = promptStringOnce . "user"  "Enter your git username: " -}}
 {{- end -}}
 {{- if and (not $email) stdinIsATTY -}}
 {{- $email = promptStringOnce . "email" "Enter your git email: " -}}
 {{- end -}}
+{{- $signingkey := promptStringOnce . "siningkey" "Enter git signingkey: " -}}
 {{- if and (not $shell) stdinIsATTY -}}
 {{- $choices := list "zsh" "fish" -}}
 {{- $shell   := promptChoiceOnce . "shell" "Primary Shell: " $choices -}}
@@ -72,9 +73,9 @@ shell     = {{ $shell | quote }}
 brew_prefix = {{ $brew_prefix | quote }}
 
 [data.git]
-user  = {{ $user | quote }}
-email = {{ $email | quote }}
-signingkey = "D28F2A700F100E19"
+user       = {{ $user | quote }}
+email      = {{ $email | quote }}
+signingkey = {{ $signingkey | quote }}
 
 [data.cmd]
 {{- if eq .chezmoi.os "darwin" }}
