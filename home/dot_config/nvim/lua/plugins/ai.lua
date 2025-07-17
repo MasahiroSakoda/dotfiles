@@ -11,7 +11,7 @@ return {
       -- Optional plugins
       {
         "MeanderingProgrammer/render-markdown.nvim",
-        ft = { "markdown", "vimwiki", "codecompanion" },
+        ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "codecompanion" },
         config = require("user.render-markdown"),
       },
     },

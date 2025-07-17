@@ -8,5 +8,6 @@ MD012: false # no-multiple-blanks - Multiple consecutive blank lines
 MD013: false # line-length - Line length
 MD024: false # no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD033: false # no-inline-html - Inline HTML
+MD034: false # Bare URL used
 MD041: false # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
 MD045: false # Images should have alternate text (alt text)
