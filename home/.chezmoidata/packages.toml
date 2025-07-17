@@ -5,6 +5,9 @@ npm = [
   "neovim",
   "commitizen",
   "cz-conventional-changelog",
+  "npm-check-updates",
+  "mcp-hub",
+  "@google/gemini-cli",
 ]
 go     = []
 python = [
