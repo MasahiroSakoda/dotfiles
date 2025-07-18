@@ -3,7 +3,11 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "tailwindcss-language-server", "--stdio" },
-  filetypes    = { "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "templ" },
+  filetypes    = {
+    "html", "css", "scss",
+    "javascript", "javascriptreact", "typescript", "typescriptreact",
+    "vue", "svelte", "templ",
+  },
   root_markers = require("user.filetypes").lsp.tailwindcss,
 
   settings = {
@@ -18,6 +22,7 @@ return {
         recommendVariantOrder = "warning",
       },
       classAttributes  = { "class", "className", "class:list", "classList", "ngClass" },
+      classFunctions   = { "cva", "cx", "tw", "twMerge" },
       includeLanguages = { templ = "html" },
     },
   },

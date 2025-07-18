@@ -13,7 +13,7 @@ return {
   ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
   denols        = require("lsp.servers.denols"),        -- Deno
   html          = require("lsp.servers.html"),          -- HTML
-  cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS
+  -- cssls         = require("lsp.servers.cssls"),         -- CSS, SCSS, LESS
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
