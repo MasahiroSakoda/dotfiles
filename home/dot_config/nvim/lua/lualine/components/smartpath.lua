@@ -67,9 +67,7 @@ local function shorten_dirs(parts, parent_num, abbrev)
   local path = {}
 
   for i, part in ipairs(parts) do
-    if #parts <= parent_num then
-      break
-    elseif i == 1 or i > #parts - parent_num then
+    if i == 1 or i > #parts - parent_num then
       table.insert(path, part)
       table.insert(path, "/")
     else
@@ -105,7 +103,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  local dir_to_file = vim.fn.expand("%:.:h")
+  local dir_to_file = vim.fn.fnamemodify(vim.fn.expand("%:.:h"), ":r")
   local filename    = vim.fn.expand("%:t")
   local dirs        = split_dirs(dir_to_file)
   local display     = shorten_dirs(dirs, self.options.parent_num, self.options.abbrev_dot) .. filename
