@@ -147,8 +147,12 @@ vim.filetype.add({
     Masfile  = "ruby",
   },
   pattern = {
-    ["env%..*"]     = "dotenv",
-    [".*%.env%..*"] = "dotenv",
+    ["env%..*"]       = "dotenv",
+    [".*%.env%..*"]   = "dotenv",
+    [".*%.html%.hbs"] = "handlebars.html",
+    [".*%.json%.hbs"] = "handlebars.json",
+    [".*%.js%.hbs"]   = "handlebars.javascript",
+    [".*%.ts%.hbs"]   = "handlebars.typescript",
   },
 })
 vim.treesitter.language.register("markdown", { "mdx", "mdc" })
