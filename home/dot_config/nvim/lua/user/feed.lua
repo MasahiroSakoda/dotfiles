@@ -31,12 +31,6 @@ feed.setup({
     { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = { "news", "tech" } },
     { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = { "news", "tech" } },
 
-    -- Releases via GitHub
-    { "ghostty-org/ghostry/releases", name = "Ghostty Releases",   tags = { "release", "terminal" } },
-    { "wezterm/wezterm/releases",     name = "WezTerm Releases",   tags = { "release", "terminal" } },
-    { "zellij-org/zellij/releases",   name = "Zellij Releases",    tags = { "release", "terminal" } },
-    { "saghen/blink.cmp/releases",    name = "blink.cmp Releases", tags = { "release", "neovim" } },
-
     -- Security
     { "https://github.com/security-advisories",       name = "Security Advisories", tags = { "security", "github" } },
     { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert", tags = { "security" } },
@@ -46,29 +40,16 @@ feed.setup({
     { "https://www.google.com/appsstatus/rss/ja",  name = "Workspace Status", tags = { "status", "google" } },
     { "https://status.slack.com/feed/rss",         name = "Slack Status",     tags = { "status", "slack" } },
     { "https://discordstatus.com/history.atom",    name = "Discord Status",   tags = { "status", "discord" } },
-    { "https://status.datadoghq.com/history.atom", name = "Incident History", tags = { "status", "datadog" } },
-    { "https://status.huggingface.co/feed",        name = "Incident History", tags = { "status", "huggingface" } },
+    { "https://status.datadoghq.com/history.atom", name = "Datadog Status",   tags = { "status", "datadog" } },
+    { "https://status.huggingface.co/feed",        name = "hf Status",        tags = { "status", "huggingface" } },
     { "https://status.openai.com/history.rss",     name = "OpenAI Status",    tags = { "status", "openai" } },
     { "https://status.anthropic.com/history.rss",  name = "Anthropic Status", tags = { "status", "anthropic" } },
 
-    {
-      "https://status.cloud.google.com/feed.atom",
-      name = "Google Cloud Status",
-      tags = { "status", "googlecloud" },
-    },
-    {
-      "https://azurestatuscdn.azureedge.net/ja-jp/status/feed/",
-      name = "Azure Status",
-      tags = { "status", "azure" },
-    },
-    {
-      "https://www.cloudflarestatus.com/history.atom",
-      name = "Cloudflare Status",
-      tags = { "status", "cloudflare" },
-    },
+    { "https://status.cloud.google.com/feed.atom", name = "Google Cloud Status", tags = { "status", "gcloud" } },
+    { "https://azurestatuscdn.azureedge.net/status/feed/", name = "Azure Status", tags = { "status", "azure" } },
+    { "https://www.cloudflarestatus.com/history.atom", name = "Cloudflare Status", tags = { "status", "cloudflare" } },
 
     { "https://www.vercel-status.com/history.atom",   name = "Vercel Status",   tags = { "status", "vercel" } },
-    { "https://status.firebase.google.com/feed.atom", name = "Firebase Status", tags = { "status", "firebase" } },
     { "https://status.supabase.com/history.rss",      name = "Supabase",        tags = { "status", "supabase" } },
   },
 })
