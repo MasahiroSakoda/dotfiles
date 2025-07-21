@@ -22,8 +22,11 @@ function M.format_tag(id, db)
 
     release    = " ",
     github     = " ",
+    google     = " ",
     neovim     = " ",
-    cloudflare = "",
+    gcloud     = " ",
+    cloudflare = " ",
+    azure      = " ",
     vercel     = " ",
     supabase   = " ",
     discord    = " ",
