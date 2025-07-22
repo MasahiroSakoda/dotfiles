@@ -39,7 +39,7 @@ return {
           url = "https://www.schemastore.org/claude-code-settings.json",
         },
       },
-      format     = { enable = true, singleQuote = false },
+      format     = { enable = false, singleQuote = false },
       validate   = { enable = true },
       completion = true,
       hover      = true,
