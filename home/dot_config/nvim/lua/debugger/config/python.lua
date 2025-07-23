@@ -10,7 +10,7 @@ return {
     cwd        = "${workspaceFolder}",
     program    = "${file}",
     pythonPath = venv and (venv .. "/bin/python") or
-      require("mason-registry").get_package(pkg):get_install_path() .. "/venv/bin/python"
+      vim.fn.stdpath("data") .. "mason/packages/" .. pkg .. "/venv/bin/python3"
   },
   {
     type    = "python",
