@@ -1,7 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  ["bashdb"]     = require("debugger.adapters.bashdb"),
   ["codelldb"]   = require("debugger.adapters.codelldb"),
   ["delve"]      = require("debugger.adapters.delve"),
   ["debugpy"]    = require("debugger.adapters.debugpy"),
