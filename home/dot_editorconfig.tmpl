@@ -58,8 +58,9 @@ indent_size  = 4
 
 # JavaScript / Typescript
 [*.{js,jsx,ts,tsx}]
-indent_style = space
-indent_size  = 2
+indent_style    = tab
+indent_size     = 2
+max_line_length = 80
 
 # Lua
 [*.{lua}]
@@ -81,21 +82,27 @@ indent_size  = 2
 indent_style = space
 indent_size  = 2
 
-# JSON & YAML
-[*.{json,y{a,}ml}]
-indent_size  = 2
+# JSON
+[*.{json,jsonc,json5}]
+indent_style    = tab
+indent_size     = 2
+max_line_length = 80
+
+# YAML
+[*.{y{a}ml}]
 indent_style = space
+indent_size  = 2
 
 # KDL
 [*.{kdl}]
-indent_size  = 4
 indent_style = space
+indent_size  = 4
 
 # HTML & CSS
 [*.{html,css,scss}]
-indent_style = space
-indent_size  = 2
-tab_width    = 2
+indent_style    = tab
+indent_size     = 2
+max_line_length = 80
 
 # TeX
 [*.{tex,bib}]
