@@ -105,6 +105,7 @@ Filetypes.lsp = {
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
   tombi        = { "tombi.toml", "pyprojet.toml", ".git" },
   texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
+  sqruff       = { ".sqruff" },
 }
 
 Filetypes.ignore = {
