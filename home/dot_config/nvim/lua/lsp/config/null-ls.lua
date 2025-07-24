@@ -137,9 +137,11 @@ nl.setup({
     --SQL
     diagnostics.sqruff.with({
       filetypes = { "sql", "mysql" },
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.sqruff) end,
     }),
     formatting.sqruff.with({
       filetypes = { "sql", "mysql" },
+      condition = function(utils) return utils.root_has_file(filetypes.lsp.sqruff) end,
     }),
   },
   on_attach = on_attach,
