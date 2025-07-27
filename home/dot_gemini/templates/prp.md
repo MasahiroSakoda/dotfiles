@@ -47,7 +47,7 @@ _This is the step-by-step plan for building the feature._
 
 _Show the desired directory tree, highlighting new or modified files._
 
-```
+```plaintext
 src/
 └── new_feature/
 ├── __init__.py      (new)
@@ -68,7 +68,7 @@ _Break the implementation into a sequence of logical tasks._
 
 - _Implement the main business logic. Pseudocode is encouraged here._
 
-```
+```python
 # Pseudocode for the main function
 def main_function(param: str) -> bool:
    # Step 1: Validate the input
@@ -103,12 +103,12 @@ _Describe the specific test cases that need to be created._
 **Manual Test Command:**
 _Provide a simple command to run to see the feature in action._
 
-```
+```shell
 python src/main.py --parameter "test_value"
 ```
 
 **Expected Output:**
 
-```
+```plaintext
 "Success! The feature works as expected."
 ```
