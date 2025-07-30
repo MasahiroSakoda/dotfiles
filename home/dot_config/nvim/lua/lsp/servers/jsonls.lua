@@ -24,15 +24,15 @@ return {
         },
         {
           fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-          url = "https://json.schemastore.org/prettierrc.json",
+          url = "https://www.schemastore.org/prettierrc.json",
         },
         {
           fileMatch = { ".eslintrc", ".eslintrc.json" },
-          url = "https://json.schemastore.org/eslintrc.json",
+          url = "https://www.schemastore.org/eslintrc.json",
         },
         {
           fileMatch = { "now.json", "vercel.json" },
-          url = "https://json.schemastore.org/now.json",
+          url = "https://www.schemastore.org/now.json",
         },
         {
           fileMatch = { "settings.json" },
