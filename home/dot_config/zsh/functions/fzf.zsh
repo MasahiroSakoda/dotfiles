@@ -1,10 +1,8 @@
 # -*-mode:zsh-*- vim:ft=zsh
 
 function _fzf_cd_ghq() {
-  local root="$(ghq root)"
-  local repo="$(ghq list | fzf --prompt="  " --preview="ls -AF --color=always ${root}/{1}")"
-  local dir="${root}/${repo}"
-  [ -n "${dir}" ] && cd "${dir}"
+  local repo="$(ghq list --full-path | fzf --prompt='  ' --preview 'bat --color=always {}/README.md || echo "No README.md"' --bind 'ctrl-u:preview-up,ctrl-d:preview-down,ctrl-/:toggle-preview' --exit-0)"
+  [ -n "${repo}" ] && cd "${repo}"
   zle accept-line
   zle reset-prompt
 }
