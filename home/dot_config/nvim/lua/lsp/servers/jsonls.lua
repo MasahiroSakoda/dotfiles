@@ -35,6 +35,10 @@ return {
           url = "https://www.schemastore.org/lintstagedrc.schema.json",
         },
         {
+          fileMatch = { ".commitlintrc", "commitlintrc.json" },
+          url = "https://www.schemastore.org/commitlintrc.json",
+        },
+        {
           fileMatch = { "now.json", "vercel.json" },
           url = "https://www.schemastore.org/now.json",
         },
