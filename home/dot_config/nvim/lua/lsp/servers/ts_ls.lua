@@ -19,7 +19,7 @@ return {
   cmd       = { "typescript-language-server", "--stdio" },
   filetypes = require("user.filetypes").lang.js,
   root_markers = { "package.json", "jsconfig.json", "tsconfig.json", ".git" },
-  autostart = false,
+  autostart = true,
 
   handlers = {
     ["_typescript.rename"] = function(_, result, ctx)
