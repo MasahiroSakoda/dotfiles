@@ -31,6 +31,10 @@ return {
           url = "https://www.schemastore.org/eslintrc.json",
         },
         {
+          fileMatch = { ".lintstagedrc", ".lintstagedrc.json" },
+          url = "https://www.schemastore.org/lintstagedrc.schema.json",
+        },
+        {
           fileMatch = { "now.json", "vercel.json" },
           url = "https://www.schemastore.org/now.json",
         },
