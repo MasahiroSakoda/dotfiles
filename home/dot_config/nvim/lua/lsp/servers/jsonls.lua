@@ -39,6 +39,10 @@ return {
           url = "https://www.schemastore.org/commitlintrc.json",
         },
         {
+          fileMatch = { ".huskyrc", ".huskyrc.json" },
+          url = "https://www.schemastore.org/huskyrc.json",
+        },
+        {
           fileMatch = { "now.json", "vercel.json" },
           url = "https://www.schemastore.org/now.json",
         },
