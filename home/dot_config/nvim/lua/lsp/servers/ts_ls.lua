@@ -12,6 +12,7 @@ local settings = {
     includeInlayPropertyDeclarationTypeHints = true,
     includeInlayVariableTypeHints = true,
   },
+  updateImportsOnFileMove = { enabled = "always" },
 }
 
 ---@type vim.lsp.Config
