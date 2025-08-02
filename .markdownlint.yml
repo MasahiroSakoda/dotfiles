@@ -6,6 +6,7 @@ MD004: false # Unordered list style
 MD010: false # Hard tabs
 MD012: false # no-multiple-blanks - Multiple consecutive blank lines
 MD013: false # line-length - Line length
+MD022: false # Headings should be surrounded by blank lines
 MD024: false # no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD033: false # no-inline-html - Inline HTML
 MD034: false # Bare URL used
