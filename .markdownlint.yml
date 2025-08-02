@@ -9,6 +9,7 @@ MD013: false # line-length - Line length
 MD022: false # Headings should be surrounded by blank lines
 MD024: false # no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
 MD031: false # Fenced code blocks should be surrounded by blank lines
+MD032: false # Lists should be surrounded by blank
 MD033: false # no-inline-html - Inline HTML
 MD034: false # Bare URL used
 MD041: false # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
