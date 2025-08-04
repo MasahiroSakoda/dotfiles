@@ -81,6 +81,7 @@ terminal:
     - any-glob-to-any-file:
       - "home/.chezmoiexternals/tmux.toml.tmpl"
       - "home/dot_config/wezterm/*"
+      - "home/dot_config/ghostty/*"
       - "home/dot_config/zellij/*"
 
 ai:
