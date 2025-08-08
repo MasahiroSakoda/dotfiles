@@ -3,10 +3,9 @@
 type = "git-repo"
 exact = true
 stripComponents = 1
-refreshPeriod = "168h"
+refreshPeriod = "672h"
 {{- end }}
 
-# TODO: Add custom Metal shader for macOS
 {{- if eq .chezmoi.os "linux" }}
 [".local/share/ghostty/shaders"]
 {{ template "repo" }}
