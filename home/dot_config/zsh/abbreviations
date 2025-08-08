@@ -2,6 +2,7 @@
 #
 abbr cl="clear"
 abbr x="exit"
+abbr vim="nvim"
 
 ## File
 abbr o="open"
@@ -110,6 +111,22 @@ abbr dcl="docker compose logs"
 abbr dcr="docker compose run --rm"
 abbr dce="docker compose exec"
 abbr dcs="docker compose sleep"
+
+## Node.js
+abbr p="pnpm "
+abbr pr="pnpm run"
+abbr pa="pnpm add "
+abbr pad="pnpm add -D "
+abbr prm="pnpm rm"
+abbr pb="pnpm build"
+abbr pd="pnpm dev"
+abbr pi="pnpm install"
+abbr po="pnpm outdated"
+abbr pl="pnpm list"
+abbr pt="pnpm test"
+abbr px="pnpm dlx "
+abbr pck="pnpm biome:check"
+abbr pck="pnpm biome:fix"
 
 # Taskfile
 abbr tb="tesk build"
