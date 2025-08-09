@@ -12,6 +12,13 @@ nd = "nd"
 ot = "ot"
 
 [files]
+ignore-hidden = true
+ignore-files  = true
+ignore-dot    = true
+ignore-vcs    = true
+ignore-global = true
+ignore-parent = true
+
 extend-exclude = [
   ".git/", ".github/",
   ".typos.toml", "_typos.toml",
