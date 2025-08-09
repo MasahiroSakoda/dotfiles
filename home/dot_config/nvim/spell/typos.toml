@@ -2,6 +2,18 @@
 
 [default]
 default.locale = "en_us"
+check-filename = true
+check-file     = true
+unicode        = true
+ignore-hex     = true
+identifier-leading-digits = false
+extend-ignore-re = [
+  "(?Rm)^.*(<!--|#|//)\\s*spellchecker:disable-line(-->|\n)?$",
+  "(?s)(<!--|#|//)\\s*spellchecker:off\\s*(-->|\n).*?(<!--|#|//)\\s*spellchecker:on",
+  "(?s)```.*?``` ",              # multi-line code block
+  "(?s)```[a-zA-Z0-9]*\n.*?```", # multi-line code block
+  "(?s)`.*?` ",                  # inline code block
+]
 
 [default.extend-words]
 iterm = "iterm"
