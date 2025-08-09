@@ -368,9 +368,9 @@ end
 if not is_vscode then
   wk.add({
     mode = nt,
-    { "<Leader>e", group = "Explore Directory & Files", icon = "📁 " },
-    { "<Leader>ee", "<CMD>Oil --float .<CR>", icon = " ", desc = "Explore Directory" },
-    { "<Leader>ef", "<CMD>Oil --float<CR>",   icon = " ", desc = "Open Parent Directory" },
+    { "-",         "<CMD>Oil<CR>",         icon = " ", desc = "Open Parent Dir" },
+    { "<Leader>e", "<CMD>Oil<CR>",         icon = " ", desc = "Open Parent Dir" },
+    { "<Leader>E", "<CMD>Oil --float<CR>", icon = " ", desc = "Open Parent Dir w/ float mode" },
   }, opts)
 end
 
