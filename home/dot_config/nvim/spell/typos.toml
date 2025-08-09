@@ -15,12 +15,12 @@ ot = "ot"
 extend-exclude = [
   ".git/", ".github/",
   ".typos.toml", "_typos.toml",
-  "node_modules", "*lock.json", "*.lock", "*.json", "pnpm-lock.yaml",
-  "*.min.js", "*.js",
-  "*.min.css", "*.css",
+  "node_modules/**", "*lock.json", "*.lock", "*.json", "pnpm-lock.yaml",
+  "*.min.js", "*.js", "*.min.css", "*.css", "*.map"
   "Gemfile.lock", "vendor/**/*",
   "go.mod", "go.sum",
-  "*.plist", "*.pbxproj", "*.xcscheme", "*.xcresult",
-  "*.xccolortheme", "*.xib", "*.storyboard",
-  "*.svg", "*.png",
+  # Xcode
+  "*.pbxproj", "xcscheme", "*.xcresult", "*.xccolortheme", "*.xib", "*.nib", "*.storyboard",
+  "*.svg", "*.png", "*.drawio",
+  "CHANGELOG.md",
 ]
