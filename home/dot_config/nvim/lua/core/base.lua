@@ -24,6 +24,9 @@ vim.opt.timeoutlen  = 500
 vim.opt.ttimeoutlen = 200
 vim.opt.lazyredraw  = false -- disable due to noice.nvim
 
+-- Completion
+vim.opt.completeopt = { "fuzzy", "popup", "menuone", "noinsert" }
+
 -- GUI
 vim.opt.mouse = "a"
 vim.opt.visualbell = true
