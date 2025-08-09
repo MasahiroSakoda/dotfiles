@@ -73,9 +73,8 @@ blink.setup({
     },
   },
 
-  -- TODO: Enable terminal completion & configure keymap after proper release
   term = {
-    enabled = false,
+    enabled = true,
     keymap  = { preset = "none" },
     sources = { "path", "buffer" },
     completion = {
