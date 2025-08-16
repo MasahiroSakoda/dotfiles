@@ -2,7 +2,10 @@
 
 return function()
   return require("codecompanion.adapters").extend("ollama", {
-    name   = "JOSTIEFIED Qwen3 8b",
-    schema = { model = { default = "goekdenizguelmez/JOSIEFIED-Qwen3:8b" } },
+    name   = "Multi-purpose models",
+    schema = { model = {
+      default = "gemma3:4b",
+      choices = { "gemma3:4b" },
+    } },
   })
 end

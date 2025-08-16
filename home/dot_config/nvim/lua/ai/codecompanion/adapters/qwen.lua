@@ -2,11 +2,11 @@
 
 return function()
   return require("codecompanion.adapters").extend("ollama", {
-    name   = "Qwen 2.5 Coder 7b",
+    name   = "Qwen models",
     schema = {
       model = {
-        default = "qwen2.5-coder:7b",
-        choices = { "qwen2.5-coder:7b", "goekdenizguelmez/JOSIEFIED-Qwen3:8b" },
+        default = "goekdenizguelmez/JOSIEFIED-Qwen3:8b",
+        choices = { "goekdenizguelmez/JOSIEFIED-Qwen3:8b" },
       },
     },
   })
