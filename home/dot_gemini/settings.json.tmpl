@@ -6,9 +6,10 @@
   "preferredEditor": "vim",
 
   {{/* Model Config */ -}}
-  "model": "gemini-2.0-flash",
+  "model": "gemini-2.5-pro",
 
   {{/* Tool Settings */ -}}
+  {{/* https://github.com/google-gemini/gemini-cli/blob/main/docs/core/tools-api.md#built-in-tools */}}
   "coreTools": [
     "LSTool",
     "GlobTool",
@@ -25,7 +26,9 @@
     "WebFetchTool",
     "SaveMemoryTool"
   ],
-  "excludeTools": [],
+  "excludeTools": [
+    "run_shell_command(rm -rf)"
+  ],
   "autoAccept": false,
 
   {{/* Sandbox Settings */ -}}
@@ -53,9 +56,7 @@
     "logPrompts": true
   },
 
-  "usageStatisticsEnabled": false,
-
-  "permissions": {{ template "common/mcp-permissions.json" . }}
+  "usageStatisticsEnabled": false
 }
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
