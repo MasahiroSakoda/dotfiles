@@ -13,7 +13,7 @@ codecompanion.setup({
 
   strategies = {
     chat = {
-      adapter = "qwen",
+      adapter = "ollama",
       slash_commands = {
         ["buffer"]   = { opts = { provider = "snacks" } },
         ["fetch"]    = { opts = {} },
