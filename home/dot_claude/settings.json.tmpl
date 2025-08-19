@@ -1,0 +1,30 @@
+{
+  {{/* General Settings */ -}}
+  "$schema": "https://www.schemastore.org/claude-code-settings.json",
+  "verbose": false,
+  "autoUpdates": false,
+  "theme": "dark",
+
+  "model": "sonnet",
+  "includeCoAuthoredBy": false,
+
+  "env": {
+    "EDITOR": "nvim",
+    "GIT_EDITOR": "nvim"
+  },
+
+  "statusLine": {
+    "type": "command",
+    "command": "pnpm dlx ccusage@latest statusline",
+    "padding": 0
+  },
+
+  {{/* MCP server configurations */ -}}
+  "mcpServers": {{ template "common/mcp-servers.json" }},
+
+  {{/* Permission */ -}}
+  "permissions": {{ template "common/claude-permissions.json" }}
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}
