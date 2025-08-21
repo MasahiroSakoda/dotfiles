@@ -20,10 +20,10 @@
   },
 
   {{/* MCP server configurations */ -}}
-  "mcpServers": {{ template "common/mcp-servers.json" }},
+  "mcpServers": {{ template "common/mcp-servers.json.tmpl" . }},
 
   {{/* Permission */ -}}
-  "permissions": {{ template "common/claude-permissions.json" }}
+  "permissions": {{ template "common/claude-permissions.json" . }}
 }
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
