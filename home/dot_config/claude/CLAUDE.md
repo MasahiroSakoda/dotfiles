@@ -30,7 +30,7 @@ description: AI Assistant Guidelines
 
 ## 🛡️ Security Policy
 
-### Scope
+### 🩺 Scope
 
 This policy applies to global environment, including but not limited to:
 
@@ -39,14 +39,14 @@ This policy applies to global environment, including but not limited to:
 - All systems and infrastructure used to develop, test, and deploy the project.
 - All individuals contributing to the project, including core team members, external contributors, and third-party vendors.
 
-### Security Principles
+### 🔒️ Security Principles
 
 Adhere to the following security principles:
 
 - **Secure Secrets**: NEVER hardcode API keys, tokens, credentials, or any sensitive informations
 - **Validate Commit**: NEVER commit API keys, tokens, credentials, or any sensitive informations
 
-### Secure Development Lifecycle (SDLC)
+### 🔐 Secure Development Lifecycle (SDLC)
 
 - **Secure Coding**: All code should be written in accordance with secure coding best practices, such as those outlined in the [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - **Code Review**: All code changes must be reviewed for security vulnerabilities before being merged into the main branch.
@@ -55,7 +55,7 @@ Adhere to the following security principles:
 
 ## 🖥️ Development Instruction Guidelines
 
-### Coding Principle
+### 💡 Coding Principle
 
 CRITICAL: DRY and KISS are strictly enforced
 
@@ -71,7 +71,7 @@ CRITICAL: DRY and KISS are strictly enforced
   - Choose clear variable names over short abbreviations
 - **LOGGING**: Do not add debug logs or console logs unless explicitly requested.
 
-### Coding Styles
+### 🎨 Coding Styles
 
 - **Format**: Follow the code style in `~/.editorconfig`
 - **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
@@ -80,7 +80,15 @@ CRITICAL: DRY and KISS are strictly enforced
 - **Testing**: Always write tests where possible; do not break existing tests.
 - **Security**: Always write code with security in mind to prevent vulnerabilities like SQL injection or XSS
 
-### Commandline Requirements
+### Language-Specific Rules
+
+- **Shell**: @~/.config/claude/rules/dev/shell.md
+- **Go**: @~/.config/claude/rules/dev/go.md
+- **Python**: @~/.config/claude/rules/dev/python.md
+- **Node.js**: @~/.config/claude/rules/dev/node.md
+- **TypeScript**: @~/.config/claude/rules/dev/typescript.md
+
+### 💻 Commandline Requirements
 
 **Always use modern alternative tools** when available
 
