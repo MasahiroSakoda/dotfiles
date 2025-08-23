@@ -1,0 +1,6 @@
+- **Format**: Follow the code style in `~/.editorconfig`
+- **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
+- **Documentation**: Create only when explicitly requested.
+- **Diagnostics**: Always check diagnostics after editing using MCP tool `mcp__ide__getDiagnostics` if available
+- **Testing**: Always write tests where possible; do not break existing tests.
+- **Security**: Always write code with security in mind to prevent vulnerabilities like SQL injection or XSS
