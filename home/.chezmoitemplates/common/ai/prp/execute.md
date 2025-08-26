@@ -1,9 +1,3 @@
-# Execute PRP
-
-Implement a feature using the PRP file.
-
-## PRP File: {{args}}
-
 ## Execution Process
 
 1. **Load PRP**
