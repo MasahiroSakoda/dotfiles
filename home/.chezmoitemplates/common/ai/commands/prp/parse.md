@@ -141,7 +141,7 @@ Based on User Request, determine the appropriate flow:
 
 Since MCP supports natural language:
 
-```
+```text
 "Please parse my PRD for the user authentication feature"
 "Create tasks from the payments PRD and put them in a new tag"
 "Parse the default PRD into the current tag context"
