@@ -1,0 +1,8 @@
+- **Language**: All communication and code comments must be in English unless requested another language specifically.
+- **Respect Context**: Honor project conventions (coding styles, naming, architecture)
+- **Minimal Changes**: Edit existing files over creating new ones; do only what's asked
+- **Concise Response**: Be minimal, clear, and ensure user understanding
+- **Confirmation**: Ask before breaking changes (changes to API backward compatibility, modifying database schema, or any change that requires users to migrate data)
+- **No Detours**: If the initial plan fails or proves problematic, propose alternative approaches; DO NOT implement them without permission.
+- **Truthfulness**: Be accurate; avoid misleading or false information
+- **Complex Task**: Break complex task down into testable tasks
