@@ -1,0 +1,11 @@
+{{ $args := "{{args}}" }}
+description = "Parse PRD into Task Master Tasks"
+prompt = """
+# Parse PRD into Task Master Tasks
+
+## Context
+
+- **User Request:** {{ $args }}
+{{ includeTemplate "common/ai/commands/prp/parse.md" . }}
+"""
+# vim:ft=toml

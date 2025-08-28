@@ -2,79 +2,45 @@
 
 ## 🤖 Metaprompting
 
-@./guidelines/metaprompting.md
-
+@~/.gemini/guidelines/metaprompting.md
 
 ## ⚠️ Primary Principle (NON-NEGOTIABLE)
 
-- **CONPLETE HONESTY**: You are 100% honest in all statements. No deception, no fake claims, no false progress reports.
-- **NEVER GUESS**: Avoid making guesses; if you must, explicitly state that they are guesses.
-- **NEVER ASSUME**: Do not make assumptions or make up about unknown information; instead, write "❓ unknown."
-- **ASSIST MINIMALLY**: Do what has been asked; nothing more, nothing less.
-- **Clarify Request**: Ask clarifying question if anything is ambiguous or unclear.
-- **Prime Source**: Base everything on publicly available info. Always refer to primary sources (e.g., official Linux documentation or implementation details on platforms like GitHub), and cite them.
-- **Check Sources**: Evaluate info from third parties in an official document's context as a secondary source. Follow the citation and guess rules, explicitly stating whether it is based on primary sources or a guess.
-
+@~/.gemini/guidelines/primary-principle.md
 
 ## 🛠️ General Instruction Guidelines
 
-- **Language**: All communication and code comments must be in English unless requested another language specifically.
-- **Respect Context**: Honor project conventions (coding styles, naming, architecture)
-- **Minimal Changes**: Edit existing files over creating new ones; do only what's asked
-- **Concise Response**: Be minimal, clear, and ensure user understanding
-- **Confirmation**: Ask before breaking changes (changes to API backward compatibility, modifying database schema, or any change that requires users to migrate data)
-- **No Detours**: If the initial plan fails or proves problematic, propose alternative approaches; DO NOT implement them without permission.
-- **Truthfulness**: Be accurate; avoid misleading or false information
-- **Complex Task**: Break complex task down into testable tasks
-
+@~/.gemini/guidelines/general-instruction.md
 
 ## 🛡️ Security Policy
 
-@./guidelines/security-policy.md
-
+@~/.gemini/guidelines/security-policy.md
 
 ## 🖥️ Development Instruction Guidelines
 
-### Coding Principle
+### 💡 Coding Principle
 
-CRITICAL: DRY and KISS are strictly enforced
+@~/.gemini/guidelines/coding-principle.md
 
-- **YAGNI (You Aren't Gonna Need It)**: Avoid building functionality on speculation. Implement features only when they are needed, not when you anticipate they might be useful in the future.
-- **DRY (Don't Repeat Yourself)**: Extract common logic into reusable functions - **REQUIRED**
-  - Create common modules for shared logic
-  - Use procedure pointers for generic operations
-  - Centralize constants and magic numbers in one place
-- **KISS (Keep It Simple, Stupid)**: Keep the code simple and straightforward. - **MANDATORY**
-  - Write clear, readable code over "clever" optimizations
-  - Use straightforward algorithms unless performance demands complexity
-  - Prefer explicit over implicit behavior
-  - Choose clear variable names over short abbreviations
-- **LOGGING**: Do not add debug logs or console logs unless explicitly requested.
+### 🎨 Coding Styles
 
-### Coding Styles
+@~/.gemini/guidelines/coding-styles.md
 
-- **Format**: Follow the code style in `~/.editorconfig`
-- **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
-- **Documentation**: Create only when explicitly requested.
-- **Diagnostics**: Always check diagnostics after editing using MCP tool `mcp__ide__getDiagnostics` if available
-- **Testing**: Always write tests where possible; do not break existing tests.
-- **Security**: Always write code with security in mind to prevent vulnerabilities like SQL injection or XSS
+### 🔡 Language-Specific Rules
 
-### Language-Specific Rules
-
-- **Shell**: @./rules/dev/shell.md
-- **Go**: @./rules/dev/go.md
-- **Python**: @./rules/dev/python.md
-- **Node.js**: @./rules/dev/node.md
-- **TypeScript**: @./rules/dev/typescript.md
+- **Shell**: @~.gemini/rules/dev/shell.md
+- **Go**: @~/.gemini/rules/dev/go.md
+- **Python**: @~/.gemini/rules/dev/python.md
+- **Node.js**: @~/.gemini/rules/dev/node.md
+- **TypeScript**: @~/.gemini/rules/dev/typescript.md
 
 ### Commandline Requirements
 
-@./guidelines/commandline.md
+@~/.gemini/guidelines/commandline.md
 
 ### Git Guideline
 
-@./guidelines/git.md
+@~/.gemini/guidelines/git.md
 
 ### Common Repository Structure
 
