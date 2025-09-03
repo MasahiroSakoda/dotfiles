@@ -26,7 +26,7 @@
 
 @~/.gemini/guidelines/coding-styles.md
 
-### 🔡 Language-Specific Rules
+### 🔡 Global Language-Specific Rules
 
 - **Shell**: @~.gemini/rules/dev/shell.md
 - **Go**: @~/.gemini/rules/dev/go.md
@@ -37,4 +37,3 @@
 ### Commandline Requirements
 
 @~/.gemini/guidelines/commandline.md
-

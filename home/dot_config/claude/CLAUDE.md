@@ -30,7 +30,7 @@ description: AI Assistant Guidelines
 
 @~/.config/claude/guidelines/coding-styles.md
 
-### 🔡 Language-Specific Rules
+### 🔡 Global Language-Specific Rules
 
 - **Shell**: @~/.config/claude/rules/dev/shell.md
 - **Go**: @~/.config/claude/rules/dev/go.md
