@@ -1,8 +1,8 @@
 ---
-title: Claude Global Context
-category:
-description: AI Assistant Guidelines
+description: Global AI Assistant Guidelines
 ---
+
+# AI Assistant Guideline
 
 ## 🤖 Metaprompting
 
