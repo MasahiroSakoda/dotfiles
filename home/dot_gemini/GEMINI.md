@@ -26,13 +26,14 @@
 
 @~/.gemini/guidelines/coding-styles.md
 
-### 🔡 Global Language-Specific Rules
+### 🔡 Global Development Rules
 
 - **Shell**: @~.gemini/rules/dev/shell.md
 - **Go**: @~/.gemini/rules/dev/go.md
 - **Python**: @~/.gemini/rules/dev/python.md
 - **Node.js**: @~/.gemini/rules/dev/node.md
 - **TypeScript**: @~/.gemini/rules/dev/typescript.md
+- **SQL**: @~/.gemini/rules/dev/sql.md
 
 ### Commandline Requirements
 

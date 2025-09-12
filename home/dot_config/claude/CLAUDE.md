@@ -30,13 +30,14 @@ description: Global AI Assistant Guidelines
 
 @~/.config/claude/guidelines/coding-styles.md
 
-### 🔡 Global Language-Specific Rules
+### 🔡 Global Development Rules
 
 - **Shell**: @~/.config/claude/rules/dev/shell.md
 - **Go**: @~/.config/claude/rules/dev/go.md
 - **Python**: @~/.config/claude/rules/dev/python.md
 - **Node.js**: @~/.config/claude/rules/dev/node.md
 - **TypeScript**: @~/.config/claude/rules/dev/typescript.md
+- **SQL**: @~/.config/claude/rules/dev/sql.md
 
 ### 💻 Commandline Requirements
 
