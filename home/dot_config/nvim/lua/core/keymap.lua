@@ -373,7 +373,7 @@ end
 -----------------------------------------------------------------------
 if not is_vscode then
   wk.add({
-    mode = nt,
+    mode = "n",
     { "-",         "<CMD>Oil<CR>",         icon = " ", desc = "Open Parent Dir" },
     { "<Leader>e", "<CMD>Oil<CR>",         icon = " ", desc = "Open Parent Dir" },
     { "<Leader>E", "<CMD>Oil --float<CR>", icon = " ", desc = "Open Parent Dir w/ float mode" },
