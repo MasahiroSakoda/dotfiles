@@ -3,7 +3,7 @@
   "selectedAuthType": "oauth-personal",
   "theme": "GitHub",
   "contextFileName": ["GEMINI.md", "AGENTS.md"],
-  "preferredEditor": "vim",
+  "preferredEditor": "neovim",
 
   {{/* Model Config */ -}}
   "model": "gemini-2.5-pro",
@@ -41,7 +41,7 @@
   },
 
   {{/* General Settings */ -}}
-  "mcpServers": {{ template "common/mcp-servers.json.tmpl" . }},
+  "mcpServers": {{ template "common/ai/mcp-servers.json.tmpl" . }},
 
   {{/* Chekcpoint */ -}}
   "checkpointing": {
