@@ -157,5 +157,14 @@ local snippets = {
     })
   ),
 
+  -- Prompt engineering
+  s({ trig = "ptag", name = "predefined XML tag", dscr = "predefined tag to structurize context" },
+    fmt('<{}>\n{}\n</{}>', {
+      c(1, { t("thinking"), t("text"), t("instructions"), t("examples"), t("answer"), t("result") }), i(0), rep(1)
+    })
+  ),
+  s({ trig = "ctag", name = "XML tag", dscr = "tag to structurize context" },
+    fmt('<{}>{}</{}>', { i(1, "tag"), i(0, "context"), rep(1) })
+  ),
 }
 return snippets
