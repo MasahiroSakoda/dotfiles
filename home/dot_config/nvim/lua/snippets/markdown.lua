@@ -157,19 +157,5 @@ local snippets = {
     })
   ),
 
-  s({ trig = "code", name = "code block", dscr = "Code block" }, fmt('```{}\n{}\n```\n', { i(1, "lang"), i(0) })),
-  s({ trig = "h1", name = "h1", dscr = "h1: heading" }, fmt('# {}', { i(0) })),
-  s({ trig = "h2", name = "h2", dscr = "h2: heading" }, fmt('## {}', { i(0) })),
-  s({ trig = "h3", name = "h3", dscr = "h3: heading" }, fmt('### {}', { i(0) })),
-  s({ trig = "h4", name = "h4", dscr = "h4: heading" }, fmt('#### {}', { i(0) })),
-  s({ trig = "h5", name = "h5", dscr = "h5: heading" }, fmt('##### {}', { i(0) })),
-  s({ trig = "h6", name = "h6", dscr = "h6: heading" }, fmt('###### {}', { i(0) })),
-
-  s({ trig = "![", name = "image", dscr = "Image" }, fmt('![{}]({})', { i(1, "URL"), i(0) })),
-  s({ trig = "[",  name = "link",  dscr = "Link" },  fmt('[{}]({})',  { i(1, "URL"), i(0) })),
-  s({ trig = "[c", name = "linkc", dscr = "Link from clipboard"},
-    fmt('[{}]({})', {i(1, "title"), f(util.clipboard, {})})
-  ),
-
 }
 return snippets
