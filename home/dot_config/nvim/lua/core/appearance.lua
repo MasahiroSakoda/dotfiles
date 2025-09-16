@@ -13,7 +13,6 @@ vim.opt.numberwidth = 2
 -- Cursor
 local palette = require("onedark.palette")[vim.g.themestyle]
 vim.opt.cursorline  = true
-vim.opt.colorcolumn = { "120" }
 vim.opt.signcolumn  = "auto:1"
 
 vim.api.nvim_set_hl(0, "CursorLineNr", { ctermbg = 0, fg = palette.yellow })

@@ -1,6 +1,15 @@
 local g, bo, fn, keymap =  vim.g, vim.bo, vim.fn, vim.keymap.set
 local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
 
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  desc = "Dynamic colorcolumn references `max_line_width` from .editorconfig",
+  callback = function(ev)
+    local columns = {}
+    table.insert(columns, tostring(vim.bo[ev.buf].textwidth))
+    vim.opt_local.colorcolumn = columns
+  end,
+})
+
 local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
 local lowlight_url = function()
   for _, match in ipairs(fn.getmatches()) do
