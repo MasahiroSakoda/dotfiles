@@ -16,8 +16,9 @@ vim.opt.cursorline  = true
 vim.opt.colorcolumn = { "120" }
 vim.opt.signcolumn  = "auto:1"
 
-vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg=0, bg=palette.bg0 })
-vim.api.nvim_set_hl(0, "SignColumn",  { ctermbg=0, bg=palette.bg0 })
+vim.api.nvim_set_hl(0, "CursorLineNr", { ctermbg = 0, fg = palette.yellow })
+vim.api.nvim_set_hl(0, "ColorColumn",  { ctermbg = 0, bg = palette.bg0 })
+vim.api.nvim_set_hl(0, "SignColumn",   { ctermbg = 0, bg = palette.bg0 })
 
 -- Transparent window
 vim.opt.winblend = 25
