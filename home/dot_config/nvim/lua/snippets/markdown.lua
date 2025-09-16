@@ -19,7 +19,7 @@ local fmt     = require("luasnip.extras.fmt").fmt
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
-local util = require("utils.snippet")
+-- local util = require("utils.snippet")
 
 local snippets = {
   s({ trig = "README", name = "README.md", dscr = "README.md template" },
