@@ -7,7 +7,7 @@ local i  = ls.insert_node
 local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
-local f  = ls.function_node
+-- local f  = ls.function_node
 -- local sn = ls.snippet_node
 local extras = require("luasnip.extras")
 local rep    = extras.rep
@@ -19,7 +19,7 @@ local fmt     = require("luasnip.extras.fmt").fmt
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
-local util = require("utils.snippet")
+-- local util = require("utils.snippet")
 
 local snippets = {
   s({ trig = "README", name = "README.md", dscr = "README.md template" },
@@ -157,19 +157,14 @@ local snippets = {
     })
   ),
 
-  s({ trig = "code", name = "code block", dscr = "Code block" }, fmt('```{}\n{}\n```\n', { i(1, "lang"), i(0) })),
-  s({ trig = "h1", name = "h1", dscr = "h1: heading" }, fmt('# {}', { i(0) })),
-  s({ trig = "h2", name = "h2", dscr = "h2: heading" }, fmt('## {}', { i(0) })),
-  s({ trig = "h3", name = "h3", dscr = "h3: heading" }, fmt('### {}', { i(0) })),
-  s({ trig = "h4", name = "h4", dscr = "h4: heading" }, fmt('#### {}', { i(0) })),
-  s({ trig = "h5", name = "h5", dscr = "h5: heading" }, fmt('##### {}', { i(0) })),
-  s({ trig = "h6", name = "h6", dscr = "h6: heading" }, fmt('###### {}', { i(0) })),
-
-  s({ trig = "![", name = "image", dscr = "Image" }, fmt('![{}]({})', { i(1, "URL"), i(0) })),
-  s({ trig = "[",  name = "link",  dscr = "Link" },  fmt('[{}]({})',  { i(1, "URL"), i(0) })),
-  s({ trig = "[c", name = "linkc", dscr = "Link from clipboard"},
-    fmt('[{}]({})', {i(1, "title"), f(util.clipboard, {})})
+  -- Prompt engineering
+  s({ trig = "ptag", name = "predefined XML tag", dscr = "predefined tag to structurize context" },
+    fmt('<{}>\n{}\n</{}>', {
+      c(1, { t("thinking"), t("text"), t("instructions"), t("examples"), t("answer"), t("result") }), i(0), rep(1)
+    })
   ),
-
+  s({ trig = "ctag", name = "XML tag", dscr = "tag to structurize context" },
+    fmt('<{}>{}</{}>', { i(1, "tag"), i(0, "context"), rep(1) })
+  ),
 }
 return snippets
