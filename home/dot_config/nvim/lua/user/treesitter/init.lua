@@ -156,6 +156,7 @@ vim.filetype.add({
 
     ["Dockerfile*"]        = "dockerfile",
     [".*/.chezmoiignore"]  = "gitignore",
+    [".*/.vscode/.*.json"] = "jsonc",
   },
 })
 vim.treesitter.language.register("markdown", { "mdx", "mdc", "octo" })
