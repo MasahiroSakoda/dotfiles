@@ -147,7 +147,7 @@ vim.filetype.add({
     Masfile  = "ruby",
   },
   pattern = {
-    ["env%..*"]       = "dotenv",
+    -- ["env%..*"]       = "dotenv",
     [".*%.env%..*"]   = "dotenv",
     [".*%.html%.hbs"] = "handlebars.html",
     [".*%.json%.hbs"] = "handlebars.json",
