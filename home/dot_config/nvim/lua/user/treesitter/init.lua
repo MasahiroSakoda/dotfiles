@@ -153,6 +153,8 @@ vim.filetype.add({
     [".*%.json%.hbs"] = "handlebars.json",
     [".*%.js%.hbs"]   = "handlebars.javascript",
     [".*%.ts%.hbs"]   = "handlebars.typescript",
+
+    ["Dockerfile*"]       = "dockerfile",
   },
 })
-vim.treesitter.language.register("markdown", { "mdx", "mdc" })
+vim.treesitter.language.register("markdown", { "mdx", "mdc", "octo" })
