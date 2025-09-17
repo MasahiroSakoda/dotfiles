@@ -154,7 +154,8 @@ vim.filetype.add({
     [".*%.js%.hbs"]   = "handlebars.javascript",
     [".*%.ts%.hbs"]   = "handlebars.typescript",
 
-    ["Dockerfile*"]       = "dockerfile",
+    ["Dockerfile*"]        = "dockerfile",
+    [".*/.chezmoiignore"]  = "gitignore",
   },
 })
 vim.treesitter.language.register("markdown", { "mdx", "mdc", "octo" })
