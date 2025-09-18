@@ -34,7 +34,8 @@ return {
       "completion",
       "codeLens",
     },
-    formatter = "none", ---@type "none"|"rubocop"
+    formatter = "rubocop", ---@type "auto"|"none"|"rubocop"
+    linter    = "rubocop", ---@type "auto"|"none"|"rubocop"
   },
   settings = {},
   -- commands = {

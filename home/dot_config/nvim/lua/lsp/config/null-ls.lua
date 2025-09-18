@@ -3,33 +3,26 @@
 local ok, nl = pcall(require, "null-ls")
 if not ok then return end
 
-local api, lsp = vim.api, vim.lsp
-local buf = lsp.buf
 local builtins     = nl.builtins
 local formatting   = builtins.formatting
 local diagnostics  = builtins.diagnostics
 local code_actions = builtins.code_actions
 local hover        = builtins.hover
 local completion   = builtins.completion
-local augroup = api.nvim_create_augroup("LspFormatting", {})
 
+local augroup   = vim.api.nvim_create_augroup("LspNullFormatting", {})
 local filetypes = require("user.filetypes")
-
-local lsp_formatting = function(bufnr)
-  buf.format({
-    -- Only use null-ls for formatting to avoid conflicts with other LSPs
-    filter = function(client) return client.name == "null-ls" end,
-    bufnr  = bufnr
-  })
-end
 
 local on_attach = function(client, bufnr)
   if client:supports_method("textDocument/formatting", bufnr) then
-    api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-    api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group  = augroup,
       buffer = bufnr,
-      callback = function() lsp_formatting(bufnr) end,
+      callback = function()
+        -- Only use null-ls for formatting to avoid conflicts with other LSPs
+        vim.lsp.format({ filter = function(c) return c.name == "null-ls" end, bufnr = bufnr })
+      end,
     })
   end
 end
@@ -53,9 +46,7 @@ nl.setup({
     completion.tags,
 
     -- Dockerfile
-    diagnostics.hadolint.with({
-      filetypes = { "dockerfile" },
-    }),
+    diagnostics.hadolint.with({ filetypes = { "dockerfile" } }),
 
     -- Git
     code_actions.gitsigns,
@@ -64,7 +55,7 @@ nl.setup({
     diagnostics.actionlint.with({
       filetypes = filetypes.actions,
       condition = function(_)
-        local path = api.nvim_buf_get_name(api.nvim_get_current_buf())
+        local path = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
         return path:match("github/workflows/") ~= nil
       end,
     }),

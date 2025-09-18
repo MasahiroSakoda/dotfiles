@@ -10,47 +10,7 @@ return {
 
   settings = {
     json = {
-      schemas = {
-        { fileMatch = { "package.json" },  url = "https://www.schemastore.org/package.json" },
-        { fileMatch = { "tsconfig.json" }, url = "https://www.schemastore.org/tsconfig.json" },
-        { fileMatch = { "turbo.json" },    url = "https://turborepo.com/schema.json" },
-        {
-          fileMatch = { "renovate.json", "renovate.json5", },
-          url = "https://docs.renovatebot.com/renovate-schema.json",
-        },
-        {
-          fileMatch = { "biome.json", "biome.jsonc" },
-          url = "https://biomejs.dev/schemas/latest/schema.json",
-        },
-        {
-          fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-          url = "https://www.schemastore.org/prettierrc.json",
-        },
-        {
-          fileMatch = { ".eslintrc", ".eslintrc.json" },
-          url = "https://www.schemastore.org/eslintrc.json",
-        },
-        {
-          fileMatch = { ".lintstagedrc", ".lintstagedrc.json" },
-          url = "https://www.schemastore.org/lintstagedrc.schema.json",
-        },
-        {
-          fileMatch = { ".commitlintrc", "commitlintrc.json" },
-          url = "https://www.schemastore.org/commitlintrc.json",
-        },
-        {
-          fileMatch = { ".huskyrc", ".huskyrc.json" },
-          url = "https://www.schemastore.org/huskyrc.json",
-        },
-        {
-          fileMatch = { "now.json", "vercel.json" },
-          url = "https://www.schemastore.org/now.json",
-        },
-        {
-          fileMatch = { "settings.json" },
-          url = "https://www.schemastore.org/claude-code-settings.json",
-        },
-      },
+      schemas    = require("schemastore").json.schemas(),
       format     = { enable = false, singleQuote = false },
       validate   = { enable = true },
       completion = true,
