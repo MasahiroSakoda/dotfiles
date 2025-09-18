@@ -15,6 +15,14 @@ return {
     frecency  = true,
   },
 
+  ---@class snacks.picker.formatters.Config
+  formatters = {
+    file = {
+      truncate   = 80,
+      icon_width = 3,
+    },
+  },
+
   sort = {
     -- default sort is by score, text length and index
     fields = { "score:desc", "#text", "idx" },
