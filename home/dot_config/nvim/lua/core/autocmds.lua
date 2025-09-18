@@ -102,9 +102,10 @@ vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
   end,
 })
 
+local lsp_augroup = augroup("UserLspGroup")
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   desc     = "LSP Actions (keymaps, auto format)",
-  group    = augroup("UserLspConfig"),
+  group    = lsp_augroup,
   callback = function(ev)
     -- Configure LSP related keymap
     local bufopts = { noremap = true, silent = true, buffer = ev.buf }
@@ -135,9 +136,10 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
     -- Format on save
     if client ~= nil and client:supports_method("textDocument/formatting", ev.buf) then
+      vim.api.nvim_clear_autocmds({ group = lsp_augroup, buffer = ev.buf })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         desc     = "Format on save via LSP",
-        group    = augroup("UserLspConfig"),
+        group    = lsp_augroup,
         callback = require("lsp.config.format"),
       })
     end
