@@ -5,6 +5,10 @@ return {
   enabled = true,
   prompt = " ",
 
+  -- Show hidden and ignored files by default
+  hidden  = true,
+  ignored = true,
+
   ---@class snacks.picker.matcher.Config
   matcher = {
     cwd_bonus = true,
