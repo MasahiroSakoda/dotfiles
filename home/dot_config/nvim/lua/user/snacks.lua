@@ -6,6 +6,7 @@ if not ok then return end
 snacks.setup({
   bigfile      = require("user.bigfile"),
   quickfile    = require("user.quickfile"),
+  scratch      = require("user.scratch"),
   indent       = require("user.indent"),
   toggle       = require("user.toggle"),
   dashboard    = require("ui.dashboard"),

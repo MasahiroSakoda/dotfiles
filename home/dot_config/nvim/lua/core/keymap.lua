@@ -403,7 +403,8 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
-    { ",s", "<CMD>ToogleCopilotSuggest<CR>", mode = { "n", "i" }, icon = " ", desc = "Toggle Copilot suggesion" },
+    { ",,", "<CMD>lua Snacks.scratch()<CR>",        icon = " ", desc = "Create scratch buffer" },
+    { ",.", "<CMD>lua Snacks.scratch.select()<CR>", icon = " ", desc = "Select scratch buffer" },
 
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = "Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = "Toggle node under cursor" },
