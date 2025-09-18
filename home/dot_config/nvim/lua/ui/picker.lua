@@ -35,6 +35,7 @@ return {
         ["<c-b>"] = { "list_scroll_up",      mode = { "i", "n" } },
         ["<c-f>"] = { "list_scroll_down",    mode = { "i", "n" } },
         ["<c-t>"] = { "edit_tab",            mode = { "i", "n" } },
+        ["<c-/>"] = { "toggle_focus",        mode = { "i", "n" } },
 
         ["<a-s>"] = { "flash",    mode = { "n", "i" } },
         ["s"]     = { "flash" },
@@ -42,7 +43,13 @@ return {
     },
     list = {
       keys = {
+        ["<c-c>"] = "close",
+        ["<c-u>"] = "preview_scroll_up",
+        ["<c-d>"] = "preview_scroll_down",
+        ["<c-b>"] = "list_scroll_up",
+        ["<c-f>"] = "list_scroll_down",
         ["<c-t>"] = "edit_tab",
+        ["<c-/>"] = "toggle_focus",
       },
     },
   },
