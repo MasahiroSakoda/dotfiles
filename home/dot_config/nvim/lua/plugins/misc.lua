@@ -12,6 +12,11 @@ return {
     cond   = not vim.g.vscode,
     config = function() require("user.octo") end,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "octo", "codecompanion" },
+    config = require("user.render-markdown"),
+  },
   -- chezmoi integration
   {
     "xvzc/chezmoi.nvim",
