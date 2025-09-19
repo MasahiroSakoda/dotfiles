@@ -14,21 +14,21 @@ return {
   {
     "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
     cond   = not vim.g.vscode,
-    event  = { "BufReadPost", "BufNewFile" },
+    event  = { "CmdlineEnter" },
     config = function() require("ui.hlslens") end,
   },
   {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
-    event  = { "BufReadPost", "BufNewFile" },
+    event  = { "VeryLazy" },
     config = function() require("ui.bufferline") end,
   },
   {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
-    event  = { "BufReadPost", "BufNewFile" },
+    event  = { "VeryLazy" },
     config = function() require("ui.lualine") end,
   },
   {
