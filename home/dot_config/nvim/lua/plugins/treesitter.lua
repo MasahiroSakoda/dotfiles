@@ -23,7 +23,7 @@ return {
   { "andymass/vim-matchup",           ft = filetypes.matchup },
   {
     "numToStr/Comment.nvim",
-    event  = { "BufReadPost", "BufNewFile" },
+    event  = { "VeryLazy" },
     config = function() require("user.treesitter.comment") end,
   },
   {
