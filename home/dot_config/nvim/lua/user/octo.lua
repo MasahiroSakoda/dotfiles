@@ -25,6 +25,29 @@ octo.setup({
     copy_url        = { lhs = "<C-y>", desc = "Copy url to system clipboard" },
     checkout_pr     = { lhs = "<C-o>", desc = "Checkout pull request" },
     merge_pr        = { lhs = "<C-r>", desc = "Merge pull request" },
+    snacks = {
+      actions = {
+        issues = {
+          -- {
+          --   name = "my_issue_action",
+          --   fn = function(picker, item) print("Issue action:", vim.inspect(item)) end,
+          --   lhs = "<leader>a",
+          --   desc = "My custom issue action",
+          -- },
+        },
+        pull_requests = {
+          -- {
+          --   name = "my_pr_action",
+          --   desc = "My custom PR action",
+          --   fn = function(picker, item) print("PR action:", vim.inspect(item)) end,
+          --   lhs = "<localleader>b",
+          -- },
+        },
+        notifications = {},
+        issue_templates = {},
+        search = {}
+      },
+    },
   },
 
   colors = {
