@@ -7,13 +7,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-
-      -- Optional plugins
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "codecompanion" },
-        config = require("user.render-markdown"),
-      },
     },
     cond = not vim.g.vscode,
     cmd = {
