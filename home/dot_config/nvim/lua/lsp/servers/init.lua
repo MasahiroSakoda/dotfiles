@@ -31,7 +31,7 @@ return {
   golangci_lint = {}, -- Go
   ruff          = require("lsp.servers.ruff"), -- Python
   biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
-  rubocop       = {}, -- Ruby Static Code Analyzer
+  -- rubocop       = require("lsp.servers.rubocop"), -- Ruby Static Code Analyzer
   markdownlint  = {}, -- Markdown
   hadolint      = {}, -- Dockerfile
   sqruff        = {}, -- SQL

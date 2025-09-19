@@ -1,10 +1,10 @@
 -- -*-mode:lua-*- vim:ft=lua
 return function()
   vim.lsp.buf.format({
-    async = true,
+    async = false,
     timeout_ms = 2000,
-    filter = function(client)
-      return not vim.tbl_contains(require("lsp.config.ignore").format, client.name)
+    filter = function(c)
+      return (not vim.tbl_contains(require("lsp.config.ignore").format, c.name) and c.name ~= "null-ls")
     end,
   })
 end
