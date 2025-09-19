@@ -10,7 +10,7 @@ local code_actions = builtins.code_actions
 local hover        = builtins.hover
 local completion   = builtins.completion
 
-local augroup   = vim.api.nvim_create_augroup("LspNullFormatting", {})
+local augroup   = vim.api.nvim_create_augroup("LspFormatting", {})
 local filetypes = require("user.filetypes")
 
 local on_attach = function(client, bufnr)
@@ -20,8 +20,15 @@ local on_attach = function(client, bufnr)
       group  = augroup,
       buffer = bufnr,
       callback = function()
+        vim.lsp.buf.format_on_sync()
         -- Only use null-ls for formatting to avoid conflicts with other LSPs
-        vim.lsp.format({ filter = function(c) return c.name == "null-ls" end, bufnr = bufnr })
+        vim.lsp.format({
+          async = false,
+          bufnr = bufnr,
+          filter = function(c)
+            return (not vim.tbl_contains(require("lsp.config.ignore").format, c.name) and c.name == "null-ls")
+          end,
+        })
       end,
     })
   end
