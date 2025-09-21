@@ -72,8 +72,6 @@ Filetypes.autotag = {
   "javascriptreact", "typescriptreact", "markdown",
 }
 
-Filetypes.endwise = { "lua", "vim", "ruby", "elixir", "bash", "fish" }
-
 Filetypes.matchup = {
   "sh", "bash", "csh", "zsh",
   "vim", "lua",
