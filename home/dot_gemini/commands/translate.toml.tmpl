@@ -1,0 +1,12 @@
+{{ $args := "{{args}}" }}
+description = "Translate text between Japanese and English. The agent will automatically detect the source language and translate to the opposite language."
+prompt = """
+# Translate Command
+
+{{- includeTemplate "common/ai/commands/translate.md" . }}
+
+## Source text
+
+{{ $args }}
+"""
+# vim:ft=toml
