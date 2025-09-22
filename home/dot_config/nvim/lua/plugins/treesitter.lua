@@ -1,5 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local filetypes = require("user.filetypes")
+local ft = require("user.filetypes")
 
 return {
   {
@@ -19,8 +19,8 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.rainbow-delimiters") end,
   },
-  { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
-  { "andymass/vim-matchup",           ft = filetypes.matchup },
+  { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("user.treesitter.autotag") end },
+  { "andymass/vim-matchup",   ft = ft.matchup },
   {
     "numToStr/Comment.nvim",
     event  = { "VeryLazy" },
