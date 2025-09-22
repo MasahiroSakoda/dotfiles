@@ -42,6 +42,8 @@ Filetypes.treesitter = {
   "git_config", "gitattributes", "gitignore", "gitcommit", "git_rebase",
   -- Build
   "make", "cmake",
+  -- Terminal Multiplexer
+  "tmux",
   -- DevOps
   "dockerfile", "terraform",
   -- Protocol
