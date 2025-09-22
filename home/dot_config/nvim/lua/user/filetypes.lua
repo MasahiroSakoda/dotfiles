@@ -28,7 +28,7 @@ Filetypes.treesitter = {
   "json", "json5", "jsonc", "jsdoc", "jq",
   -- Markup Languages
   "html", "css", "scss",
-  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst",
+  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst", "mermaid",
   "glimmer",
   -- Shader Languages
   "glsl", "hlsl", "wgsl",
