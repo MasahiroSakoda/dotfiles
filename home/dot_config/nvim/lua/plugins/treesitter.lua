@@ -5,12 +5,19 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter-textobjects", config = function() require"user.treesitter.textobjects" end },
-      { "RRethy/nvim-treesitter-textsubjects",         config = function() require"user.treesitter.textsubjects" end },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        config = function() require"user.treesitter.textobjects" end,
+      },
+      {
+        "RRethy/nvim-treesitter-textsubjects",
+        config = function() require"user.treesitter.textsubjects" end,
+      },
     },
     lazy   = false,
-    build  = function() if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end end,
-    event  = { "BufReadPost", "BufNewFile" },
+    branch = "main",
+    build  = ":TSUpdate",
+    cmd    = { "TSInstall", "TSUpdate", "TSUninstall", "TSLog" },
     config = function() require("user.treesitter") end,
   },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
