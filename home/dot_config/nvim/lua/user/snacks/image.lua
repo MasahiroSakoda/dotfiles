@@ -2,6 +2,6 @@
 
 ---@class snacks.image.Config
 return {
-  enabled = true,
+  enabled = false,
   force   = false,
 }
