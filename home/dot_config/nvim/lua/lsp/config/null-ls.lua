@@ -109,13 +109,7 @@ nl.setup({
       condition = function(utils) return utils.root_has_file(filetypes.lsp.ruby) end,
     }),
 
-    -- Lua
-    -- stylua:
-    formatting.stylua.with({
-      filetypes  = { "lua" },
-      condition  = function(utils) return utils.root_has_file(filetypes.lsp.stylua) end,
-    }),
-
+    -- markdown
     diagnostics.markdownlint.with({
       filetypes  = filetypes.markdown,
       extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
