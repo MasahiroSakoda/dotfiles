@@ -233,7 +233,12 @@ if not is_vscode then
       icon = " ",
       desc = "nvim plugins",
     },
-    { "<Leader>ft", "<CMD>lua Snacks.picker.todo_comments()<CR>", icon = " ", desc = "TODO list" },
+    {
+      "<Leader>ft",
+      "<CMD>lua Snacks.picker.todo_comments({ keywords = {'TODO', 'FIX', 'FIXME'} })<CR>",
+      icon = " ",
+      desc = "TODO/Fix/Fixme",
+    },
   })
 end
 
