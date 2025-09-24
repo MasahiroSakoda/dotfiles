@@ -33,6 +33,8 @@ vim.treesitter.language.register("markdown", { "mdx", "vimwiki", "octo", "codeco
 vim.treesitter.language.register("latex",    { "tex", "plaintex" })
 
 -- Activate treesittter highlights, fold & indent
+-- TODO: Improve nvim-treesitter performance w/ lazy loading
+-- TODO: Separate fold config depends on filetypes
 vim.api.nvim_create_autocmd({ "FileType" }, {
   desc     = "Start treesiter highlighting",
   group    = vim.api.nvim_create_augroup("TreesitterParser", {}),
