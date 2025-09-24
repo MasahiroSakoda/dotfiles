@@ -118,6 +118,9 @@ wk.add({
   { "<Leader>w", group = "Window Control", icon = "📖 " },
   { "<Leader>ws", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
   { "<Leader>wS", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
+
+  { "[t", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = "Prev TODOs" },
+  { "]t", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = "Next TODOs" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -230,7 +233,12 @@ if not is_vscode then
       icon = " ",
       desc = "nvim plugins",
     },
-    { "<Leader>ft", "<CMD>lua Snacks.picker.todo_comments()<CR>", icon = " ", desc = "TODO list" },
+    {
+      "<Leader>ft",
+      "<CMD>lua Snacks.picker.todo_comments({ keywords = {'TODO', 'FIX', 'FIXME'} })<CR>",
+      icon = " ",
+      desc = "TODO/Fix/Fixme",
+    },
   })
 end
 
