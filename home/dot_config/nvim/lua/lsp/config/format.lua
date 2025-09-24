@@ -4,7 +4,7 @@ return function()
     async = false,
     timeout_ms = 2000,
     filter = function(c)
-      return not vim.tbl_contains(require("lsp.config.ignore").format, c.name) and not c.name == "null-ls"
+      return not vim.tbl_contains(require("lsp.config.ignore").format, c.name) and c.name ~= "null-ls"
     end,
   })
 end
