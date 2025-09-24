@@ -10,10 +10,6 @@ return {
         branch = "main",
         config = function() require"user.treesitter.textobjects" end,
       },
-      {
-        "RRethy/nvim-treesitter-textsubjects",
-        config = function() require"user.treesitter.textsubjects" end,
-      },
     },
     lazy   = false,
     branch = "main",
