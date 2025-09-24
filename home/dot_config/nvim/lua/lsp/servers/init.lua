@@ -32,6 +32,7 @@ return {
   ruff          = require("lsp.servers.ruff"), -- Python
   biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
   -- rubocop       = require("lsp.servers.rubocop"), -- Ruby Static Code Analyzer
+  stylua        = require("lsp.servers.stylua"),  -- Lua
   markdownlint  = {}, -- Markdown
   hadolint      = {}, -- Dockerfile
   sqruff        = {}, -- SQL

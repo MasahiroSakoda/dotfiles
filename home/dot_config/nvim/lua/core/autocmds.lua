@@ -1,4 +1,3 @@
-local g, bo, fn, keymap =  vim.g, vim.bo, vim.fn, vim.keymap.set
 local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -12,14 +11,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
 local lowlight_url = function()
-  for _, match in ipairs(fn.getmatches()) do
-    if match.group == "HighlightURL" then fn.matchdelete(match.id) end
+  for _, match in ipairs(vim.fn.getmatches()) do
+    if match.group == "HighlightURL" then vim.fn.matchdelete(match.id) end
   end
 end
 
 local highlight_url = function()
   lowlight_url()
-  if g.highlighturl_enabled then fn.matchadd("HighlightURL", url_pattern, 15) end
+  if vim.g.highlighturl_enabled then vim.fn.matchadd("HighlightURL", url_pattern, 15) end
 end
 
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -53,8 +52,8 @@ vim.api.nvim_create_autocmd("FileType", {
   group    = augroup("close_with_q"),
   pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil" },
   callback = function (event)
-    bo[event.buf].buflisted = false
-    keymap("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
   end,
 })
 
@@ -84,7 +83,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   desc     = "Surveillance chezmoi target files",
-  pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
+  pattern  = { vim.fn.stdpath("data") .. "/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
@@ -118,9 +117,9 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     vim.keymap.set("n", "grr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
     vim.keymap.set("n", "gra", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
 
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     -- Enable completion
-    if client ~= nil and client:supports_method("textDocument/completion", ev.buf) then
+    if client:supports_method("textDocument/completion", ev.buf) then
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
       local kinds_ok, kinds = pcall(require, "lspkind")
@@ -135,11 +134,14 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     end
 
     -- Format on save
-    if client ~= nil and client:supports_method("textDocument/formatting", ev.buf) then
-      vim.api.nvim_clear_autocmds({ group = lsp_augroup, buffer = ev.buf })
+    local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+    if not client:supports_method("textDocument/willSaveWaitUntil")
+       and client:supports_method("textDocument/formatting", ev.buf) then
+      vim.api.nvim_clear_autocmds({ group = format_group, buffer = ev.buf })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         desc     = "Format on save via LSP",
-        group    = lsp_augroup,
+        group    = format_group,
+        buffer   = ev.buf,
         callback = require("lsp.config.format"),
       })
     end
