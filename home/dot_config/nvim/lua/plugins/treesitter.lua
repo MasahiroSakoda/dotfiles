@@ -7,6 +7,7 @@ return {
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
         config = function() require"user.treesitter.textobjects" end,
       },
       {
