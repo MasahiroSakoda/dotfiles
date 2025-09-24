@@ -1,16 +1,20 @@
 -- -*-mode:lua-*- vim:ft=lua
-local filetypes = require("user.filetypes")
+local ft = require("user.filetypes")
 
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter-textobjects", config = function() require"user.treesitter.textobjects" end },
-      { "RRethy/nvim-treesitter-textsubjects",         config = function() require"user.treesitter.textsubjects" end },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        config = function() require"user.treesitter.textobjects" end,
+      },
     },
     lazy   = false,
-    build  = function() if #vim.api.nvim_list_uis() ~= 0 then vim.api.nvim_command("TSUpdate") end end,
-    event  = { "BufReadPost", "BufNewFile" },
+    branch = "main",
+    build  = ":TSUpdate",
+    cmd    = { "TSInstall", "TSUpdate", "TSUninstall", "TSLog" },
     config = function() require("user.treesitter") end,
   },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
@@ -19,8 +23,8 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.rainbow-delimiters") end,
   },
-  { "windwp/nvim-ts-autotag",         ft = filetypes.autotag },
-  { "andymass/vim-matchup",           ft = filetypes.matchup },
+  { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("user.treesitter.autotag") end },
+  { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("user.treesitter.matchup") end },
   {
     "numToStr/Comment.nvim",
     event  = { "VeryLazy" },

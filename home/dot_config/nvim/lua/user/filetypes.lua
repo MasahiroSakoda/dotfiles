@@ -28,7 +28,7 @@ Filetypes.treesitter = {
   "json", "json5", "jsonc", "jsdoc", "jq",
   -- Markup Languages
   "html", "css", "scss",
-  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst",
+  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst", "mermaid",
   "glimmer",
   -- Shader Languages
   "glsl", "hlsl", "wgsl",
@@ -42,6 +42,8 @@ Filetypes.treesitter = {
   "git_config", "gitattributes", "gitignore", "gitcommit", "git_rebase",
   -- Build
   "make", "cmake",
+  -- Terminal Multiplexer
+  "tmux",
   -- DevOps
   "dockerfile", "terraform",
   -- Protocol
