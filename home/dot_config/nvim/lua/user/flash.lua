@@ -5,15 +5,13 @@ if not ok then return end
 ---@type Flash.Config
 flash.setup({
   labels = "hjklasdfgyuiopqwertnmzxcvb",
-  search = {
-    -- search/jump in all windows
-    multi_window = false,
-  },
-  jump  = { autojump = true },
-  label = { uppercase = false, rainbow = { enabled = false } },
+  search = { multi_window = true },
+  jump   = { autojump = true },
+  label  = { uppercase = false, rainbow = { enabled = false } },
+
   highlight = {},
-  pattern  = "",
-  continue = false,
+  pattern   = "",
+  continue  = false,
 
   modes = {
     char = { jump_labels = true },
