@@ -29,6 +29,11 @@ return {
     config = function() require("user.overseer") end,
   },
   {
+    "mistweaverco/kulala.nvim",
+    ft     = { "http", "rest" },
+    config = function() require("user.kulala") end,
+  },
+  {
     "neo451/feed.nvim",
     dependencies = { "gregorias/coop.nvim" },
     cmd    = { "Feed" },
