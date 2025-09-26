@@ -23,6 +23,7 @@ return {
   {
     "copilotlsp-nvim/copilot-lsp",
     event  = { "InsertEnter" },
+    config = function() require("lsp.config.copilot") end,
   },
   {
     "folke/trouble.nvim",
