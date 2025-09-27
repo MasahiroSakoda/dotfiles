@@ -60,12 +60,34 @@ return {
     telemetry = { enabled = false },
   },
 
-  on_attach = function(client, bufnr)
-    vim.lsp.inline_completion.enable()
+  on_init = function(client, _)
+    -- Highlight suggestion
+    local hlc = vim.api.nvim_get_hl(0, { name = "Comment" })
+    local hlm = vim.api.nvim_get_hl(0, { name = "MoreMsg" })
+    vim.api.nvim_set_hl(0, "CompHint",     vim.tbl_extend("force", hlc, { underline = true }))
+    vim.api.nvim_set_hl(0, "CompHintMore", vim.tbl_extend("force", hlm, { underline = true }))
 
-    vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignIn",  function() sign_in(bufnr, client)  end, {})
-    vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignOut", function() sign_out(bufnr, client) end, {})
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(ev)
+        if vim.version().minor < 12 then
+          return
+        end
 
-    vim.keymap.set({ "i" }, "<C-CR>", vim.lsp.inline_completion.get, { desc = "Accept LSP inline suggestion" })
+        local bufnr = ev.buf
+        -- Configure Sign in / out
+        vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignIn",  function() sign_in(bufnr,  client)  end, {})
+        vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignOut", function() sign_out(bufnr, client) end, {})
+
+        -- Enable inline completion
+        vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+
+        -- Keymaps for attached buffer
+        if client:supports_method("textDocument/inlineCompletion", bufnr) then
+          vim.keymap.set("i", "<C-CR>", vim.lsp.inline_completion.get())
+          vim.keymap.set("i", "<C-f>",  vim.lsp.inline_completion.select({ bufnr = bufnr, count = 1 }))
+          vim.keymap.set("i", "<C-b>",  vim.lsp.inline_completion.select({ bufnr = bufnr, count = -1 * vim.v.count1 }))
+        end
+      end,
+    })
   end,
 }
