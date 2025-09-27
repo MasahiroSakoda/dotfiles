@@ -21,6 +21,11 @@ return {
     config = function() require("lsp.config.null-ls") end,
   },
   {
+    "copilotlsp-nvim/copilot-lsp",
+    event  = { "InsertEnter" },
+    config = function() require("lsp.config.copilot") end,
+  },
+  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,

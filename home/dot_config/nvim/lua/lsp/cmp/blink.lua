@@ -13,7 +13,13 @@ blink.setup({
     ["<C-c>"]   = { "cancel", "fallback" },
     ["<C-e>"]   = { "hide", "fallback" },
     ["<Tab>"]   = {
-      function(cmp) return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept() end,
+      function(cmp)
+        if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+          cmp.hide()
+          return (require("copilot-lsp.nes").apply_pending_nes() and require("copilot-lsp.nes").walk_cursor_end_edit())
+        end
+        return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept()
+      end,
       "snippet_forward",
       "fallback",
     },

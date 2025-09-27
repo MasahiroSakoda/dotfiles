@@ -2,6 +2,7 @@
 
 return {
   -- LSP
+  copilot_ls    = require("lsp.servers.copilot"),       -- Copilot
   clangd        = require("lsp.servers.clangd"),        -- C/C++, ObjC, Swift, Rust
   glsl_analyzer = require("lsp.servers.glsl_analyzer"), -- GLSL
   gopls         = require("lsp.servers.gopls"),         -- Go
