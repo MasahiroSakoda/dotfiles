@@ -11,8 +11,7 @@ return {
   {
     "igorlfs/nvim-dap-view",
     dependencies = { "mfussenegger/nvim-dap" },
-    cmd    = { "DapViewToggle", "DapViewWatch", "DapViewJump", "DapViewShow", "DapViewNavigate" },
-    config = function() require("debugger.view") end,
+    cmd = { "DapViewToggle", "DapViewWatch", "DapViewJump", "DapViewShow", "DapViewNavigate" },
   },
   {
     "theHamsta/nvim-dap-virtual-text",
