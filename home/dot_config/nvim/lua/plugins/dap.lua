@@ -9,12 +9,10 @@ return {
     config = function() require("debugger.setup") end,
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-      { "mortepau/codicons.nvim", config = function() require("ui.codicons") end },
-    }
+    "igorlfs/nvim-dap-view",
+    dependencies = { "mfussenegger/nvim-dap" },
+    cmd    = { "DapViewToggle", "DapViewWatch", "DapViewJump", "DapViewShow", "DapViewNavigate" },
+    config = function() require("debugger.view") end,
   },
   {
     "theHamsta/nvim-dap-virtual-text",
