@@ -51,7 +51,21 @@ end
 ---@type vim.lsp.Config
 return {
   cmd = { "copilot-language-server", "--stdio" },
-  root_markers = { ".git" },
+  -- Exclude specific filetype patterns
+  root_dir = function(bufnr, callback)
+    local patterns = { "^.*%.local", "^%.env.*", "^%.secrets?.*" }
+    local disabled = vim.iter(patterns):any(function(pattern)
+      return string.match(vim.fs.basename(vim.api.nvim_buf_get_name(bufnr)), pattern)
+    end)
+    if disabled then
+      return
+    end
+
+    local root_dir = vim.fs.root(bufnr, { ".git" })
+    if root_dir then
+      callback(root_dir)
+    end
+  end,
   init_options = {
     editorInfo       = { name = "NeoVim", version = tostring(vim.version()) },
     editorPluginInfo = { name = "NeoVim", version = tostring(vim.version()) },
