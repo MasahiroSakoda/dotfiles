@@ -4,7 +4,7 @@
 ---@param config table<string, any>
 ---@return any
 return function(callback, config)
-  local stdout, stderr = vim.uv.new_pipe(false), vim.uv.new_pipe(false)
+  local stdout, stderr = assert(vim.uv.new_pipe(false)), assert(vim.uv.new_pipe(false))
   local handle, pid_or_err
   local host = config.host or "127.0.0.1"
   local port = config.port or "38697"
@@ -15,10 +15,8 @@ return function(callback, config)
   }
 
   handle, pid_or_err = vim.uv.spawn("dlv", opts, function(code)
-    if stdout ~= nil and stderr ~= nil then
-      stdout:close()
-      stderr:close()
-    end
+    stdout:close()
+    stderr:close()
     handle:close()
     if code ~= 0 then vim.notify("dlv exited with code " .. code, vim.log.levels.WARN) end
   end)
@@ -29,10 +27,8 @@ return function(callback, config)
     if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
   end
 
-  if stdout ~= nil and stderr ~= nil then
-    stdout:read_start(onread)
-    stderr:read_start(onread)
-  end
+  stdout:read_start(onread)
+  stderr:read_start(onread)
 
   -- Wait for delve to start
   vim.defer_fn(function() callback({

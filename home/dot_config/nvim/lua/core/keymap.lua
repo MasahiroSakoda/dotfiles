@@ -273,23 +273,30 @@ wk.add({
 
   -- Debugger Control
   { "<Leader>d", group = "Debugger", icon = "🐛 " },
-  { "<Leader>db", "<CMD>DapToggleBreakpoint<CR>", icon = " ", desc = "Toggle DAP Breakpoints" },
-  { "<Leader>dc", "<CMD>DapContinue<CR>",         icon = " ", desc = "Continue Process" },
-  { "<Leader>do", "<CMD>DapStepOver<CR>",         icon = " ", desc = "Step Over" },
-  { "<Leader>di", "<CMD>DapStepInto<CR>",         icon = " ", desc = "Step Into" },
-  { "<Leader>dO", "<CMD>DapStepOut<CR>",          icon = " ", desc = "Step Out" },
-  { "<Leader>dB", "<CMD>DapStepBack<CR>",         icon = " ", desc = "Step Back" },
-  { "<Leader>dt", "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
+  { "<Leader>db",  "<CMD>DapToggleBreakpoint<CR>", icon = " ", desc = "Toggle DAP Breakpoints" },
+  { "<Leader>dc",  "<CMD>DapContinue<CR>",         icon = " ", desc = "Continue Process" },
+  { "<Leader>dt",  "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
 
-  { "<Leader>dd", "<CMD>lua require'dapui'.toggle({reset = true})<CR>", icon = ":", desc = "Toggle Debugger UI" },
-  { "<Leader>dp", "<CMD>lua require'dap.ui.widgets'.preview()<CR>",     icon = " ", desc = "DAP Preview" },
-  { "<Leader>dh", "<CMD>lua require'dap.ui.widgets'.hover()<CR>",       icon = " ", desc = "Hover DAP widgets" },
-  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",               icon = "↻ ", desc = "Run Last" },
-  { "<Leader>ds", "<CMD>lua require'dapui'.float('scope')<CR>",         icon = " ", desc = "Float scopes" },
-  { "<Leader>dS", "<CMD>lua require'dapui'.float('stacks')<CR>",        icon = " ", desc = "Float stacks" },
-  { "<Leader>dw", "<CMD>lua require'dapui'.float('watches')<CR>",       icon = " ", desc = "Float watches" },
-  { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>",              icon = "󰌱", desc = "Open DAP log" },
+  { "<Leader>ds", group = "Debugger Control", icon = "🛠️ " },
+  { "<Leader>dso", "<CMD>DapStepOver<CR>",         icon = " ", desc = "Step Over" },
+  { "<Leader>dsi", "<CMD>DapStepInto<CR>",         icon = " ", desc = "Step Into" },
+  { "<Leader>dsO", "<CMD>DapStepOut<CR>",          icon = " ", desc = "Step Out" },
+  { "<Leader>dsb", "<CMD>DapStepBack<CR>",         icon = " ", desc = "Step Back" },
 
+  { "<Leader>dd",  "<CMD>DapViewToggle<CR>",           icon = " ", desc = "Toggle DAP View" },
+  { "<Leader>dw",  "<CMD>DapViewWatch<CR>",            icon = " ", desc = "Add watch expression" },
+
+  { "<Leader>dv", group = "Debugger Views", icon = "🖥️ " },
+  { "<Leader>dvs", "<CMD>DapViewJump scopes<CR>",      icon = "󰃤 ", desc = "Jump to scopes" },
+  { "<Leader>dvb", "<CMD>DapViewJump breakpoints<CR>", icon = " ", desc = "Jump to breakpoints" },
+  { "<Leader>dve", "<CMD>DapViewJump exceptions<CR>",  icon = " ", desc = "Jump to exceptions" },
+  { "<Leader>dvw", "<CMD>DapViewJump watches<CR>",     icon = " ", desc = "Jump to watches" },
+  { "<Leader>dvt", "<CMD>DapViewJump threads<CR>",     icon = " ", desc = "Jump to threads" },
+  { "<Leader>dvr", "<CMD>DapViewJump repl<CR>",        icon = " ", desc = "Jump to repl" },
+  { "<Leader>dvc", "<CMD>DapViewJump console<CR>",     icon = "󰞷 ", desc = "Jump to console" },
+
+  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",  icon = "↻ ", desc = "Run Last" },
+  { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>", icon = "󰌱 ", desc = "Open DAP log" },
   { "<Leader>dv", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger w/ OSV" },
 }, opts)
 

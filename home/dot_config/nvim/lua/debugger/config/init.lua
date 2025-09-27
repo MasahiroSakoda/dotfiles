@@ -1,8 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  sh              = require("debugger.config.bash"),
-  bash            = require("debugger.config.bash"),
   c               = require("debugger.config.cpp"),
   cpp             = require("debugger.config.cpp"),
   rust            = require("debugger.config.cpp"),
