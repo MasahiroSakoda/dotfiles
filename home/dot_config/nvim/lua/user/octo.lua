@@ -210,3 +210,7 @@ octo.setup({
     },
   },
 })
+
+-- Auto completion for GitHub issues and pulls
+vim.keymap.set("i", "@", "@<C-x><C-o>", { silent = true, buffer = true, desc = "GitHub User" })
+vim.keymap.set("i", "#", "#<C-x><C-o>", { silent = true, buffer = true, desc = "Issue Number" })
