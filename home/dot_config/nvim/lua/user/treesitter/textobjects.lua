@@ -17,46 +17,61 @@ textobjects.setup({
 
 -- Mappings
 local xo, nxo = { "x", "o" }, { "n", "x", "o" }
-local select  = require("nvim-treesitter-textobjects.select")
-local swap    = require("nvim-treesitter-textobjects.swap")
-local move    = require("nvim-treesitter-textobjects.move")
-local repmove = require("nvim-treesitter-textobjects.repeatable_move")
+local wk = require("which-key")
 -- Select
-vim.keymap.set(xo, "af", function() select.seleect_object("@function.outer",    "textobjects") end)
-vim.keymap.set(xo, "if", function() select.seleect_object("@function.inner",    "textobjects") end)
-vim.keymap.set(xo, "ac", function() select.seleect_object("@class.outer",       "textobjects") end)
-vim.keymap.set(xo, "ic", function() select.seleect_object("@class.inner",       "textobjects") end)
-vim.keymap.set(xo, "ab", function() select.seleect_object("@block.outer",       "textobjects") end)
-vim.keymap.set(xo, "ib", function() select.seleect_object("@block.inner",       "textobjects") end)
-vim.keymap.set(xo, "al", function() select.seleect_object("@loop.outer",        "textobjects") end)
-vim.keymap.set(xo, "il", function() select.seleect_object("@loop.inner",        "textobjects") end)
-vim.keymap.set(xo, "a?", function() select.seleect_object("@conditional.outer", "textobjects") end)
-vim.keymap.set(xo, "i?", function() select.seleect_object("@conditional.inner", "textobjects") end)
-vim.keymap.set(xo, "as", function() select.seleect_object("@local.scope",       "textobjects") end)
+local select  = require("nvim-treesitter-textobjects.select").select_textobject
+wk.add({
+  mode = xo,
+  { "ac", function() select("@class.outer",       "textobjects") end, icon = " ", desc = "Select around class" },
+  { "ic", function() select("@class.inner",       "textobjects") end, icon = " ", desc = "Select inside class" },
+  { "af", function() select("@function.outer",    "textobjects") end, icon = " ", desc = "Select around func" },
+  { "if", function() select("@function.inner",    "textobjects") end, icon = " ", desc = "Select inside func" },
+  { "ab", function() select("@block.outer",       "textobjects") end, icon = " ", desc = "Select around block" },
+  { "ib", function() select("@block.inner",       "textobjects") end, icon = " ", desc = "Select inside block" },
+  { "al", function() select("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Select around loop" },
+  { "il", function() select("@loop.inner",        "textobjects") end, icon = "󰅲 ", desc = "Select inside loop" },
+  { "a?", function() select("@conditional.outer", "textobjects") end, icon = " ", desc = "Select around cond" },
+  { "i?", function() select("@conditional.inner", "textobjects") end, icon = " ", desc = "Select inside cond" },
+  { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Select local scope" },
+}, { noremap = true })
 -- Swap
-vim.keymap.set("n", "<leader>a", function() swap.swap_next("@parameter.inner") end)
-vim.keymap.set("n", "<leader>A", function() swap.swap_previous("@parameter.outer") end)
+local swap   = require("nvim-treesitter-textobjects.swap")
+local sp, sn = swap.swap_previous, swap.swap_next
+wk.add({
+  mode = "n",
+  { "<Leader>a", function() sn("@parameter.inner") end, icon = " ", desc = "Swap next argument" },
+  { "<Leader>A", function() sp("@parameter.outer") end, icon = " ", desc = "Swap next argument" },
+}, { noremap = true })
 -- Move
-vim.keymap.set(nxo, "[C", function() move.goto_previous_start("@class.outer",       "textobjects") end)
-vim.keymap.set(nxo, "[F", function() move.goto_previous_start("@function.outer",    "textobjects") end)
-vim.keymap.set(nxo, "[L", function() move.goto_previous_start("@loop.outer",        "textobjects") end)
-vim.keymap.set(nxo, "[D", function() move.goto_previous_start("@conditional.outer", "textobjects") end)
-vim.keymap.set(nxo, "]C", function() move.goto_previous_end("@class.outer",         "textobjects") end)
-vim.keymap.set(nxo, "]F", function() move.goto_previous_end("@function.outer",      "textobjects") end)
-vim.keymap.set(nxo, "]L", function() move.goto_previous_end("@loop.outer",          "textobjects") end)
-vim.keymap.set(nxo, "]D", function() move.goto_previous_end("@conditional.outer",   "textobjects") end)
-vim.keymap.set(nxo, "[c", function() move.goto_next_start("@class.outer",           "textobjects") end)
-vim.keymap.set(nxo, "[f", function() move.goto_next_start("@function.outer",        "textobjects") end)
-vim.keymap.set(nxo, "[l", function() move.goto_next_start("@loop.outer",            "textobjects") end)
-vim.keymap.set(nxo, "[d", function() move.goto_next_start("@conditional.outer",     "textobjects") end)
-vim.keymap.set(nxo, "]c", function() move.goto_next_end("@class.outer",             "textobjects") end)
-vim.keymap.set(nxo, "]f", function() move.goto_next_end("@function.outer",          "textobjects") end)
-vim.keymap.set(nxo, "]l", function() move.goto_next_end("@loop.outer",              "textobjects") end)
-vim.keymap.set(nxo, "]d", function() move.goto_next_end("@conditional.outer",       "textobjects") end)
+local move = require("nvim-treesitter-textobjects.move")
+local gps, gpe, gns, gne = move.goto_previous_start, move.goto_previous_end , move.goto_next_start, move.goto_next_end
+wk.add({
+  mode = nxo,
+  { "[C", function() gps("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class start" },
+  { "[F", function() gps("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func start" },
+  { "[L", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
+  { "[D", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
+  { "]C", function() gpe("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class end" },
+  { "]F", function() gpe("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func end" },
+  { "]L", function() gpe("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop end" },
+  { "]D", function() gpe("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond end" },
+  { "[c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
+  { "[f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
+  { "[l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
+  { "[d", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
+  { "]c", function() gne("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class end" },
+  { "]f", function() gne("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func end" },
+  { "]l", function() gne("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop end" },
+  { "]d", function() gne("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond end" },
+}, { noremap = true })
 -- Repeatable Move
-vim.keymap.set(nxo, ";", repmove.repeat_last_move)
-vim.keymap.set(nxo, ",", repmove.repeat_last_move_opposite)
-vim.keymap.set(nxo, "f", repmove.builtin_f_expr, { expr = true })
-vim.keymap.set(nxo, "F", repmove.builtin_F_expr, { expr = true })
-vim.keymap.set(nxo, "t", repmove.builtin_t_expr, { expr = true })
-vim.keymap.set(nxo, "T", repmove.builtin_T_expr, { expr = true })
+local repmove = require("nvim-treesitter-textobjects.repeatable_move")
+wk.add({
+  mode = nxo,
+  -- { ";", repmove.repeat_last_move,          expr = true, icon = "󰑙 ", desc = "Repeat last move forward" },
+  -- { ",", repmove.repeat_last_move_opposite, expr = true, icon = "󰑙 ", desc = "Repeat last move backward" },
+  { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
+  { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
+  { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
+  { "T", repmove.builtin_T_expr,            expr = true, icon = " ", desc = "Repeat moving with T" },
+}, { noremap = true })
