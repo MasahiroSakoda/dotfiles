@@ -41,12 +41,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     local ft   = ev.match
     local lang = vim.treesitter.language.get_lang(ft)
 
-    if not vim.g.vscode then
-      -- Activate nvim-treesitter highlight
-      pcall(vim.treesitter.start, ev.buf, lang)
-      -- Activate nvim-treesitter indentation
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    -- Activate nvim-treesitter highlight
+    if vim.g.vscode or not pcall(vim.treesitter.start, ev.buf, lang) then
+      return
     end
+    -- Activate nvim-treesitter indentation
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })
 
@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     if not pcall(vim.treesitter.get_parser, ev.buf) then
       return
     end
-      -- Activate fold via treesitter
+    -- Activate fold via treesitter
     vim.wo.foldmethod = "expr"
     vim.bo.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
   end,
