@@ -32,9 +32,7 @@ vim.treesitter.language.register("bash",     { "sh", "zsh", "dotenv" })
 vim.treesitter.language.register("markdown", { "mdx", "vimwiki", "octo", "codecompanion" })
 vim.treesitter.language.register("latex",    { "tex", "plaintex" })
 
--- Activate treesittter highlights, fold & indent
--- TODO: Improve nvim-treesitter performance w/ lazy loading
--- TODO: Separate fold config depends on filetypes
+-- Activate treesittter highlights & indent
 vim.api.nvim_create_autocmd({ "FileType" }, {
   desc     = "Start treesiter highlighting",
   group    = vim.api.nvim_create_augroup("TreesitterParser", {}),
@@ -46,10 +44,22 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     if not vim.g.vscode then
       -- Activate nvim-treesitter highlight
       pcall(vim.treesitter.start, ev.buf, lang)
-      -- Activate NeoVim fold
-      vim.wo.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
       -- Activate nvim-treesitter indentation
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
+-- Activate custom code folding via treesitter
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  desc     = "Custom fold config",
+  group    = vim.api.nvim_create_augroup("CustomFoldConfig", {}),
+  callback = function(ev)
+    local has_parser, _ pcall(vim.treesitter.get_parser, ev.buf)
+      -- Activate fold via treesitter
+    if has_parser then
+      vim.wo.foldmethod = "expr"
+      vim.bo.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
     end
   end,
 })
