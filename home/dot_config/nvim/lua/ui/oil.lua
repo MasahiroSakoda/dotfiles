@@ -50,6 +50,6 @@ oil.setup({
     ["`"]     = { "actions.cd", mode = "n" },
     ["~"]     = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
     ["g."]    = { "actions.toggle_hidden", mode = "n" },
-    ["gx"]    =   "actions.open_external",
+    ["g,"]    =   "actions.open_external",
   },
 })
