@@ -55,8 +55,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   desc     = "Custom fold config",
   group    = vim.api.nvim_create_augroup("CustomFoldConfig", {}),
   callback = function(ev)
-    local parser_ok, parser pcall(vim.treesitter.get_parser, ev.buf)
-    if not parser_ok or not parser then
+    if not pcall(vim.treesitter.get_parser, ev.buf) then
       return
     end
       -- Activate fold via treesitter
