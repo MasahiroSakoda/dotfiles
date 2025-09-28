@@ -218,13 +218,6 @@ if not is_vscode then
     { "<Leader>lt", "<CMD>lua Snacks.picker.lsp_type_definitions()<CR>", icon = " ", desc = "Type Definition" },
     { "<Leader>lr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = "References" },
 
-    -- DAP
-    -- TODO: Replace DAP commands with `Snacks.picker.*()`
-    -- { "<Leader>fdb", "<CMD>FzfLua dap_breakpoints<CR>",    icon = " ", desc = "Breakpoints" },
-    -- { "<Leader>fdc", "<CMD>FzfLua dap_configurations<CR>", icon = " ", desc = "Debug Config" },
-    -- { "<Leader>fdC", "<CMD>FzfLua dap_commands<CR>",       icon = " ", desc = "DAP Commands" },
-    -- { "<Leader>fdv", "<CMD>FzfLua dap_variables<CR>",      icon = " ", desc = "Debug Variables" },
-
     -- Others
     { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>", icon = " ", desc = "Search Icons" },
     {
@@ -273,9 +266,11 @@ wk.add({
 
   -- Debugger Control
   { "<Leader>d", group = "Debugger", icon = "🐛 " },
-  { "<Leader>db",  "<CMD>DapToggleBreakpoint<CR>", icon = " ", desc = "Toggle DAP Breakpoints" },
-  { "<Leader>dc",  "<CMD>DapContinue<CR>",         icon = " ", desc = "Continue Process" },
-  { "<Leader>dt",  "<CMD>DapTerminate<CR>",        icon = "□ ", desc = "Terminate Process" },
+  { "<Leader>db", "<CMD>DapToggleBreakpoint<CR>",         icon = " ", desc = "Toggle DAP Breakpoints" },
+  { "<Leader>dc", "<CMD>DapContinue<CR>",                 icon = " ", desc = "Continue Process" },
+  { "<Leader>dt", "<CMD>DapTerminate<CR>",                icon = "□ ", desc = "Terminate Process" },
+  { "<Leader>dL", "<CMD>DapShowLog<CR>",                  icon = "󰌱 ", desc = "Open DAP log" },
+  { "<Leader>dl", "<CMD>lua require'dap'.run_last()<CR>", icon = "↻ ", desc = "Run Last" },
 
   { "<Leader>ds", group = "Debugger Control", icon = "🛠️ " },
   { "<Leader>dso", "<CMD>DapStepOver<CR>",         icon = " ", desc = "Step Over" },
@@ -295,9 +290,7 @@ wk.add({
   { "<Leader>dvr", "<CMD>DapViewJump repl<CR>",        icon = " ", desc = "Jump to repl" },
   { "<Leader>dvc", "<CMD>DapViewJump console<CR>",     icon = "󰞷 ", desc = "Jump to console" },
 
-  { "<Leader>dL", "<CMD>lua require'dap'.run_last()<CR>",  icon = "↻ ", desc = "Run Last" },
-  { "<Leader>dl", "<CMD>vsplit ~/.cache/nvim/dap.log<CR>", icon = "󰌱 ", desc = "Open DAP log" },
-  { "<Leader>dv", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger w/ OSV" },
+  { "<Leader>d;", "<CMD>lua require'osv'.launch({port=8086})<CR>", icon = "", desc = "Launch Lua debugger" },
 }, opts)
 
 ---------------------------------------------------------------------------
