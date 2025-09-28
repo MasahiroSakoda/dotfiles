@@ -17,6 +17,11 @@ return {
     cmd    = { "TSInstall", "TSUpdate", "TSUninstall", "TSLog" },
     config = function() require("user.treesitter") end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("user.treesitter.context") end,
+  },
   { "JoosepAlviste/nvim-ts-context-commentstring" },
   {
     "hiphish/rainbow-delimiters.nvim",
