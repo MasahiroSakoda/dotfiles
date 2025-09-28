@@ -14,7 +14,10 @@ return {
     statusline = { "alpha", "dashboard", "lazy" },
     winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
   },
-  flash = { "flash_prompt", "notify", "noice", "oil", "cmp_menu" },
+  flash = {
+    "flash_prompt", "notify", "noice", "oil", "cmp_menu", "blink-cmp-menu", "snacks_dashboard",
+    function(win) return not vim.api.nvim_win_get_config(win).focusable end,
+  },
   oil   = {
     ".", "..", ".git", ".DS_Store",
     ".venv", ".direnv", ".devenv",
