@@ -1,18 +1,18 @@
-local ok, rd = pcall(require, "rainbow-delimiters")
+local ok, rd = pcall(require, "rainbow-delimiters.setup")
 if not ok then return end
 
-vim.g.rainbow_delimiters = {
+rd.setup({
   strategy = {
-    [''] = rd.strategy["global"],
-    vim  = rd.strategy["local"],
+    [""] = "rainbow-delimiters.strategy.global",
+    vim  = "rainbow-delimiters.strategy.local",
   },
   query = {
     [""]       = "rainbow-delimiters",
     lua        = "rainbow-blocks",
     latex      = "rainbow-blocks",
-    javascript = "rainbow-parens",
+    javascript = "rainbow-delimiters-react",
     typescript = "rainbow-parens",
-    tsx        = "rainbow-parens",
+    tsx        = "rainbow-tags-react",
   },
   highlight = {
     "RainbowDelimiterRed",
@@ -23,7 +23,5 @@ vim.g.rainbow_delimiters = {
     "RainbowDelimiterViolet",
     "RainbowDelimiterCyan",
   },
-  blacklist = {
-    "c", "cpp",
-  },
-}
+  blacklist = { "markdown", "help", "log" },
+})
