@@ -23,7 +23,5 @@ rd.setup({
     "RainbowDelimiterViolet",
     "RainbowDelimiterCyan",
   },
-  blacklist = {
-    "c", "cpp",
-  },
+  blacklist = { "markdown", "help", "log" },
 })
