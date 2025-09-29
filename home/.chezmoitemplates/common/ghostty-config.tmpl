@@ -1,0 +1,132 @@
+# -*-mode:dosini-*- vim:ft=dosini.gotexttmpl
+
+# To see docs for current config:
+# run `ghostty +show-config --docs | nvim`
+# or  `ghostty +show-config --default --docs | nvim`
+
+# App behavior
+auto-update = off
+fullscreen  = true
+shell-integration = {{ .shell }}
+shell-integration-features = cursor,sudo,no-title
+quit-after-last-window-closed = true
+desktop-notifications = true
+
+link-url = true
+
+## Cursor
+cursor-style-blink = true
+cursor-style       = block
+
+## Clipboard
+copy-on-select  = true
+clipboard-read  = allow
+
+## OS specific configurations
+{{- if eq .chezmoi.os "darwin" }}
+window-decoration             = true
+macos-titlebar-style          = tabs
+macos-titlebar-proxy-icon     = hidden
+macos-titlebar-style          = transparent
+macos-non-native-fullscreen   = false
+macos-option-as-alt           = true
+macos-window-shadow           = false
+macos-auto-secure-input       = true
+macos-secure-input-indication = false
+{{- else if eq .chezmoi.os "linux"}}
+window-decoration   = false
+gtk-titlebar        = false
+gtk-single-instance = true
+gtk-tabs-location   = bottom
+gtk-wide-tabs       = false
+{{- end }}
+
+## Quick Terminal
+quick-terminal-position = bottom
+quick-terminal-screen   = main
+quick-terminal-size     = 25%, 75%
+quick-terminal-animation-duration = 0.2
+
+## Window
+window-theme       = system
+window-step-resize = true
+window-padding-x = 0
+window-padding-y = 0
+window-save-state = default
+
+{{- if .ghostty.shader.enabled }}
+## Shader
+custom-shader = {{ .chezmoi.homeDir }}/.local/share/ghostty/shaders/{{ .ghostty.shader.module }}.glsl
+custom-shader-animation = {{ .ghostty.shader.animate }}
+{{- end }}
+
+## Appearance
+## colors: `ghostty +list-colors`
+## See: `ghostty ++list-themes`
+theme = {{ .terminal.ghostty.theme }}
+
+# background-blur-radius = 20
+background-opacity = {{ .terminal.ghostty.opacity }}
+unfocused-split-opacity = 0.8
+
+## Mouse
+mouse-hide-while-typing = true
+mouse-shift-capture     = never
+mouse-scroll-multiplier = 2
+focus-follows-mouse     = true
+
+## Font: `ghostty +list-fonts`
+font-family  = {{ .font.family.combined | quote }}
+font-size    = {{ .font.size.medium }}
+font-feature = -dlig
+font-thicken = true
+font-thicken-strength = 1
+
+## Keymap: `ghostty +list-keybinds`
+keybind = shilft+enter=\n           # Insert new line
+keybind = super+backspace=text:\x15 # Delete whole line
+
+### See actions: `ghostty +list-actions`
+### See: https://ghostty.org/docs/config/keybind/reference
+keybind = super+q=quit
+keybind = super+w=close_surface
+keybind = super+k=clear_screen
+keybind = super+ctrl+f=toggle_fullscreen
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = global:super+ctrl+;=toggle_quick_terminal
+
+### Font: ghostty +list-fonts
+keybind = super+0=reset_font_size
+keybind = super++=increase_font_size:1
+keybind = super+-=decrease_font_size:1
+
+### Window / Split
+keybind = super+n=new_window
+keybind = super+shift+w=close_window
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down
+keybind = super+[=goto_split:previous
+keybind = super+]=goto_split:next
+keybind = super+shift+h=goto_split:left
+keybind = super+shift+l=goto_split:right
+keybind = super+shift+j=goto_split:bottom
+keybind = super+shift+k=goto_split:top
+keybind = ctrl+left=resize_split:left,20
+keybind = ctrl+right=resize_split:right,20
+keybind = ctrl+0=equalize_splits
+
+### Tab
+keybind = super+t=new_tab
+keybind = ctrl+tab=next_tab
+keybind = shift+ctrl+tab=previous_tab
+
+keybind = super+1=goto_tab:1
+keybind = super+2=goto_tab:2
+keybind = super+3=goto_tab:3
+keybind = super+4=goto_tab:4
+keybind = super+5=goto_tab:5
+keybind = super+6=goto_tab:6
+keybind = super+7=goto_tab:7
+keybind = super+8=goto_tab:8
+keybind = super+9=last_tab

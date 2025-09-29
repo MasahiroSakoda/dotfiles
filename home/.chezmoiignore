@@ -124,6 +124,7 @@ Library/
 .xsession
 .Xresources
 .config/Code
+.config/ghostty
 .config/i3
 .config/superfile
 {{- end }}
