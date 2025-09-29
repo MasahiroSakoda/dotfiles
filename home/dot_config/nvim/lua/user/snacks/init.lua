@@ -8,6 +8,7 @@ snacks.setup({
   quickfile    = require("user.snacks.quickfile"),
   scratch      = require("user.snacks.scratch"),
   indent       = require("user.snacks.indent"),
+  scope        = require("user.snacks.scope"),
   toggle       = require("user.snacks.toggle"),
   dashboard    = require("user.snacks.dashboard"),
   dim          = require("user.snacks.dim"),
