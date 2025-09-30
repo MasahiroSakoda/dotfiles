@@ -20,6 +20,10 @@ return {
     config = function() require("ai.codecompanion") end,
   },
   {
+    "folke/sidekick.nvim",
+    config = function() require("ai.sidekick") end,
+  },
+  {
     "ravitemer/mcphub.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd    = "MCPHub",
