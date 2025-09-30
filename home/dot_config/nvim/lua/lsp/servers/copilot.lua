@@ -71,7 +71,7 @@ return {
     editorPluginInfo = { name = "NeoVim", version = tostring(vim.version()) },
   },
   settings = {
-    telemetry = { enabled = false },
+    telemetry = { telemetryLevel = "off" },
   },
 
   on_init = function(client, _)
