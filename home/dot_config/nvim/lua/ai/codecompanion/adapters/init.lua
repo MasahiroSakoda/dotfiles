@@ -6,7 +6,7 @@ return {
     copilot   = require("ai.codecompanion.adapters.copilot"),
     openai    = require("ai.codecompanion.adapters.openai"),
     anthropic = require("ai.codecompanion.adapters.anthropic"),
-    google    = require("ai.codecompanion.adapters.google"),
+    gemini    = require("ai.codecompanion.adapters.gemini"),
     qwen      = require("ai.codecompanion.adapters.qwen"),
     ollama    = require("ai.codecompanion.adapters.ollama"),
   },

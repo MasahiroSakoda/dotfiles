@@ -344,6 +344,26 @@ if not is_vscode then
     cnoreabbrev cca CodeCompanionActions
   ]]
 
+  -- sidekick.nvim
+  wk.add({
+    mode = nv,
+    { "<Leader>a", group = "AI coding agent", icon = "🤖 " },
+    { "<Leader>aa", "<CMD>lua require'sidekick.cli'.toggle({focus=true})<CR>", icon = " ", desc = "Toggle CLI" },
+    {
+      "<Leader>ac",
+      "<CMD>lua require'sidekick.cli'.toggle({name='claude',focus=true})<CR>",
+      icon = " ",
+      desc = "Claude Code",
+    },
+    {
+      "<Leader>ag",
+      "<CMD>lua require'sidekick.cli'.toggle({name='gemini',focus=true})<CR>",
+      icon = " ",
+      desc = "Gemini CLI",
+    },
+    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.select_prompt()<CR>", icon = "󰞷 ", desc = "Sidekick Ask Prompt" },
+  })
+
   -- codecompanion.nvim
   wk.add({
     { "<Leader>c", group = "AI Code Assistant", icon = "🤖 " },
