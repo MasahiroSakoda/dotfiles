@@ -15,5 +15,5 @@ images = [
 ]
 
 [terminal.ghostty]
-theme = "FirefoxDev"
+theme = "GitHub Dark"
 opacity = 0.85
