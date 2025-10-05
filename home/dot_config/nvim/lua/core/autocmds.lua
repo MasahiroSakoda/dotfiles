@@ -119,7 +119,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     -- Enable completion
-    if client:supports_method("textDocument/completion", ev.buf) then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, ev.buf) then
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
       local kinds_ok, kinds = pcall(require, "lspkind")
@@ -135,8 +135,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
     -- Format on save
     local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
-    if not client:supports_method("textDocument/willSaveWaitUntil")
-       and client:supports_method("textDocument/formatting", ev.buf) then
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_formatting, ev.buf) then
       vim.api.nvim_clear_autocmds({ group = format_group, buffer = ev.buf })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         desc     = "Format on save via LSP",
