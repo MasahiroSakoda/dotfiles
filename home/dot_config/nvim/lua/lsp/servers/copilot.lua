@@ -92,11 +92,12 @@ return {
         vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignIn",  function() sign_in(bufnr,  client)  end, {})
         vim.api.nvim_buf_create_user_command(bufnr, "LspCopilotSignOut", function() sign_out(bufnr, client) end, {})
 
-        -- Enable inline completion
-        vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
-
         -- Keymaps for attached buffer
-        if client:supports_method("textDocument/inlineCompletion", bufnr) then
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+          -- Enable inline completion
+          vim.schedule(function()
+            vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+          end)
           vim.keymap.set("i", "<C-CR>", vim.lsp.inline_completion.get())
           vim.keymap.set("i", "<C-f>",  vim.lsp.inline_completion.select({ bufnr = bufnr, count = 1 }))
           vim.keymap.set("i", "<C-b>",  vim.lsp.inline_completion.select({ bufnr = bufnr, count = -1 * vim.v.count1 }))
