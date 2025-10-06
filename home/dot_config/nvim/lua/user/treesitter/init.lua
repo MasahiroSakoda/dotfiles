@@ -54,12 +54,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   desc     = "Custom fold config",
   group    = vim.api.nvim_create_augroup("CustomFoldConfig", {}),
+  pattern  = { "*" },
   callback = function(ev)
     if not pcall(vim.treesitter.get_parser, ev.buf) then
       return
     end
     -- Activate fold via treesitter
-    vim.wo.foldmethod = "expr"
-    vim.bo.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   end,
 })

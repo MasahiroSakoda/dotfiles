@@ -39,8 +39,8 @@ local swap   = require("nvim-treesitter-textobjects.swap")
 local sp, sn = swap.swap_previous, swap.swap_next
 wk.add({
   mode = "n",
-  { "<Leader>a", function() sn("@parameter.inner") end, icon = " ", desc = "Swap next argument" },
-  { "<Leader>A", function() sp("@parameter.outer") end, icon = " ", desc = "Swap next argument" },
+  { "g<", function() sp("@parameter.inner") end, icon = " ", desc = "Swap prev argument" },
+  { "g>", function() sn("@parameter.inner") end, icon = " ", desc = "Swap next argument" },
 }, { noremap = true })
 -- Move
 local move = require("nvim-treesitter-textobjects.move")
