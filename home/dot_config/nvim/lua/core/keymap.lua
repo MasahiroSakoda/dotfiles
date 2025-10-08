@@ -99,11 +99,10 @@ wk.add({
   { ";l", "<CMD>vertical resize +3<CR>", icon = " ", desc = "Increase window width" },
 
   -- Tab Navigation
-  { "<Tab>", group = "Tab Navigation", icon = "📑 " },
-  { "<Tab>h", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
-  { "<Tab>l", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
-  { "<Tab>1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
-  { "<Tab>9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
+  { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
+  { "]t", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
+  { "[1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
+  { "]9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
 
   -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
@@ -119,8 +118,8 @@ wk.add({
   { "<Leader>ws", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
   { "<Leader>wS", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
 
-  { "[t", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = "Prev TODOs" },
-  { "]t", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = "Next TODOs" },
+  { "[x", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = "Prev TODOs" },
+  { "]x", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = "Next TODOs" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -348,6 +347,13 @@ if not is_vscode then
   wk.add({
     mode = nv,
     { "<Leader>a", group = "AI coding agent", icon = "🤖 " },
+    {
+      "<Leader>as",
+      "<CMD>lua require'sidekick.cli'.select({filter={installed=true}})<CR>",
+      mode = "n",
+      icon = "󰞷 ",
+      desc = "Select CLI",
+    },
     { "<Leader>aa", "<CMD>lua require'sidekick.cli'.toggle({focus=true})<CR>", icon = " ", desc = "Toggle CLI" },
     {
       "<Leader>ac",
@@ -361,7 +367,21 @@ if not is_vscode then
       icon = " ",
       desc = "Gemini CLI",
     },
-    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.select_prompt()<CR>", icon = "󰞷 ", desc = "Sidekick Ask Prompt" },
+    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.prompt()<CR>", mode = nx, icon = "󰞷 ", desc = "Prompt Menu" },
+    {
+      "<Leader>at",
+      "<CMD>lua require'sidekick.cli'.send({msg='{this}'})<CR>",
+      mode = nx,
+      icon = "󱈄 ",
+      desc = "Send This",
+    },
+    {
+      "<Leader>av",
+      "<CMD>lua require'sidekick.cli'.send({msg='{selection}'})<CR>",
+      mode = "x",
+      icon = "󱊅 ",
+      desc = "Send Visual Selection",
+    },
   })
 
   -- codecompanion.nvim
