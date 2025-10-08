@@ -118,8 +118,8 @@ wk.add({
   { "<Leader>ws", ":split<Space>",  icon = " ", desc = "Split window horizontally" },
   { "<Leader>wS", ":vsplit<Space>", icon = " ", desc = "Split window vertically" },
 
-  { "[t", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = "Prev TODOs" },
-  { "]t", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = "Next TODOs" },
+  { "[x", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = "Prev TODOs" },
+  { "]x", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = "Next TODOs" },
 }, opts)
 
 ---------------------------------------------------------------------------
