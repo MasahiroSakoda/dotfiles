@@ -99,11 +99,10 @@ wk.add({
   { ";l", "<CMD>vertical resize +3<CR>", icon = " ", desc = "Increase window width" },
 
   -- Tab Navigation
-  { "<Tab>", group = "Tab Navigation", icon = "📑 " },
-  { "<Tab>h", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
-  { "<Tab>l", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
-  { "<Tab>1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
-  { "<Tab>9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
+  { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
+  { "]t", "<CMD>tabnext<CR>",  icon = " ", desc = "Move to next tab" },
+  { "[1", "<CMD>tabfirst<CR>", icon = " ", desc = "Move to First tab" },
+  { "]9", "<CMD>tablast<CR>",  icon = " ", desc = "Move to Last tab" },
 
   -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
