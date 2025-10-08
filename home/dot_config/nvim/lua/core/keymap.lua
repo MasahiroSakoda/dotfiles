@@ -348,6 +348,13 @@ if not is_vscode then
   wk.add({
     mode = nv,
     { "<Leader>a", group = "AI coding agent", icon = "🤖 " },
+    {
+      "<Leader>as",
+      "<CMD>lua require'sidekick.cli'.select({filter={installed=true}})<CR>",
+      mode = "n",
+      icon = "󰞷 ",
+      desc = "Select CLI",
+    },
     { "<Leader>aa", "<CMD>lua require'sidekick.cli'.toggle({focus=true})<CR>", icon = " ", desc = "Toggle CLI" },
     {
       "<Leader>ac",
@@ -361,7 +368,21 @@ if not is_vscode then
       icon = " ",
       desc = "Gemini CLI",
     },
-    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.select_prompt()<CR>", icon = "󰞷 ", desc = "Sidekick Ask Prompt" },
+    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.prompt()<CR>", mode = nx, icon = "󰞷 ", desc = "Prompt Menu" },
+    {
+      "<Leader>at",
+      "<CMD>lua require'sidekick.cli'.send({msg='{this}'})<CR>",
+      mode = nx,
+      icon = "󱈄 ",
+      desc = "Send This",
+    },
+    {
+      "<Leader>av",
+      "<CMD>lua require'sidekick.cli'.send({msg='{selection}'})<CR>",
+      mode = "x",
+      icon = "󱊅 ",
+      desc = "Send Visual Selection",
+    },
   })
 
   -- codecompanion.nvim
