@@ -9,18 +9,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
-local url_pattern  = "(h?ttps?|ftp|file|ssh|git)://[%w-_%.%?%.:/%+=&]+"
-local lowlight_url = function()
-  for _, match in ipairs(vim.fn.getmatches()) do
-    if match.group == "HighlightURL" then vim.fn.matchdelete(match.id) end
-  end
-end
-
-local highlight_url = function()
-  lowlight_url()
-  if vim.g.highlighturl_enabled then vim.fn.matchadd("HighlightURL", url_pattern, 15) end
-end
-
 -- Strip trailing new lines at the end of file on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   group   = augroup("TrailStripper"),
@@ -37,7 +25,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
   group    = augroup "highlight_url",
   callback = function(_)
-    -- highlight_url()
+    local lines = vim.api.nvim_buf_line_count(vim.api.nvim_get_current_buf())
+    local fsize  = vim.fn.getfsize(vim.fn.expand "%")
+    if lines > 5000 or fsize > 2 * 1024 * 1024 then return end
+    require("utils.highlight").set_url_match()
   end,
 })
 
