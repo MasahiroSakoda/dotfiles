@@ -88,23 +88,30 @@ vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
 
 local lsp_augroup = augroup("UserLspGroup")
 
--- LSP Actions (keymaps, completion, format)
+-- Keymaps related LSP
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   group    = lsp_augroup,
   callback = function(ev)
-    -- Configure LSP related keymap
-    local bufopts = { noremap = true, silent = true, buffer = ev.buf }
-    local extend = vim.tbl_extend
-    vim.keymap.set("n", "K",   vim.lsp.buf.hover,          extend("force", bufopts, { desc = "Hover Docs" }))
-    vim.keymap.set("n", "gd",  vim.lsp.buf.definition,     extend("force", bufopts, { desc = "Definition" }))
-    vim.keymap.set("n", "gD",  vim.lsp.buf.declaration,    extend("force", bufopts, { desc = "Declaration" }))
-    vim.keymap.set("n", "gri", vim.lsp.buf.implementation, extend("force", bufopts, { desc = "Implementation" }))
-    vim.keymap.set("n", "grn", vim.lsp.buf.rename,         extend("force", bufopts, { desc = "Rename" }))
-    vim.keymap.set("n", "grr", vim.lsp.buf.references,     extend("force", bufopts, { desc = "References" }))
-    vim.keymap.set("n", "gra", vim.lsp.buf.code_action,    extend("force", bufopts, { desc = "Code Action" }))
+    require("which-key").add({
+      mode    = "n",
+      noremap = true,
+      silent  = true,
+      { "K",  vim.lsp.buf.hover,          buffer = ev.buf, icon = "󰈙 ", desc = "Hover Docs" },
+      { "gd", vim.lsp.buf.definition,     buffer = ev.buf, icon = "󰫧 ", desc = "Definition" },
+      { "gD", vim.lsp.buf.declaration,    buffer = ev.buf, icon = " ", desc = "Declaration" },
+      { "gI", vim.lsp.buf.implementation, buffer = ev.buf, icon = " ", desc = "Implementation" },
+      { "gr", vim.lsp.buf.rename,         buffer = ev.buf, icon = "󰑕 ", desc = "Rename" },
+      { "gR", vim.lsp.buf.references,     buffer = ev.buf, icon = " ", desc = "References" },
+      { "ga", vim.lsp.buf.code_action,    buffer = ev.buf, icon = " ", desc = "Code Action" },
+    })
+  end
+})
 
+-- Enable completion via LSP
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  group    = lsp_augroup,
+  callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-    -- Enable completion
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, ev.buf) then
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
@@ -118,8 +125,19 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         end
       })
     end
+  end
+})
 
-    -- Format on save via LSP
+-- Disable completion via LSP
+vim.api.nvim_create_autocmd({ "LspDetach" }, {
+  callback = function(ev) vim.lsp.completion(false, ev.data.client_id, ev.buf) end
+})
+
+-- Format on save automatically via LSP
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  group    = lsp_augroup,
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_formatting, ev.buf) then
       vim.api.nvim_clear_autocmds({ group = format_group, buffer = ev.buf })
