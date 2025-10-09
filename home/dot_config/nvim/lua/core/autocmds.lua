@@ -10,23 +10,20 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 -- Strip trailing new lines at the end of file on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group   = augroup("TrailStripper"),
-  command = ":%s/\\n\\+\\%$//e",
-})
+vim.api.nvim_create_autocmd("BufWritePre", { group = augroup("TrailStripper"), command = ":%s/\\n\\+\\%$//e" })
 
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group   = augroup("checktime"),
+  group   = augroup("Checktime"),
   command = "checktime",
 })
 
 -- Highlight URL
 vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
-  group    = augroup "highlight_url",
+  group    = augroup("HighlightURL"),
   callback = function(_)
     local lines = vim.api.nvim_buf_line_count(vim.api.nvim_get_current_buf())
-    local fsize  = vim.fn.getfsize(vim.fn.expand "%")
+    local fsize = vim.fn.getfsize(vim.fn.expand "%")
     if lines > 5000 or fsize > 2 * 1024 * 1024 then return end
     require("utils.highlight").set_url_match()
   end,
@@ -34,13 +31,13 @@ vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, 
 
 -- Highlight on yanked range
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group    = augroup("highlight_yank"),
+  group    = augroup("HighlightOnYank"),
   callback = function() vim.hl.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
 })
 
 -- Close specific filetype with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  group    = augroup("close_with_q"),
+  group    = augroup("CustomClose"),
   pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil", "dap-view", "dap-view-term", "dap-view-repl" },
   callback = function (event)
     vim.bo[event.buf].buflisted = false
@@ -81,16 +78,14 @@ vim.api.nvim_create_autocmd({ "VimResized" }, { group = augroup("WinResize"), co
 
 -- Override Quickfix to trouble.nvim qflist
 vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
-  callback = function()
-    vim.cmd([[cclose | Trouble qflist open focus=true]])
-  end,
+  callback = function() vim.cmd([[cclose | Trouble qflist open focus=true]]) end,
 })
 
-local lsp_augroup = augroup("UserLspGroup")
+local lsp_group = augroup("LspCustomGroup")
 
 -- Keymaps related LSP
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
-  group    = lsp_augroup,
+  group    = lsp_group,
   callback = function(ev)
     require("which-key").add({
       mode    = "n",
@@ -109,7 +104,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
 -- Enable completion via LSP
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
-  group    = lsp_augroup,
+  group    = lsp_group,
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, ev.buf) then
@@ -135,7 +130,7 @@ vim.api.nvim_create_autocmd({ "LspDetach" }, {
 
 -- Format on save automatically via LSP
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
-  group    = lsp_augroup,
+  group    = lsp_group,
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
