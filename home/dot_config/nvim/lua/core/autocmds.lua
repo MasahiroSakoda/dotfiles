@@ -130,7 +130,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
 -- Disable completion via LSP
 vim.api.nvim_create_autocmd({ "LspDetach" }, {
-  callback = function(ev) vim.lsp.completion(false, ev.data.client_id, ev.buf) end
+  callback = function(ev) vim.lsp.completion.enable(false, ev.data.client_id, ev.buf) end
 })
 
 -- Format on save automatically via LSP
