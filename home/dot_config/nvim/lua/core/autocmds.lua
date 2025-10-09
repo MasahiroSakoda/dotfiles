@@ -32,10 +32,10 @@ vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, 
   end,
 })
 
--- Highlight yank range
+-- Highlight on yanked range
 vim.api.nvim_create_autocmd("TextYankPost", {
   group    = augroup("highlight_yank"),
-  callback = function() vim.hl.on_yank() end,
+  callback = function() vim.hl.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
 })
 
 -- Close specific filetype with <q>
