@@ -1,7 +1,7 @@
 local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
 
+-- Dynamic colorcolumn references `max_line_width` from .editorconfig
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  desc = "Dynamic colorcolumn references `max_line_width` from .editorconfig",
   callback = function(ev)
     local columns = {}
     table.insert(columns, tostring(vim.bo[ev.buf].textwidth))
@@ -21,34 +21,34 @@ local highlight_url = function()
   if vim.g.highlighturl_enabled then vim.fn.matchadd("HighlightURL", url_pattern, 15) end
 end
 
+-- Strip trailing new lines at the end of file on save
 vim.api.nvim_create_autocmd("BufWritePre", {
-  desc    = "Strip trailing new lines at the end of file on save",
   group   = augroup("TrailStripper"),
-  pattern = "*",
   command = ":%s/\\n\\+\\%$//e",
 })
 
+-- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  desc    = "Check if we need to reload the file when it changed",
   group   = augroup("checktime"),
   command = "checktime",
 })
 
+-- Highlight URL
 vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
-  desc     = "URL Highlighting",
   group    = augroup "highlight_url",
-  callback = function(_) highlight_url() end,
+  callback = function(_)
+    -- highlight_url()
+  end,
 })
 
+-- Highlight yank range
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc     = "Highlight on yank",
   group    = augroup("highlight_yank"),
-  pattern  = "*",
-  callback = function(_) vim.hl.on_yank() end,
+  callback = function() vim.hl.on_yank() end,
 })
 
+-- Close specific filetype with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  desc     = "Close specific filetype with <q>",
   group    = augroup("close_with_q"),
   pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil", "dap-view", "dap-view-term", "dap-view-repl" },
   callback = function (event)
@@ -58,10 +58,9 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local cursor_grp = augroup("CustomCursor")
+-- Enable cursorcolumn automatically
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
-  desc    = "enable cursorcolumn automatically",
-  pattern = "*",
-  group   = cursor_grp,
+  group    = cursor_grp,
   callback = function()
     if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" and vim.bo.filetype ~= "codecompanion" then
       vim.opt.cursorcolumn = true
@@ -69,10 +68,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "Cmdline
   end,
 })
 
+-- Disable cursorcolumn automatically
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
-  desc    = "disable cursorcolumn automatically",
-  pattern = "*",
-  group   = cursor_grp,
+  group    = cursor_grp,
   callback = function()
     if vim.o.nu then
       vim.opt.cursorcolumn = false
@@ -81,29 +79,26 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
   end,
 })
 
+-- Surveillance chezmoi target files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  desc     = "Surveillance chezmoi target files",
   pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 
-vim.api.nvim_create_autocmd({ "VimResized" }, {
-  desc    = "Automatically resize windows when the host window size changes.",
-  group   = augroup("WinResize"),
-  pattern = "*",
-  command = "wincmd =",
-})
+-- Automatically resize windows when the host window size changes.
+vim.api.nvim_create_autocmd({ "VimResized" }, { group = augroup("WinResize"), command = "wincmd =" })
 
+-- Override Quickfix to trouble.nvim qflist
 vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
-  desc     = "Override Quickfix to trouble.nvim qflist",
   callback = function()
     vim.cmd([[cclose | Trouble qflist open focus=true]])
   end,
 })
 
 local lsp_augroup = augroup("UserLspGroup")
+
+-- LSP Actions (keymaps, completion, format)
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
-  desc     = "LSP Actions (keymaps, auto format)",
   group    = lsp_augroup,
   callback = function(ev)
     -- Configure LSP related keymap
@@ -133,12 +128,11 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
       })
     end
 
-    -- Format on save
+    -- Format on save via LSP
     local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_formatting, ev.buf) then
       vim.api.nvim_clear_autocmds({ group = format_group, buffer = ev.buf })
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        desc     = "Format on save via LSP",
         group    = format_group,
         buffer   = ev.buf,
         callback = require("lsp.config.format"),
@@ -147,6 +141,8 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   end
 })
 
+-- Workaround oil.nvim relative path issue
+-- https://github.com/stevearc/oil.nvim/issues/234
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
   group    = augroup("OilRelativePathFix"),
   pattern  = "oil:///*",
