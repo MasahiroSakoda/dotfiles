@@ -15,3 +15,18 @@ vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_hover] = function(_, resu
 
   return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
 end
+
+
+-- Jump directly to the first available definition every time.
+vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_definition] = function(err, result, ctx, config)
+  if not result or vim.tbl_isempty(result) then
+    vim.notify("[LSP]: Could not find definition\n" .. err, vim.log.levels.INFO)
+    return
+  end
+
+  if vim.tbl_islist(result) then
+    vim.lsp.util.jump_to_location(result[1], "utf-8")
+  else
+    vim.lsp.util.jump_to_location(result, "utf-8")
+  end
+end
