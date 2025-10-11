@@ -51,3 +51,11 @@ vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_references] = function(er
   vim.fn.setqflist(vim.lsp.util.locations_to_items(result, "utf-8"))
   vim.api.nvim_command("copen")
 end
+
+vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_codeAction] = function(_, _, actions)
+  if not actions or vim.tbl_isempty(actions) then
+    return
+  end
+
+  vim.lsp.util.show_code_actions(actions)
+end
