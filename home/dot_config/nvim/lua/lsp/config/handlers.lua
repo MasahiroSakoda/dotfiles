@@ -35,3 +35,19 @@ vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_definition] = function(er
     vim.lsp.util.show_document(result, client.offset_encoding, { reuse_win = false, focus = true })
   end
 end
+
+vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_references] = function(err, result, ctx, _)
+  if err then
+    vim.notify("[LSP]: References error: " .. err, vim.log.levels.ERROR)
+    return
+  end
+
+  local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
+  if not result or vim.tbl_isempty(result) then
+    vim.notify("[LSP]: No references found" .. client.name, vim.log.levels.INFO)
+    return
+  end
+
+  vim.fn.setqflist(vim.lsp.util.locations_to_items(result, "utf-8"))
+  vim.api.nvim_command("copen")
+end
