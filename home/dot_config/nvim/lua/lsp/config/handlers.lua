@@ -18,14 +18,14 @@ end
 
 -- Jump directly to the first available definition every time.
 vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_definition] = function(err, result, ctx, _)
+  local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
   if err then
-    vim.notify("[LSP]: Definition error" .. err, vim.log.levels.ERROR)
+    vim.notify(string.format("[%s] Definition error: ", client.name, err), vim.log.levels.ERROR)
     return
   end
 
-  local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
   if not result or vim.tbl_isempty(result) then
-    vim.notify("[LSP]: Could not find definition: " .. client.name, vim.log.levels.INFO)
+    vim.notify(string.format("[%s]: Could not find definition", client.name), vim.log.levels.INFO)
     return
   end
 
@@ -37,14 +37,14 @@ vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_definition] = function(er
 end
 
 vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_references] = function(err, result, ctx, _)
+  local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
   if err then
-    vim.notify("[LSP]: References error: " .. err, vim.log.levels.ERROR)
+    vim.notify(string.format("[%s] Reference error: %s", client.name, err), vim.log.levels.ERROR)
     return
   end
 
-  local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
   if not result or vim.tbl_isempty(result) then
-    vim.notify("[LSP]: No references found" .. client.name, vim.log.levels.INFO)
+    vim.notify(string.format("[%s]: No references found", client.name), vim.log.levels.INFO)
     return
   end
 
