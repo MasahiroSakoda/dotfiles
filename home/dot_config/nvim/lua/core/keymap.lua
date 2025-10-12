@@ -17,14 +17,12 @@ local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
 
 -- Abbreviation for typo
-vim.cmd[[
-  cnoreabbrev Q! q!
-  cnoreabbrev q1 q!
-  cnoreabbrev Q1 q!
-  cnoreabbrev W! w!
-  cnoreabbrev Wq wq
-  cnoreabbrev WQ wq
-]]
+vim.cmd.cnoreabbrev("Q!", "q!")
+vim.cmd.cnoreabbrev("q1", "q!")
+vim.cmd.cnoreabbrev("Q1", "q!")
+vim.cmd.cnoreabbrev("W!", "w!")
+vim.cmd.cnoreabbrev("Wq", "wq")
+vim.cmd.cnoreabbrev("WQ", "wq")
 
 ---------------------------------------------------------------------------
 -- which-key: <Leader> + w
