@@ -22,6 +22,9 @@ vim.api.nvim_set_hl(0, "SignColumn",   { ctermbg = 0, bg = palette.bg0 })
 -- Highlight
 vim.g.highlighturl_enabled = true
 
+-- Window
+vim.o.winborder = "rounded"
+
 -- Transparent window
 vim.opt.winblend = 25
 vim.opt.pumblend = 25
