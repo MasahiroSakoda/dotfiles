@@ -2,7 +2,7 @@
 local ok, bqf = pcall(require, "nvim-bqf")
 if not ok then return end
 
-bef.setup({
+bqf.setup({
   auto_enable        = true,
   auto_resize_height = true,
 
@@ -15,8 +15,7 @@ bef.setup({
     border       = { '┃', '┃', '━', '━', '┏', '┓', '┗', '┛', '█' },
     show_title   = false,
 
-    should_preview_cb = function(bufnr, qwinid)
-      local ret     = true
+    should_preview_cb = function(bufnr, _)
       local bufname = vim.api.nvim_buf_get_name(bufnr)
       return vim.fn.getfsize(bufname) > 100 * 1024 and false or true
     end,
