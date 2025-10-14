@@ -41,7 +41,8 @@ return {
   },
   {
     "kevinhwang91/nvim-bqf",
-    ft = "qf",
+    ft     = "qf",
+    event  = "VeryLazy",
     config = function()
       require("utils.quickfix")
       require("user.quickfix.bqf")
