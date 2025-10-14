@@ -459,9 +459,9 @@ if not is_vscode then
     { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = "Toggle theme style" },
 
     { ",x", "<CMD>ToggleDiagnosticList<CR>",      icon = " ", desc = "Toggle Diagnostics" },
-    { ",X", "<CMD>Trouble symbols toggle<CR>",          icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>ToggleQuickfixList<CR>",              icon = " ", desc = "Toggle Quickfix list" },
-    { ",l", "<CMD>ToggleLocationList<CR>",              icon = " ", desc = "Toggle Location list" },
+    { ",X", "<CMD>Trouble symbols toggle<CR>",    icon = " ", desc = "Toggle Symbols" },
+    { ",q", "<CMD>ToggleQuickfixList<CR>",        icon = " ", desc = "Toggle Quickfix list" },
+    { ",l", "<CMD>ToggleLocationList<CR>",        icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
     { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = "Toggle Inlay Hints" },
