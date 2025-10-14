@@ -12,22 +12,22 @@ local function toggle_qf_list()
   end
 end
 
-local function toggle_loc_list()
+local function toggle_location_list()
   for _, win in pairs(vim.fn.getwininfo()) do
     if win["loclist"] == 1 then
       vim.cmd("lclose")
       return
     end
   end
-  if not vim.tbl_isempty(vim.fn.getloclist()) then
+  if not vim.tbl_isempty(vim.fn.getloclist(0)) then
     vim.cmd("lopen")
   end
 end
 
-vim.api.nvim_create_user_command("ToggleQuickfixList", function(opts)
+vim.api.nvim_create_user_command("ToggleQuickfixList", function(_)
   toggle_qf_list()
 end, { desc = "Toggle Quickfix list", nargs = "*", bang = true })
 
-vim.api.nvim_create_user_command("ToggleLocationlist", function(opts)
-  toggle_loc_list()
+vim.api.nvim_create_user_command("ToggleLocationList", function(_)
+  toggle_location_list()
 end, { desc = "Toggle Location list", nargs = "*", bang = true })
