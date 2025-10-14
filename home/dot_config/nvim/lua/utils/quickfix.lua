@@ -24,6 +24,18 @@ local function toggle_location_list()
   end
 end
 
+local function toggle_diagnostic_list()
+  local items = vim.diagnostic.toqflist(vim.diagnostic.get())
+  vim.fn.setqflist(items)
+  if vim.tbl_isempty(items) then
+    vim.cmd.cclose()
+  else
+    vim.cmd.copen()
+    vim.cmd.wincmd("p")
+    vim.cmd.cc()
+  end
+end
+
 vim.api.nvim_create_user_command("ToggleQuickfixList", function(_)
   toggle_qf_list()
 end, { desc = "Toggle Quickfix list", nargs = "*", bang = true })
@@ -31,3 +43,7 @@ end, { desc = "Toggle Quickfix list", nargs = "*", bang = true })
 vim.api.nvim_create_user_command("ToggleLocationList", function(_)
   toggle_location_list()
 end, { desc = "Toggle Location list", nargs = "*", bang = true })
+
+vim.api.nvim_create_user_command("ToggleDiagnosticList", function(_)
+  toggle_diagnostic_list()
+end, { desc = "Toggle Symbol list", nargs = "*", bang = true })
