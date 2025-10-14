@@ -39,7 +39,14 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
   },
-  { "kevinhwang91/nvim-bqf", ft = "qf", config = function() require("user.quickfix.bqf") end },
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    config = function()
+      require("utils.quickfix")
+      require("user.quickfix.bqf")
+    end,
+  },
 
   {
     "lervag/vimtex",
