@@ -460,8 +460,8 @@ if not is_vscode then
 
     { ",x", "<CMD>Trouble diagnostics toggle<CR>",      icon = " ", desc = "Toggle Diagnostics" },
     { ",X", "<CMD>Trouble symbols toggle<CR>",          icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>cclose | Trouble qflist toggle<CR>",  icon = " ", desc = "Toggle Quickfix list" },
-    { ",l", "<CMD>lclose | Trouble loclist toggle<CR>", icon = " ", desc = "Toggle Location list" },
+    { ",q", "<CMD>ToggleQuickfixList<CR>",              icon = " ", desc = "Toggle Quickfix list" },
+    { ",l", "<CMD>ToggleLocationList<CR>",              icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
     { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = "Toggle Inlay Hints" },
