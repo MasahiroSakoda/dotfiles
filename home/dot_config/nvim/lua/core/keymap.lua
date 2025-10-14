@@ -458,7 +458,7 @@ if not is_vscode then
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
     { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = "Toggle theme style" },
 
-    { ",x", "<CMD>Trouble diagnostics toggle<CR>",      icon = " ", desc = "Toggle Diagnostics" },
+    { ",x", "<CMD>ToggleDiagnosticList<CR>",      icon = " ", desc = "Toggle Diagnostics" },
     { ",X", "<CMD>Trouble symbols toggle<CR>",          icon = " ", desc = "Toggle Symbols" },
     { ",q", "<CMD>ToggleQuickfixList<CR>",              icon = " ", desc = "Toggle Quickfix list" },
     { ",l", "<CMD>ToggleLocationList<CR>",              icon = " ", desc = "Toggle Location list" },
