@@ -1,22 +1,33 @@
-local M = {}
-local fn, g, cmd = vim.fn, vim.g, vim.cmd
+-- -*-mode:lua-*- vim:ft=lua
 
-local is_quickfix_open = function()
-  for i = 1, fn.winnr("$") do
-    if fn.getbufvar(fn.winbufnr(i), "&buftype") == "quickfix" then return true end
+local function toggle_qf_list()
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["quickfix"] == 1 then
+      vim.cmd("cclose")
+      return
+    end
   end
-  return false
-end
-
-M.toggle_quickfix = function()
-  if is_quickfix_open() then
-    cmd("cclose")
-    if g.quickfix_return_to_window then cmd(g.quickfix_return_to_window .. "wincmd w") end
-  else
-    g.quickfix_return_to_window = fn.winnr()
-
-    cmd [[copen]]
+  if not vim.tbl_isempty(vim.fn.getqflist()) then
+     vim.cmd("copen")
   end
 end
 
-return M
+local function toggle_loc_list()
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win["loclist"] == 1 then
+      vim.cmd("lclose")
+      return
+    end
+  end
+  if not vim.tbl_isempty(vim.fn.getloclist()) then
+    vim.cmd("lopen")
+  end
+end
+
+vim.api.nvim_create_user_command("ToggleQuickfixList", function(opts)
+  toggle_qf_list()
+end, { desc = "Toggle Quickfix list", nargs = "*", bang = true })
+
+vim.api.nvim_create_user_command("ToggleLocationlist", function(opts)
+  toggle_loc_list()
+end, { desc = "Toggle Location list", nargs = "*", bang = true })
