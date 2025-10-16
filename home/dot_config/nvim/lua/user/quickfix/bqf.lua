@@ -32,8 +32,8 @@ bqf.setup({
     fzffilter = "/",
     drop      = "o",
     openc     = "O",
-    split     = "<C-s>",
-    vsplit    = "<C-v>",
+    split     = "<C-h>",
+    vsplit    = "<C-s>",
     tabdrop   = "<C-t>",
   },
 })
