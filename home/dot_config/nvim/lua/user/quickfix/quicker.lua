@@ -17,3 +17,7 @@ quicker.setup({
     return math.floor(math.min(45, vim.o.columns / 2))
   end,
 })
+
+local palette = require("onedark.palette")[vim.g.themestyle]
+vim.api.nvim_set_hl(0, "QuickFixHeaderHard", { fg = palette.light_grey })
+vim.api.nvim_set_hl(0, "QuickFixLineNr",     { fg = palette.bg_yellow  })
