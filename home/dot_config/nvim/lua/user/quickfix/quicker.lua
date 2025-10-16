@@ -16,6 +16,19 @@ quicker.setup({
   max_filename_width = function()
     return math.floor(math.min(45, vim.o.columns / 2))
   end,
+
+  keys = {
+    {
+      "<",
+      function() require("quicker").collapse() end,
+      desc = "Collapse quickfix context",
+    },
+    {
+      ">",
+      function() require("quicker").expand({ before = 2, after = 2, add_to_existing = true }) end,
+      desc = "Expand quickfix context",
+    },
+  },
 })
 
 local palette = require("onedark.palette")[vim.g.themestyle]
