@@ -40,8 +40,11 @@ blink.setup({
   signature = { enabled = true }, -- Experimental option
 
   sources = {
-    default = { "lsp", "lazydev", "path", "buffer", "snippets", "markdown" },
+    default = { "lsp", "path", "buffer", "snippets", "markdown" },
 
+    per_filetype = {
+      lua      = { inherit_defaults = true, "lazydev" },
+    },
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
       path     = { min_keyword_length = 0 },
