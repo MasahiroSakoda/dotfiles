@@ -460,7 +460,7 @@ if not is_vscode then
 
     { ",x", "<CMD>ToggleDiagnosticList<CR>",      icon = " ", desc = "Toggle Diagnostics" },
     { ",X", "<CMD>Trouble symbols toggle<CR>",    icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>ToggleQuickfixList<CR>",        icon = " ", desc = "Toggle Quickfix list" },
+    { ",q", "<CMD>ToggleQuickfixList<CR>",        icon = " ", desc = "Toggle Quickfix list" },
     { ",l", "<CMD>ToggleLocationList<CR>",        icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
