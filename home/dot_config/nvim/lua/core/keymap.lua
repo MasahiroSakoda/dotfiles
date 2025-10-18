@@ -52,6 +52,18 @@ wk.add({
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
   { "<Leader><Leader>", group = "flash.nvim", icon = "⚡️ " },
+  {
+    "<Leader><Leader>w",
+    "<CMD>require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
+    icon = " ",
+    desc = "Jump to the word",
+  },
+  {
+    "<Leader><Leader>l",
+    "<CMD>require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
+    icon = " ",
+    desc = "Jump to the line",
+  },
   { "<Leader><Leader>w", "<CMD>FlashJumpWord<CR>", icon = " ", desc = "Jump to the word" },
   { "<Leader><Leader>l", "<CMD>FlashJumpLine<CR>", icon = " ", desc = "Jump to the line" },
 
