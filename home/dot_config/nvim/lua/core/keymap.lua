@@ -375,6 +375,7 @@ if not is_vscode then
       icon = " ",
       desc = "Gemini CLI",
     },
+    { "<Leader>ad", "<CMD>lua require'sidekick.cli'.close()<CR>",             icon = " ", desc = "Detach Session" },
     { "<Leader>ap", "<CMD>lua require'sidekick.cli'.prompt()<CR>", mode = nx, icon = "󰞷 ", desc = "Prompt Menu" },
     {
       "<Leader>at",
