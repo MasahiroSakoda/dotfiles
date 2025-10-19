@@ -52,8 +52,18 @@ wk.add({
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
   { "<Leader><Leader>", group = "flash.nvim", icon = "⚡️ " },
-  { "<Leader><Leader>w", "<CMD>FlashJumpWord<CR>", icon = " ", desc = "Jump to the word" },
-  { "<Leader><Leader>l", "<CMD>FlashJumpLine<CR>", icon = " ", desc = "Jump to the line" },
+  {
+    "<Leader><Leader>w",
+    "<CMD>require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
+    icon = " ",
+    desc = "Jump to the word",
+  },
+  {
+    "<Leader><Leader>l",
+    "<CMD>require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
+    icon = " ",
+    desc = "Jump to the line",
+  },
 
   { "r", "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = "Remote Flash" },
   { "R", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = "Treesitter Search" },
@@ -365,6 +375,7 @@ if not is_vscode then
       icon = " ",
       desc = "Gemini CLI",
     },
+    { "<Leader>ad", "<CMD>lua require'sidekick.cli'.close()<CR>",             icon = " ", desc = "Detach Session" },
     { "<Leader>ap", "<CMD>lua require'sidekick.cli'.prompt()<CR>", mode = nx, icon = "󰞷 ", desc = "Prompt Menu" },
     {
       "<Leader>at",
@@ -379,6 +390,12 @@ if not is_vscode then
       mode = "x",
       icon = "󱊅 ",
       desc = "Send Visual Selection",
+    },
+    {
+      "<Leader>af",
+      "<CMD>lua require'sidekick.cli'.send({msg='{file}'})<CR>",
+      icon = "󱊅 ",
+      desc = "Send File",
     },
   })
 
@@ -460,7 +477,7 @@ if not is_vscode then
 
     { ",x", "<CMD>ToggleDiagnosticList<CR>",      icon = " ", desc = "Toggle Diagnostics" },
     { ",X", "<CMD>Trouble symbols toggle<CR>",    icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>ToggleQuickfixList<CR>",        icon = " ", desc = "Toggle Quickfix list" },
+    { ",q", "<CMD>ToggleQuickfixList<CR>",        icon = " ", desc = "Toggle Quickfix list" },
     { ",l", "<CMD>ToggleLocationList<CR>",        icon = " ", desc = "Toggle Location list" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
