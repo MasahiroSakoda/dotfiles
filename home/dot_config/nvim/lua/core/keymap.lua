@@ -391,6 +391,12 @@ if not is_vscode then
       icon = "󱊅 ",
       desc = "Send Visual Selection",
     },
+    {
+      "<Leader>af",
+      "<CMD>lua require'sidekick.cli'.send({msg='{file}'})<CR>",
+      icon = "󱊅 ",
+      desc = "Send File",
+    },
   })
 
   -- codecompanion.nvim
