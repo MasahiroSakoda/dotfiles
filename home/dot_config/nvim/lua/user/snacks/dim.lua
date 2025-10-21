@@ -4,7 +4,6 @@
 return {
   enabled = true,
 
-  ---@type snacks.scope.Config
   scope = {
     min_size = 5,
     max_size = 20,
