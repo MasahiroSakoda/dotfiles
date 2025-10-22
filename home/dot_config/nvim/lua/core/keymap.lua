@@ -232,7 +232,13 @@ if not is_vscode then
       "<Leader>fL",
       "<CMD>lua Snacks.picker.smart({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",
       icon = " ",
-      desc = "nvim plugins",
+      desc = "Find nvim plugin files",
+    },
+    {
+      "<Leader>fG",
+      "<CMD>lua Snacks.picker.grep({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",
+      icon = " ",
+      desc = "Grep search in nvim plugin files",
     },
     {
       "<Leader>ft",
