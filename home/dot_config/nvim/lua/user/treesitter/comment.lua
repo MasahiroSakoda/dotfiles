@@ -17,3 +17,12 @@ comment.setup({
   pre_hook  = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
   post_hook = function() end,
 })
+
+-- Workaround overlapping with `gb` & `gc`: numToStr/Comment.nvim#483
+vim.keymap.del("n", "gb")
+vim.keymap.del("n", "gc")
+
+require("which-key").add({
+  { "gb", group = "Toggle comment blockwise", icon = " " },
+  { "gc", group = "Toggle comment linewise",  icon = " " },
+})

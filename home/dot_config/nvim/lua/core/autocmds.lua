@@ -87,18 +87,14 @@ local lsp_group = augroup("LspCustomGroup")
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
   group    = lsp_group,
   callback = function(ev)
-    require("which-key").add({
-      mode    = "n",
-      noremap = true,
-      silent  = true,
-      { "K",  vim.lsp.buf.hover,          buffer = ev.buf, icon = "󰈙 ", desc = "Hover Docs" },
-      { "gd", vim.lsp.buf.definition,     buffer = ev.buf, icon = "󰫧 ", desc = "Definition" },
-      { "gD", vim.lsp.buf.declaration,    buffer = ev.buf, icon = " ", desc = "Declaration" },
-      { "gI", vim.lsp.buf.implementation, buffer = ev.buf, icon = " ", desc = "Implementation" },
-      { "gr", vim.lsp.buf.rename,         buffer = ev.buf, icon = "󰑕 ", desc = "Rename" },
-      { "gR", vim.lsp.buf.references,     buffer = ev.buf, icon = " ", desc = "References" },
-      { "ga", vim.lsp.buf.code_action,    buffer = ev.buf, icon = " ", desc = "Code Action" },
-    })
+    local extend, opts = vim.tbl_extend, { buffer = ev.buf, noremap = true, silent = true }
+    vim.keymap.set("n", "K",          vim.lsp.buf.hover,          extend("keep", opts, { desc = "Hover Docs" }))
+    vim.keymap.set("n", "gd",         vim.lsp.buf.definition,     extend("keep", opts, { desc = "Definition" }))
+    vim.keymap.set("n", "gD",         vim.lsp.buf.declaration,    extend("keep", opts, { desc = "Declaration" }))
+    vim.keymap.set("n", "gri",        vim.lsp.buf.implementation, extend("keep", opts, { desc = "Implementation" }))
+    vim.keymap.set("n", "grn",        vim.lsp.buf.rename,         extend("keep", opts, { desc = "Rename" }))
+    vim.keymap.set("n", "grf",        vim.lsp.buf.references,     extend("keep", opts, { desc = "References" }))
+    vim.keymap.set({"n", "v"}, "gra", vim.lsp.buf.code_action,    extend("keep", opts, { desc = "Code Action" }))
   end
 })
 
