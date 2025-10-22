@@ -203,6 +203,7 @@ if not is_vscode then
     -- Grep
     { "<C-g>",      "<CMD>lua Snacks.picker.grep({ live = true })<CR>",  icon = " ", desc = "Live Grep" },
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = "grep with cword" },
+    { "<Leader>/",  "<CMD>lua Snacks.picker.lines()<CR>",                icon = "󰘤 ", desc = "Grep current buffer" },
 
     -- Vim
     { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = "Help" },
