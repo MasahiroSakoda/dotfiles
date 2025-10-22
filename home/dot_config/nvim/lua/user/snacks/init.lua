@@ -20,8 +20,8 @@ snacks.setup({
   scroll       = require("user.snacks.scroll"),
   terminal     = require("user.snacks.terminal"),
   zen          = require("user.snacks.zen"),
-  statuscolumn = { enabled = true },
-  words        = { enabled = false },
+  statuscolumn = require("user.snacks.statuscolumn"),
+  words        = require("user.snacks.words"),
   styles       = {
     notification = {
       relative = "editor",
@@ -29,7 +29,3 @@ snacks.setup({
     },
   }
 })
-
-vim.api.nvim_create_user_command("SnacksPickerLazyPlugin", function()
-  require("snacks.picker").smart({ cwd = vim.fn.stdpath("data") .. "/lazy" })
-end, { desc = "", nargs = "*", bang = true })
