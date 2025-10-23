@@ -59,6 +59,6 @@ bind generic <Ctrl-B> move-page-up
 bind generic <Ctrl-F> move-page-down
 
 bind generic E view-grep
-bind generic Y +bash -c 'printf "copied: "; printf "%s" "%(commit)" | tee >({{ .cmd.copy }})'
+bind generic y +bash -c 'printf "copied: "; printf "%s" "%(commit)" | tee >({{ .cmd.copy }})'
 
 bind main    <Esc>g :toggle commit-title-graph
