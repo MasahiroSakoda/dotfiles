@@ -1,17 +1,25 @@
+# -*-mode:bash-*- vim:ft=bash.gotexttmpl
+
 # Tig default configuration
 # cat /usr/local/opt/tig/share/tig/examples/tigrc
 #
 # Please see 'man tigrc' for a complete reference.
-
-# -*-mode:sh-*- vim:ft=sh.gotexttmpl
 
 # Encoding
 set line-graphics = utf-8
 
 # Appearance
 ## Color
-color  diff-header       default magenta
-color  diff-chunk        black   white
+color cursor        black   green
+color search-result black   yellow
+color line-number   red     black
+color title-focus   black   yellow
+color title-blur    black   magenta
+color diff-header   yellow  default
+color diff-index    blue    default
+color diff-chunk    magenta default
+color tree.date     black   cyan    bold
+
 set refresh-mode = auto
 
 ## View
