@@ -69,7 +69,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 
 -- Surveillance chezmoi target files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern  = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
+  pattern  = { vim.env.HOME .. "/.local/share/chezmoi/*" },
   callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
 })
 

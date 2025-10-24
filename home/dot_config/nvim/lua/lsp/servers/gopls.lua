@@ -47,7 +47,7 @@ return {
         unusedwrite  = true,
         useany       = true,
       },
-      buildFlags = { os.getenv("GOFLAGS") }
+      buildFlags = { vim.env.GOFLAGS }
     },
   },
   autostart = true,

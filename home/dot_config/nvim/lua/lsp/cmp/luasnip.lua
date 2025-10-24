@@ -161,7 +161,7 @@ end, { desc = "Reload luasnip snippets", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("LuaSnipEdit", function()
   -- require("luasnip.loaders").edit_snippet_files({})
-  require("snacks.picker").smart({ cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/dot_config/nvim/lua/snippets" })
+  require("snacks.picker").smart({ cwd = vim.env.XDG_DATA_HOME .. "/chezmoi/home/dot_config/nvim/lua/snippets" })
 end, { desc = "", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("LuaSnipBrowse", function()

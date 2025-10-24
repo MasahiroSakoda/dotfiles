@@ -1,5 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local venv = os.getenv('VIRTUAL_ENV')
+local venv = vim.env.VIRTUAL_ENV
 local pkg = "debugpy"
 
 return {
