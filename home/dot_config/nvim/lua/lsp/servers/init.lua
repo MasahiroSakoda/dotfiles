@@ -43,6 +43,6 @@ return {
   shfmt         = {}, -- Sh, Bash
   jq            = {}, -- JSON
   yq            = {}, -- YAML
-  yamlformatter = {}, -- YAML
+  yamlfmt       = {}, -- YAML
   sql_formatter = {}, -- SQL
 }
