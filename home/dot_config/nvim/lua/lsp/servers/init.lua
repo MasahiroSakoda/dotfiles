@@ -44,5 +44,4 @@ return {
   jq            = {}, -- JSON
   yq            = {}, -- YAML
   yamlfmt       = {}, -- YAML
-  sql_formatter = {}, -- SQL
 }
