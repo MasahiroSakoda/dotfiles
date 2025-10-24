@@ -2,7 +2,7 @@
 local util = require("utils.javascript")
 -- local cwd  = vim.fs.root(0, "package.json") or vim.fn.getcwd()
 local npm  = vim.fn.executable("pnpm") and "pnpm " or "npm "
-local braveExe = os.getenv("HOME") .. "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+local braveExe = vim.env.HOME .. "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 
 local configs = {
   {
