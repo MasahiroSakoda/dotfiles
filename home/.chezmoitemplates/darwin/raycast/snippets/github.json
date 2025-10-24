@@ -1,0 +1,27 @@
+[
+	{
+		"name": "GitHub Search: Lua related NeoVim",
+		"keyword": ";lua",
+		"text": "ghc path:/(.vim\\/)?lua\\/(.+\\/)?.+\\.lua$/ /{cursor}/"
+	},
+	{
+		"name": "GitHub Search: Go",
+		"keyword": ";go",
+		"text": "path:/.+\\.go/ /{cursor}/"
+	},
+	{
+		"name": "GitHub Search: AI Agent config",
+		"keyword": ";agent",
+		"text": "ghc path:/\\.(claude|gemini|codex|cursor)\\/.+\\.mdx?$"
+	},
+	{
+		"name": "GitHub Issue Template",
+		"keyword": ";ghi",
+		"text": "### Description\n\n{cursor}\n\n### Motivation\n\n<!-- Leave a comment -->\n\n### Alternatives\n\n<!-- Leave a comment -->\n\n### Additional context\n\n<!-- Leave a comment -->"
+	},
+	{
+		"name": "GitHub Pull Request Template",
+		"keyword": ";ghpr",
+		"text": "# Summary\n<!-- add the description of the PR here -->\n\n- {cusor}\n\n## Related Issues\n<!-- add here the GitHub issue that this PR resolves if applicable -->\n\nFixes #12345\n\n## Notes\n<!-- any additional notes for this PR -->\n\n## Follow-up Tasks\n<!-- anything that is related to this PR but not done here should be noted under this section -->\n<!-- if there is a need for a new issue, please link it here -->\n\n## How to test\n<!-- if applicable, add testing instructions under this section -->\n"
+	}
+]

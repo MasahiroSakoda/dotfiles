@@ -1,0 +1,23 @@
+[
+	{ "name": "Command",   "keyword": ";cmd",      "text": "⌘" },
+	{ "name": "Alt",       "keyword": ";alt",      "text": "⌥" },
+	{ "name": "Control",   "keyword": ";ctrl",     "text": "⌃" },
+	{ "name": "Enter",     "keyword": ";enter",    "text": "⏎" },
+	{ "name": "Return",    "keyword": ";return",   "text": "⏎" },
+	{ "name": "Shift",     "keyword": ";shift",    "text": "⇪" },
+	{ "name": "Eject",     "keyword": ";eject",    "text": "⏏︎" },
+	{ "name": "Delete",    "keyword": ";delete",   "text": "⌫" },
+	{ "name": "Left",      "keyword": ";left",     "text": "←" },
+	{ "name": "Right",     "keyword": ";right",    "text": "→" },
+	{ "name": "Up",        "keyword": ";up",       "text": "↑" },
+	{ "name": "Down",      "keyword": ";down",     "text": "↓" },
+	{ "name": "Page Up",   "keyword": ";pageup",   "text": "⇞" },
+	{ "name": "Page Down", "keyword": ";pagedown", "text": "⇟" },
+	{ "name": "Home",      "keyword": ";home",     "text": "↖︎" },
+	{ "name": "End",       "keyword": ";end",      "text": "↘︎" },
+	{ "name": "Tab Left",  "keyword": ";tabl",     "text": "⇤" },
+	{ "name": "Tab Right", "keyword": ";tabr",     "text": "⇥" },
+	{ "name": "Space",     "keyword": ";space",    "text": "␣" },
+	{ "name": "Escape",    "keyword": ";escape",   "text": "⎋" },
+	{ "name": "Num Lock",  "keyword": ";numlock",  "text": "⇭" }
+]

@@ -1,0 +1,4 @@
+[
+	{ "name": "Time", "keyword": ";time", "text": "{date format=\"HH:mm:ss\"}" },
+	{ "name": "Date", "keyword": ";date", "text": "{date format=\"yyyy-MM-dd\"}" }
+]
