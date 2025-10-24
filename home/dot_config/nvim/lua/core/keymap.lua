@@ -51,16 +51,16 @@ wk.add({
 
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = "Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = "Flash Treesitter" },
-  { "<Leader><Leader>", group = "flash.nvim", icon = "⚡️ " },
+  { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
   {
-    "<Leader><Leader>w",
-    "<CMD>require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
+    "<Leader>jw",
+    "<CMD>lua require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
     icon = " ",
     desc = "Jump to the word",
   },
   {
-    "<Leader><Leader>l",
-    "<CMD>require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
+    "<Leader>jl",
+    "<CMD>lua require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
     icon = " ",
     desc = "Jump to the line",
   },
@@ -259,8 +259,8 @@ wk.add({
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = "Display LSP Info" },
 
-  { "g[",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = "Go to prev diagnostics" },
-  { "g]",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = "Go to next diagnostics" },
+  { "[g",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = "Go to prev diagnostics" },
+  { "]g",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = "Go to next diagnostics" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = "Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = "Call outcoming hierarchy" },
