@@ -1,0 +1,5 @@
+[
+	{ "name": "Link",			"keyword": ";link",  "text": "[{cursor}]()" },
+	{ "name": "Checkbox", "keyword": ";chk",   "text": "- [ ] {cursor}" },
+	{ "name": "Table",    "keyword": ";table", "text": "| {cursor} | Column2 | Column3 }\n| :------- | :------- | :------- |\n| Item1 | Item2 | Item3 |\n" }
+]
