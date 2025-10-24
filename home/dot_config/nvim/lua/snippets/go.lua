@@ -29,7 +29,13 @@ local snippets = {
       c(1, { t("return err"), t("return nil, err"), t("t.Fatal(err)"), t("log.Fatal(err)"), i(0) }), i(0),
     }
   )),
-  s({ trig = "ctx!", name = "context definition", dscr = "context definition template" }, { t("ctx context.Context")}),
+  s({ trig = "ctx", name = "context definition", dscr = "context definition template" }, { t("ctx context.Context")}),
+  s({ trig = "ctxc", name = "context cancel", dscr = "context cancel" },
+    fmta('ctx, cancel := context.WithCancel(context.Background())', {})
+  ),
+  s({ trig = "ctxt", name = "context timeout", dscr = "context with timeout" },
+    fmta('ctx, cancel := context.WithTimeout(context.Background(), {}*time.Second) {\n\tdefer cancel())\n}', { i(0) })
+  ),
   s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
     fmta('"github.com/<>"<>', {
       c(1, {
