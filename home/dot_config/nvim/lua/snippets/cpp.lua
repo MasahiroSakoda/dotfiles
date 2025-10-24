@@ -34,8 +34,6 @@ local snippets = {
       t("algorithm"),
       t("thread"),
       t("memory"),
-      t("iostream"),
-      t("iostream"),
       i(0),
     }) })
   ),
