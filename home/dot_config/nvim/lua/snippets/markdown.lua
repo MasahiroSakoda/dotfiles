@@ -157,6 +157,10 @@ local snippets = {
     })
   ),
 
+  s({ trig = "details", name = "Foldable content", dscr = "Foldable content with <details>" },
+    fmt('<details {}>\n<summary>{}</summary>\n{}\n</details>', { i(1, "open"), i(2, "summary"), i(0, "body") })
+  ),
+
   -- Prompt engineering
   s({ trig = "ptag", name = "predefined XML tag", dscr = "predefined tag to structurize context" },
     fmt('<{}>\n{}\n</{}>', {
