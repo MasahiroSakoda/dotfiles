@@ -28,19 +28,3 @@ bg = "green"
 
 [zellij.tab.active]
 fg = "green"
-
-[[zellij.plugins]]
-repo = "imsnif/multitask"
-file = "multitask.wasm"
-
-[[zellij.plugins]]
-repo = "fresh2dev/zellij-autolock"
-file = "zellij-autolock.wasm"
-
-[[zellij.plugins]]
-repo = "dj95/zjstatus"
-file = "zjstatus.wasm"
-
-[[zellij.plugins]]
-repo = "dj95/zjstatus"
-file = "zjframes.wasm"

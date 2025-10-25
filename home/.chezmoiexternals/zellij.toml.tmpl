@@ -6,8 +6,18 @@ stripComponents = 1
 refreshPeriod = "672h"
 {{- end }}
 
-{{- range $plugin := .zellij.plugins }}
-[".local/share/zellij/plugins/{{ $plugin.file }}"]
+[".local/share/zellij/plugins/multitask.wasm"]
 {{ template "file" }}
-url = {{ gitHubLatestReleaseAssetURL $plugin.repo $plugin.file | quote }}
-{{- end }}
+url = {{ gitHubLatestReleaseAssetURL "imsnif/multitask" "multitask.wasm" | quote }}
+
+[".local/share/zellij/plugins/zellij-autolock.wasm"]
+{{ template "file" }}
+url = {{ gitHubLatestReleaseAssetURL "fresh2dev/zellij-autolock" "zellij-autolock.wasm" | quote }}
+
+[".local/share/zellij/plugins/zjstatus.wasm"]
+{{ template "file" }}
+url = {{ gitHubLatestReleaseAssetURL "dj95/zjstatus" "zjstatus.wasm" | quote }}
+
+[".local/share/zellij/plugins/zjframes.wasm"]
+{{ template "file" }}
+url = {{ gitHubLatestReleaseAssetURL "dj95/zjstatus" "zjframes.wasm" | quote }}
