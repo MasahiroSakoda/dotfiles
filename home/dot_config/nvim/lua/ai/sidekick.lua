@@ -10,7 +10,7 @@ sidekick.setup({
 })
 
 vim.api.nvim_create_user_command("ToggleNextEditSuggestion", function(_)
-  Snacks.toggle({
+  require("snacks").toggle({
     name = "Sidekick NES",
     get  = function() return require("sidekick.nes").enabled end,
     set  = function(state) return require("sidekick.nes").enabled(state) end,
