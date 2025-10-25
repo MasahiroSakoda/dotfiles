@@ -8,3 +8,11 @@ sidekick.setup({
     watch = true,
   },
 })
+
+vim.api.nvim_create_user_command("ToggleNextEditSuggestion", function(_)
+  Snacks.toggle({
+    name = "Sidekick NES",
+    get  = function() return require("sidekick.nes").enabled end,
+    set  = function(state) return require("sidekick.nes").enabled(state) end,
+  })
+end, { desc = "Toggle Next Edit Suggestion via sidekick.nvim", nargs = "*", bang = true })
