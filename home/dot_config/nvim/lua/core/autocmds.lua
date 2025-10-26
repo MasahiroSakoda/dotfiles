@@ -76,6 +76,23 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 -- Automatically resize windows when the host window size changes.
 vim.api.nvim_create_autocmd({ "VimResized" }, { group = augroup("WinResize"), command = "wincmd =" })
 
+local qf_group = augroup("QuickfixGroup")
+-- Open qflist window automatically
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
+  group   = qf_group,
+  pattern = { "[^l]*" },
+  command = "cwindow",
+  nested  = true,
+})
+
+-- Open loclist window automatically
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
+  group   = qf_group,
+  pattern = { "l*" },
+  command = "lwindow",
+  nested  = true,
+})
+
 local lsp_group = augroup("LspCustomGroup")
 
 -- Keymaps related LSP
