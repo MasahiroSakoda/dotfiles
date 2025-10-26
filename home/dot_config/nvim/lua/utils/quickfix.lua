@@ -37,11 +37,11 @@ local function toggle_diagnostic_list()
 end
 
 vim.api.nvim_create_user_command("ToggleQuickfixList", function(_)
-  require("quicker").toggle()
+  require("quicker").toggle({ focus = true })
 end, { desc = "Toggle Quickfix list", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("ToggleLocationList", function(_)
-  require("quicker").toggle({ loclist = true })
+  require("quicker").toggle({ focus = true, loclist = true })
 end, { desc = "Toggle Location list", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("ToggleDiagnosticList", function(_)
