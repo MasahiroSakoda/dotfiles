@@ -46,4 +46,4 @@ end, { desc = "Toggle Location list", nargs = "*", bang = true })
 
 vim.api.nvim_create_user_command("ToggleDiagnosticList", function(_)
   toggle_diagnostic_list()
-end, { desc = "Toggle Symbol list", nargs = "*", bang = true })
+end, { desc = "Toggle Diagnostic list", nargs = "*", bang = true })
