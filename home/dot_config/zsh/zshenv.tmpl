@@ -41,6 +41,7 @@ export GEMINI_API_KEY=$(security find-generic-password -s "Gemini API Key" -w)
 export AZURE_OPENAI_API_KEY=$(security find-generic-password -s "Azure API Key" -w)
 export GROQ_API_KEY=$(security find-generic-password -s "Groq API Key" -w)
 export DEEPL_API_KEY=$(security find-generic-password -s "DeepL API Key" -w)
+export CONTEXT7_API_KEY=$(security find-generic-password -s "Context7 API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
 export GITHUB_ACCESS_TOKEN=$(secret-tool lookup username $USER key_name "MCP Server for GitHub" -w)
 export OPENAI_API_KEY=$(secret-tool lookup username $USER key_name "OpenAI API Key" -w)
@@ -49,4 +50,5 @@ export GEMINI_API_KEY=$(secret-tool lookup username $USER key_name "Gemini API K
 export AZURE_OPENAI_API_KEY=$(secret-tool lookup username $USER key_name "Azure API Key" -w)
 export GROQ_API_KEY=$(secret-tool lookup username $USER key_name "Groq API Key" -w)
 export DEEPL_API_KEY=$(secret-tool lookup username $USER key_name "DeepL API Key" -w)
+export CONTEXT7_API_KEY=$(secret-tool lookup username $USER key_name "Context7 API Key" -w)
 {{ end }}
