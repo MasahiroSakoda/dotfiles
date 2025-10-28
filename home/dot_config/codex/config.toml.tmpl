@@ -1,0 +1,31 @@
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+
+# Model Selection: https://github.com/openai/codex/blob/main/docs/config.md#model-selection
+model = "gpt5-codex"
+model_reasoning_effort  = "medium"
+model_reasoning_summary = "auto"
+
+[profiles.default]
+model = "gpt5"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+
+# Execution environment: https://github.com/openai/codex/blob/main/docs/config.md#execution-environment
+approval_policy = "on-failure" # options: `untrusted`, `on-failure`, `on-request`, `never`
+sandbox_mode    = "read-only"  # options: `read-only`, `workspace-write`, `danger-full-access`
+
+# MCP server config
+{{ range .mcp.providers }}
+{{- if not .enabled }}{{ continue }}{{ end }}
+[mcp_servers.{{ .name }}]
+command = {{ .execution.cmd | quote }}
+args    = [{{ range $i, $arg := .execution.args }}{{ if $i }}, {{ end }}{{ . | quote }}{{ end }}]
+{{- if gt (len .execution.envs ) 0 }}
+env     = { {{- range $key, $val := .execution.envs }}{{- if $key }}, {{ end }}{{- $key | quote }}: {{ $val | quote }}{{- end }}}
+{{- end }}
+{{ end }}
+
+[history]
+persistence = "save-all" # options: `none`, `save-all`
