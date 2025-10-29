@@ -452,6 +452,22 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+-- HTTP Client: <Leader> + h
+---------------------------------------------------------------------------
+wk.add({
+  mode = "n",
+  { "<Leader>h", group = "kulala.nvim", icon = "🛜 " },
+  { "<Leader>hs", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = "Open scratchpad" },
+  { "<Leader>hc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = "Copy as cURL" },
+  { "<Leader>hp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = "Paste from cURL" },
+  { "<Leader>hr", "<CMD>lua require'kulala'.run()<CR>",         icon = " ", desc = "Run request" },
+  { "<Leader>hR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = "Run all requests" },
+  { "<Leader>ht", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = "Toggle View" },
+  { "<Leader>hi", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = "Inspect request" },
+  { "<Leader>hs", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
+})
+
+---------------------------------------------------------------------------
 -- Feed: <Leader> + n
 ---------------------------------------------------------------------------
 if not is_vscode then
@@ -482,10 +498,20 @@ if not is_vscode then
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
     { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = "Toggle theme style" },
 
-    { ",x", "<CMD>ToggleDiagnosticList<CR>",     icon = " ", desc = "Toggle Diagnostics" },
-    { ",X", "<CMD>Trouble symbols toggle<CR>",   icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>ToggleQuickfixList<CR>",       icon = " ", desc = "Toggle Quickfix list" },
-    { ",l", "<CMD>ToggleLocationList<CR>",       icon = " ", desc = "Toggle Location list" },
+    { ",q", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = "Toggle qflist" },
+    { ",l", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = "Toggle loclist" },
+    {
+      ",x",
+      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
+      icon = " ",
+      desc = "Toggle diagnostic list",
+    },
+    {
+      ",o",
+      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
+      icon = " ",
+      desc = "Toggle symbol outline",
+    },
     { ",s", "<CMD>ToggleNextEditSuggestion<CR>", icon = "󰁤 ", desc = "Toggle Next Edit Suggestion" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
