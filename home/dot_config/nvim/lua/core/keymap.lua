@@ -482,10 +482,20 @@ if not is_vscode then
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = "Toggle Colorizer" },
     { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = "Toggle theme style" },
 
-    { ",x", "<CMD>ToggleDiagnosticList<CR>",     icon = " ", desc = "Toggle Diagnostics" },
-    { ",X", "<CMD>Trouble symbols toggle<CR>",   icon = " ", desc = "Toggle Symbols" },
-    { ",q", "<CMD>ToggleQuickfixList<CR>",       icon = " ", desc = "Toggle Quickfix list" },
-    { ",l", "<CMD>ToggleLocationList<CR>",       icon = " ", desc = "Toggle Location list" },
+    { ",q", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = "Toggle qflist" },
+    { ",l", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = "Toggle loclist" },
+    {
+      ",x",
+      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
+      icon = " ",
+      desc = "Toggle diagnostic list",
+    },
+    {
+      ",o",
+      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
+      icon = " ",
+      desc = "Toggle symbol outline",
+    },
     { ",s", "<CMD>ToggleNextEditSuggestion<CR>", icon = "󰁤 ", desc = "Toggle Next Edit Suggestion" },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
