@@ -1,35 +1,15 @@
 {
-  "time": { "command": "uv", "args": [ "tool", "run", "mcp-server-time", "--local-timezone=Asia/Tokyo" ] },
-  "git": { "command": "uv", "args": [ "tool", "run", "mcp-server-git" ] },
-  "fetch": { "command": "uv", "args": [ "tool", "run", "mcp-server-fetch" ] },
-  "docker": { "command": "uv", "args": [ "tool", "run", "mcp-server-docker" ] },
-  "markitdown": { "command": "uv", "args": [ "tool", "run", "markitdown-mcp" ] },
-  "filesystem": {
-    "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-filesystem@latest", "{{ .chezmoi.homeDir }}/Dev/repos" ]
-  },
-  "sequentialthinking": {
-    "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-sequential-thinking@latest" ]
-  },
-  "context7": {
-    "command": "pnpm",
-    "args": [ "dlx", "@upstash/context7-mcp@latest" ]
-  },
-  "github": {
-    "command": "pnpm",
-    "args": [ "dlx", "@modelcontextprotocol/server-github@latest" ],
-    "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_ACCESS_TOKEN" }
-  },
-  "chrome-devtools": {
-    "command": "pnpm",
-    "args": ["dlx", "chrome-devtools-mcp@latest"]
-  },
-  "youtube": {
-    "command": "pnpm",
-    "args": [ "dlx", "@anaisbetts/mcp-youtube" ]
+  {{- range $i, $elem := .mcp.providers }}
+    {{- if $i }},{{- end }}
+    {{- if not .enabled }}{{ continue }}{{ end }}
+    {{ .name | quote }}: {
+      "command": {{ .execution.cmd | quote }},
+      "args": [{{ range $j, $arg := .execution.args }}{{ if $j }}, {{ end }}{{ . | quote }}{{ end }}]{{ if gt (len .execution.envs) 0 }},
+      "env": { {{- range $k, $value := .execution.envs }}{{- if $k }}, {{ end }}{{- $k | quote }}: {{ $value | quote }}{{- end }}}
+      {{- end }}
+    }
+  {{- end }}
   }
-}
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
 */ -}}

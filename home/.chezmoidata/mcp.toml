@@ -1,0 +1,82 @@
+# Official MCP servers
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/time
+[[mcp.providers]]
+name = "time"
+desc = "Time and timezone conversion capabilities"
+enabled = true
+[mcp.providers.execution]
+cmd  = "uv"
+args = ["tool", "run", "mcp-server-time"]
+envs = {}
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/git
+[[mcp.providers]]
+name = "git"
+desc = "Tools to read, search, and manipulate Git repositories"
+enabled = true
+[mcp.providers.execution]
+cmd  = "uv"
+args = ["tool", "run", "mcp-server-git"]
+envs = {}
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/fetch
+[[mcp.providers]]
+name = "fetch"
+desc = "Web content fetching and conversion for efficient LLM usage"
+enabled = true
+[mcp.providers.execution]
+cmd  = "uv"
+args = ["tool", "run", "mcp-server-fetch"]
+envs = {}
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem
+[[mcp.providers]]
+name = "filesystem"
+desc = "Secure file operations with configurable access controls"
+enabled = true
+[mcp.providers.execution]
+cmd  = "pnpm"
+args = ["dlx", "@modelcontextprotocol/server-filesystem@latest"]
+envs = {}
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/sequentialthinking
+[[mcp.providers]]
+name = "sequentialthinking"
+desc = "Dynamic and reflective problem-solving through thought sequences"
+enabled = true
+[mcp.providers.execution]
+cmd  = "pnpm"
+args = ["dlx", "@modelcontextprotocol/server-sequential-thinking@latest"]
+envs = {}
+
+# https://github.com/modelcontextprotocol/servers/blob/main/src/memory
+[[mcp.providers]]
+name = "memory"
+desc = "Knowledge graph-based persistent memory system"
+enabled = true
+[mcp.providers.execution]
+cmd  = "pnpm"
+args = ["dlx", "@modelcontextprotocol/server-memory@latest"]
+envs = {}
+
+# Third-Party MCP servers
+# https://github.com/upstash/context7
+[[mcp.providers]]
+name = "context7"
+desc = "Up-to-date code documentation for LLMs and AI code editors"
+enabled = true
+[mcp.providers.execution]
+cmd  = "pnpm"
+args = ["dlx", "@upstash/context7-mcp@latest", "--api-key", "$CONTEXT7_API_KEY"]
+envs = {}
+
+# https://github.com/ChromeDevTools/chrome-devtools-mcp
+[[mcp.providers]]
+name = "chrome-devtools"
+desc = "Enable AI coding assistants to debug web pages directly in Chrome, providing runtime insights and debugging capabilities"
+enabled = true
+[mcp.providers.execution]
+cmd  = "pnpm"
+args = ["dlx", "chrome-devtools-mcp@latest"]
+envs = {}
