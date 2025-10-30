@@ -7,9 +7,8 @@ local show_macro_recording = function()
   local register = vim.fn.reg_recording()
   if register == "" then
     return ""
-  else
-    return "Recording @" .. register
   end
+  return "Recording @" .. register
 end
 
 lualine.setup {
@@ -44,5 +43,5 @@ lualine.setup {
   },
   tabline = {},
   winbar  = {},
-  extensions = { "quickfix", "overseer", "trouble", "oil", "mason" },
+  extensions = { "quickfix", "overseer", "oil", "mason" },
 }
