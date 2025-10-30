@@ -70,7 +70,9 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEn
 -- Surveillance chezmoi target files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern  = { vim.env.HOME .. "/.local/share/chezmoi/*" },
-  callback = function() vim.schedule(require("chezmoi.commands.__edit").watch) end,
+  callback = function(ev)
+    vim.schedule(function() require("chezmoi.commands.__edit").watch(ev.buf) end)
+  end,
 })
 
 -- Automatically resize windows when the host window size changes.

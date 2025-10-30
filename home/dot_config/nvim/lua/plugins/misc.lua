@@ -18,11 +18,7 @@ return {
     config = require("user.render-markdown"),
   },
   -- chezmoi integration
-  {
-    "xvzc/chezmoi.nvim",
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function() require("user.chezmoi") end,
-  },
+  { "xvzc/chezmoi.nvim", dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require("user.chezmoi") end },
   {
     "stevearc/overseer.nvim",
     cmd = { "Grep", "Make", "OverseerToggle", "OverseerRun" },
