@@ -19,10 +19,4 @@ return {
     config = function() require("debugger.virtual_text") end,
   },
   { "jbyuki/one-small-step-for-vimkind", ft = "lua" },
-  {
-    "microsoft/vscode-js-debug",
-    build  = { "npm install", "npx gulp vsDebugServerBundle", "mv dist out" },
-    ft     = require("user.filetypes").lang.js,
-    config = function() require("debugger.config.js") end,
-  },
 }
