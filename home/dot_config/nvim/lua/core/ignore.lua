@@ -8,11 +8,11 @@ end
 return {
   files = files,
   autopairs  = { "fzf", "vim", "snacks_picker_input" },
-  illuminate = { "alpha", "lazy", "oil", "fzf", "Trouble", "codecompnion" },
+  illuminate = { "lazy", "oil", "fzf", "codecompnion" },
 
   lualine = {
-    statusline = { "alpha", "dashboard", "lazy" },
-    winbar     = { "alpha", "dashboard", "dapui*", "Trouble", "oil" },
+    statusline = { "dashboard", "lazy" },
+    winbar     = { "dashboard", "dapui*", "oil" },
   },
   flash = {
     "flash_prompt", "notify", "noice", "oil", "cmp_menu", "blink-cmp-menu", "snacks_dashboard",

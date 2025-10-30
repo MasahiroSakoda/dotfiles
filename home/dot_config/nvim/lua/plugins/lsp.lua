@@ -20,12 +20,5 @@ return {
     event  = { "BufReadPre", "BufNewFile" },
     config = function() require("lsp.config.null-ls") end,
   },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    cond   = not vim.g.vscode,
-    cmd    = { "Trouble" },
-    config = function() require("lsp.config.trouble") end,
-  },
   { "b0o/schemastore.nvim" },
 }
