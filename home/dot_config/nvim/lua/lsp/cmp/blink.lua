@@ -40,7 +40,7 @@ blink.setup({
   signature = { enabled = true }, -- Experimental option
 
   sources = {
-    default = { "lsp", "path", "buffer", "snippets", "markdown" },
+    default = { "lsp", "omni", "path", "buffer", "snippets", "markdown" },
 
     per_filetype = {
       lua      = { inherit_defaults = true, "lazydev" },
