@@ -34,7 +34,7 @@ blink.setup({
   appearance = {
     use_nvim_cmp_as_default = false,
     nerd_font_variant = "mono", ---@type "mono"|"normal"
-    kind_icons = require("lspkind").presets,
+    kind_icons = require("lspkind").presets.default,
   },
 
   signature = { enabled = true }, -- Experimental option
@@ -125,11 +125,7 @@ blink.setup({
       end,
       border = {"┏", "━", "┓", "┃", "┛", "━", "┗", "┃"},
       draw = {
-        columns = {
-          { "kind_icon", gap = 1 },
-          { "label", "label_description", gap = 1 },
-          { "source_name" },
-        },
+        columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
         treesitter = { "lsp" },
       },
     },
