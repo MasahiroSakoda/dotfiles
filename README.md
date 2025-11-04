@@ -114,6 +114,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 * [Builtin LSP Supported](#lsp)
 * [DAP supported](#dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-ui`**](https://github.com/rcarriga/nvim-dap-ui)
+* Addtional completion with [blink.cmp](https://github.com/saghen/blink.cmp)
 * [Linter support](#linter)
 * [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
