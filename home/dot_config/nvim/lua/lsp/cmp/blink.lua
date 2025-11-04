@@ -52,8 +52,8 @@ blink.setup({
       snippets = { min_keyword_length = 1 },
 
       -- Third party plugin integration
-      lazydev       = { name = "LazyDev",        module = "lazydev.integrations.blink",  fallbacks = { "lazy_dev" } },
-      markdown      = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
+      lazydev  = { name = "LazyDev",        module = "lazydev.integrations.blink",  score_offset = 100 },
+      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", score_offset = 20 },
     },
   },
 
