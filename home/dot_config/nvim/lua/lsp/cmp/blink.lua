@@ -43,8 +43,8 @@ blink.setup({
     default = { "lsp", "path", "buffer", "snippets" },
 
     per_filetype = {
-      lua      = { inherit_defaults = true, "lazydev" },
-      markdown = { inherit_defaults = true, "markdown" },
+      lua      = { "lazydev", "lsp", "snippets", "path", "buffer" },
+      markdown = { "lsp", "snippets", "path", "buffer", "markdown" },
     },
     providers = {
       lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
