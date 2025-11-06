@@ -118,17 +118,9 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, ev.buf) then
+      --Enable completion triggered by <c-x><c-o>
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-      local kinds_ok, kinds = pcall(require, "lspkind")
-      vim.lsp.completion.enable(true, client.id, ev.buf, {
-        autotrigger = true,
-        convert = function(item)
-          local kind = vim.lsp.protocol.CompletionItemKind[item.kind] or "Unknown"
-          local icon = kinds_ok and string.format("%s", kinds.presets.default[kind]) or kind
-          return { abbr = icon .. " " .. item.label, kind = kind, menu = item.detail or "", icase = 1 }
-        end
-      })
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
   end
 })

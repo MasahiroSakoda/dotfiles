@@ -34,28 +34,25 @@ blink.setup({
   appearance = {
     use_nvim_cmp_as_default = false,
     nerd_font_variant = "mono", ---@type "mono"|"normal"
-    kind_icons = require("lspkind").presets,
+    kind_icons = require("lspkind").presets.default,
   },
 
   signature = { enabled = true }, -- Experimental option
 
   sources = {
-    default = { "lsp", "path", "buffer", "snippets", "markdown" },
+    default = { "lsp", "path", "buffer", "snippets" },
 
     per_filetype = {
-      lua      = { inherit_defaults = true, "lazydev" },
+      lua      = { "lazydev", "lsp", "snippets", "path", "buffer" },
+      markdown = { "lsp", "snippets", "path", "buffer", "markdown" },
     },
     providers = {
-      lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
-      path     = { min_keyword_length = 0 },
-      buffer   = { min_keyword_length = 5 },
-      snippets = { min_keyword_length = 1 },
-
-      -- Third party plugin integration
-      lazydev       = { name = "LazyDev",        module = "lazydev.integrations.blink",  fallbacks = { "lazy_dev" } },
-      markdown      = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
+      lazydev  = { name = "LazyDev",        module = "lazydev.integrations.blink",  score_offset = 100 },
+      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", score_offset = 20 },
     },
   },
+
+  fuzzy = { implementation = "prefer_rust_with_warning" },
 
   ---@see https://cmp.saghen.dev/modes/cmdline.html
   cmdline = {
@@ -125,12 +122,31 @@ blink.setup({
       end,
       border = {"┏", "━", "┓", "┃", "┛", "━", "┗", "┃"},
       draw = {
-        columns = {
-          { "kind_icon", gap = 1 },
-          { "label", "label_description", gap = 1 },
-          { "source_name" },
-        },
+        columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "source_name" } },
         treesitter = { "lsp" },
+        components = {
+          kind_icon = {
+            text = function(ctx)
+              local icon = ctx.kind_icon
+              if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                if dev_icon then icon = dev_icon end
+              else
+                icon = require("lspkind").symbolic(ctx.kind, { mode = "symbol" })
+              end
+              return icon .. ctx.icon_gap
+            end,
+
+            highlight = function(ctx)
+              local hl = ctx.kind_hl
+              if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                if dev_icon then hl = dev_hl end
+              end
+              return hl
+            end,
+          }
+        }
       },
     },
   },

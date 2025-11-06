@@ -61,11 +61,10 @@ return {
   {
     "saghen/blink.cmp",
     version = "1.*",
-    dependencies = {
-      "onsails/lspkind.nvim",
-    },
-    cond   = not vim.g.vscode,
-    event  = { "InsertEnter" },
-    config = function() require("lsp.cmp.blink") end,
+    dependencies = { "onsails/lspkind.nvim" },
+    cond         = not vim.g.vscode,
+    event        = { "InsertEnter", "CmdlineEnter" },
+    opts_extend  = { "sources.default", "sources.completion.enabled_providers" },
+    config       = function() require("lsp.cmp.blink") end,
   },
 }
