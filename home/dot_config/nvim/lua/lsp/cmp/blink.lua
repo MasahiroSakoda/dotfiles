@@ -58,6 +58,8 @@ blink.setup({
     },
   },
 
+  fuzzy = { implementation = "prefer_rust_with_warning" },
+
   ---@see https://cmp.saghen.dev/modes/cmdline.html
   cmdline = {
     enabled = true,
