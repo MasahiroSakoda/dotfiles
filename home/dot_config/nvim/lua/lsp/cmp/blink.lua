@@ -47,12 +47,6 @@ blink.setup({
       markdown = { "lsp", "snippets", "path", "buffer", "markdown" },
     },
     providers = {
-      lsp      = { min_keyword_length = function(ctx) return ctx.trigger.kind == "manual" and 0 or 2  end },
-      path     = { min_keyword_length = 0 },
-      buffer   = { min_keyword_length = 5 },
-      snippets = { min_keyword_length = 1 },
-
-      -- Third party plugin integration
       lazydev  = { name = "LazyDev",        module = "lazydev.integrations.blink",  score_offset = 100 },
       markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", score_offset = 20 },
     },
