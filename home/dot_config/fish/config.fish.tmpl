@@ -85,51 +85,50 @@ abbr -a -- co  "chown -v"
 abbr -a -- cmx "chmod +x"
 abbr -a -- cmr "chmod -R"
 
+## Homebrew
+abbr -a -- bi  "brew info"
+abbr -a -- bl  "brew list"
+abbr -a -- bs  "brew search"
+abbr -a -- bin "brew install"
+abbr -a -- bun "brew uninstall"
+abbr -a -- bug "brew upgrade"
+abbr -a -- bar "brew autoremove"
+abbr -a -- bsv "brew services"
+
 ## Git
-abbr -a -- g  "git"
 abbr -a -- lg "lazygit"
 
-abbr -a -- gs  "git status"
-abbr -a -- gss "git status --short"
-abbr -a -- gsb "git status --short --branch"
+abbr -a -- g   "git"
+abbr -a -- gs  "git status --verbose"
 abbr -a -- gl  "git log --graph --all"
-abbr -a -- gd  "git diff"
-
-abbr -a -- ga  "git add --verbose"
-abbr -a -- gaa "git add --verbose --all"
-abbr -a -- grm "git rm"
 abbr -a -- gmv "git mv --verbose"
-abbr -a -- gm  "git merge --verbose"
+
+abbr -a -- gd  "git diff"
+abbr -a -- ga  "git add --verbose"
+abbr -a -- grm "git rm"
+
+abbr -a -- gmg "git merge --verbose"
 abbr -a -- gma "git merge --abort"
 abbr -a -- gms "git merge --squash"
 
 abbr -a -- gcp  "git cherry-pick"
-abbr -a -- gcpe "git cherry-pick -e"
-abbr -a -- gcpn "git cherry-pick -n"
+abbr -a -- gcpe "git cherry-pick --edit"
+abbr -a -- gcpn "git cherry-pick --no-commit"
 abbr -a -- gcpa "git cherry-pick --abort"
 abbr -a -- gcpc "git cherry-pick --continue"
 
-abbr -a -- gb   "git branch --all"
-abbr -a -- gbd  "git branch -d"
-abbr -a -- gco  "git checkout"
-abbr -a -- gcob "git checkout -b"
-abbr -a -- gcoo "git checkout --ours"
-abbr -a -- gcot "git checkout --theirs"
+abbr -a -- gsw "git switch"
+abbr -a -- gsW "git switch --create"
+
+abbr -a -- gb  "git branch --all"
+abbr -a -- gbd "git branch --delete"
+abbr -a -- gco "git checkout"
+abbr -a -- gcb "git checkout -b"
 
 abbr -a -- gcl "git clone"
 abbr -a -- gf  "git fetch origin"
-
-abbr -a -- gpl  "git pull origin"
-abbr -a -- gplu "git pull upstream"
-abbr -a -- gplr "git pull --rebase"
-
-abbr -a -- gpr  "git pull-request"
-abbr -a -- gprd "git pull-request -d"
-abbr -a -- gprp "git pull-request -p"
-
-abbr -a -- gps  "git push origin"
-abbr -a -- gpsu "git push upstream"
-abbr -a -- gpsd "git push --dry-run"
+abbr -a -- gpl "git pull origin"
+abbr -a -- gps "git push origin"
 
 abbr -a -- grb  "git rebase"
 abbr -a -- grba "git rebase --abort"
@@ -137,7 +136,8 @@ abbr -a -- grbc "git rebase --continue"
 abbr -a -- grbi "git rebase --interactive"
 abbr -a -- grbs "git rebase --skip"
 
-abbr -a -- gt  "git tag -a"
+abbr -a -- gt  "git tag | sort --version-sort --reverse"
+abbr -a -- gta "git tag --annotate"
 abbr -a -- gts "git tag --sign"
 
 ### GitHub CLI
@@ -177,7 +177,7 @@ abbr -a -- pi  "pnpm install"
 abbr -a -- pl  "pnpm list"
 abbr -a -- po  "pnpm outdated"
 abbr -a -- pt  "pnpm test"
-abbr -a -- px  "pnpm dlx "
+abbr -a -- px  "pnpm dlx"
 abbr -a -- pck "pnpm biome:check"
 abbr -a -- pcf "pnpm biome:fix"
 
