@@ -6,7 +6,7 @@ local palette = require("onedark.palette")[vim.g.themestyle]
 
 octo.setup({
   default_remote         = { "upstream", "origin" },
-  default_merge_method   = "commit",
+  default_merge_method   = "merge", ---@type "merge"|"rebase"|"squash"
   default_delete_branch  = true,
   suppress_missing_scope = { project_v2 = true },
 

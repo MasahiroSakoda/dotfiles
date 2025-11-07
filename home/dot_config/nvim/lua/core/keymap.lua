@@ -335,23 +335,50 @@ if not is_vscode then
   wk.add({
     { "<Leader>o", group = "octo.nvim", icon = " " },
     -- Issues
-    { "<Leader>oi", group = "Issues cmd via octo.nvim", icon = " " },
-    { "<Leader>oim", "<CMD>Octo issue search involves:@me state:open<CR>", icon = " ", desc = "Issues involves @me" },
-    { "<Leader>ois", "<CMD>Octo issue search state:open<CR>",              icon = " ", desc = "Search issues" },
-    { "<Leader>oic", "<CMD>Octo issue create<CR>",                         icon = " ", desc = "Create new issue" },
-    { "<Leader>oix", "<CMD>Octo issue close<CR>",                          icon = " ", desc = "Close issue" },
-    { "<Leader>oir", "<CMD>Octo issue reopen<CR>",                         icon = " ", desc = "Reopen closed issue" },
-    { "<Leader>oiu", "<CMD>Octo issue url<CR>",                            icon = " ", desc = "Copy issue URL " },
+    { "<Leader>oi", group = "Issues via octo.nvim", icon = " " },
+    { "<Leader>oic", "<CMD>Octo issue create<CR>", icon = " ", desc = "Create new issue" },
+    { "<Leader>oix", "<CMD>Octo issue close<CR>",  icon = " ", desc = "Close issue" },
+    { "<Leader>oir", "<CMD>Octo issue reopen<CR>", icon = " ", desc = "Reopen issue" },
+    { "<Leader>oiu", "<CMD>Octo issue url<CR>",    icon = " ", desc = "Copy issue URL" },
+
+    { "<Leader>oim", "<CMD>Octo issue search involves:@me is:open<CR>",      icon = " ", desc = "Issues for @me" },
+    { "<Leader>ois", "<CMD>Octo search is:issue is:open involves:@me<CR>",   icon = " ", desc = "Opened issues" },
+    { "<Leader>oiS", "<CMD>Octo search is:issue is:closed involves:@me<CR>", icon = " ", desc = "Closed issues" },
 
     -- Pull Request
-    { "<Leader>op", group = "Pull Request cmd via octo.nvim", icon = " " },
-    { "<Leader>opm", "<CMD>Octo pr search involves:@me state:open<CR>", icon = " ", desc = "PRs involves @me" },
-    { "<Leader>ops", "<CMD>Octo pr search state:open<CR>",              icon = " ", desc = "Search PRs" },
-    { "<Leader>opc", "<CMD>Octo pr create<CR>",                         icon = " ", desc = "Create new PR" },
-    { "<Leader>opx", "<CMD>Octo pr close<CR>",                          icon = " ", desc = "Close PR" },
-    { "<Leader>opd", "<CMD>Octo pr diff<CR>",                           icon = " ", desc = "Show PR diff" },
-    { "<Leader>opC", "<CMD>Octo pr changes<CR>",                        icon = " ", desc = "Show all PR changes" },
-    { "<Leader>opu", "<CMD>Octo pr url<CR>",                            icon = " ", desc = "Copy PR URL " },
+    { "<Leader>op", group = "Pull Request via octo.nvim", icon = " " },
+    { "<Leader>opn", "<CMD>Octo pr create<CR>",   icon = " ", desc = "New PR" },
+    { "<Leader>opx", "<CMD>Octo pr close<CR>",    icon = " ", desc = "Close PR" },
+    { "<Leader>opl", "<CMD>Octo pr list<CR>",     icon = " ", desc = "List PRs" },
+    { "<Leader>opc", "<CMD>Octo pr commits<CR>",  icon = " ", desc = "List PR commits" },
+    { "<Leader>opc", "<CMD>Octo pr changes<CR>",  icon = " ", desc = "Diff PR changes" },
+    { "<Leader>opp", "<CMD>Octo pr checkout<CR>", icon = " ", desc = "Checkout PR" },
+    { "<Leader>opd", "<CMD>Octo pr diff<CR>",     icon = " ", desc = "Show PR diff" },
+    { "<Leader>opu", "<CMD>Octo pr url<CR>",      icon = " ", desc = "Copy PR URL " },
+
+    { "<Leader>opm", "<CMD>Octo pr search involves:@me is:open<CR>",      icon = " ", desc = "PRs for @me" },
+    { "<Leader>ops", "<CMD>Octo search is:pr is:open<CR>",                icon = " ", desc = "Opened PRs" },
+    { "<Leader>opS", "<CMD>Octo search is:pr is:closed involves:@me<CR>", icon = " ", desc = "Closed PRs" },
+
+    -- Review
+    { "<Leader>or", group = "Review via octo.nvim", icon = " " },
+    { "<Leader>ors", "<CMD>Octo review start<CR>",    icon = " ", desc = "Start review" },
+    { "<Leader>orx", "<CMD>Octo review close<CR>",    icon = " ", desc = "Close review" },
+    { "<Leader>orc", "<CMD>Octo review comments<CR>", icon = " ", desc = "View pending comments" },
+    { "<Leader>orp", "<CMD>Octo review commit<CR>",   icon = " ", desc = "Pick a commit to review" },
+    { "<Leader>orS", "<CMD>Octo review submit<CR>",   icon = "󰌑 ", desc = "Submit review" },
+    { "<Leader>orr", "<CMD>Octo review resume<CR>",   icon = " ", desc = "Resume review" },
+    { "<Leader>ord", "<CMD>Octo review discard<CR>",  icon = " ", desc = "Discard pending review" },
+    { "<Leader>ort", "<CMD>Octo review thread<CR>",   icon = "󰃥 ", desc = "View thread" },
+    { "<Leader>orb", "<CMD>Octo review browse<CR>",   icon = " ", desc = "Browse review" },
+
+    -- Merge
+    { "<Leader>om", group = "Merge via octo.nvim", icon = " " },
+    { "<Leader>omm", "<CMD>Octo pr merge<CR>",        icon = " ", desc = "Merge PR" },
+    { "<Leader>oms", "<CMD>Octo pr merge squash<CR>", icon = " ", desc = "Squash merge PR" },
+    { "<Leader>omr", "<CMD>Octo pr merge rebase<CR>", icon = " ", desc = "Rebase merge PR" },
+    { "<Leader>omc", "<CMD>Octo pr merge commit<CR>", icon = " ", desc = "Commit merge PR" },
+    { "<Leader>omc", "<CMD>Octo pr merge delete<CR>", icon = " ", desc = "Delete merge PR" },
   })
 end
 
