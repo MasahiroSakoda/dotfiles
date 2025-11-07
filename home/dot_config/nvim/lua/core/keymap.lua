@@ -371,6 +371,14 @@ if not is_vscode then
     { "<Leader>ord", "<CMD>Octo review discard<CR>",  icon = " ", desc = "Discard pending review" },
     { "<Leader>ort", "<CMD>Octo review thread<CR>",   icon = "󰃥 ", desc = "View thread" },
     { "<Leader>orb", "<CMD>Octo review browse<CR>",   icon = " ", desc = "Browse review" },
+
+    -- Merge
+    { "<Leader>om", group = "Merge via octo.nvim", icon = " " },
+    { "<Leader>omm", "<CMD>Octo pr merge<CR>",        icon = " ", desc = "Merge PR" },
+    { "<Leader>oms", "<CMD>Octo pr merge squash<CR>", icon = " ", desc = "Squash merge PR" },
+    { "<Leader>omr", "<CMD>Octo pr merge rebase<CR>", icon = " ", desc = "Rebase merge PR" },
+    { "<Leader>omc", "<CMD>Octo pr merge commit<CR>", icon = " ", desc = "Commit merge PR" },
+    { "<Leader>omc", "<CMD>Octo pr merge delete<CR>", icon = " ", desc = "Delete merge PR" },
   })
 end
 
