@@ -2,19 +2,8 @@
 
 return {
   {
-    "pwntester/octo.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "folke/snacks.nvim",
-    },
-    cmd    = { "Octo" },
-    cond   = not vim.g.vscode,
-    config = function() require("user.octo") end,
-  },
-  {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "octo", "codecompanion" },
+    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "codecompanion" },
     config = require("user.render-markdown"),
   },
   -- chezmoi integration
@@ -31,7 +20,6 @@ return {
   },
   {
     "neo451/feed.nvim",
-    dependencies = { "gregorias/coop.nvim" },
     cmd    = { "Feed" },
     cond   = not vim.g.vscode,
     config = function() require("user.feed") end,
