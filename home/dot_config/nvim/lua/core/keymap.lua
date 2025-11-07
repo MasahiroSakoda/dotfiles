@@ -209,15 +209,24 @@ if not is_vscode then
     { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = "Help" },
     { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = "Quickfix list" },
     { "<Leader>fl", "<CMD>lua Snacks.picker.loclist()<CR>",    icon = " ", desc = "Location list" },
+    { "<Leader>fj", "<CMD>lua Snacks.picker.jumps()<CR>",      icon = " ", desc = "Jump list" },
     { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = "autocmds list" },
     { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = "Register list" },
     { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = "Undo Tree" },
     { "<Leader>fH", "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = "Hilight list" },
 
     -- Git
-    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",  icon = " ", desc = "Git Files" },
-    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>", icon = " ", desc = "Git Status" },
-    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",    icon = " ", desc = "Commit Log" },
+    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = "Git Files" },
+    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",   icon = " ", desc = "Git Status" },
+    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",      icon = " ", desc = "Commit Log" },
+    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = "Diff (origin)" },
+    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "Diff (origin)" },
+
+    -- GitHub
+    { "<Leader>gi", "<CMD>lua Snacks.picker.gh_issue()<CR>",              icon = " ", desc = "Opened issues" },
+    { "<Leader>gI", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>", icon = " ", desc = "All issues" },
+    { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr()<CR>",                 icon = " ", desc = "Opened PRs" },
+    { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
 
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = "Diagnostics" },
@@ -464,7 +473,7 @@ wk.add({
   { "<Leader>hR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = "Run all requests" },
   { "<Leader>ht", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = "Toggle View" },
   { "<Leader>hi", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = "Inspect request" },
-  { "<Leader>hs", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
+  { "<Leader>hS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
 })
 
 ---------------------------------------------------------------------------
