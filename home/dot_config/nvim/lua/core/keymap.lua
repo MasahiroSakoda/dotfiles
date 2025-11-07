@@ -359,6 +359,18 @@ if not is_vscode then
     { "<Leader>opm", "<CMD>Octo pr search involves:@me is:open<CR>",      icon = " ", desc = "PRs for @me" },
     { "<Leader>ops", "<CMD>Octo search is:pr is:open<CR>",                icon = " ", desc = "Opened PRs" },
     { "<Leader>opS", "<CMD>Octo search is:pr is:closed involves:@me<CR>", icon = " ", desc = "Closed PRs" },
+
+    -- Review
+    { "<Leader>or", group = "Review via octo.nvim", icon = " " },
+    { "<Leader>ors", "<CMD>Octo review start<CR>",    icon = " ", desc = "Start review" },
+    { "<Leader>orx", "<CMD>Octo review close<CR>",    icon = " ", desc = "Close review" },
+    { "<Leader>orc", "<CMD>Octo review comments<CR>", icon = " ", desc = "View pending comments" },
+    { "<Leader>orp", "<CMD>Octo review commit<CR>",   icon = " ", desc = "Pick a commit to review" },
+    { "<Leader>orS", "<CMD>Octo review submit<CR>",   icon = "󰌑 ", desc = "Submit review" },
+    { "<Leader>orr", "<CMD>Octo review resume<CR>",   icon = " ", desc = "Resume review" },
+    { "<Leader>ord", "<CMD>Octo review discard<CR>",  icon = " ", desc = "Discard pending review" },
+    { "<Leader>ort", "<CMD>Octo review thread<CR>",   icon = "󰃥 ", desc = "View thread" },
+    { "<Leader>orb", "<CMD>Octo review browse<CR>",   icon = " ", desc = "Browse review" },
   })
 end
 
