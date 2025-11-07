@@ -222,6 +222,12 @@ if not is_vscode then
     { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = "Diff (origin)" },
     { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "Diff (origin)" },
 
+    -- GitHub
+    { "<Leader>gi", "<CMD>lua Snacks.picker.gh_issue()<CR>",              icon = " ", desc = "Opened issues" },
+    { "<Leader>gI", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>", icon = " ", desc = "All issues" },
+    { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr()<CR>",                 icon = " ", desc = "Opened PRs" },
+    { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
+
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = "Diagnostics" },
     { "<Leader>ls", "<CMD>lua Snacks.picker.lsp_symbols()<CR>",          icon = " ", desc = "Symbols" },
