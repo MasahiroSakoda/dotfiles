@@ -15,7 +15,7 @@ end)
 
 -- Register extended filetype
 vim.filetype.add({
-  extension = { plist = "xml", mdx = "mdx" },
+  extension = { plist = "xml" },
   pattern   = {
     ["Brewfile.*"]         = "ruby",
     ["Caskfile.*"]         = "ruby",
@@ -29,7 +29,7 @@ vim.filetype.add({
 })
 -- -- Register extended language for treesitter
 vim.treesitter.language.register("bash",     { "sh", "zsh", "dotenv" })
-vim.treesitter.language.register("markdown", { "mdx", "vimwiki", "octo", "codecompanion" })
+vim.treesitter.language.register("markdown", { "vimwiki", "octo", "codecompanion" })
 vim.treesitter.language.register("latex",    { "tex", "plaintex" })
 
 -- Activate treesittter highlights & indent
