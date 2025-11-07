@@ -16,6 +16,7 @@ snacks.setup({
   image        = require("user.snacks.image"),
   explorer     = require("user.snacks.explorer"),
   picker       = require("user.snacks.picker"),
+  gh           = require("user.snacks.gh"),
   notifier     = require("user.snacks.notifier"),
   scroll       = require("user.snacks.scroll"),
   terminal     = require("user.snacks.terminal"),
