@@ -464,7 +464,7 @@ wk.add({
   { "<Leader>hR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = "Run all requests" },
   { "<Leader>ht", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = "Toggle View" },
   { "<Leader>hi", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = "Inspect request" },
-  { "<Leader>hs", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
+  { "<Leader>hS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
 })
 
 ---------------------------------------------------------------------------
