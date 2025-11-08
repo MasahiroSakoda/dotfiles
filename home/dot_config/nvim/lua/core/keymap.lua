@@ -223,10 +223,15 @@ if not is_vscode then
     { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "Diff (origin)" },
 
     -- GitHub
-    { "<Leader>gi", "<CMD>lua Snacks.picker.gh_issue()<CR>",              icon = " ", desc = "Opened issues" },
-    { "<Leader>gI", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>", icon = " ", desc = "All issues" },
-    { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr()<CR>",                 icon = " ", desc = "Opened PRs" },
-    { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
+    { "<Leader>gi", group = "GitHub Issue", icon = " " },
+    { "<Leader>gim", "<CMD>lua Snacks.picker.gh_issue({assignee='@me'})<CR>", icon = " ", desc = "My issues" },
+    { "<Leader>gis", "<CMD>lua Snacks.picker.gh_issue({})<CR>",               icon = " ", desc = "Opened issues" },
+    { "<Leader>giS", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>",    icon = " ", desc = "All issues" },
+
+    { "<Leader>gp", group = "GitHub PR", icon = " " },
+    { "<Leader>gpm", "<CMD>lua Snacks.picker.gh_pr({assignee='@me'})<CR>", icon = " ", desc = "My PRs" },
+    { "<Leader>gpr", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = "Opened PRs" },
+    { "<Leader>gpR", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
 
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = "Diagnostics" },
