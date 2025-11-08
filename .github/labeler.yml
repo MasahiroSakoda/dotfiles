@@ -90,6 +90,5 @@ ai:
       - "home/.chezmoitemplates/common/ai/mcp-servers.json"
       - "home/.chezmoitemplates/common/ai/claude-permissions.json"
       - "home/dot_config/claude/*"
-      - "home/dot_config/mcphub/*"
       - "home/dot_config/nvim/lua/ai/*"
       - "home/dot_gemini/*"
