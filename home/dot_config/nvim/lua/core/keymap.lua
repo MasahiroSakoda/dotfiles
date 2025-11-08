@@ -345,7 +345,6 @@ wk.add({
 -- 🤖  AI Interaction: <Leader> + c
 ---------------------------------------------------------------------------
 if not is_vscode then
-  require("utils.ai")
   -- Abbreviation
   vim.cmd[[
     cnoreabbrev cc  CodeCompanion
@@ -469,10 +468,9 @@ if not is_vscode then
     { "<Leader>nm", "<CMD>Feed<CR>",        icon = " ", desc = "Feed menu" },
     { "<Leader>ni", "<CMD>Feed index<CR>",  icon = " ", desc = "Feed index" },
     { "<Leader>nu", "<CMD>Feed update<CR>", icon = "󰚰 ", desc = "Update Feed" },
-    { "<Leader>nl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = "Show feed list" },
-    { "<Leader>nw", "<CMD>Feed web<CR>",    icon = "󰚰 ", desc = "Show feed list" },
+    { "<Leader>nl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = "Feed list" },
+    { "<Leader>ng", "<CMD>Feed grep<CR>",   icon = "󰚰 ", desc = "Grep search" },
     { "<Leader>ns", "<CMD>Feed sync<CR>",   icon = "󰚰 ", desc = "Sync feed" },
-    { "<Leader>nS", "<CMD>Feed sync!<CR>",  icon = "󰚰 ", desc = "Sync feed" },
   })
 end
 
