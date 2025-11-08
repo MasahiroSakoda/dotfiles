@@ -218,6 +218,7 @@ if not is_vscode then
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = "Git Files" },
     { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",   icon = " ", desc = "Git Status" },
+    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",    icon = " ", desc = "Git Stash" },
     { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",      icon = " ", desc = "Commit Log" },
     { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = "Diff (origin)" },
     { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "View branches" },
