@@ -32,6 +32,8 @@ return {
     files = { hidden = true },
     smart = { hidden = true, filter = { cwd = true } },
     grep  = { hidden = true },
+    gh_issue = {},
+    gh_pr = {},
   },
 
   win = {

@@ -29,7 +29,7 @@ vim.filetype.add({
 })
 -- -- Register extended language for treesitter
 vim.treesitter.language.register("bash",     { "sh", "zsh", "dotenv" })
-vim.treesitter.language.register("markdown", { "vimwiki", "octo", "codecompanion" })
+vim.treesitter.language.register("markdown", { "vimwiki", "codecompanion" })
 vim.treesitter.language.register("latex",    { "tex", "plaintex" })
 
 -- Activate treesittter highlights & indent

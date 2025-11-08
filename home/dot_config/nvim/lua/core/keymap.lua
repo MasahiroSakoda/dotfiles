@@ -218,15 +218,28 @@ if not is_vscode then
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = "Git Files" },
     { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",   icon = " ", desc = "Git Status" },
+    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",    icon = " ", desc = "Git Stash" },
     { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",      icon = " ", desc = "Commit Log" },
     { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = "Diff (origin)" },
-    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "Diff (origin)" },
+    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = "View branches" },
 
     -- GitHub
-    { "<Leader>gi", "<CMD>lua Snacks.picker.gh_issue()<CR>",              icon = " ", desc = "Opened issues" },
-    { "<Leader>gI", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>", icon = " ", desc = "All issues" },
-    { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr()<CR>",                 icon = " ", desc = "Opened PRs" },
-    { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
+    { "<Leader>gi", group = "GitHub Issue", icon = " " },
+    { "<Leader>gim", "<CMD>lua Snacks.picker.gh_issue({assignee='@me'})<CR>", icon = " ", desc = "My issues" },
+    { "<Leader>gis", "<CMD>lua Snacks.picker.gh_issue({})<CR>",               icon = " ", desc = "Opened issues" },
+    { "<Leader>giS", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>",    icon = " ", desc = "All issues" },
+
+    { "<Leader>gp", group = "GitHub PR", icon = " " },
+    { "<Leader>gpm", "<CMD>lua Snacks.picker.gh_pr({assignee='@me'})<CR>", icon = " ", desc = "My PRs" },
+    { "<Leader>gpr", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = "Opened PRs" },
+    { "<Leader>gpR", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = "All PRs" },
+
+    {
+      "<Leader>gD",
+      "<CMD>lua vim.ui.input({prompt='Number:'},function(i) Snacks.picker.gh_diff({pr=assert(tonumber(i))}) end)<CR>",
+      icon = " ",
+      desc = "View PR diff w/ number",
+    },
 
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = "Diagnostics" },
@@ -327,60 +340,6 @@ wk.add({
 
   { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = "Toggle lazygit" },
 }, opts)
-
----------------------------------------------------------------------------
--- octo.nvim: <Leader> + o
----------------------------------------------------------------------------
-if not is_vscode then
-  wk.add({
-    { "<Leader>o", group = "octo.nvim", icon = " " },
-    -- Issues
-    { "<Leader>oi", group = "Issues via octo.nvim", icon = " " },
-    { "<Leader>oic", "<CMD>Octo issue create<CR>", icon = " ", desc = "Create new issue" },
-    { "<Leader>oix", "<CMD>Octo issue close<CR>",  icon = " ", desc = "Close issue" },
-    { "<Leader>oir", "<CMD>Octo issue reopen<CR>", icon = " ", desc = "Reopen issue" },
-    { "<Leader>oiu", "<CMD>Octo issue url<CR>",    icon = " ", desc = "Copy issue URL" },
-
-    { "<Leader>oim", "<CMD>Octo issue search involves:@me is:open<CR>",      icon = " ", desc = "Issues for @me" },
-    { "<Leader>ois", "<CMD>Octo search is:issue is:open involves:@me<CR>",   icon = " ", desc = "Opened issues" },
-    { "<Leader>oiS", "<CMD>Octo search is:issue is:closed involves:@me<CR>", icon = " ", desc = "Closed issues" },
-
-    -- Pull Request
-    { "<Leader>op", group = "Pull Request via octo.nvim", icon = " " },
-    { "<Leader>opn", "<CMD>Octo pr create<CR>",   icon = " ", desc = "New PR" },
-    { "<Leader>opx", "<CMD>Octo pr close<CR>",    icon = " ", desc = "Close PR" },
-    { "<Leader>opl", "<CMD>Octo pr list<CR>",     icon = " ", desc = "List PRs" },
-    { "<Leader>opc", "<CMD>Octo pr commits<CR>",  icon = " ", desc = "List PR commits" },
-    { "<Leader>opc", "<CMD>Octo pr changes<CR>",  icon = " ", desc = "Diff PR changes" },
-    { "<Leader>opp", "<CMD>Octo pr checkout<CR>", icon = " ", desc = "Checkout PR" },
-    { "<Leader>opd", "<CMD>Octo pr diff<CR>",     icon = " ", desc = "Show PR diff" },
-    { "<Leader>opu", "<CMD>Octo pr url<CR>",      icon = " ", desc = "Copy PR URL " },
-
-    { "<Leader>opm", "<CMD>Octo pr search involves:@me is:open<CR>",      icon = " ", desc = "PRs for @me" },
-    { "<Leader>ops", "<CMD>Octo search is:pr is:open<CR>",                icon = " ", desc = "Opened PRs" },
-    { "<Leader>opS", "<CMD>Octo search is:pr is:closed involves:@me<CR>", icon = " ", desc = "Closed PRs" },
-
-    -- Review
-    { "<Leader>or", group = "Review via octo.nvim", icon = " " },
-    { "<Leader>ors", "<CMD>Octo review start<CR>",    icon = " ", desc = "Start review" },
-    { "<Leader>orx", "<CMD>Octo review close<CR>",    icon = " ", desc = "Close review" },
-    { "<Leader>orc", "<CMD>Octo review comments<CR>", icon = " ", desc = "View pending comments" },
-    { "<Leader>orp", "<CMD>Octo review commit<CR>",   icon = " ", desc = "Pick a commit to review" },
-    { "<Leader>orS", "<CMD>Octo review submit<CR>",   icon = "󰌑 ", desc = "Submit review" },
-    { "<Leader>orr", "<CMD>Octo review resume<CR>",   icon = " ", desc = "Resume review" },
-    { "<Leader>ord", "<CMD>Octo review discard<CR>",  icon = " ", desc = "Discard pending review" },
-    { "<Leader>ort", "<CMD>Octo review thread<CR>",   icon = "󰃥 ", desc = "View thread" },
-    { "<Leader>orb", "<CMD>Octo review browse<CR>",   icon = " ", desc = "Browse review" },
-
-    -- Merge
-    { "<Leader>om", group = "Merge via octo.nvim", icon = " " },
-    { "<Leader>omm", "<CMD>Octo pr merge<CR>",        icon = " ", desc = "Merge PR" },
-    { "<Leader>oms", "<CMD>Octo pr merge squash<CR>", icon = " ", desc = "Squash merge PR" },
-    { "<Leader>omr", "<CMD>Octo pr merge rebase<CR>", icon = " ", desc = "Rebase merge PR" },
-    { "<Leader>omc", "<CMD>Octo pr merge commit<CR>", icon = " ", desc = "Commit merge PR" },
-    { "<Leader>omc", "<CMD>Octo pr merge delete<CR>", icon = " ", desc = "Delete merge PR" },
-  })
-end
 
 ---------------------------------------------------------------------------
 -- 🤖  AI Interaction: <Leader> + c
