@@ -21,6 +21,7 @@ return {
   },
   {
     "folke/sidekick.nvim",
+    cond   = not vim.g.vscode,
     config = function() require("ai.sidekick") end,
   },
   {

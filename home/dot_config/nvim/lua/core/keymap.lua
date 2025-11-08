@@ -508,6 +508,15 @@ if not is_vscode then
       desc = "Toggle symbol outline",
     },
     { ",s", "<CMD>ToggleNextEditSuggestion<CR>", icon = "󰁤 ", desc = "Toggle Next Edit Suggestion" },
+    {
+      ",s",
+      function()
+        vim.g.sidekick_nes = not vim.g.sidekick_nes
+        vim.notify("Sidekick NES " .. (vim.g.sidekick_nes and "enabled" or "disabled"), vim.log.levels.INFO)
+      end,
+      icon = "󰁤 ",
+      desc = " Toggle Sidekick NES",
+    },
 
     { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = "Toggle File Explorer"},
     { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = "Toggle Inlay Hints" },
