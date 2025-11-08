@@ -16,40 +16,45 @@ feed.setup({
   },
 
   feeds = {
-    -- Dev
-    { "https://zenn.dev/feed",                name = "Zenn  - Trends",  tags = { "dev" } },
-    { "https://zenn.dev/topics/neovim/feed",  name = "Zenn  - NeoVim",  tags = { "dev", "neovim" } },
-    { "https://qiita.com/popular-items/feed", name = "Qiita - Popular", tags = { "dev" } },
-    { "https://qiita.com/tags/neovim/feed",   name = "Qiita - NeoVim",  tags = { "dev", "neovim" } },
+    dev = {
+      { "https://neovim.io/news.xml",           name = "NeoVim News",     tags = { "nvim" } },
+      { "https://zenn.dev/feed",                name = "Zenn - Trends",   tags = {} },
+      { "https://qiita.com/popular-items/feed", name = "Qiita - Popular", tags = {} },
+      { "https://vim-jp.org/ekiden/rss.xml",    name = "Vim駅伝",         tags = { "nvim" } },
+    },
 
-    -- Reddit
-    { "r/neovim",      name = "Neovim",      tags = { "reddit", "neovim" } },
-    { "r/LocalLLaMA",  name = "Local LLM",   tags = { "reddit", "ai", "llama" } },
+    reddit = {
+      { "r/neovim",     name = "Neovim",     tags = { "nvim" } },
+      { "r/LocalLLaMA", name = "LocalLLaMA", tags = { "ai" } },
+    },
 
-    { "https://neovim.io/news.xml",         name = "NeoVim News", tags = { "news", "neovim" } },
-    { "https://gigazine.net/news/rss_2.0/", name = "GIGAZINE",    tags = { "news", "tech" } },
-    { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = { "news", "tech" } },
-    { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = { "news", "tech" } },
+    tech = {
+      { "https://gigazine.net/news/rss_2.0/", name = "GIGAZINE",    tags = {} },
+      { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = {} },
+      { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = {} },
+    },
 
-    -- Security
-    { "https://github.com/security-advisories",       name = "Security Advisories", tags = { "security", "github" } },
-    { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert", tags = { "security" } },
+    security = {
+      { "https://github.com/security-advisories",       name = "Security Advisories", tags = { "github" } },
+      { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert",  tags = {} },
+    },
 
-    -- Status
-    { "https://www.githubstatus.com/history.rss",  name = "GitHub Status",    tags = { "status", "github" } },
-    { "https://www.google.com/appsstatus/rss/ja",  name = "Workspace Status", tags = { "status", "google" } },
-    { "https://status.slack.com/feed/rss",         name = "Slack Status",     tags = { "status", "slack" } },
-    { "https://discordstatus.com/history.atom",    name = "Discord Status",   tags = { "status", "discord" } },
-    { "https://status.datadoghq.com/history.atom", name = "Datadog Status",   tags = { "status", "datadog" } },
-    { "https://status.huggingface.co/feed",        name = "hf Status",        tags = { "status", "huggingface" } },
-    { "https://status.openai.com/history.rss",     name = "OpenAI Status",    tags = { "status", "openai" } },
-    { "https://status.anthropic.com/history.rss",  name = "Anthropic Status", tags = { "status", "anthropic" } },
+    status = {
+      { "https://www.githubstatus.com/history.rss",  name = "GitHub Status",    tags = { "github" } },
+      { "https://www.google.com/appsstatus/rss/ja",  name = "Workspace Status", tags = { "google" } },
+      { "https://status.slack.com/feed/rss",         name = "Slack Status",     tags = { "slack" } },
+      { "https://discordstatus.com/history.atom",    name = "Discord Status",   tags = { "discord" } },
+      { "https://status.datadoghq.com/history.atom", name = "Datadog Status",   tags = { "datadog" } },
+      { "https://status.huggingface.co/feed",        name = "hf Status",        tags = { "ai" } },
+      { "https://status.openai.com/history.rss",     name = "OpenAI Status",    tags = { "ai" } },
+      { "https://status.anthropic.com/history.rss",  name = "Anthropic Status", tags = { "ai" } },
 
-    { "https://status.cloud.google.com/feed.atom", name = "Google Cloud Status", tags = { "status", "gcloud" } },
-    { "https://azurestatuscdn.azureedge.net/status/feed/", name = "Azure Status", tags = { "status", "azure" } },
-    { "https://www.cloudflarestatus.com/history.atom", name = "Cloudflare Status", tags = { "status", "cloudflare" } },
+      { "https://status.cloud.google.com/feed.atom",         name = "Google Cloud Status", tags = { "gcloud" } },
+      { "https://azurestatuscdn.azureedge.net/status/feed/", name = "Azure Status",        tags = { "azure" } },
+      { "https://www.cloudflarestatus.com/history.atom",     name = "Cloudflare Status",   tags = { "cloudflare" } },
 
-    { "https://www.vercel-status.com/history.atom",   name = "Vercel Status",   tags = { "status", "vercel" } },
-    { "https://status.supabase.com/history.rss",      name = "Supabase",        tags = { "status", "supabase" } },
+      { "https://www.vercel-status.com/history.atom", name = "Vercel Status", tags = { "vercel" } },
+      { "https://status.supabase.com/history.rss",    name = "Supabase",      tags = { "supabase" } },
+    },
   },
 })
