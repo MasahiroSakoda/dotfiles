@@ -2,17 +2,16 @@
 local ok, sidekick = pcall(require, "sidekick")
 if not ok then return end
 
+---@class sidekick.Config
 sidekick.setup({
-  nes = { debounce = 500 },
+  nes = {
+    enabled = function(_)
+      return vim.g.sidekick_nes ~= false and vim.b.sidekick_nes ~= false
+    end,
+    debounce = 500,
+  },
   cli = {
     watch = true,
   },
-})
 
-vim.api.nvim_create_user_command("ToggleNextEditSuggestion", function(_)
-  require("snacks").toggle({
-    name = "Sidekick NES",
-    get  = function() return require("sidekick.nes").enabled end,
-    set  = function(state) return require("sidekick.nes").enabled(state) end,
-  })
-end, { desc = "Toggle Next Edit Suggestion via sidekick.nvim", nargs = "*", bang = true })
+})
