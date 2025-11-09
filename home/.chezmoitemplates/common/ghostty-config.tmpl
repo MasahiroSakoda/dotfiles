@@ -63,7 +63,7 @@ custom-shader-animation = {{ .ghostty.shader.animate }}
 ## Appearance
 ## colors: `ghostty +list-colors`
 ## See: `ghostty ++list-themes`
-theme = {{ .terminal.ghostty.theme | quote }}
+theme = dark:{{ .terminal.ghostty.theme.dark | quote }},light:{{ .terminal.ghostty.theme.light | quote }}
 
 # background-blur-radius = 20
 background-opacity = {{ .terminal.ghostty.opacity }}
