@@ -17,6 +17,12 @@ feed.setup({
     },
   },
 
+  search = {
+    default_query = "@2-weeks-ago +unread ",
+    backend       = "snacks.pick",
+    sort_order    = "descending",
+  },
+
   keys = {
     index = {
       -- { "q",      "<cmd>Feed quit<cr>" },
