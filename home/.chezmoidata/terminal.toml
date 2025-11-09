@@ -15,5 +15,8 @@ images = [
 ]
 
 [terminal.ghostty]
-theme = "GitHub Dark"
 opacity = 0.85
+
+[terminal.ghostty.theme]
+light = "Builtin Solarized Light"
+dark  = "GitHub Dark"
