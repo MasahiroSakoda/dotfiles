@@ -59,6 +59,8 @@ feed.setup({
     },
   },
 
+  date = { locale = "ja_JP.utf8" },
+
   feeds = {
     dev = {
       { "https://neovim.io/news.xml",           name = "NeoVim News",     tags = { "nvim" } },
