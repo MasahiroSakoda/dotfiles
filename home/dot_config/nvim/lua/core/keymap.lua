@@ -101,10 +101,10 @@ wk.add({
   { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = "Delete current buffer" },
   { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = "Delete other buffers" },
 
-  { ";j", "<CMD>resize -3<CR>",          icon = " ", desc = "Decrease window height" },
-  { ";k", "<CMD>resize +3<CR>",          icon = " ", desc = "Increase window height" },
-  { ";h", "<CMD>vertical resize -3<CR>", icon = " ", desc = "Decrease window width" },
-  { ";l", "<CMD>vertical resize +3<CR>", icon = " ", desc = "Increase window width" },
+  { "<S-Up>",    "<CMD>resize -1<CR>",          icon = " ", desc = "Decrease window height" },
+  { "<S-Down>",  "<CMD>resize +1<CR>",          icon = " ", desc = "Increase window height" },
+  { "<S-Left>",  "<CMD>vertical resize -1<CR>", icon = " ", desc = "Decrease window width" },
+  { "<S-Right>", "<CMD>vertical resize +1<CR>", icon = " ", desc = "Increase window width" },
 
   -- Tab Navigation
   { "[t", "<CMD>tabprev<CR>",  icon = " ", desc = "Move to prev tab" },
