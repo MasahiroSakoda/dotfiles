@@ -443,19 +443,19 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- HTTP Client: <Leader> + h
+-- HTTP Client: <Leader> + k
 ---------------------------------------------------------------------------
 wk.add({
   mode = "n",
-  { "<Leader>h", group = "kulala.nvim", icon = "🛜 " },
-  { "<Leader>hs", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = "Open scratchpad" },
-  { "<Leader>hc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = "Copy as cURL" },
-  { "<Leader>hp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = "Paste from cURL" },
-  { "<Leader>hr", "<CMD>lua require'kulala'.run()<CR>",         icon = " ", desc = "Run request" },
-  { "<Leader>hR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = "Run all requests" },
-  { "<Leader>ht", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = "Toggle View" },
-  { "<Leader>hi", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = "Inspect request" },
-  { "<Leader>hS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
+  { "<Leader>k", group = "kulala.nvim", icon = "🛜 " },
+  { "<Leader>ks", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = "Open scratchpad" },
+  { "<Leader>kc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = "Copy as cURL" },
+  { "<Leader>kp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = "Paste from cURL" },
+  { "<Leader>kr", "<CMD>lua require'kulala'.run()<CR>",         icon = " ", desc = "Run request" },
+  { "<Leader>kR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = "Run all requests" },
+  { "<Leader>kt", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = "Toggle View" },
+  { "<Leader>ki", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = "Inspect request" },
+  { "<Leader>kS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = "Search request file" },
 })
 
 ---------------------------------------------------------------------------
