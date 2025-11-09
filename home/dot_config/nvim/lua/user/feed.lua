@@ -60,6 +60,7 @@ feed.setup({
   },
 
   date = { locale = "ja_JP.utf8" },
+  zen  = { enabled = true, width = 90 },
 
   feeds = {
     dev = {
