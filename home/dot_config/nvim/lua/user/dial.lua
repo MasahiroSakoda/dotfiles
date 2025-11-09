@@ -48,6 +48,12 @@ dial.augends:register_group({
       preserve_case = true,
     }),
     augend.constant.new({
+      elements = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
+      word = true,
+      cyclic = true,
+      preserve_case = true,
+    }),
+    augend.constant.new({
       elements = { "ollama", "groq", "copilot", "openai", "anthropic", "google" },
       word = true,
       cyclic = true,
