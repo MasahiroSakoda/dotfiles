@@ -76,12 +76,12 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = nx,
-  { "#",   "<Plug>(asterisk-#)",   icon = "  ", desc = " Search backward" },
-  { "*",   "<Plug>(asterisk-*)",   icon = "  ", desc = " Search forward" },
-  { "g#",  "<Plug>(asterisk-g#)",  icon = "  ", desc = " Partial search backward" },
-  { "g*",  "<Plug>(asterisk-g*)",  icon = "  ", desc = " Partial Search forward" },
-  { "gz#", "<Plug>(asterisk-gz#)", icon = "  ", desc = " Partial search backward (in-place)" },
-  { "gz*", "<Plug>(asterisk-gz*)", icon = "  ", desc = " Partial Search forward (in-place)" },
+  { "#",   "<Plug>(asterisk-#)",   icon = " ", desc = " Search backward" },
+  { "*",   "<Plug>(asterisk-*)",   icon = " ", desc = " Search forward" },
+  { "g#",  "<Plug>(asterisk-g#)",  icon = " ", desc = " Partial search backward" },
+  { "g*",  "<Plug>(asterisk-g*)",  icon = " ", desc = " Partial Search forward" },
+  { "gz#", "<Plug>(asterisk-gz#)", icon = " ", desc = " Partial search backward (in-place)" },
+  { "gz*", "<Plug>(asterisk-gz*)", icon = " ", desc = " Partial Search forward (in-place)" },
 
   { "z", group = "Search in-place", icon = " " },
   { "z#", "<Plug>(asterisk-z#)", icon = " ", desc = " Search backward (in-place)" },
@@ -207,14 +207,15 @@ if not is_vscode then
     { "<Leader>/",  "<CMD>lua Snacks.picker.lines()<CR>",                icon = "󰘤 ", desc = " Grep current buffer" },
 
     -- Vim
-    { "<Leader>fh", "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = " Help" },
-    { "<Leader>fq", "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = " Quickfix list" },
-    { "<Leader>fl", "<CMD>lua Snacks.picker.loclist()<CR>",    icon = " ", desc = " Location list" },
-    { "<Leader>fj", "<CMD>lua Snacks.picker.jumps()<CR>",      icon = " ", desc = " Jump list" },
-    { "<Leader>fa", "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = " autocmds list" },
-    { "<Leader>fr", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = " Register list" },
-    { "<Leader>fu", "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = " Undo Tree" },
-    { "<Leader>fH", "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = " Hilight list" },
+    { "<Leader>fh",  "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = " Help" },
+    { "<Leader>fq",  "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = " Quickfix list" },
+    { "<Leader>fl",  "<CMD>lua Snacks.picker.loclist()<CR>",    icon = " ", desc = " Location list" },
+    { "<Leader>fj",  "<CMD>lua Snacks.picker.jumps()<CR>",      icon = " ", desc = " Jump list" },
+    { "<Leader>fa",  "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = " autocmds list" },
+    { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = " Register list" },
+    { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",      icon = " ", desc = " Mark list" },
+    { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = " Undo Tree" },
+    { "<Leader>fH",  "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = " Hilight list" },
 
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = " Git Files" },
@@ -503,7 +504,6 @@ if not is_vscode then
       icon = " ",
       desc = " Toggle symbol outline",
     },
-    { ",s", "<CMD>ToggleNextEditSuggestion<CR>", icon = "󰁤 ", desc = " Toggle Next Edit Suggestion" },
     {
       ",s",
       function()
