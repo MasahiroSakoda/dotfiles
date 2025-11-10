@@ -5,32 +5,24 @@ return {
   -- Linkify things that look like URLs and the host has a TLD name.
   --
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
-  {
-    regex = pattern.url,
-    format = "$0",
-  },
+  { regex = pattern.url, format = "$0" },
 
   -- linkify email addresses
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
-  {
-    regex  = pattern.email,
-    format = "mailto:$0",
-  },
+  { regex = pattern.email, format = "mailto:$0" },
 
   -- file:// URI
   -- Compiled-in default. Used if you don't specify any hyperlink_rules.
-  {
-    regex  = pattern.file,
-    format = "$0",
-  },
+  { regex = pattern.file, format = "$0" },
 
   -- Linkify things that look like URLs with numeric addresses as hosts.
   -- E.g. http://127.0.0.1:8000 for a local development server,
   -- or http://192.168.1.1 for the web interface of many routers.
-  {
-    regex  = pattern.ipv4,
-    format = "$0",
-  },
+  { regex = pattern.ipv4, format = "$0" },
+
+  -- E.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334 for a local development server,
+  -- or fe00:0000:0000:0001:0000:0000:0000:0092 for the web interface of many routers.
+  { regex = pattern.ipv6, format = "$0" },
 
   -- Make username/project paths clickable. This implies paths like the following are for GitHub.
   -- As long as a full URL hyperlink regex exists above this it should not match a full URL to
