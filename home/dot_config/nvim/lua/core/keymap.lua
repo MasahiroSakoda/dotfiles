@@ -76,12 +76,12 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = nx,
-  { "#",   "<Plug>(asterisk-#)",   icon = "  ", desc = " Search backward" },
-  { "*",   "<Plug>(asterisk-*)",   icon = "  ", desc = " Search forward" },
-  { "g#",  "<Plug>(asterisk-g#)",  icon = "  ", desc = " Partial search backward" },
-  { "g*",  "<Plug>(asterisk-g*)",  icon = "  ", desc = " Partial Search forward" },
-  { "gz#", "<Plug>(asterisk-gz#)", icon = "  ", desc = " Partial search backward (in-place)" },
-  { "gz*", "<Plug>(asterisk-gz*)", icon = "  ", desc = " Partial Search forward (in-place)" },
+  { "#",   "<Plug>(asterisk-#)",   icon = " ", desc = " Search backward" },
+  { "*",   "<Plug>(asterisk-*)",   icon = " ", desc = " Search forward" },
+  { "g#",  "<Plug>(asterisk-g#)",  icon = " ", desc = " Partial search backward" },
+  { "g*",  "<Plug>(asterisk-g*)",  icon = " ", desc = " Partial Search forward" },
+  { "gz#", "<Plug>(asterisk-gz#)", icon = " ", desc = " Partial search backward (in-place)" },
+  { "gz*", "<Plug>(asterisk-gz*)", icon = " ", desc = " Partial Search forward (in-place)" },
 
   { "z", group = "Search in-place", icon = " " },
   { "z#", "<Plug>(asterisk-z#)", icon = " ", desc = " Search backward (in-place)" },
