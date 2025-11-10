@@ -163,7 +163,8 @@ wk.add({
   { "<Leader>r", group = "Task Runner", icon = "✅  " },
 
   -- Async commands
-  { "<Leader>rg", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = " Grep cursor word asynchronously" },
+  { "<Leader>rg", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = " Async grep <cword>" },
+  { "<Leader>rG", "<CMD>cclose | Grep <CWORD><CR>", icon = " ", desc = " Async grep <CWORD>" },
   { "<Leader>rm", "<CMD>Make<CR>",                  icon = " ", desc = " Run make asynchronously" },
 
   -- overseed.nvim commands
