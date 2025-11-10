@@ -213,6 +213,7 @@ if not is_vscode then
     { "<Leader>fj",  "<CMD>lua Snacks.picker.jumps()<CR>",      icon = " ", desc = " Jump list" },
     { "<Leader>fa",  "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = " autocmds list" },
     { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = " Register list" },
+    { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",      icon = " ", desc = " Mark list" },
     { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = " Undo Tree" },
     { "<Leader>fH",  "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = " Hilight list" },
 
