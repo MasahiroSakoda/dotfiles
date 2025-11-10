@@ -504,7 +504,6 @@ if not is_vscode then
       icon = " ",
       desc = " Toggle symbol outline",
     },
-    { ",s", "<CMD>ToggleNextEditSuggestion<CR>", icon = "󰁤 ", desc = " Toggle Next Edit Suggestion" },
     {
       ",s",
       function()
