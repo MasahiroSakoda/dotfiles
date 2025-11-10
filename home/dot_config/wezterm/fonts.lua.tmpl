@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
     ---@diagnostic disable: malformed-number, undefined-global
 local wezterm = require("wezterm")
-local weight  = "Bold"
+local weight  = "Regular"
 
 return {
   global = {
@@ -10,7 +10,7 @@ return {
       { family = {{ .font.family.ascii | quote }}, weight = weight },
       { family = {{ .font.family.nonascii | quote }}, weight = weight },
     }),
-    size = {{ .font.size.medium }},
+    size = {{ .font.size.xsmall }},
   },
   window = {
     font = wezterm.font_with_fallback({
@@ -18,6 +18,6 @@ return {
       { family = {{ .font.family.ascii | quote }}, weight = weight },
       { family = {{ .font.family.nonascii | quote }}, weight = weight },
     }),
-    size = {{ .font.size.small }},
+    size = {{ .font.size.xsmall }},
   },
 }
