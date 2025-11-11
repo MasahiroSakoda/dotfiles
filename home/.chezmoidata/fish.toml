@@ -21,7 +21,6 @@ fisher = [
   # Fuzzy finder
   "jethrokuan/fzf",          # fzf integration
   "jethrokuan/z",            # z directory jumping
-  "PatrickF1/fzf.fish",      # fzf plugin
 
   # Others
 ]
