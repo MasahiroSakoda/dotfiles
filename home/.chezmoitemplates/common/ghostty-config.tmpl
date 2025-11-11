@@ -67,9 +67,15 @@ custom-shader-animation = {{ .ghostty.shader.animate }}
 ## See: `ghostty ++list-themes`
 theme = dark:{{ .terminal.ghostty.theme.dark | quote }},light:{{ .terminal.ghostty.theme.light | quote }}
 
+### Background
 # background-blur-radius = 20
 background-opacity = {{ .terminal.ghostty.opacity }}
 unfocused-split-opacity = 0.8
+
+background-image = {{ joinPath .chezmoi.homeDir "Pictures" "Wallpapers" .terminal.ghostty.background.image | quote }}
+background-image-opacity = {{ .terminal.ghostty.background.opacity }}
+background-image-fit = cover
+background-image-position = center
 
 ## Mouse
 mouse-hide-while-typing = true
