@@ -1,6 +1,6 @@
 # -*-mode:fish-*- vim:ft=fish
 
-bind ctrl-x "__nvim_browse_plugin"
-if bind -M insert >/dev/null 2>/dev/null
-  bind -M insert \cx "__nvim_browse_plugin"
+bind \cx "__nvim_browse_plugin"
+if bind --mode insert >/dev/null 2>/dev/null
+  bind --mode insert \cx "__nvim_browse_plugin"
 end
