@@ -67,9 +67,15 @@ custom-shader-animation = {{ .ghostty.shader.animate }}
 ## See: `ghostty ++list-themes`
 theme = dark:{{ .terminal.ghostty.theme.dark | quote }},light:{{ .terminal.ghostty.theme.light | quote }}
 
+### Background
 # background-blur-radius = 20
 background-opacity = {{ .terminal.ghostty.opacity }}
 unfocused-split-opacity = 0.8
+
+background-image = {{ joinPath .chezmoi.homeDir "Pictures" "Wallpapers" .terminal.ghostty.background.image | quote }}
+background-image-opacity = {{ .terminal.ghostty.background.opacity }}
+background-image-fit = cover
+background-image-position = center
 
 ## Mouse
 mouse-hide-while-typing = true
@@ -87,6 +93,7 @@ font-thicken-strength = 1
 ## Keymap: `ghostty +list-keybinds`
 keybind = shift+enter=text:\n
 keybind = super+backspace=text:\x15
+keybind = option+backspace=text:\x1b\x7f
 
 ### See actions: `ghostty +list-actions`
 ### See: https://ghostty.org/docs/config/keybind/reference
@@ -96,7 +103,7 @@ keybind = super+k=clear_screen
 keybind = super+ctrl+f=toggle_fullscreen
 keybind = super+c=copy_to_clipboard
 keybind = super+v=paste_from_clipboard
-keybind = global:super+ctrl+;=toggle_quick_terminal
+keybind = global:super+ctrl+enter=toggle_quick_terminal
 
 ### Font: ghostty +list-fonts
 keybind = super+0=reset_font_size
@@ -104,6 +111,7 @@ keybind = super++=increase_font_size:1
 keybind = super+-=decrease_font_size:1
 
 ### Window / Split
+keybind = super+alt+i=inspector:toggle
 keybind = super+n=new_window
 keybind = super+shift+w=close_window
 keybind = super+d=new_split:right
