@@ -111,6 +111,7 @@ Filetypes.lsp = {
 Filetypes.snacks = {
   image = {
     triggers = { "markdown" },
+    formats  = { "png", "jpg", "jpeg", "gif", "webp", "pdf", "icns" },
   },
 }
 

@@ -6,5 +6,6 @@ return {
   enabled = function()
     return vim.tbl_contains(ft.snacks.image.triggers, vim.bo.filetype)
   end,
+  formats = ft.snacks.image.formats,
   force   = false,
 }
