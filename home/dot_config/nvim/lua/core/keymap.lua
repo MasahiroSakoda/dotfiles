@@ -184,27 +184,26 @@ if not is_vscode then
     { "<Leader>f", group = "Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
-    { "<Leader>ff", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Frecency Search" },
-    { "<Leader>f,", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
-    { "<Leader>fk", "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
-    { "<Leader>fb", "<CMD>lua Snacks.picker.buffers()<CR>",  icon = " ", desc = " Buffers" },
-    { "<Leader>fc", "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = " Commands" },
-    { "<Leader>fp", "<CMD>lua Snacks.picker.projects()<CR>", icon = " ", desc = " Project" },
+    { "<Leader><Space>", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Smart Find Files" },
+    { "<Leader>f.",      "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
+    { "<Leader>fk",      "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
+    { "<Leader>fb",      "<CMD>lua Snacks.picker.buffers()<CR>",  icon = " ", desc = " Buffers" },
+    { "<Leader>fc",      "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = " Commands" },
+    { "<Leader>fp",      "<CMD>lua Snacks.picker.projects()<CR>", icon = " ", desc = " Project" },
     {
-      "<Leader>f.",
+      "<Leader>ff",
       "<CMD>lua Snacks.picker.smart({ cwd = vim.fn.expand('%:p:h') })<CR>",
       icon = " ",
       desc = " Browse Current Dir",
     },
 
-    { "<Leader>fn", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notify History" },
+    { "<Leader>fn", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
     { "<Leader>f/", "<CMD>lua Snacks.picker.search_history()<CR>",  icon = " ", desc = " Search History" },
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<C-g>",      "<CMD>lua Snacks.picker.grep({ live = true })<CR>",  icon = " ", desc = " Live Grep" },
+    { "<Leader>/",  "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
-    { "<Leader>/",  "<CMD>lua Snacks.picker.lines()<CR>",                icon = "󰘤 ", desc = " Grep current buffer" },
 
     -- Vim
     { "<Leader>fh",  "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = " Help" },
