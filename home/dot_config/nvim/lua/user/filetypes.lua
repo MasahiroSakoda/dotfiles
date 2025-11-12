@@ -108,6 +108,13 @@ Filetypes.lsp = {
   sqruff       = { ".sqruff" },
 }
 
+Filetypes.snacks = {
+  image = {
+    triggers = { "markdown" },
+    formats  = { "png", "jpg", "jpeg", "gif", "webp", "pdf", "icns" },
+  },
+}
+
 Filetypes.ignore = {
   archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
   vcs     = { "^.git/", "^.svn/", "^.hg/" },

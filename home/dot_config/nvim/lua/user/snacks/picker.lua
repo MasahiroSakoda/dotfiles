@@ -11,8 +11,10 @@ return {
 
   ---@class snacks.picker.matcher.Config
   matcher = {
-    cwd_bonus = true,
-    frecency  = true,
+    fuzzy      = true,
+    smartcase  = true,
+    ignorecase = true,
+    frecency   = true,
   },
 
   ---@class snacks.picker.formatters.Config
