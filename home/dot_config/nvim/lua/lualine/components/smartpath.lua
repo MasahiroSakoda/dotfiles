@@ -103,7 +103,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  local dir_to_file = vim.fn.fnamemodify(vim.fn.expand("%:.:h"), ":r")
+  local dir_to_file = vim.fn.fnamemodify(vim.fn.expand("%"), ":~:.:h")
   local filename    = vim.fn.expand("%:t")
   local dirs        = split_dirs(dir_to_file)
   local display     = shorten_dirs(dirs, self.options.parent_num, self.options.abbrev_dot) .. filename
