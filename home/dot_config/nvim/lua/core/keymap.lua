@@ -59,7 +59,7 @@ wk.add({
     desc = " Jump to the <cword>",
   },
   {
-    ";l",
+    "gl",
     "<CMD>lua require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
     icon = " ",
     desc = " Jump to the line",
