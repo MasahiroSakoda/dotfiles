@@ -48,7 +48,7 @@ $shell\
 """
 
 right_format = """
-[ ](fg:#7aa2f7)
+[ ](fg:{{ .starship.env.fg_color }})
 $jobs
 [](fg:{{ .starship.clock.fg_color }})
 $cmd_duration
@@ -94,7 +94,7 @@ style     = "green bold"
 [memory_usage]
 disabled  = true
 symbol    = "🐏 "
-style     = "bg:#CF9562 fg:#444444"
+style     = "fg:{{ .starship.memory.fg_color }} bg:{{ .starship.memory.bg_color }}"
 threshold = -1
 
 #-------------------------------------------------
@@ -104,7 +104,7 @@ threshold = -1
 [os]
 disabled = false
 format   = "[$symbol]($style)"
-style    = "fg:#1a1b26 bg:{{ .starship.env.fg_color }}"
+style    = "fg:{{ .starship.os.fg_color }} bg:{{ .starship.os.bg_color }}"
 
 [os.symbols]
 Windows = " "
@@ -132,14 +132,14 @@ style    = "bold fg:{{ .starship.cmd.color }} bg:{{ .starship.clock.fg_color }}"
 ssh_only = true
 trim_at  = "."
 format   = "[@$hostname  ]($style)"
-style    = "#3399ff"
+style    = {{ .starship.hostname.color | quote }}
 
 # ref: https://starship.rs/config/#username
 [username]
 show_always = false
 format      = "[$user  ]($style)"
 style_root  = "red bold"
-style_user  = "#66b3ff"
+style_user  = {{ .starship.username.color | quote }}
 
 [time]
 disabled    = false
@@ -192,7 +192,7 @@ disabled = false
 
 [fill]
 symbol = "┈"
-style  = "fg:#3366cc"
+style  = "fg:{{ .starship.fill.color }}"
 
 #-------------------------------------------------
 # Shell
@@ -243,7 +243,7 @@ diverged   = "[⇕⇡ ${ahead_count}](fg:{{ .starship.git.status.ahead }})[⇣ $
 ahead      = "[⟫${count}](fg:{{ .starship.git.status.ahead }}) "
 behind     = "[⟪${count}](fg:{{ .starship.git.status.behind }}) "
 untracked  = "[󰏑 ${count} ](bold fg:{{ .starship.git.status.untracked }})"
-conflicted = "[ ${count} ](bold fg:{{ .starship.git.status.conflicted }} bg:#a8006a)"
+conflicted = "[ ${count} ](bold fg:{{ .starship.git.status.conflicted }} bg:{{ .starship.git.status.warning }})"
 stashed    = "[󰋻 ${count} ](bold fg:{{ .starship.git.status.stashed }})"
 modified   = "[󱩼 ${count} ](bold fg:{{ .starship.git.status.modified }})"
 staged     = "[󰷬 ${count} ](bold fg:{{ .starship.git.status.staged }})"
@@ -267,11 +267,11 @@ symbol = ""
 disabled      = false
 added_style   = "fg:{{ .starship.git.metrics.added }}"
 deleted_style = "fg:{{ .starship.git.metrics.deleted }}"
-format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:#9c9c9c)"
+format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:{{ .starship.git.metrics.fg_color }})"
 
 # ref: https://starship.rs/config/#git-commit
 [git_commit]
-style = "bg:#CF9562"
+style = "bg:{{ .starship.git.commit.bg_color }}"
 commit_hash_length = 7
 
 #-------------------------------------------------

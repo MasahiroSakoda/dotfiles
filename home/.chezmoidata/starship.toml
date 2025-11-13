@@ -13,6 +13,7 @@ ahead      = "#ddffa7"
 behind     = "#ff8b92"
 untracked  = "#a88847"
 conflicted = "#ff8b6b"
+warning    = "#a8006a"
 stashed    = "#24ffa0"
 modified   = "#da6633"
 staged     = "#f2d166"
@@ -23,10 +24,22 @@ up_to_date = "#adff2f"
 [starship.git.metrics]
 added   = "#00aa64"
 deleted = "#ea5ea8"
+fg_color = "#9c9c9c"
 
 [starship.git.branch]
 fg_color = "#090c09"
 bg_color = "#a2b1c1"
+
+[starship.git.commit]
+bg_color = "#CF9562"
+
+[starship.memory]
+fg_color = "#CF9562"
+bg_color = "#444444"
+
+[starship.os]
+fg_color = "1a1b26"
+bg_color = "#7aa2f7"
 
 [starship.clock]
 fg_color = "#300906"
@@ -34,6 +47,15 @@ bg_color = "#9c9cff"
 
 [starship.cmd]
 color = "#3399ff"
+
+[starship.hostname]
+color = "#3399ff"
+
+[starship.username]
+color = "#66b3ff"
+
+[starship.fill]
+color = "#3366cc"
 
 # color based on: https://github.com/ozh/github-colors
 [[starship.langs]]
