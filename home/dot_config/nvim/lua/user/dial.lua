@@ -16,6 +16,10 @@ dial.augends:register_group({
     augend.date.alias["%m/%d"],
     augend.date.alias["%H:%M"],
     augend.date.alias["%H:%M:%S"],
+    augend.date.alias["%a"],
+    augend.date.alias["%A"],
+    augend.date.alias["%b"],
+    augend.date.alias["%B"],
     augend.constant.alias.ja_weekday,
     augend.constant.alias.ja_weekday_full,
 
@@ -40,18 +44,6 @@ dial.augends:register_group({
     augend.constant.new({ elements = { "ascending", "descending" }, word = true, cyclic = true }),
     augend.constant.new({ elements = { "horizontal", "vertical" },  word = true, cyclic = true }),
     augend.constant.new({ elements = { "top", "middle", "bottom" }, word = true, cyclic = true }),
-    augend.constant.new({
-      elements = { "mon", "tue", "wed", "thu", "fri", "sat", "sun" },
-      word = true,
-      cyclic = true,
-      preserve_case = true,
-    }),
-    augend.constant.new({
-      elements = { "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday" },
-      word = true,
-      cyclic = true,
-      preserve_case = true,
-    }),
     augend.constant.new({
       elements = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
       word = true,
