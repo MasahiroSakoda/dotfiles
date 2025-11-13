@@ -7,6 +7,8 @@ dial.augends:register_group({
     augend.integer.alias.decimal,
     augend.integer.alias.hex,
     augend.constant.alias.bool,
+    augend.constant.alias.Alpha,
+    augend.constant.alias.alpha,
     augend.constant.new({ elements = { "true", "false" }, word = true, cyclic = true, preserve_case = true }),
     augend.date.alias["%m/%d/%Y"],
     augend.date.alias["%Y-%m-%d"],
