@@ -75,16 +75,15 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = nx,
-  { "#",   "<Plug>(asterisk-#)",   icon = " ", desc = " Search backward" },
-  { "*",   "<Plug>(asterisk-*)",   icon = " ", desc = " Search forward" },
-  { "g#",  "<Plug>(asterisk-g#)",  icon = " ", desc = " Partial search backward" },
-  { "g*",  "<Plug>(asterisk-g*)",  icon = " ", desc = " Partial Search forward" },
-  { "gz#", "<Plug>(asterisk-gz#)", icon = " ", desc = " Partial search backward (in-place)" },
-  { "gz*", "<Plug>(asterisk-gz*)", icon = " ", desc = " Partial Search forward (in-place)" },
+  { "n", "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require'hlslens'.start()<CR>" },
+  { "N", "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require'hlslens'.start()<CR>" },
 
-  { "z", group = "Search in-place", icon = " " },
-  { "z#", "<Plug>(asterisk-z#)", icon = " ", desc = " Search backward (in-place)" },
-  { "z*", "<Plug>(asterisk-z*)", icon = " ", desc = " Search forward (in-place)" },
+  { "#",   "#<CMD>lua require'hlslens'.start()<CR>",   icon = " ", desc = " Search backward" },
+  { "*",   "*<CMD>lua require'hlslens'.start()<CR>",   icon = " ", desc = " Search forward" },
+  { "g#",  "g#<CMD>lua require'hlslens'.start()<CR>",  icon = " ", desc = " Partial search backward" },
+  { "g*",  "g*<CMD>lua require'hlslens'.start()<CR>",  icon = " ", desc = " Partial Search forward" },
+  { "gz#", "gz#<CMD>lua require'hlslens'.start()<CR>", icon = " ", desc = " Partial search backward (in-place)" },
+  { "gz*", "gz*<CMD>lua require'hlslens'.start()<CR>", icon = " ", desc = " Partial Search forward (in-place)" },
 }, opts)
 
 ---------------------------------------------------------------------------
