@@ -23,10 +23,11 @@ dial.augends:register_group({
     }),
 
     augend.semver.alias.semver,
-    augend.constant.new({ elements = { "yes", "no" }, word = true, cyclic = true, preserve_case = true }),
-    augend.constant.new({ elements = { "and", "or" }, word = true, cyclic = true, preserve_case = true }),
-    augend.constant.new({ elements = { "&&", "||" }, word = false, cyclic = true }),
-    augend.constant.new({ elements = { "==", "!=" }, word = false, cyclic = true }),
+    augend.constant.new({ elements = { "yes", "no" },  word = true,  cyclic = true, preserve_case = true }),
+    augend.constant.new({ elements = { "and", "or" },  word = true,  cyclic = true, preserve_case = true }),
+    augend.constant.new({ elements = { "&&", "||" },   word = false, cyclic = true }),
+    augend.constant.new({ elements = { "==", "!=" },   word = false, cyclic = true }),
+    augend.constant.new({ elements = { "[x]", "[ ]" }, word = false, cyclic = true }),
     augend.constant.new({ elements = { "public", "private" }, word = true, cyclic = true, preserve_case = true }),
 
     augend.constant.new({ elements = { "prev", "next" },  word = true, cyclic = true, preserve_case = true }),
