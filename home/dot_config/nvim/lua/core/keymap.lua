@@ -53,22 +53,21 @@ wk.add({
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Flash Treesitter" },
   { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
   {
-    ";w",
-    "<CMD>lua require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
+    "<Leader>*",
+    "<CMD>lua require'flash'.jump({pattern = vim.fn.expand('<cword>')})<CR>",
     icon = " ",
-    desc = " Jump to the word",
+    desc = " Jump to the <cword>",
   },
   {
-    ";l",
+    "gl",
     "<CMD>lua require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
     icon = " ",
     desc = " Jump to the line",
   },
 
-  { "r", "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = " Remote Flash" },
-  { "R", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
-
-  { "<C-s>", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = c, icon = " ", desc = " Toggle Flash Search" },
+  { "r",     "<CMD>lua require'flash'.remote()<CR>",            mode = o,  icon = " ", desc = " Remote Flash" },
+  { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox, icon = " ", desc = " Treesitter Search" },
+  { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,  icon = " ", desc = " Toggle Flash Search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -76,16 +75,15 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = nx,
-  { "#",   "<Plug>(asterisk-#)",   icon = " ", desc = " Search backward" },
-  { "*",   "<Plug>(asterisk-*)",   icon = " ", desc = " Search forward" },
-  { "g#",  "<Plug>(asterisk-g#)",  icon = " ", desc = " Partial search backward" },
-  { "g*",  "<Plug>(asterisk-g*)",  icon = " ", desc = " Partial Search forward" },
-  { "gz#", "<Plug>(asterisk-gz#)", icon = " ", desc = " Partial search backward (in-place)" },
-  { "gz*", "<Plug>(asterisk-gz*)", icon = " ", desc = " Partial Search forward (in-place)" },
+  { "n", "<CMD>execute('normal! ' . v:count1 . 'n')<CR><CMD>lua require'hlslens'.start()<CR>" },
+  { "N", "<CMD>execute('normal! ' . v:count1 . 'N')<CR><CMD>lua require'hlslens'.start()<CR>" },
 
-  { "z", group = "Search in-place", icon = " " },
-  { "z#", "<Plug>(asterisk-z#)", icon = " ", desc = " Search backward (in-place)" },
-  { "z*", "<Plug>(asterisk-z*)", icon = " ", desc = " Search forward (in-place)" },
+  { "#",   "#<CMD>lua require'hlslens'.start()<CR>",   icon = " ", desc = " Search backward" },
+  { "*",   "*<CMD>lua require'hlslens'.start()<CR>",   icon = " ", desc = " Search forward" },
+  { "g#",  "g#<CMD>lua require'hlslens'.start()<CR>",  icon = " ", desc = " Partial search backward" },
+  { "g*",  "g*<CMD>lua require'hlslens'.start()<CR>",  icon = " ", desc = " Partial Search forward" },
+  { "gz#", "gz#<CMD>lua require'hlslens'.start()<CR>", icon = " ", desc = " Partial search backward (in-place)" },
+  { "gz*", "gz*<CMD>lua require'hlslens'.start()<CR>", icon = " ", desc = " Partial Search forward (in-place)" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -184,14 +182,14 @@ if not is_vscode then
     { "<Leader>f", group = "Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
-    { "<Leader><Space>", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Smart Find Files" },
-    { "<Leader>f.",      "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
-    { "<Leader>fk",      "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
-    { "<Leader>fb",      "<CMD>lua Snacks.picker.buffers()<CR>",  icon = " ", desc = " Buffers" },
-    { "<Leader>fc",      "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = " Commands" },
-    { "<Leader>fp",      "<CMD>lua Snacks.picker.projects()<CR>", icon = " ", desc = " Project" },
+    { "<Leader>ff", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Smart Find Files" },
+    { "<Leader>f.", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
+    { "<Leader>fk", "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
+    { "<Leader>fb", "<CMD>lua Snacks.picker.buffers()<CR>",  icon = " ", desc = " Buffers" },
+    { "<Leader>fc", "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = " Commands" },
+    { "<Leader>fp", "<CMD>lua Snacks.picker.projects()<CR>", icon = " ", desc = " Project" },
     {
-      "<Leader>ff",
+      "<Leader>fF",
       "<CMD>lua Snacks.picker.smart({ cwd = vim.fn.expand('%:p:h') })<CR>",
       icon = " ",
       desc = " Browse Current Dir",
@@ -202,7 +200,7 @@ if not is_vscode then
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<Leader>/",  "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
+    { "<Leader>fg", "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
