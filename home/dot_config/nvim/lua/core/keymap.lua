@@ -65,10 +65,9 @@ wk.add({
     desc = " Jump to the line",
   },
 
-  { "r", "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = " Remote Flash" },
-  { "R", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
-
-  { "<C-s>", "<CMD>lua require'flash'.treesitter_search()<CR>", mode = c, icon = " ", desc = " Toggle Flash Search" },
+  { "r",     "<CMD>lua require'flash'.remote()<CR>",            mode = o,  icon = " ", desc = " Remote Flash" },
+  { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox, icon = " ", desc = " Treesitter Search" },
+  { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,  icon = " ", desc = " Toggle Flash Search" },
 }, opts)
 
 ---------------------------------------------------------------------------
