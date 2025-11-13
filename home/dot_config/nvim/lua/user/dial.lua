@@ -33,6 +33,7 @@ dial.augends:register_group({
     augend.constant.new({ elements = { "prev", "next" },  word = true, cyclic = true, preserve_case = true }),
     augend.constant.new({ elements = { "open", "close" }, word = true, cyclic = true, preserve_case = true }),
     augend.constant.new({ elements = { "up", "down" },    word = true, cyclic = true, preserve_case = true }),
+    augend.constant.new({ elements = { "read", "unread" },          word = true, cyclic = true }),
     augend.constant.new({ elements = { "ascending", "descending" }, word = true, cyclic = true }),
     augend.constant.new({ elements = { "horizontal", "vertical" },  word = true, cyclic = true }),
     augend.constant.new({ elements = { "top", "middle", "bottom" }, word = true, cyclic = true }),
