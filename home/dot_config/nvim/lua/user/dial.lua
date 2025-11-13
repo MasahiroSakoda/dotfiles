@@ -16,10 +16,10 @@ dial.augends:register_group({
     augend.date.alias["%m/%d"],
     augend.date.alias["%H:%M"],
     augend.date.alias["%H:%M:%S"],
-    augend.date.alias["%a"],
-    augend.date.alias["%A"],
-    augend.date.alias["%b"],
-    augend.date.alias["%B"],
+    augend.date.new({ pattern = "%a", default_kind = "day", word = true }),
+    augend.date.new({ pattern = "%a", default_kind = "day", word = true }),
+    augend.date.new({ pattern = "%b", default_kind = "day", word = true }),
+    augend.date.new({ pattern = "%B", default_kind = "day", word = true }),
     augend.constant.alias.ja_weekday,
     augend.constant.alias.ja_weekday_full,
 
@@ -57,19 +57,4 @@ dial.augends:register_group({
       preserve_case = true,
     }),
   },
-
-
-  -- augend:on_filetype({
-  --   lua = {
-  --     augend.constant.new({ elements = { "==", "~=" }, word = false, cyclic = true }),
-  --   },
-  --   javascript = {
-  --     augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
-  --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
-  --   },
-  --   typescript = {
-  --     augend.constant.new({ elements = { "===", "!==" }, word = false, cyclic = true }),
-  --     augend.constant.new({ elements = { "let", "var", "const" }, word = false, cyclic = true }),
-  --   },
-  -- }),
 })
