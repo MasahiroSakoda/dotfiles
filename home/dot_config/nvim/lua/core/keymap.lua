@@ -53,10 +53,10 @@ wk.add({
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Flash Treesitter" },
   { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
   {
-    ";w",
-    "<CMD>lua require'flash'.jump({modes = {char = {jump_labels = true}}})<CR>",
+    "<Leader>*",
+    "<CMD>lua require'flash'.jump({pattern = vim.fn.expand('<cword>')})<CR>",
     icon = " ",
-    desc = " Jump to the word",
+    desc = " Jump to the <cword>",
   },
   {
     ";l",
