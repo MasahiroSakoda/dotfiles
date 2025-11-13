@@ -48,7 +48,7 @@ $shell\
 """
 
 right_format = """
-[ ](fg:#7aa2f7)
+[ ](fg:{{ .starship.env.fg_color }})
 $jobs
 [](fg:{{ .starship.clock.fg_color }})
 $cmd_duration
@@ -94,7 +94,7 @@ style     = "green bold"
 [memory_usage]
 disabled  = true
 symbol    = "🐏 "
-style     = "bg:#CF9562 fg:#444444"
+style     = "fg:{{ .starship.memory.fg_color }} bg:{{ .starship.memory.bg_color }}"
 threshold = -1
 
 #-------------------------------------------------
@@ -104,7 +104,7 @@ threshold = -1
 [os]
 disabled = false
 format   = "[$symbol]($style)"
-style    = "fg:#1a1b26 bg:{{ .starship.env.fg_color }}"
+style    = "fg:{{ .starship.os.fg_color }} bg:{{ .starship.os.bg_color }}"
 
 [os.symbols]
 Windows = " "
@@ -132,21 +132,21 @@ style    = "bold fg:{{ .starship.cmd.color }} bg:{{ .starship.clock.fg_color }}"
 ssh_only = true
 trim_at  = "."
 format   = "[@$hostname  ]($style)"
-style    = "#3399ff"
+style    = {{ .starship.hostname.color | quote }}
 
 # ref: https://starship.rs/config/#username
 [username]
 show_always = false
 format      = "[$user  ]($style)"
 style_root  = "red bold"
-style_user  = "#66b3ff"
+style_user  = {{ .starship.username.color | quote }}
 
 [time]
 disabled    = false
 style       = "bold fg:{{ .starship.clock.fg_color }} bg:{{ .starship.clock.bg_color }}"
 format      = "[ $time]($style)"
 time_range  = "-"
-time_format = "%H:%M"
+time_format = "%R"
 
 # ref: https://starship.rs/config/#directory
 [directory]
@@ -165,10 +165,17 @@ use_logical_path  = true
 "Documents" = " "
 "Downloads" = " "
 "Music"     = " "
+"Movies"    = "󰨜 "
 "Pictures"  = " "
+"Public"    = " "
 "Desktop"   = " "
+"Library"   = "󰀸 "
+"Dropbox"   = " "
+"Games"     = " "
+".Trash"    = " "
 ".config"   = " "
 ".cache"    = "󰃨 "
+".wine"     = "󰡶 "
 
 # ref: https://starship.rs/config/#jobs
 [jobs]
@@ -185,7 +192,7 @@ disabled = false
 
 [fill]
 symbol = "┈"
-style  = "fg:#3366cc"
+style  = "fg:{{ .starship.fill.color }}"
 
 #-------------------------------------------------
 # Shell
@@ -236,7 +243,7 @@ diverged   = "[⇕⇡ ${ahead_count}](fg:{{ .starship.git.status.ahead }})[⇣ $
 ahead      = "[⟫${count}](fg:{{ .starship.git.status.ahead }}) "
 behind     = "[⟪${count}](fg:{{ .starship.git.status.behind }}) "
 untracked  = "[󰏑 ${count} ](bold fg:{{ .starship.git.status.untracked }})"
-conflicted = "[ ${count} ](bold fg:{{ .starship.git.status.conflicted }} bg:#a8006a)"
+conflicted = "[ ${count} ](bold fg:{{ .starship.git.status.conflicted }} bg:{{ .starship.git.status.warning }})"
 stashed    = "[󰋻 ${count} ](bold fg:{{ .starship.git.status.stashed }})"
 modified   = "[󱩼 ${count} ](bold fg:{{ .starship.git.status.modified }})"
 staged     = "[󰷬 ${count} ](bold fg:{{ .starship.git.status.staged }})"
@@ -260,126 +267,26 @@ symbol = ""
 disabled      = false
 added_style   = "fg:{{ .starship.git.metrics.added }}"
 deleted_style = "fg:{{ .starship.git.metrics.deleted }}"
-format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:#9c9c9c)"
+format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:{{ .starship.git.metrics.fg_color }})"
 
 # ref: https://starship.rs/config/#git-commit
 [git_commit]
-style = "bg:#CF9562"
+style = "bg:{{ .starship.git.commit.bg_color }}"
 commit_hash_length = 7
 
 #-------------------------------------------------
 # Programming Language
 #-------------------------------------------------
-[c]
-style  = "bold fg:#434343"
-format = "[  $symbol $version]($style)"
-
-[swift]
-symbol = " Swift"
-style  = "bold fg:#eb392c"
-format       = "[  $symbol $version]($style)"
-detect_files = ["Package.swift", ".swiftlint.yml"]
-
-[rust]
-symbol = " Rust"
-style  = "bold fg:#d69372"
-format = "[  $symbol $version](red)"
-
-[zig]
-symbol = " Zig"
-style  = "bold fg:#e57d4a"
-format = "[  $symbol $version]($style)"
-
-[golang]
-symbol = " Go"
-style  = "bold fg:#149dcf"
-format = "[  $symbol $version]($style)"
-
-[java]
-symbol = " Java"
-style  = "bold fg:#9e5e14"
-format = "[  $symbol $version]($style)"
-
-[scala]
-symbol = " Scala"
-style  = "bold fg:#b31a31"
-format = "[  $symbol $version]($style)"
-
-[kotlin]
-symbol = " Kotlin"
-style  = "bold fg:#985fff"
-format = "[  $symbol $version]($style)"
-
-[elixir]
-style  = "bold fg:#593669"
-format = "[  $symbol $version]($style)"
-
-[erlang]
-symbol = " Erlang"
-style  = "bold fg:#a82086"
-format = "[  $symbol $version]($style)"
-
-[haskell]
-symbol = " Haskell"
-style  = "bold fg:#483a6f"
-format = "[  $symbol $version]($style)"
-
-[dotnet]
-style  = "bold fg:#197802"
-format = "[  $symbol $version]($style)"
-
-[nodejs]
-symbol = " node"
-style  = "bold fg:#eddc49"
-format = "[  $symbol $version]($style)"
-
-[deno]
-style  = "bold fg:#2762ba"
-format = "[  $symbol $version]($style)"
-
-[bun]
-style  = "bold fg:#b6f325"
-format = "[  $symbol $version]($style)"
-
-[lua]
-symbol = " Lua"
-style  = "bold fg:#51a0cf"
-format = "[  $symbol $version]($style)"
-
-[python]
-symbol = " Python"
-style  = "bold fg:#2a5e95"
+{{- range $i, $lang := .starship.langs }}
+[{{ $lang.name }}]
+symbol = "{{ $lang.icon }} {{ $lang.display }}"
+style  = "bold fg:{{ $lang.color }}"
+{{- if eq $lang.name "python" }}
 format = " [  ${symbol}${pyenv_prefix} (${version} )(($virtualenv) )]($style)"
-
-[ruby]
-symbol = " Ruby"
-style  = "bold fg:#701516"
+{{ else }}
 format = "[  $symbol $version]($style)"
-
-[perl]
-symbol = " Perl"
-style  = "bold fg:#519aba"
-format = "[  $symbol $version]($style)"
-
-[php]
-symbol = " PHP"
-style  = "bold fg:#a074c4"
-format = "[  $symbol $version]($style)"
-
-[rlang]
-symbol = "󰟔 R"
-style  = "bold fg:#1876e1"
-format = "[  $symbol $version]($style)"
-
-[cmake]
-symbol = " Cmake"
-style  = "bold fg:#6d8086"
-format = "[  $symbol $version]($style)"
-
-[nix_shell]
-symbol = " Nix"
-style  = "bold fg:6c63fe"
-format = "[  $symbol $version]($style)"
+{{ end -}}
+{{ end -}}
 
 #-------------------------------------------------
 # Container

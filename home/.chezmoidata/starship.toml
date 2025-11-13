@@ -13,6 +13,7 @@ ahead      = "#ddffa7"
 behind     = "#ff8b92"
 untracked  = "#a88847"
 conflicted = "#ff8b6b"
+warning    = "#a8006a"
 stashed    = "#24ffa0"
 modified   = "#da6633"
 staged     = "#f2d166"
@@ -23,10 +24,22 @@ up_to_date = "#adff2f"
 [starship.git.metrics]
 added   = "#00aa64"
 deleted = "#ea5ea8"
+fg_color = "#9c9c9c"
 
 [starship.git.branch]
 fg_color = "#090c09"
 bg_color = "#a2b1c1"
+
+[starship.git.commit]
+bg_color = "#CF9562"
+
+[starship.memory]
+fg_color = "#CF9562"
+bg_color = "#444444"
+
+[starship.os]
+fg_color = "1a1b26"
+bg_color = "#7aa2f7"
 
 [starship.clock]
 fg_color = "#300906"
@@ -34,3 +47,151 @@ bg_color = "#9c9cff"
 
 [starship.cmd]
 color = "#3399ff"
+
+[starship.hostname]
+color = "#3399ff"
+
+[starship.username]
+color = "#66b3ff"
+
+[starship.fill]
+color = "#3366cc"
+
+# color based on: https://github.com/ozh/github-colors
+[[starship.langs]]
+name    = "c"
+display = "C"
+icon    = " "
+color   = "#434343"
+
+[[starship.langs]]
+name    = "cpp"
+display = "C++"
+icon    = " "
+color   = "##F34B7D"
+
+[[starship.langs]]
+name    = "swift"
+display = "Swift"
+icon    = " "
+color   = "#eb392c"
+
+[[starship.langs]]
+name    = "rust"
+display = "Rust"
+icon    = " "
+color   = "#d69372"
+
+[[starship.langs]]
+name    = "zig"
+display = "Zig"
+icon    = " "
+color   = "#e57d4a"
+
+[[starship.langs]]
+name    = "haskell"
+display = "Haskell"
+icon    = " "
+color   = "#483a6f"
+
+[[starship.langs]]
+name    = "golang"
+display = "Go"
+icon    = " "
+color   = "#149dcf"
+
+[[starship.langs]]
+name    = "java"
+display = "Java"
+icon    = " "
+color   = "#9e5e14"
+
+[[starship.langs]]
+name    = "scala"
+display = "Scala"
+icon    = " "
+color   = "#b31a31"
+
+[[starship.langs]]
+name    = "kotlin"
+display = "Kotlin"
+icon    = " "
+color   = "#985fff"
+
+[[starship.langs]]
+name    = "elixir"
+display = "Elixir"
+icon    = " "
+color   = "#593669"
+
+[[starship.langs]]
+name    = "erlang"
+display = "Erlang"
+icon    = " "
+color   = "#a82086"
+
+[[starship.langs]]
+name    = "dotnet"
+display = ".NET"
+icon    = " "
+color   = "#197802"
+
+[[starship.langs]]
+name    = "nodejs"
+display = "Node"
+icon    = " "
+color   = "#eddc49"
+
+[[starship.langs]]
+name    = "deno"
+display = "Deno"
+icon    = " "
+color   = "#2762ba"
+
+[[starship.langs]]
+name    = "bun"
+display = "Bun"
+icon    = " "
+color   = "#b6f325"
+
+[[starship.langs]]
+name    = "lua"
+display = "Lua"
+icon    = " "
+color   = "#51a0cf"
+
+[[starship.langs]]
+name    = "python"
+display = "Python"
+icon    = " "
+color   = "#2a5e95"
+
+[[starship.langs]]
+name    = "ruby"
+display = "Ruby"
+icon    = " "
+color   = "#701516"
+
+[[starship.langs]]
+name    = "perl"
+display = "Perl"
+icon    = " "
+color   = "#519aba"
+
+[[starship.langs]]
+name    = "php"
+display = "PHP"
+icon    = " "
+color   = "#a074c4"
+
+[[starship.langs]]
+name    = "rlang"
+display = "R"
+icon    = "󰟔 "
+color   = "#1876e1"
+
+[[starship.langs]]
+name    = "nix_shell"
+display = "Nix"
+icon    = " "
+color   = "#6c63fe"
