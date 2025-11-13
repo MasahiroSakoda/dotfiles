@@ -277,116 +277,16 @@ commit_hash_length = 7
 #-------------------------------------------------
 # Programming Language
 #-------------------------------------------------
-[c]
-style  = "bold fg:#434343"
-format = "[  $symbol $version]($style)"
-
-[swift]
-symbol = " Swift"
-style  = "bold fg:#eb392c"
-format       = "[  $symbol $version]($style)"
-detect_files = ["Package.swift", ".swiftlint.yml"]
-
-[rust]
-symbol = " Rust"
-style  = "bold fg:#d69372"
-format = "[  $symbol $version](red)"
-
-[zig]
-symbol = " Zig"
-style  = "bold fg:#e57d4a"
-format = "[  $symbol $version]($style)"
-
-[golang]
-symbol = " Go"
-style  = "bold fg:#149dcf"
-format = "[  $symbol $version]($style)"
-
-[java]
-symbol = " Java"
-style  = "bold fg:#9e5e14"
-format = "[  $symbol $version]($style)"
-
-[scala]
-symbol = " Scala"
-style  = "bold fg:#b31a31"
-format = "[  $symbol $version]($style)"
-
-[kotlin]
-symbol = " Kotlin"
-style  = "bold fg:#985fff"
-format = "[  $symbol $version]($style)"
-
-[elixir]
-style  = "bold fg:#593669"
-format = "[  $symbol $version]($style)"
-
-[erlang]
-symbol = " Erlang"
-style  = "bold fg:#a82086"
-format = "[  $symbol $version]($style)"
-
-[haskell]
-symbol = " Haskell"
-style  = "bold fg:#483a6f"
-format = "[  $symbol $version]($style)"
-
-[dotnet]
-style  = "bold fg:#197802"
-format = "[  $symbol $version]($style)"
-
-[nodejs]
-symbol = " node"
-style  = "bold fg:#eddc49"
-format = "[  $symbol $version]($style)"
-
-[deno]
-style  = "bold fg:#2762ba"
-format = "[  $symbol $version]($style)"
-
-[bun]
-style  = "bold fg:#b6f325"
-format = "[  $symbol $version]($style)"
-
-[lua]
-symbol = " Lua"
-style  = "bold fg:#51a0cf"
-format = "[  $symbol $version]($style)"
-
-[python]
-symbol = " Python"
-style  = "bold fg:#2a5e95"
+{{- range $i, $lang := .starship.langs }}
+[{{ $lang.name }}]
+symbol = "{{ $lang.icon }} {{ $lang.display }}"
+style  = "bold fg:{{ $lang.color }}"
+{{- if eq $lang.name "python" }}
 format = " [  ${symbol}${pyenv_prefix} (${version} )(($virtualenv) )]($style)"
-
-[ruby]
-symbol = " Ruby"
-style  = "bold fg:#701516"
+{{ else }}
 format = "[  $symbol $version]($style)"
-
-[perl]
-symbol = " Perl"
-style  = "bold fg:#519aba"
-format = "[  $symbol $version]($style)"
-
-[php]
-symbol = " PHP"
-style  = "bold fg:#a074c4"
-format = "[  $symbol $version]($style)"
-
-[rlang]
-symbol = "󰟔 R"
-style  = "bold fg:#1876e1"
-format = "[  $symbol $version]($style)"
-
-[cmake]
-symbol = " Cmake"
-style  = "bold fg:#6d8086"
-format = "[  $symbol $version]($style)"
-
-[nix_shell]
-symbol = " Nix"
-style  = "bold fg:6c63fe"
-format = "[  $symbol $version]($style)"
+{{ end -}}
+{{ end -}}
 
 #-------------------------------------------------
 # Container
