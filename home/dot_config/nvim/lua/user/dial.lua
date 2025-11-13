@@ -3,6 +3,7 @@ local augend_ok, augend = pcall(require, "dial.augend")
 if not (dial_ok or augend_ok) then return end
 
 local default_augends = {
+  -- dial.nvim primitives
   augend.integer.alias.decimal,
   augend.integer.alias.hex,
   augend.constant.alias.bool,
@@ -21,7 +22,6 @@ local default_augends = {
   augend.date.new({ pattern = "%B", default_kind = "day", word = true }),
   augend.constant.alias.ja_weekday,
   augend.constant.alias.ja_weekday_full,
-
   augend.hexcolor.new({ case = "lower", cyclic = true }),
   augend.case.new({
     types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
@@ -29,19 +29,49 @@ local default_augends = {
   }),
 
   augend.semver.alias.semver,
-  augend.constant.new({ elements = { "yes", "no" },  word = true,  cyclic = true, preserve_case = true }),
-  augend.constant.new({ elements = { "and", "or" },  word = true,  cyclic = true, preserve_case = true }),
-  augend.constant.new({ elements = { "&&", "||" },   word = false, cyclic = true }),
-  augend.constant.new({ elements = { "==", "!=" },   word = false, cyclic = true }),
-  augend.constant.new({ elements = { "public", "private" }, word = true, cyclic = true, preserve_case = true }),
 
-  augend.constant.new({ elements = { "prev", "next" },  word = true, cyclic = true, preserve_case = true }),
-  augend.constant.new({ elements = { "open", "close" }, word = true, cyclic = true, preserve_case = true }),
-  augend.constant.new({ elements = { "up", "down" },    word = true, cyclic = true, preserve_case = true }),
-  augend.constant.new({ elements = { "read", "unread" },          word = true, cyclic = true }),
-  augend.constant.new({ elements = { "ascending", "descending" }, word = true, cyclic = true }),
-  augend.constant.new({ elements = { "horizontal", "vertical" },  word = true, cyclic = true }),
-  augend.constant.new({ elements = { "top", "middle", "bottom" }, word = true, cyclic = true }),
+  -- Antonyms
+  augend.constant.new({ elements = { "yes", "no" },                word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "and", "or" },                word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "on", "off" },                word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "in", "out" },                word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "inner", "outer" },           word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "new", "old" },               word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "get", "set" },               word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "min", "max" },               word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "enable", "disable" },        word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "public", "private" },        word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "previous", "prev", "next" }, word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "Previous", "Prev", "Next" }, word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "first", "last" },            word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "open", "close" },            word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "up", "down" },               word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "high", "low" },              word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "read", "write" },            word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "width", "height" },          word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "asc", "desc" },              word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "ascending", "descending" },  word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "incoming", "outgoing" },     word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "increase", "decrease" },     word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "horizontal", "vertical" },   word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "top", "middle", "bottom" },  word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "above", "below" },           word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "before", "after" },          word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "forward", "backward" },      word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "foreground", "background" }, word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "fg", "bg" },                 word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "collapse", "expand" },       word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "positive", "negative" },     word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "passive", "active" },        word = true, preserve_case = true }),
+
+  -- Programming symbols
+  augend.constant.new({ elements = { "&&", "||" }, word = false, cyclic = true }),
+  augend.constant.new({ elements = { "==", "!=" }, word = false, cyclic = true }),
+  augend.constant.new({ elements = { "+=", "-=" }, word = false, cyclic = true }),
+  augend.constant.new({ elements = { "stdin", "stdout", "stderr" }, preserve_case = true }),
+  augend.constant.new({ elements = { "trace", "debug", "info", "warn", "error", "fatal" }, word = true }),
+
+  augend.constant.new({ elements = { "north", "east", "south", "west" }, word = true }),
   augend.constant.new({
     elements = { "ollama", "groq", "copilot", "openai", "anthropic", "google" },
     word = true,
@@ -56,12 +86,6 @@ dial.augends:on_filetype({
   lua = vim.list_extend(default_augends, {
     augend.paren.alias.lua_str_literal,
     augend.constant.new({ elements = { "==", "~=" }, word = false, cyclic = true }),
-    augend.constant.new({
-      elements = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" },
-      word = true,
-      cyclic = true,
-      preserve_case = true,
-    }),
   }),
 
   markdown = vim.list_extend(default_augends, {
