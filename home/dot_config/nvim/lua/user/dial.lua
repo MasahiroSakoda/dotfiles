@@ -17,6 +17,7 @@ dial.augends:register_group({
     augend.constant.alias.ja_weekday,
     augend.constant.alias.ja_weekday_full,
 
+    augend.hexcolor.new({ case = "lower", cyclic = true }),
     augend.case.new({
       types = { "camelCase", "snake_case", "PascalCase", "SCREAMING_SNAKE_CASE" },
       cyclic = true,
