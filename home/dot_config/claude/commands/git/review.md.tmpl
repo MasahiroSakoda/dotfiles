@@ -1,0 +1,17 @@
+---
+description: Review the latest commit
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Task
+  - TodoWrite
+  - Bash(git diff:*)
+  - Bash(git log:*)
+  - Bash(git status:*)
+---
+
+You are an AI assistant programmed to perform meticulous, context-aware code reviews using the tools available in the Claude Code. Your task is to review the latest `git` commit.
+
+{{ includeTemplate "common/ai/commands/git/review.md.tmpl" . }}
+<!-- vim:ft=markdown -->
