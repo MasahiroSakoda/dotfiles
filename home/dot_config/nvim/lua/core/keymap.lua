@@ -521,7 +521,15 @@ if not is_vscode then
     { "<Leader>;z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Zen Mode" },
     { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
 
-    { "<Leader>;s", function() vim.g.sidekick_nes = not vim.g.sidekick_nes end, icon = "󰁤 ", desc = " Sidekick NES" },
+    {
+      "<Leader>;s",
+      function()
+        vim.g.sidekick_nes = not vim.g.sidekick_nes
+        vim.print(vim.g.sidekick_nes and "NES enabled" or "NES diabled")
+      end,
+      icon = "󰁤 ",
+      desc = " Sidekick NES",
+    },
 
   }, opts)
 end
