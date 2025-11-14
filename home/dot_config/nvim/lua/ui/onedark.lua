@@ -15,8 +15,3 @@ onedark.setup({
     types     = "italic,bold",
   },
 })
-
-vim.api.nvim_create_user_command("ToggleOneDarkStyle", function(_)
-  onedark.toggle()
-  vim.notify(string.format("%s", vim.g.onedark_config.style), vim.log.levels.INFO)
-end, { desc = "Toggle OneDark theme style", nargs = "*", bang = true })

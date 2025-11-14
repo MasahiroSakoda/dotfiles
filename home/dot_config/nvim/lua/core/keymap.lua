@@ -39,7 +39,7 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = "n",
-  { "<Leader>;", ":lua<Space>", icon = " ", desc = " Open lua prompt" },
+  { "<Leader>:", ":lua<Space>", icon = " ", desc = " Open lua prompt" },
 })
 
 ---------------------------------------------------------------------------
@@ -98,6 +98,9 @@ wk.add({
   { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = " Move to prev buffer" },
   { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = " Delete current buffer" },
   { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = " Delete other buffers" },
+  { "<Leader>bs", "<CMD>lua Snacks.scratch()<CR>",         icon = " ", desc = " Create scratch buffer" },
+  { "<Leader>bS", "<CMD>lua Snacks.scratch.select()<CR>",  icon = " ", desc = " Select scratch buffer" },
+
 
   { "<S-Up>",    "<CMD>resize -1<CR>",          icon = " ", desc = " Decrease window height" },
   { "<S-Down>",  "<CMD>resize +1<CR>",          icon = " ", desc = " Increase window height" },
@@ -127,6 +130,27 @@ wk.add({
   { "[x", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = " Prev TODOs" },
   { "]x", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = " Next TODOs" },
 }, opts)
+
+---------------------------------------------------------------------------
+-- 🔨  Quickfix
+---------------------------------------------------------------------------
+wk.add({
+  { "<Leader>q", group = "Toggle Quickfix", icon = " " },
+  { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
+  { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
+  {
+    "<Leader>qd",
+    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
+    icon = " ",
+    desc = " Toggle diagnostic list",
+  },
+  {
+    "<Leader>qo",
+    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
+    icon = " ",
+    desc = " Toggle symbol outline",
+  },
+})
 
 ---------------------------------------------------------------------------
 -- 🔖  LuaSnip
@@ -182,6 +206,7 @@ if not is_vscode then
     { "<Leader>f", group = "Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
+    { "<Leader>fe", "<CMD>lua Snacks.explorer()<CR>",        icon = " ", desc = " File Explorer"},
     { "<Leader>ff", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Smart Find Files" },
     { "<Leader>f.", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
     { "<Leader>fk", "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
@@ -200,19 +225,20 @@ if not is_vscode then
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<Leader>fg", "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
+    { "<C-/>",      "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
-    { "<Leader>fh",  "<CMD>lua Snacks.picker.help()<CR>",       icon = " ", desc = " Help" },
-    { "<Leader>fq",  "<CMD>lua Snacks.picker.qflist()<CR>",     icon = " ", desc = " Quickfix list" },
-    { "<Leader>fl",  "<CMD>lua Snacks.picker.loclist()<CR>",    icon = " ", desc = " Location list" },
-    { "<Leader>fj",  "<CMD>lua Snacks.picker.jumps()<CR>",      icon = " ", desc = " Jump list" },
-    { "<Leader>fa",  "<CMD>lua Snacks.picker.autocmds()<CR>",   icon = " ", desc = " autocmds list" },
-    { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",  icon = " ", desc = " Register list" },
-    { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",      icon = " ", desc = " Mark list" },
-    { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",       icon = " ", desc = " Undo Tree" },
-    { "<Leader>fH",  "<CMD>lua Snacks.picker.highlights()<CR>", icon = " ", desc = " Hilight list" },
+    { "<Leader>fh",  "<CMD>lua Snacks.picker.help()<CR>",         icon = " ", desc = " Help" },
+    { "<Leader>fq",  "<CMD>lua Snacks.picker.qflist()<CR>",       icon = " ", desc = " Quickfix list" },
+    { "<Leader>fl",  "<CMD>lua Snacks.picker.loclist()<CR>",      icon = " ", desc = " Location list" },
+    { "<Leader>fj",  "<CMD>lua Snacks.picker.jumps()<CR>",        icon = " ", desc = " Jump list" },
+    { "<Leader>fa",  "<CMD>lua Snacks.picker.autocmds()<CR>",     icon = " ", desc = " autocmds list" },
+    { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",    icon = " ", desc = " Register list" },
+    { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",        icon = " ", desc = " Mark list" },
+    { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",         icon = " ", desc = " Undo Tree" },
+    { "<Leader>fH",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Hilight list" },
+    { "<Leader>fC",  "<CMD>lua Snacks.picker.colorschemes()<CR>", icon = " ", desc = " Colorschemes" },
 
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = " Git Files" },
@@ -482,44 +508,28 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
-    { ",,", "<CMD>lua Snacks.scratch()<CR>",        icon = " ", desc = " Create scratch buffer" },
-    { ",.", "<CMD>lua Snacks.scratch.select()<CR>", icon = " ", desc = " Select scratch buffer" },
+    { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
 
-    { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = " Toggle Hlsearch lens"  },
-    { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle node under cursor" },
-    { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
-    { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = " Toggle theme style" },
+    { "<Leader>;", group = "Toggle keymaps", icon = "󰔡 " },
+    { "<Leader>;/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
+    { "<Leader>;c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
+    { "<Leader>;d", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
+    { "<Leader>;h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
+    { "<Leader>;i", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
+    { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
+    { "<Leader>;d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Dim Mode" },
+    { "<Leader>;z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Zen Mode" },
+    { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
 
-    { ",q", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Toggle qflist" },
-    { ",l", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Toggle loclist" },
     {
-      ",x",
-      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
-      icon = " ",
-      desc = " Toggle diagnostic list",
-    },
-    {
-      ",o",
-      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
-      icon = " ",
-      desc = " Toggle symbol outline",
-    },
-    {
-      ",s",
+      "<Leader>;s",
       function()
         vim.g.sidekick_nes = not vim.g.sidekick_nes
-        vim.notify("Sidekick NES " .. (vim.g.sidekick_nes and "enabled" or "disabled"), vim.log.levels.INFO)
+        vim.print(vim.g.sidekick_nes and "NES enabled" or "NES diabled")
       end,
       icon = "󰁤 ",
-      desc = "  Toggle Sidekick NES",
+      desc = " Sidekick NES",
     },
 
-    { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = " Toggle File Explorer"},
-    { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Toggle Inlay Hints" },
-    { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Toggle Dim mode"},
-    { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Toggle Zen mode"},
-    { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt,  icon = " ", desc = " Toggle Terminal" },
-    { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt,  icon = " ", desc = " Toggle btm w/ terminal" },
-    { ",n", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Toggle Line Number" },
   }, opts)
 end
