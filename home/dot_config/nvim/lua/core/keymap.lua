@@ -98,6 +98,9 @@ wk.add({
   { "[B",         "<CMD>BufferLineMovePrev<CR>",           icon = " ", desc = " Move to prev buffer" },
   { "<Leader>bd", "<CMD>lua Snacks.bufdelete()<CR>",       icon = " ", desc = " Delete current buffer" },
   { "<Leader>bD", "<CMD>lua Snacks.bufdelete.other()<CR>", icon = " ", desc = " Delete other buffers" },
+  { "<Leader>bs", "<CMD>lua Snacks.scratch()<CR>",         icon = " ", desc = " Create scratch buffer" },
+  { "<Leader>bS", "<CMD>lua Snacks.scratch.select()<CR>",  icon = " ", desc = " Select scratch buffer" },
+
 
   { "<S-Up>",    "<CMD>resize -1<CR>",          icon = " ", desc = " Decrease window height" },
   { "<S-Down>",  "<CMD>resize +1<CR>",          icon = " ", desc = " Increase window height" },
@@ -504,9 +507,6 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
-    { ",,", "<CMD>lua Snacks.scratch()<CR>",        icon = " ", desc = " Create scratch buffer" },
-    { ",.", "<CMD>lua Snacks.scratch.select()<CR>", icon = " ", desc = " Select scratch buffer" },
-
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = " Toggle Hlsearch lens"  },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
