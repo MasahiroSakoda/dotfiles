@@ -488,7 +488,6 @@ if not is_vscode then
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = " Toggle Hlsearch lens"  },
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
-    { ",C", "<CMD>ToggleOneDarkStyle<CR>", icon = " ", desc = " Toggle theme style" },
 
     { ",q", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Toggle qflist" },
     { ",l", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Toggle loclist" },
@@ -519,7 +518,6 @@ if not is_vscode then
     { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Toggle Zen mode"},
     { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt,  icon = " ", desc = " Toggle Terminal" },
-    { ",b", "<CMD>lua Snacks.terminal({'btm'})<CR>", mode = nt,  icon = " ", desc = " Toggle btm w/ terminal" },
     { ",n", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Toggle Line Number" },
   }, opts)
 end
