@@ -10,4 +10,9 @@ return {
     qwen      = require("ai.codecompanion.adapters.http.qwen"),
     ollama    = require("ai.codecompanion.adapters.http.ollama"),
   },
+  acp = {
+    claude_code = require("ai.codecompanion.adapters.acp.claude_code"),
+    gemini_cli  = require("ai.codecompanion.adapters.acp.gemini_cli"),
+    codex       = require("ai.codecompanion.adapters.acp.codex"),
+  },
 }
