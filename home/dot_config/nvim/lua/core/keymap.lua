@@ -222,7 +222,7 @@ if not is_vscode then
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<Leader>fg", "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
+    { "<C-/>",      "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
