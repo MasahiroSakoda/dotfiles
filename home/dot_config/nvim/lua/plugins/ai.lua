@@ -9,14 +9,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     cond = not vim.g.vscode,
-    cmd = {
-      "CodeCompanion",
-      "CodeCompanionActions",
-      "CodeCompanionChat",
-      "CodeCompanionToggle",
-      "CodeCompanionHistorySave",
-      "CodeCompanionHistoryLoad",
-    },
+    cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat", "CodeCompanionToggle" },
     config = function() require("ai.codecompanion") end,
   },
   {
