@@ -203,6 +203,7 @@ if not is_vscode then
     { "<Leader>f", group = "Fuzzy Finder", icon = "🔎 " },
 
     -- Builtin
+    { "<Leader>fe", "<CMD>lua Snacks.explorer()<CR>",        icon = " ", desc = " File Explorer"},
     { "<Leader>ff", "<CMD>lua Snacks.picker.smart()<CR>",    icon = " ", desc = " Smart Find Files" },
     { "<Leader>f.", "<CMD>lua Snacks.picker.resume()<CR>",   icon = " ", desc = " Resume Prev Picker" },
     { "<Leader>fk", "<CMD>lua Snacks.picker.keymaps()<CR>",  icon = " ", desc = " Keymaps" },
@@ -520,7 +521,6 @@ if not is_vscode then
       desc = "  Toggle Sidekick NES",
     },
 
-    { ",f", "<CMD>lua Snacks.explorer()<CR>",                    icon = " ", desc = " Toggle File Explorer"},
     { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Toggle Inlay Hints" },
     { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Toggle Dim mode"},
     { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Toggle Zen mode"},
