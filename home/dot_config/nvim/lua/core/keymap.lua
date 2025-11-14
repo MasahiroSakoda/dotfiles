@@ -507,8 +507,8 @@ if not is_vscode then
     { ",,", "<CMD>lua Snacks.scratch()<CR>",        icon = " ", desc = " Create scratch buffer" },
     { ",.", "<CMD>lua Snacks.scratch.select()<CR>", icon = " ", desc = " Select scratch buffer" },
 
+    { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
     { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = " Toggle Hlsearch lens"  },
-    { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
 
     {
