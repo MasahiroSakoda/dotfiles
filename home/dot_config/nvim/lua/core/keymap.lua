@@ -509,23 +509,19 @@ if not is_vscode then
   -- Toggle Plugin
   wk.add({
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
-    { ",/", "<CMD>HlSearchLensToggle<CR>", icon = " ", desc = " Toggle Hlsearch lens"  },
-    { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
 
-    {
-      ",s",
-      function()
-        vim.g.sidekick_nes = not vim.g.sidekick_nes
-        vim.notify("Sidekick NES " .. (vim.g.sidekick_nes and "enabled" or "disabled"), vim.log.levels.INFO)
-      end,
-      icon = "󰁤 ",
-      desc = "  Toggle Sidekick NES",
-    },
+    { "<Leader>;", group = "Toggle keymaps", icon = "󰔡 " },
+    { "<Leader>;/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
+    { "<Leader>;c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
+    { "<Leader>;d", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
+    { "<Leader>;h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
+    { "<Leader>;i", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
+    { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
+    { "<Leader>;d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Dim Mode" },
+    { "<Leader>;z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Zen Mode" },
+    { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
 
-    { ",h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Toggle Inlay Hints" },
-    { ",d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Toggle Dim mode"},
-    { ",z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Toggle Zen mode"},
-    { ",t", "<CMD>lua Snacks.terminal()<CR>",        mode = nt,  icon = " ", desc = " Toggle Terminal" },
-    { ",n", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Toggle Line Number" },
+    { "<Leader>;s", function() vim.g.sidekick_nes = not vim.g.sidekick_nes end, icon = "󰁤 ", desc = " Sidekick NES" },
+
   }, opts)
 end
