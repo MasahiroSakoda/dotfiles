@@ -129,6 +129,27 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
+-- 🔨  Quickfix
+---------------------------------------------------------------------------
+wk.add({
+  { "<Leader>q", group = "Toggle Quickfix", icon = " " },
+  { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
+  { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
+  {
+    "<Leader>qd",
+    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
+    icon = " ",
+    desc = " Toggle diagnostic list",
+  },
+  {
+    "<Leader>qo",
+    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
+    icon = " ",
+    desc = " Toggle symbol outline",
+  },
+})
+
+---------------------------------------------------------------------------
 -- 🔖  LuaSnip
 ---------------------------------------------------------------------------
 wk.add({
@@ -489,20 +510,6 @@ if not is_vscode then
     { ",m", "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle node under cursor" },
     { ",c", "<CMD>ColorizerToggle<CR>",    icon = " ", desc = " Toggle Colorizer" },
 
-    { ",q", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Toggle qflist" },
-    { ",l", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Toggle loclist" },
-    {
-      ",x",
-      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
-      icon = " ",
-      desc = " Toggle diagnostic list",
-    },
-    {
-      ",o",
-      "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
-      icon = " ",
-      desc = " Toggle symbol outline",
-    },
     {
       ",s",
       function()
