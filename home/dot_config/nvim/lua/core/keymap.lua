@@ -49,6 +49,9 @@ wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
 
+  { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
+  { "]]", "<CMD>lua Snacks.words.jump(vim.v.count1)<CR>",  icon = "󰼧 ", desc = "Next Reference" },
+
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = " Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Flash Treesitter" },
   { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
