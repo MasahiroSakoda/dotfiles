@@ -60,8 +60,8 @@ wk.add({
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
 wk.add({
   mode = nxo,
-  { ";", repmove.repeat_last_move,          expr = true, icon = "󰑙 ", desc = "Repeat last move forward" },
-  { ",", repmove.repeat_last_move_opposite, expr = true, icon = "󰑙 ", desc = "Repeat last move backward" },
+  { ";", repmove.repeat_last_move,                       icon = "󰑙 ", desc = "Repeat last move forward" },
+  { ",", repmove.repeat_last_move_opposite,              icon = "󰑙 ", desc = "Repeat last move backward" },
   { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
   { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
   { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
