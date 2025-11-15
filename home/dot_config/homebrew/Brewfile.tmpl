@@ -74,6 +74,16 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
+## Lua
+{{- range .packages.brew.lua | uniq }}
+brew {{ . | quote }}
+{{- end }}
+
+## CSV
+{{- range .packages.brew.csv | uniq }}
+brew {{ . | quote }}
+{{- end }}
+
 {{- if not .headless }}
 
 ## Runtime Management
