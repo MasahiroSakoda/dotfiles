@@ -44,25 +44,17 @@ wk.add({
 }, { noremap = true })
 -- Move
 local move = require("nvim-treesitter-textobjects.move")
-local gps, gpe, gns, gne = move.goto_previous_start, move.goto_previous_end , move.goto_next_start, move.goto_next_end
+local gps, gns = move.goto_previous_start, move.goto_next_start
 wk.add({
   mode = nxo,
-  { "[C", function() gps("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class start" },
-  { "[F", function() gps("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func start" },
-  { "[L", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
-  { "[D", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
-  { "]C", function() gpe("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class end" },
-  { "]F", function() gpe("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func end" },
-  { "]L", function() gpe("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop end" },
-  { "]D", function() gpe("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond end" },
-  { "[c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
-  { "[f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
+  { "[c", function() gps("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class start" },
+  { "[f", function() gps("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func start" },
+  { "[l", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
+  { "[d", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
+  { "]c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
+  { "]f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
   { "[l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
   { "[d", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
-  { "]c", function() gne("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class end" },
-  { "]f", function() gne("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func end" },
-  { "]l", function() gne("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop end" },
-  { "]d", function() gne("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond end" },
 }, { noremap = true })
 -- Repeatable Move
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
