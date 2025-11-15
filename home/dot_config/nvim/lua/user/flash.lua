@@ -15,6 +15,7 @@ flash.setup({
 
   modes = {
     char = { autohide = true, jump_labels = true },
+    treesiter = { labels = "hjklasdfgyuiopqwertnmzxcvb" },
   },
   prompt = {},
   remote_op = {},
