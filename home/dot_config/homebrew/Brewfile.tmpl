@@ -74,11 +74,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Python
-{{- range .packages.brew.python | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 {{- if not .headless }}
 
 ## Runtime Management
