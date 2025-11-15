@@ -10,6 +10,7 @@ textobjects.setup({
       ["@parameter.outer"] = "v",
       ["@parameter.inner"] = "v",
       ["@function.outer"]  = "V",
+      ["@return.outer"]    = "V",
       ["@class.outer"]     = "<c-v>",
     },
     include_surrounding_whitespace = true,
@@ -27,6 +28,8 @@ wk.add({
   { "ic", function() select("@class.inner",       "textobjects") end, icon = " ", desc = "Select inside class" },
   { "af", function() select("@function.outer",    "textobjects") end, icon = " ", desc = "Select around func" },
   { "if", function() select("@function.inner",    "textobjects") end, icon = " ", desc = "Select inside func" },
+  { "ar", function() select("@return.outer",      "textobjects") end, icon = " ", desc = "Select around return" },
+  { "ir", function() select("@return.inner",      "textobjects") end, icon = " ", desc = "Select inside return" },
   { "ab", function() select("@block.outer",       "textobjects") end, icon = " ", desc = "Select around block" },
   { "ib", function() select("@block.inner",       "textobjects") end, icon = " ", desc = "Select inside block" },
   { "al", function() select("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Select around loop" },
@@ -55,11 +58,13 @@ wk.add({
   { "[l", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
   { "[?", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
   { "[p", function() gps("@parameter.inner",   "textobjects") end, icon = " ", desc = "Go to prev param start" },
+  { "[r", function() gps("@return.inner",      "textobjects") end, icon = " ", desc = "Go to prev return" },
   { "]c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
   { "]f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
   { "]l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
   { "]?", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
   { "]p", function() gns("@parameter.inner",   "textobjects") end, icon = " ", desc = "Go to prev param start" },
+  { "]r", function() gns("@return.inner",      "textobjects") end, icon = " ", desc = "Go to next return" },
 }, { noremap = true })
 -- Repeatable Move
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
