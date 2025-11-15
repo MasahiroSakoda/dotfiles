@@ -14,7 +14,7 @@ flash.setup({
   continue  = false,
 
   modes = {
-    char = { jump_labels = true },
+    char = { autohide = true, jump_labels = true },
   },
   prompt = {},
   remote_op = {},
