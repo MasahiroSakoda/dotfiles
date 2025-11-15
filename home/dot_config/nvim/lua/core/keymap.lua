@@ -223,7 +223,8 @@ if not is_vscode then
       desc = " Browse Current Dir",
     },
 
-    { "<Leader>fn", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
+    { "<Leader>fn", "<CMD>lua Snacks.notifier.show_history()<CR>",  icon = " ", desc = " Notification History" },
+    { "<Leader>fN", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
     { "<Leader>f/", "<CMD>lua Snacks.picker.search_history()<CR>",  icon = " ", desc = " Search History" },
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
