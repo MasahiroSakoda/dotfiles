@@ -50,11 +50,11 @@ wk.add({
   { "[c", function() gps("@class.outer",       "textobjects") end, icon = " ", desc = "Go to prev class start" },
   { "[f", function() gps("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func start" },
   { "[l", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
-  { "[d", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
+  { "[?", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
   { "]c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
   { "]f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
-  { "[l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
-  { "[d", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
+  { "]l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
+  { "]?", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
 }, { noremap = true })
 -- Repeatable Move
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
