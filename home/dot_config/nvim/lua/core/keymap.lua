@@ -138,7 +138,7 @@ wk.add({
 -- 🔨  Quickfix
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>q", group = "Toggle Quickfix", icon = "🔨 " },
+  { "<Leader>q", group = "Quickfix", icon = "🔨 " },
   { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
   { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
   {
@@ -305,8 +305,8 @@ end
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " Open lazy.nvim Window" },
-  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = " Open mason.nvim Window" },
+  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
+  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = " mason.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
@@ -469,9 +469,8 @@ end
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "-",         "<CMD>Oil<CR>",         icon = " ", desc = " Open Parent Dir" },
-    { "<Leader>e", "<CMD>Oil<CR>",         icon = " ", desc = " Open Parent Dir" },
-    { "<Leader>E", "<CMD>Oil --float<CR>", icon = " ", desc = " Open Parent Dir w/ float mode" },
+    { "-",         "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
   }, opts)
 end
 
