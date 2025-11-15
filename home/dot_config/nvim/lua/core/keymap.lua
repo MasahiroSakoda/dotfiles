@@ -135,7 +135,7 @@ wk.add({
 -- 🔨  Quickfix
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>q", group = "Toggle Quickfix", icon = " " },
+  { "<Leader>q", group = "Toggle Quickfix", icon = "🔨 " },
   { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
   { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
   {
@@ -503,6 +503,18 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+-- Snacks focus modes:
+---------------------------------------------------------------------------
+if not is_vscode then
+  wk.add({
+    { "<Leader>z", group = "Focus modes", icon = "🧠 " },
+    { "<Leader>zd", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
+    { "<Leader>zz", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
+    { "<Leader>zf", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
+  })
+end
+
+---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
 if not is_vscode then
@@ -515,10 +527,8 @@ if not is_vscode then
     { "<Leader>;c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
     { "<Leader>;d", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
     { "<Leader>;h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "<Leader>;i", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
+    { "<Leader>;l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
     { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
-    { "<Leader>;d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Dim Mode" },
-    { "<Leader>;z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Zen Mode" },
     { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
 
     {
