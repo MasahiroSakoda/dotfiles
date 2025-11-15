@@ -8,6 +8,7 @@ textobjects.setup({
     lockahead = true,
     selection_modes = {
       ["@parameter.outer"] = "v",
+      ["@parameter.inner"] = "v",
       ["@function.outer"]  = "V",
       ["@class.outer"]     = "<c-v>",
     },
@@ -32,6 +33,8 @@ wk.add({
   { "il", function() select("@loop.inner",        "textobjects") end, icon = "󰅲 ", desc = "Select inside loop" },
   { "a?", function() select("@conditional.outer", "textobjects") end, icon = " ", desc = "Select around cond" },
   { "i?", function() select("@conditional.inner", "textobjects") end, icon = " ", desc = "Select inside cond" },
+  { "ap", function() select("@parameter.outer",   "textobjects") end, icon = " ", desc = "Select around param" },
+  { "ip", function() select("@parameter.inner",   "textobjects") end, icon = " ", desc = "Select inside param" },
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Select local scope" },
 }, { noremap = true })
 -- Swap
@@ -51,10 +54,12 @@ wk.add({
   { "[f", function() gps("@function.outer",    "textobjects") end, icon = " ", desc = "Go to prev func start" },
   { "[l", function() gps("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to prev loop start" },
   { "[?", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to prev cond start" },
+  { "[p", function() gps("@parameter.inner",   "textobjects") end, icon = " ", desc = "Go to prev param start" },
   { "]c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Go to next class start" },
   { "]f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Go to next func start" },
   { "]l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Go to next loop start" },
   { "]?", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Go to next cond start" },
+  { "]p", function() gns("@parameter.inner",   "textobjects") end, icon = " ", desc = "Go to prev param start" },
 }, { noremap = true })
 -- Repeatable Move
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
