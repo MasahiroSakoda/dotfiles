@@ -74,8 +74,13 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Python
-{{- range .packages.brew.python | uniq }}
+## Lua
+{{- range .packages.brew.lua | uniq }}
+brew {{ . | quote }}
+{{- end }}
+
+## CSV
+{{- range .packages.brew.csv | uniq }}
 brew {{ . | quote }}
 {{- end }}
 

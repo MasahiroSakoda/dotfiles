@@ -1,24 +1,10 @@
 # -*-mode:toml-*- vim:ft=toml
 
 [packages]
-npm = [
-  "neovim",
-  "commitizen",
-  "cz-conventional-changelog",
-  "npm-check-updates",
-  "mcp-hub",
-  "@google/gemini-cli",
-]
+npm    = [ "neovim", "commitizen", "cz-conventional-changelog", "npm-check-updates", "mcp-hub", "@google/gemini-cli" ]
 go     = []
-python = [
-  "mcp-cli",
-  "mcp-server-time",
-  "mcp-server-git",
-  "mcp-server-fetch",
-  "mcp-server-docker",
-  "markitdown-mcp"
-]
-gem    = [ "bundler" ]
+python = [ "mcp-cli", "mcp-server-time", "mcp-server-git", "mcp-server-fetch", "mcp-server-docker", "markitdown-mcp" ]
+gem    = []
 
 [packages.brew]
 core  = [ "gnutls", "coreutils" ]
@@ -28,20 +14,19 @@ linux = [ "util-linux", "cups" ]
 shell    = [ "fish", "starship" ]
 terminal = [ "tmux", "zellij", "fastfetch" ]
 editor   = [ "neovim", "tree-sitter-cli" ]
-command  = [ "bat", "eza", "fd", "ripgrep", "procs", "thefuck", "fzf", "watchexec" ]
+command  = [ "bat", "eza", "fd", "ripgrep", "procs", "fzf", "watchexec" ]
 vcs      = [ "git", "git-lfs", "git-delta", "tig", "lazygit", "gibo", "gh", "ghq" ]
 security = [ "openssl", "gnupg", "age" ]
 browser  = [ "yazi", "w3m", "newsboat", "tlrc" ]
-network  = [ "tcptraceroute", "termshark" ]
+network  = [ "sniffnet" ]
 performance = [ "bottom", "hyperfine" ]
 downloader  = [ "wget", "curl", "aria2", "yt-dlp", "rclone" ]
-database = [ "sqlite" ]
+database = [ "lazysql" ]
 build    = [ "cmake", "go-task" ]
-runtime  = [ "mise", "xsv", "jnv" ]
+runtime  = [ "mise" ]
 rust     = [ "rustup-init" ]
-python   = [ "tcl-tk", "python-tk@3.12" ]
-ruby     = [ "libyaml" ]
 lua      = [ "luarocks" ]
+csv      = [ "xan" ]
 kubernetes = [ "kubernetes-cli", "helm", "k3d", "k3sup", "k9s", "kind", "krew", "kubectx", "kustomize" ]
 media  = [ "ffmpeg", "media-info" ]
 image  = [ "imagemagick", "exiftool" ]
@@ -52,7 +37,7 @@ update = [ "topgrade" ]
 tap = [ "Homebrew/services" ]
 maintenance = [ "onyx", "appcleaner" ]
 language    = [ "monolingual" ]
-dictionary  = [ "deepl" ]
+dictionary  = []
 finder   = [ "syntax-highlight", "webpquicklook", "symboliclinker" ]
 keyboard = [ "karabiner-elements" ]
 ime      = [ "google-japanese-ime" ]
@@ -78,10 +63,6 @@ broadcast = [ "obs" ]
 network   = [ "tunnelbear", "transmission" ]
 chat      = [ "slack", "discord", "franz" ]
 storage   = [ "dropbox" ]
-
-[[packages.mas]]
-name = "Moom Classic"
-id   = 419330170
 
 [[packages.mas]]
 name = "Keka"
@@ -110,7 +91,3 @@ id   = 409203825
 [[packages.mas]]
 name = "Vimari"
 id   = 1480933944
-
-[[packages.mas]]
-name = "Amphetamine"
-id   = 937984704
