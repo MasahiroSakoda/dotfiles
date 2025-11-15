@@ -49,6 +49,9 @@ wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
 
+  { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
+  { "]]", "<CMD>lua Snacks.words.jump(vim.v.count1)<CR>",  icon = "󰼧 ", desc = "Next Reference" },
+
   { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = " Flash" },
   { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Flash Treesitter" },
   { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
@@ -135,7 +138,7 @@ wk.add({
 -- 🔨  Quickfix
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>q", group = "Toggle Quickfix", icon = " " },
+  { "<Leader>q", group = "Quickfix", icon = "🔨 " },
   { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
   { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
   {
@@ -220,7 +223,8 @@ if not is_vscode then
       desc = " Browse Current Dir",
     },
 
-    { "<Leader>fn", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
+    { "<Leader>fn", "<CMD>lua Snacks.notifier.show_history()<CR>",  icon = " ", desc = " Notification History" },
+    { "<Leader>fN", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
     { "<Leader>f/", "<CMD>lua Snacks.picker.search_history()<CR>",  icon = " ", desc = " Search History" },
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
@@ -229,7 +233,7 @@ if not is_vscode then
     { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
-    { "<Leader>fh",  "<CMD>lua Snacks.picker.help()<CR>",         icon = " ", desc = " Help" },
+    { "<Leader>f?",  "<CMD>lua Snacks.picker.help()<CR>",         icon = " ", desc = " Help" },
     { "<Leader>fq",  "<CMD>lua Snacks.picker.qflist()<CR>",       icon = " ", desc = " Quickfix list" },
     { "<Leader>fl",  "<CMD>lua Snacks.picker.loclist()<CR>",      icon = " ", desc = " Location list" },
     { "<Leader>fj",  "<CMD>lua Snacks.picker.jumps()<CR>",        icon = " ", desc = " Jump list" },
@@ -237,8 +241,9 @@ if not is_vscode then
     { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",    icon = " ", desc = " Register list" },
     { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",        icon = " ", desc = " Mark list" },
     { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",         icon = " ", desc = " Undo Tree" },
-    { "<Leader>fH",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Hilight list" },
+    { "<Leader>fh",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Hilight list" },
     { "<Leader>fC",  "<CMD>lua Snacks.picker.colorschemes()<CR>", icon = " ", desc = " Colorschemes" },
+    { "<Leader>fs",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
 
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = " Git Files" },
@@ -300,8 +305,8 @@ end
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " Open lazy.nvim Window" },
-  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = " Open mason.nvim Window" },
+  { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
+  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = " mason.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
@@ -464,9 +469,8 @@ end
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "-",         "<CMD>Oil<CR>",         icon = " ", desc = " Open Parent Dir" },
-    { "<Leader>e", "<CMD>Oil<CR>",         icon = " ", desc = " Open Parent Dir" },
-    { "<Leader>E", "<CMD>Oil --float<CR>", icon = " ", desc = " Open Parent Dir w/ float mode" },
+    { "-",         "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
   }, opts)
 end
 
@@ -503,6 +507,18 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
+-- Snacks focus modes:
+---------------------------------------------------------------------------
+if not is_vscode then
+  wk.add({
+    { "<Leader>z", group = "Focus modes", icon = "🧠 " },
+    { "<Leader>zd", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
+    { "<Leader>zz", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
+    { "<Leader>zf", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
+  })
+end
+
+---------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
 if not is_vscode then
@@ -515,10 +531,8 @@ if not is_vscode then
     { "<Leader>;c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
     { "<Leader>;d", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
     { "<Leader>;h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "<Leader>;i", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
+    { "<Leader>;l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
     { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
-    { "<Leader>;d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",         icon = " ", desc = " Dim Mode" },
-    { "<Leader>;z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",         icon = " ", desc = " Zen Mode" },
     { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
 
     {
