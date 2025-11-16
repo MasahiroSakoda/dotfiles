@@ -268,6 +268,7 @@ if not is_vscode then
     { "<Leader>lr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
 
     -- Others
+    { "<Leader>f;", "<CMD>lua Snacks.picker.snippets()<CR>", icon = " ", desc = " LuaSnip snippets" },
     { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>",    icon = " ", desc = " Search Icons" },
     {
       "<Leader>fL",

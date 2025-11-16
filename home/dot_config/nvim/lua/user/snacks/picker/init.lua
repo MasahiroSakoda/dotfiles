@@ -34,6 +34,7 @@ return {
     files = { hidden = true },
     smart = { hidden = true, filter = { cwd = true } },
     grep  = { hidden = true },
+    snippets = require("user.snacks.picker.snippets"),
     gh_issue = {},
     gh_pr = {},
   },
