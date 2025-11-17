@@ -2,6 +2,8 @@
 local ok, sidekick = pcall(require, "sidekick")
 if not ok then return end
 
+vim.g.sidekick_nes = false
+
 ---@class sidekick.Config
 sidekick.setup({
   nes = {
