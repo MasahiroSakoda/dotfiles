@@ -266,8 +266,8 @@ function _G.dynamic_node_external_update(func_indx)
 end
 
 require("which-key").add({
-  { "<C-t>", "<CMD>lua _G.dynamic_node_external_update(1)<CR>", mode = "i", icon = " ", desc = "" },
-  { "<C-t>", "<CMD>lua _G.dynamic_node_external_update(1)<CR>", mode = "s", icon = " ", desc = "" },
-  { "<C-g>", "<CMD>lua _G.dynamic_node_external_update(2)<CR>", mode = "i", icon = " ", desc = "" },
-  { "<C-g>", "<CMD>lua _G.dynamic_node_external_update(2)<CR>", mode = "s", icon = " ", desc = "" },
+  { "<C-t>", function() _G.dynamic_node_external_update(1) end, mode = "i", icon = " ", desc = "" },
+  { "<C-t>", function() _G.dynamic_node_external_update(1) end, mode = "s", icon = " ", desc = "" },
+  { "<C-g>", function() _G.dynamic_node_external_update(2) end, mode = "i", icon = " ", desc = "" },
+  { "<C-g>", function() _G.dynamic_node_external_update(2) end, mode = "s", icon = " ", desc = "" },
 }, { noremp = true })
