@@ -39,7 +39,7 @@ wk.add({
 ---------------------------------------------------------------------------
 wk.add({
   mode = "n",
-  { "<Leader>:", ":lua<Space>", icon = " ", desc = " Open lua prompt" },
+  { "<Leader>:", ":lua<Space>", icon = " ", desc = " Lua prompt" },
 })
 
 ---------------------------------------------------------------------------
@@ -377,50 +377,17 @@ if not is_vscode then
 
   -- sidekick.nvim
   wk.add({
-    mode = nv,
-    { "<Leader>a", group = "AI coding agent", icon = "🤖 " },
-    {
-      "<Leader>as",
-      "<CMD>lua require'sidekick.cli'.select({filter={installed=true}})<CR>",
-      mode = "n",
-      icon = "󰞷 ",
-      desc = " Select CLI",
-    },
-    { "<Leader>aa", "<CMD>lua require'sidekick.cli'.toggle({focus=true})<CR>", icon = " ", desc = " Toggle CLI" },
-    {
-      "<Leader>ac",
-      "<CMD>lua require'sidekick.cli'.toggle({name='claude',focus=true})<CR>",
-      icon = " ",
-      desc = " Claude Code",
-    },
-    {
-      "<Leader>ag",
-      "<CMD>lua require'sidekick.cli'.toggle({name='gemini',focus=true})<CR>",
-      icon = " ",
-      desc = " Gemini CLI",
-    },
-    { "<Leader>ad", "<CMD>lua require'sidekick.cli'.close()<CR>",             icon = " ", desc = " Detach Session" },
-    { "<Leader>ap", "<CMD>lua require'sidekick.cli'.prompt()<CR>", mode = nx, icon = "󰞷 ", desc = " Prompt Menu" },
-    {
-      "<Leader>at",
-      "<CMD>lua require'sidekick.cli'.send({msg='{this}'})<CR>",
-      mode = nx,
-      icon = "󱈄 ",
-      desc = " Send This",
-    },
-    {
-      "<Leader>av",
-      "<CMD>lua require'sidekick.cli'.send({msg='{selection}'})<CR>",
-      mode = "x",
-      icon = "󱊅 ",
-      desc = " Send Visual Selection",
-    },
-    {
-      "<Leader>af",
-      "<CMD>lua require'sidekick.cli'.send({msg='{file}'})<CR>",
-      icon = "󱊅 ",
-      desc = " Send File",
-    },
+    { "<Leader>a;", "<CMD>Sidekick nes toggle<CR>",                         icon = "󰁤 ", desc = " Toggle NES" },
+    { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",                         icon = "󰞷 ", desc = " Prompt Menu" },
+    { "<Leader>aa", "<CMD>Sidekick cli toggle<CR>",                         icon = "󰞷 ", desc = " AI Agent" },
+    { "<Leader>as", "<CMD>Sidekick cli toggle name=copilot focus=true<CR>", icon = " ", desc = " GitHub Copilot" },
+    { "<Leader>ac", "<CMD>Sidekick cli toggle name=claude focus=true<CR>",  icon = " ", desc = " Claude Code" },
+    { "<Leader>ag", "<CMD>Sidekick cli toggle name=gemini focus=true<CR>",  icon = " ", desc = " Gemini CLI" },
+    { "<Leader>aC", "<CMD>Sidekick cli toggle name=codex focus=true<CR>",   icon = " ", desc = " Codex" },
+
+    { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",      mode = nx, icon = "󰞷 ", desc = "  Send This" },
+    { "<Leader>av", "<CMD>Sidekick cli send msg='{selection}'<CR>", mode = nx, icon = "󰞷 ", desc = "  Send Selection" },
+    { "<Leader>af", "<CMD>Sidekick cli send msg='{file}'<CR>",      mode = nx, icon = "󰞷 ", desc = "  Send File" },
   })
 
   -- codecompanion.nvim
@@ -459,8 +426,8 @@ end
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "-",         "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
-    { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "-", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    -- { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
   }, opts)
 end
 
@@ -524,16 +491,5 @@ if not is_vscode then
     { "<Leader>;l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
     { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
     { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
-
-    {
-      "<Leader>;s",
-      function()
-        vim.g.sidekick_nes = not vim.g.sidekick_nes
-        vim.print(vim.g.sidekick_nes and "NES enabled" or "NES diabled")
-      end,
-      icon = "󰁤 ",
-      desc = " Sidekick NES",
-    },
-
   }, opts)
 end
