@@ -32,7 +32,7 @@ function M.get_visual(_, parent)
   end
 end
 
-function M.clipborad()
+function M.clipboard()
   return vim.fn.getreg("+")
 end
 
