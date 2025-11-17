@@ -156,17 +156,6 @@ wk.add({
 })
 
 ---------------------------------------------------------------------------
--- 🔖  LuaSnip
----------------------------------------------------------------------------
-wk.add({
-  { "<Leader>fs", "<CMD>LuaSnipBrowse<CR>", icon = " ", desc = " Browse LuaSnip snippets" },
-
-  { "<Leader>s", group = "Snippets", icon = "🔖 " },
-  { "<Leader>sr", "<CMD>LuaSnipReload<CR>", icon = " ", desc = " Reload LusSnip config" },
-  { "<Leader>se", "<CMD>LuaSnipEdit<CR>",   icon = " ", desc = " Edit LuaSnip file" },
-}, opts)
-
----------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 wk.add({
@@ -279,7 +268,8 @@ if not is_vscode then
     { "<Leader>lr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
 
     -- Others
-    { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>", icon = " ", desc = " Search Icons" },
+    { "<Leader>f;", "<CMD>lua Snacks.picker.snippets()<CR>", icon = " ", desc = " LuaSnip snippets" },
+    { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>",    icon = " ", desc = " Search Icons" },
     {
       "<Leader>fL",
       "<CMD>lua Snacks.picker.smart({cwd = vim.fn.stdpath('data') .. '/lazy'})<CR>",

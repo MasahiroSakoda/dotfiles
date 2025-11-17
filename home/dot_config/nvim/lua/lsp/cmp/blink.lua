@@ -2,33 +2,48 @@
 local ok, blink = pcall(require, "blink.cmp")
 if not ok then return end
 
+local ls = require("luasnip")
+
 ---@module "blink.cmp"
 ---@type blink.cmp.Config
 blink.setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
     preset = "none", ---@type "default"|"super-tab"|"enter"|"none"
-    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
-    ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
-    ["<C-c>"]   = { "cancel", "fallback" },
-    ["<C-e>"]   = { "hide", "fallback" },
-    ["<Tab>"]   = {
-      function() return require("sidekick").nes_jump_or_apply() end,
-      function(cmp) return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept() end,
+    ["<Tab>"] = {
+      function(cmp)
+        return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept()
+      end,
+      function(_)
+        return require("sidekick").nes_jump_or_apply()
+      end,
+      "snippet_forward",
       "fallback",
     },
-    ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
-    ["<C-p>"]   = { "select_prev", "fallback" },
-    ["<C-n>"]   = { "select_next", "fallback" },
-    ["<C-b>"]   = { "scroll_documentation_up",   "fallback" },
-    ["<C-f>"]   = { "scroll_documentation_down", "fallback" },
-
-    ["<Up>"]    = { "select_prev", "fallback" },
-    ["<Down>"]  = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "snippet_backward", "fallback" },
+    ["<Up>"]    = { "show_and_insert", "select_prev", "fallback" },
+    ["<Down>"]  = { "show_and_insert", "select_next", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
     ["<Right>"] = { "select_and_accept", "fallback" },
-
-    -- ["<CR>"]    = { "select_and_accept" },
+    ["<C-p>"]   = {
+      function(_)
+        return ls.choice_active() and ls.change_choice(-1)
+      end,
+      "fallback"
+    },
+    ["<C-n>"]   = {
+      function(_)
+        return ls.choice_active() and ls.change_choice(1)
+      end,
+      "fallback"
+    },
+    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
+    ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
+    ["<C-b>"]   = { "scroll_documentation_up", "fallback" },
+    ["<C-f>"]   = { "scroll_documentation_down", "fallback" },
+    ["<C-.>"]   = { "hide", "fallback" },
+    ["<C-c>"]   = { "cancel", "fallback" },
+    ["<CR>"]    = { "accept", "fallback" },
   },
 
   appearance = {
