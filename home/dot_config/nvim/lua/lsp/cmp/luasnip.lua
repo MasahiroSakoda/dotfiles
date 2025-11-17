@@ -170,7 +170,7 @@ end
 
 local external_update_id = 0
 -- func_indx to update the dynamicNode with different functions.
-function dynamic_node_external_update(func_indx)
+function _G.dynamic_node_external_update(func_indx)
   -- most of this function is about restoring the cursor to the correct
   -- position+mode, the important part are the few lines from
   -- `dynamic_node.snip:store()`.
