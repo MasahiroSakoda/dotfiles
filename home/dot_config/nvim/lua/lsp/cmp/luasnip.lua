@@ -170,7 +170,7 @@ end
 
 local external_update_id = 0
 -- func_indx to update the dynamicNode with different functions.
-function _G.dynamic_node_external_update(func_indx)
+local function dynamic_node_external_update(func_indx)
   -- most of this function is about restoring the cursor to the correct
   -- position+mode, the important part are the few lines from
   -- `dynamic_node.snip:store()`.
@@ -266,8 +266,8 @@ function _G.dynamic_node_external_update(func_indx)
 end
 
 require("which-key").add({
-  { "<C-t>", function() _G.dynamic_node_external_update(1) end, mode = "i", icon = " ", desc = "" },
-  { "<C-t>", function() _G.dynamic_node_external_update(1) end, mode = "s", icon = " ", desc = "" },
-  { "<C-g>", function() _G.dynamic_node_external_update(2) end, mode = "i", icon = " ", desc = "" },
-  { "<C-g>", function() _G.dynamic_node_external_update(2) end, mode = "s", icon = " ", desc = "" },
+  { "<C-t>", function() dynamic_node_external_update(1) end, mode = "i", icon = " ", desc = "" },
+  { "<C-t>", function() dynamic_node_external_update(1) end, mode = "s", icon = " ", desc = "" },
+  { "<C-g>", function() dynamic_node_external_update(2) end, mode = "i", icon = " ", desc = "" },
+  { "<C-g>", function() dynamic_node_external_update(2) end, mode = "s", icon = " ", desc = "" },
 }, { noremp = true })
