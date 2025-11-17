@@ -221,7 +221,8 @@ function dynamic_node_external_update(func_indx)
   -- same node" higher priority by doing two searches (but that would require
   -- two searches :( )
   local target_node = dynamic_node:find_node(function(test_node)
-    return (test_node.external_update_id == external_update_id) or (current_node_key ~= nil and test_node.key == current_node_key)
+    return (test_node.external_update_id == external_update_id)
+      or (current_node_key ~= nil and test_node.key == current_node_key)
   end)
 
   if target_node then
