@@ -60,6 +60,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       return
     end
     -- Activate fold via treesitter
-    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.o.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
+    vim.o.foldmethod = "expr"
+    vim.o.foldtext   = ""
+
+    vim.o.foldenable     = true
+    vim.o.foldminlines   = 5
+    vim.o.foldlevel      = 99
+    vim.o.foldlevelstart = 99
   end,
 })
