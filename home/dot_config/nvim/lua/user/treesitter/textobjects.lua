@@ -42,6 +42,7 @@ wk.add({
   { "ia", function() select("@attribute.inner",   "textobjects") end, icon = " ", desc = "Inside attribute" },
   { "a/", function() select("@regex.outer",       "textobjects") end, icon = " ", desc = "Around regex" },
   { "i/", function() select("@regex.inner",       "textobjects") end, icon = " ", desc = "Inside regex" },
+  { "in", function() select("@number.inner",      "textobjects") end, icon = " ", desc = "Inside number" },
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Local scope" },
 }, { noremap = true })
 -- Swap
