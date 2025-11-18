@@ -45,6 +45,7 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
+local flash = require("flash")
 wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
@@ -52,25 +53,48 @@ wk.add({
   { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
   { "]]", "<CMD>lua Snacks.words.jump(vim.v.count1)<CR>",  icon = "󰼧 ", desc = "Next Reference" },
 
-  { "s", "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = " Flash" },
-  { "S", "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Flash Treesitter" },
-  { "<Leader>j", group = "Cursor jump via flash.nvim", icon = "⚡️ " },
+  { "s",     function() flash.jump() end,              mode = nxo, icon = " ", desc = " Jump" },
+  { "S",     function() flash.treesitter() end,        mode = nxo, icon = " ", desc = " Treesitter" },
+  { "r",     function() flash.remote() end,            mode = o,   icon = " ", desc = " Remote" },
+  { "R",     function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = " Treesitter Search" },
+  { "<C-s>", function() flash.toggle() end,            mode = c,   icon = " ", desc = " Toggle Search" },
+
   {
     "<Leader>*",
-    "<CMD>lua require'flash'.jump({pattern = vim.fn.expand('<cword>')})<CR>",
-    icon = " ",
-    desc = " Jump to the <cword>",
+    function() flash.jump({ pattern = vim.fn.expand("<cword>") }) end,
+    mode = nxo,
+    icon = "󰀬 ",
+    desc = " Jump to <cword>",
   },
   {
     "gl",
-    "<CMD>lua require'flash'.jump({pattern = '^',search = {mode = 'search'}, label = {after={0,0}}})<CR>",
-    icon = " ",
-    desc = " Jump to the line",
+    function() flash.jump({ pattern = "^\\s*\\S", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
+    mode = nxo,
+    icon = " ",
+    desc = " Jump to the line (skip whitespace and empty line)",
   },
 
-  { "r",     "<CMD>lua require'flash'.remote()<CR>",            mode = o,  icon = " ", desc = " Remote Flash" },
-  { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox, icon = " ", desc = " Treesitter Search" },
-  { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,  icon = " ", desc = " Toggle Flash Search" },
+  {
+    "gL",
+    function() flash.jump({ pattern = "^\\s*\\S\\?", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
+    mode = nxo,
+    icon = " ",
+    desc = " Jump to the line (skip whitespace and empty line)",
+  },
+  {
+    "g]",
+    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
+    mode = ox,
+    icon = " ",
+    desc = "Jump to the start of word (forward)",
+  },
+  {
+    "g[",
+    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
+    mode = ox,
+    icon = " ",
+    desc = "Jump to the start of word (back forward)",
+  },
 }, opts)
 
 ---------------------------------------------------------------------------
