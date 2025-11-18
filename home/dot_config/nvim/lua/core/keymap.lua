@@ -488,18 +488,6 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- Snacks focus modes:
----------------------------------------------------------------------------
-if not is_vscode then
-  wk.add({
-    { "<Leader>z", group = "Focus modes", icon = "🧠 " },
-    { "<Leader>zd", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
-    { "<Leader>zz", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
-    { "<Leader>zf", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
-  })
-end
-
----------------------------------------------------------------------------
 -- Others:
 ---------------------------------------------------------------------------
 if not is_vscode then
@@ -507,13 +495,18 @@ if not is_vscode then
   wk.add({
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
 
-    { "<Leader>;", group = "Toggle keymaps", icon = "󰔡 " },
-    { "<Leader>;/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
-    { "<Leader>;c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
-    { "<Leader>;d", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
-    { "<Leader>;h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "<Leader>;l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
-    { "<Leader>;i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
+    -- Snacks focus modes:
+    { "\\", group = "Toggle keymaps", icon = "🎚️ " },
+    { "\\d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
+    { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
+    { "\\f", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
+
+    { "\\/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
+    { "\\c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
+    { "\\D", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
+    { "\\h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
+    { "\\l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
+    { "\\i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
     { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
