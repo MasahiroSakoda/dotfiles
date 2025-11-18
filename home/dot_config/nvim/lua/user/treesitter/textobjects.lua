@@ -13,7 +13,7 @@ textobjects.setup({
       ["@return.outer"]    = "V",
       ["@class.outer"]     = "<c-v>",
     },
-    include_surrounding_whitespace = true,
+    include_surrounding_whitespace = false,
   },
 })
 
@@ -38,6 +38,11 @@ wk.add({
   { "i?", function() select("@conditional.inner", "textobjects") end, icon = " ", desc = "Inside cond" },
   { "ap", function() select("@parameter.outer",   "textobjects") end, icon = " ", desc = "Around param" },
   { "ip", function() select("@parameter.inner",   "textobjects") end, icon = " ", desc = "Inside param" },
+  { "aa", function() select("@attribute.outer",   "textobjects") end, icon = " ", desc = "Around attribute" },
+  { "ia", function() select("@attribute.inner",   "textobjects") end, icon = " ", desc = "Inside attribute" },
+  { "a/", function() select("@regex.outer",       "textobjects") end, icon = " ", desc = "Around regex" },
+  { "i/", function() select("@regex.inner",       "textobjects") end, icon = " ", desc = "Inside regex" },
+  { "in", function() select("@number.inner",      "textobjects") end, icon = " ", desc = "Inside number" },
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Local scope" },
 }, { noremap = true })
 -- Swap
@@ -59,12 +64,14 @@ wk.add({
   { "[?", function() gps("@conditional.outer", "textobjects") end, icon = " ", desc = "Prev cond start" },
   { "[p", function() gps("@parameter.inner",   "textobjects") end, icon = " ", desc = "Prev param start" },
   { "[r", function() gps("@return.inner",      "textobjects") end, icon = " ", desc = "Prev return" },
+  { "[/", function() gps("@regex.outer",       "textobjects") end, icon = " ", desc = "Prev regex" },
   { "]c", function() gns("@class.outer",       "textobjects") end, icon = " ", desc = "Next class start" },
   { "]f", function() gns("@function.outer",    "textobjects") end, icon = " ", desc = "Next func start" },
   { "]l", function() gns("@loop.outer",        "textobjects") end, icon = "󰅲 ", desc = "Next loop start" },
   { "]?", function() gns("@conditional.outer", "textobjects") end, icon = " ", desc = "Next cond start" },
   { "]p", function() gns("@parameter.inner",   "textobjects") end, icon = " ", desc = "Prev param start" },
   { "]r", function() gns("@return.inner",      "textobjects") end, icon = " ", desc = "Next return" },
+  { "]/", function() gns("@regex.outer",       "textobjects") end, icon = " ", desc = "Next regex" },
 }, { noremap = true })
 -- Repeatable Move
 local repmove = require("nvim-treesitter-textobjects.repeatable_move")
