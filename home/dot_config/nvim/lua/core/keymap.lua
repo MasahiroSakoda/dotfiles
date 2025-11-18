@@ -380,7 +380,7 @@ require("utils.git")
 
 wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
-  -- { "<Leader>gb", "<CMD>GitBlameLine<CR>",     icon = " ", desc = " Git Blame Line" },
+  { "<Leader>gB", "<CMD>lua Snacks.git.blame_line()<CR>", icon = " ", desc = " Git Blame Line" },
 
   { "[h", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
   { "]h", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
