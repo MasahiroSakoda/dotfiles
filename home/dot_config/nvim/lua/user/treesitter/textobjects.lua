@@ -38,6 +38,8 @@ wk.add({
   { "i?", function() select("@conditional.inner", "textobjects") end, icon = " ", desc = "Inside cond" },
   { "ap", function() select("@parameter.outer",   "textobjects") end, icon = " ", desc = "Around param" },
   { "ip", function() select("@parameter.inner",   "textobjects") end, icon = " ", desc = "Inside param" },
+  { "aa", function() select("@attribute.outer",   "textobjects") end, icon = " ", desc = "Around attribute" },
+  { "ia", function() select("@attribute.inner",   "textobjects") end, icon = " ", desc = "Inside attribute" },
   { "a/", function() select("@regex.outer",       "textobjects") end, icon = " ", desc = "Around regex" },
   { "i/", function() select("@regex.inner",       "textobjects") end, icon = " ", desc = "Inside regex" },
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Local scope" },
