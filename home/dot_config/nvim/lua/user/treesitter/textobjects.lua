@@ -13,7 +13,7 @@ textobjects.setup({
       ["@return.outer"]    = "V",
       ["@class.outer"]     = "<c-v>",
     },
-    include_surrounding_whitespace = true,
+    include_surrounding_whitespace = false,
   },
 })
 
