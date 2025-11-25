@@ -2,9 +2,9 @@
 ---@diagnostic disable: unused-local
 local ls = require("luasnip")
 local s  = ls.snippet
-local t  = ls.text_node
+-- local t  = ls.text_node
 local i  = ls.insert_node
-local c  = ls.choice_node
+-- local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
 local f  = ls.function_node
@@ -27,25 +27,6 @@ local snippets = {
       f(function() return vim.bo.filetype end),
     })
   ),
-  s({ trig = "shebang", name = "shebang template", dscr = "shebang template (bash/zsh/fish)", prioriy = -100 },
-    fmt('{}', c(1, {t("#/usr/bin/env bash"), t("#/usr/bin/env zsh"), t("#/usr/bin/env fish")}))
-  ),
-
-  s({ trig = "hlink", name = "html link", dscr = "html link template" },
-    fmt('<a href="{}">{}</a>\n{}', {
-      f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end),
-      i(1, "link title"),
-      i(0),
-    })
-  ),
-  s({ trig = "mlink", name = "markdown link", dscr = "markdown link template" },
-    fmt('[{}]({})\n{}', {
-      i(1, "link title"),
-      f(function(_, snip) return snip.env.TM_SELECTED_TEXT[1] or {} end),
-      i(0),
-    })
-  ),
-
   s({ trig = "MIT", name = "MIT License", dscr = "MIT License template", prioriy = -1000 },
     fmt([[
       The MIT License (MIT)

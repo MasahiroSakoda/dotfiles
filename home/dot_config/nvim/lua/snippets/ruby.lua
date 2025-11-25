@@ -22,6 +22,8 @@ local fmt     = require("luasnip.extras.fmt").fmt
 ls.filetype_extend("ruby",   { "rdoc", "rails" })
 
 local snippets = {
+  s({ trig = "#!", name = "ruby shabang", dscr = "ruby shabang" }, { t("#!/usr/bin/env ruby") }),
+
   -- Rails
   s({ trig = "controller", name = "Rails Controller", dscr = "Rails controller component" },
     fmt([[

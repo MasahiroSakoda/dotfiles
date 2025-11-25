@@ -141,20 +141,19 @@ local snippets = {
   s({ trig = "autocmd", name = "autocmd template", dscr = "vim.api.nvim_create_autocmd template" },
     fmta([[
       vim.api.nvim_create_autocmd("<>", {
-        desc     = "<>",
         group    = vim.api.nvim_create_augroup("<>", { clear = true }),
         callback = function(ev)
           <>
         end
       })
-    ]], { i(1, "event"), i(2, "desc"), i(3, "group"), i(0) })
+    ]], { i(1, "event"), i(2, "group"), i(0) })
   ),
-  s({ trig = "command", name = "user command", dscr = "create user command" },
+  s({ trig = "usercmd", name = "user command", dscr = "create user command" },
     fmta('vim.api.nvim_create_user_command("<>", function(<>)\n\t<>\nend, { desc = "<>", nargs = "*", bang = true})',{
       i(1, "Command Name"), i(2, "parameter"), i(3, "code"), i(4, "description"),
     })
   ),
-  s({ trig = "vinput", name = "vim.ui.input", dscr = "vim.ui.input" },
+  s({ trig = "input", name = "vim.ui.input", dscr = "vim.ui.input" },
     fmta('vim.ui.input({ prompt = "<>", default = "<>", function(name)\n\t<>\nend})', {
       i(1, "prompt"), i(2, "default value"), i(0),
     })
@@ -182,11 +181,11 @@ local snippets = {
   ---------------------------------------------------------------------------------------
   ---Others
   ---------------------------------------------------------------------------------------
-  s({ trig = "@lazy", name = "lazy.nvim plugin config", dscr = "plugin config via lazy.nvim" },
+  s({ trig = "lazy", name = "lazy.nvim plugin config", dscr = "plugin config via lazy.nvim" },
     fmta('{\n\t"<>",\n\tconfig = function() require("<>") end,\n},', { i(1, "plugin"), i(0) })
   ),
 
-  s({ trig = "@setup", name = "Plugin setup", dscr = "Plugin setup template" },
+  s({ trig = "setup", name = "Plugin setup", dscr = "Plugin setup template" },
     fmta([[
       local ok, <> = pcall(require, "<>")
       if not ok then return end
@@ -197,20 +196,29 @@ local snippets = {
     ]], { i(1, "module"), rep(1), rep(1), i(0) })
   ),
 
-  s({ trig = "@keymap", name = "add keymap config", dscr = "keymap config for which-key.nvim" },
+  s({ trig = "whichk", name = "which-key keymap", dscr = "keymap config via which-key.nvim" },
     fmta('{ "<>", <>, icon = "<> ", desc = "<>" },', {
       c(1, {
         sn(1, { t("<Leader>"), r(1, "user_lhs") }),
-        sn(1, { t(","), r(1, "user_lhs") }),
         sn(1, { r(1, "user_lhs") }),
       }),
       c(2, {
-        sn(1, { r(1, "user_rhs") }),
         sn(1, { t("\"<CMD>"), r(1, "user_lhs"), t("<CR>\"") }),
         sn(1, { t("function() "), r(1, "user_rhs"), t(" end") }),
+        sn(1, { r(1, "user_rhs") }),
       }),
       i(3, "icon"),
       i(0),
+    })
+  ),
+  s({ trig = "whichg", name = "which-key group", dscr = "keymap group config via which-key.nvim" },
+    fmta('{ "<>", group = "<>", icon = "<> " },', {
+      c(1, {
+        sn(1, { t("<Leader>"), r(1, "lhs") }),
+        sn(1, { r(1, "lhs") }),
+      }),
+      i(2, "group"),
+      i(0, "icon"),
     })
   ),
 }

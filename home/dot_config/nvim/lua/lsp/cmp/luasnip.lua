@@ -270,4 +270,4 @@ require("which-key").add({
   { "<C-t>", function() dynamic_node_external_update(1) end, mode = "s", icon = " ", desc = "" },
   { "<C-g>", function() dynamic_node_external_update(2) end, mode = "i", icon = " ", desc = "" },
   { "<C-g>", function() dynamic_node_external_update(2) end, mode = "s", icon = " ", desc = "" },
-}, { noremp = true })
+}, { noremap = true })
