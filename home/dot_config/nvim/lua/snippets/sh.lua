@@ -24,6 +24,8 @@ local snippets = {
   s({ trig = "shebang", name = "shebang template", dscr = "shebang template (bash/zsh/fish)", prioriy = -100 },
     fmt('#/usr/bin/env {}', c(1, {t("bash"), t("zsh"), t("fish")}))
   ),
-  s("set", fmt('#! /usr/bin/env bash\nset -euo pipefail', {})),
+  s({ trig = "set", name = "shell options", dscr = "shell exit options",
+    fmt('set -{} pipefail', c(1, { t("euo"), t("o") }))
+  }),
 }
 return snippets
