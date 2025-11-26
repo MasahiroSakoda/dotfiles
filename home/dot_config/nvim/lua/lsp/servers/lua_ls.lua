@@ -25,7 +25,7 @@ return {
         -- disable = { "undefined-global", "lowercase-global", "unused-local", "unused-vararg", "trailing-space" },
       },
       format = { enable = false },
-      hint   = { enable = true },
+      hint   = { enable = true, semicolon = "Disable" },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {

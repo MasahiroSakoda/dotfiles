@@ -17,10 +17,22 @@ local settings = {
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "typescript-language-server", "--stdio" },
-  filetypes = require("user.filetypes").lang.js,
-  root_markers = { "package.json", "jsconfig.json", "tsconfig.json", ".git" },
-  autostart = true,
+  init_options = { hostInfo = "neovim" },
+  cmd          = { "typescript-language-server", "--stdio" },
+  filetypes    = require("user.filetypes").lang.js,
+  autostart    = true,
+
+  root_dir = function(bufnr, on_dir)
+    local root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock" }
+    root_markers = vim.fn.has("nvim-0.11.3") == 1 and { root_markers, { ".git" } }
+      or vim.list_extend(root_markers, { ".git" })
+    local deno_path = vim.fs.root(bufnr, { "deno.json", "deno.jsonc", "deno.lock" })
+    local project_root = vim.fs.root(bufnr, root_markers)
+    if deno_path and (not project_root or #deno_path >= #project_root) then
+      return
+    end
+    on_dir(project_root or vim.fn.getcwd())
+  end,
 
   handlers = {
     ["_typescript.rename"] = function(_, result, ctx)
