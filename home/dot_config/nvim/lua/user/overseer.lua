@@ -8,8 +8,8 @@ overseer.setup({
   templates = { "builtin" },
   task_list = {
     direction  = "bottom", ---@type "left"|"right"|"bottom"
-    min_height = 10,
-    max_height = 15,
+    min_height = { 40, 0.1 },
+    max_height = { 100, 0.2 },
     default_detail = 1, ---@type 1|2|3
   },
   dap = false,
