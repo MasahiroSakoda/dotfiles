@@ -10,7 +10,7 @@ return {
   { "xvzc/chezmoi.nvim", dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require("user.chezmoi") end },
   {
     "stevearc/overseer.nvim",
-    version = "v1.6.0",
+    version = "v2.*",
     cmd = { "Grep", "Make", "OverseerToggle", "OverseerRun" },
     config = function() require("user.overseer") end,
   },
@@ -25,5 +25,4 @@ return {
     cond   = not vim.g.vscode,
     config = function() require("user.feed") end,
   },
-
 }
