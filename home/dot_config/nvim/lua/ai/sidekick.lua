@@ -19,6 +19,6 @@ sidekick.setup({
   ---@class sidekick.cli.Mux
   mux = {
     backend = vim.env.ZELLIJ and "zellij" or "tmux", -- default to tmux unless zellij is detected
-    enabled = false,
+    enabled = true,
   },
 })
