@@ -242,8 +242,8 @@ if not is_vscode then
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<C-/>",      "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
-    { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
+    { "<C-g>",         "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
+    { "<Leader><C-g>", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
     { "<Leader>f?",  "<CMD>lua Snacks.picker.help()<CR>",         icon = " ", desc = " Help" },
@@ -401,6 +401,7 @@ if not is_vscode then
 
   -- sidekick.nvim
   wk.add({
+    { "<Leader>a", group = "AI Code Agent", icon = "🤖 " },
     { "<Leader>a;", "<CMD>Sidekick nes toggle<CR>",                         icon = "󰁤 ", desc = " Toggle NES" },
     { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",                         icon = "󰞷 ", desc = " Prompt Menu" },
     { "<Leader>aa", "<CMD>Sidekick cli toggle<CR>",                         icon = "󰞷 ", desc = " AI Agent" },
@@ -416,7 +417,7 @@ if not is_vscode then
 
   -- codecompanion.nvim
   wk.add({
-    { "<Leader>c", group = "AI Code Assistant", icon = "🤖 " },
+    { "<Leader>c", group = "AI Assistant", icon = "🤖 " },
     { "<Leader>ci", "<CMD>CodeCompanion<CR>",            mode = nv,  icon = " ", desc = " Inline Prompt" },
     { "<Leader>cw", "<CMD>CodeCompanionChat Toggle<CR>", mode = nv,  icon = " ", desc = " Toggle Chat Window" },
     { "<Leader>ca", "<CMD>CodeCompanionActions<CR>",     mode = nv,  icon = " ", desc = " Code completion action" },
