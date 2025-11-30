@@ -5,7 +5,7 @@
 ## Node.js
 [mise.node]
 enabled  = true
-versions = ["22"]
+versions = ["24"]
 
 [mise.pnpm]
 enabled  = true
