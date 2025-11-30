@@ -27,7 +27,7 @@ versions = ["latest"]
 ## Python
 [mise.python]
 enabled  = true
-versions = ["3.13"]
+versions = ["3.14"]
 
 [mise.uv]
 enabled  = true
