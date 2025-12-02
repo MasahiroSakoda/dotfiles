@@ -4,11 +4,8 @@ local function reload_workspace(bufnr)
   local clients = vim.lsp.get_clients { bufnr = bufnr, name = "rust_analyzer" }
   for _, client in ipairs(clients) do
     vim.notify "Reloading Cargo Workspace"
-    ---@diagnostic disable-next-line:param-type-mismatch
-    client:request("rust-analyzer/reloadWorkspace", nil, function(err)
-      if err then
-        error(tostring(err))
-      end
+    client:request("rust-analyzer/reloadWorkspace", nil, function(err, _, result, _)
+      if err then error(tostring(err)) end
       vim.notify "Cargo workspace reloaded"
     end, 0)
   end
