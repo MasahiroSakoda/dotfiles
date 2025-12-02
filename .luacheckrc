@@ -20,6 +20,7 @@ std = {
     "string",
     "table",
     "unpack",
+    "error",
     "math",
     "tonumber",
     "tostring",

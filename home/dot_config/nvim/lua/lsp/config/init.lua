@@ -1,7 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ok, mason = pcall(require, "mason-lspconfig")
-if not ok then vim.notify('Loading "mason-lspconfig" failed.', vim.log.levels.WARN) end
-
 require("lsp.config.status")
 require("lsp.config.diagnostics")
 require("lsp.config.handlers")
@@ -55,10 +52,9 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local servers = require("lsp.servers")
-mason.setup({ ensure_installed = servers, automatic_enable = true })
-
+local servers     = require("lsp.servers")
 local server_opts = { on_attach = on_attach, capabilities = require("lsp.config.capabilities") }
+require("mason-lspconfig").setup({ ensure_installed = servers })
 
 for server, config in pairs(servers) do
   -- Skip packages executing via `none-ls.nvim`
