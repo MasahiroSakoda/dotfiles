@@ -54,6 +54,7 @@ end
 
 local servers     = require("lsp.servers")
 local server_opts = { on_attach = on_attach, capabilities = require("lsp.config.capabilities") }
+require("mason-lspconfig").setup({ ensure_installed = servers })
 
 for server, config in pairs(servers) do
   -- Skip packages executing via `none-ls.nvim`
