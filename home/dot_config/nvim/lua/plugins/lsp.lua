@@ -5,8 +5,11 @@ return {
     "mason-org/mason.nvim",
     cmd    = { "Mason", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll","MasonUpdate" },
     config = function() require("lsp.config.mason") end,
-:   dependencies = {
-      { "mason-org/mason-lspconfig.nvim", opts = function(_, opts) opts.ensure_installed = require("lsp.servers") end },
+    dependencies = {
+      {
+        "mason-org/mason-lspconfig.nvim",
+        opts = function(_, opts) opts.ensure_installed = require("lsp.servers") end,
+      },
     },
   },
   { "neovim/nvim-lspconfig" },
