@@ -12,30 +12,46 @@ blink.setup({
     preset = "none", ---@type "default"|"super-tab"|"enter"|"none"
     ["<Tab>"] = {
       function(cmp)
-        return cmp.snippet_active() and cmp.accept() or cmp.select_and_accept()
+        if cmp.is_visible() then
+          return cmp.select_and_accept()
+        elseif cmp.snippet_active({ direction = 1 }) then
+          return cmp.snippet_forward()
+        end
       end,
-      function(_)
-        return require("sidekick").nes_jump_or_apply()
-      end,
-      "snippet_forward",
+      function(_) return require("sidekick").nes_jump_or_apply() end,
       "fallback",
     },
-    ["<S-Tab>"] = { "snippet_backward", "fallback" },
+    ["<S-Tab>"] = {
+      function(cmp)
+        if cmp.snippet_active({ direction = -1 }) then
+          return cmp.snippet_backward()
+        end
+      end,
+      "fallback",
+    },
     ["<Up>"]    = { "show_and_insert", "select_prev", "fallback" },
     ["<Down>"]  = { "show_and_insert", "select_next", "fallback" },
     ["<Left>"]  = { "hide", "fallback" },
     ["<Right>"] = { "select_and_accept", "fallback" },
     ["<C-p>"]   = {
       function(_)
-        return ls.choice_active() and ls.change_choice(-1)
+        if ls.choice_active() then
+          vim.schedule(function() ls.change_choice(-1) end)
+          return true
+        end
       end,
-      "fallback"
+      "select_prev",
+      "fallback_to_mappings",
     },
     ["<C-n>"]   = {
       function(_)
-        return ls.choice_active() and ls.change_choice(1)
+        if ls.choice_active() then
+          vim.schedule(function() ls.change_choice(1) end)
+          return true
+        end
       end,
-      "fallback"
+      "select_next",
+      "fallback_to_mappings",
     },
     ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
     ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
