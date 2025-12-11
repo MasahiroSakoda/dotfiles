@@ -134,23 +134,18 @@ local function choice_popup_close()
   end
 end
 
-local choice_group = vim.api.nvim_create_augroup("LuaSnipChoicePopup", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChoiceNodeEnter",
-  group    = choice_group,
-  callback = function(_) choice_popup(ls.session.event_node) end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChoiceNodeLeave",
-  group    = choice_group,
-  callback = function(_) choice_popup_close() end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChangeChoice",
-  group    = choice_group,
-  callback = function(_) update_choice_popup(ls.session.event_node) end,
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern  = { "LuasnipChoiceNodeEnter", "LuasnipChoiceNodeLeave", "LuasnipChangeChoice" },
+  group    = vim.api.nvim_create_augroup("LuaSnipChoicePopup", { clear = true }),
+  callback = function(arg)
+    if arg.match == "LuasnipChoiceNodeEnter" then
+      choice_popup(ls.session.event_node)
+    elseif arg.match == "LuasnipChoiceNodeLeave" then
+      choice_popup_close()
+    elseif arg.match == "LuasnipChangeChoice" then
+      update_choice_popup(ls.session.event_node)
+    end
+  end,
 })
 
 local util      = require("luasnip.util.util")
