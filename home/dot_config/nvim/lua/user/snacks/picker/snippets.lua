@@ -12,7 +12,7 @@ return {
     local a = require("snacks.picker").util.align
     ret[#ret + 1] = { a(icon, 5), hl }
     ret[#ret + 1] = { a(item.ft == nil and "all" or item.ft, 10), hl }
-    ret[#ret + 1] = { a(item.trigger, 15), "SnacksPickerFile" }
+    ret[#ret + 1] = { a(item.trigger, 20), "SnacksPickerFile" }
     ret[#ret + 1] = { a(item.name, picker.align_1 + 5), item.ft == nil and "Comment" or "SnacksPickerCmd" }
     ret[#ret + 1] = { a(item.description, 35), "CursorLineFold" }
     return ret

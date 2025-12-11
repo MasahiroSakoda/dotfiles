@@ -96,7 +96,8 @@ end
 local function choice_popup(choiceNode)
   -- build stack for nested choiceNodes.
   if current_win then
-    vim.api.nvim_win_close(current_win.win_id, true)
+    local err, _ = pcall(vim.api.nvim_win_close, current_win.win_id, true)
+    if err then return end
     vim.api.nvim_buf_del_extmark(current_win.buf, current_nsid, current_win.extmark)
   end
   local create_win = window_for_choiceNode(choiceNode)
@@ -111,7 +112,8 @@ end
 
 local function update_choice_popup(choiceNode)
   if not current_win then return end
-  vim.api.nvim_win_close(current_win.win_id, true)
+  local err, _ = pcall(vim.api.nvim_win_close, current_win.win_id, true)
+  if err then return end
   vim.api.nvim_buf_del_extmark(current_win.buf, current_nsid, current_win.extmark)
   local create_win = window_for_choiceNode(choiceNode)
   current_win.win_id  = create_win.win_id
@@ -121,7 +123,8 @@ end
 
 local function choice_popup_close()
   if not current_win then return end
-  vim.api.nvim_win_close(current_win.win_id, true)
+  local err, _ = pcall(vim.api.nvim_win_close, current_win.win_id, true)
+  if err then return end
   vim.api.nvim_buf_del_extmark(current_win.buf, current_nsid, current_win.extmark)
   -- now we are checking if we still have previous choice we were in after exit nested choice
   current_win = current_win.prev
@@ -134,23 +137,18 @@ local function choice_popup_close()
   end
 end
 
-local choice_group = vim.api.nvim_create_augroup("LuaSnipChoicePopup", { clear = true })
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChoiceNodeEnter",
-  group    = choice_group,
-  callback = function(_) choice_popup(ls.session.event_node) end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChoiceNodeLeave",
-  group    = choice_group,
-  callback = function(_) choice_popup_close() end,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern  = "LuasnipChangeChoice",
-  group    = choice_group,
-  callback = function(_) update_choice_popup(ls.session.event_node) end,
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern  = { "LuasnipChoiceNodeEnter", "LuasnipChoiceNodeLeave", "LuasnipChangeChoice" },
+  group    = vim.api.nvim_create_augroup("LuaSnipChoicePopup", { clear = true }),
+  callback = function(arg)
+    if arg.match == "LuasnipChoiceNodeEnter" then
+      choice_popup(ls.session.event_node)
+    elseif arg.match == "LuasnipChoiceNodeLeave" then
+      choice_popup_close()
+    elseif arg.match == "LuasnipChangeChoice" then
+      update_choice_popup(ls.session.event_node)
+    end
+  end,
 })
 
 local util      = require("luasnip.util.util")

@@ -3,8 +3,8 @@
 local ls = require("luasnip")
 local s  = ls.snippet
 -- local t  = ls.text_node
-local i  = ls.insert_node
--- local c  = ls.choice_node
+-- local i  = ls.insert_node
+local c  = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
 local f  = ls.function_node
@@ -19,6 +19,13 @@ local fmt     = require("luasnip.extras.fmt").fmt
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
 
+local function expand(arg) return vim.fn.expand(arg) end
+local function filename() return expand("%") end
+local function extension() return expand("%:e") end
+local function basename() return expand("%:r") end
+local function fullpath() return expand("%:p") end
+local function pathname() return expand("%:p:h") end
+
 local snippets = {
   s({ trig = "header", name = "filetype header", dscr = "filetype header template", prioriy = -100 },
     fmt('{}-*-mode:{}-*- vim:ft={}\n', {
@@ -27,57 +34,15 @@ local snippets = {
       f(function() return vim.bo.filetype end),
     })
   ),
-  s({ trig = "MIT", name = "MIT License", dscr = "MIT License template", prioriy = -1000 },
-    fmt([[
-      The MIT License (MIT)
 
-      Copyright (c) {} {}
-
-      Permission is hereby granted, free of charge, to any person obtaining a copy
-      of this software and associated documentation files (the "Software"), to deal
-      in the Software without restriction, including without limitation the rights
-      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-      copies of the Software, and to permit persons to whom the Software is
-      furnished to do so, subject to the following conditions:
-
-      The above copyright notice and this permission notice shall be included in
-      all copies or substantial portions of the Software.
-
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-      THE SOFTWARE.
-      {}
-    ]], {
-      f(function() return os.date("%Y") end, {}),
-      i(1, "project"),
-      i(0),
-    })
-  ),
-  s({ trig = "APACHE", name = "Apache License", dscr = "Apache License template", prioriy = -1000 },
-    fmt([[
-      Copyright {} {}
-
-      Licensed under the Apache License, Version 2.0 (the "License");
-      you may not use this file except in compliance with the License.
-      You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
-      {}
-    ]], {
-      f(function() return os.date("%Y") end, {}),
-      i(2, "project"),
-      i(0),
-    })
-  ),
+  s({ trig = "filename", name = "File Name", dscr = "Print File Name" }, {
+    c(1, { f(filename), f(extension), f(basename) }),
+  }),
+  s({ trig = "basename", name = "Basename", dscr = "Print Basename" }, {
+    c(1, { f(basename), f(filename), f(extension) }),
+  }),
+  s({ trig = "extension", name = "Extension", dscr = "Print Extension" }, { c(1, { f(extension) }) }),
+  s({ trig = "pathname",  name = "Path Name", dscr = "Print Path" },      { c(1, { f(pathname), f(fullpath) }) }),
+  s({ trig = "fullpath",  name = "Full Path", dscr = "Print Full Path" }, { c(1, { f(pathname), f(fullpath) }) }),
 }
 return snippets

@@ -20,24 +20,15 @@ local fmta    = require("luasnip.extras.fmt").fmta
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
-  s({ trig = "gof",  name = "go func",  dscr = "go func" }, fmta('go func(<>) {\n\t<>\n}()', { i(1, "param"), i(0) })),
-  s({ trig = "type", name = "type definition", dscr = "type definition" },
-    fmta('type <> <> {\n\t<>\n}\n<>', { i(1, "name"), c(2, { t("struct"), t("interface") }), i(3, "code"), i(0) })
-  ),
-  s({ trig = "ife", name = "if - end", dscr = "if - end block" },
-    fmta('if err != nil {\n\t<>\n}\n<>', {
-      c(1, { t("return err"), t("return nil, err"), t("t.Fatal(err)"), t("log.Fatal(err)"), i(0) }), i(0),
-    }
-  )),
-  s({ trig = "ctx", name = "context definition", dscr = "context definition template" }, { t("ctx context.Context")}),
-  s({ trig = "ctxc", name = "context cancel", dscr = "context cancel" },
-    fmta('ctx, cancel := context.WithCancel(context.Background())', {})
-  ),
+  s({ trig = "ctx", name = "context definition", dscr = "context definition template" }, { t("ctx context.Context") }),
+  s({ trig = "ctxc", name = "context cancel", dscr = "context cancel" }, {
+    t("ctx, cancel := context.WithCancel(context.Background())"),
+  }),
   s({ trig = "ctxt", name = "context timeout", dscr = "context with timeout" },
-    fmta('ctx, cancel := context.WithTimeout(context.Background(), {}*time.Second) {\n\tdefer cancel())\n}', { i(0) })
+    fmta('ctx, cancel := context.WithTimeout(context.Background(), <>*time.Second) {\n\tdefer cancel())\n}', { i(0) })
   ),
   s({ trig = "3pkg", name = "3rd party packages", dscr = "third party packages" },
-    fmta('"github.com/<>"<>', {
+    fmta('"github.com/<>"', {
       c(1, {
         t('stretchr/testify'),
         t('spf13/cobra'),
@@ -48,13 +39,12 @@ local snippets = {
         t('charmbracelet/log'),
         t('adrg/xdg'),
       }),
-      i(0),
     })
   ),
 
   -- Test
   s({ trig = "terr", name = "error check (test)", dscr = "error check in test code" },
-    fmta('if err != nil {\n\tt.Errorf("<>: %v", err)\n<>\n}', { i(1, "error msg"), i(0) })
+    fmta('if err != nil {\n\tt.Errorf("<>: %v", err)\n}', { i(0, "error msg") })
   ),
   s({ trig = "test", name = "test function", dscr = "test function template" }, fmta([[
       func Test<>(t *testing.T) {
@@ -72,8 +62,7 @@ local snippets = {
               })
           }
       }
-      <>
-  ]], { i(1, "func"), i(2, "field"), i(3, "description"), i(4, "assert"), i(0) })),
+  ]], { i(1, "func"), i(2, "field"), i(3, "description"), i(0, "assert") })),
 
   -- Cobra
   s({ trig = "cobra", name = "Cobra", dscr = "spf13/cobra CLI library template" },
@@ -108,7 +97,7 @@ local snippets = {
           }
           return 0
       }
-  ]], {})
+    ]], {})
   ),
 
   -- Viper
@@ -128,9 +117,9 @@ local snippets = {
 
       // Config defines type to use viper
       type Config struct {
-          <> <> `mapstructure:"<>"`<>
+          <> <> `mapstructure:"<>"`
       }
-    ]], { i(1, "config item"), i(2, "type"), rep(1), i(0) })
+    ]], { i(1, "config item"), i(2, "type"), rep(1) })
   ),
 
   -- XDG directories
@@ -163,22 +152,21 @@ local snippets = {
       var MusicDir     = xdg.UserDirs.Music
       var VideosDir    = xdg.UserDirs.Videos
       var PublicDir    = xdg.UserDirs.PublicShare
-      <>
-    ]], { i(1, "command name"), i(0) })
+    ]], { i(0, "command name") })
   ),
 
   -- Bubbletea
   s({ trig = "team", name = "Bubbletea model", dscr = "Bubbletea required model methods" },
-    fmta('type Model struct{\n\t<>\n}\n\nfunc New() *Model{\n\treturn Model{\n\t}\n}\n<>', { i(1), i(0) })
+    fmta('type Model struct{\n\t<>\n}\n\nfunc New() *Model{\n\treturn Model{\n\t}\n}\n', { i(0) })
   ),
   s({ trig = "teai", name = "Bubbletea init", dscr = "Bubbletea initialize methods" },
-    fmta('func (m Model) Init() tea.Cmd {\n\treturn tea.Batch(\n\t\t<>\n\t)\n}\n<>', { i(1), i(0) })
+    fmta('func (m Model) Init() tea.Cmd {\n\treturn tea.Batch(<>)\n}\n', { i(0) })
   ),
   s({ trig = "teap", name = "Bubbletea program", dscr = "Bubbletea laungh template" },
-    fmta('p := tea.NewProgram()\nif _, err := p.Run(); err != nil {\n\tos.Exit(1)\n}\np.Quit()\n<>', { i(0) })
+    fmta('p := tea.NewProgram()\nif _, err := p.Run(); err != nil {\n\t<>\nos.Exit(1)\n}\np.Quit()\n', { i(0) })
   ),
   s({ trig = "teav", name = "Bubbletea view", dscr = "Bubbletea required view method" },
-    fmta('func (m Model) View() string {\n\treturn <>\n}\n<>', { i(1, "code"), i(0) })
+    fmta('func (m Model) View() string {\n\treturn <>\n}\n', { i(0, "code") })
   ),
   s({ trig = "teau", name = "Bubbletea update", dscr = "Bubbletea required update method" },
     fmta([[
@@ -195,12 +183,11 @@ local snippets = {
           }
           return m, tea.Batch(cmds...)
       }
-      <>
-    ]], { i(0) })
+    ]], {})
   ),
   -- bubbles
   s({ trig = "bubbles", name = "Bubbles collection", dscr = "Bubbletea UI Collectioin" },
-    fmta('<><>', {
+    fmta('<>', {
       c(1, {
         t("spinner"),
         t("textinput"),
@@ -216,7 +203,6 @@ local snippets = {
         t("help"),
         t("key"),
       }),
-      i(0),
     })
   ),
 }
