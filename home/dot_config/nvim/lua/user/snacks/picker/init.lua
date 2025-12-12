@@ -5,9 +5,9 @@ return {
   enabled = true,
   prompt = " ",
 
-  -- Show hidden and ignored files by default
+  -- default hidden and ignore config
   hidden  = true,
-  ignored = true,
+  ignored = false,
 
   ---@class snacks.picker.matcher.Config
   matcher = {
