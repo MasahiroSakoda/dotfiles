@@ -39,9 +39,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("FileType", {
   group    = augroup("CustomClose"),
   pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil", "dap-view", "dap-view-term", "dap-view-repl" },
-  callback = function (event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
+  callback = function (ev)
+    vim.bo[ev.buf].buflisted = false
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = ev.buf, silent = true })
   end,
 })
 
@@ -102,13 +102,13 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   group    = lsp_group,
   callback = function(ev)
     local extend, opts = vim.tbl_extend, { buffer = ev.buf, noremap = true, silent = true }
-    vim.keymap.set("n", "K",          vim.lsp.buf.hover,          extend("keep", opts, { desc = "Hover Docs" }))
-    vim.keymap.set("n", "gd",         vim.lsp.buf.definition,     extend("keep", opts, { desc = "Definition" }))
-    vim.keymap.set("n", "gD",         vim.lsp.buf.declaration,    extend("keep", opts, { desc = "Declaration" }))
-    vim.keymap.set("n", "gri",        vim.lsp.buf.implementation, extend("keep", opts, { desc = "Implementation" }))
-    vim.keymap.set("n", "grn",        vim.lsp.buf.rename,         extend("keep", opts, { desc = "Rename" }))
-    vim.keymap.set("n", "grf",        vim.lsp.buf.references,     extend("keep", opts, { desc = "References" }))
-    vim.keymap.set({"n", "v"}, "gra", vim.lsp.buf.code_action,    extend("keep", opts, { desc = "Code Action" }))
+    vim.keymap.set("n", "K",          vim.lsp.buf.hover,          extend("keep", opts, { desc = " Hover Docs" }))
+    vim.keymap.set("n", "gd",         vim.lsp.buf.definition,     extend("keep", opts, { desc = " Definition" }))
+    vim.keymap.set("n", "gD",         vim.lsp.buf.declaration,    extend("keep", opts, { desc = " Declaration" }))
+    vim.keymap.set("n", "gri",        vim.lsp.buf.implementation, extend("keep", opts, { desc = " Implementation" }))
+    vim.keymap.set("n", "grn",        vim.lsp.buf.rename,         extend("keep", opts, { desc = " Rename" }))
+    vim.keymap.set("n", "grf",        vim.lsp.buf.references,     extend("keep", opts, { desc = " References" }))
+    vim.keymap.set({"n", "v"}, "gra", vim.lsp.buf.code_action,    extend("keep", opts, { desc = " Code Action" }))
   end
 })
 
@@ -145,6 +145,30 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
       })
     end
   end
+})
+
+local snip_grp = augroup("LuaSnipCustomGroup")
+local ls = require("luasnip")
+-- Disable diagnostics in snippet
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+  group    = snip_grp,
+  pattern  = { "n:i", "n:s", "n:v" },
+  callback = function(ev)
+    if ls.in_snippet() then
+      vim.diagnostic.enable(false, { bufnr = ev.buf })
+    end
+  end,
+})
+
+-- Enable diagnostics after leaving snippet
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+  group    = snip_grp,
+  pattern  = { "i:n", "s:n", "v:n" },
+  callback = function(ev)
+    if ls.in_snippet() then
+      vim.diagnostic.enable(true, { bufnr = ev.buf })
+    end
+  end,
 })
 
 -- Workaround oil.nvim relative path issue
