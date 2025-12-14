@@ -191,6 +191,12 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### AI Assistant
 
+| Plugin | Notes |
+| :----- | :---- |
+| [**codecompanion.nvim**](https://github.com/olimorris/codecompanion.nvim) | AI coding plugin supports many providers |
+| [**sidekick.nvim**](https://github.com/folke/sidekick.nvim) | Agent Integration & Next Edit Suggestion via Copilot |
+
+
 #### mise
 
 Runtime version management tool
