@@ -13,7 +13,7 @@ codecompanion.setup({
   prompt_library = require("ai.codecompanion.prompts"),
   adapters       = require("ai.codecompanion.adapters"),
 
-  strategies = {
+  interactions = {
     chat = {
       adapter = "ollama",
       slash_commands = {
