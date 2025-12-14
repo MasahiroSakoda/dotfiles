@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  strategy = "inline", ---@type "inline"|"chat"
+  interaction = "inline", ---@type "inline"|"chat"
   description = "Correct grammar and reformulate",
   opts = {
     index = 15,
