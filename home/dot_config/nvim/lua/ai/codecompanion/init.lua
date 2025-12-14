@@ -27,7 +27,7 @@ codecompanion.setup({
         ["terminal"] = { opts = {} },
       },
     },
-    inline = { adapter = "qwen" },
+    inline = { adapter = "ollama" },
     agent  = { adapter = "ollama" },
   },
 
