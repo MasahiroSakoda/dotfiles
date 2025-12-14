@@ -393,11 +393,10 @@ wk.add({
 ---------------------------------------------------------------------------
 if not is_vscode then
   -- Abbreviation
-  vim.cmd[[
-    cnoreabbrev cc  CodeCompanion
-    cnoreabbrev ccc CodeCompanionChat
-    cnoreabbrev cca CodeCompanionActions
-  ]]
+  vim.cmd.cnoreabbrev("cc",  "CodeCompanion")
+  vim.cmd.cnoreabbrev("ccc", "CodeCompanionChat")
+  vim.cmd.cnoreabbrev("cb",  "CodeCompanion #bufefr")
+  vim.cmd.cnoreabbrev("ca",  "CodeCompanionActions")
 
   -- sidekick.nvim
   wk.add({
