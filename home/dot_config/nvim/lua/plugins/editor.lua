@@ -28,6 +28,7 @@ return {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
+    init   = function() require("ui.flash") end,
     config = function() require("user.flash") end,
   },
   {
