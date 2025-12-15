@@ -3,7 +3,7 @@
 local target_lang = "Japanese"
 
 return {
-  strategy = "chat", ---@type "inline"|"chat"
+  interaction = "chat", ---@type "inline"|"chat"
   description = "Correct grammar and reformulate",
   opts = {
     index = 16,

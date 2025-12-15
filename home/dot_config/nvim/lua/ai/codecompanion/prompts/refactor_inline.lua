@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  strategy = "inline", ---@type "inline"|"chat"
+  interaction = "inline", ---@type "inline"|"chat"
   description = "Refactor the selected code to improve its structure and quality",
   opts = {
     index = 13,

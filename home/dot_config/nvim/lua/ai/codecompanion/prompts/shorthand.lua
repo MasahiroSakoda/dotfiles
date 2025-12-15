@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  strategy = "chat", ---@type "inline"|"chat"
+  interaction = "chat", ---@type "inline"|"chat"
   description = "Express sentences in shorthand",
   opts = {
     index = 17,

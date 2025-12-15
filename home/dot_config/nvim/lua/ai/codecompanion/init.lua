@@ -12,8 +12,9 @@ codecompanion.setup({
 
   prompt_library = require("ai.codecompanion.prompts"),
   adapters       = require("ai.codecompanion.adapters"),
+  rules          = require("ai.codecompanion.rules"),
 
-  strategies = {
+  interactions = {
     chat = {
       adapter = "ollama",
       slash_commands = {
@@ -27,7 +28,7 @@ codecompanion.setup({
         ["terminal"] = { opts = {} },
       },
     },
-    inline = { adapter = "qwen" },
+    inline = { adapter = "ollama" },
     agent  = { adapter = "ollama" },
   },
 

@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  strategy = "chat",
+  interaction = "chat",
   description = "Generate a Pull Request message description",
   opts = {
     index = 14,
