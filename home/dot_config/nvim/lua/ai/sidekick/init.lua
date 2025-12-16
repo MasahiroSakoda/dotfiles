@@ -16,6 +16,8 @@ sidekick.setup({
     watch = true,
   },
 
+  prompts = require("ai.sidekick.prompts"),
+
   ---@class sidekick.cli.Mux
   mux = {
     backend = vim.env.ZELLIJ and "zellij" or "tmux", -- default to tmux unless zellij is detected

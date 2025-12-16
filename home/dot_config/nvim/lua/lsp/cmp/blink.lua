@@ -16,9 +16,10 @@ blink.setup({
           return cmp.select_and_accept()
         elseif cmp.snippet_active({ direction = 1 }) then
           return cmp.snippet_forward()
+        elseif require("sidekick.nes").have() then
+          require("sidekick").nes_jump_or_apply()
         end
       end,
-      function(_) return require("sidekick").nes_jump_or_apply() end,
       "fallback",
     },
     ["<S-Tab>"] = {
