@@ -401,7 +401,10 @@ if not is_vscode then
   -- sidekick.nvim
   wk.add({
     { "<Leader>a", group = "AI Code Agent", icon = "🤖 " },
-    { "<Leader>a;", "<CMD>Sidekick nes toggle<CR>",                         icon = "󰁤 ", desc = " Toggle NES" },
+    -- Next Edit Suggestion
+    { "\\s", "<CMD>Sidekick nes toggle<CR>", icon = "󰁤 ", desc = " Next Edit Suggestion" },
+
+    -- CLI
     { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",                         icon = "󰞷 ", desc = " Prompt Menu" },
     { "<Leader>aa", "<CMD>Sidekick cli toggle<CR>",                         icon = "󰞷 ", desc = " AI Agent" },
     { "<Leader>as", "<CMD>Sidekick cli toggle name=copilot focus=true<CR>", icon = " ", desc = " GitHub Copilot" },
