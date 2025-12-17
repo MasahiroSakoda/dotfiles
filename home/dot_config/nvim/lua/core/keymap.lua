@@ -140,6 +140,16 @@ wk.add({
   { "[1", "<CMD>tabfirst<CR>", icon = " ", desc = " Move to First tab" },
   { "]9", "<CMD>tablast<CR>",  icon = " ", desc = " Move to Last tab" },
 
+  { "<C-1>", "1gt",   icon = "󰬺 ", desc = " Tab #1" },
+  { "<C-2>", "2gt",   icon = "󰬻 ", desc = " Tab #2" },
+  { "<C-3>", "3gt",   icon = "󰬼 ", desc = " Tab #3" },
+  { "<C-4>", "4gt",   icon = "󰬽 ", desc = " Tab #4" },
+  { "<C-5>", "5gt",   icon = "󰬾 ", desc = " Tab #5" },
+  { "<C-6>", "6gt",   icon = "󰬿 ", desc = " Tab #6" },
+  { "<C-7>", "7gt",   icon = "󰭀 ", desc = " Tab #7" },
+  { "<C-8>", "8gt",   icon = "󰭁 ", desc = " Tab #8" },
+  { "<C-9>", "9gt",   icon = "󰭂 ", desc = " Tab #9" },
+
   -- Tab Control
   { "<Leader>t", group = "Tab", icon = "📑 " },
   { "<Leader>tc", "<CMD>tabclose<CR>", icon = " ", desc = " Close current tab" },
