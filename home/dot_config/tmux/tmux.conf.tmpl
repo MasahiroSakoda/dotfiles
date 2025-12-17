@@ -123,7 +123,7 @@ set -g display-panes-time 4000
 
 # prefix + r: reload tmux
 unbind r
-bind r source-file ~/.config/tmux/tmux.conf \;
+bind r source-file $XDG_CONFIG_HOME/tmux/tmux.conf \; display "tmux config is reloaded!"
 
 bind y setw synchronize-panes
 
