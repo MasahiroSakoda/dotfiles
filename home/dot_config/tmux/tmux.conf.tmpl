@@ -14,7 +14,11 @@ set -g @plugin "Morantron/tmux-fingers"         # copy pasting in terminal with 
 # General
 # =============================================================================
 # color
-set -g default-terminal "screen-256color"
+{{ if eq .chezmoi.os "darwin" }}
+set -g default-terminal "xterm-256color"
+{{ else if eq .chezmoi.os "linux" }}
+set -g default-terminal "tmux-256color"
+{{ end }}
 set -ag terminal-overrides ",alacritty:RGB"
 
 # activate mouse
