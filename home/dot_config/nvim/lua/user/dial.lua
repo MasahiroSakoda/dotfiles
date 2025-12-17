@@ -137,18 +137,6 @@ local js_augends = vim.list_extend(default_augends, {
   augend.constant.new({ elements = { "private", "public", "protected" }, word = true }),
 })
 
-vim.iter({
-  "javascript",
-  "javascriptreact",
-  "typescript",
-  "typescriptreact",
-  "jsx",
-  "tsx",
-  "vue",
-  "svelte",
-  "astro",
-}):each(function(ft)
-  dial.augends:on_filetype({
-    [ft] = js_augends,
-  })
+vim.iter(require("user.filetypes").lang.js):each(function(ft)
+  dial.augends:on_filetype({ [ft] = js_augends })
 end)
