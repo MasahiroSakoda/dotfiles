@@ -13,6 +13,9 @@ set -g @plugin "Morantron/tmux-fingers"         # copy pasting in terminal with 
 # =============================================================================
 # General
 # =============================================================================
+# Encoding
+set -gq utf8
+
 # color
 {{ if eq .chezmoi.os "darwin" }}
 set -g default-terminal "xterm-256color"
