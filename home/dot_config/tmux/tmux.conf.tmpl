@@ -146,6 +146,9 @@ set -g @powerkit_plugin_cloud_providers "all"
 set -g @powerkit_plugin_cloud_warn_on_prod "true"
 set -g @powerkit_plugin_cloud_prod_accent_color "red"
 
+set-environment -g PATH "{{ .brew_prefix }}/bin:/usr/local/bin:/bin:/usr/bin"
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "$XDG_DATA_HOME/tmux/plugins"
+
 if-shell "test ! -d $TMUX_PLUGIN_MANAGER_PATH/tpm" \
   "run $TMUX_PLUGIN_MANAGER_PATH/tpm/bin/install_plugins"
 
