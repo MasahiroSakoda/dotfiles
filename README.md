@@ -86,7 +86,7 @@ chezmoi update
 | :------ | :------- | :---- |
 | [**Fish**](https://github.com/fish-shell/fish-shell) | Shell | |
 | [**starship**](https://starship.rs/) | Prompt | |
-| [**tmux**](https://github.com/tmux/tmux) | Screen | [tmux.conf](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/tmux/tmux.conf.tmpl) |
+| [**tmux**](https://github.com/tmux/tmux) | Screen | See [Detail](#tmux) |
 | [**zellij**](https://github.com/zellij-org/zellij) | Screen | [config.kdl](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/zellij/cofig.kdl.tmpl) |
 | [**NeoVim**](https://github.com/neovim/neovim) | Editor | See [Detail](#neovim) |
 | [**mise**](https://github.com/jdx/mise) | Version Control | See [Detail](#mise) |
@@ -110,6 +110,18 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 | [done](https://github.com/franciscolourenco/done) | A notifier for fish process |
 | [bass](https://github.com/edc/bass) | Make Bash utilities usable in fish shell |
 | [sponge](https://github.com/meaningful-ooo/sponge) | cleean typos from history |
+
+#### Terminal
+
+##### Tmux
+- [`tmux-plugins/tpm`](https://github.com/tmux-plugins/tpm)
+- [`tmux-plugins/tmux-logging`](https://github.com/tmux-plugins/tmux-logging)
+- [`tmux-plugins/tmux-sensible`](https://github.com/tmux-plugins/tmux-sensible)
+- [`tmux-plugins/tmux-resurrect`](https://github.com/tmux-plugins/tmux-resurrect)
+- [`tmux-plugins/tmux-continuum`](https://github.com/tmux-plugins/tmux-continuum)
+- [`tmux-plugins/tmux-pain-control`](https://github.com/tmux-plugins/tmux-pain-control)
+- [`tmux-plugins/tmux-open`](https://github.com/tmux-plugins/tmux-open)
+- [`fabioluciano/tmux-powerkit`](https://github.com/fabioluciano/tmux-powerkit)
 
 #### NeoVim
 
