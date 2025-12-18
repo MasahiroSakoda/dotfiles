@@ -34,11 +34,6 @@ set -g base-index 1
 set -g pane-base-index 1
 set -g renumber-windows on
 
-# Prefix key
-unbind C-b
-set -g prefix C-";"
-bind -n C-";" send-prefix
-
 # Visually marks windows with unread output
 set -g visual-activity on
 
@@ -79,9 +74,20 @@ setw -g window-status-current-format "#[fg=#090c10,bg=#c5c5c5,nobold,nounderscor
 # -----------------------------------------------------------------------------
 # Keybind
 # -----------------------------------------------------------------------------
+# Prefix key
+unbind C-b
+set -g prefix C-";"
+bind -n C-";" send-prefix
+
 # Vi keybind on copy mode
 setw -g mode-keys vi
 setw -g xterm-keys on
+
+# Vim =-like pane switching
+bind -r j select-pane -D
+bind -r k select-pane -U
+bind -r h select-pane -L
+bind -r l select-pane -R
 
 # and HJKL for resizing
 bind -r H resize-pane -L 5
