@@ -36,6 +36,10 @@ bind -n C-";" send-prefix
 # Visually marks windows with unread output
 set -g visual-activity on
 
+# History
+set -g history-limit 10000
+set -g history-file "$XDG_CACHE_HOME/tmux/history.log"
+
 # =============================================================================
 # Appearance
 # =============================================================================
