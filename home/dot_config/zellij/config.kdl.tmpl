@@ -220,6 +220,12 @@ plugins {
 load_plugins {
   autolock
   zjstatus-hints
+  "file:$XDG_DATA_HOME/zellij/plugins/zjframes.wasm" {
+    hide_frame_for_single_pane       "true"
+    hide_frame_except_for_search     "true"
+    hide_frame_except_for_scroll     "true"
+    hide_frame_except_for_fullscreen "true"
+  }
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
