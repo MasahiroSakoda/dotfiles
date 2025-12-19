@@ -8,7 +8,7 @@ jobs:
     name: Issue Labeler
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v5
+      - uses: actions/labeler@634933edcd8ababfe52f92936142cc22ac488b1b # v6.0.1
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           # workaround for sync-labels bug:
@@ -23,4 +23,4 @@ jobs:
       issues: write
     steps:
       - name: Assign author to issue
-        uses: technote-space/assign-author@v1
+        uses: technote-space/assign-author@9558557c5c4816f38bd06176fbc324ba14bb3160 # v1.6.2
