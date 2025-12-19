@@ -39,3 +39,5 @@ export MANPAGER="nvim +Man!"
 
 # Grep
 export GREP_OPTIONS="--color=always"
+
+export PINACT_MIN_AGE=7
