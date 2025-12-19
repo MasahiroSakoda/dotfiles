@@ -11,7 +11,7 @@ dependencies:
       - ".github/renovate.json5"
       - ".github/dependabot.yml"
 
-documentation:
+docs:
   - changed-files:
     - any-glob-to-any-file:
       - "README.md"
