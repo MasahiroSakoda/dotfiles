@@ -1,0 +1,15 @@
+# yaml-lanauage-server: $schema=https://www.schemastore.org/github-issue-config.json
+blank_issues_enabled: false
+
+contact_links:
+  - name: Question & Discussions
+    url: https://github.com/MasahiroSakoda/dotfiles/discussions
+    about: Use GitHub discussions for message-board style questions and discussions.
+
+defaults:
+  - template: "bug_report.yml"
+    name: Bug Report
+    about: Report a Bug
+  - template: "feature_request.yml"
+    name: Request a feature
+    about: Request a feature to be added to the project
