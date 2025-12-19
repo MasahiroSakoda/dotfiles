@@ -196,6 +196,18 @@ plugins {
     session-manager { path "session-manager"; }
 
     // Additional Plugins
+    zjstatus-hints location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus-hints.wasm" {
+        // Maximum number of characters to display
+        max_length 0 // 0 = unlimited
+        // String to append when truncated
+        overflow_str "..." // default
+        // Name of the pipe for zjstatus integration
+        pipe_name "zjstatus_hints" // default
+        // Hide hints in base mode (a.k.a. default mode)
+        // E.g. if you have set default_mode to "locked", then
+        // you can hide hints in the locked mode by setting this to true
+        hide_in_base_mode false // default
+    }
     autolock  location="file:$XDG_DATA_HOME/zellij/plugins/zellij-autolock.wasm" {
         // Lock when any open these programs open.
         triggers "nvim|vim|git|fzf|zoxide|atuin"
@@ -207,6 +219,7 @@ plugins {
 
 load_plugins {
   autolock
+  zjstatus-hints
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP

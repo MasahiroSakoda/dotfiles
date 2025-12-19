@@ -6,7 +6,7 @@
       {{ $mode_fg := .zellij.mode.fg -}}
       {{ $mode_bg := .zellij.mode.bg -}}
       format_left  "{mode}#[fg=blue,bg={{ $mode_bg }},bold]  {session} #[fg={{ $mode_bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
-      format_right "#[fg=blue,bg=bg]{datetime}"
+      format_right "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
       format_space "#[bg=fg]"
 
       // Modes
@@ -28,4 +28,8 @@
       // Tabs
       tab_normal  "#[fg={{ .zellij.tab.fg }},bg=fg] [{index}] {name}"
       tab_active  "#[fg={{ .zellij.tab.active.fg }},bg=fg,bold,italic] [{index}] {name}"
+
+      // zjstatus-hints
+      // Note: this is necessary or else zjstatus won't render the pipe:
+      pipe_zjstatus_hints_format "{output}"
     }
