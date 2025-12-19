@@ -194,12 +194,12 @@ abbr -a -- tt "task test"
 abbr -a -- th "task help"
 
 # Zellij: zl*
-abbr -a -- zld "zellij-default"
-abbr -a -- zlc "zellij-coding"
-abbr -a -- zlj "zellij-jsdev"
-abbr -a -- zlm "zellij-monitor"
+abbr -a -- zl  "zellij --layout"
+abbr -a -- zld "zellij --layout default"
+abbr -a -- zlc "zellij --layout coding"
+abbr -a -- zlj "zellij --layout jsdev"
+abbr -a -- zlm "zellij --layout monitor"
 abbr -a -- zls "zellij-session"
-abbr -a -- zll "zellij-layout"
 
 {{ if eq .chezmoi.os "darwin" }}
 set -gx GITHUB_ACCESS_TOKEN   (security find-generic-password -s "MCP Server for GitHub" -w)
