@@ -46,6 +46,9 @@ set -gx LESSHISTFILE "$XDG_DATA_HOME/lesshst"
 # Grep
 set -x GREP_OPTIONS "--color=always"
 
+# pinact
+set -gx PINACT_MIN_AGE 7
+
 # Fish Plugin
 ## Done notification
 set -x __done_min_cmd_duration 60000  # default: 5000 ms
@@ -71,6 +74,7 @@ abbr -a -- rmrf "rm -rf"
 abbr -a -- cwd   "pwd | {{ .cmd.copy }}"
 abbr -a -- mkdir "mkdir -pv"
 
+### Moving directory: .*
 abbr -a -- ..   "cd .."
 abbr -a -- ...  "cd ../.."
 abbr -a -- .... "cd ../../.."
@@ -84,7 +88,7 @@ abbr -a -- co  "chown -v"
 abbr -a -- cmx "chmod +x"
 abbr -a -- cmr "chmod -R"
 
-## Homebrew
+## Homebrew: b*
 abbr -a -- bi  "brew info"
 abbr -a -- bl  "brew list"
 abbr -a -- bs  "brew search"
@@ -94,7 +98,7 @@ abbr -a -- bug "brew upgrade"
 abbr -a -- bar "brew autoremove"
 abbr -a -- bsv "brew services"
 
-## Git
+## Git: g*
 abbr -a -- lg "lazygit"
 
 abbr -a -- g   "git"
@@ -139,14 +143,14 @@ abbr -a -- gt  "git tag | sort --version-sort --reverse"
 abbr -a -- gta "git tag --annotate"
 abbr -a -- gts "git tag --sign"
 
-### GitHub CLI
+### GitHub CLI: gh*
 abbr -a -- ghd "gh dash"
 abbr -a -- ghg "gh graph"
 abbr -a -- ghn "gh notify"
 abbr -a -- ghs "gh s"
 abbr -a -- ghm "gh markdown-preview"
 
-## Docker
+## Docker: d*
 abbr -a -- d docker
 abbr -a -- dps "docker ps"
 abbr -a -- dk  "docker kill"
@@ -154,7 +158,7 @@ abbr -a -- dp  "docker pull"
 abbr -a -- dP  "docker push"
 abbr -a -- dr  "docker run --rm"
 
-### docker compose
+### docker compose: dc*
 abbr -a -- dc  "docker compose"
 abbr -a -- dcb "docker compose build"
 abbr -a -- dcu "docker compose up --build -d"
@@ -165,6 +169,7 @@ abbr -a -- dce "docker compose exec"
 abbr -a -- dcs "docker compose stop"
 
 ### Node.js
+#### pnpm: p*
 abbr -a -- p   "pnpm"
 abbr -a -- pr  "pnpm run"
 abbr -a -- pa  "pnpm add"
@@ -188,7 +193,7 @@ abbr -a -- tl "task lint"
 abbr -a -- tt "task test"
 abbr -a -- th "task help"
 
-# Zellij
+# Zellij: zl*
 abbr -a -- zld "zellij-default"
 abbr -a -- zlc "zellij-coding"
 abbr -a -- zlj "zellij-jsdev"

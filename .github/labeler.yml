@@ -11,7 +11,7 @@ dependencies:
       - ".github/renovate.json5"
       - ".github/dependabot.yml"
 
-documentation:
+docs:
   - changed-files:
     - any-glob-to-any-file:
       - "README.md"
@@ -90,5 +90,6 @@ ai:
       - "home/.chezmoitemplates/common/ai/mcp-servers.json"
       - "home/.chezmoitemplates/common/ai/claude-permissions.json"
       - "home/dot_config/claude/*"
+      - "home/dot_config/codex/*"
       - "home/dot_config/nvim/lua/ai/*"
       - "home/dot_gemini/*"
