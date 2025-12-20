@@ -4,11 +4,11 @@
 // -*-mode:kdl-*- vim:ft=kdl
 
 layout {
-  default_tab_template name="Tab" {
-    children
+    default_tab_template name="Tab" {
+        children
 
-    pane size=1 borderless=true {
-      {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+        pane size=1 borderless=true {
+            {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+        }
     }
-  }
 }

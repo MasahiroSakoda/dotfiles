@@ -4,27 +4,27 @@
 // -*-mode:kdl-*- vim:ft=kdl
 
 layout {
-  default_tab_template {
-    children
+    default_tab_template {
+        children
 
-    pane size=1 borderless=true {
-      {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+        pane size=1 borderless=true {
+            {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+        }
     }
-  }
 
-  tab split_direction="horizontal" {
-    pane split_direction="vertical" {
-      command "nvim"
-      focus true
-      size "75%"
-      start_suspended false
+    tab split_direction="horizontal" {
+        pane split_direction="vertical" {
+            command "nvim"
+            focus true
+            size "75%"
+            start_suspended false
+        }
+        pane split_direction="vertical" {
+            pane {
+                size "50%"
+                focus true
+            }
+            pane size="50%"
+        }
     }
-    pane split_direction="vertical" {
-      pane {
-        size "50%"
-        focus true
-      }
-      pane size="50%"
-    }
-  }
 }

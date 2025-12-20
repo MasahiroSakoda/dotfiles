@@ -4,16 +4,16 @@
 // -*-mode:kdl-*- vim:ft=kdl
 
 layout {
-  pane_template name="bottom" {
-    command "btm"
-  }
+    pane_template name="bottom" {
+        command "btm"
+    }
 
-  pane_template name="statusline" borderless=true {
-    {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
-  }
-  default_tab_template { children; statusline size=1; }
-  tab_template name="monitor" { children; }
+    pane_template name="statusline" borderless=true {
+        {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+    }
+    default_tab_template { children; statusline size=1; }
+    tab_template name="monitor" { children; }
 
-  monitor name="monitor" focus=true { bottom; }
-  tab name="terminal" { pane; }
+    monitor name="monitor" focus=true { bottom; }
+    tab name="terminal" { pane; }
 }
