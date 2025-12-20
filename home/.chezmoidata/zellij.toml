@@ -16,15 +16,30 @@ bg = "magenta"
 [zellij.scroll]
 bg = "cyan"
 
-[zellij.pane]
+[zellij.pane.normal]
+fg = "black"
+bg = "magenta"
+
+[zellij.pane.rename]
+fg = "white"
 bg = "magenta"
 
 [zellij.session]
 bg = "yellow"
 
-[zellij.tab]
+[zellij.tmux]
+bg = "yellow"
+
+[zellij.tab.normal]
 fg = "#A9B1D6"
 bg = "green"
 
 [zellij.tab.active]
 fg = "green"
+
+[zellij.tab.rename]
+bg = "green"
+
+[zellij.tab.separator]
+fg = "grey"
+bg = "purple"

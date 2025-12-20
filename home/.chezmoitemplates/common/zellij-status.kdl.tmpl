@@ -3,8 +3,8 @@
 */ -}}
 
     plugin location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm" {
-        {{ $mode_fg := .zellij.mode.fg -}}
-        {{ $mode_bg := .zellij.mode.bg -}}
+        {{- $mode_fg := .zellij.mode.fg }}
+        {{- $mode_bg := .zellij.mode.bg }}
         format_left  "{mode}#[fg=blue,bg={{ $mode_bg }},bold]  {session} #[fg={{ $mode_bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
         format_right "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
         format_space "#[bg=fg]"
@@ -14,20 +14,26 @@
         mode_normal      "#[fg={{ $mode_fg }},bg={{ .zellij.normal.bg }},bold]  {name} #[fg={{ .zellij.normal.bg }},bg={{ $mode_bg }}]"
         mode_resize      "#[fg={{ $mode_fg }},bg={{ .zellij.resize.bg }},bold]  {name} #[fg={{ .zellij.resize.bg }},bg={{ $mode_bg }}]"
         mode_scroll      "#[fg={{ $mode_fg }},bg={{ .zellij.scroll.bg }},bold]  {name} #[fg={{ .zellij.scroll.bg }},bg={{ $mode_bg }}]"
-        mode_tab         "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
-        mode_resize_tab  "#[fg={{ $mode_fg }},bg={{ .zellij.tab.bg }},bold]  {name} #[fg={{ .zellij.tab.bg }},bg={{ $mode_bg }}]"
-        mode_pane        "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
-        mode_rename_pane "#[fg={{ $mode_fg }},bg={{ .zellij.pane.bg }},bold]  {name} #[fg={{ .zellij.pane.bg }},bg={{ $mode_bg }}]"
+        mode_tab         "#[fg={{ $mode_fg }},bg={{ .zellij.tab.normal.bg }},bold]  {name} #[fg={{ .zellij.tab.normal.bg }},bg={{ $mode_bg }}]"
+        mode_resize_tab  "#[fg={{ $mode_fg }},bg={{ .zellij.tab.normal.bg }},bold]  {name} #[fg={{ .zellij.tab.normal.bg }},bg={{ $mode_bg }}]"
+        mode_rename_tab  "#[fg={{ $mode_fg }},bg={{ .zellij.tab.rename.bg }},bold]  {name} #[fg={{ .zellij.tab.rename.bg }},bg={{ $mode_bg }}]"
+        mode_pane        "#[fg={{ $mode_fg }},bg={{ .zellij.pane.normal.bg }},bold]  {name} #[fg={{ .zellij.pane.normal.bg }},bg={{ $mode_bg }}]"
+        mode_rename_pane "#[fg={{ $mode_fg }},bg={{ .zellij.pane.rename.bg }},bold]  {name} #[fg={{ .zellij.pane.rename.bg }},bg={{ $mode_bg }}]"
+        mode_tmux        "#[fg={{ $mode_fg }},bg={{ .zellij.tmux.bg }},bold]  {name} #[fg={{ .zellij.tmux.bg }},bg={{ $mode_bg }}]"
         mode_session     "#[fg={{ $mode_fg }},bg={{ .zellij.session.bg }},bold]  {name} #[fg={{ .zellij.session.bg }},bg={{ $mode_bg }}]"
+
+        // Tabs
+        tab_normal    "#[fg={{ .zellij.tab.normal.fg }}] {name}"
+        tab_active    "#[fg={{ .zellij.tab.active.fg }},bold,italic] {name}"
+
+        tab_sync_indicator       " "
+        tab_fullscreen_indicator "󰊓 "
+        tab_floating_indicator   "󰹙 "
 
         // Date & Time
         datetime          "#[fg={{ $mode_fg }},bg=blue]{format}"
         datetime_format   "   %b %d (%a) %H:%M "
         datetime_timezone "Asia/Tokyo"
-
-        // Tabs
-        tab_normal    "#[fg={{ .zellij.tab.fg }}] {name}"
-        tab_active    "#[fg={{ .zellij.tab.active.fg }},bold,italic] {name}"
 
         // zjstatus-hints
         // Note: this is necessary or else zjstatus won't render the pipe:
