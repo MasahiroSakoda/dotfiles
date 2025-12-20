@@ -6,8 +6,17 @@
         {{- $mode_fg := .zellij.mode.fg }}
         {{- $mode_bg := .zellij.mode.bg }}
         format_left  "{mode}#[fg=blue,bg={{ $mode_bg }},bold]  {session} #[fg={{ $mode_bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
-        format_right "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
-        format_space "#[bg=fg]"
+        format_center "{notifications}"
+        format_right  "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
+        format_space  "#[bg=fg]"
+
+        // Borders
+        // border_enabled  "false"
+        // border_char     "-"
+        // border_format   "#[fg={{ $mode_fg }}]{char}"
+        // border_position "top"
+
+        // hide_frame_for_single_pane "true"
 
         // Modes
         mode_locked      "#[fg={{ $mode_fg }},bg={{ .zellij.locked.bg }},bold]  {name} #[fg={{ .zellij.locked.bg }},bg={{ $mode_bg }}]"
@@ -25,10 +34,16 @@
         // Tabs
         tab_normal    "#[fg={{ .zellij.tab.normal.fg }}] {name}"
         tab_active    "#[fg={{ .zellij.tab.active.fg }},bold,italic] {name}"
+        tab_separator "#[fg={{ .zellij.tab.separator.fg }},bg={{ .zellij.tab.separator.bg }}] "
 
         tab_sync_indicator       " "
         tab_fullscreen_indicator "󰊓 "
         tab_floating_indicator   "󰹙 "
+
+        // Notifications
+        notification_format_unread           "#[fg=#89B4FA,bg=#181825,blink]  #[fg=#89B4FA,bg=#181825] {message} "
+        notification_format_no_notifications "#[fg=#89B4FA,bg=#181825,dim]   "
+        notification_show_interval           "10"
 
         // Date & Time
         datetime          "#[fg={{ $mode_fg }},bg=blue]{format}"
