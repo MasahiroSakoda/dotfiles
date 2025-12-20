@@ -33,6 +33,7 @@ plugins {
         reaction_seconds "0.3"
     }
     forgot    location="file:$XDG_DATA_HOME/zellij/plugins/zellij-forgot.wasm"
+    navigator location="file:$XDG_DATA_HOME/zellij/plugins/vim-zellij-navigator.wasm"
 }
 
 load_plugins {
@@ -44,6 +45,7 @@ load_plugins {
     hide_frame_except_for_scroll     "true"
     hide_frame_except_for_fullscreen "true"
   }
+  navigator
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
