@@ -32,6 +32,15 @@ export MISE_TRUSTED_CONFIG_PATHS="$MISE_CONFIG_FILE"
 export MISE_LOG_LEVEL="info"
 export MISE_FETCH_REMOTE_VERSIONS_TIMEOUT="1800 s"
 
+# tmux
+export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
+
+# zellij
+export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
+export ZELLIJ_CONFIG_FILE="$ZELLIJ_CONFIG_DIR/config.kdl"
+export ZELLIJ_LAYOUTS_DIR="$ZELLIJ_CONFIG_DIR/layouts"
+
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}
 export GITHUB_ACCESS_TOKEN=$(security find-generic-password -s "MCP Server for GitHub" -w)

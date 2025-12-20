@@ -87,7 +87,7 @@ chezmoi update
 | [**Fish**](https://github.com/fish-shell/fish-shell) | Shell | |
 | [**starship**](https://starship.rs/) | Prompt | |
 | [**tmux**](https://github.com/tmux/tmux) | Screen | See [Detail](#tmux) |
-| [**zellij**](https://github.com/zellij-org/zellij) | Screen | [config.kdl](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/zellij/cofig.kdl.tmpl) |
+| [**zellij**](https://github.com/zellij-org/zellij) | Screen | See [Detail](#zellij) |
 | [**NeoVim**](https://github.com/neovim/neovim) | Editor | See [Detail](#neovim) |
 | [**mise**](https://github.com/jdx/mise) | Version Control | See [Detail](#mise) |
 | [**fzf**](https://github.com/junegunn/fzf) | Fuzzy finder | [Wiki](https://github.com/junegunn/fzf/wiki) |
@@ -122,6 +122,14 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 - [`tmux-plugins/tmux-pain-control`](https://github.com/tmux-plugins/tmux-pain-control)
 - [`tmux-plugins/tmux-open`](https://github.com/tmux-plugins/tmux-open)
 - [`fabioluciano/tmux-powerkit`](https://github.com/fabioluciano/tmux-powerkit)
+
+##### Zellij
+- [`imsnif/multitask`](https://github.com/imsnif/multitask)
+- [`fresh2dev/zellij-autolock`](https://github.com/fresh2dev/zellij-autolock)
+- [`dj95/zjstatus`](https://github.com/dj95/zjstatus)
+- [`dj95/zjframes`](https://github.com/dj95/zjstatus)
+- [`b0o/zjstatus-hints`](https:/github.com/b0o/zjstatus-hints)
+- [`hiasr/vim-zellij-navigator`](https://github.com/hiasr/vim-zellij-navigator)
 
 #### NeoVim
 
