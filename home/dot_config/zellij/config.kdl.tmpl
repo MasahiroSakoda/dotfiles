@@ -11,6 +11,9 @@ plugins {
     // strider         { path "strider"; }
     // compact-bar     { path "compact-bar"; }
     session-manager { path "session-manager"; }
+    welcome-screen location="zellij:session-manager" {
+        welcome_screen false
+    }
 
     // Additional Plugins
     zjstatus-hints location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus-hints.wasm" {
