@@ -16,8 +16,6 @@
         // border_format   "#[fg={{ $mode_fg }}]{char}"
         // border_position "top"
 
-        // hide_frame_for_single_pane "true"
-
         // Modes
         mode_locked      "#[fg={{ $mode_fg }},bg={{ .zellij.locked.bg }},bold]  {name} #[fg={{ .zellij.locked.bg }},bg={{ $mode_bg }}]"
         mode_normal      "#[fg={{ $mode_fg }},bg={{ .zellij.normal.bg }},bold]  {name} #[fg={{ .zellij.normal.bg }},bg={{ $mode_bg }}]"
@@ -32,9 +30,13 @@
         mode_session     "#[fg={{ $mode_fg }},bg={{ .zellij.session.bg }},bold]  {name} #[fg={{ .zellij.session.bg }},bg={{ $mode_bg }}]"
 
         // Tabs
-        tab_normal    "#[fg={{ .zellij.tab.normal.fg }}] {name}"
-        tab_active    "#[fg={{ .zellij.tab.active.fg }},bold,italic] {name}"
-        tab_separator "#[fg={{ .zellij.tab.separator.fg }},bg={{ .zellij.tab.separator.bg }}] "
+        tab_normal            "{index}: #[fg={{ .zellij.tab.normal.fg }}]{name} {floating_indicator}"
+        tab_normal_fullscreen "{index}: #[fg={{ .zellij.tab.normal.fg }}]{name} {fullscreen_indicator}"
+        tab_normal_sync       "{index}: #[fg={{ .zellij.tab.normal.fg }}]{name} {sync_indicator}"
+        tab_active            "{index}: #[fg={{ .zellij.tab.active.fg }},bold,italic]{name} {floating_indicator}"
+        tab_active_fullscreen "{index}: #[fg={{ .zellij.tab.active.fg }},bold,italic]{name} {fullscreen_indicator}"
+        tab_active_sync       "{index}: #[fg={{ .zellij.tab.active.fg }},bold,italic]{name} {sync_indicator}"
+        tab_separator         "{index}: #[fg={{ .zellij.tab.separator.fg }},bg={{ .zellij.tab.separator.bg }}] "
 
         tab_sync_indicator       " "
         tab_fullscreen_indicator "󰊓 "
