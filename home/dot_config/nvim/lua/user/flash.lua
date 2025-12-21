@@ -22,7 +22,7 @@ flash.setup({
 
   modes = {
     char = { autohide = true, jump_labels = true },
-    treesiter = { labels = "hjklasdfgyuiopqwertnmzxcvb" },
+    treesitter = { labels = "hjklasdfgyuiopqwertnmzxcvb" },
   },
   prompt = {},
   remote_op = {},
