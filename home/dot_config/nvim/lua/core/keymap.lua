@@ -59,42 +59,10 @@ wk.add({
   { "R",     function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", function() flash.toggle() end,            mode = c,   icon = " ", desc = " Toggle Search" },
 
-  {
-    "<Leader>*",
-    function() flash.jump({ pattern = vim.fn.expand("<cword>") }) end,
-    mode = nxo,
-    icon = "󰀬 ",
-    desc = " Jump to <cword>",
-  },
-  {
-    "gl",
-    function() flash.jump({ pattern = "^\\s*\\S", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
-    mode = nxo,
-    icon = " ",
-    desc = " Jump to the line (skip whitespace and empty line)",
-  },
-
-  {
-    "gL",
-    function() flash.jump({ pattern = "^\\s*\\S\\?", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
-    mode = nxo,
-    icon = " ",
-    desc = " Jump to the line (skip whitespace and empty line)",
-  },
-  {
-    "g]",
-    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
-    mode = ox,
-    icon = " ",
-    desc = "Jump to the start of word (forward)",
-  },
-  {
-    "g[",
-    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
-    mode = ox,
-    icon = " ",
-    desc = "Jump to the start of word (back forward)",
-  },
+  { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
+  { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
+  { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
+  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Coninue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -264,7 +232,7 @@ if not is_vscode then
     { "<Leader>f\"", "<CMD>lua Snacks.picker.registers()<CR>",    icon = " ", desc = " Register list" },
     { "<Leader>f'",  "<CMD>lua Snacks.picker.marks()<CR>",        icon = " ", desc = " Mark list" },
     { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",         icon = " ", desc = " Undo Tree" },
-    { "<Leader>fh",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Hilight list" },
+    { "<Leader>fh",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Highlight list" },
     { "<Leader>fC",  "<CMD>lua Snacks.picker.colorschemes()<CR>", icon = " ", desc = " Colorschemes" },
     { "<Leader>fs",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
 
@@ -335,9 +303,6 @@ wk.add({
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
 
-  { "[g",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = " Go to prev diagnostics" },
-  { "]g",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = " Go to next diagnostics" },
-
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
 
@@ -392,8 +357,8 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gB", "<CMD>lua Snacks.git.blame_line()<CR>", icon = " ", desc = " Git Blame Line" },
 
-  { "[h", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
-  { "]h", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
+  { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
+  { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
 
   { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = " Toggle lazygit" },
 }, opts)
@@ -520,6 +485,6 @@ if not is_vscode then
     { "\\h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
     { "\\l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
     { "\\i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
-    { "<C-;>",      "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
+    { "\\t", "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
