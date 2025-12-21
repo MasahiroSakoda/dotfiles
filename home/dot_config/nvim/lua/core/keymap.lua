@@ -389,8 +389,8 @@ wk.add({
   { "<Leader>g", group = "Git Integration", icon = " " },
   { "<Leader>gB", "<CMD>lua Snacks.git.blame_line()<CR>", icon = " ", desc = " Git Blame Line" },
 
-  { "[h", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
-  { "]h", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
+  { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
+  { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
 
   { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = " Toggle lazygit" },
 }, opts)
