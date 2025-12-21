@@ -59,42 +59,10 @@ wk.add({
   { "R",     function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", function() flash.toggle() end,            mode = c,   icon = " ", desc = " Toggle Search" },
 
-  {
-    "<Leader>*",
-    function() flash.jump({ pattern = vim.fn.expand("<cword>") }) end,
-    mode = nxo,
-    icon = "󰀬 ",
-    desc = " Jump to <cword>",
-  },
-  {
-    "gl",
-    function() flash.jump({ pattern = "^\\s*\\S", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
-    mode = nxo,
-    icon = " ",
-    desc = " Jump to the line (skip whitespace and empty line)",
-  },
-
-  {
-    "gL",
-    function() flash.jump({ pattern = "^\\s*\\S\\?", search = { mode = "search" }, label = { after = { 0, 0 } } }) end,
-    mode = nxo,
-    icon = " ",
-    desc = " Jump to the line (skip whitespace and empty line)",
-  },
-  {
-    "g]",
-    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
-    mode = ox,
-    icon = " ",
-    desc = "Jump to the start of word (forward)",
-  },
-  {
-    "g[",
-    function() flash.jump({ search = { mode = { forward = true, wrap = true, multi_window = false } } }) end,
-    mode = ox,
-    icon = " ",
-    desc = "Jump to the start of word (back forward)",
-  },
+  { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
+  { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
+  { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
+  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Coninue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
