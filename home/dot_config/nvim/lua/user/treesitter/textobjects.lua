@@ -79,8 +79,8 @@ wk.add({
   mode = nxo,
   { ";", repmove.repeat_last_move_previous,              icon = "󰑙 ", desc = "Repeat last move forward" },
   { ",", repmove.repeat_last_move_next,                  icon = "󰑙 ", desc = "Repeat last move backward" },
-  { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
-  { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
-  { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
-  { "T", repmove.builtin_T_expr,            expr = true, icon = " ", desc = "Repeat moving with T" },
+  -- { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
+  -- { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
+  -- { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
+  -- { "T", repmove.builtin_T_expr,            expr = true, icon = " ", desc = "Repeat moving with T" },
 }, { noremap = true })
