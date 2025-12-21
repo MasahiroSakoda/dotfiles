@@ -335,9 +335,6 @@ wk.add({
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
 
-  { "[g",  "<CMD>lua vim.diagnostic.jump({count=-1,float=true })<CR>", icon = " ", desc = " Go to prev diagnostics" },
-  { "]g",  "<CMD>lua vim.diagnostic.jump({count=1, float=true })<CR>", icon = " ", desc = " Go to next diagnostics" },
-
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
 
