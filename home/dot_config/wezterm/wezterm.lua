@@ -95,7 +95,7 @@ config.disable_default_key_bindings = true   ---@type boolean
 
 config.keys       = keybinds.keys
 config.key_tables = keybinds.key_tables
-config.leader = { key = ";", mods = "CTRL", timeout_milliseconds = 2500 }
+config.leader = { key = ";", mods = "SUPER", timeout_milliseconds = 2500 }
 
 --------------------------------------------------
 -- Hyperlink / Quick Select
