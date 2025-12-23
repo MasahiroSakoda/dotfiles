@@ -119,6 +119,7 @@ return {
     { key = "[", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
     { key = "]", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(1) },
     { key = ";", mods = "SUPER|SHIFT", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
+    { key = "i", mods = "SUPER|SHIFT", action = act.SwitchToWorkspace },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
