@@ -1,7 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
-local wezterm = require("wezterm")
-local pattern = require("regexp").pattern
-local act     = wezterm.action
+local wezterm, act = require("wezterm"), require("wezterm").action
+local pattern   = require("regexp").pattern
 
 -- See https://wezfurlong.org/wezterm/config/keys.html
 return {
@@ -28,8 +27,6 @@ return {
     { key = "w",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
     { key = "Tab", mods = "CTRL",       action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
-    -- { key = "p",   mods = "LEADER",     action = act.ActivateTabRelative(-1) },
-    -- { key = "n",   mods = "LEADER",     action = act.ActivateTabRelative(1) },
     { key = "1",   mods = "SUPER",      action = act.ActivateTab(0) },
     { key = "2",   mods = "SUPER",      action = act.ActivateTab(1) },
     { key = "3",   mods = "SUPER",      action = act.ActivateTab(2) },
@@ -63,7 +60,7 @@ return {
     { key = "F1", mods = "SHIFT", action = act.EmitEvent("decrease-opacity") },
     { key = "F2", mods = "SHIFT", action = act.EmitEvent("increase-opacity") },
 
-    -- Colro Scheme
+    -- Color Scheme
     { key = "c", mods = "LEADER", action = act.EmitEvent("switch-colorscheme") },
 
     -- Background Image
