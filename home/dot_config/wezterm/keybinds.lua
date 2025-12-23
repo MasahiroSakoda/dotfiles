@@ -1,6 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 local wezterm, act = require("wezterm"), require("wezterm").action
 local pattern   = require("regexp").pattern
+local workspace = require("workspace")
 
 -- See https://wezfurlong.org/wezterm/config/keys.html
 return {
@@ -113,6 +114,10 @@ return {
 
     { key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "manage_pane" }) },
     { key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
+
+    -- Workspace
+    { key = "[", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+    { key = "]", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(1) },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
