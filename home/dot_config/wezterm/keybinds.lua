@@ -25,7 +25,7 @@ return {
 
     -- Tab
     { key = "t",   mods = "SUPER",      action = act.SpawnTab("CurrentPaneDomain") },
-    { key = "w",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
+    { key = "W",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
     { key = "Tab", mods = "CTRL",       action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
     { key = "1",   mods = "SUPER",      action = act.ActivateTab(0) },
@@ -41,7 +41,7 @@ return {
     -- Pane
     { key = "d", mods = "SUPER", action = act.SplitHorizontal },
     { key = "D", mods = "SUPER", action = act.SplitVertical },
-    { key = "W", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
+    { key = "w", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
     { key = "[", mods = "SUPER", action = act.RotatePanes("CounterClockwise") },
     { key = "]", mods = "SUPER", action = act.RotatePanes("Clockwise") },
     { key = "LeftArrow",  mods = "SUPER", action = act.ActivatePaneDirection("Left") },
