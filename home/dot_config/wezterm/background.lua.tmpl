@@ -1,12 +1,14 @@
+---@diagnostic disable: exp-in-action, miss-exp, err-c-long-comment, malformed-number, undefined-global
+{{- /*
+-- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+*/ -}}
 -- -*-mode:lua-*- vim:ft=lua
 local imgdir = os.getenv("HOME") .. "/Pictures/Wallpapers/"
 
 local images = {}
----@diagnostic disable-next-line: exp-in-action, undefined-global
 {{- range .terminal.wezterm.images }}
----@diagnostic disable-next-line: undefined-global
 table.insert(images, imgdir .. {{ . | quote }})
----@diagnostic disable-next-line: miss-exp, unknown-symbol
+---@diagnostic disable-next-line: unknown-symbol
 {{- end }}
 
 return images

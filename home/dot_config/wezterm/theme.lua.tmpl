@@ -1,6 +1,9 @@
+---@diagnostic disable: exp-in-action, miss-exp, err-c-long-comment, malformed-number, undefined-global, unknown-symbol
+{{- /*
+-- -*-mode:lua-*- vim:ft=lua.gotexttmpl
+*/ -}}
 -- -*-mode:lua-*- vim:ft=lua
 local schemes = {}
----@diagnostic disable: exp-in-action, undefined-global, unknown-symbol, miss-exp
 {{- range .terminal.wezterm.themes | uniq }}
 table.insert(schemes, {{ . | quote }})
 {{- end }}

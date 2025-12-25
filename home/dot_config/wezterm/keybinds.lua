@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
-local wezterm = require("wezterm")
-local pattern = require("regexp").pattern
-local act     = wezterm.action
+local wezterm, act = require("wezterm"), require("wezterm").action
+local pattern   = require("regexp").pattern
+local workspace = require("workspace")
 
 -- See https://wezfurlong.org/wezterm/config/keys.html
 return {
@@ -25,11 +25,9 @@ return {
 
     -- Tab
     { key = "t",   mods = "SUPER",      action = act.SpawnTab("CurrentPaneDomain") },
-    { key = "w",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
+    { key = "W",   mods = "SUPER",      action = act.CloseCurrentTab({ confirm = false }) },
     { key = "Tab", mods = "CTRL",       action = act.ActivateTabRelative(1) },
     { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) },
-    -- { key = "p",   mods = "LEADER",     action = act.ActivateTabRelative(-1) },
-    -- { key = "n",   mods = "LEADER",     action = act.ActivateTabRelative(1) },
     { key = "1",   mods = "SUPER",      action = act.ActivateTab(0) },
     { key = "2",   mods = "SUPER",      action = act.ActivateTab(1) },
     { key = "3",   mods = "SUPER",      action = act.ActivateTab(2) },
@@ -43,7 +41,7 @@ return {
     -- Pane
     { key = "d", mods = "SUPER", action = act.SplitHorizontal },
     { key = "D", mods = "SUPER", action = act.SplitVertical },
-    { key = "W", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
+    { key = "w", mods = "SUPER", action = act.CloseCurrentPane({ confirm = false }) },
     { key = "[", mods = "SUPER", action = act.RotatePanes("CounterClockwise") },
     { key = "]", mods = "SUPER", action = act.RotatePanes("Clockwise") },
     { key = "LeftArrow",  mods = "SUPER", action = act.ActivatePaneDirection("Left") },
@@ -63,7 +61,7 @@ return {
     { key = "F1", mods = "SHIFT", action = act.EmitEvent("decrease-opacity") },
     { key = "F2", mods = "SHIFT", action = act.EmitEvent("increase-opacity") },
 
-    -- Colro Scheme
+    -- Color Scheme
     { key = "c", mods = "LEADER", action = act.EmitEvent("switch-colorscheme") },
 
     -- Background Image
@@ -116,6 +114,14 @@ return {
 
     { key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "manage_pane" }) },
     { key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
+
+    -- Workspace
+    { key = "[", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(-1) },
+    { key = "]", mods = "SUPER|SHIFT", action = act.SwitchWorkspaceRelative(1) },
+    { key = ";", mods = "SUPER|SHIFT", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
+    { key = "i", mods = "SUPER|SHIFT", action = act.SwitchToWorkspace },
+    { key = "s", mods = "LEADER", action = workspace.switch() },
+    { key = "r", mods = "LEADER", action = workspace.rename() },
   },
   -- See https://wezfurlong.org/wezterm/config/lua/keyassignment/CopyMode/index.html
   key_tables = {
