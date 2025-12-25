@@ -1,0 +1,102 @@
+-- -*-mode:lua-*- vim:ft=lua
+---@diagnostic disable: malformed-number, undefined-global
+
+---@alias action_callback any
+---@alias MuxWindow any
+---@alias Pane any
+
+---@alias workspace_ids table<string, boolean>
+---@alias choice_opts {extra_args?: string, workspace_ids?: workspace_ids}
+---@alias InputSelector_choices { id: string, label: string }[]
+
+local M = {}
+local wezterm, action, mux = require("wezterm"), require("wezterm").action, require("wezterm").mux
+
+-- Check if workspace exists
+---@prarm workspace string
+---@return boolean
+local function exists(workspace)
+  for _, ws in ipairs(mux.get_workspace_names()) do
+    if workspace == ws then
+      return true
+    end
+  end
+  return false
+end
+
+---@param index integer
+---@param label string
+---@return fun(label: string): string
+local function format(index, label)
+  return wezterm.format({
+    Background = { Color = {{ .wezterm.workspace.default.bg | quote }}},
+    Foreground = { Color = {{ .wezterm.workspace.default.fg | quote }}},
+    Text = string.format("%07d: %s", index, label),
+  })
+end
+
+---@return InputSelector_choices
+local function get_workspaces()
+  local workspaces = {}
+  for i, workspace in ipairs(mux.get_workspace_names()) do
+    table.insert(workspaces, { id = workspace, label = format(i + 1, workspace) })
+    workspaces[workspace] = true
+  end
+  return workspaces
+end
+
+---Switch or create workspace
+function M.switch()
+  return action.InputSelector({
+    title       = "Switch Workspace",
+    description = "Select a workspace and press Enter = accept, Esc = cancel, / = filter",
+    choices     = get_workspaces(),
+    fuzzy       = true,
+    action = wezterm.action_callback(function(window, pane, id, label)
+      if not id and not label then
+        wezterm.emit("", window, pane)
+      else
+        wezterm.emit("", window, pane)
+        if exists(id) then
+          window:perform_action(action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
+        else
+          window:perform_aciton(action.SwitchToWorkspace({ name = id, spawn = { cwd = id }}), pane)
+        end
+      end
+    end),
+  })
+end
+
+function M.switch_or_create()
+  return wezterm.action_callback(function(window, pane, id, label)
+    if not id and not label then
+      if exists(id) then
+          window:perform_action(action.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }))
+      else
+          window:perform_aciton(action.SwitchToWorkspace({ name = id, spawn = { cwd = id }}), pane)
+      end
+    end
+  end)
+end
+
+---Create or switch workspace
+---@return action_callback
+function M.create()
+  return wezterm.action_callback(function(window, pane)
+    local cwd  = pane:get_current_working_dir()
+    window:perform_action(action.SwitchToWorkspace({ name = cwd.file_path, spawn = { name = cwd.file_path } }), pane)
+  end)
+end
+
+---Rename active workspace name
+---@return action_callback
+function M.rename()
+  return action.PromptInputLine({
+    description = wezterm.format({ Text = "Set workspace title..." }),
+    action = wezterm.action_callback(function(_, _, line)
+      return line and mux.rename_workspace(mux.get_active_workspace(), line)
+    end)
+  })
+end
+
+return M
