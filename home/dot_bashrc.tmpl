@@ -1,0 +1,94 @@
+{{- /*
+# -*-mode:bash-*- vim:ft=bash.gotexttmpl
+*/ -}}
+# -*-mode:bash-*- vim:ft=bash
+
+# Bash History
+export HISTFILE="$XDG_STATE_HOME/bash/history"
+
+# Language / Locale
+export LANG=ja_JP.UTF-8
+export LC_CTYPE=ja_JP.UTF-8
+
+export RUNEWIDTH_EASTASIAN=0
+
+# XDG Based Directory
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
+[ -d $HOME/.xdg ] && export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
+export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export XDG_DESKTOP_DIR=${XDG_DESKTOP_DIR:-$HOME/Desktop}
+  export XDG_DOCUMENTS_DIR=${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+  export XDG_DOWNLOAD_DIR=${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+  export XDG_MUSIC_DIR=${XDG_MUSIC_DIR:-$HOME/Music}
+  export XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-$HOME/Pictures}
+  export XDG_VIDEOS_DIR=${XDG_VIDEOS_DIR:-$HOME/Videos}
+  export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
+fi
+
+# mise
+export MISE_DATA_DIR="$XDG_DATA_HOME/mise"
+export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise/config.toml"
+export MISE_TRUSTED_CONFIG_PATHS="$MISE_CONFIG_FILE"
+export MISE_LOG_LEVEL="info"
+export MISE_FETCH_REMOTE_VERSIONS_TIMEOUT="1800 s"
+
+# tmux
+export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
+export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
+
+# zellij
+export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
+export ZELLIJ_CONFIG_FILE="$ZELLIJ_CONFIG_DIR/config.kdl"
+export ZELLIJ_LAYOUTS_DIR="$ZELLIJ_CONFIG_DIR/layouts"
+
+# Editors
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Pager
+## less
+export PAGER="less"
+export LESS="--ignore-case --RAW-CONTROL-CHARS --LONG-PROMPT -x-4 -z-4"
+export LESSCHARSET="utf-8"
+export LESSHISTFILE="$XDG_STATE_HOME/lesshst"
+export LESS_TERMCAP_mb=$"\e[01;31m"
+export LESS_TERMCAP_md=$"\e[01;31m"
+export LESS_TERMCAP_me=$"\e[0m"
+export LESS_TERMCAP_se=$"\e[0m"
+export LESS_TERMCAP_so=$"\e[01;42;30m"
+export LESS_TERMCAP_ue=$"\e[0m"
+export LESS_TERMCAP_us=$"\e[01;32m"
+
+## bat
+export BAT_THEME="Monokai Extended Origin"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p --style=numbers'"
+export MANPAGER="nvim +Man!"
+
+# Grep
+export GREP_OPTIONS="--color=always"
+
+export PINACT_MIN_AGE=7
+
+# Activate starship prompt
+! command -v starship > /dev/null || eval "$(starship init bash)"
+
+# Activate bash plugin with sheldon
+# Sheldon
+export SHELDON_CONFIG_DIR="${XDG_CONFIG_HOME}/sheldon"
+export SHELDON_CONFIG_FILE="${SHELDON_CONFIG_DIR:-${XDG_CONFIG_HOME:-$HOME/.config}/sheldon}/plugins.bash.toml"
+! command -v sheldon > /dev/null || eval "$(command sheldon source)"
+
+# Activate mise
+! command -v mise > /dev/null || eval "$(mise activate bash)"
+
+# Activate fzf
+! command -v fzf > /dev/null || eval "$(fzf --bash)"
+
+{{- if lookPath "gh" }}
+eval "$(gh completion --shell bash)"
+{{- end }}
