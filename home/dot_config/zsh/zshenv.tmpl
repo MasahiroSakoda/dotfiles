@@ -41,6 +41,10 @@ export ZELLIJ_CONFIG_DIR="$XDG_CONFIG_HOME/zellij"
 export ZELLIJ_CONFIG_FILE="$ZELLIJ_CONFIG_DIR/config.kdl"
 export ZELLIJ_LAYOUTS_DIR="$ZELLIJ_CONFIG_DIR/layouts"
 
+# Sheldon
+export SHELDON_CONFIG_DIR="${XDG_CONFIG_HOME}/sheldon"
+export SHELDON_CONFIG_FILE="${SHELDON_CONFIG_DIR}/plugins.zsh.toml"
+
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}
 export GITHUB_ACCESS_TOKEN=$(security find-generic-password -s "MCP Server for GitHub" -w)

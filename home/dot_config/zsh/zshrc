@@ -44,3 +44,6 @@ source <(fzf --zsh)
 for file in "$ZDOTDIR"/functions/*.zsh; do
   source "$file"
 done
+
+## Activate sheldon
+which sheldon > /dev/null 2>&1 && eval "$(sheldon source)" || echo "sheldon is not installed"
