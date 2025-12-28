@@ -1,5 +1,6 @@
 # -*-mode:toml-*- vim:ft=toml
 
+# tombi: lint.rules.key-not-allowed.disabled = true
 [starship.env]
 fg_color = "#7aa2f7"
 bg_color = "#242529"
