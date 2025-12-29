@@ -93,6 +93,15 @@ abbr ghn="gh notify"
 abbr ghs="gh s"
 abbr ghm="gh markdown-preview"
 
+# mise
+abbr m="mise"
+abbr ml="mise list"
+abbr mi="mise install"
+abbr mu="mise upgrade"
+abbr ms="mise registry | fzf --exit-0"
+abbr mr="mise run"
+abbr mt="mise tasks"
+
 # Docker
 abbr d="docker"
 abbr dps="docker ps"
