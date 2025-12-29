@@ -95,7 +95,7 @@ abbr ghm="gh markdown-preview"
 
 # mise
 abbr m="mise"
-abbr ml="mise list"
+abbr ml="mise ls | fzf"
 abbr mi="mise install"
 abbr mu="mise upgrade"
 abbr ms="mise registry | fzf --exit-0"
