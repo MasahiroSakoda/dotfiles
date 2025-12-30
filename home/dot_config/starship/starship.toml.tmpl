@@ -104,7 +104,7 @@ threshold = -1
 [os]
 disabled = false
 format   = "[$symbol]($style)"
-style    = "fg:{{ .starship.os.fg_color }} bg:{{ .starship.os.bg_color }}"
+style    = "fg:{{ .starship.env.bg_color }} bg:{{ .starship.env.fg_color }}"
 
 [os.symbols]
 Windows = " "
@@ -202,10 +202,10 @@ style  = "fg:{{ .starship.fill.color }}"
 disabled = false
 format   = "[$indicator]($style) "
 style    = "(bold blue)"
-bash_indicator = "   "
-zsh_indicator  = "💤  "
-fish_indicator = "🐟  "
-cmd_indicator  = "   "
+bash_indicator = "   "
+zsh_indicator  = "💤  "
+fish_indicator = "🐟  "
+cmd_indicator  = "   "
 
 # ref: https://starship.rs/config/#shlvl
 [shlvl]

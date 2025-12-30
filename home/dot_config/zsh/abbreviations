@@ -46,7 +46,7 @@ abbr lg="lazygit"
 
 abbr g="git"
 abbr gs="git status --verbose"
-abbr gl="git log --graph --all"
+abbr gl="gitleaks git"
 abbr gmv="git mv --verbose"
 
 abbr gd="git diff"
@@ -92,6 +92,15 @@ abbr ghg="gh graph"
 abbr ghn="gh notify"
 abbr ghs="gh s"
 abbr ghm="gh markdown-preview"
+
+# mise
+abbr m="mise"
+abbr ml="mise ls | fzf"
+abbr mi="mise install"
+abbr mu="mise upgrade"
+abbr ms="mise registry | fzf --exit-0"
+abbr mr="mise run"
+abbr mt="mise tasks"
 
 # Docker
 abbr d="docker"

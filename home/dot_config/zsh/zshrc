@@ -19,29 +19,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 ############################################################
-# Zim framework config
-############################################################
-# The prefix for the alias from zim builtin git module
-# zstyle ':zim:zmodule' use 'degit'
-export ZIM_CONFIG_FILE="${XDG_CONFIG_HOME}/zsh/.zimrc"
-export ZIM_HOME="${XDG_CACHE_HOME}/zim"
-
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-    https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-fi
-
-# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
-[[ ~/.zimrc -nt ~/.zim/init.zsh ]] && source ~/.zim/zimfw.zsh init -q
-
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
-
-## init zsh-abbr
-source ${ZIM_HOME}/modules/zsh-abbr/zsh-abbr.zsh
-
-############################################################
 # Input config
 ############################################################
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
@@ -67,3 +44,6 @@ source <(fzf --zsh)
 for file in "$ZDOTDIR"/functions/*.zsh; do
   source "$file"
 done
+
+## Activate sheldon
+which sheldon > /dev/null 2>&1 && eval "$(sheldon source)" || echo "sheldon is not installed"

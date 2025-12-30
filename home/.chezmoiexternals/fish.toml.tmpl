@@ -1,0 +1,34 @@
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
+
+{{- define "file" }}
+type = "file"
+executable = false
+stripComponents = 1
+refreshPeriod = "672h"
+{{- end }}
+
+[".config/fish/completions/chezmoi.fish"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi.fish"
+
+[".config/fish/completions/watchexec.fish"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/watchexec/watchexec/main/completions/fish"
+
+[".config/fish/themes/tokyonight_day.theme"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish_themes/tokyonight_day.theme"
+
+[".config/fish/themes/tokyonight_moon.theme"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish_themes/tokyonight_moon.theme"
+
+[".config/fish/themes/tokyonight_night.theme"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish_themes/tokyonight_night.theme"
+
+[".config/fish/themes/tokyonight_storm.theme"]
+{{ template "file" }}
+url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish_themes/tokyonight_storm.theme"
