@@ -46,7 +46,7 @@ abbr lg="lazygit"
 
 abbr g="git"
 abbr gs="git status --verbose"
-abbr gl="git log --graph --all"
+abbr gl="gitleaks git"
 abbr gmv="git mv --verbose"
 
 abbr gd="git diff"
