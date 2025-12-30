@@ -2,43 +2,39 @@
 
 # Runtime
 
+# tombi: lint.rules.key-not-allowed.disabled = true
 ## Node.js
-[mise.node]
+[mise.langs.node]
 enabled  = true
 versions = ["24"]
 
-[mise.pnpm]
+[mise.langs.pnpm]
 enabled  = true
 versions = ["10"]
 
-[mise.deno]
+[mise.langs.deno]
 enabled  = true
 versions = ["2"]
 
-[mise.bun]
+[mise.langs.bun]
 enabled  = true
 versions = ["1"]
 
 ## Go
-[mise.go]
+[mise.langs.go]
 enabled  = true
 versions = ["latest"]
 
 ## Python
-[mise.python]
+[mise.langs.python]
 enabled  = true
 versions = ["3.14"]
 
-[mise.uv]
+[mise.langs.uv]
 enabled  = true
 versions = ["latest"]
 
 ## Ruby
-[mise.ruby]
+[mise.langs.ruby]
 enabled  = true
 versions = ["3.4"]
-
-## Usage
-[mise.usage]
-enabled  = true
-versions = ["latest"]
