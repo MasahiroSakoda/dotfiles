@@ -7,6 +7,28 @@
 # supports arbitrary env vars so mise can be used like direnv/dotenv
 NODE_ENV = "development"
 
+[settings]
+verbose  = false # set to true to see full installation output, see `MISE_VERBOSE`
+jobs     = 4     # number of plugins or runtimes to install in parallel. The default is `4`.
+raw      = false # set to true to directly pipe plugins to stdin/stdout/stderr
+yes      = false # set to true to automatically answer yes to all prompts
+paranoid = false # see https://mise.jdx.dev/paranoid.html
+
+# configure `mise install` to always keep the downloaded archive
+always_keep_download = false        # deleted after install by default
+always_keep_install  = false        # deleted on failure by default
+
+trusted_config_paths = [
+  "~/Dev/repos/github.com/MasahiroSakoda",
+]
+
+experimental    = true
+env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
+shorthands_file = "~/.config/mise/shorthand.toml"
+disable_default_shorthands = false # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
+disable_tools = []                 # disable specific tools, generally used to turn off core tools
+
+
 [tools]
 # Completion
 usage = "latest"
