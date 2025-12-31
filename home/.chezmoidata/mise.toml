@@ -38,3 +38,109 @@ versions = ["latest"]
 [mise.langs.ruby]
 enabled  = true
 versions = ["3.4"]
+
+
+## CLI via aqua
+# TODO: Separate CLI tool config with categories later
+### Terminal
+[[mise.tools]]
+"aqua:zellij-org/zellij"       = "latest" # Terminal multiplexer
+
+### Editor
+[[mise.tools]]
+"aqua:neovim/neovim"           = "latest" # Hyper extensive editor
+
+### Build
+[[mise.tools]]
+"aqua:Kitware/CMake"           = "latest" # build system generator
+
+### Shell
+[[mise.tools]]
+"aqua:rossmacarthur/sheldon"   = "latest" # Shell plugin manager
+
+[[mise.tools]]
+"aqua:starship/starship"       = "latest" # Shell prompt
+
+### alternative command
+[[mise.tools]]
+"aqua:sharkdp/bat"             = "latest" # `cat` alternative
+
+[[mise.tools]]
+"aqua:sharkdp/fd"              = "latest" # `find` alternative
+
+[[mise.tools]]
+"aqua:BurntSushi/ripgrep"      = "latest" # `grep` alternative
+
+[[mise.tools]]
+"aqua:junegunn/fzf"            = "latest" # Fuzzy finder
+
+[[mise.tools]]
+"aqua:dalance/procs"           = "latest" # `ps` alternative
+
+[[mise.tools]]
+"aqua:ClementTsang/bottom"     = "latest" # Process monitor
+
+[[mise.tools]]
+"aqua:watchexec/watchexec"     = "latest" # Modify detector
+
+[[mise.tools]]
+"aqua:sxyazi/yazi"             = "latest" # Modern TUI explorer
+
+[[mise.tools]]
+"aqua:Byron/dua-cli"           = "latest" # Disk usage
+
+[[mise.tools]]
+"aqua:sharkdp/hyperfine"       = "latest" # Benchmark tool
+
+[[mise.tools]]
+"aqua:svenstaro/genact"        = "latest" # nonsense activity generator
+
+### Editor
+[[mise.tools]]
+"aqua:tree-sitter/tree-sitter" = "latest" # language parser
+
+### Git
+[[mise.tools]]
+"aqua:o2sh/onefetch"           = "latest" # Repository information
+
+[[mise.tools]]
+"aqua:gitui-org/gitui"         = "latest" # Git TUI
+
+[[mise.tools]]
+"aqua:dandavison/delta"        = "latest" # `git-delta`
+
+[[mise.tools]]
+"aqua:git-lfs/git-lfs"         = "latest" # `git` large file storage extension
+
+[[mise.tools]]
+"aqua:simonwhitaker/gibo"      = "latest" # `.gitignore` boilerplates
+
+### GitHub
+[[mise.tools]]
+"aqua:cli/cli"                  = "latest" # `gh` command: GitHub CLI
+
+[[mise.tools]]
+"aqua:x-motemen/ghq"            = "latest" # Remote repository manager
+
+[[mise.tools]]
+"aqua:suzuki-shunsuke/pinact"   = "latest" # Version Pinner for GitHub Actions
+
+### Dotfiles
+[[mise.tools]]
+"aqua:twpayne/chezmoi"          = "latest" # Dotfiles manager
+
+### Database
+[[mise.tools]]
+"aqua:jorgerojas26/lazysql"     = "latest" # SQL with TUI
+
+### Data Analysis
+[[mise.tools]]
+"github:medialab/xan"           = "latest" # CSV visualization toolkit
+
+### Documents
+[[mise.tools]]
+"github:jgm/pandoc"             = "latest" # Universal markup converter
+
+### Security
+[[mise.tools]]
+"aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool

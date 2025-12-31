@@ -44,6 +44,9 @@ compile = true
 # default_packages_file = "~/.config/mise/default-gems"
 
 [tools]
+# Backends
+aqua = "latest"
+
 # Completion
 usage = "latest"
 
@@ -58,7 +61,7 @@ usage = "latest"
 
 # CLI tools
 {{ range $tools := .mise.tools }}
-{{ range $key, $value := $tools }}{{ $key | quote }} = {{ $value | quote }}{{ end }}
+{{- range $key, $value := $tools }}{{ dict $key $value | toToml }}{{ end }}
 {{- end }}
 
 # supports everything you can do with .tool-versions currently
