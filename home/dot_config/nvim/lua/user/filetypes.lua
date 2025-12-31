@@ -29,7 +29,7 @@ Filetypes.treesitter = {
   -- Markup Languages
   "html", "css", "scss",
   "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst", "mermaid",
-  "glimmer",
+  "glimmer", "ron",
   -- Shader Languages
   "glsl", "hlsl", "wgsl",
   -- Shell
@@ -41,7 +41,7 @@ Filetypes.treesitter = {
   -- Git
   "git_config", "gitattributes", "gitignore", "gitcommit", "git_rebase",
   -- Build
-  "make", "cmake",
+  "make", "cmake", "just",
   -- Terminal Multiplexer
   "tmux",
   -- DevOps
