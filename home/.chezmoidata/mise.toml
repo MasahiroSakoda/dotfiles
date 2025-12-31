@@ -54,6 +54,9 @@ versions = ["3.4"]
 [[mise.tools]]
 "aqua:Kitware/CMake"           = "latest" # build system generator
 
+[[mise.tools]]
+"aqua:casey/just"              = "latest" # Just a command runner
+
 ### Shell
 [[mise.tools]]
 "aqua:rossmacarthur/sheldon"   = "latest" # Shell plugin manager
@@ -94,6 +97,9 @@ versions = ["3.4"]
 
 [[mise.tools]]
 "aqua:svenstaro/genact"        = "latest" # nonsense activity generator
+
+[[mise.tools]]
+"aqua:tealdeer-rs/tealdeer"    = "latest" # Too long don't read
 
 ### Editor
 [[mise.tools]]
