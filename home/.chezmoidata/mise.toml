@@ -199,6 +199,16 @@ versions = ["3.4"]
 [[mise.tools]]
 "github:jgm/pandoc"             = "latest" # Universal markup converter
 
+### JSON / YAML / Markdown
+[[mise.tools]]
+"aqua:jqlang/jq"                = "latest" # CLI processor for JSON
+
+[[mise.tools]]
+"aqua:mikefarah/yq"             = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
+
+[[mise.tools]]
+"aqua:charmbracelet/glow"       = "latest"
+
 ### Security
 [[mise.tools]]
 "aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool
