@@ -136,6 +136,12 @@ versions = ["3.4"]
 [[mise.tools]]
 "aqua:simonwhitaker/gibo"      = "latest" # `.gitignore` boilerplates
 
+[[mise.tools]]
+"npm:commitizen"                = "latest"
+
+[[mise.tools]]
+"npm:cz-conventional-changelog" = "latest"
+
 ### GitHub
 [[mise.tools]]
 "aqua:cli/cli"                  = "latest" # `gh` command: GitHub CLI
@@ -165,3 +171,10 @@ versions = ["3.4"]
 ### Security
 [[mise.tools]]
 "aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool
+
+### AI tools
+[[mise.tools]]
+"npm:@google/gemini-cli" = "latest"
+
+[[mise.tools]]
+"npm:repomix"            = "latest"
