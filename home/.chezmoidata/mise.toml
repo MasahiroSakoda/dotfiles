@@ -156,6 +156,37 @@ versions = ["3.4"]
 [[mise.tools]]
 "aqua:twpayne/chezmoi"          = "latest" # Dotfiles manager
 
+### Linter / Formatter
+[[mise.tools]]
+"aqua:mvdan/sh"                 = "latest" # Shell formatter
+
+[[mise.tools]]
+"aqua:astral-sh/ruff"           = "latest" # Python Linter / Formatter
+
+[[mise.tools]]
+"aqua:biomejs/biome"            = "latest" # eslint & prettier replacement
+
+[[mise.tools]]
+"aqua:google/yamlfmt"           = "latest" # YAML formatter
+
+[[mise.tools]]
+"aqua:tombi-toml/tombi"         = "latest" # TOML Linter / Formatter / Language Server
+
+[[mise.tools]]
+"aqua:rhysd/actionlint"         = "latest" # YAML Linter for GitHub Actions workflows
+
+[[mise.tools]]
+"aqua:golangci/golangci-lint"   = "latest" # Go linter aggregator
+
+[[mise.tools]]
+"aqua:hadolint/hadolint"        = "latest" # Dockerfile Linter
+
+[[mise.tools]]
+"aqua:JohnnyMorganz/StyLua"     = "latest" # Lua Linter
+
+[[mise.tools]]
+"aqua:mrtazz/checkmake"         = "latest" # Makefile Linter
+
 ### Database
 [[mise.tools]]
 "aqua:jorgerojas26/lazysql"     = "latest" # SQL with TUI

@@ -27,21 +27,13 @@ return {
   typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
 
   -- Linter
-  actionlint    = {}, -- GitHub Actions workflow
-  checkmake     = {}, -- Makefile
-  golangci_lint = {}, -- Go
   ruff          = require("lsp.servers.ruff"), -- Python
   biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
   -- rubocop       = require("lsp.servers.rubocop"), -- Ruby Static Code Analyzer
   stylua        = require("lsp.servers.stylua"),  -- Lua
   markdownlint  = {}, -- Markdown
-  hadolint      = {}, -- Dockerfile
   sqruff        = {}, -- SQL
 
   -- Formetter
   clang_format  = {}, -- C/C++, ObjC, Java, JS, C#, etc..
-  shfmt         = {}, -- Sh, Bash
-  jq            = {}, -- JSON
-  yq            = {}, -- YAML
-  yamlfmt       = {}, -- YAML
 }
