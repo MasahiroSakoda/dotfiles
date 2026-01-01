@@ -207,11 +207,14 @@ versions = ["3.4"]
 "aqua:mikefarah/yq"             = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
 
 [[mise.tools]]
-"aqua:charmbracelet/glow"       = "latest"
+"aqua:charmbracelet/glow"       = "latest" # Render markdown on the CLI
 
 ### Security
 [[mise.tools]]
 "aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool
+
+[[mise.tools]]
+"aqua:gitleaks/gitleaks"        = "latest" # tool for detecting secrets like passwords, API keys, and tokens in repos
 
 ### AI tools
 [[mise.tools]]
