@@ -216,6 +216,12 @@ versions = ["3.4"]
 [[mise.tools]]
 "aqua:gitleaks/gitleaks"        = "latest" # tool for detecting secrets like passwords, API keys, and tokens in repos
 
+[[mise.tools]]
+"aqua:anchore/syft"             = "latest" # SBOM generator for container images and filesystems.
+
+[[mise.tools]]
+"aqua:anchore/grype"            = "latest" # Vulnerability scanner for container images and filesystems
+
 ### Container
 [[mise.tools]]
 "aqua:lima-vm/lima"                  = "latest" # Linux virtual machines, with a focus on running containers
