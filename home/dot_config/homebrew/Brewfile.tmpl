@@ -19,11 +19,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Basic Command Alternative
-{{- range .packages.brew.command | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 # Browser
 {{- range .packages.brew.browser | uniq }}
 brew {{ . | quote }}
@@ -39,16 +34,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Performance
-{{- range .packages.brew.performance | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
-## Editor
-{{- range .packages.brew.editor | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 ## Security
 {{- range .packages.brew.security | uniq }}
 brew {{ . | quote }}
@@ -59,16 +44,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Build
-{{- range .packages.brew.build | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
-## Database
-{{- range .packages.brew.database | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 ## Rust
 {{- range .packages.brew.rust | uniq }}
 brew {{ . | quote }}
@@ -76,11 +51,6 @@ brew {{ . | quote }}
 
 ## Lua
 {{- range .packages.brew.lua | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
-## CSV
-{{- range .packages.brew.csv | uniq }}
 brew {{ . | quote }}
 {{- end }}
 

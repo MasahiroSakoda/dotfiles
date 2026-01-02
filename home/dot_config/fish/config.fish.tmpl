@@ -57,6 +57,7 @@ set -x __done_min_cmd_duration 60000  # default: 5000 ms
 bind ctrl-c cancel-commandline
 
 # Fish abbreviations
+abbr -a -- tl "tldr"
 abbr -a -- cl "clear"
 abbr -a -- x  "exit"
 
@@ -194,13 +195,13 @@ abbr -a -- px  "pnpm dlx"
 abbr -a -- pck "pnpm biome:check"
 abbr -a -- pcf "pnpm biome:fix"
 
-# Taskfile
-abbr -a -- tb "task build"
-abbr -a -- tr "task run"
-abbr -a -- tc "task clean"
-abbr -a -- tl "task lint"
-abbr -a -- tt "task test"
-abbr -a -- th "task help"
+# Justfile
+abbr -a -- jb "just build"
+abbr -a -- jr "just run"
+abbr -a -- jc "just clean"
+abbr -a -- jl "just lint"
+abbr -a -- jt "just test"
+abbr -a -- jh "just help"
 
 # Zellij: zl*
 abbr -a -- zl  "zellij --layout"

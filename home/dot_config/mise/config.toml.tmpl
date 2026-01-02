@@ -1,11 +1,61 @@
+{{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
+# -*-mode:toml-*- vim:ft=toml
 
 [env]
 # supports arbitrary env vars so mise can be used like direnv/dotenv
-NODE_ENV = 'development'
+NODE_ENV = "development"
+
+[settings]
+verbose  = false # set to true to see full installation output, see `MISE_VERBOSE`
+jobs     = 4     # number of plugins or runtimes to install in parallel. The default is `4`.
+raw      = false # set to true to directly pipe plugins to stdin/stdout/stderr
+yes      = false # set to true to automatically answer yes to all prompts
+paranoid = false # see https://mise.jdx.dev/paranoid.html
+
+# configure `mise install` to always keep the downloaded archive
+always_keep_download = false        # deleted after install by default
+always_keep_install  = false        # deleted on failure by default
+
+trusted_config_paths = [
+  "~/Dev/repos/github.com/MasahiroSakoda",
+]
+
+experimental = true
+# TODO: Enable these option after renovate config for mise has proper configured
+lockfile     = false
+pin          = false
+
+env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
+shorthands_file = "~/.config/mise/shorthand.toml"
+disable_default_shorthands = false # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
+disable_tools = []                 # disable specific tools, generally used to turn off core tools
+
+[settings.npm]
+# default_packages_file = "~/.config/mise/default-npm-packages"
+package_manager = "pnpm"
+
+[settings.python]
+# default_packages_file = "~/.config/mise/default-python-packages"
+uv_venv_auto = true
+
+[settings.pipx]
+uvx = true
+
+[settings.ruby]
+compile = true
+# default_packages_file = "~/.config/mise/default-gems"
 
 [tools]
-{{- range $lang, $content := .mise }}
+# Backends
+aqua = "latest"
+
+# Completion
+usage = "latest"
+
+# Runtime & Languages
+{{- range $lang, $content := .mise.langs }}
 {{- $enabled := $content.enabled }}
 {{- $versions:= $content.versions }}
 {{- if $enabled }}
@@ -13,14 +63,12 @@ NODE_ENV = 'development'
 {{- end }}
 {{- end }}
 
-# supports everything you can do with .tool-versions currently
-# nodejs = ['16', 'prefix:20', 'ref:master', 'path:~/.nodes/14']
-
-# send arbitrary options to the plugin, passed as:
-# MISE_TOOL_OPTS__VENV=.venv
-# python = {version='3.10', virtualenv='.venv'}
+# CLI tools
+{{ range $tools := .mise.tools }}
+{{- range $key, $value := $tools }}{{ dict $key $value | toToml }}{{ end }}
+{{- end }}
 
 [plugins]
 # specify a custom repo url
 # note this will only be used if the plugin does not already exist
-# python = 'https://github.com/asdf-community/asdf-python'
+# python = "https://github.com/asdf-community/asdf-python"

@@ -1,5 +1,7 @@
 # -*-mode:zsh-*- vim:ft=zsh
-#
+# Abbreviations
+
+abbr tl="tldr"
 abbr cl="clear"
 abbr x="exit"
 abbr vim="nvim"
@@ -137,13 +139,13 @@ abbr px="pnpm dlx"
 abbr pck="pnpm biome:check"
 abbr pck="pnpm biome:fix"
 
-# Taskfile
-abbr tb="tesk build"
-abbr tr="tesk run"
-abbr tc="tesk clean"
-abbr tl="tesk lint"
-abbr tt="tesk test"
-abbr th="tesk help"
+# Justfile
+abbr jb="just build"
+abbr jr="just run"
+abbr jc="just clean"
+abbr jl="just lint"
+abbr jt="just test"
+abbr jh="just help"
 
 # Zellij
 abbr zl="zellij --layout"
