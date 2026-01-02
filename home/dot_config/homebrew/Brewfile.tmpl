@@ -68,12 +68,6 @@ brew {{ . | quote }}
 {{ end }}
 
 {{- end }}
-{{- if .docker }}
-### Kubernetes
-{{ range .packages.brew.kubernetes | uniq }}
-brew {{ . | quote }}
-{{ end }}
-{{- end }}
 
 ## Media
 {{- range .packages.brew.media | uniq }}
