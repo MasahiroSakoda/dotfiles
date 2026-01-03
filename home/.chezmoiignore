@@ -53,7 +53,9 @@ install.sh
 .swiftpm
 
 # Container
-.docker
+!.docker/config.json
+!.docker/daemon.json
+.docker/
 
 ## k8s
 .kube
