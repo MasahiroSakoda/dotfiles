@@ -78,11 +78,6 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
-### Container
-{{- range .packages.cask.container | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
 ### Database
 {{- range .packages.cask.database | uniq }}
 cask {{ . | quote }}
