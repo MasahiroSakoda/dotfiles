@@ -10,6 +10,7 @@ local config   = wezterm.config_builder and wezterm.config_builder() or {}
 -- }
 config.use_ime = true ---@type boolean
 config.status_update_interval = 1000 ---@type integer
+config.automatically_reload_config = true
 
 --------------------------------------------------
 -- Appearance
