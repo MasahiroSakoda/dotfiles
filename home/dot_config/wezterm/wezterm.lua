@@ -10,6 +10,7 @@ local config   = wezterm.config_builder and wezterm.config_builder() or {}
 -- }
 config.use_ime = true ---@type boolean
 config.status_update_interval = 1000 ---@type integer
+config.automatically_reload_config = true
 
 --------------------------------------------------
 -- Appearance
@@ -66,7 +67,7 @@ config.tab_bar_at_bottom = true ---@type boolean
 
 config.show_tabs_in_tab_bar           = true ---@type boolean
 config.show_tab_index_in_tab_bar      = true ---@type boolean
-config.show_new_tab_button_in_tab_bar = true ---@type boolean
+config.show_new_tab_button_in_tab_bar = false---@type boolean
 config.hide_tab_bar_if_only_one_tab   = true ---@type boolean
 
 -- Cursor
