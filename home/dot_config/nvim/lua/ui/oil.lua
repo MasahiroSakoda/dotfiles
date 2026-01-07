@@ -42,6 +42,8 @@ oil.setup({
     ["<CR>"]  =   "actions.select",
     ["<C-l>"] =   "actions.refresh",
     ["<C-p>"] =   "actions.preview",
+    ["<C-u>"] =   "actions.preview_scroll_up",
+    ["<C-d>"] =   "actions.preview_scroll_down",
     ["<C-s>"] = { "actions.select", opts = { vertical = true } },
     ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
     ["<C-t>"] = { "actions.select", opts = { tab = true } },
