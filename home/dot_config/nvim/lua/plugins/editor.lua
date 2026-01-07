@@ -41,6 +41,12 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("lsp.cmp.autopairs") end
   },
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0",
+    event   = "VeryLazy",
+    config  = function() require("user.surround") end,
+  },
   -- Quickfix
   {
     "kevinhwang91/nvim-bqf",
