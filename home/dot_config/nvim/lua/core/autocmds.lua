@@ -170,11 +170,3 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
     end
   end,
 })
-
--- Workaround oil.nvim relative path issue
--- https://github.com/stevearc/oil.nvim/issues/234
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
-  group    = augroup("OilRelativePathFix"),
-  pattern  = "oil:///*",
-  callback = function() vim.cmd("cd .") end,
-})
