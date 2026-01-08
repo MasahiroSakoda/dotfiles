@@ -20,7 +20,6 @@ fisher = [
 
   # Fuzzy finder
   "jethrokuan/fzf",          # fzf integration
-  "jethrokuan/z",            # z directory jumping
 
   # Others
 ]

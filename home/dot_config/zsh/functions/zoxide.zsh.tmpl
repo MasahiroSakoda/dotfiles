@@ -1,0 +1,7 @@
+{{- /*
+# -*-mode:zsh-*- vim:ft=zsh.gotexttmpl
+*/ -}}
+
+{{- if lookPath "starship" }}
+{{ output "zoxide" "init" "zsh" | trim }}
+{{- end }}
