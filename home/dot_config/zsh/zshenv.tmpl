@@ -45,6 +45,15 @@ export ZELLIJ_LAYOUTS_DIR="$ZELLIJ_CONFIG_DIR/layouts"
 export SHELDON_CONFIG_DIR="${XDG_CONFIG_HOME}/sheldon"
 export SHELDON_CONFIG_FILE="${SHELDON_CONFIG_DIR}/plugins.zsh.toml"
 
+# Zoxide
+export _ZO_DATA_DIR="$XDG_STATE_HOME/zoxide"
+{{- if eq .chezmoi.os "darwin" }}
+export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/build/**:$XDG_CACHE_HOME/*:$HOME/Library/**:$HOME/Library/Caches/**"
+{{- else if .chezmoi.os "linux" }}
+export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/build/**:$XDG_CACHE_HOME/*"
+{{- end }}
+export _ZO_FZF_OPTS="--preview 'eza --tree --long --header --color=always --group-directories-first --hyperlink {} || echo \"No Preview\"' --exit-0"
+
 # Container
 export LIMA_HOME="$XDG_DATA_HOME/lima"
 export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
