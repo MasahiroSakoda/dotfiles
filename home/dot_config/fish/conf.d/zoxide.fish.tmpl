@@ -1,0 +1,7 @@
+{{- /*
+# -*-mode:fish-*- vim:ft=fish.gotexttmpl
+*/ -}}
+
+{{- if lookPath "zoxide" }}
+{{ output "zoxide" "init" "fish" | trim }}
+{{- end }}
