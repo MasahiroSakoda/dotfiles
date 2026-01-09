@@ -104,6 +104,9 @@ versions = ["3.4"]
 [[mise.tools]]
 "aqua:tealdeer-rs/tealdeer"    = "latest" # Too long don't read
 
+[[mise.tools]]
+"github:yt-dlp/yt-dlp"         = "latest" # Downloader
+
 ### Editor
 [[mise.tools]]
 "aqua:tree-sitter/tree-sitter" = "latest" # language parser
