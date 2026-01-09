@@ -78,16 +78,6 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
-### Database
-{{- range .packages.cask.database | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
-### Note
-{{- range .packages.cask.note | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
 ### Diagram
 {{- range .packages.cask.diagram | uniq }}
 cask {{ . | quote }}
@@ -116,23 +106,8 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
-### MIDI
-{{- range .packages.cask.osc | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
-### Broadcast
-{{- range .packages.cask.broadcast | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
 ### Chat
 {{- range .packages.cask.chat | uniq }}
-cask {{ . | quote }}
-{{- end }}
-
-## Network
-{{- range .packages.cask.network | uniq }}
 cask {{ . | quote }}
 {{- end }}
 
