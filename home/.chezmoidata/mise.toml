@@ -84,16 +84,10 @@ versions = ["3.4"]
 "aqua:junegunn/fzf"            = "latest" # Fuzzy finder
 
 [[mise.tools]]
-"aqua:dalance/procs"           = "latest" # `ps` alternative
-
-[[mise.tools]]
 "aqua:ClementTsang/bottom"     = "latest" # Process monitor
 
 [[mise.tools]]
 "aqua:watchexec/watchexec"     = "latest" # Modify detector
-
-[[mise.tools]]
-"aqua:orf/gping"               = "latest" # Graphical ping
 
 [[mise.tools]]
 "aqua:sxyazi/yazi"             = "latest" # Modern TUI explorer
@@ -103,9 +97,6 @@ versions = ["3.4"]
 
 [[mise.tools]]
 "aqua:sharkdp/hyperfine"       = "latest" # Benchmark tool
-
-[[mise.tools]]
-"aqua:sharkdp/numbat"          = "latest" # Calculator
 
 [[mise.tools]]
 "aqua:svenstaro/genact"        = "latest" # nonsense activity generator
@@ -243,7 +234,8 @@ versions = ["3.4"]
 
 ### AI tools
 [[mise.tools]]
-"npm:@google/gemini-cli" = "latest"
+"npm:@google/gemini-cli" = "latest" # An open-source AI agent that brings the power of Gemini
 
+### Others
 [[mise.tools]]
-"npm:repomix"            = "latest"
+"go:github.com/mrusme/reader" = "latest" # A lightweight tool offering better readability of web pages
