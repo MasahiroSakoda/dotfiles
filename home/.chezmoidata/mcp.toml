@@ -80,5 +80,5 @@ env = {}
 enabled = true
 type    = "stdio"
 command = "uvx"
-args = ["--from", "git+https://github.com/oraios/serena ", "serena", "start-mcp-server", "--context", "ide-assistant"]
+args = ["--from", "git+https://github.com/oraios/serena ", "serena", "start-mcp-server", "--context", "ide-assistant", "--enable-web-dashboard", "false"]
 env = {}
