@@ -1,15 +1,14 @@
-{
-  {{- range $i, $elem := .mcp.providers }}
-    {{- if $i }},{{- end }}
-    {{- if not .enabled }}{{ continue }}{{ end }}
-    {{ .name | quote }}: {
-      "command": {{ .execution.cmd | quote }},
-      "args": [{{ range $j, $arg := .execution.args }}{{ if $j }}, {{ end }}{{ . | quote }}{{ end }}]{{ if gt (len .execution.envs) 0 }},
-      "env": { {{- range $k, $value := .execution.envs }}{{- if $k }}, {{ end }}{{- $k | quote }}: {{ $value | quote }}{{- end }}}
-      {{- end }}
-    }
-  {{- end }}
-  }
+{{- $servers := dict -}}
+{{- range $key, $value := .mcp.providers -}}
+{{-   if and ($value | hasKey "enabled") (eq $value.enabled true) -}}
+{{-     $_ := $value | deleteValueAtPath "enabled" -}}
+{{-   else if and ($value | hasKey "enabled") (eq $value.enabled false) -}}
+{{-     $_ := $value | deleteValueAtPath "enabled" -}}
+{{-     continue }}
+{{-   end -}}
+{{- $_ := $servers | setValueAtPath $key $value -}}
+{{- end -}}
+{{- $servers | toPrettyJson -}}
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
 */ -}}
