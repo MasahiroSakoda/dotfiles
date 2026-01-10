@@ -6,7 +6,6 @@
 # Time and timezone conversion capabilities
 [mcp.providers.time]
 enabled = true
-type    = "stdio"
 command = "uv"
 args = ["tool", "run", "mcp-server-time"]
 env = {}
@@ -14,7 +13,6 @@ env = {}
 # Tools to read, search, and manipulate Git repositories
 [mcp.providers.git]
 enabled = true
-type    = "stdio"
 command = "uv"
 args = ["tool", "run", "mcp-server-git"]
 env = {}
@@ -22,7 +20,6 @@ env = {}
 # Web content fetching and conversion for efficient LLM usage
 [mcp.providers.fetch]
 enabled = true
-type    = "stdio"
 command = "uv"
 args = ["tool", "run", "mcp-server-fetch"]
 env = {}
@@ -30,7 +27,6 @@ env = {}
 # Secure file operations with configurable access controls
 [mcp.providers.filesystem]
 enabled = true
-type    = "stdio"
 command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-filesystem@latest"]
 env = {}
@@ -38,7 +34,6 @@ env = {}
 # Dynamic and reflective problem-solving through thought sequences
 [mcp.providers.sequential-thinking]
 enabled = true
-type    = "stdio"
 command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-sequential-thinking@latest"]
 env = {}
@@ -46,7 +41,6 @@ env = {}
 # Knowledge graph-based persistent memory system
 [mcp.providers.memory]
 enabled = true
-type    = "stdio"
 command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-memory@latest"]
 env = {}
