@@ -17,14 +17,15 @@ approval_policy = "on-failure" # options: `untrusted`, `on-failure`, `on-request
 sandbox_mode    = "read-only"  # options: `read-only`, `workspace-write`, `danger-full-access`
 
 # MCP server config
-{{ range .mcp.providers }}
-{{- if not .enabled }}{{ continue }}{{ end }}
-[mcp_servers.{{ .name }}]
-command = {{ .execution.cmd | quote }}
-args    = [{{ range $i, $arg := .execution.args }}{{ if $i }}, {{ end }}{{ . | quote }}{{ end }}]
-{{- if gt (len .execution.envs ) 0 }}
-env     = { {{- range $key, $val := .execution.envs }}{{- if $key }}, {{ end }}{{- $key | quote }}: {{ $val | quote }}{{- end }}}
+{{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson }}
+[mcp_servers.{{ $key }}]
+{{- if $value | hasKey "type" }}
+{{-   $_ := $value | deleteValueAtPath "type" }}
 {{- end }}
+{{- if and ($value | hasKey "env") (eq (len $value.env) 0) }}
+{{-   $_ := $value | deleteValueAtPath "env" }}
+{{- end }}
+{{ $value | toToml | trim }}
 {{ end }}
 
 [history]
