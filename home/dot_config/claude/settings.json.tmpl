@@ -20,7 +20,16 @@
   },
 
   {{/* MCP server configurations */ -}}
-  "mcpServers": {{ template "common/ai/mcp-servers.json.tmpl" . }},
+  {{- $servers := dict -}}
+  {{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson -}}
+  {{-   if and ($value | hasKey "type") (eq $value.type "stdio") -}}
+  {{-     $_ := $value | setValueAtPath "type" "local" -}}
+  {{-   else if and ($value | hasKey "type") (eq $value.type "http") -}}
+  {{-     $_ := $value | setValueAtPath "type" "remote" -}}
+  {{-   end -}}
+  {{- $_ := $servers | setValueAtPath $key $value -}}
+  {{- end -}}
+  "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }},
 
   {{/* Permission */ -}}
   "permissions": {{ template "common/ai/claude-permissions.json" . }}

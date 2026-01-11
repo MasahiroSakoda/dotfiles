@@ -60,6 +60,9 @@ export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
 export DOCKER_CONFIG="$HOME/.docker"
 export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"
 
+# AI Agent
+export OPENCODE_CONFIG="$XDG_CONFIG_HOME/opencode/config.json"
+
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}
 export GITHUB_ACCESS_TOKEN=$(security find-generic-password -s "MCP Server for GitHub" -w)

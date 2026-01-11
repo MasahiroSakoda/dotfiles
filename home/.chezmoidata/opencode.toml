@@ -1,0 +1,243 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[opencode]
+autoupdate = false
+autoshare  = false
+snapshot   = false
+
+theme       = "github"
+model       = "gemini-3-pro-preview"
+small_model = "gemini-3-flash-preview"
+
+plugins = [ "opencode-gemini-auth@latest" ]
+instructions = [ ".opencode/rules/*.md" ]
+
+enabled_providers = [ "anthropic", "google", "openai", "github-copilot" ]
+
+[opencode.tui]
+scroll_speed = 2
+scroll_acceleration = { enabled = true }
+
+[opencode.keybinds]
+leader              = "Ctrl+x"
+session_child_cycle = "Ctrl+Tab"
+
+[opencode.watcher]
+ignore = [
+  ".git/**",
+  ".cache/**",
+  ".next/**",
+  "**/*.log",
+  "node_modules/**",
+  "build/**",
+  "dist/**",
+  "vendor/**",
+  "target/**",
+  "package-lock.json",
+  "deno.lock",
+  "bun.lock",
+  "pnpm-lock.yaml",
+  "*.env",
+  "*.env.*",
+  "*.db",
+  "*.sqlite",
+]
+
+[opencode.permissions]
+list      = "allow"
+grep      = "allow"
+glob      = "allow"
+task      = "allow"
+skill     = "allow"
+lsp       = "allow"
+todoread  = "allow"
+todowrite = "allow"
+question  = "allow"
+webfetch  = "allow"
+
+doom_loop          = "ask"
+external_directory = "ask"
+
+[opencode.permissions.read]
+# Block access to the secrets
+"*"             = "allow"
+"*.env"         = "deny"
+"*.env.*"       = "deny"
+"*.envrc*"      = "deny"
+"*.env.example" = "allow"
+
+[opencode.permissions.edit]
+"*"    = "deny"
+"*.md" = "allow"
+
+[opencode.permissions.bash]
+"*"       = "deny"
+
+# Privilege escalation
+"su*"  = "deny"
+"sudo*" = "deny"
+
+# Code execution
+"eval*"   = "deny"
+"exec*"   = "deny"
+"source*" = "deny"
+"sh -c"   = "deny"
+"bash -c" = "deny"
+"zsh -c"  = "deny"
+"xargs*"  = "ask"
+
+"curl*|*sh*"   = "deny"
+"curl*|*bash*" = "deny"
+"wget*|*sh*"   = "deny"
+"wget*|*bash*" = "deny"
+
+# Alias
+"alias*"   = "deny"
+"unalias*" = "deny"
+
+# Filtering
+"awk*"    = "ask"
+"sed*"    = "deny"
+"export*" = "deny"
+"uniq*"   = "allow"
+
+# Permission changes
+"chmod*" = "deny"
+"chown*" = "deny"
+
+# Filesystem destruction
+# ":(){:|:&};:" = "deny" # fork bomb, just in case
+"rm -rf*"     = "deny"
+"rm -r*"      = "deny"
+"rm*"         = "ask"
+"rmdir*"      = "ask"
+
+# Potentially destructive
+"mv*"     = "ask"
+"cp*"     = "ask"
+"dd*"     = "deny"
+"fdisk*"  = "deny"
+"format*" = "deny"
+"diskutil apfs delete*" = "deny"
+"diskutil erase*"       = "deny"
+"diskutil partition*"   = "deny"
+
+# Process
+"ps*"      = "allow"
+"kill*"    = "ask"
+"pkill*"   = "ask"
+"killall*" = "ask"
+"top"      = "allow"
+
+# Pager / Editor
+"vi*"    = "deny"
+"vim*"   = "deny"
+"emacs*" = "deny"
+"nano*"  = "deny"
+"man*"   = "deny"
+"head*"  = "allow"
+"tail*"  = "allow"
+"less*"  = "allow"
+"more*"  = "allow"
+
+# File inspection
+"ls*"    = "allow"
+"cat*"   = "allow"
+"grep*"  = "allow"
+"rg*"    = "allow"
+"find*"  = "allow"
+"pwd"    = "allow"
+"which*" = "allow"
+"wc*"    = "allow"
+"mkdir*" = "allow"
+
+# Network
+"ssh*"    = "ask"
+"scp*"    = "ask"
+"rsync*"  = "ask"
+"nc*"     = "deny"
+"netcat*" = "deny"
+
+# mise
+"mise --help"    = "allow"
+"mise doctor"    = "allow"
+"mise current*"  = "allow"
+"mise ls*"       = "allow"
+"mise list*"     = "allow"
+"mise use*"      = "allow"
+"mise registry*" = "allow"
+"mise which*"    = "allow"
+
+# Git
+"git *"   = "deny"
+"git status*" = "allow"
+"git show*"   = "allow"
+"git diff*"   = "allow"
+"git log*"    = "allow"
+"git add*"    = "allow"
+"git blame*"  = "allow"
+"git reset*"  = "ask"
+"git commit*" = "ask"
+"git rebase*" = "ask"
+"git pull*"   = "ask"
+"git push*"   = "ask"
+
+# GitHub CLI
+"gh *"              = "deny"
+"gh auth status*"   = "allow"
+"gh search*"        = "allow"
+"gh status*"        = "allow"
+"gh branch*"        = "allow"
+"gh issue view*"    = "allow"
+"gh issue list*"    = "allow"
+"gh issue status*"  = "allow"
+"gh pr view*"       = "allow"
+"gh pr list*"       = "allow"
+"gh pr status*"     = "allow"
+"gh pr diff*"       = "allow"
+"gh repo view*"     = "allow"
+"gh repo list*"     = "allow"
+"gh workflow view*" = "allow"
+"gh workflow list*" = "allow"
+"gh release view*"  = "allow"
+"gh release list*"  = "allow"
+"gh run view*"      = "allow"
+"gh run list*"      = "allow"
+
+## GitHub API via CLI
+"gh api --help"             = "allow"
+"gh api * -X POST*"         = "ask"
+"gh api * -X PUT*"          = "ask"
+"gh api * -X PATCH*"        = "ask"
+"gh api * -X DELETE*"       = "ask"
+"gh api * --method POST*"   = "ask"
+"gh api * --method PUT*"    = "ask"
+"gh api * --method PATCH*"  = "ask"
+"gh api * --method DELETE*" = "ask"
+
+[opencode.providers.ollama]
+name = "Ollama (Local)"
+npm  = "@ai-sdk/openai-compatible"
+options = { baseURL = "http://localhost:11434/v1" }
+
+[opencode.providers.ollama.models.qwen]
+
+[opencode.providers.google.models."gemini-3-pro-preview"]
+name  = "Gemini 3 Pro Preview"
+limit = { context = 1048576, output = 65535 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-3-flash-preview"]
+name  = "Gemini 3 Flash Preview"
+limit = { context = 1048576, output = 65535 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-2.5-pro"]
+name  = "Gemini 2.5 Pro"
+limit = { context = 1048576, output = 65535 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-2.5-flash"]
+name  = "Gemini 2.5 Flash"
+limit = { context = 1048576, output = 65535 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }

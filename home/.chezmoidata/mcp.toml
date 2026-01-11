@@ -1,82 +1,84 @@
 # Official MCP servers
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/time
-[[mcp.providers]]
-name = "time"
-desc = "Time and timezone conversion capabilities"
+## Built-in servers
+# https://github.com/modelcontextprotocol/servers/blob/main/src
+
+# Time and timezone conversion capabilities
+[mcp.providers.time]
 enabled = true
-[mcp.providers.execution]
-cmd  = "uv"
+command = "uv"
 args = ["tool", "run", "mcp-server-time"]
-envs = {}
+env = {}
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/git
-[[mcp.providers]]
-name = "git"
-desc = "Tools to read, search, and manipulate Git repositories"
+# Tools to read, search, and manipulate Git repositories
+[mcp.providers.git]
 enabled = true
-[mcp.providers.execution]
-cmd  = "uv"
+command = "uv"
 args = ["tool", "run", "mcp-server-git"]
-envs = {}
+env = {}
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/fetch
-[[mcp.providers]]
-name = "fetch"
-desc = "Web content fetching and conversion for efficient LLM usage"
+# Web content fetching and conversion for efficient LLM usage
+[mcp.providers.fetch]
 enabled = true
-[mcp.providers.execution]
-cmd  = "uv"
+command = "uv"
 args = ["tool", "run", "mcp-server-fetch"]
-envs = {}
+env = {}
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem
-[[mcp.providers]]
-name = "filesystem"
-desc = "Secure file operations with configurable access controls"
+# Secure file operations with configurable access controls
+[mcp.providers.filesystem]
 enabled = true
-[mcp.providers.execution]
-cmd  = "pnpm"
+command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-filesystem@latest"]
-envs = {}
+env = {}
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/sequentialthinking
-[[mcp.providers]]
-name = "sequentialthinking"
-desc = "Dynamic and reflective problem-solving through thought sequences"
+# Dynamic and reflective problem-solving through thought sequences
+[mcp.providers.sequential-thinking]
 enabled = true
-[mcp.providers.execution]
-cmd  = "pnpm"
+command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-sequential-thinking@latest"]
-envs = {}
+env = {}
 
-# https://github.com/modelcontextprotocol/servers/blob/main/src/memory
-[[mcp.providers]]
-name = "memory"
-desc = "Knowledge graph-based persistent memory system"
+# Knowledge graph-based persistent memory system
+[mcp.providers.memory]
 enabled = true
-[mcp.providers.execution]
-cmd  = "pnpm"
+command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-memory@latest"]
-envs = {}
+env = {}
 
 # Third-Party MCP servers
-# https://github.com/upstash/context7
-[[mcp.providers]]
-name = "context7"
-desc = "Up-to-date code documentation for LLMs and AI code editors"
-enabled = true
-[mcp.providers.execution]
-cmd  = "pnpm"
-args = ["dlx", "@upstash/context7-mcp@latest", "--api-key", "$CONTEXT7_API_KEY"]
-envs = {}
 
-# https://github.com/ChromeDevTools/chrome-devtools-mcp
-[[mcp.providers]]
-name = "chrome-devtools"
-desc = "Enable AI coding assistants to debug web pages directly in Chrome, providing runtime insights and debugging capabilities"
+# Up-to-date code documentation for LLMs and AI code editors
+# https://github.com/upstash/context7
+[mcp.providers.context7]
 enabled = true
-[mcp.providers.execution]
-cmd  = "pnpm"
+type    = "stdio"
+command = "pnpm"
+args = ["dlx", "@upstash/context7-mcp@latest", "--api-key", "$CONTEXT7_API_KEY"]
+env = {}
+
+# MCP server that provides information about mise-managed development environment (experimental)
+# https://mise.jdx.dev/mcp.html
+[mcp.providers.mise]
+enabled = true
+type    = "stdio"
+command = "mise"
+args = ["mcp"]
+env = {}
+
+# Enable AI coding assistants to debug web pages directly in Chrome, providing runtime insights and debugging capabilities
+# https://github.com/ChromeDevTools/chrome-devtools-mcp
+[mcp.providers.chrome-devtools]
+enabled = true
+type    = "stdio"
+command = "pnpm"
 args = ["dlx", "chrome-devtools-mcp@latest"]
-envs = {}
+env = {}
+
+# A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server & other integrations)
+# https://oraios.github.io/serena
+[mcp.providers.serena]
+enabled = true
+type    = "stdio"
+command = "uvx"
+args = ["--from", "git+https://github.com/oraios/serena ", "serena", "start-mcp-server", "--context", "ide-assistant", "--enable-web-dashboard", "false"]
+env = {}

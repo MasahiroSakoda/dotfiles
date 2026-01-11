@@ -41,7 +41,16 @@
   },
 
   {{/* General Settings */ -}}
-  "mcpServers": {{ template "common/ai/mcp-servers.json.tmpl" . }},
+
+  {{/* MCP servers */}}
+  {{- $servers := dict -}}
+  {{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson -}}
+  {{-   if $value | hasKey "type" -}}
+  {{-     $_ := $value | deleteValueAtPath "type" -}}
+  {{-   end -}}
+  {{- $_ := $servers | setValueAtPath $key $value -}}
+  {{- end -}}
+  "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }},
 
   {{/* Chekcpoint */ -}}
   "checkpointing": {
