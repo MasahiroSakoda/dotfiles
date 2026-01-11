@@ -6,8 +6,8 @@ autoshare  = false
 snapshot   = false
 
 theme       = "github"
-model       = "gemini-3-pro-preview"
-small_model = "gemini-3-flash-preview"
+model       = "gemini-3-flash-preview"
+small_model = "gemini-2.5-flash"
 
 plugins = [ "opencode-gemini-auth@latest" ]
 instructions = [ ".opencode/rules/*.md" ]
