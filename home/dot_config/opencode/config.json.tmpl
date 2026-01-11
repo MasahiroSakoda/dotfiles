@@ -1,0 +1,92 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": {{ .opencode.autoupdate }},
+  "autoshare": {{ .opencode.autoshare }},
+  "snapshot": {{ .opencode.snapshot }},
+  "theme": {{ .opencode.theme | quote }},
+  "tui": {{ .opencode.tui | toPrettyJson | indent 2 | trim }},
+
+  "model": {{ .opencode.model | quote }},
+  "small_model": {{ .opencode.small_model | quote }},
+
+  {{/* Global plugins */ -}}
+  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim | wrap 100 }},
+
+  {{/* Global keybinds */ -}}
+  "keybinds": {{ .opencode.keybinds | toPrettyJson | indent 2 | trim }},
+
+  {{/* Global Instructions */ -}}
+  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim | wrap 100 }},
+
+  {{/* Global Permissions */ -}}
+  "permission": {{ .opencode.permissions | toPrettyJson | indent 2 | trim }},
+
+  {{/* File Watcher Configurations */ -}}
+  "watcher": {
+    "ignore": {{ .opencode.watcher.ignore | toPrettyJson | indent 4 | trim }}
+  },
+
+  {{/* Global AI Provier config */ -}}
+  "enabled_providers": {{ .opencode.enabled_providers | toPrettyJson | indent 2 | trim | wrap 100 }},
+
+  "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
+
+  {{/* Formatter Configurations */ -}}
+  "formatter": {
+    "biome": { "command": [ "biome", "format", "$FILE" ], "extensions": [".js", "jsx", ".ts", ".tsx"] },
+    "shfmt": { "command": ["shfmt", "$FILE"], "extensions": [".sh", ".bash", ".zsh"] },
+    "ruff": { "command": [ "ruff", "format", "$FILE" ], "extensions": [".py", ".pyi"] },
+    "stylua": { "command": [ "stylua", "$FILE" ], "extensions": [".lua"] },
+    "yamlfmt": { "command": ["yamlfmt", "-formatter", "$FILE"], "extensions": [".yml", ".yaml"] },
+    "rustfmt": { "command": ["rustfmt", "$FILE"], "extensions": [".rs"] },
+    "gofmt": { "command": ["golangci-lint", "format", "$FILE"], "extensions": [".go"] }
+  },
+
+  {{/* Langage Server Configurations */ -}}
+  "lsp": {
+    "marksman": { "command": ["marksman", "server"], "extensions": [".md", ".markdown", ".mdx"] },
+    "dockerls": { "command": ["docker-langserver", "--stdio"], "extensions": ["Dockerfile", "Dockerfile.runtime"] },
+    "bashls": { "command": ["bash-language-server", "start", "--noBgAnalysis"], "extensions": [".sh", ".bash"] },
+    "pyright": { "command": ["pyright-langserver", "--stdio"], "extensions": [".py", ".pyi"] },
+    "lua_ls": { "command": ["lua-language-server"], "extensions": [".lua"] },
+    "ts_ls": { "command": ["typescript-language-server", "--stdio"], "extensions": [".ts", ".tsx", ".js", "jsx", ".mjs", ".cjs", ".mts", ".cts"] },
+    "tombi": { "command": ["tombi", "lsp"], "extensions": [".toml"] },
+    "jsonls": { "command": ["vscode-json-languageserver", "--stdio"], "extensions": [".json", ".jsonc", ".json5"] },
+    "yamlls": {
+      "command": [ "yaml-language-server", "--stdio" ],
+      "extensions": [ ".yml", ".yaml" ],
+      "initialization": {
+        "redhat": { "telemetry": { "enabled": false } },
+        "yaml": { "schemas": { "https://json.schemastore.org/github-workflow.json": "/.github/workflows/*" } }
+      }
+    },
+    "clangd": { "command": ["clangd"], "extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".tcc"] },
+    "rust": { "command": ["rust-analyzer"], "extensions": [".rs"] },
+    "gopls": { "command": ["gopls", "serve"], "extensions": [".go", ".mod", ".sum"] }
+  },
+
+  {{/* MCP Server Configurations */ -}}
+  {{- $servers := dict -}}
+  {{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson -}}
+  {{-   if $value | hasKey "command" -}}
+  {{-     $_ := $value | setValueAtPath "command" (concat (list $value.command) $value.args) -}}
+  {{-     $_ := $value | deleteValueAtPath "args" -}}
+  {{-   end -}}
+  {{-   if $value | hasKey "env" -}}
+  {{-     $_ := $value | setValueAtPath "environment" $value.env -}}
+  {{-     $_ := $value | deleteValueAtPath "env" -}}
+  {{-   end -}}
+  {{-   if and ($value | hasKey "type") (eq $value.type "stdio") -}}
+  {{-     $_ := $value | setValueAtPath "type" "local" -}}
+  {{-   else if and ($value | hasKey "type") (eq $value.type "http") -}}
+  {{-     $_ := $value | setValueAtPath "type" "remote" -}}
+  {{-   else -}}
+  {{-     $_ := $value | setValueAtPath "type" "local" -}}
+  {{-   end -}}
+  {{- $_ := $servers | setValueAtPath $key $value -}}
+  {{- end }}
+  "mcp": {{ $servers | toPrettyJson | indent 2 | trim }}
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
