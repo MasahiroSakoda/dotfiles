@@ -31,6 +31,12 @@
 
   "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
 
+  {{/* Agent Configurations */ -}}
+  "agent": {
+    "plan": { "disable": true },
+    "build": { "disable": true }
+  },
+
   {{/* Formatter Configurations */ -}}
   "formatter": {
     "biome": { "command": [ "biome", "format", "$FILE" ], "extensions": [".js", "jsx", ".ts", ".tsx"] },
