@@ -11,6 +11,7 @@ small_model = "gemini-2.5-flash"
 
 plugins = [
   "oh-my-opencode@latest",
+  "opencode-antigravity-auth@beta",
   "opencode-gemini-auth@latest"
 ]
 instructions = [ ".opencode/rules/*.md" ]
