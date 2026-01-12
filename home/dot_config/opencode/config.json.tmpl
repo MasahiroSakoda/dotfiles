@@ -74,24 +74,24 @@
 
   {{/* MCP Server Configurations */ -}}
   {{- $servers := dict -}}
-  {{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson -}}
-  {{-   if $value | hasKey "command" -}}
+  {{- range $key, $value := .mcp.providers -}}
+  {{-   if hasKey $value "command" -}}
   {{-     $_ := $value | setValueAtPath "command" (concat (list $value.command) $value.args) -}}
   {{-     $_ := $value | deleteValueAtPath "args" -}}
   {{-   end -}}
-  {{-   if $value | hasKey "env" -}}
+  {{-   if hasKey $value "env" -}}
   {{-     $_ := $value | setValueAtPath "environment" $value.env -}}
   {{-     $_ := $value | deleteValueAtPath "env" -}}
   {{-   end -}}
-  {{-   if and ($value | hasKey "type") (eq $value.type "stdio") -}}
+  {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
-  {{-   else if and ($value | hasKey "type") (eq $value.type "http") -}}
+  {{-   else if and (hasKey $value "type") (eq $value.type "http") -}}
   {{-     $_ := $value | setValueAtPath "type" "remote" -}}
   {{-   else -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
   {{-   end -}}
-  {{- $_ := $servers | setValueAtPath $key $value -}}
-  {{- end }}
+  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{- end -}}
   "mcp": {{ $servers | toPrettyJson | indent 2 | trim }}
 }
 {{- /*
