@@ -9,7 +9,10 @@ theme       = "github"
 model       = "gemini-3-flash-preview"
 small_model = "gemini-2.5-flash"
 
-plugins = [ "opencode-gemini-auth@latest" ]
+plugins = [
+  "oh-my-opencode@latest",
+  "opencode-gemini-auth@latest"
+]
 instructions = [ ".opencode/rules/*.md" ]
 
 enabled_providers = [ "anthropic", "google", "openai", "github-copilot" ]
