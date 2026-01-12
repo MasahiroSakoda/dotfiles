@@ -231,10 +231,10 @@ versions = ["3.4"]
 
 ### AI tools
 [[mise.tools]]
-"aqua:sst/opencode"      = "latest" # The open source coding agent.
+"github:anomalyco/opencode" = "latest" # The open source coding agent.
 
 [[mise.tools]]
-"npm:@google/gemini-cli" = "latest" # An open-source AI agent that brings the power of Gemini
+"npm:@google/gemini-cli"    = "latest" # An open-source AI agent that brings the power of Gemini
 
 ### Others
 [[mise.tools]]
