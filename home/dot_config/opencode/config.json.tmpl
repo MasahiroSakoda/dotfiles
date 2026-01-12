@@ -32,6 +32,7 @@
   "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
 
   {{/* Agent Configurations */ -}}
+  "default_agent": "planner",
   "agent": {
     "plan": { "disable": true },
     "build": { "disable": true }
