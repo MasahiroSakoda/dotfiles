@@ -17,6 +17,7 @@ return {
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
   tombi         = require("lsp.servers.tombi"),         -- TOML
+  just          = require("lsp.servers.just"),          -- Justfile
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   -- terraformls   = require("lsp.servers.terraform"),     -- Terraform
