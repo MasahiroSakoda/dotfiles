@@ -12,9 +12,9 @@ small_model = "gemini-2.5-flash"
 plugins = [
   "oh-my-opencode@latest",
   "opencode-antigravity-auth@beta",
-  "opencode-gemini-auth@latest"
+  "opencode-gemini-auth@latest",
 ]
-instructions = [ ".opencode/rules/*.md" ]
+instructions = [ "AGENTS.md", "CONTRIBUTING.md", ".github/copilot-instructions.md", ".opencode/rules/*.md" ]
 
 enabled_providers = [ "anthropic", "google", "openai", "github-copilot" ]
 
