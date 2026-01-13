@@ -9,8 +9,8 @@ return {
   -- end,
 
   win = {
-    width  = 0.55,
-    height = 0.55,
+    width  = 100,
+    height = 35,
 
     border     = "double",
     title_pos  = "center",
