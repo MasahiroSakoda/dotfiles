@@ -3,6 +3,7 @@
 ---@class snacks.gh.Config
 return {
   enable = true,
+  scratch = { height = 35 },
 
   keys = {
     select  = { "<cr>", "gh_actions", desc = "Select Action" },
