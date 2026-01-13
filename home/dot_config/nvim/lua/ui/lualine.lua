@@ -5,10 +5,7 @@ local ignore = require("core.ignore")
 
 local show_macro_recording = function()
   local register = vim.fn.reg_recording()
-  if register == "" then
-    return ""
-  end
-  return "Recording @" .. register
+  return register ~= "" and "Recording @" .. register or ""
 end
 
 lualine.setup {
@@ -34,7 +31,6 @@ lualine.setup {
       { "smartpath", parent_num = 2, abbrev_dot = true },
     },
     lualine_x = {
-      { "codecompanion" },
       { "macro-recording", fmt = show_macro_recording },
       { "overseer" },
     },

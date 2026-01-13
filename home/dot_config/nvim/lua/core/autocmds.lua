@@ -50,7 +50,7 @@ local cursor_grp = augroup("CustomCursor")
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
   group    = cursor_grp,
   callback = function()
-    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" and vim.bo.filetype ~= "codecompanion" then
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
       vim.opt.cursorcolumn = true
     end
   end,
