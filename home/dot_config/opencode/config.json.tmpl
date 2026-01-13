@@ -50,6 +50,19 @@
   },
 
   {{/* Langage Server Configurations */ -}}
+  {{- $servers := dict -}}
+  {{- range $key, $value := .lsp.servers -}}
+  {{-   if hasKey $value "cmd" -}}
+  {{-     $_ := $value | setValueAtPath "command" $value.cmd -}}
+  {{-     $_ := $value | deleteValueAtPath "cmd" -}}
+  {{-   end -}}
+  {{-   if hasKey $value "exts" -}}
+  {{-     $_ := $value | setValueAtPath "extensions" $value.exts -}}
+  {{-     $_ := $value | deleteValueAtPath "exts" -}}
+  {{-   end -}}
+  {{-   $_ := $value | setValueAtPath "disabled" false -}}
+  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{- end -}}
   "lsp": {{ .lsp.servers | toPrettyJson | indent 2 | trim }},
 
   {{/* MCP Server Configurations */ -}}
