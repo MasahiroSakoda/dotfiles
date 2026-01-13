@@ -1,17 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  --  AI-powered coding
-  {
-    "olimorris/codecompanion.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    cond = not vim.g.vscode,
-    cmd = { "CodeCompanion", "CodeCompanionActions", "CodeCompanionChat", "CodeCompanionToggle" },
-    config = function() require("ai.codecompanion") end,
-  },
   {
     "folke/sidekick.nvim",
     cmd    = "Sidekick",

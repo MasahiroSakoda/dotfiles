@@ -3,7 +3,7 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki", "codecompanion" },
+    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki" },
     config = require("user.render-markdown"),
   },
   -- chezmoi integration
