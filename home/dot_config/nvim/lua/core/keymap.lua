@@ -367,11 +367,6 @@ wk.add({
 -- 🤖  AI Interaction: <Leader> + c
 ---------------------------------------------------------------------------
 if not is_vscode then
-  -- Abbreviation
-  vim.cmd.cnoreabbrev("cc",  "CodeCompanion")
-  vim.cmd.cnoreabbrev("ccc", "CodeCompanionChat")
-  vim.cmd.cnoreabbrev("cb",  "CodeCompanion #bufefr")
-  vim.cmd.cnoreabbrev("ca",  "CodeCompanionActions")
 
   -- sidekick.nvim
   wk.add({
@@ -390,7 +385,6 @@ if not is_vscode then
     { "<Leader>af", "<CMD>Sidekick cli send msg='{file}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send File" },
     { "<Leader>ad", "<CMD>Sidekcik cli send msg='{diagnostics}'<CR>",mode = nx,icon = " ", desc = " Send diagnostics" },
   })
-
 end
 
 ---------------------------------------------------------------------------
