@@ -14,6 +14,15 @@ sidekick.setup({
   },
   cli = {
     watch = true,
+
+    ---@type table<string, sidekick.cli.Config|{}>
+    tools = {
+      opencode = {
+        cmd = { "opencode" },
+        ---@see https://opencode.ai/docs/themes/#built-in-themes
+        env = { OPENCODE_THEME = "tokyonight" },
+      },
+    },
   },
 
   prompts = require("ai.sidekick.prompts"),
