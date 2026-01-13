@@ -11,7 +11,7 @@
 ---------------------------------------------------------------------------
 local is_vscode = vim.g.vscode
 local opts = { noremap = true }
-local nv, nx, nt, nxo, o, ox, c = {"n", "v"}, {"n", "x"}, {"n", "t"}, {"n", "x", "o"}, {"o"}, {"o", "x"}, {"c"}
+local nx, nt, nxo, o, ox, c = {"n", "x"}, {"n", "t"}, {"n", "x", "o"}, {"o"}, {"o", "x"}, {"c"}
 
 local ok, wk = pcall(require, "which-key")
 if not ok then vim.notify("Failed loading " .. "which-key", vim.log.levels.WARN) end
