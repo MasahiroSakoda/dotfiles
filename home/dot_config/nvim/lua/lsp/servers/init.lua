@@ -8,6 +8,7 @@ return {
   gopls         = require("lsp.servers.gopls"),         -- Go
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust
   bashls        = require("lsp.servers.bashls"),        -- bash
+  fish_lsp      = require("lsp.servers.fish_lsp"),      -- Fish
   pyright       = require("lsp.servers.pyright"),       -- Python
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
