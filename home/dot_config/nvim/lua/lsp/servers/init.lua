@@ -13,7 +13,6 @@ return {
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
   ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
   denols        = require("lsp.servers.denols"),        -- Deno
-  html          = require("lsp.servers.html"),          -- HTML
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
