@@ -154,3 +154,6 @@ abbr zlc="zellij --layout coding"
 abbr zlj="zellij --layout jsdev"
 abbr zlm="zellij --layout monitor"
 abbr zls="zellij-session"
+
+# AI tools
+abbr oc="opencode"
