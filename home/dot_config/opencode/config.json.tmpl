@@ -50,27 +50,7 @@
   },
 
   {{/* Langage Server Configurations */ -}}
-  "lsp": {
-    "marksman": { "command": ["marksman", "server"], "extensions": [".md", ".markdown", ".mdx"] },
-    "dockerls": { "command": ["docker-langserver", "--stdio"], "extensions": ["Dockerfile", "Dockerfile.runtime"] },
-    "bashls": { "command": ["bash-language-server", "start", "--noBgAnalysis"], "extensions": [".sh", ".bash"] },
-    "pyright": { "command": ["pyright-langserver", "--stdio"], "extensions": [".py", ".pyi"] },
-    "lua_ls": { "command": ["lua-language-server"], "extensions": [".lua"] },
-    "ts_ls": { "command": ["typescript-language-server", "--stdio"], "extensions": [".ts", ".tsx", ".js", "jsx", ".mjs", ".cjs", ".mts", ".cts"] },
-    "tombi": { "command": ["tombi", "lsp"], "extensions": [".toml"] },
-    "jsonls": { "command": ["vscode-json-languageserver", "--stdio"], "extensions": [".json", ".jsonc", ".json5"] },
-    "yamlls": {
-      "command": [ "yaml-language-server", "--stdio" ],
-      "extensions": [ ".yml", ".yaml" ],
-      "initialization": {
-        "redhat": { "telemetry": { "enabled": false } },
-        "yaml": { "schemas": { "https://json.schemastore.org/github-workflow.json": "/.github/workflows/*" } }
-      }
-    },
-    "clangd": { "command": ["clangd"], "extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".tcc"] },
-    "rust": { "command": ["rust-analyzer"], "extensions": [".rs"] },
-    "gopls": { "command": ["gopls", "serve"], "extensions": [".go", ".mod", ".sum"] }
-  },
+  "lsp": {{ .lsp.servers | toPrettyJson | indent 2 | trim }},
 
   {{/* MCP Server Configurations */ -}}
   {{- $servers := dict -}}

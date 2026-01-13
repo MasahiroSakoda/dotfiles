@@ -1,0 +1,67 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[lsp]
+
+[lsp.servers.marksman]
+cmd  = [ "markdman", "server" ]
+exts = [ ".md", ".markdown", ".mdx" ]
+
+[lsp.servers.jsonls]
+cmd  = [ "vscode-json-languageserver", "--stdio" ]
+exts = [ ".json", ".jsonc" ]
+
+[lsp.servers.yamlls]
+cmd  = [ "yaml-language-server", "--stdio" ]
+exts = [ ".yml", ".yaml" ]
+
+[lsp.servers.yamlls.initialization]
+redhat = { telemetry = { enabled = true }}
+yaml   = { schemas = { "https://www.schemastore.org/github-workflow.json" = "/.github/workflows/*" }}
+
+[lsp.servers.tombi]
+cmd  = [ "tombi", "lsp" ]
+exts = [ ".toml" ]
+
+[lsp.servers.dockerls]
+cmd  = [ "docker-langserver", "--stdio" ]
+exts = [ "Dockerfile", "Dockerfile.runtime" ]
+
+[lsp.servers.bashls]
+cmd  = [ "markdman", "server" ]
+exts = [ ".md", ".markdown", ".mdx" ]
+
+[lsp.servers.clangd]
+cmd  = [ "clangd" ]
+exts = [ ".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".tcc" ]
+
+[lsp.servers.rust_analyzer]
+cmd  = [ "rust-analyzer" ]
+exts = [ ".rs" ]
+
+[lsp.servers.gopls]
+cmd  = [ "gopls", "serve" ]
+exts = [ ".go", ".mod", ".sum" ]
+
+[lsp.servers.lua_ls]
+cmd  = [ "lua-language-server" ]
+exts = [ ".lua " ]
+
+[lsp.servers.biome]
+cmd  = [ "pnpm", "biome", "lsp-proxy" ]
+exts = [ ".js", ".jsx", "ts", ".tsx", ".json", ".jsonc", ".json5", ".html", ".css", ".vue", ".svelte", ".astro" ]
+
+[lsp.servers.denols]
+cmd  = [ "deno", "lsp" ]
+exts = [ ".js", ".jsx", "ts", ".tsx", ".vue", ".svelte", ".astro" ]
+
+[lsp.servers.ts_ls]
+cmd  = [ "typescript-language-server", "--stdio" ]
+exts = [ ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts" ]
+
+[lsp.servers.pyright]
+cmd  = [ "pyright-langserver", "--stdio" ]
+exts = [ ".py", ".pyi" ]
+
+[lsp.servers.texlab]
+cmd  = [ "texlab" ]
+exts = [ ".tex", ".bib" ]
