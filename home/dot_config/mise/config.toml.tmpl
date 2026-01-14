@@ -56,15 +56,103 @@ aqua = "latest"
 usage = "latest"
 
 # Runtime & Languages
-{{- range $lang, $content := .mise.langs }}
-{{- $enabled := $content.enabled }}
-{{- $versions:= $content.versions }}
-{{- if $enabled }}
-{{ $lang }} = [{{ range $i, $ver := $versions }}{{ if $i }}, {{ end }}{{ . | quote }}{{ end }}]
-{{- end }}
-{{- end }}
+node    = "24"
+pnpm    = "10"
+deno    = "2"
+bun     = "1"
+go      = "latest"
+python  = ["3.14"]
+uv      = "latest"
+ruby    = ["3.4"]
 
 # CLI tools
-{{ range $tools := .mise.tools }}
-{{- range $key, $value := $tools }}{{ dict $key $value | toToml }}{{ end }}
-{{- end }}
+
+## Terminal
+"aqua:zellij-org/zellij" = "latest"
+
+## Shell
+"aqua:starship/starship"        = "latest" # Shell prompt
+"aqua:rossmacarthur/sheldon"    = "latest" # Shell plugin manager
+
+## Editor
+"aqua:neovim/neovim"            = "latest" # Hyper extensive editor
+"aqua:tree-sitter/tree-sitter"  = "latest" # language parser
+
+## Build
+"aqua:Kitware/CMake"            = "latest" # build system generator
+"aqua:casey/just"               = "latest" # Just a command runner
+
+## Alternative CLI
+"aqua:ajeetdsouza/zoxide"       = "latest" # Smarter cd command
+"aqua:sharkdp/bat"              = "latest" # cat alternative
+"aqua:sharkdp/fd"               = "latest" # find alternative
+"aqua:BurntSushi/ripgrep"       = "latest" # grep alternative
+"aqua:phiresky/ripgrep-all"     = "latest" # extended ripgrep for pdf, docs, archives, img, movies, etc
+"aqua:junegunn/fzf"             = "latest" # Fuzzy finder
+"aqua:ClementTsang/bottom"      = "latest" # Process monitor
+"aqua:watchexec/watchexec"      = "latest" # Modify detector
+"aqua:sxyazi/yazi"              = "latest" # Modern TUI explorer
+"aqua:Byron/dua-cli"            = "latest" # Disk usage
+"aqua:sharkdp/hyperfine"        = "latest" # Benchmark tool
+"aqua:svenstaro/genact"         = "latest" # nonsense activity generator
+"aqua:tealdeer-rs/tealdeer"     = "latest" # Too long don't read
+"github:yt-dlp/yt-dlp"          = "latest" # Downloader
+
+## Git
+"aqua:o2sh/onefetch"            = "latest" # Repository information
+"aqua:gitui-org/gitui"          = "latest" # Git TUI
+"aqua:dandavison/delta"         = "latest" # git-delta
+"aqua:git-lfs/git-lfs"          = "latest" # git large file storage extension
+"aqua:orhun/git-cliff"          = "latest" # Changelog generator
+"aqua:simonwhitaker/gibo"       = "latest" # .gitignore boilerplates
+"npm:commitizen"                = "latest" # commit message utility
+"npm:cz-conventional-changelog" = "latest" # Generate a CHANGELOG from git metadata.
+
+### GitHub
+"aqua:cli/cli"                  = "latest" # gh command: GitHub CLI
+"aqua:x-motemen/ghq"            = "latest" # Remote repository manager
+"aqua:suzuki-shunsuke/pinact"   = "latest" # Version Pinner for GitHub Actions
+
+## Dotfiles
+"aqua:twpayne/chezmoi"          = "latest" # Dotfiles manager
+
+## Formatter / Linter
+"aqua:mvdan/sh"                 = "latest" # Shell formatter
+"aqua:biomejs/biome"            = "latest" # eslint & prettier replacement
+"aqua:astral-sh/ruff"           = "latest" # Python Linter / Formatter
+"aqua:tombi-toml/tombi"         = "latest" # TOML Linter / Formatter / Language Server
+"aqua:google/yamlfmt"           = "latest" # YAML formatter
+"aqua:rhysd/actionlint"         = "latest" # YAML Linter for GitHub Actions workflows
+"aqua:golangci/golangci-lint"   = "latest" # Go linter aggregator
+"aqua:hadolint/hadolint"        = "latest" # Dockerfile Linter
+"aqua:JohnnyMorganz/StyLua"     = "latest" # Lua Linter
+"aqua:mrtazz/checkmake"         = "latest" # Makefile Linter
+
+## Daatbase / Data Analysis
+"aqua:jorgerojas26/lazysql"     = "latest" # SQL with TUI
+"github:medialab/xan"           = "latest" # CSV visualization toolkit
+
+## Documents
+"github:jgm/pandoc"             = "latest" # Universal markup converter
+
+## JSON / YAML / Markdown
+"aqua:jqlang/jq"                = "latest" # CLI processor for JSON
+"aqua:mikefarah/yq"             = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
+"aqua:charmbracelet/glow"       = "latest" # Render markdown on the CLI
+"go:github.com/mrusme/reader"   = "latest" # A lightweight tool offering better readability of web pages
+
+## Security
+"aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool
+"aqua:gitleaks/gitleaks"        = "latest" # tool for detecting secrets like passwords, API keys, and tokens in repos
+
+## Container
+"aqua:lima-vm/lima"             = "latest" # Linux virtual machines, with a focus on running containers
+"aqua:abiosoft/colima"          = "latest" # Container runtimes on macOS (and Linux) with minimal setup
+"aqua:docker/cli"               = "latest" # Docker CLI
+"aqua:docker/buildx"            = "latest" # Docker CLI plugin for extended build capabilities with BuildKit
+"aqua:docker/compose"           = "latest" # Define and run multi-container applications with Docker
+"aqua:wagoodman/dive"           = "latest" # A tool for exploring each layer in a docker image
+
+## AI Tools
+"aqua:anomalyco/opencode"       = "latest" # The open source coding agent.
+"npm:@google/gemini-cli"        = "latest" # An open-source AI agent that brings the power of Gemini
