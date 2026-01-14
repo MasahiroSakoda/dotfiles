@@ -16,7 +16,7 @@ plugins = [
 ]
 instructions = [ "AGENTS.md", "CONTRIBUTING.md", ".github/copilot-instructions.md", ".opencode/rules/*.md" ]
 
-enabled_providers = [ "anthropic", "google", "openai", "github-copilot" ]
+enabled_providers = [ "anthropic", "google" ]
 
 [opencode.tui]
 scroll_speed = 2
