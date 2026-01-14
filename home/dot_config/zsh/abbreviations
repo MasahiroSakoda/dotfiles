@@ -157,3 +157,6 @@ abbr zls="zellij-session"
 
 # AI tools
 abbr oc="opencode"
+abbr occ="opencode --continue"
+abbr ocs="opencode --session"
+abbr ocw="opencode web"

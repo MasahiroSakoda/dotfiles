@@ -212,7 +212,10 @@ abbr -a -- zlm "zellij --layout monitor"
 abbr -a -- zls "zellij-session"
 
 # AI tools
-abbr -a -- oc "opencode"
+abbr -a -- oc  "opencode"
+abbr -a -- occ "opencode --continue"
+abbr -a -- ocs "opencode --session"
+abbr -a -- ocw "opencode web"
 
 {{ if eq .chezmoi.os "darwin" }}
 set -gx GITHUB_ACCESS_TOKEN   (security find-generic-password -s "MCP Server for GitHub" -w)
