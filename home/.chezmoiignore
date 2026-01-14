@@ -66,20 +66,20 @@ install.sh
 key.txt.age
 
 # Language specific files
-{{- if not .mise.langs.go.enabled }}
+{{- if not .mise.go.enabled }}
 .config/nvim/after/ftplugin/go.lua
 .config/nvim/lua/lsp/servers/gopls.lua
 .config/nvim/lua/dap/adapters/delve.lua
 {{- end }}
 
-{{- if not .mise.langs.python.enabled }}
+{{- if not .mise.python.enabled }}
 .chezmoiscripts/run_onchange_after_21-python.sh.tmpl
 .config/nvim/after/ftplugin/python.lua
 .config/nvim/lua/lsp/servers/pyright.lua
 .config/nvim/lua/dap/adapters/debugpy.lua
 {{- end }}
 
-{{- if not .mise.langs.ruby.enabled }}
+{{- if not .mise.ruby.enabled }}
 .chezmoiscripts/run_onchange_after_22-ruby.sh.tmpl
 .config/nvim/after/ftplugin/ruby.lua
 .config/nvim/lua/lsp/servers/rubocop.lua
@@ -87,16 +87,16 @@ key.txt.age
 .config/nvim/lua/dap/adapters/ruby.lua
 {{- end }}
 
-{{- if not .mise.langs.node.enabled }}
+{{- if not .mise.node.enabled }}
 .chezmoiscripts/run_onchange_after_23-nodejs.sh.tmpl
 .config/nvim/lua/lsp/servers/tsserver.lua
 {{- end }}
 
-{{- if not .mise.langs.deno.enabled }}
+{{- if not .mise.deno.enabled }}
 .config/nvim/lua/lsp/servers/denols.lua
 {{- end }}
 
-{{- if and (not .mise.langs.node.enabled) (not .mise.langs.deno.enabled) (not .mise.langs.bun.enabled) }}
+{{- if and (not .mise.node.enabled) (not .mise.deno.enabled) (not .mise.bun.enabled) }}
 .config/nvim/lua/dap/adapters/javascript.lua
 .config/nvim/lua/dap/adapters/typescript.lua
 {{- end }}
