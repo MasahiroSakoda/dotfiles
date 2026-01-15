@@ -4,19 +4,22 @@
 autoupdate = false
 autoshare  = false
 snapshot   = false
+theme      = "github"
 
-theme       = "github"
-model       = "gemini-3-flash-preview"
-small_model = "gemini-2.5-flash"
-
-plugins = [
-  "oh-my-opencode@latest",
-  "opencode-antigravity-auth@beta",
-  "opencode-gemini-auth@latest",
-]
+plugins = [ "oh-my-opencode@latest", "opencode-antigravity-auth@beta", "opencode-gemini-auth@latest" ]
 instructions = [ "AGENTS.md", "CONTRIBUTING.md", ".github/copilot-instructions.md", ".opencode/rules/*.md" ]
 
 enabled_providers = [ "anthropic", "google" ]
+
+[opencode.models]
+thinker = "google/antigravity-claude-opus-4.5-thinking"
+think   = "google/antigravity-claude-sonnet-4.5-thinking"
+default = "google/antigravity-gemini-3-pro"
+small   = "google/antigravity-gemini-3-flash"
+# default = "google/gemini-3-pro-preview"
+# small   = "google/gemini-3-flash-preview"
+micro   = "google/gemini-2.5-pro"
+tiny    = "google/gemini-2.5-flash"
 
 [opencode.tui]
 scroll_speed = 2
