@@ -106,6 +106,10 @@
   },
   "mise.binPath": {{ joinPath .brew_prefix "opt" "mise" "bin" "mise" | quote }},
   "mise.checkForNewMiseVersion": false,
+  "terminal.integrated.env.osx": { "PATH": "${env:PATH}:${env:XDG_DATA_HOME}/mise/shims" },
+  "terminal.integrated.shell.osx": {{ joinPath .brew_prefix "bin" "fish" | quote }},
+  "terminal.integrated.env.linux": { "PATH": "${env:PATH}:${env:XDG_DATA_HOME}/mise/shims" },
+  "terminal.integrated.shell.linux": {{ joinPath .brew_prefix "bin" "fish" | quote }},
   // NeoVim
   "vscode-neovim.compositeKeys": {
     "jj": {
