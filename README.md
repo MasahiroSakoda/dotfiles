@@ -213,7 +213,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 | Plugin | Notes |
 | :----- | :---- |
-| [**codecompanion.nvim**](https://github.com/olimorris/codecompanion.nvim) | AI coding plugin supports many providers |
 | [**sidekick.nvim**](https://github.com/folke/sidekick.nvim) | Agent Integration & Next Edit Suggestion via Copilot |
 
 
@@ -241,6 +240,16 @@ global language environment predefined in [**`.chezmoidata.toml`**](https://gith
 | [**`Node.js`**](https://mise.jdx.dev/lang/node.html) | 24.x |
 | [**`Deno`**](https://mise.jdx.dev/lang/deno.html) | 2.x |
 | [**`Bun`**](https://mise.jdx.dev/lang/bun.html) | 1.x |
+
+
+#### AI Tools
+
+| Tool | Description |
+|:-----|:------------|
+| [`**OpenCode**`](https://opencode.ai) | Open Source AI Agent  |
+| [`**superpowers**`](https://github.com/obra/superpowers) | Core skills library |
+| [`**Awesome Claude Code Subagents**`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
+
 
 ### Homebrew cask packages
 
