@@ -1,0 +1,26 @@
+{{- /*
+// -*-mode:ron-*- vim:ft=ron.gotexttemplate
+*/ -}}
+(
+  selected_tab:          Some({{ .git.color.ui.selected_tab | quote }}),
+  command_fg:            Some({{ .git.color.ui.selected_tab | quote }}),
+  selection_bg:          Some({{ .git.color.ui.selection_bg | quote }}),
+  selection_fg:          Some({{ .git.color.ui.selection_fg | quote }}),
+  cmdbar_bg:             Some({{ .git.color.ui.cmdbar_bg | quote }}),
+  cmdbar_extra_lines_bg: Some({{ .git.color.ui.extra_lines_bg | quote }}),
+  disabled_fg:           Some({{ .git.color.ui.disabled_fg | quote }}),
+  diff_line_add:         Some({{ .git.color.line.add | quote }}),
+  diff_line_delete:      Some({{ .git.color.line.delete | quote }}),
+  diff_file_added:       Some({{ .git.color.file.added | quote }}),
+  diff_file_removed:     Some({{ .git.color.file.deleted | quote }}),
+  diff_file_moved:       Some({{ .git.color.file.moved | quote }}),
+  diff_file_modified:    Some({{ .git.color.file.modified | quote }}),
+  commit_hash:           Some({{ .git.color.commit.hash | quote }}),
+  commit_time:           Some({{ .git.color.commit.time | quote }}),
+  commit_author:         Some({{ .git.color.commit.author | quote }}),
+  danger_fg:             Some({{ .git.color.status.danger | quote }}),
+  push_gauge_bg:         Some({{ .git.color.push.gauge_bg | quote }}),
+  push_gauge_fg:         Some({{ .git.color.push.gauge_fg | quote }}),
+  tag_fg:                Some({{ .git.color.tag.fg_color | quote }}),
+  branch_fg:             Some({{ .git.color.branch.fg_color | quote }})
+)

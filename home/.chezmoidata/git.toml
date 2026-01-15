@@ -1,0 +1,51 @@
+# -*-mode:toml-*- vim:ft=toml
+
+[git.color.ui]
+selected_tab   = "#bb9af7"
+selection_fg   = "#7dcfff"
+selection_bg   = "#292e42"
+cmdbar_bg      = "#24283b"
+extra_lines_bg = "#24283b"
+disabled_fg    = "#565f89"
+
+[git.color.status]
+ahead      = "#ddffa7"
+behind     = "#ff8b92"
+untracked  = "#a88847"
+conflicted = "#ff8b6b"
+warning    = "#a8006a"
+stashed    = "#24ffa0"
+modified   = "#da6633"
+staged     = "#f2d166"
+renamed    = "#6495ed"
+deleted    = "#c00000"
+up_to_date = "#adff2f"
+danger     = "#f7768e"
+
+[git.color.line]
+add      = "#9ece6a"
+delete   = "#f7768e"
+fg_color = "#9c9c9c"
+
+[git.color.file]
+added    = "#73daca"
+deleted  = "#db4b4b"
+moved    = "#ff007c"
+modified = "#e0af68"
+
+[git.color.branch]
+fg_color = "#090c09"
+bg_color = "#a2b1c1"
+
+[git.color.commit]
+hash     = "#bb9af7"
+time     = "#1abc9c"
+author   = "#9ece6a"
+bg_color = "#CF9562"
+
+[git.color.push]
+gauge_fg = "#c0caf5"
+gauge_bg = "#24283b"
+
+[git.color.tag]
+fg_color = "#ff007c"
