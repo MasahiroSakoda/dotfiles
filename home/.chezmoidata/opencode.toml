@@ -220,13 +220,17 @@ external_directory = "ask"
 "gh api * --method PATCH*"  = "ask"
 "gh api * --method DELETE*" = "ask"
 
+# Providers
 [opencode.providers.ollama]
-name = "Ollama (Local)"
-npm  = "@ai-sdk/openai-compatible"
+name    = "Ollama (Local)"
+npm     = "@ai-sdk/openai-compatible"
 options = { baseURL = "http://localhost:11434/v1" }
 
 [opencode.providers.ollama.models.qwen]
 
+## Google
+
+### via Antigravity: https://github.com/NoeFabris/opencode-antigravity-auth
 [opencode.providers.google.models."antigravity-gemini-3-pro"]
 name       = "Gemini 3 Pro (Antigravity)"
 limit      = { context = 1048576, output = 65535 }
@@ -270,22 +274,23 @@ modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 low = { thinkingConfig = { thinkingBudget = 8192  } }
 max = { thinkingConfig = { thinkingBudget = 32768  } }
 
+### via Gemini CLI: https://github.com/jenslys/opencode-gemini-auth
 [opencode.providers.google.models."gemini-3-pro-preview"]
-name  = "Gemini 3 Pro Preview"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 3 Pro Preview"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-3-flash-preview"]
-name  = "Gemini 3 Flash Preview"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 3 Flash Preview"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-2.5-pro"]
-name  = "Gemini 2.5 Pro"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 2.5 Pro"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-2.5-flash"]
-name  = "Gemini 2.5 Flash"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 2.5 Flash"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
