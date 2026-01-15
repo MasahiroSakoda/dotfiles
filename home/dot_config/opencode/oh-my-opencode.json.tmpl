@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "autoupdate": false,
+  "google_auth": true,
+  "agents": {
+    "Sisyphus": { "model" : {{ .opencode.models.sota | quote }} },
+    "Planner-Sisyphus": { "model": {{ .opencode.models.elite | quote }} },
+    "oracle": { "model" : {{ .opencode.models.sota | quote }} },
+    "librarian": { "model" : {{ .opencode.models.lite | quote }} },
+    "explore": { "model": {{ .opencode.models.lite | quote }} },
+    "frontend-ui-ux-engineer": { "model": {{ .opencode.models.general | quote }} }
+    "document-writer": { "model": {{ .opencode.models.lite | quote }} }
+    "multimodal-looker": { "model": {{ .opencode.models.lite | quote }} }
+  },
+  "disable_mcps": [],
+  "disable_skills": [""]
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
