@@ -1,0 +1,26 @@
+{{- define "repo" }}
+type = "git-repo"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+{{- end }}
+
+["Dev/repos/github.com/commands"]
+{{ template "repo" }}
+url = "https://github.com/wshobson/commands"
+
+# renovate: datasource=github-releases depName=obra/superpowers
+{{ $superpowersVersion := "4.0.3" -}}
+
+["Dev/repos/github.com/superpowers"]
+{{ template "repo" }}
+url  = "https://github.com/obra/superpowers"
+args = ["--branch", {{ $superpowersVersion | quote }}]
+
+["Dev/repos/github.com/awesome-claude-code-subagents"]
+{{ template "repo" }}
+url  = "https://github.com/VoltAgent/awesome-claude-code-subagents"
+
+{{- /*
+-*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

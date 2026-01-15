@@ -6,17 +6,17 @@
   "theme": {{ .opencode.theme | quote }},
   "tui": {{ .opencode.tui | toPrettyJson | indent 2 | trim }},
 
-  "model": {{ .opencode.model | quote }},
-  "small_model": {{ .opencode.small_model | quote }},
+  "model": {{ .opencode.models.general | quote }},
+  "small_model": {{ .opencode.models.lite | quote }},
 
   {{/* Global plugins */ -}}
-  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim | wrap 100 }},
+  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim }},
 
   {{/* Global keybinds */ -}}
   "keybinds": {{ .opencode.keybinds | toPrettyJson | indent 2 | trim }},
 
   {{/* Global Instructions */ -}}
-  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim | wrap 100 }},
+  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim }},
 
   {{/* Global Permissions */ -}}
   "permission": {{ .opencode.permissions | toPrettyJson | indent 2 | trim }},
@@ -34,8 +34,19 @@
   {{/* Agent Configurations */ -}}
   "default_agent": "planner",
   "agent": {
+    {{/* Builtin Agents */ -}}
     "plan": { "disable": true },
-    "build": { "disable": true }
+    "build": { "disable": true },
+    {{/* Custom Agents */ -}}
+    "architect": { "disable": false },
+    "auditor": { "disable": false },
+    "conductor": { "disable": false },
+    "explorer": { "disable": false },
+    "planner": { "disable": false },
+    "researcher": { "disable": false },
+    "reviewer": { "disable": false },
+    "translator": { "disable": false },
+    "triager": { "disable": false }
   },
 
   {{/* Formatter Configurations */ -}}

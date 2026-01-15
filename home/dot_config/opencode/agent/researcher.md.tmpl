@@ -1,7 +1,8 @@
 ---
 name: researcher
 description: Knowledge architect for external research and documentation
-mode: primary
+model: {{ .opencode.models.lite }}
+mode: subagent
 temperature: 0.1
 permission:
   edit:
@@ -240,3 +241,4 @@ Check the docs for more details.
 ```
 
 This is too vague, has no code, and no citations. NEVER return output like this.
+<!-- vim:ft=markdown -->

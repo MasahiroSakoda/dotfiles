@@ -1,6 +1,7 @@
 ---
 name: reviewer
 description: Reviews code changes for bugs, improvements, and best practices in staged changes or remote PRs
+model: {{ .opencode.models.general }}
 mode: subagent
 temperature: 0.1
 permission:
@@ -106,3 +107,4 @@ Structure your review as:
 - **Git Command**: `git diff`, `git log`, `git show`, `git status`
 - **GitHub CLI**: `gh pr view`, `gh pr diff`, `gh api`
 - **Code analysis**: `read` (examine files), `grep` (search patterns), `glob` (find files), `list` (directory contents)
+<!-- vim:ft=markdown -->

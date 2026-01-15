@@ -4,19 +4,20 @@
 autoupdate = false
 autoshare  = false
 snapshot   = false
+theme      = "github"
 
-theme       = "github"
-model       = "gemini-3-flash-preview"
-small_model = "gemini-2.5-flash"
+plugins = [ "oh-my-opencode@latest", "opencode-antigravity-auth@beta", "opencode-gemini-auth@latest" ]
+instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
 
-plugins = [
-  "oh-my-opencode@latest",
-  "opencode-antigravity-auth@beta",
-  "opencode-gemini-auth@latest",
-]
-instructions = [ "AGENTS.md", "CONTRIBUTING.md", ".github/copilot-instructions.md", ".opencode/rules/*.md" ]
+enabled_providers = [ "anthropic", "google" ]
 
-enabled_providers = [ "anthropic", "google", "openai", "github-copilot" ]
+[opencode.models]
+sota    = "google/antigravity-claude-opus-4.5-thinking"
+elite   = "google/antigravity-claude-sonnet-4.5-thinking"
+general = "google/antigravity-gemini-3-pro"
+lite    = "google/antigravity-gemini-3-flash"
+# general = "google/gemini-3-pro-preview"
+# lite    = "google/gemini-3-flash-preview"
 
 [opencode.tui]
 scroll_speed = 2
@@ -219,13 +220,25 @@ external_directory = "ask"
 "gh api * --method PATCH*"  = "ask"
 "gh api * --method DELETE*" = "ask"
 
+[opencode.antigravity]
+quiet_mode     = false
+debug          = false
+keep_thinking  = false
+quota_fallback = true
+account_selection_strategy = "sticky" # "sticky"|"round-robin"|"hybrid"
+
+# Provider
 [opencode.providers.ollama]
-name = "Ollama (Local)"
-npm  = "@ai-sdk/openai-compatible"
+name    = "Ollama (Local)"
+npm     = "@ai-sdk/openai-compatible"
 options = { baseURL = "http://localhost:11434/v1" }
 
-[opencode.providers.ollama.models.qwen]
+[opencode.providers.ollama.models."goekdenizguelmez/JOSIEFIED-Qwen3:4b"]
+name = "JOSIEFIED Qwen3 4B Instruct 2507"
 
+## Google
+
+### via Antigravity: https://github.com/NoeFabris/opencode-antigravity-auth
 [opencode.providers.google.models."antigravity-gemini-3-pro"]
 name       = "Gemini 3 Pro (Antigravity)"
 limit      = { context = 1048576, output = 65535 }
@@ -269,22 +282,23 @@ modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 low = { thinkingConfig = { thinkingBudget = 8192  } }
 max = { thinkingConfig = { thinkingBudget = 32768  } }
 
+### via Gemini CLI: https://github.com/jenslys/opencode-gemini-auth
 [opencode.providers.google.models."gemini-3-pro-preview"]
-name  = "Gemini 3 Pro Preview"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 3 Pro Preview"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-3-flash-preview"]
-name  = "Gemini 3 Flash Preview"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 3 Flash Preview"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-2.5-pro"]
-name  = "Gemini 2.5 Pro"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 2.5 Pro"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."gemini-2.5-flash"]
-name  = "Gemini 2.5 Flash"
-limit = { context = 1048576, output = 65535 }
+name       = "Gemini 2.5 Flash"
+limit      = { context = 1048576, output = 65535 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
