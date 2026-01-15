@@ -5,6 +5,10 @@ stripComponents = 1
 refreshPeriod = "168h"
 {{- end }}
 
+["Dev/repos/github.com/commands"]
+{{ template "repo" }}
+url = "https://github.com/wshobson/commands"
+
 # renovate: datasource=github-releases depName=obra/superpowers
 {{ $superpowersVersion := "4.0.3" -}}
 
