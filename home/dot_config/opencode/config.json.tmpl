@@ -10,13 +10,13 @@
   "small_model": {{ .opencode.models.lite | quote }},
 
   {{/* Global plugins */ -}}
-  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim | wrap 100 }},
+  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim }},
 
   {{/* Global keybinds */ -}}
   "keybinds": {{ .opencode.keybinds | toPrettyJson | indent 2 | trim }},
 
   {{/* Global Instructions */ -}}
-  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim | wrap 100 }},
+  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim }},
 
   {{/* Global Permissions */ -}}
   "permission": {{ .opencode.permissions | toPrettyJson | indent 2 | trim }},
