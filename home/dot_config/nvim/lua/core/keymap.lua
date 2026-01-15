@@ -173,23 +173,23 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🛠  overseer.nvim: Task Runner: <Leader> + r
+-- 🛠  overseer.nvim: Task Runner: <Leader> + o
 ---------------------------------------------------------------------------
 wk.add({
-  { "<Leader>r", group = "Task Runner", icon = "✅  " },
+  { "<Leader>o", group = "overseer.nvim", icon = "✅  " },
 
   -- Async commands
-  { "<Leader>rg", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = " Async grep <cword>" },
-  { "<Leader>rG", "<CMD>cclose | Grep <CWORD><CR>", icon = " ", desc = " Async grep <CWORD>" },
-  { "<Leader>rm", "<CMD>cclose | Make<CR>",         icon = " ", desc = " Async make" },
+  { "<Leader>og", "<CMD>cclose | Grep <cword><CR>", icon = " ", desc = " Async grep <cword>" },
+  { "<Leader>oG", "<CMD>cclose | Grep <CWORD><CR>", icon = " ", desc = " Async grep <CWORD>" },
+  { "<Leader>om", "<CMD>cclose | Make<CR>",         icon = " ", desc = " Async make" },
 
   -- overseed.nvim commands
-  { "<Leader>ri", "<CMD>OverseerInfo<CR>",        icon = " ", desc = " Display overseer.nvim Info" },
-  { "<Leader>rr", "<CMD>OverseerRun<CR>",         icon = " ", desc = " Run a task from a template" },
-  { "<Leader>rl", "<CMD>OverseerRestartLast<CR>", icon = " ", desc = " Restart Last Action" },
-  { "<Leader>ra", "<CMD>OverseerTaskAction<CR>",  icon = " ", desc = " Select a task to run an action on" },
-  { "<Leader>rq", "<CMD>OverseerQuickAction<CR>", icon = " ", desc = " Run an action on the most recent task" },
-  { "<Leader>rw", "<CMD>OverseerToggle<CR>",      icon = " ", desc = " Toggle overseer window" },
+  { "<Leader>oi", "<CMD>OverseerInfo<CR>",        icon = " ", desc = " Display overseer.nvim Info" },
+  { "<Leader>or", "<CMD>OverseerRun<CR>",         icon = " ", desc = " Run a task from a template" },
+  { "<Leader>ol", "<CMD>OverseerRestartLast<CR>", icon = " ", desc = " Restart Last Action" },
+  { "<Leader>oa", "<CMD>OverseerTaskAction<CR>",  icon = " ", desc = " Select a task to run an action on" },
+  { "<Leader>oq", "<CMD>OverseerQuickAction<CR>", icon = " ", desc = " Run an action on the most recent task" },
+  { "<Leader>ow", "<CMD>OverseerToggle<CR>",      icon = " ", desc = " Toggle overseer window" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -214,8 +214,7 @@ if not is_vscode then
       desc = " Browse Current Dir",
     },
 
-    { "<Leader>fn", "<CMD>lua Snacks.notifier.show_history()<CR>",  icon = " ", desc = " Notification History" },
-    { "<Leader>fN", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
+    { "<Leader>fn", "<CMD>lua Snacks.picker.notifications()<CR>",   icon = " ", desc = " Notification History" },
     { "<Leader>f/", "<CMD>lua Snacks.picker.search_history()<CR>",  icon = " ", desc = " Search History" },
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
@@ -237,12 +236,13 @@ if not is_vscode then
     { "<Leader>fs",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
 
     -- Git
-    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = " Git Files" },
-    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",   icon = " ", desc = " Git Status" },
-    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",    icon = " ", desc = " Git Stash" },
-    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",      icon = " ", desc = " Commit Log" },
-    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = " Diff (origin)" },
-    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = " View branches" },
+    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",             icon = " ", desc = " Git Files" },
+    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",            icon = " ", desc = " Git Status" },
+    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",             icon = " ", desc = " Git Stash" },
+    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",               icon = " ", desc = " Commit Log" },
+    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",              icon = " ", desc = " Diff (origin)" },
+    { "<Leader>gD", "<CMD>lua Snacks.picker.git_diff({staged=true})<CR>", icon = " ", desc = " Diff (staged)" },
+    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>",          icon = " ", desc = " View branches" },
 
     -- GitHub
     { "<Leader>gi", group = "GitHub Issue", icon = " " },
@@ -256,7 +256,7 @@ if not is_vscode then
     { "<Leader>gpR", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
 
     {
-      "<Leader>gD",
+      "<Leader>gpd",
       "<CMD>lua vim.ui.input({prompt='Number:'},function(i) Snacks.picker.gh_diff({pr=assert(tonumber(i))}) end)<CR>",
       icon = " ",
       desc = " View PR diff w/ number",
@@ -380,10 +380,10 @@ if not is_vscode then
     { "<Leader>aa", "<CMD>Sidekick cli toggle name=opencode focus=true<CR>", icon = " ", desc = " OpenCode" },
     { "<Leader>ag", "<CMD>Sidekick cli toggle name=gemini focus=true<CR>",   icon = " ", desc = " Gemini CLI" },
 
-    { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send This" },
+    { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send Line" },
     { "<Leader>av", "<CMD>Sidekick cli send msg='{selection}'<CR>",  mode = nx,icon = "󰞷 ",desc = " Send Selection" },
     { "<Leader>af", "<CMD>Sidekick cli send msg='{file}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send File" },
-    { "<Leader>ad", "<CMD>Sidekcik cli send msg='{diagnostics}'<CR>",mode = nx,icon = " ", desc = " Send diagnostics" },
+    { "<Leader>ad", "<CMD>Sidekick cli send msg='{diagnostics}'<CR>",mode = nx,icon = " ", desc = " Send diagnostics" },
   })
 end
 
