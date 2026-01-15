@@ -17,6 +17,10 @@ url = "https://github.com/wshobson/commands"
 url  = "https://github.com/obra/superpowers"
 args = ["--branch", {{ $superpowersVersion | quote }}]
 
+["Dev/repos/github.com/awesome-claude-code-subagents"]
+{{ template "repo" }}
+url  = "https://github.com/VoltAgent/awesome-claude-code-subagents"
+
 {{- /*
 -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
