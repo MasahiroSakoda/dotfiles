@@ -104,6 +104,12 @@
     "**/tmp": true,
     "**/logs": true
   },
+  "mise.binPath": {{ joinPath .brew_prefix "opt" "mise" "bin" "mise" | quote }},
+  "mise.checkForNewMiseVersion": false,
+  "terminal.integrated.env.osx": { "PATH": "${env:PATH}:${env:XDG_DATA_HOME}/mise/shims" },
+  "terminal.integrated.shell.osx": {{ joinPath .brew_prefix "bin" "fish" | quote }},
+  "terminal.integrated.env.linux": { "PATH": "${env:PATH}:${env:XDG_DATA_HOME}/mise/shims" },
+  "terminal.integrated.shell.linux": {{ joinPath .brew_prefix "bin" "fish" | quote }},
   // NeoVim
   "vscode-neovim.compositeKeys": {
     "jj": {
@@ -150,17 +156,22 @@
     }
   },
   "[lua]": {
+    "editor.defaultformatter": "johnnymorganz.stylua"
   },
-  "[json]": {
-    "editor.quickSuggestions": {
-      "strings": true
-    },
+  "[json][jsonc][json5]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": { "strings": true },
     "editor.suggest.insertMode": "replace"
   },
   "json.schemaDownload.enable": true,
   "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
     "editor.maxTokenizationLineLength": 2500
   },
+  "bun.runtime": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "bun" | quote }},
+  "deno.path": {{ joinPath (env "xdG_DATA_HOME") "mise" "shims" "deno" | quote }},
   "python.languageserver": "Pylance",
   "python.showStartPage": false,
   "python.venvPath": ".venv",
@@ -177,6 +188,8 @@
     "jupyter-notebook": "left"
   },
   "[ruby]": {
+    "editor.formatonsave": true,
+    "editor.formatontype": true
   },
   "[yaml]": {
     "editor.insertSpaces": true,
