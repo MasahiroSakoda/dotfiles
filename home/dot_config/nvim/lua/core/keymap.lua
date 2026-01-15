@@ -236,12 +236,13 @@ if not is_vscode then
     { "<Leader>fs",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
 
     -- Git
-    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",    icon = " ", desc = " Git Files" },
-    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",   icon = " ", desc = " Git Status" },
-    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",    icon = " ", desc = " Git Stash" },
-    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",      icon = " ", desc = " Commit Log" },
-    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",     icon = " ", desc = " Diff (origin)" },
-    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>", icon = " ", desc = " View branches" },
+    { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",             icon = " ", desc = " Git Files" },
+    { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",            icon = " ", desc = " Git Status" },
+    { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",             icon = " ", desc = " Git Stash" },
+    { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",               icon = " ", desc = " Commit Log" },
+    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",              icon = " ", desc = " Diff (origin)" },
+    { "<Leader>gD", "<CMD>lua Snacks.picker.git_diff({staged=true})<CR>", icon = " ", desc = " Diff (staged)" },
+    { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>",          icon = " ", desc = " View branches" },
 
     -- GitHub
     { "<Leader>gi", group = "GitHub Issue", icon = " " },
