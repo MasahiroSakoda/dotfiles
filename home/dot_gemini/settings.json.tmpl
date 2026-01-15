@@ -1,71 +1,70 @@
 {
-  {{/* General Settings */ -}}
-  "selectedAuthType": "oauth-personal",
-  "theme": "GitHub",
-  "contextFileName": ["GEMINI.md", "AGENTS.md"],
-  "preferredEditor": "neovim",
-  "vimMode": false,
-
-  {{/* Model Config */ -}}
-  "model": "gemini-2.5-pro",
-
+  {{- /* https://geminicli.com/docs/get-started/configuration/ */}}
   {{/* Tool Settings */ -}}
-  {{/* https://github.com/google-gemini/gemini-cli/blob/main/docs/core/tools-api.md#built-in-tools */}}
-  "coreTools": [
-    "LSTool",
-    "GlobTool",
-    "GrepTool",
-    "ReadFileTool",
-    "WriteFileTool",
-    "EditTool",
-    "FindFilesTool",
-    "SearchTextTool",
-    "ReadFolderTool",
-    "ShellTool",
-    "GoogleSearchTool",
-    "WebFetchTool",
-    "SaveMemoryTool"
-  ],
-  "excludeTools": [
-    "run_shell_command(rm -rf)"
-  ],
-  "autoAccept": false,
-
+  "tools": {
+    "autoAccept": false,
+    "core": [
+      "LSTool",
+      "GlobTool",
+      "GrepTool",
+      "ReadFileTool",
+      "WriteFileTool",
+      "EditTool",
+      "FindFilesTool",
+      "SearchTextTool",
+      "ReadFolderTool",
+      "ShellTool",
+      "GoogleSearchTool",
+      "WebFetchTool",
+      "SaveMemoryTool"
+    ],
+    "exclude": [
+      "run_shell_command(rm -rf)"
+    ],
   {{/* Sandbox Settings */ -}}
-  "sandbox": false,
-
-  {{/* File Filter Settings */ -}}
-  "fileFiltering": {
-    "respectGitIgnore": true,
-    "enableRecursiveFileSearch": true
+  "sandbox": false
   },
-
   {{/* General Settings */ -}}
-
-  {{/* MCP servers */}}
-  {{- $servers := dict -}}
-  {{- range $key, $value := includeTemplate "common/ai/mcp-servers.json.tmpl" . | fromJson -}}
-  {{-   if $value | hasKey "type" -}}
-  {{-     $_ := $value | deleteValueAtPath "type" -}}
-  {{-   end -}}
-  {{- $_ := $servers | setValueAtPath $key $value -}}
-  {{- end -}}
-  "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }},
-
-  {{/* Chekcpoint */ -}}
-  "checkpointing": {
-    "enabled": true
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    },
+    "preferredEditor": "neovim",
+    "vimMode": false
   },
-
+  "context": {
+    "fileName": [
+      "GEMINI.md",
+      "AGENTS.md"
+    ],
+    {{/* File Filter Settings */ -}}
+    "fileFiltering": {
+      "respectGitIgnore": true,
+      "enableRecursiveFileSearch": true
+    }
+  },
+  {{/* Model Config */ -}}
+  "model": {
+    "name": "gemini-3-flash"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "GitHub"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
   {{/* Telemetry */ -}}
   "telemetry": {
     "enabled": false,
     "target": "local",
     "otlpEndpoint": "http://localhost:4317",
     "logPrompts": true
-  },
-
-  "usageStatisticsEnabled": false
+  }
 }
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
