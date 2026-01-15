@@ -12,9 +12,9 @@ $sudo\
 $localip\
 $shlvl\
 $directory\
-[](fg:{{ .starship.env.bg_color }} bg:{{ .starship.git.branch.bg_color }})\
+[](fg:{{ .starship.env.bg_color }} bg:{{ .git.color.branch.bg_color }})\
 $git_branch\
-[ ](fg:{{ .starship.git.branch.bg_color }})\
+[ ](fg:{{ .git.color.branch.bg_color }})\
 $git_commit\
 $git_status\
 $git_state\
@@ -239,17 +239,17 @@ display_private = false
 [git_status]
 style      = ""
 format     = "([$all_status$ahead_behind]($style))"
-diverged   = "[⇕⇡ ${ahead_count}](fg:{{ .starship.git.status.ahead }})[⇣ ${behind_count}](fg:{{ .starship.git.status.behind }})"
-ahead      = "[⟫${count}](fg:{{ .starship.git.status.ahead }}) "
-behind     = "[⟪${count}](fg:{{ .starship.git.status.behind }}) "
-untracked  = "[󰏑 ${count} ](bold fg:{{ .starship.git.status.untracked }})"
-conflicted = "[ ${count} ](bold fg:{{ .starship.git.status.conflicted }} bg:{{ .starship.git.status.warning }})"
-stashed    = "[󰋻 ${count} ](bold fg:{{ .starship.git.status.stashed }})"
-modified   = "[󱩼 ${count} ](bold fg:{{ .starship.git.status.modified }})"
-staged     = "[󰷬 ${count} ](bold fg:{{ .starship.git.status.staged }})"
-renamed    = "[󰑕 ${count} ](bold fg:{{ .starship.git.status.renamed }})"
-deleted    = "[ ${count} ](bold fg:{{ .starship.git.status.deleted }})"
-up_to_date = "[ ](fg:{{ .starship.git.status.up_to_date}})"
+diverged   = "[⇕⇡ ${ahead_count}](fg:{{ .git.color.status.ahead }})[⇣ ${behind_count}](fg:{{ .git.color.status.behind }})"
+ahead      = "[⟫${count}](fg:{{ .git.color.status.ahead }}) "
+behind     = "[⟪${count}](fg:{{ .git.color.status.behind }}) "
+untracked  = "[󰏑 ${count} ](bold fg:{{ .git.color.status.untracked }})"
+conflicted = "[ ${count} ](bold fg:{{ .git.color.status.conflicted }} bg:{{ .git.color.status.warning }})"
+stashed    = "[󰋻 ${count} ](bold fg:{{ .git.color.status.stashed }})"
+modified   = "[󱩼 ${count} ](bold fg:{{ .git.color.status.modified }})"
+staged     = "[󰷬 ${count} ](bold fg:{{ .git.color.status.staged }})"
+renamed    = "[󰑕 ${count} ](bold fg:{{ .git.color.status.renamed }})"
+deleted    = "[ ${count} ](bold fg:{{ .git.color.status.deleted }})"
+up_to_date = "[ ](fg:{{ .git.color.status.up_to_date}})"
 
 # ref: https://starship.rs/config/#git-state
 [git_state]
@@ -258,20 +258,20 @@ cherry_pick = '[ PICKING](bold red)'
 
 # ref: https://starship.rs/config/#git-branch
 [git_branch]
-style  = "fg:{{ .starship.git.branch.fg_color }} bg:{{ .starship.git.branch.bg_color}}"
+style  = "underline fg:{{ .git.color.branch.fg_color }} bg:{{ .git.color.branch.bg_color}}"
 format = "[$symbol $branch(:$remote_branch) ]($style)"
 symbol = ""
 
 # ref: https://starship.rs/config/#git-metrics
 [git_metrics]
 disabled      = false
-added_style   = "fg:{{ .starship.git.metrics.added }}"
-deleted_style = "fg:{{ .starship.git.metrics.deleted }}"
-format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:{{ .starship.git.metrics.fg_color }})"
+added_style   = "fg:{{ .git.color.line.add }}"
+deleted_style = "fg:{{ .git.color.line.delete }}"
+format        = "([+$added]($added_style)/[-$deleted]($deleted_style))[ ](fg:{{ .git.color.line.fg_color }})"
 
 # ref: https://starship.rs/config/#git-commit
 [git_commit]
-style = "bg:{{ .starship.git.commit.bg_color }}"
+style = "bg:{{ .git.color.commit.bg_color }}"
 commit_hash_length = 7
 
 #-------------------------------------------------
