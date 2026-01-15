@@ -45,6 +45,21 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Terminal buffer keymap
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group    = vim.api.nvim_create_augroup("TerminalCustomGroup", { clear = true }),
+  pattern  = { "terminal", "snacks_terminal", "sidekick_terminal" },
+  callback = function(ev)
+    -- Defer to ensure overriding default keymaps
+    vim.schedule(function()
+      require("which-key").add({
+        { "<ESC>", "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
+        { "jj",    "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
+      })
+    end)
+  end,
+})
+
 local cursor_grp = augroup("CustomCursor")
 -- Enable cursorcolumn automatically
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
