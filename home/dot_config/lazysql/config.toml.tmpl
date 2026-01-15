@@ -1,0 +1,32 @@
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
+# -*-mode:toml-*- vim:ft=toml
+
+[application]
+DefaultPageSize = 300
+DisableSidebar = false
+SidebarOverlay = false
+MaxQueryHistoryPerConnection = 100
+
+# [[database]]
+# Name     = "Development Database"
+# Provider = "postgres"
+# DBName   = "foo"
+# URL      = "postgres://${user}:urlencodedpassword@localhost:${port}/foo"
+# URL      = "${DB_LOCAL_PG}"
+# Commands = []
+
+# [[database]]
+# Name     = "Production Database"
+# Provider = "postgres"
+# DBName   = "foo"
+# URL      = "postgres://${user}:urlencodedpassword@localhost:${port}/foo"
+# URL      = "${DB_LOCAL_PG}"
+# Commands = []
+
+# [[database]]
+# Name     = "Edge Database"
+# Provider = "sqlite"
+# URL      = "${DB_LOCAL_PG}"
+# Commands = []
