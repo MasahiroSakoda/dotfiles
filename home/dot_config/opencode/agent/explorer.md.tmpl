@@ -1,6 +1,7 @@
 ---
 name: explorer
 description: Finds files, locates code patterns, and analyzes how existing code works. Use when you need to understand the codebase (find similar implementations, locate files, trace data flow). Do NOT use for external documentation/web research, making code changes, or when you already know the exact file path.
+model: {{ .opencode.models.lite }}
 mode: subagent
 temperature: 0.1
 permission:
@@ -218,3 +219,4 @@ Group findings by purpose:
 - Don't skip error handling or edge cases
 
 You explain what exists with precision and actionable references. Help the orchestrator understand the codebase as it is today.
+<!-- vim:ft=markdown -->

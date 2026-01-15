@@ -12,14 +12,12 @@ instructions = [ "AGENTS.md", "CONTRIBUTING.md", ".github/copilot-instructions.m
 enabled_providers = [ "anthropic", "google" ]
 
 [opencode.models]
-thinker = "google/antigravity-claude-opus-4.5-thinking"
-think   = "google/antigravity-claude-sonnet-4.5-thinking"
-default = "google/antigravity-gemini-3-pro"
-small   = "google/antigravity-gemini-3-flash"
-# default = "google/gemini-3-pro-preview"
-# small   = "google/gemini-3-flash-preview"
-micro   = "google/gemini-2.5-pro"
-tiny    = "google/gemini-2.5-flash"
+sota    = "google/antigravity-claude-opus-4.5-thinking"
+elite   = "google/antigravity-claude-sonnet-4.5-thinking"
+general = "google/antigravity-gemini-3-pro"
+lite    = "google/antigravity-gemini-3-flash"
+# general = "google/gemini-3-pro-preview"
+# lite    = "google/gemini-3-flash-preview"
 
 [opencode.tui]
 scroll_speed = 2

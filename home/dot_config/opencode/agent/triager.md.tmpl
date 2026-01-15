@@ -1,6 +1,7 @@
 ---
 name: triager
 description: GitHub issues triage agent for managing backlog, categorize issue, and prioritizing work
+model: {{ .opencode.models.lite }}
 mode: subagent
 temperature: 0.1
 permission:
@@ -121,3 +122,4 @@ permission:
 
 ## Available Tools
 - **GitHub CLI**: `gh issue list`, `gh issue view`, `gh issue status`
+<!-- vim:ft=markdown -->
