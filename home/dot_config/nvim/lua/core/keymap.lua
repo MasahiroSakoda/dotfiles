@@ -380,10 +380,10 @@ if not is_vscode then
     { "<Leader>aa", "<CMD>Sidekick cli toggle name=opencode focus=true<CR>", icon = " ", desc = " OpenCode" },
     { "<Leader>ag", "<CMD>Sidekick cli toggle name=gemini focus=true<CR>",   icon = " ", desc = " Gemini CLI" },
 
-    { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send This" },
+    { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send Line" },
     { "<Leader>av", "<CMD>Sidekick cli send msg='{selection}'<CR>",  mode = nx,icon = "󰞷 ",desc = " Send Selection" },
     { "<Leader>af", "<CMD>Sidekick cli send msg='{file}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send File" },
-    { "<Leader>ad", "<CMD>Sidekcik cli send msg='{diagnostics}'<CR>",mode = nx,icon = " ", desc = " Send diagnostics" },
+    { "<Leader>ad", "<CMD>Sidekick cli send msg='{diagnostics}'<CR>",mode = nx,icon = " ", desc = " Send diagnostics" },
   })
 end
 
