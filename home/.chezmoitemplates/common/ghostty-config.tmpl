@@ -92,8 +92,14 @@ font-thicken-strength = 1
 
 ## Keymap: `ghostty +list-keybinds`
 keybind = shift+enter=text:\n
-keybind = super+backspace=text:\x15
-keybind = option+backspace=text:\x1b\x7f
+keybind = super+left=text:\x1b[H         # Jump to start of line
+keybind = super+right=text:\x1b[F        # Jump to end of line
+keybind = super+backspace=text:\x15      # Delete to start of line
+keybind = option+backspace=text:\x1b\x7f # Delete all
+keybind = ctrl+comma=text:\x1b[44;5u     # Ctrl + ,
+keybind = ctrl+period=text:\x1b[46;5u    # Ctrl + .
+keybind = ctrl+slash=text:\x1b[59;5u     # Ctrl + /
+keybind = ctrl+semicolon=text:\x1b[59;5u # Ctrl + ;
 
 ### See actions: `ghostty +list-actions`
 ### See: https://ghostty.org/docs/config/keybind/reference
