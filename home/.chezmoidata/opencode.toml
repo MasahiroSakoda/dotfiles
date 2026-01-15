@@ -220,7 +220,14 @@ external_directory = "ask"
 "gh api * --method PATCH*"  = "ask"
 "gh api * --method DELETE*" = "ask"
 
-# Providers
+[opencode.antigravity]
+quiet_mode     = false
+debug          = false
+keep_thinking  = false
+quota_fallback = true
+account_selection_strategy = "sticky" # "sticky"|"round-robin"|"hybrid"
+
+# Provider
 [opencode.providers.ollama]
 name    = "Ollama (Local)"
 npm     = "@ai-sdk/openai-compatible"
