@@ -50,8 +50,9 @@ return {
         ["<c-t>"] = { "edit_tab",            mode = { "i", "n" } },
         ["<c-i>"] = { "toggle_focus",        mode = { "i", "n" } },
 
-        ["<a-s>"] = { "flash",    mode = { "n", "i" } },
         ["s"]     = { "flash" },
+        ["<a-s>"] = { "flash",         mode = { "n", "i" } },
+        ["<a-a>"] = { "sidekick_send", mode = { "n", "i" } },
       },
     },
     list = {
@@ -80,6 +81,9 @@ return {
         },
         action = function(match) picker.list:_move(picker.list:row2idx(match.pos[1]), true, true) end,
       })
+    end,
+    sidekick_send = function(...)
+      return require("sidekick.cli.picker.snacks").send(...)
     end,
   },
 
