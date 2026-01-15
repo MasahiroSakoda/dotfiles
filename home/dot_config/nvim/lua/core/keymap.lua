@@ -256,7 +256,7 @@ if not is_vscode then
     { "<Leader>gpR", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
 
     {
-      "<Leader>gD",
+      "<Leader>gpd",
       "<CMD>lua vim.ui.input({prompt='Number:'},function(i) Snacks.picker.gh_diff({pr=assert(tonumber(i))}) end)<CR>",
       icon = " ",
       desc = " View PR diff w/ number",
