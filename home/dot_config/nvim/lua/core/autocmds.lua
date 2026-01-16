@@ -48,13 +48,13 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Terminal buffer keymap
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group    = vim.api.nvim_create_augroup("TerminalCustomGroup", { clear = true }),
-  pattern  = { "terminal", "snacks_terminal", "sidekick_terminal" },
+  pattern  = { "sidekick_terminal" },
   callback = function(ev)
     -- Defer to ensure overriding default keymaps
     vim.schedule(function()
       require("which-key").add({
-        { "jj",    "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
-        { "kk",    "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
+        { "jj", "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
+        { "kk", "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
       })
     end)
   end,
