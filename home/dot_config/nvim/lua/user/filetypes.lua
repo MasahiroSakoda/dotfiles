@@ -3,6 +3,7 @@ local Filetypes = {}
 Filetypes.log  = { "log", "txt", "text" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
+Filetypes.yaml     = { "yml", "yaml" }
 
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
