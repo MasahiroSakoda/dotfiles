@@ -32,7 +32,7 @@ return {
   { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("user.treesitter.matchup") end },
   {
     "numToStr/Comment.nvim",
-    event  = { "VeryLazy" },
+    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter.comment") end,
   },
   {
