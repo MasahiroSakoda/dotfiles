@@ -27,7 +27,7 @@ return {
   {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
-    event  = "VeryLazy",
+    event  = { "BufReadPost", "BufNewFile" },
     init   = function() require("ui.flash") end,
     config = function() require("user.flash") end,
   },
@@ -44,7 +44,7 @@ return {
   {
     "kylechui/nvim-surround",
     version = "^3.0.0",
-    event   = "VeryLazy",
+    event   = { "BufReadPost", "BufNewFile" },
     config  = function() require("user.surround") end,
   },
   -- Quickfix

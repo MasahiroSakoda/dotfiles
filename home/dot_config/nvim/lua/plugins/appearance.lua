@@ -21,7 +21,7 @@ return {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
-    event  = { "VeryLazy" },
+    event  = { "BufReadPost", "BufNewFile" },
     config = function() require("ui.bufferline") end,
   },
   {
