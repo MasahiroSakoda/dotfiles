@@ -17,6 +17,9 @@ sidekick.setup({
 
     ---@class sidekick.win.Opts
     win = {
+      layout = "right",
+      split = { width = 120, height = 25 },
+
       ---@type table<string, sidekick.cli.Keymap|false>
       keys = {
         buffers       = { "<c-b>", "buffers"   , mode = "nt", desc = "open buffer picker" },
@@ -25,7 +28,7 @@ sidekick.setup({
         hide_ctrl_q   = { "<c-q>", "hide"      , mode = "n" , desc = "hide the terminal window" },
         hide_ctrl_dot = { "<c-.>", "hide"      , mode = "nt", desc = "hide the terminal window" },
         hide_ctrl_z   = { "<c-z>", "hide"      , mode = "nt", desc = "hide the terminal window" },
-        prompt        = { "<c-p>", "prompt"    , mode = "t" , desc = "insert prompt or context" },
+        prompt        = { "<c-,>", "prompt"    , mode = "t" , desc = "insert prompt or context" },
         stopinsert    = { "<c-q>", "stopinsert", mode = "t" , desc = "enter normal mode" },
         -- Navigate windows in terminal mode. Only active when:
         -- * layout is not "float"
