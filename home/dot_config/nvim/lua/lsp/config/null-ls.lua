@@ -119,6 +119,12 @@ nl.setup({
       extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
     }),
 
+    -- YAML
+    formatting.yamlfmt.with({
+      filetypes  = filetypes.yaml,
+      extra_args = { "-formatter", "retain_line_breaks_single=true" },
+    }),
+
     --SQL
     diagnostics.sqruff.with({
       filetypes = { "sql", "mysql" },
