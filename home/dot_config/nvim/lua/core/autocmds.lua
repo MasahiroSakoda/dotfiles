@@ -13,9 +13,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd("BufWritePre", { group = augroup("TrailStripper"), command = ":%s/\\n\\+\\%$//e" })
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group   = augroup("Checktime"),
-  command = "checktime",
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  group    = augroup("ReloadBufferGroup"),
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
 })
 
 -- Highlight URL
@@ -182,6 +186,33 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
   callback = function(ev)
     if ls.in_snippet() then
       vim.diagnostic.enable(true, { bufnr = ev.buf })
+    end
+  end,
+})
+
+-- Automatic toggle relative number with mode
+-- Enable relative number in insert mode
+local line_number_group = augroup("CustomLineNumber")
+vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+  group = line_number_group,
+  callback = function(_)
+    if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, "i") then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+
+-- Disable relative number in insert mode
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
+  group = line_number_group,
+  callback = function(ev)
+    if vim.wo.nu then
+      vim.wo.relativenumber = false
+    end
+    if ev.event == 'CmdlineEnter' then
+      if not vim.tbl_contains({ "@", "-" }, vim.v.event.cmdtype) then
+        vim.cmd.redraw()
+      end
     end
   end,
 })
