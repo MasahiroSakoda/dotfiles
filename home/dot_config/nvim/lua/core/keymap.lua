@@ -456,7 +456,6 @@ if not is_vscode then
     { "\\c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
     { "\\D", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
     { "\\h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "\\l", "<CMD>lua Snacks.toggle.line_number():toggle()<CR>", icon = " ", desc = " Line Number" },
     { "\\i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
     { "\\t", "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
