@@ -34,9 +34,11 @@ return {
     files = { hidden = true },
     smart = { hidden = true, filter = { cwd = true } },
     grep  = { hidden = true },
-    snippets = require("user.snacks.picker.snippets"),
-    gh_issue = {},
-    gh_pr = {},
+    snippets   = require("user.snacks.picker.snippets"),
+    git_status = require("user.snacks.picker.git_status"),
+    git_diff   = require("user.snacks.picker.git_diff"),
+    gh_issue   = {},
+    gh_pr      = {},
   },
 
   win = {
