@@ -240,8 +240,7 @@ if not is_vscode then
     { "<Leader>gs", "<CMD>lua Snacks.picker.git_status()<CR>",            icon = " ", desc = " Git Status" },
     { "<Leader>gS", "<CMD>lua Snacks.picker.git_stash()<CR>",             icon = " ", desc = " Git Stash" },
     { "<Leader>gl", "<CMD>lua Snacks.picker.git_log()<CR>",               icon = " ", desc = " Commit Log" },
-    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff()<CR>",              icon = " ", desc = " Diff (origin)" },
-    { "<Leader>gD", "<CMD>lua Snacks.picker.git_diff({staged=true})<CR>", icon = " ", desc = " Diff (staged)" },
+    { "<Leader>gd", "<CMD>lua Snacks.picker.git_diff({staged=true})<CR>", icon = " ", desc = " Diff (staged)" },
     { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>",          icon = " ", desc = " View branches" },
 
     -- GitHub
@@ -360,10 +359,16 @@ wk.add({
   { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
   { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
 
-  { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",    mode = nt, icon = " ", desc = " Toggle GitUI" },
-  { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",      mode = nt, icon = " ", desc = " Toggle tig" },
-  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>",  mode = nt, icon = " ", desc = " Toggle gh-dash" },
-  { "<Leader>ghg", "<CMD>lua Snacks.terminal('gh graph')<CR>", mode = nt, icon = " ", desc = " Toggle gh graph" },
+  { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",   mode = nt, icon = " ", desc = " Toggle GitUI" },
+  { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",     mode = nt, icon = " ", desc = " Toggle tig" },
+  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>", mode = nt, icon = " ", desc = " Toggle gh-dash" },
+  {
+    "<Leader>gC",
+    "<CMD>lua Snacks.terminal('git status --verbose; cz')<CR>",
+    mode = nt,
+    icon = " ",
+    desc = " Commitizen",
+  },
 }, opts)
 
 ---------------------------------------------------------------------------
