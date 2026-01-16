@@ -13,9 +13,13 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd("BufWritePre", { group = augroup("TrailStripper"), command = ":%s/\\n\\+\\%$//e" })
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  group   = augroup("Checktime"),
-  command = "checktime",
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  group    = augroup("ReloadBufferGroup"),
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
 })
 
 -- Highlight URL
