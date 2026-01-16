@@ -362,6 +362,7 @@ wk.add({
 
   { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",    mode = nt, icon = " ", desc = " Toggle GitUI" },
   { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",      mode = nt, icon = " ", desc = " Toggle tig" },
+  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>",  mode = nt, icon = " ", desc = " Toggle gh-dash" },
 }, opts)
 
 ---------------------------------------------------------------------------
