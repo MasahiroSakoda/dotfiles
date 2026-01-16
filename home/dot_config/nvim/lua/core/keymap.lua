@@ -360,7 +360,10 @@ wk.add({
   { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
   { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
 
-  { "<Leader>gg", "<CMD>lua Snacks.lazygit()<CR>", mode = nt, icon = " ", desc = " Toggle lazygit" },
+  { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",    mode = nt, icon = " ", desc = " Toggle GitUI" },
+  { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",      mode = nt, icon = " ", desc = " Toggle tig" },
+  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>",  mode = nt, icon = " ", desc = " Toggle gh-dash" },
+  { "<Leader>ghg", "<CMD>lua Snacks.terminal('gh graph')<CR>", mode = nt, icon = " ", desc = " Toggle gh graph" },
 }, opts)
 
 ---------------------------------------------------------------------------
