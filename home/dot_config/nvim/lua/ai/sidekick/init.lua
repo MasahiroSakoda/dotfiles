@@ -17,6 +17,9 @@ sidekick.setup({
 
     ---@class sidekick.win.Opts
     win = {
+      layout = "right",
+      split = { width = 120, height = 25 },
+
       ---@type table<string, sidekick.cli.Keymap|false>
       keys = {
         buffers       = { "<c-b>", "buffers"   , mode = "nt", desc = "open buffer picker" },
