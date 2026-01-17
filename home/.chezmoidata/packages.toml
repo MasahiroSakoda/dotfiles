@@ -29,7 +29,6 @@ devops = [ "terraform", "awscli", "azure-cli" ]
 update = [ "topgrade" ]
 
 [packages.cask]
-tap = [ "Homebrew/services" ]
 maintenance = [ "onyx", "appcleaner" ]
 language    = [ "monolingual" ]
 dictionary  = []
