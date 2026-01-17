@@ -1,7 +1,6 @@
 # -*-mode:ruby-*- vim:ft=ruby.gotexttmpl
 
 # Homebrew
-tap "Homebrew/bundle"
 
 ## GNU
 {{- range .packages.brew.core | uniq }}
@@ -41,11 +40,6 @@ brew {{ . | quote }}
 
 ## Version Control
 {{- range .packages.brew.vcs | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
-## Rust
-{{- range .packages.brew.rust | uniq }}
 brew {{ . | quote }}
 {{- end }}
 

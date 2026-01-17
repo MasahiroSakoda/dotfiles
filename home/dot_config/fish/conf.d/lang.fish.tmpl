@@ -6,7 +6,10 @@ set -gx ZSH_HISTORY_FILE "XDG_STATE_HOME/zsh_history"
 
 # Rust
 set -gx RUST_BACKTRACE full
-set -gx CARGO_HOME "{{ .chezmoi.homeDir }}/.cargo"
+set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
+set -gx CARGO_HOME "$XDG_DATA_HOME/cargo"
+set -gx MISE_RUSTUP_HOME $RUSTUP_HOME
+set -gx MISE_CARGO_HOME $CARGO_HOME
 
 if test -d $CARGO_HOME/bin
   fish_add_path $CARGO_HOME/bin

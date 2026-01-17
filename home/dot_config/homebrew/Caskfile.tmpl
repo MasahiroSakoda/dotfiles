@@ -1,9 +1,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 
 # Homwbrew Cask
-{{- range .packages.cask.tap | uniq }}
-tap {{ . | quote }}
-{{- end }}
 
 ## Install directory for Homebrew Cask
 cask_args appdir: "~/Applications"
