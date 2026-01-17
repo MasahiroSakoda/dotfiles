@@ -1,10 +1,6 @@
 # -*-mode:toml-*- vim:ft=toml
 
 [packages]
-npm    = [ "neovim", "commitizen", "cz-conventional-changelog", "npm-check-updates", "mcp-hub", "@google/gemini-cli" ]
-go     = []
-python = [ "mcp-cli", "mcp-server-time", "mcp-server-git", "mcp-server-fetch", "mcp-server-docker", "markitdown-mcp" ]
-gem    = []
 
 [packages.brew]
 core  = [ "gnutls", "coreutils" ]
