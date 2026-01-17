@@ -43,11 +43,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-## Rust
-{{- range .packages.brew.rust | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 ## Lua
 {{- range .packages.brew.lua | uniq }}
 brew {{ . | quote }}
