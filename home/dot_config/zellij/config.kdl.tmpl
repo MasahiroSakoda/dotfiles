@@ -29,8 +29,8 @@ plugins {
         hide_in_base_mode false // default
     }
     autolock  location="file:$XDG_DATA_HOME/zellij/plugins/zellij-autolock.wasm" {
-        // Lock when any open these programs open.
-        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        triggers       "nvim|vim"         // Lock when any open these programs open.
+        watch_triggers "fzf|zoxide|atuin" // Lock when any of these open and monitor until closed.
         // Reaction to input occurs after this many seconds. (default=0.3)
         // (An existing scheduled reaction prevents additional reactions.)
         reaction_seconds "0.3"
