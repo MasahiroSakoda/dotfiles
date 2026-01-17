@@ -47,6 +47,13 @@ env = {}
 
 # Third-Party MCP servers
 
+# grep.app
+[mcp.providers.grep_app]
+enabled = true
+type = "remote"
+url = "https://mcp.grep.app"
+env = {}
+
 # Up-to-date code documentation for LLMs and AI code editors
 # https://github.com/upstash/context7
 [mcp.providers.context7]
@@ -72,6 +79,13 @@ enabled = true
 type    = "stdio"
 command = "pnpm"
 args = ["dlx", "chrome-devtools-mcp@latest"]
+env = {}
+
+[mcp.providers.playwright-mcp]
+enabled = true
+type    = "stdio"
+command = "pnpm"
+args = ["dlx", "@playwright/mcp@latest"]
 env = {}
 
 # A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server & other integrations)
