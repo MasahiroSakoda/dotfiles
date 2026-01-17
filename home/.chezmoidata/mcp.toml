@@ -81,6 +81,13 @@ command = "pnpm"
 args = ["dlx", "chrome-devtools-mcp@latest"]
 env = {}
 
+[mcp.providers.playwright-mcp]
+enabled = true
+type    = "stdio"
+command = "pnpm"
+args = ["dlx", "@playwright/mcp@latest"]
+env = {}
+
 # A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server & other integrations)
 # https://oraios.github.io/serena
 [mcp.providers.serena]
