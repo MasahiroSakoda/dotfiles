@@ -59,6 +59,11 @@ load_plugins {
 //
 // on_force_close "quit"
 
+// Whether to show tips on startup
+// Default: true
+//
+show_startup_tips false
+
 //  Send a request for a simplified ui (without arrow fonts) to plugins
 //  Options:
 //    - true
@@ -208,3 +213,11 @@ scrollback_editor "{{ .brew_prefix }}/bin/nvim"
 // Default: true
 //
 // styled_underlines false
+
+// Web Server
+web_server false                                        // always start the web server on Zellij startup (default: false)
+web_server_ip "0.0.0.0"                                 // the IP to listen on, 0.0.0.0 is all (default: 127.0.0.1)
+web_server_port 443                                     // the port to listen on (default: 8082)
+web_server_cert "localhost.pem"    // SSL certificate
+web_server_key "localhost-key.pem" // SSL private key
+enforce_https_on_localhost true                         // whether to enforce an https certificate being present also when listening on localhost (default: false)
