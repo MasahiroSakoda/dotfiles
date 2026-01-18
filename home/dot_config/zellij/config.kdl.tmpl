@@ -16,6 +16,13 @@ plugins {
     }
 
     // Additional Plugins
+    zjstatus location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm"
+    zjframes location="file:$XDG_DATA_HOME/zellij/plugins/zjframes.wasm" {
+        hide_frame_for_single_pane       "false"
+        hide_frame_except_for_search     "true"
+        hide_frame_except_for_scroll     "true"
+        hide_frame_except_for_fullscreen "true"
+    }
     zjstatus-hints location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus-hints.wasm" {
         // Maximum number of characters to display
         max_length 0 // 0 = unlimited
@@ -36,19 +43,14 @@ plugins {
         reaction_seconds "0.3"
     }
     forgot    location="file:$XDG_DATA_HOME/zellij/plugins/zellij-forgot.wasm"
-    navigator location="file:$XDG_DATA_HOME/zellij/plugins/vim-zellij-navigator.wasm"
+    // navigator location="file:$XDG_DATA_HOME/zellij/plugins/vim-zellij-navigator.wasm"
 }
 
 load_plugins {
-  autolock
-  zjstatus-hints
-  "file:$XDG_DATA_HOME/zellij/plugins/zjframes.wasm" {
-    hide_frame_for_single_pane       "true"
-    hide_frame_except_for_search     "true"
-    hide_frame_except_for_scroll     "true"
-    hide_frame_except_for_fullscreen "true"
-  }
-  navigator
+    autolock
+    zjframes
+    // zjstatus-hints
+    // navigator
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
