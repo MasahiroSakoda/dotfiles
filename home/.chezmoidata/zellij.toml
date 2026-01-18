@@ -1,45 +1,16 @@
 # -*-mode:toml-*- vim:ft=toml
 
-[zellij.mode]
-fg = "#1A1B26"
-bg = "#383E5A"
-
-[zellij.locked]
-bg = "red"
-
-[zellij.normal]
-bg = "blue"
-
-[zellij.resize]
-bg = "magenta"
-
-[zellij.scroll]
-bg = "cyan"
-
-[zellij.pane.normal]
-fg = "black"
-bg = "magenta"
-
-[zellij.pane.rename]
-fg = "white"
-bg = "magenta"
-
-[zellij.session]
-bg = "yellow"
-
-[zellij.tmux]
-bg = "yellow"
-
-[zellij.tab.normal]
-fg = "#A9B1D6"
-bg = "green"
-
-[zellij.tab.active]
-fg = "green"
-
-[zellij.tab.rename]
-bg = "green"
-
-[zellij.tab.separator]
-fg = "grey"
-bg = "purple"
+[zellij.colors]
+fg      = "#a0a8b7"
+bg      = "#282c34"
+black   = "#0e1013"
+grey    = "#535965"
+white   = "#f0f0f0"
+red     = "#e55561"
+orange  = "#cc9057"
+yellow  = "#e2b86b"
+green   = "#8ebd6b"
+blue    = "#4fa6ed"
+cyan    = "#48b0bd"
+purple  = "#bf68d9"
+magenta = "#a626a4"
