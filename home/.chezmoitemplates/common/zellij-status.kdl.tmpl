@@ -2,7 +2,7 @@
 // -*-mode:kdl-*- vim:ft=kdl.gotexttmpl
 */ -}}
 
-    plugin location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm" {
+    plugin location="zjstatus" {
         {{- $colors := .zellij.colors }}
         format_left  "{mode}#[fg=blue,bg={{ $colors.bg }},bold]  {session} #[fg={{ $colors.bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
         format_center "{notifications}"
