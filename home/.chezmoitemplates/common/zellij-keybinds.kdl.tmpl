@@ -154,9 +154,7 @@ keybinds clear-defaults=true {
         bind "Ctrl c" { SwitchToMode "Normal"; }
     }
 
-    shared_except "locked" {
-        bind "Ctrl ;" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
+    shared_among "normal" "locked" {
         bind "Alt h" "Alt Left"  { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt j" "Alt Down"  { MoveFocus "Down"; }
@@ -167,6 +165,11 @@ keybinds clear-defaults=true {
         bind "Alt t" { NewTab;          SwitchToMode "Normal"; }
         bind "Alt d" { NewPane "right"; SwitchToMode "Normal"; }
         bind "Alt D" { NewPane "down";  SwitchToMode "Normal"; }
+    }
+
+    shared_except "locked" {
+        bind "Ctrl ;" { SwitchToMode "Locked"; }
+        bind "Ctrl q" { Quit; }
 
         bind "Ctrl y" {
             LaunchOrFocusPlugin "file:/$XDG_DATA_HOME/zellij/plugins/zellij-forgot.wasm" {
