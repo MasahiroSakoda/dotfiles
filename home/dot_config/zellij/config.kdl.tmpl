@@ -16,6 +16,13 @@ plugins {
     }
 
     // Additional Plugins
+    zjstatus location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus.wasm"
+    zjframes location="file:$XDG_DATA_HOME/zellij/plugins/zjframes.wasm" {
+        hide_frame_for_single_pane       "false"
+        hide_frame_except_for_search     "true"
+        hide_frame_except_for_scroll     "true"
+        hide_frame_except_for_fullscreen "true"
+    }
     zjstatus-hints location="file:$XDG_DATA_HOME/zellij/plugins/zjstatus-hints.wasm" {
         // Maximum number of characters to display
         max_length 0 // 0 = unlimited
@@ -29,26 +36,19 @@ plugins {
         hide_in_base_mode false // default
     }
     autolock  location="file:$XDG_DATA_HOME/zellij/plugins/zellij-autolock.wasm" {
-        // Lock when any open these programs open.
-        triggers "nvim|vim|git|fzf|zoxide|atuin"
+        triggers       "nvim|vim"         // Lock when any open these programs open.
+        watch_triggers "fzf|zoxide|atuin" // Lock when any of these open and monitor until closed.
         // Reaction to input occurs after this many seconds. (default=0.3)
         // (An existing scheduled reaction prevents additional reactions.)
         reaction_seconds "0.3"
     }
     forgot    location="file:$XDG_DATA_HOME/zellij/plugins/zellij-forgot.wasm"
-    navigator location="file:$XDG_DATA_HOME/zellij/plugins/vim-zellij-navigator.wasm"
 }
 
 load_plugins {
-  autolock
-  zjstatus-hints
-  "file:$XDG_DATA_HOME/zellij/plugins/zjframes.wasm" {
-    hide_frame_for_single_pane       "true"
-    hide_frame_except_for_search     "true"
-    hide_frame_except_for_scroll     "true"
-    hide_frame_except_for_fullscreen "true"
-  }
-  navigator
+    // autolock
+    zjframes
+    zjstatus-hints
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -58,6 +58,16 @@ load_plugins {
 //   - quit
 //
 // on_force_close "quit"
+
+// Whether to show tips on startup
+// Default: true
+//
+show_startup_tips false
+
+// Whether to show release notes on first version run
+// Default: true
+//
+show_release_notes true
 
 //  Send a request for a simplified ui (without arrow fonts) to plugins
 //  Options:
@@ -80,7 +90,7 @@ default_shell {{ .shell | quote }}
 //   - true (default)
 //   - false
 //
-// pane_frames true
+pane_frames false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -142,7 +152,7 @@ default_layout "default"
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-// default_mode "locked"
+default_mode "locked"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
@@ -208,3 +218,11 @@ scrollback_editor "{{ .brew_prefix }}/bin/nvim"
 // Default: true
 //
 // styled_underlines false
+
+// Web Server
+web_server false                                        // always start the web server on Zellij startup (default: false)
+web_server_ip "0.0.0.0"                                 // the IP to listen on, 0.0.0.0 is all (default: 127.0.0.1)
+web_server_port 443                                     // the port to listen on (default: 8082)
+web_server_cert "localhost.pem"    // SSL certificate
+web_server_key "localhost-key.pem" // SSL private key
+enforce_https_on_localhost true                         // whether to enforce an https certificate being present also when listening on localhost (default: false)
