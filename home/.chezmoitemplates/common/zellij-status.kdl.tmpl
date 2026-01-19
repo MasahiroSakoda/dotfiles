@@ -5,8 +5,8 @@
     plugin location="zjstatus" {
         {{- $colors := .zellij.colors }}
         format_left  "{mode}#[fg=blue,bg={{ $colors.bg }},bold]  {session} #[fg={{ $colors.bg }},bg=bg] #[fg=white,bg=fg]󰓩  {tabs}"
-        format_center "{notifications}"
-        format_right  "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
+        format_center "{notifications} {pipe_zjstatus_hints}"
+        format_right  "#[fg=blue,bg=bg]{datetime}"
         format_space  "#[bg=fg]"
 
         // Borders
