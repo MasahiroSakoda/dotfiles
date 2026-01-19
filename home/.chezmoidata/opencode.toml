@@ -225,7 +225,7 @@ quiet_mode     = false
 debug          = false
 keep_thinking  = false
 quota_fallback = true
-account_selection_strategy = "sticky" # "sticky"|"round-robin"|"hybrid"
+account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
 [opencode.providers.ollama]
