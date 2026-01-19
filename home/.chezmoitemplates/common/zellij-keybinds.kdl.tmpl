@@ -13,7 +13,7 @@ keybinds clear-defaults=true {
     }
 
     resize {
-        bind "Ctrl n"    { SwitchToMode "Normal"; }
+        bind "n"         { SwitchToMode "Normal"; }
         bind "h" "Left"  { Resize "Increase Left"; }
         bind "l" "Right" { Resize "Increase Right"; }
         bind "k" "Up"    { Resize "Increase Up"; }
@@ -27,7 +27,7 @@ keybinds clear-defaults=true {
     }
 
     pane {
-        bind "Ctrl p"    { SwitchToMode "Normal"; }
+        bind "p"         { SwitchToMode "Normal"; }
         bind "c"         { SwitchToMode "RenamePane"; PaneNameInput 0; }
         bind "h" "Left"  { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
@@ -44,11 +44,11 @@ keybinds clear-defaults=true {
         bind "w"         { ToggleFloatingPanes;       SwitchToMode "Normal"; }
         bind "e"         { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "i"         { TogglePanePinned;          SwitchToMode "Normal"; }
-        bind "p"         { SwitchFocus; }
+        bind ";"         { SwitchFocus; }
     }
 
     move {
-        bind "Ctrl m" { SwitchToMode "Normal"; }
+        bind "m"      { SwitchToMode "Normal"; }
         bind "Left"   { MovePane "Left"; }
         bind "Right"  { MovePane "Right"; }
         bind "Up"     { MovePane "Up"; }
@@ -63,7 +63,7 @@ keybinds clear-defaults=true {
     }
 
     tab {
-        bind "Ctrl t" { SwitchToMode "Normal"; }
+        bind "t"      { SwitchToMode "Normal"; }
         bind "r"      { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "Tab"    { ToggleTab; }
         bind "n"      { NewTab;   SwitchToMode "Normal"; }
@@ -86,15 +86,15 @@ keybinds clear-defaults=true {
     }
 
     scroll {
-        bind "Ctrl s"   { SwitchToMode "Normal"; }
+        bind "s"        { SwitchToMode "Normal"; }
         bind "e"        { EditScrollback; SwitchToMode "Normal"; }
-        bind "s"        { SwitchToMode "EnterSearch"; SearchInput 0; }
+        bind "/"        { SwitchToMode "EnterSearch"; SearchInput 0; }
         bind "k" "Up"   { ScrollUp; }
         bind "j" "Down" { ScrollDown; }
     }
 
     search {
-        bind "Ctrl s" { SwitchToMode "Normal"; }
+        bind "s"      { SwitchToMode "Normal"; }
         bind "c"      { SearchToggleOption "CaseSensitivity"; }
         bind "w"      { SearchToggleOption "Wrap"; }
         bind "o"      { SearchToggleOption "WholeWord"; }
@@ -116,8 +116,8 @@ keybinds clear-defaults=true {
     }
 
     session {
-        bind "Ctrl o" { SwitchToMode "Normal"; }
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "o" { SwitchToMode "Normal"; }
+        bind "s" { SwitchToMode "Scroll"; }
         bind "d" { Detach; }
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
@@ -183,21 +183,21 @@ keybinds clear-defaults=true {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
     shared_except "locked" "pane" {
-        bind "Ctrl p" { SwitchToMode "Pane"; }
+        bind "p" { SwitchToMode "Pane"; }
     }
     shared_except "locked" "resize" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        bind "n" { SwitchToMode "Resize"; }
     }
     shared_except "locked" "scroll" {
-        bind "Ctrl s" { SwitchToMode "Scroll"; }
+        bind "s" { SwitchToMode "Scroll"; }
     }
     shared_except "locked" "session" {
-        bind "Ctrl o" { SwitchToMode "Session"; }
+        bind "o" { SwitchToMode "Session"; }
     }
     shared_except "locked" "tab" {
-        bind "Ctrl t" { SwitchToMode "Tab"; }
+        bind "t" { SwitchToMode "Tab"; }
     }
     shared_except "locked" "move" {
-        bind "Ctrl m" { SwitchToMode "Move"; }
+        bind "m" { SwitchToMode "Move"; }
     }
 }
