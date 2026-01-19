@@ -1,4 +1,6 @@
-# -*-mode:fish-*- vim:ft=fish.gotexttmpl
+{{- /*
+# -*-mode:fish-*- vim:ft=fish
+*/ -}}
 
 # Language/Locale Configuration
 set -x LANG ja_JP.UTF-8
@@ -204,12 +206,13 @@ abbr -a -- jt "just test"
 abbr -a -- jh "just help"
 
 # Zellij: zl*
-abbr -a -- zl  "zellij --layout"
-abbr -a -- zld "zellij --layout default"
-abbr -a -- zlc "zellij --layout coding"
-abbr -a -- zlj "zellij --layout jsdev"
-abbr -a -- zlm "zellij --layout monitor"
-abbr -a -- zls "zellij-session"
+abbr -a -- zj  "zellij"
+abbr -a -- zjl "zellij --layout"
+abbr -a -- zjd "zellij --layout default"
+abbr -a -- zjc "zellij --layout coding"
+abbr -a -- zjj "zellij --layout jsdev"
+abbr -a -- zjm "zellij --layout monitor"
+abbr -a -- zjs "zellij-session"
 
 # AI tools
 abbr -a -- oc  "opencode"
@@ -217,6 +220,9 @@ abbr -a -- occ "opencode --continue"
 abbr -a -- ocs "opencode --session"
 abbr -a -- ocw "opencode web"
 
+{{- /*
+# @fish-lsp-disable 7001
+*/ -}}
 {{ if eq .chezmoi.os "darwin" }}
 set -gx GITHUB_ACCESS_TOKEN   (security find-generic-password -s "MCP Server for GitHub" -w)
 set -gx OPENAI_API_KEY        (security find-generic-password -s "OpenAI API Key" -w)

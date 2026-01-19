@@ -148,12 +148,13 @@ abbr jt="just test"
 abbr jh="just help"
 
 # Zellij
-abbr zl="zellij --layout"
-abbr zld="zellij --layout default"
-abbr zlc="zellij --layout coding"
-abbr zlj="zellij --layout jsdev"
-abbr zlm="zellij --layout monitor"
-abbr zls="zellij-session"
+abbr zj="zellij"
+abbr zjl="zellij --layout"
+abbr zjd="zellij --layout default"
+abbr zjc="zellij --layout coding"
+abbr zjj="zellij --layout jsdev"
+abbr zjm="zellij --layout monitor"
+abbr zjs="zellij-session"
 
 # AI tools
 abbr oc="opencode"
