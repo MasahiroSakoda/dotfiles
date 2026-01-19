@@ -67,15 +67,6 @@ keybinds clear-defaults=true {
         bind "b"      { BreakPane;           SwitchToMode "Locked"; }
         bind "["      { BreakPaneLeft;       SwitchToMode "Locked"; }
         bind "]"      { BreakPaneRight;      SwitchToMode "Locked"; }
-        bind "1"      { GoToTab 1;           SwitchToMode "Locked"; }
-        bind "2"      { GoToTab 2;           SwitchToMode "Locked"; }
-        bind "3"      { GoToTab 3;           SwitchToMode "Locked"; }
-        bind "4"      { GoToTab 4;           SwitchToMode "Locked"; }
-        bind "5"      { GoToTab 5;           SwitchToMode "Locked"; }
-        bind "6"      { GoToTab 6;           SwitchToMode "Locked"; }
-        bind "7"      { GoToTab 7;           SwitchToMode "Locked"; }
-        bind "8"      { GoToTab 8;           SwitchToMode "Locked"; }
-        bind "9"      { GoToTab 9;           SwitchToMode "Locked"; }
         bind "s"      { ToggleActiveSyncTab; SwitchToMode "Locked"; }
     }
 
@@ -151,12 +142,21 @@ keybinds clear-defaults=true {
     shared_among "normal" "locked" {
         bind "Alt h" "Alt Left"  { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
-        bind "Alt j" "Alt Down"  { MoveFocus "Down"; }
-        bind "Alt k" "Alt Up"    { MoveFocus "Up"; }
+        bind "Alt j" "Alt Down"  { MoveFocusOrTab "Down"; }
+        bind "Alt k" "Alt Up"    { MoveFocusOrTab "Up"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt w" { CloseFocus;      SwitchToMode "Normal"; }
         bind "Alt t" { NewTab;          SwitchToMode "Normal"; }
+        bind "Alt 1" { GoToTab 1;       SwitchToMode "Locked"; }
+        bind "Alt 2" { GoToTab 2;       SwitchToMode "Locked"; }
+        bind "Alt 3" { GoToTab 3;       SwitchToMode "Locked"; }
+        bind "Alt 4" { GoToTab 4;       SwitchToMode "Locked"; }
+        bind "Alt 5" { GoToTab 5;       SwitchToMode "Locked"; }
+        bind "Alt 6" { GoToTab 6;       SwitchToMode "Locked"; }
+        bind "Alt 7" { GoToTab 7;       SwitchToMode "Locked"; }
+        bind "Alt 8" { GoToTab 8;       SwitchToMode "Locked"; }
+        bind "Alt 9" { GoToTab 9;       SwitchToMode "Locked"; }
         bind "Alt d" { NewPane "right"; SwitchToMode "Normal"; }
         bind "Alt D" { NewPane "down";  SwitchToMode "Normal"; }
     }
