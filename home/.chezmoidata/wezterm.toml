@@ -1,6 +1,6 @@
 # -*-mode:toml-*- vim:ft=toml
 
-[terminal.wezterm]
+[wezterm]
 themes = [
   "One Dark (Gogh)",
   "One Half Black (Gogh)",
@@ -13,10 +13,3 @@ images = [
   "daft-punk-music-black-background-helmet-wallpaper.jpg",
   "daft-punk-punk-edm-music-wallpaper.jpg",
 ]
-
-[terminal.ghostty]
-opacity = 0.85
-
-[terminal.ghostty.theme]
-light = "Builtin Solarized Light"
-dark  = "GitHub Dark"
