@@ -40,6 +40,11 @@ export MISE_RUSTUP_HOME=$RUSTUP_HOME
 export MISE_CARGO_HOME=$CARGO_HOME
 export PATH="$CARGO_HOME/bin:$PATH"
 
+## Python
+export PYTHON_PATH="{{ .brew_prefix }}/lib/python3.13"
+export PYTHON_BUILD_HTTP_CLIENT="aria2c"
+export PYTHON_BUILD_CACHE_PATH="$XDG_CACHE_HOME/pyenv"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 
 ## Ruby
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"

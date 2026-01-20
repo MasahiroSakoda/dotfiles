@@ -16,10 +16,10 @@ if test -d $CARGO_HOME/bin
 end
 
 # Python
-set -gx PYTHONPATH "{{ .brew_prefix }}/lib/python3.11"
+set -gx PYTHONPATH "{{ .brew_prefix }}/lib/python3.13"
 set -gx PYTHON_BUILD_CACHE_PATH "$HOME/.cache/pyenv"
 set -gx PYTHON_BUILD_HTTP_CLIENT "aria2c"
-set -gx PYTHON_HISTORY "$XDG_STATE_HOME/python_history"
+set -gx PYTHON_HISTORY "$XDG_STATE_HOME/python/history"
 
 {{ if eq .chezmoi.os "darwin" -}}
 set -gx PYTHON_CONFIGURE_OPTS "--enable-framework --enable-optimizations --with-lto=full --with-tcltk-includes='-I$(brew --prefix tcl-tk)/include' --with-tcltk-libs='-L$(brew --prefix tcl-tk)/lib -ltcl8.6 -ltk8.6'"
