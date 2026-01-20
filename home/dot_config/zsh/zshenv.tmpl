@@ -51,6 +51,14 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 
+## Node.js
+### pnpm
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # tmux
 export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
 export TMUX_PLUGIN_MANAGER_PATH="$XDG_DATA_HOME/tmux/plugins"
