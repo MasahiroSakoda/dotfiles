@@ -1,5 +1,16 @@
 # -*-mode:toml-*- vim:ft=toml
 
+[ghostty]
+opacity = 0.85
+
+[ghostty.background]
+opacity = 0.25
+image   = "daft-punk-music-retro-style-wallpaper.jpg"
+
+[ghostty.theme]
+light = "Builtin Solarized Light"
+dark  = "GitHub Dark"
+
 [ghostty.shader]
 enabled = false
 animate = true

@@ -6,7 +6,7 @@
 local imgdir = os.getenv("HOME") .. "/Pictures/Wallpapers/"
 
 local images = {}
-{{- range .terminal.wezterm.images }}
+{{- range .wezterm.images }}
 table.insert(images, imgdir .. {{ . | quote }})
 ---@diagnostic disable-next-line: unknown-symbol
 {{- end }}

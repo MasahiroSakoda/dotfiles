@@ -65,15 +65,15 @@ custom-shader-animation = {{ .ghostty.shader.animate }}
 ## Appearance
 ## colors: `ghostty +list-colors`
 ## See: `ghostty ++list-themes`
-theme = dark:{{ .terminal.ghostty.theme.dark | quote }},light:{{ .terminal.ghostty.theme.light | quote }}
+theme = dark:{{ .ghostty.theme.dark | quote }},light:{{ .ghostty.theme.light | quote }}
 
 ### Background
 # background-blur-radius = 20
-background-opacity = {{ .terminal.ghostty.opacity }}
+background-opacity = {{ .ghostty.opacity }}
 unfocused-split-opacity = 0.8
 
-background-image = {{ joinPath .chezmoi.homeDir "Pictures" "Wallpapers" .terminal.ghostty.background.image | quote }}
-background-image-opacity = {{ .terminal.ghostty.background.opacity }}
+background-image = {{ joinPath .chezmoi.homeDir "Pictures" "Wallpapers" .ghostty.background.image | quote }}
+background-image-opacity = {{ .ghostty.background.opacity }}
 background-image-fit = cover
 background-image-position = center
 
@@ -92,14 +92,14 @@ font-thicken-strength = 1
 
 ## Keymap: `ghostty +list-keybinds`
 keybind = shift+enter=text:\n
-keybind = super+left=text:\x1b[H         # Jump to start of line
-keybind = super+right=text:\x1b[F        # Jump to end of line
-keybind = super+backspace=text:\x15      # Delete to start of line
-keybind = option+backspace=text:\x1b\x7f # Delete all
-keybind = ctrl+comma=text:\x1b[44;5u     # Ctrl + ,
-keybind = ctrl+period=text:\x1b[46;5u    # Ctrl + .
-keybind = ctrl+slash=text:\x1b[59;5u     # Ctrl + /
-keybind = ctrl+semicolon=text:\x1b[59;5u # Ctrl + ;
+keybind = super+left=text:\x1b[H
+keybind = super+right=text:\x1b[F
+keybind = super+backspace=text:\x15
+keybind = option+backspace=text:\x1b\x7f
+keybind = ctrl+comma=text:\x1b[44;5u
+keybind = ctrl+period=text:\x1b[46;5u
+keybind = ctrl+slash=text:\x1b[59;5u
+keybind = ctrl+semicolon=text:\x1b[59;5u
 
 ### See actions: `ghostty +list-actions`
 ### See: https://ghostty.org/docs/config/keybind/reference
