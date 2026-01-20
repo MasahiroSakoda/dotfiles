@@ -38,6 +38,26 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export MISE_RUSTUP_HOME=$RUSTUP_HOME
 export MISE_CARGO_HOME=$CARGO_HOME
+export PATH="$CARGO_HOME/bin:$PATH"
+
+## Python
+export PYTHON_PATH="{{ .brew_prefix }}/lib/python3.13"
+export PYTHON_BUILD_HTTP_CLIENT="aria2c"
+export PYTHON_BUILD_CACHE_PATH="$XDG_CACHE_HOME/pyenv"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
+
+## Ruby
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+
+## Node.js
+### pnpm
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+case ":$PATH" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # tmux
 export TMUX_HOME="$XDG_CONFIG_HOME/tmux"
@@ -60,6 +80,10 @@ export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/b
 export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/build/**:$XDG_CACHE_HOME/*"
 {{- end }}
 export _ZO_FZF_OPTS="--preview 'eza --tree --long --header --color=always --group-directories-first --hyperlink {} || echo \"No Preview\"' --exit-0"
+
+# VSCode
+export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
+export VSCODE_EXTENSIONS="$VSCODE_PORTABLE/extentions"
 
 # Container
 export LIMA_HOME="$XDG_DATA_HOME/lima"
