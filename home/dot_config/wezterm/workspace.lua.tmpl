@@ -24,23 +24,11 @@ local function exists(workspace)
   return false
 end
 
----@param index integer
----@param label string
----@return fun(label: string): string
-local function format(index, label)
-  return wezterm.format({
-    Background = { Color = {{ .wezterm.workspace.default.bg | quote }}},
-    Foreground = { Color = {{ .wezterm.workspace.default.fg | quote }}},
-    Text = string.format("%07d: %s", index, label),
-  })
-end
-
 ---@return InputSelector_choices
 local function get_workspaces()
   local workspaces = {}
-  for i, workspace in ipairs(mux.get_workspace_names()) do
-    table.insert(workspaces, { id = workspace, label = format(i + 1, workspace) })
-    workspaces[workspace] = true
+  for i, name in ipairs(mux.get_workspace_names()) do
+    table.insert(workspaces, { id = name, label = string.format("%d. %s", i, name) })
   end
   return workspaces
 end
