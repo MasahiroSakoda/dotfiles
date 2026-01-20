@@ -45,42 +45,46 @@ The configuration is generated from a centralized template:
 ## ⌨️ Keybindings
 
 ### Essential
-| Key | Action |
-|-----|--------|
-| `Super + q` | Quit Ghostty |
-| `Super + k` | Clear Screen |
-| `Super + Ctrl + f` | Toggle Fullscreen |
-| `Super + c` | Copy to Clipboard |
-| `Super + v` | Paste from Clipboard |
+
+| Key                    | Action                    |
+|:-----------------------|:--------------------------|
+| `Super + q`            | Quit Ghostty              |
+| `Super + k`            | Clear Screen              |
+| `Super + Ctrl + f`     | Toggle Fullscreen         |
+| `Super + c`            | Copy to Clipboard         |
+| `Super + v`            | Paste from Clipboard      |
 | `Super + Ctrl + Enter` | Toggle **Quick Terminal** |
-| `Super + Alt + i` | Toggle Inspector |
+| `Super + Alt + i`      | Toggle Inspector          |
 
 ### Window & Splits
-| Key | Action |
-|-----|--------|
-| `Super + n` | New Window |
-| `Super + Shift + w` | Close Window |
-| `Super + d` | Split Right |
-| `Super + Shift + d` | Split Down |
-| `Super + [` / `]` | Go to Previous/Next Split |
+
+| Key                       | Action                        |
+|:--------------------------|:------------------------------|
+| `Super + n`               | New Window                    |
+| `Super + Shift + w`       | Close Window                  |
+| `Super + d`               | Split Right                   |
+| `Super + Shift + d`       | Split Down                    |
+| `Super + [` / `]`         | Go to Previous/Next Split     |
 | `Super + Shift + h/j/k/l` | Navigate Splits (Directional) |
-| `Ctrl + Left/Right` | Resize Split (Horizontal) |
-| `Ctrl + 0` | Equalize Splits |
+| `Ctrl + Left/Right`       | Resize Split (Horizontal)     |
+| `Ctrl + 0`                | Equalize Splits               |
 
 ### Tabs
-| Key | Action |
-|-----|--------|
-| `Super + t` | New Tab |
-| `Ctrl + Tab` | Next Tab |
-| `Ctrl + Shift + Tab` | Previous Tab |
-| `Super + 1..9` | Switch to Tab 1-9 |
+
+| Key                  | Action            |
+|:---------------------|:------------------|
+| `Super + t`          | New Tab           |
+| `Ctrl + Tab`         | Next Tab          |
+| `Ctrl + Shift + Tab` | Previous Tab      |
+| `Super + 1..9`       | Switch to Tab 1-9 |
 
 ### Font Scaling
-| Key | Action |
-|-----|--------|
+
+| Key         | Action        |
+|:------------|:--------------|
 | `Super + +` | Increase Size |
 | `Super + -` | Decrease Size |
-| `Super + 0` | Reset Size |
+| `Super + 0` | Reset Size    |
 
 ### Text Navigation
 Custom mappings for better shell interaction:

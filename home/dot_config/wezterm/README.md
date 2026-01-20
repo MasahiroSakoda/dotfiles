@@ -43,53 +43,53 @@ The **Leader Key** is set to `Super + ;`.
 
 ### Essential
 
-| Key | Action |
-|-----|--------|
-| `Super + q` | Quit Application |
-| `Super + Enter` | Toggle Fullscreen |
-| `Super + f` | Search Scrollback |
-| `Super + c / v` | Copy / Paste |
-| `Super + y` | Activate Copy Mode |
-| `Super + Ctrl + s` | Quick Select |
+| Key                | Action             |
+|:-------------------|:-------------------|
+| `Super + q`        | Quit Application   |
+| `Super + Enter`    | Toggle Fullscreen  |
+| `Super + f`        | Search Scrollback  |
+| `Super + c / v`    | Copy / Paste       |
+| `Super + y`        | Activate Copy Mode |
+| `Super + Ctrl + s` | Quick Select       |
 
 ### Panes
 
-| Key | Action |
-|-----|--------|
-| `Super + d` | Split Horizontal |
-| `Super + D` | Split Vertical |
-| `Super + w` | Close Current Pane |
-| `Super + [` / `]` | Rotate Panes |
-| `Super + Arrows` | Navigate Panes |
-| `Leader + r` | **Resize Pane Mode** (H/J/K/L to resize) |
+| Key               | Action                                   |
+|:------------------|:-----------------------------------------|
+| `Super + d`       | Split Horizontal                         |
+| `Super + D`       | Split Vertical                           |
+| `Super + w`       | Close Current Pane                       |
+| `Super + [` / `]` | Rotate Panes                             |
+| `Super + Arrows`  | Navigate Panes                           |
+| `Leader + r`      | **Resize Pane Mode** (H/J/K/L to resize) |
 
 ### Tabs
 
-| Key | Action |
-|-----|--------|
-| `Super + t` | New Tab |
-| `Super + 1..9` | Switch to Tab 1-9 |
-| `Ctrl + Tab` | Next Tab |
-| `Ctrl + Shift + Tab` | Previous Tab |
+| Key                  | Action            |
+|:---------------------|:------------------|
+| `Super + t`          | New Tab           |
+| `Super + 1..9`       | Switch to Tab 1-9 |
+| `Ctrl + Tab`         | Next Tab          |
+| `Ctrl + Shift + Tab` | Previous Tab      |
 
 ### Workspaces
 
-| Key | Action |
-|-----|--------|
-| `Leader + s` | Switch Workspace (Fuzzy) |
-| `Leader + r` | Rename Workspace |
-| `Super + Shift + i` | Switch to Workspace |
-| `Super + Shift + ;` | Show Workspace Launcher |
+| Key                 | Action                   |
+|:--------------------|:-------------------------|
+| `Leader + s`        | Switch Workspace (Fuzzy) |
+| `Leader + r`        | Rename Workspace         |
+| `Super + Shift + i` | Switch to Workspace      |
+| `Super + Shift + ;` | Show Workspace Launcher  |
 
 ### Visuals
 
-| Key | Action |
-|-----|--------|
-| `Super + +/-` | Increase/Decrease Font Size |
-| `Leader + c` | Switch Color Scheme |
-| `Leader + b` | Switch Background Image |
-| `Shift + F1/F2` | Decrease/Increase Opacity |
-| `Leader + 0` | Toggle Ligatures |
+| Key             | Action                      |
+|:----------------|:----------------------------|
+| `Super + +/-`   | Increase/Decrease Font Size |
+| `Leader + c`    | Switch Color Scheme         |
+| `Leader + b`    | Switch Background Image     |
+| `Shift + F1/F2` | Decrease/Increase Opacity   |
+| `Leader + 0`    | Toggle Ligatures            |
 
 ## 🧩 Templates (Chezmoi)
 
