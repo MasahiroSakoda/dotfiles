@@ -61,6 +61,10 @@ export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/b
 {{- end }}
 export _ZO_FZF_OPTS="--preview 'eza --tree --long --header --color=always --group-directories-first --hyperlink {} || echo \"No Preview\"' --exit-0"
 
+# VSCode
+export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
+export VSCODE_EXTENSIONS="$VSCODE_PORTABLE/extentions"
+
 # Container
 export LIMA_HOME="$XDG_DATA_HOME/lima"
 export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
