@@ -69,6 +69,10 @@ export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"
 
 # AI Agent
 export OPENCODE_CONFIG="$XDG_CONFIG_HOME/opencode/config.json"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+# export GEMINI_CONFIG_DIR="$XDG_CONFIG_HOME/gemini"
+export CODEX_HOME="$XDG_CONFIG_HOME/codex"
+export SERENA_HOME="$XDG_DATA_HOME/serena"
 
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}

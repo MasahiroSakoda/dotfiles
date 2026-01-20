@@ -30,7 +30,8 @@
       "enabled": true
     },
     "preferredEditor": "neovim",
-    "vimMode": false
+    "vimMode": false,
+    "previewFeatures": true
   },
   "context": {
     "fileName": [
@@ -45,7 +46,7 @@
   },
   {{/* Model Config */ -}}
   "model": {
-    "name": "gemini-3-flash"
+    "name": "auto-gemini-3"
   },
   "security": {
     "auth": {
@@ -64,7 +65,19 @@
     "target": "local",
     "otlpEndpoint": "http://localhost:4317",
     "logPrompts": true
-  }
+  },
+  {{/* MCP Servers */ -}}
+  {{ $servers := dict }}
+  {{- range $key, $value := .mcp.providers -}}
+  {{-   if hasKey $value "type" -}}
+  {{-     $_ := $value | deleteValueAtPath "type" -}}
+  {{-   end -}}
+  {{-   if hasKey $value "enabled" -}}
+  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
+  {{-   end -}}
+  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{- end -}}
+  "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }}
 }
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
