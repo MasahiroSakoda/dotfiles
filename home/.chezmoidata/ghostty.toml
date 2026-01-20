@@ -1,10 +1,10 @@
 # -*-mode:toml-*- vim:ft=toml
 
 [ghostty]
-opacity = 0.85
+opacity = 0.8
 
 [ghostty.background]
-opacity = 0.25
+opacity = 0.4
 image   = "daft-punk-music-retro-style-wallpaper.jpg"
 
 [ghostty.theme]
