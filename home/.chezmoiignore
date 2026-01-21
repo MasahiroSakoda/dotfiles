@@ -55,7 +55,7 @@ install.sh
 # Container
 !.docker/config.json
 !.docker/daemon.json
-.docker/
+!.docker/cli-plugins
 
 ## k8s
 .kube
