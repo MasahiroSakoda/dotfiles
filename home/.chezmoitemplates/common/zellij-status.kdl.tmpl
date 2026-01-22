@@ -59,4 +59,31 @@
         // zjstatus-hints
         // Note: this is necessary or else zjstatus won't render the pipe:
         pipe_zjstatus_hints_format "{output}"
+
+        ////////////////////////////////////////////////////////////////////////////////
+        // Custom Commands
+        ////////////////////////////////////////////////////////////////////////////////
+        // Host
+        // command_host_command    "uname -n"
+        // command_host_format     "#[bg={{ $zc.fg }},fg={{ $zc.black }}]{stdout}"
+        // command_host_interval   "0"
+        // command_host_rendermode "static"
+
+        // User
+        // command_user_command    "whoami"
+        // command_user_format     "#[bg={{ $zc.fg }},fg={{ $zc.black }}]{stdout}"
+        // command_user_interval   "10"
+        // command_user_rendermode "static"
+
+        // Container status
+        // command_docker_context_command    "docker context show"
+        // command_docker_context_format     "#[fg={{ $zc.white }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.blue }},bg={{ $zc.white }},bold] {stdout}#[fg={{ $zc.black }},bg={{ $zc.white }}]{{ $right }}"
+        // command_docker_context_interval   "5"
+        // command_docker_context_rendermode "static"
+
+        // Container cluster status
+        // command_k8s_context_command    "kubectl config current-context"
+        // command_k8s_context_format     "#[fg={{ $zc.white }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.black }},bg={{ $zc.white }},bold] {stdout}#[fg={{ $zc.black }},bg={{ $zc.white }}]{{ $right }}"
+        // command_k8s_context_interval   "5"
+        // command_k8s_context_rendermode "static"
     }
