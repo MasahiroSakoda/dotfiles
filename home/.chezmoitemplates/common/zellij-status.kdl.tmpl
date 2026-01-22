@@ -4,40 +4,41 @@
 
     plugin location="zjstatus" {
         {{- $zc := .zellij.colors }}
-        // format_left  "{mode}#[fg=blue,bg={{ $zc.bg }},bold]  {session} #[fg={{ $zc.bg }},bg=bg] #[fg=white,bg=fg]{tabs}"
-        format_left  "{mode}#[fg={{ $zc.blue }},bg={{ $zc.black }},bold]  {session}#[fg={{ $zc.black }},bg=fg]{tabs}"
+        {{- $left  := "" }}
+        {{- $right := "" }}
+        format_left  "{mode}#[fg={{ $zc.blue }},bg={{ $zc.black }},bold] {session}#[fg={{ $zc.black }},bg=fg]{{ $left }}{tabs}"
         format_center ""
-        format_right  "{pipe_zjstatus_hints}#[fg=blue,bg=bg]{datetime}"
+        format_right  "{pipe_zjstatus_hints}{datetime}"
         format_space  "#[bg=fg]"
 
         // Borders
-        border_enabled  "false"
+        border_enabled  "true"
         border_char     "-"
         border_format   "#[fg={{ $zc.fg }}]{char}"
         border_position "top"
 
         // Modes
-        mode_locked      "#[fg={{ $zc.black   }},bg={{ $zc.orange  }},bold]  {name} #[fg={{ $zc.orange  }},bg={{ $zc.black }}]"
-        mode_normal      "#[fg={{ $zc.black   }},bg={{ $zc.green   }},bold]  {name} #[fg={{ $zc.green   }},bg={{ $zc.bg }}]"
-        mode_resize      "#[fg={{ $zc.black   }},bg={{ $zc.blue    }},bold]  {name} #[fg={{ $zc.cyan    }},bg={{ $zc.bg }}]"
-        mode_move        "#[fg={{ $zc.black   }},bg={{ $zc.blue    }},bold]  {name} #[fg={{ $zc.blue    }},bg={{ $zc.bg }}]"
-        mode_pane        "#[fg={{ $zc.black   }},bg={{ $zc.cyan    }},bold]  {name} #[fg={{ $zc.cyan    }},bg={{ $zc.bg }}]"
-        mode_rename_pane "#[fg={{ $zc.white   }},bg={{ $zc.cyan    }},bold]  {name} #[fg={{ $zc.cyan    }},bg={{ $zc.bg }}]"
-        mode_tab         "#[fg={{ $zc.black   }},bg={{ $zc.yellow  }},bold]  {name} #[fg={{ $zc.yellow  }},bg={{ $zc.bg }}]"
-        mode_rename_tab  "#[fg={{ $zc.white   }},bg={{ $zc.yellow  }},bold]  {name} #[fg={{ $zc.yellow  }},bg={{ $zc.bg }}]"
-        mode_search      "#[fg={{ $zc.black   }},bg={{ $zc.red  }},bold]  {name} #[fg={{ $zc.red  }},bg={{ $zc.bg }}]"
-        mode_scroll      "#[fg={{ $zc.white   }},bg={{ $zc.red  }},bold]  {name} #[fg={{ $zc.red }},bg={{ $zc.bg }}]"
-        mode_tmux        "#[fg={{ $zc.magenta }},bg={{ $zc.magenta }},bold]  {name} #[fg={{ $zc.magenta }},bg={{ $zc.bg }}]"
-        mode_session     "#[fg={{ $zc.cyan    }},bg={{ $zc.black   }},bold]  {name} #[fg={{ $zc.black   }},bg={{ $zc.bg }}]"
-        mode_prompt      "#[fg={{ $zc.red     }},bg={{ $zc.grey    }},bold]  {name} #[fg={{ $zc.red     }},bg={{ $zc.bg }}]"
+        mode_locked      "#[fg={{ $zc.black }},bg={{ $zc.orange }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.orange }},bold]  {name} #[fg={{ $zc.orange }},bg={{ $zc.black }}]{{ $left }}"
+        mode_normal      "#[fg={{ $zc.black }},bg={{ $zc.green  }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.green  }},bold]  {name} #[fg={{ $zc.green  }},bg={{ $zc.black }}]{{ $left }}"
+        mode_resize      "#[fg={{ $zc.black }},bg={{ $zc.blue   }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.blue   }},bold]  {name} #[fg={{ $zc.cyan   }},bg={{ $zc.black }}]{{ $left }}"
+        mode_move        "#[fg={{ $zc.black }},bg={{ $zc.blue   }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.blue   }},bold]  {name} #[fg={{ $zc.blue   }},bg={{ $zc.black }}]{{ $left }}"
+        mode_pane        "#[fg={{ $zc.black }},bg={{ $zc.cyan   }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.cyan   }},bold]  {name} #[fg={{ $zc.cyan   }},bg={{ $zc.black }}]{{ $left }}"
+        mode_rename_pane "#[fg={{ $zc.black }},bg={{ $zc.cyan   }}]{{ $left }}#[fg={{ $zc.bg    }},bg={{ $zc.cyan   }},bold]  {name} #[fg={{ $zc.cyan   }},bg={{ $zc.black }}]{{ $left }}"
+        mode_tab         "#[fg={{ $zc.black }},bg={{ $zc.yellow }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.yellow }},bold]  {name} #[fg={{ $zc.yellow }},bg={{ $zc.black }}]{{ $left }}"
+        mode_rename_tab  "#[fg={{ $zc.black }},bg={{ $zc.yellow }}]{{ $left }}#[fg={{ $zc.bg    }},bg={{ $zc.yellow }},bold]  {name} #[fg={{ $zc.yellow }},bg={{ $zc.black }}]{{ $left }}"
+        mode_search      "#[fg={{ $zc.black }},bg={{ $zc.red    }}]{{ $left }}#[fg={{ $zc.black }},bg={{ $zc.red    }},bold]  {name} #[fg={{ $zc.red    }},bg={{ $zc.black }}]{{ $left }}"
+        mode_scroll      "#[fg={{ $zc.black }},bg={{ $zc.red    }}]{{ $left }}#[fg={{ $zc.white }},bg={{ $zc.red    }},bold]  {name} #[fg={{ $zc.red    }},bg={{ $zc.black }}]{{ $left }}"
+        mode_tmux        "#[fg={{ $zc.black }},bg={{ $zc.purple }}]{{ $left }}#[fg={{ $zc.white }},bg={{ $zc.purple }},bold]  {name} #[fg={{ $zc.purple }},bg={{ $zc.black }}]{{ $left }}"
+        mode_session     "#[fg={{ $zc.black }},bg={{ $zc.black  }}]{{ $left }}#[fg={{ $zc.cyan  }},bg={{ $zc.black  }},bold]  {name} #[fg={{ $zc.black  }},bg={{ $zc.black }}]{{ $left }}"
+        mode_prompt      "#[fg={{ $zc.black }},bg={{ $zc.grey   }}]{{ $left }}#[fg={{ $zc.red   }},bg={{ $zc.grey   }},bold]  {name} #[fg={{ $zc.red    }},bg={{ $zc.black }}]{{ $left }}"
 
         // Tabs
-        tab_normal            "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg }},bold] {name}{floating_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]"
-        tab_normal_fullscreen "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg }},bold] {name}{fullscreen_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]"
-        tab_normal_sync       "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg }},bold] {name}{sync_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]"
-        tab_active            "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{floating_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]"
-        tab_active_fullscreen "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{fullscreen_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]"
-        tab_active_sync       "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] 󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{sync_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]"
+        tab_normal            "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg    }},bold] {name}{floating_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]{{ $left }}"
+        tab_normal_fullscreen "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg    }},bold] {name}{fullscreen_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]{{ $left }}"
+        tab_normal_sync       "#[bg={{ $zc.grey }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.grey }},fg={{ $zc.fg    }},bold] {name}{sync_indicator} #[bg={{ $zc.black }},fg={{ $zc.grey }}]{{ $left }}"
+        tab_active            "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{floating_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]{{ $left }}"
+        tab_active_fullscreen "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{fullscreen_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]{{ $left }}"
+        tab_active_sync       "#[bg={{ $zc.cyan }},fg={{ $zc.black }},bold]{{ $left }}󰓪 #[bg={{ $zc.cyan }},fg={{ $zc.black }},bold] {name}{sync_indicator} #[bg={{ $zc.black }},fg={{ $zc.cyan }}]{{ $left }}"
         // tab_separator         "#[fg={{ $zc.white }},bg={{ $zc.black }}]"
         tab_separator         ""
 
@@ -51,11 +52,38 @@
         // notification_show_interval           "10"
 
         // Date & Time
-        datetime          "#[fg={{ $zc.black }},bg={{ $zc.blue }},bold]{format}"
+        datetime          "#[fg={{ $zc.blue }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.black }},bg={{ $zc.blue }},bold]{format}#[fg={{ $zc.black }},bg={{ $zc.blue }}]{{ $right }}"
         datetime_format   "   %H:%M "
-        datetime_timezone "Asia/Tokyo"
+        datetime_timezone {{ .timezone | quote }}
 
         // zjstatus-hints
         // Note: this is necessary or else zjstatus won't render the pipe:
         pipe_zjstatus_hints_format "{output}"
+
+        ////////////////////////////////////////////////////////////////////////////////
+        // Custom Commands
+        ////////////////////////////////////////////////////////////////////////////////
+        // Host
+        // command_host_command    "uname -n"
+        // command_host_format     "#[bg={{ $zc.fg }},fg={{ $zc.black }}]{stdout}"
+        // command_host_interval   "0"
+        // command_host_rendermode "static"
+
+        // User
+        // command_user_command    "whoami"
+        // command_user_format     "#[bg={{ $zc.fg }},fg={{ $zc.black }}]{stdout}"
+        // command_user_interval   "10"
+        // command_user_rendermode "static"
+
+        // Container status
+        // command_docker_context_command    "docker context show"
+        // command_docker_context_format     "#[fg={{ $zc.white }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.blue }},bg={{ $zc.white }},bold] {stdout}#[fg={{ $zc.black }},bg={{ $zc.white }}]{{ $right }}"
+        // command_docker_context_interval   "5"
+        // command_docker_context_rendermode "static"
+
+        // Container cluster status
+        // command_k8s_context_command    "kubectl config current-context"
+        // command_k8s_context_format     "#[fg={{ $zc.white }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.black }},bg={{ $zc.white }},bold] {stdout}#[fg={{ $zc.black }},bg={{ $zc.white }}]{{ $right }}"
+        // command_k8s_context_interval   "5"
+        // command_k8s_context_rendermode "static"
     }

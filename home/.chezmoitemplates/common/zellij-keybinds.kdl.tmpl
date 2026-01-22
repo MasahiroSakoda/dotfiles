@@ -57,17 +57,19 @@ keybinds clear-defaults=true {
     }
 
     tab {
-        bind "Ctrl t" { SwitchToMode "Normal"; }
-        bind "r"      { SwitchToMode "RenameTab"; TabNameInput 0; }
-        bind "Tab"    { ToggleTab; }
-        bind "n"      { NewTab;   SwitchToMode "Normal"; }
-        bind "x"      { CloseTab; SwitchToMode "Normal"; }
-        bind "h"      { GoToPreviousTab; }
-        bind "l"      { GoToNextTab; }
-        bind "b"      { BreakPane;           SwitchToMode "Normal"; }
-        bind "["      { BreakPaneLeft;       SwitchToMode "Normal"; }
-        bind "]"      { BreakPaneRight;      SwitchToMode "Normal"; }
-        bind "s"      { ToggleActiveSyncTab; SwitchToMode "Normal"; }
+        bind "Ctrl t"  { SwitchToMode "Normal"; }
+        bind "r"       { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Tab"     { ToggleTab; }
+        bind "n"       { NewTab;   SwitchToMode "Normal"; }
+        bind "x"       { CloseTab; SwitchToMode "Normal"; }
+        bind "h"       { GoToPreviousTab; }
+        bind "l"       { GoToNextTab; }
+        bind "Shift h" { MoveTab "Left"; }
+        bind "Shift l" { MoveTab "Right"; }
+        bind "b"       { BreakPane;           SwitchToMode "Normal"; }
+        bind "["       { BreakPaneLeft;       SwitchToMode "Normal"; }
+        bind "]"       { BreakPaneRight;      SwitchToMode "Normal"; }
+        bind "s"       { ToggleActiveSyncTab; SwitchToMode "Normal"; }
     }
 
     scroll {
@@ -140,15 +142,15 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt w" { CloseFocus;      SwitchToMode "Normal"; }
         bind "Alt t" { NewTab;          SwitchToMode "Normal"; }
-        bind "Alt 1" { GoToTab 1;       SwitchToMode "Normal"; }
-        bind "Alt 2" { GoToTab 2;       SwitchToMode "Normal"; }
-        bind "Alt 3" { GoToTab 3;       SwitchToMode "Normal"; }
-        bind "Alt 4" { GoToTab 4;       SwitchToMode "Normal"; }
-        bind "Alt 5" { GoToTab 5;       SwitchToMode "Normal"; }
-        bind "Alt 6" { GoToTab 6;       SwitchToMode "Normal"; }
-        bind "Alt 7" { GoToTab 7;       SwitchToMode "Normal"; }
-        bind "Alt 8" { GoToTab 8;       SwitchToMode "Normal"; }
-        bind "Alt 9" { GoToTab 9;       SwitchToMode "Normal"; }
+        bind "Alt 1" { GoToTab 1;       SwitchToMode "Locked"; }
+        bind "Alt 2" { GoToTab 2;       SwitchToMode "Locked"; }
+        bind "Alt 3" { GoToTab 3;       SwitchToMode "Locked"; }
+        bind "Alt 4" { GoToTab 4;       SwitchToMode "Locked"; }
+        bind "Alt 5" { GoToTab 5;       SwitchToMode "Locked"; }
+        bind "Alt 6" { GoToTab 6;       SwitchToMode "Locked"; }
+        bind "Alt 7" { GoToTab 7;       SwitchToMode "Locked"; }
+        bind "Alt 8" { GoToTab 8;       SwitchToMode "Locked"; }
+        bind "Alt 9" { GoToTab 9;       SwitchToMode "Locked"; }
         bind "Alt d" { NewPane "right"; SwitchToMode "Normal"; }
         bind "Alt D" { NewPane "down";  SwitchToMode "Normal"; }
     }
@@ -165,14 +167,17 @@ keybinds clear-defaults=true {
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
     }
 
-    shared_except "locked" {
-        bind "Esc" "Ctrl ;" { SwitchToMode "Locked"; }
-        bind "Ctrl q" { Quit; }
-
+    shared {
         bind "Ctrl y" {
             LaunchOrFocusPlugin "forgot" { "LOAD_ZELLIJ_BINDINGS" "true"; floating true; }
             SwitchToMode "Locked"
         }
+    }
+
+    shared_except "locked" {
+        bind "Esc" "Ctrl ;" { SwitchToMode "Locked"; }
+        bind "Ctrl q" { Quit; }
+
     }
 
     shared_except "locked" "normal" "entersearch" {
@@ -196,5 +201,7 @@ keybinds clear-defaults=true {
     shared_except "locked" "move" {
         bind "Ctrl m" { SwitchToMode "Move"; }
     }
-
+    shared_except "locked" "tmux" {
+        bind "Ctrl b" { SwitchToMode "Tmux"; }
+    }
 }

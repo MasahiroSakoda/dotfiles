@@ -54,6 +54,11 @@
 {{-   $brew_prefix = "/home/linuxbrew/.linuxbrew" -}}
 {{- end -}}
 
+{{- $timezone := (output "sh" "-c" "readlink /etc/localtime 2>/dev/null | sed -E 's#.*/zoneinfo/##' || true") | trim -}}
+{{- if eq $timezone "" -}}
+{{- $timezone = promptStringOnce . "timezone" "Timezone (e.g. Asia/Tokyo)" -}}
+{{- end -}}
+
 encryption = "age"
 format = "json"
 color = "on"
@@ -69,6 +74,7 @@ graphics  = {{ $graphics }}
 cloud     = {{ $cloud }}
 osid      = {{ $osID | quote }}
 osicon    = {{ $osIcon | quote }}
+timezone  = {{ $timezone | quote }}
 shell     = {{ $shell | quote }}
 brew_prefix = {{ $brew_prefix | quote }}
 
