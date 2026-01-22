@@ -54,7 +54,7 @@
         // Date & Time
         datetime          "#[fg={{ $zc.blue }},bg={{ $zc.black }}]{{ $right }}#[fg={{ $zc.black }},bg={{ $zc.blue }},bold]{format}#[fg={{ $zc.black }},bg={{ $zc.blue }}]{{ $right }}"
         datetime_format   "   %H:%M "
-        datetime_timezone "Asia/Tokyo"
+        datetime_timezone {{ .timezone | quote }}
 
         // zjstatus-hints
         // Note: this is necessary or else zjstatus won't render the pipe:
