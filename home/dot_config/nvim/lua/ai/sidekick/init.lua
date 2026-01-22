@@ -7,9 +7,8 @@ vim.g.sidekick_nes = false
 ---@class sidekick.Config
 sidekick.setup({
   nes = {
-    enabled = function(_)
-      return vim.g.sidekick_nes ~= false and vim.b.sidekick_nes ~= false
-    end,
+    -- TODO: Enable inline completion when NeoVim 0.12.x stable releases
+    enabled = false,
     debounce = 500,
   },
   cli = {
