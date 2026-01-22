@@ -149,6 +149,7 @@ abbr jh="just help"
 
 # Zellij
 abbr zj="zellij"
+abbr zja="zellij attach --create"
 abbr zjl="zellij --layout"
 abbr zjd="zellij --layout default"
 abbr zjc="zellij --layout coding"
