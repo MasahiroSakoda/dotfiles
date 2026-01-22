@@ -7,9 +7,8 @@ vim.g.sidekick_nes = false
 ---@class sidekick.Config
 sidekick.setup({
   nes = {
-    enabled = function(_)
-      return vim.g.sidekick_nes ~= false and vim.b.sidekick_nes ~= false
-    end,
+    -- TODO: Enable inline completion when NeoVim 0.12.x stable releases
+    enabled = false,
     debounce = 500,
   },
   cli = {
@@ -22,14 +21,14 @@ sidekick.setup({
 
       ---@type table<string, sidekick.cli.Keymap|false>
       keys = {
-        buffers       = { "<c-b>", "buffers"   , mode = "nt", desc = "open buffer picker" },
-        files         = { "<c-f>", "files"     , mode = "nt", desc = "open file picker" },
-        hide_n        = { "q"    , "hide"      , mode = "n" , desc = "hide the terminal window" },
-        hide_ctrl_q   = { "<c-q>", "hide"      , mode = "n" , desc = "hide the terminal window" },
-        hide_ctrl_dot = { "<c-.>", "hide"      , mode = "nt", desc = "hide the terminal window" },
-        hide_ctrl_z   = { "<c-z>", "hide"      , mode = "nt", desc = "hide the terminal window" },
-        prompt        = { "<c-,>", "prompt"    , mode = "t" , desc = "insert prompt or context" },
-        stopinsert    = { "<c-q>", "stopinsert", mode = "t" , desc = "enter normal mode" },
+        buffers       = { "<c-\\>", "buffers"   , mode = "nt", desc = "open buffer picker" },
+        files         = { "<c-'>",  "files"     , mode = "nt", desc = "open file picker" },
+        hide_n        = { "q"    ,  "hide"      , mode = "n" , desc = "hide the terminal window" },
+        hide_ctrl_q   = { "<c-q>",  "hide"      , mode = "n" , desc = "hide the terminal window" },
+        hide_ctrl_dot = { "<c-.>",  "hide"      , mode = "nt", desc = "hide the terminal window" },
+        hide_ctrl_z   = { "<c-z>",  "hide"      , mode = "nt", desc = "hide the terminal window" },
+        prompt        = { "<c-,>",  "prompt"    , mode = "t" , desc = "insert prompt or context" },
+        stopinsert    = { "<c-q>",  "stopinsert", mode = "t" , desc = "enter normal mode" },
         -- Navigate windows in terminal mode. Only active when:
         -- * layout is not "float"
         -- * there is another window in the direction
@@ -55,7 +54,7 @@ sidekick.setup({
 
   ---@class sidekick.cli.Mux
   mux = {
-    backend = vim.env.ZELLIJ and "zellij" or "tmux", -- default to tmux unless zellij is detected
+    backend = "zellij",
     enabled = true,
   },
 })
