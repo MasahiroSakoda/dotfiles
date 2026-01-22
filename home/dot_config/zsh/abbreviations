@@ -154,7 +154,7 @@ abbr zjd="zellij --layout default"
 abbr zjc="zellij --layout coding"
 abbr zjj="zellij --layout jsdev"
 abbr zjm="zellij --layout monitor"
-abbr zjs="zellij-session"
+abbr zjp="zellij_picker"
 
 # AI tools
 abbr oc="opencode"
