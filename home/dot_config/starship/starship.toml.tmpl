@@ -35,6 +35,7 @@ $ruby\
 $php\
 $perl\
 $lua\
+$dieenv\
 $docker_context\
 $kubernetes\
 $terraform\
@@ -289,28 +290,63 @@ format = "[  $symbol $version]($style)"
 {{ end -}}
 
 #-------------------------------------------------
+# Environments
+#-------------------------------------------------
+[direnv]
+disabled = false
+format   = "[$symbol$loaded/$allowed]($style) "
+symbol   = "direnv "
+style    = "bold orange"
+
+#-------------------------------------------------
 # Container
 # ref: https://starship.rs/config/#container
 #-------------------------------------------------
 [container]
-format = "[  $symbol ($name)]($style)"
-style  = 'bright-black'
-symbol = '⌘'
+disabled = false
+format   = "[  $symbol ($name)]($style)"
+style    = "red bold dimmed"
+symbol   = '⬢ '
 
 [docker_context]
-# symbol = " "
-style  = "bold fg:#ffffff"
-format = "[  $symbol $version]($style)"
+disabled = false
+symbol   = "🐳 "
+style    = "blue bold"
+format   = "[  $symbol $context]($style) $path"
 
 # ref: https://starship.rs/config/#kubernetes
 [kubernetes]
-symbol = "󱃾 "
-style  = "purple bold"
-format = "[  $symbol ($user in )($cluster on )$context ($namespace)]($style)"
+disabled = false
+symbol   = "☸️ "
+style    = "purple bold"
+format   = "[  $symbol ($user in )($cluster on )$context ($namespace)]($style)"
 
-[kubernetes.context_aliases]
+[[kubernetes.contexts]]
+context_pattern = "dev.*"
+style           = "bold green"
 
-[kubernetes.user_aliases]
+[[kubernetes.contexts]]
+context_pattern = "staging.*"
+style           = "bold yellow"
+
+[[kubernetes.contexts]]
+context_pattern = "prod.*"
+style           = "bold red"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:.*/(?P<cluster>[\\w-]+)"
+context_alias   = "aws/$cluster"
+symbol          = ""
+
+[[kubernetes.contexts]]
+context_pattern = "gke_.*_(?P<cluster>[\\w-]+)"
+context_alias   = "gke/$cluster"
+symbol          = ""
+
+[[kubernetes.contexts]]
+context_pattern = "aks-(?P<cluster>[\\w-]+)"
+context_alias   = "aks/$cluster"
+symbol          = ""
 
 [terraform]
 symbol = " "
