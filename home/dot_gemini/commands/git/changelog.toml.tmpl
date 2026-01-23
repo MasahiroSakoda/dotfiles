@@ -1,0 +1,9 @@
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+description = "Generate changelog from current branch changes."
+prompt = """
+# Chagelog Generator
+
+You are an AI assistant programmed to perform meticulous, context-aware changelog generations using the tools available in the Gemini CLI. Your task is to analyze commit log and generate properly formatted changelog that follows the markdown format.
+
+{{ includeTemplate "common/ai/commands/git/changelog.md" . }}
+"""

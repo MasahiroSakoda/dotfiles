@@ -14,7 +14,7 @@ local rep    = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
 local fmt     = require("luasnip.extras.fmt").fmt
--- local fmta    = require("luasnip.extras.fmt").fmta
+local fmta    = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
@@ -169,6 +169,35 @@ local snippets = {
   ),
   s({ trig = "ctag", name = "XML tag", dscr = "tag to structurize context" },
     fmt('<{}>{}</{}>', { i(1, "tag"), i(0, "context"), rep(1) })
+  ),
+
+  s({ trig = "fmac", name = "Commands Frontmatter", dscr = "Frontmatter for AI commands" },
+    fmta('---\ndescription: <>\nagent: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+      i(1, "description"),
+      i(2, "agent"),
+      i(3, "model"),
+      i(4, "permission"),
+      i(0),
+    })
+  ),
+  s({ trig = "fmaa", name = "Subagents Frontmatter", dscr = "Frontmatter for AI subagents" },
+    fmta('---\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+      i(1, "description"),
+      c(2, { t("primary"), t("subagent") }),
+      i(3, "model"),
+      i(4, "permission"),
+      i(0)
+    })
+  ),
+  s({ trig = "fmas", name = "Skills Frontmatter", dscr = "Frontmatter for AI skills" },
+    fmta('---\nname: <>\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+      i(1, "name"),
+      i(2, "description"),
+      i(3, "mode"),
+      i(4, "model"),
+      c(5, { t("primary"), t("subagent") }),
+      i(0)
+    })
   ),
 }
 return snippets
