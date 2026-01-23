@@ -75,6 +75,7 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 - **New Features**: commit type: `feat(scope):`
 - **Bug Fixes**: commit type contains`fix(scope)`
 - **Other Changes**:  Changes not belonging to the above items like `chrore`, `refactor`, `docs`.
+- **Commit Details**: Commit details should be separated by line breaks for each item.
 
 ### Step 4: Quality Check
 
@@ -83,6 +84,7 @@ Before presenting the changelog, ensure:
 - [ ] Keep bullet points scannable (one line each) in "What's Changed"
 - [ ] Categorize commits where it should be.
 - [ ] Check the link for commit
+- [ ] Check the break new line for each commit details
 
 ## Output Format
 
