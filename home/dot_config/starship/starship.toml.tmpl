@@ -35,6 +35,7 @@ $ruby\
 $php\
 $perl\
 $lua\
+$dieenv\
 $docker_context\
 $kubernetes\
 $terraform\
@@ -287,6 +288,15 @@ format = " [  ${symbol}${pyenv_prefix} (${version} )(($virtualenv) )]($style)
 format = "[  $symbol $version]($style)"
 {{ end -}}
 {{ end -}}
+
+#-------------------------------------------------
+# Environments
+#-------------------------------------------------
+[direnv]
+disabled = false
+format   = "[$symbol$loaded/$allowed]($style) "
+symbol   = "direnv "
+style    = "bold orange"
 
 #-------------------------------------------------
 # Container
