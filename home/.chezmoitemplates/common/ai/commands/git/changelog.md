@@ -88,3 +88,5 @@ Before presenting the changelog, ensure:
 
 1. **Suggested changelog**: in proper markdown format
 2. **Command to paste to clipboard**:
+
+DO NOT change or write any files even draft. Your task is suggestion only.
