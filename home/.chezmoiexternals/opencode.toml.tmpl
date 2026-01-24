@@ -12,7 +12,7 @@ url = "https://github.com/wshobson/commands"
 # renovate: datasource=github-releases depName=obra/superpowers
 {{ $superpowersVersion := "4.0.3" -}}
 
-["Dev/repos/github.com/superpowers"]
+["Dev/repos/github.com/obra/superpowers"]
 {{ template "repo" }}
 url  = "https://github.com/obra/superpowers"
 args = ["--branch", {{ $superpowersVersion | quote }}]
