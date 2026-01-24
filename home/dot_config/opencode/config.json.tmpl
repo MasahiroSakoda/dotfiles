@@ -89,8 +89,9 @@
   {{-   end -}}
   {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
-  {{-   else if and (hasKey $value "type") (eq $value.type "http") -}}
+  {{-   else if and (hasKey $value "type") (or (eq $value.type "http") (eq $value.type "remote")) -}}
   {{-     $_ := $value | setValueAtPath "type" "remote" -}}
+  {{-     $_ := $value | setValueAtPath "url" $value.url -}}
   {{-   else -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
   {{-   end -}}
