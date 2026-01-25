@@ -10,6 +10,8 @@
     {{/*********** Core Agents ***********/ -}}
     {{/* The default orchestrator. Plans, delegates, and executes complex tasks using specialized subagents with aggressive parallel execution. Todo-driven workflow with extended thinking (32k budget). */ -}}
     "sisyphus":          { "model": {{ .opencode.models.sota | quote }} },
+    {{/*  The workhorse that actually writes code */ -}}
+    "sisyphus-junior":   { "model": {{ .opencode.models.elite | quote }} },
     {{/* Architecture decisions, code review, debugging. Read-only consultation - stellar logical reasoning and deep analysis. Inspired by AmpCode. */ -}}
     "oracle":            { "model": {{ .opencode.models.elite | quote }} },
     {{/* Multi-repo analysis, documentation lookup, OSS implementation examples. Deep codebase understanding with evidence-based answers. Inspired by AmpCode. */ -}}
