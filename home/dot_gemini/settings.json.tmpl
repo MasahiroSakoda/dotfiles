@@ -76,6 +76,9 @@
   {{-   if hasKey $value "enabled" -}}
   {{-     $_ := $value | deleteValueAtPath "enabled" -}}
   {{-   end -}}
+  {{-   if hasKey $value "oauth" -}}
+  {{-     $_ := $value | deleteValueAtPath "oauth" -}}
+  {{-   end -}}
   {{-   $_ := $servers | setValueAtPath $key $value -}}
   {{- end -}}
   "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }}
