@@ -16,10 +16,40 @@
       "ShellTool",
       "GoogleSearchTool",
       "WebFetchTool",
-      "SaveMemoryTool"
+      "SaveMemoryTool",
+      "run_shell_command(head)",
+      "run_shell_command(tail)",
+      "run_shell_command(cut)",
+      "run_shell_command(find)",
+      "run_shell_command(fd)",
+      "run_shell_command(grep)",
+      "run_shell_command(rg)",
+      "run_shell_command(awk)",
+      "run_shell_command(sed)",
+      "run_shell_command(git status)",
+      "run_shell_command(git show)",
+      "run_shell_command(git diff)",
+      "run_shell_command(git log)",
+      "run_shell_command(git add)",
+      "run_shell_command(git branch --show-current)"
     ],
     "exclude": [
-      "run_shell_command(rm -rf)"
+      "run_shell_command(rm -rf /)",
+      "run_shell_command(rm -rf ~)",
+      "run_shell_command(rm -rf $HOME)",
+      "run_shell_command(scp)",
+      "run_shell_command(ssh)",
+      "run_shell_command(telnet)",
+      "run_shell_command(sudo)",
+      "run_shell_command(shutdown)",
+      "run_shell_command(reboot)",
+      "run_shell_command(kill)",
+      "run_shell_command(pkill)",
+      "run_shell_command(killall)",
+      "run_shell_command(git add .)",
+      "run_shell_command(git add -A)",
+      "run_shell_command(git push --force)",
+      "run_shell_command(git push --force-with-lease)"
     ],
   {{/* Sandbox Settings */ -}}
   "sandbox": false
