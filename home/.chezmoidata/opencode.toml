@@ -269,7 +269,7 @@ name       = "Claude Sonnet 4.5 Thinking (Antigravity)"
 limit      = { context = 200000, output = 64000 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
-[opencode.providers.google.models."antigravity-claude-sonnet-4.5-thinking".variants]
+[opencode.providers.google.models."antigravity-claude-sonnet-4-5-thinking".variants]
 low = { thinkingConfig = { thinkingBudget = 8192  } }
 max = { thinkingConfig = { thinkingBudget = 32768  } }
 
@@ -278,6 +278,6 @@ name       = "Claude Opus 4.5 Thinking (Antigravity)"
 limit      = { context = 200000, output = 64000 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
-[opencode.providers.google.models."antigravity-claude-opus-4.5-thinking".variants]
+[opencode.providers.google.models."antigravity-claude-opus-4-5-thinking".variants]
 low = { thinkingConfig = { thinkingBudget = 8192  } }
 max = { thinkingConfig = { thinkingBudget = 32768  } }
