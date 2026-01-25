@@ -2,6 +2,13 @@
 name: commit
 description: Generate conventional commit message from staged changes.
 agent: planner
+permission:
+  bash:
+    "*": deny
+    "git log *": allow
+    "git diff *": allow
+    "git status*": allow
+    "git commit *": ask
 ---
 
 # Conventional Commit Generator
