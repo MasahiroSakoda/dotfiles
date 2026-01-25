@@ -60,7 +60,7 @@ enabled = true
 type = "remote"
 url  = "https://api.githubcopilot.com/mcp/"
 oauth   = {}
-headers = { Authorization = "Bearer {env:GITHUB_MCP_PAT}" }
+headers = { Authorization = "Bearer ${GITHUB_MCP_PAT}" }
 
 # Up-to-date code documentation for LLMs and AI code editors
 # https://github.com/upstash/context7
