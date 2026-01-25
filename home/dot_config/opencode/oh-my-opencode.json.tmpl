@@ -25,6 +25,22 @@
     {{/* Plan Executor: /start-work to activate */ -}}
     "atlas":      { "model": {{ .opencode.models.elite | quote }} }
   },
+  "categories": {
+    {{/* Frontend, UI/UX, design, styling, animation */ -}}
+    "visual-engineering": { "model": {{ .opencode.models.general | quote }} },
+    {{/* Deep logical reasoning, complex architecture decisions requiring extensive analysis */ -}}
+    "ultrabrain":         { "model": {{ .opencode.models.sota | quote }} },
+    {{/* Highly creative/artistic tasks, novel ideas */ -}}
+    "artistry":           { "model": {{ .opencode.models.general | quote }} },
+    {{/* Trivial tasks - single file changes, typo fixes, simple modifications */ -}}
+    "quick":              { "model": {{ .opencode.models.lite | quote }} },
+    {{/* Tasks that don't fit other categories, low effort required */ -}}
+    "unspecified-low":    { "model": {{ .opencode.models.elite | quote }} },
+    {{/* Tasks that don't fit other categories, high effort required */ -}}
+    "unspecified-high":   { "model": {{ .opencode.models.elite | quote }} },
+    {{/* Documentation, prose, technical writing */ -}}
+    "writing":            { "model": {{ .opencode.models.lite | quote }} }
+  },
   "disable_mcps": [],
   "disable_skills": [""]
 }
