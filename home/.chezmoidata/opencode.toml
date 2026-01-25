@@ -12,8 +12,8 @@ instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
 enabled_providers = [ "anthropic", "google" ]
 
 [opencode.models]
-sota    = "google/antigravity-claude-opus-4.5-thinking"
-elite   = "google/antigravity-claude-sonnet-4.5-thinking"
+sota    = "google/antigravity-claude-opus-4-5-thinking"
+elite   = "google/antigravity-claude-sonnet-4-5-thinking"
 general = "google/antigravity-gemini-3-pro"
 lite    = "google/antigravity-gemini-3-flash"
 # general = "google/gemini-3-pro-preview"
