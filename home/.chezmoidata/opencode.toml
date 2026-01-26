@@ -96,6 +96,10 @@ external_directory = "ask"
 "wget*|*sh*"   = "deny"
 "wget*|*bash*" = "deny"
 
+# Clipboard
+"pbcopy*"  = "ask"
+"pbpaste*" = "ask"
+
 # Alias
 "alias*"   = "deny"
 "unalias*" = "deny"
