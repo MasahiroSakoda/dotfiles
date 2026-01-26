@@ -221,10 +221,12 @@ external_directory = "ask"
 "gh api * --method DELETE*" = "ask"
 
 [opencode.antigravity]
+auto_update    = true
 quiet_mode     = false
 debug          = false
 keep_thinking  = false
 quota_fallback = true
+auto_resume    = true
 account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
@@ -260,7 +262,7 @@ medium  = { thinkingLevel = "medium" }
 high    = { thinkingLevel = "high  " }
 
 [opencode.providers.google.models."antigravity-claude-sonnet-4-5"]
-name       = "Claude Sonnet 4.5 (Antigravity)"
+name       = "Claude Sonnet 4.5 (no thinking) (Antigravity)"
 limit      = { context = 200000, output = 64000 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
