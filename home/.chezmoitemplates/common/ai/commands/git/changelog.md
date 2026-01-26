@@ -33,7 +33,8 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 #### 🚨 Breaking Changes
 
 <details>
-<summary>[commit hash](commit link) <type>(<scope>)!: <commit message></summary>
+<summary><type>(<scope>)!: <commit message> (<a href="commit link">commit hash</a>)</summary>
+
 - Commit detail #1
 - Commit detail #2
 ...
@@ -42,7 +43,8 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 #### 🎉 New Features
 
 <details>
-<summary>[commit hash](commit link) feat(<scope>): <commit message></summary>
+<summary>feat(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
+
 - Commit detail #1
 - Commit detail #2
 ...
@@ -51,7 +53,8 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 #### 🐞 Bug Fixes
 
 <details>
-<summaary>[commit hash](commit link) fix(<scope>): <commit message></summaary>
+<summary>fix(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
+
 - Commit detail #1
 - Commit detail #2
 ...
@@ -60,7 +63,8 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 #### Other Changes
 
 <details>
-<summary>[commit hash](commit link) <type>(<scope>): <commit message></summary>
+<summary><type>(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
+
 - Commit detail #1
 - Commit detail #2
 ...

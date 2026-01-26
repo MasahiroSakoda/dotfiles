@@ -1,7 +1,6 @@
 ---
 name: sumamrize
 description: Summarize long text
-agent: planner
 ---
 
 # Summarize

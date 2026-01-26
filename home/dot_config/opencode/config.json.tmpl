@@ -32,19 +32,13 @@
   "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
 
   {{/* Agent Configurations */ -}}
-  "default_agent": "planner",
+  "default_agent": "Sisyphus",
   "agent": {
     {{/* Builtin Agents */ -}}
     "plan": { "disable": true },
     "build": { "disable": true },
     {{/* Custom Agents */ -}}
-    "architect": { "disable": false },
     "auditor": { "disable": false },
-    "conductor": { "disable": false },
-    "explorer": { "disable": false },
-    "planner": { "disable": false },
-    "researcher": { "disable": false },
-    "reviewer": { "disable": false },
     "translator": { "disable": false },
     "triager": { "disable": false }
   },
@@ -89,8 +83,9 @@
   {{-   end -}}
   {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
-  {{-   else if and (hasKey $value "type") (eq $value.type "http") -}}
+  {{-   else if and (hasKey $value "type") (or (eq $value.type "http") (eq $value.type "remote")) -}}
   {{-     $_ := $value | setValueAtPath "type" "remote" -}}
+  {{-     $_ := $value | setValueAtPath "url" $value.url -}}
   {{-   else -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
   {{-   end -}}
