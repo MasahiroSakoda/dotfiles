@@ -6,9 +6,9 @@
 		":semanticCommits"
   ],
   "automerge": true,
-  "ignoreTests": true,
   "timezone": "Asia/Tokyo",
-  "ignorePresets": [ ":prHourlyLimit2", ":prConcurrentLimit10" ],
+	"prHourlyLimit": 2,
+	"prConcurrentLimit": 5,
   "major": { "minimumReleaseAge": "7 days" },
   "minor": { "minimumReleaseAge": "3 days" },
   "patch": { "minimumReleaseAge": "2 days" },
