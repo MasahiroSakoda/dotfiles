@@ -113,16 +113,6 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 
 #### Terminal
 
-##### Tmux
-- [`tmux-plugins/tpm`](https://github.com/tmux-plugins/tpm)
-- [`tmux-plugins/tmux-logging`](https://github.com/tmux-plugins/tmux-logging)
-- [`tmux-plugins/tmux-sensible`](https://github.com/tmux-plugins/tmux-sensible)
-- [`tmux-plugins/tmux-resurrect`](https://github.com/tmux-plugins/tmux-resurrect)
-- [`tmux-plugins/tmux-continuum`](https://github.com/tmux-plugins/tmux-continuum)
-- [`tmux-plugins/tmux-pain-control`](https://github.com/tmux-plugins/tmux-pain-control)
-- [`tmux-plugins/tmux-open`](https://github.com/tmux-plugins/tmux-open)
-- [`fabioluciano/tmux-powerkit`](https://github.com/fabioluciano/tmux-powerkit)
-
 ##### Zellij
 - [`imsnif/multitask`](https://github.com/imsnif/multitask)
 - [`fresh2dev/zellij-autolock`](https://github.com/fresh2dev/zellij-autolock)
