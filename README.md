@@ -39,7 +39,6 @@
       * [LSP](#lsp)
       * [DAP](#dap)
       * [Linter](#linter)
-      * [Formatter](#formatter)
     * [mise](#mise)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
@@ -117,12 +116,11 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [DAP supported](#dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-view`**](https://github.com/igorlfs/nvim-dap-view)
 * Addtional completion with [blink.cmp](https://github.com/saghen/blink.cmp)
 * [Linter support](#linter)
-* [Formatter support](#formatter)
 * Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
 * Fuzzy Finder: [**`Snacks.picker`**](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
 * [AI Assistant](#ai-assistant) available
 
-![NeoVim-mason nvim](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/702a2de8-1264-4688-87b0-d682f2441b98)
+![NeoVim-AI-Integration](https://github.com/user-attachments/assets/9c98b1aa-eabb-4c53-8b8b-439f82ca16d0)
 
 Plugin managed by [**`lazy.nvim`**](https://github.com/folke/lazy.nvim)
 See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/nvim/lua/plugins/init.lua)
@@ -149,7 +147,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**Marksman**](https://github.com/artempyanykh/marksman) | Markdown |
 | [**texlab**](https://github.com/latex-lsp/texlab) | LaTex |
 
-![NeoVim-LSP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/d20f648c-f520-485c-ad2b-3762ee60dfc1)
 
 ##### DAP
 
@@ -160,23 +157,15 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | [**debugpy**](https://github.com/microsoft/debugpy) | Python |
 | [**js-debug-adapter**](https://github.com/microsoft/vscode-js-debug) | Javascript/TyptScript |
 
-![NeoVim-DAP](https://github.com/MasahiroSakoda/dotfiles/assets/1011488/91de198d-993f-437c-a5dd-5fe52091924e)
 
 ##### Linter
 
 | Linter | Notes |
 | :----- | :---- |
-| [**typos**](https://github.com/crate-ci/typos) | Source code spell checker |
 | [**rubocop**](https://rubocop.org) | Ruby linter/formatter |
 | [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
 | [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
 
-##### Formatter
-
-| Formatter | Notes |
-| :-------- | :---- |
-| [**clang-format**](https://pypi.org/project/clang-format/) | `C++`formatter |
-| [**sql-formatter**](https://sql-formatter-org.github.io/sql-formatter/) | `SQL` formatter |
 
 ##### AI Assistant
 
@@ -189,13 +178,9 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 Runtime version management tool
 
-`.tool-versions` used by `asdf` is deactivated to prevent confliction & confusion.
-
-global language environment predefined in [**`.chezmoidata.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/.chezmoidata.toml)
 
 | File | Usage |
 | :--- | :---- |
-| [**`~/.config/mise/settings.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/settings.toml.tmpl) | System settings |
 | [**`~/.config/mise/config.toml`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/mise/config.toml.tmpl) | Global config |
 | `.mise.toml` | Local config |
 
@@ -283,6 +268,7 @@ global language environment predefined in [**`.chezmoidata.toml`**](https://gith
 | Tool | Description |
 |:-----|:------------|
 | [`**OpenCode**`](https://opencode.ai) | Open Source AI Agent  |
+| [`**oh-my-opencode**`](https://github.com/code-yeongyu/oh-my-opencode) | Steroids for your onprem code. |
 | [`**superpowers**`](https://github.com/obra/superpowers) | Core skills library |
 | [`**Awesome Claude Code Subagents**`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
 
