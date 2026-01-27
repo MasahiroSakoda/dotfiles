@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended",
     ":disableDependencyDashboard",
-    "mergeConfidence:all-badges"
+		":semanticCommits"
   ],
   "automerge": true,
   "ignoreTests": true,
