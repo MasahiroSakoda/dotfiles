@@ -12,17 +12,22 @@
   "major": { "minimumReleaseAge": "7 days" },
   "minor": { "minimumReleaseAge": "3 days" },
   "patch": { "minimumReleaseAge": "2 days" },
+
+	"enabledManagers": [ "github-actions" ],
+	"github-actions": {
+		"pinDigests": true,
+		"managerFilePatterns": [
+			"/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+			"/(^|/)action\\.ya?ml$/"
+		]
+	},
   "packageRules": [
-    {
-      "description": "Don't pin official action digests",
-      "pinDigests": false,
-      "matchPackageNames": [ "actions/{/,}**" ]
-    },
-    {
-      "description": "Schedule digest updates weekly",
-      "matchUpdateTypes": [ "digest" ],
-      "schedule": [ "every 7 day" ],
-      "matchPackageNames": [ "!actions/{/,}**" ]
-    }
+		{
+			"matchManagers": ["github-actions"],
+			"groupName": "github-actions",
+			"autoMerge": true,
+			"autoMergeType": "pr",
+			"matchUpdateTypes": ["minor", "patch", "digest"]
+		}
   ]
 }
