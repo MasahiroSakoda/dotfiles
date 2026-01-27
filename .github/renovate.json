@@ -3,31 +3,31 @@
   "extends": [
     "config:recommended",
     ":disableDependencyDashboard",
-		":semanticCommits"
+    ":semanticCommits"
   ],
   "automerge": true,
   "timezone": "Asia/Tokyo",
-	"prHourlyLimit": 2,
-	"prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
   "major": { "minimumReleaseAge": "7 days" },
   "minor": { "minimumReleaseAge": "3 days" },
   "patch": { "minimumReleaseAge": "2 days" },
 
-	"enabledManagers": [ "github-actions" ],
-	"github-actions": {
-		"pinDigests": true,
-		"managerFilePatterns": [
-			"/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
-			"/(^|/)action\\.ya?ml$/"
-		]
-	},
+  "enabledManagers": [ "github-actions" ],
+  "github-actions": {
+    "pinDigests": true,
+    "managerFilePatterns": [
+      "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+      "/(^|/)action\\.ya?ml$/"
+    ]
+  },
   "packageRules": [
-		{
-			"matchManagers": ["github-actions"],
-			"groupName": "github-actions",
-			"autoMerge": true,
-			"autoMergeType": "pr",
-			"matchUpdateTypes": ["minor", "patch", "digest"]
-		}
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "autoMerge": true,
+      "autoMergeType": "pr",
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    }
   ]
 }
