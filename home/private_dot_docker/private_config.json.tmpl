@@ -1,0 +1,11 @@
+{
+  "auths": {
+    "ghcr.io": {},
+    "https://index.docker.io/v1/": {}
+  },
+  "currentContext": "colima",
+  "cliPluginsExtraDirs": [{{ joinPath (env "DOCKER_CONFIG") "cli-plugins" | quote }}]
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=json.gotexttmpl
+*/ -}}
