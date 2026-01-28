@@ -40,6 +40,15 @@
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "3 days"
 
+    },
+    {
+      "groupName": "mise",
+      "matchManagers": ["mise"],
+      "autoMerge": false,
+      "autoMergeType": "pr",
+      "addLabels": ["ci", "mise"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "2 days"
     }
   ]
 }
