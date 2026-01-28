@@ -9,6 +9,7 @@
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 2,
   "prConcurrentLimit": 5,
+  "assigneesFromCodeOwners": true,
   "major": { "minimumReleaseAge": "7 days" },
   "minor": { "minimumReleaseAge": "3 days" },
   "patch": { "minimumReleaseAge": "2 days" },
