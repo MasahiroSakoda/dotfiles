@@ -32,11 +32,14 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
       "groupName": "github-actions",
+      "matchManagers": ["github-actions"],
       "autoMerge": true,
       "autoMergeType": "pr",
-      "matchUpdateTypes": ["minor", "patch", "digest"]
+      "addLabels": ["ci"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days"
+
     }
   ]
 }
