@@ -13,12 +13,20 @@
   "minor": { "minimumReleaseAge": "3 days" },
   "patch": { "minimumReleaseAge": "2 days" },
 
-  "enabledManagers": [ "github-actions" ],
+  "enabledManagers": [ "github-actions", "mise" ],
   "github-actions": {
     "pinDigests": true,
     "managerFilePatterns": [
       "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
       "/(^|/)action\\.ya?ml$/"
+    ]
+  },
+  "mise": {
+    "managerFilePatterns": [
+      "/(^|/)\\.?mise\\.toml$/",
+      "/(^|/)\\.?mise/config\\.toml$/",
+      "/(^|/)\\.?mise/config.*\\.toml$/",
+      "/(^|/)\\.?mise/config\\.toml\\.tmpl$/"
     ]
   },
   "packageRules": [
