@@ -5,14 +5,11 @@
     ":disableDependencyDashboard",
     ":semanticCommits"
   ],
-  "automerge": true,
+
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 2,
   "prConcurrentLimit": 5,
   "assigneesFromCodeOwners": true,
-  "major": { "minimumReleaseAge": "7 days" },
-  "minor": { "minimumReleaseAge": "3 days" },
-  "patch": { "minimumReleaseAge": "2 days" },
 
   "enabledManagers": [ "github-actions", "mise" ],
   "github-actions": {
@@ -39,7 +36,6 @@
       "addLabels": ["ci"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "3 days"
-
     },
     {
       "groupName": "mise",
