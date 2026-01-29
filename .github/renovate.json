@@ -33,7 +33,7 @@
       "matchManagers": ["github-actions"],
       "autoMerge": true,
       "autoMergeType": "pr",
-      "addLabels": ["ci"],
+      "addLabels": ["CI/CD 🔁"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "3 days"
     },
@@ -42,7 +42,7 @@
       "matchManagers": ["mise"],
       "autoMerge": false,
       "autoMergeType": "pr",
-      "addLabels": ["ci", "mise"],
+      "addLabels": ["CI/CD 🔁", "mise"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "2 days"
     }
