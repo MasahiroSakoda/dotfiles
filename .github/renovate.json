@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard",
+    ":semanticCommits"
+  ],
+
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
+  "assigneesFromCodeOwners": true,
+
+  "enabledManagers": [ "github-actions", "mise" ],
+  "github-actions": {
+    "pinDigests": true,
+    "managerFilePatterns": [
+      "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
+      "/(^|/)action\\.ya?ml$/"
+    ]
+  },
+  "mise": {
+    "managerFilePatterns": [
+      "/(^|/)\\.?mise\\.toml$/",
+      "/(^|/)\\.?mise/config\\.toml$/",
+      "/(^|/)\\.?mise/config.*\\.toml$/",
+      "/(^|/)\\.?mise/config\\.toml\\.tmpl$/"
+    ]
+  },
+  "packageRules": [
+    {
+      "groupName": "github-actions",
+      "matchManagers": ["github-actions"],
+      "autoMerge": true,
+      "autoMergeType": "pr",
+      "addLabels": ["CI/CD 🔁"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "groupName": "mise",
+      "matchManagers": ["mise"],
+      "autoMerge": false,
+      "autoMergeType": "pr",
+      "addLabels": ["CI/CD 🔁", "mise"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "minimumReleaseAge": "2 days"
+    }
+  ]
+}

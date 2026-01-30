@@ -1,21 +1,52 @@
 # -*-mode:yaml-*- vim:ft=yaml
-ci:
+"CI/CD 🔁":
   - changed-files:
       - any-glob-to-any-file:
           - ".github/workflows/*.yml"
           - ".github/ISSUE_TEMPLATE/*.yml"
-dependencies:
+          - ".github/pull_request_template.md"
+          - ".github/CODEOWDERS"
+          - ".github/labeler.yml"
+"Deps 📦️":
   - changed-files:
       - any-glob-to-any-file:
+          - ".github/renovate.json"
           - ".github/renovate.json5"
           - ".github/dependabot.yml"
-docs:
+"Docs 📚":
   - changed-files:
       - any-glob-to-any-file:
+          - "**/*.md"
           - "README.md"
           - 'CONTRIBUTING.md'
           - "SECURITY.md"
-chezmoi:
+"Security 🛡️":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "SECURITY.md"
+          - "home/private_dot_ssh/*"
+          - "home/private_dot_gnupg/*"
+          - "*.age"
+
+"Bug 🐛":
+  - head-branch:
+      - "^fix/.*"
+      - "^bugfix/.*"
+      - "^hotfix/.*"
+"Feature ✨":
+  - head-branch:
+      - "^feat/.*"
+      - "^feature/.*"
+"Chore 🏠":
+  - head-branch:
+      - "^chore/.*"
+      - "^maintenance/.*"
+"Refactor ♻️":
+  - head-branch:
+      - "^refactor/.*"
+      - "^cleanup/.*"
+
+"chezmoi 🏘️":
   - changed-files:
       - any-glob-to-any-file:
           - ".chezmoiroot"
@@ -27,17 +58,18 @@ chezmoi:
           - "home/.chezmoiscripts/*.sh.tmpl"
           - "home/.chezmoitemplates/**/*"
           - "home/.chezmoiexternals/*"
-homebrew:
+"Homebrew 🍺":
   - changed-files:
       - any-glob-to-any-file:
-          - "home/dot_config/homebrew/*.tmpl"
           - "home/.chezmoiscripts/run_once_after_00-homebrew.sh.tmpl"
           - "home/.chezmoitemplates/common/script_eval_brew"
-cli:
+          - "home/.chezmoidata/packages.toml"
+          - "home/dot_config/homebrew/*.tmpl"
+"CLI 💻":
   - changed-files:
       - any-glob-to-any-file:
           - "home/dot_config//*"
-shell:
+"Shell 🐚":
   - changed-files:
       - any-glob-to-any-file:
           - "home/dot_config/fish/*.fish.tmpl"
@@ -46,19 +78,18 @@ shell:
           - "home/dot_config/zsh/*"
           - "home/dot_config/zsh/functions/*"
           - "home/.chezmoiscripts/run_once_after_10-fish.sh.tmpl"
-mise:
+"mise ⚙️":
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoiscripts/run_once_after_2*.sh.tmpl"
           - "home/dot_config/mise/*.toml.tmpl"
-          - "home/dot_default-*.tmpl"
-neovim:
+"NeoVim 📝":
   - changed-files:
       - any-glob-to-any-file:
           - "home/dot_config/nvim/lua/**/*.lua"
           - "home/dot_config/nvim/lua/**/*.lua.tmpl"
           - "home/dot_config/nvim/after/**/*.lua"
-vscode:
+"IDE 💡":
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoiscripts/run_onchange_after_04-vscode.sh.tmpl"
@@ -66,20 +97,23 @@ vscode:
           - "home/Library/Applications Support/Code/User/settings.json.tmpl"
           - "home/dot_config/Code/User/settings.json.tmpl"
           - "home/dot_editorconfig.tmpl"
-terminal:
+"Terminal 🖥️":
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoiexternals/tmux.toml.tmpl"
+          - "home/.chezmoiexternals/zellij.toml.tmpl"
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"
-ai:
+"AI 🤖":
   - changed-files:
       - any-glob-to-any-file:
-          - "home/.chezmoitemplates/common/ai/mcp-servers.json.tmpl"
+          - "home/.chezmoitemplates/common/ai/*"
+          - "home/.chezmoiexternals/opencode.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
           - "home/dot_config/opencode/agent/**/*.md"
           - "home/dot_config/opencode/command/**/*.md"
           - "home/dot_config/opencode/config.json.tmpl"
           - "home/dot_config/opencode/oh-my-opencode.json.tmpl"
+          - "home/dot_config/opencode/antigravity.json.tmpl"
           - "home/dot_gemini/*"
