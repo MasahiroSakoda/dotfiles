@@ -225,12 +225,13 @@ external_directory = "ask"
 "gh api * --method DELETE*" = "ask"
 
 [opencode.antigravity]
-auto_update    = true
-quiet_mode     = false
-debug          = false
-keep_thinking  = false
-quota_fallback = true
-auto_resume    = true
+auto_update        = true
+quiet_mode         = false
+debug              = false
+keep_thinking      = false
+quota_fallback     = true
+auto_resume        = true
+pid_offset_enabled = true
 account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
