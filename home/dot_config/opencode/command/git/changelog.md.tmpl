@@ -2,6 +2,15 @@
 name: changelog
 description: Generate changelog from current branch changes.
 model: {{ .opencode.models.lite }}
+permission:
+  bash:
+    "*": deny
+    "awk": allow
+    "grep": allow
+    "git log": allow
+    "git status": allow
+    "git branch": allow
+    "git remote": allow
 ---
 
 # Changelog Generator
