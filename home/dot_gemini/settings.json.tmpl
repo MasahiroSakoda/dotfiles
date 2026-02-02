@@ -91,6 +91,25 @@
   "privacy": {
     "usageStatisticsEnabled": false
   },
+  {{/* Hooks */ -}}
+  "hooks": {
+    "BeforeTool": [],
+    "AfterTool": [
+      {
+        "hooks": []
+      }
+    ],
+    "BeforeAgent": [],
+    "AfterAgent": [
+      {
+        "hooks": [
+          { "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &" }
+        ]
+      }
+    ],
+    "BeforeTool": [],
+    "AfterTool": []
+  },
   {{/* Telemetry */ -}}
   "telemetry": {
     "enabled": false,
