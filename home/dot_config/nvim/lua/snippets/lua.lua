@@ -247,25 +247,22 @@ local snippets = {
     ]], { i(1, "module"), rep(1), rep(1), i(0) })
   ),
 
-  s({ trig = "wkeygrp", name = "Keymap Group",  dscr = "Keymap Group for which-key.nvim" },
+  s({ trig = "wkg", name = "Keymap Group",  dscr = "Keymap Group for which-key.nvim" },
     fmta('{ "<lhs>", group = "<grp>", icon = "<icon> " },', {
-      lhs  = c(1, {
-        sn(1, { t("<Leader>"), r(1, "lhs") }),
-        sn(1, { r(1, "lhs") }),
-      }),
+      lhs  = c(1, { sn(1, { t("<Leader>"), r(1, "lhs") }), sn(1, { r(1, "lhs") }) }),
       grp  = i(2, "group"),
       icon = i(0, "icon")
     }),
     { stored = { lhs = i(1, "lhs") } }
   ),
-  s({ trig = "wkeymap", name = "Keymap Config", dscr = "Keymap Config for which-key.nvim" },
+  s({ trig = "wkm", name = "Keymap Config", dscr = "Keymap Config for which-key.nvim" },
     fmta('{ "<lhs>", <rhs>, icon = "<icon> ", desc = "<desc>" },', {
       lhs = c(1, {
         sn(1, { t("<Leader>"), r(1, "user_lhs") }),
         sn(1, { r(1, "user_lhs") }),
       }),
       rhs = c(2, {
-        { t("<CMD>"), r(1, "user_rhs"), t("<CR>") },
+        { t("\"<CMD>"), r(1, "user_rhs"), t("<CR>\"") },
         { t("function()"), r(1, "user_rhs"), t("end") },
         { t(":"), r(1, "user_lhs"), t("<Space>") },
       }),
