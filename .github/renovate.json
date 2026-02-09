@@ -40,7 +40,7 @@
     {
       "groupName": "mise",
       "matchManagers": ["mise"],
-      "autoMerge": false,
+      "autoMerge": true,
       "autoMergeType": "pr",
       "addLabels": ["CI/CD 🔁", "mise"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
