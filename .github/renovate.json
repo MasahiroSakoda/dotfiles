@@ -10,27 +10,12 @@
   "prConcurrentLimit": 5,
   "assigneesFromCodeOwners": true,
 
-  "enabledManagers": [ "github-actions", "mise" ],
-  "github-actions": {
-    "pinDigests": true,
-    "managerFilePatterns": [
-      "/(^|/)(workflow-templates|\\.(?:github|gitea|forgejo)/(?:workflows|actions))/.+\\.ya?ml$/",
-      "/(^|/)action\\.ya?ml$/"
-    ]
-  },
-  "mise": {
-    "managerFilePatterns": [
-      "/(^|/)\\.?mise\\.toml$/",
-      "/(^|/)\\.?mise/config\\.toml$/",
-      "/(^|/)\\.?mise/config.*\\.toml$/",
-      "/(^|/)\\.?mise/config\\.toml\\.tmpl$/"
-    ]
-  },
   "packageRules": [
     {
       "groupName": "github-actions",
       "matchManagers": ["github-actions"],
       "autoMerge": true,
+      "pinDigests": true,
       "autoMergeType": "pr",
       "addLabels": ["CI/CD 🔁"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
