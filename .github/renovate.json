@@ -30,5 +30,17 @@
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "2 days"
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": ["Update Chezmoi version"],
+      "managerFilePatterns": ["/^home/.chezmoiversion$/"],
+      "matchStrings": ["(?<currentValue>.*)\\s"],
+      "depNameTemplate": "twpayne/chezmoi",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$",
+      "versioningTemplate": "semver"
+    }
   ]
 }
