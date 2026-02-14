@@ -42,5 +42,8 @@
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
     }
-  ]
+  ],
+  "mise": {
+    "managerFilePatterns": [ "^home/dot_config/mise/config\\.toml\\.tmpl$" ]
+  }
 }
