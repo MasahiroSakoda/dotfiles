@@ -44,7 +44,7 @@ uv_venv_auto = true
 uvx = true
 
 [settings.ruby]
-compile = true
+compile = false
 # default_packages_file = "~/.config/mise/default-gems"
 
 [tools]
@@ -60,99 +60,99 @@ node    = "24"
 pnpm    = "10"
 deno    = "2"
 bun     = "1"
-go      = "latest"
+go      = "1"
 python  = ["3.14"]
 uv      = "latest"
-ruby    = ["3.4"]
+ruby    = "3"
 
 # CLI tools
 
 ## Terminal
-"aqua:zellij-org/zellij"        = "latest" # Terminal Multiplexer
+"aqua:zellij-org/zellij"        = "0.43.1" # Terminal Multiplexer
 
 ## Shell
-"aqua:starship/starship"        = "latest" # Shell prompt
-"aqua:rossmacarthur/sheldon"    = "latest" # Shell plugin manager
+"aqua:starship/starship"        = "1.24.2" # Shell prompt
+"aqua:rossmacarthur/sheldon"    = "0.8.5"  # Shell plugin manager
 
 ## Editor
-"aqua:neovim/neovim"            = "latest" # Hyper extensive editor
-"aqua:tree-sitter/tree-sitter"  = "latest" # language parser
+"aqua:neovim/neovim"            = "0.11.6" # Hyper extensive editor
+"aqua:tree-sitter/tree-sitter"  = "0.26.5" # language parser
 
 ## Build
-"aqua:Kitware/CMake"            = "latest" # build system generator
-"aqua:casey/just"               = "latest" # Just a command runner
+"aqua:Kitware/CMake"            = "4.2.3"  # build system generator
+"aqua:casey/just"               = "1.46.0" # Just a command runner
 
 ## Alternative CLI
-"aqua:ajeetdsouza/zoxide"       = "latest" # Smarter cd command
-"aqua:sharkdp/bat"              = "latest" # cat alternative
-"aqua:sharkdp/fd"               = "latest" # find alternative
-"aqua:BurntSushi/ripgrep"       = "latest" # grep alternative
-"aqua:phiresky/ripgrep-all"     = "latest" # extended ripgrep for pdf, docs, archives, img, movies, etc
-"aqua:junegunn/fzf"             = "latest" # Fuzzy finder
-"aqua:ClementTsang/bottom"      = "latest" # Process monitor
-"aqua:watchexec/watchexec"      = "latest" # Modify detector
-"aqua:sxyazi/yazi"              = "latest" # Modern TUI explorer
-"aqua:Byron/dua-cli"            = "latest" # Disk usage
-"aqua:sharkdp/hyperfine"        = "latest" # Benchmark tool
-"aqua:svenstaro/genact"         = "latest" # nonsense activity generator
-"aqua:tealdeer-rs/tealdeer"     = "latest" # Too long don't read
-"github:yt-dlp/yt-dlp"          = "latest" # Downloader
+"aqua:ajeetdsouza/zoxide"       = "0.9.9"   # Smarter cd command
+"aqua:sharkdp/bat"              = "0.26.1"  # cat alternative
+"aqua:sharkdp/fd"               = "10.3.0"  # find alternative
+"aqua:BurntSushi/ripgrep"       = "15.1.0"  # grep alternative
+"aqua:phiresky/ripgrep-all"     = "0.10.10" # extended ripgrep for pdf, docs, archives, img, movies, etc
+"aqua:junegunn/fzf"             = "0.67.0"  # Fuzzy finder
+"aqua:ClementTsang/bottom"      = "0.12.3"  # Process monitor
+"aqua:watchexec/watchexec"      = "2.3.3"   # Modify detector
+"aqua:sxyazi/yazi"              = "26.1.22" # Modern TUI explorer
+"aqua:Byron/dua-cli"            = "2.33.0"  # Disk usage
+"aqua:sharkdp/hyperfine"        = "1.20.0"  # Benchmark tool
+"aqua:svenstaro/genact"         = "1.5.1"   # nonsense activity generator
+"aqua:tealdeer-rs/tealdeer"     = "1.8.1"   # Too long don't read
+"github:yt-dlp/yt-dlp"          = "latest"  # Downloader
 
 ## Git
-"aqua:o2sh/onefetch"            = "latest" # Repository information
-"aqua:gitui-org/gitui"          = "latest" # Git TUI
-"aqua:dandavison/delta"         = "latest" # git-delta
-"aqua:pre-commit/pre-commit"    = "latest" # git pre-commit hook
-"aqua:orhun/git-cliff"          = "latest" # Changelog generator
-"aqua:simonwhitaker/gibo"       = "latest" # .gitignore boilerplates
-"npm:commitizen"                = "latest" # commit message utility
-"npm:cz-conventional-changelog" = "latest" # Generate a CHANGELOG from git metadata.
+"aqua:o2sh/onefetch"            = "2.26.1" # Repository information
+"aqua:gitui-org/gitui"          = "0.28.0" # Git TUI
+"aqua:dandavison/delta"         = "0.18.2" # git-delta
+"aqua:pre-commit/pre-commit"    = "4.5.1"  # git pre-commit hook
+"aqua:orhun/git-cliff"          = "2.12.0" # Changelog generator
+"aqua:simonwhitaker/gibo"       = "3.0.16" # .gitignore boilerplates
+"npm:commitizen"                = "4.3.1"  # commit message utility
+"npm:cz-conventional-changelog" = "3.3.0"  # Generate a CHANGELOG from git metadata.
 
 ### GitHub
-"aqua:cli/cli"                  = "latest" # gh command: GitHub CLI
-"aqua:x-motemen/ghq"            = "latest" # Remote repository manager
-"aqua:suzuki-shunsuke/pinact"   = "latest" # Version Pinner for GitHub Actions
+"aqua:cli/cli"                  = "2.86.0" # gh command: GitHub CLI
+"aqua:x-motemen/ghq"            = "1.8.1"  # Remote repository manager
+"aqua:suzuki-shunsuke/pinact"   = "3.9.0"  # Version Pinner for GitHub Actions
 
 ## Dotfiles
-"aqua:twpayne/chezmoi"          = "latest" # Dotfiles manager
+"aqua:twpayne/chezmoi"          = "2.69.3" # Dotfiles manager
 
 ## Formatter / Linter
-"aqua:mvdan/sh"                 = "latest" # Shell formatter
-"aqua:biomejs/biome"            = "latest" # eslint & prettier replacement
-"aqua:astral-sh/ruff"           = "latest" # Python Linter / Formatter
-"aqua:tombi-toml/tombi"         = "latest" # TOML Linter / Formatter / Language Server
-"aqua:google/yamlfmt"           = "latest" # YAML formatter
-"aqua:rhysd/actionlint"         = "latest" # YAML Linter for GitHub Actions workflows
-"aqua:golangci/golangci-lint"   = "latest" # Go linter aggregator
-"aqua:hadolint/hadolint"        = "latest" # Dockerfile Linter
-"aqua:JohnnyMorganz/StyLua"     = "latest" # Lua Linter
-"aqua:mrtazz/checkmake"         = "latest" # Makefile Linter
+"aqua:mvdan/sh"                 = "3.12.0" # Shell formatter
+"aqua:biomejs/biome"            = "2.3.14" # eslint & prettier replacement
+"aqua:astral-sh/ruff"           = "0.15.0" # Python Linter / Formatter
+"aqua:tombi-toml/tombi"         = "0.7.28" # TOML Linter / Formatter / Language Server
+"aqua:google/yamlfmt"           = "0.21.0" # YAML formatter
+"aqua:rhysd/actionlint"         = "1.7.10" # YAML Linter for GitHub Actions workflows
+"aqua:golangci/golangci-lint"   = "2.8.0"  # Go linter aggregator
+"aqua:hadolint/hadolint"        = "2.14.0" # Dockerfile Linter
+"aqua:JohnnyMorganz/StyLua"     = "2.3.1"  # Lua Linter
+"aqua:mrtazz/checkmake"         = "0.3.2"  # Makefile Linter
 
 ## Daatbase / Data Analysis
-"aqua:jorgerojas26/lazysql"     = "latest" # SQL with TUI
-"github:bensadeh/tailspin"      = "latest" # Log highlighter
-"github:medialab/xan"           = "latest" # CSV visualization toolkit
+"aqua:jorgerojas26/lazysql"     = "0.4.6"  # SQL with TUI
+"github:medialab/xan"           = "0.54.1" # CSV visualization toolkit
+"aqua:jesseduffield/lazydocker" = "0.24.4" # Docker TUI
 
 ## Documents
-"github:jgm/pandoc"             = "latest" # Universal markup converter
+"github:jgm/pandoc"             = "3.9"    # Universal markup converter
 
 ## JSON / YAML / Markdown
-"aqua:jqlang/jq"                = "latest" # CLI processor for JSON
-"aqua:mikefarah/yq"             = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
-"aqua:charmbracelet/glow"       = "latest" # Render markdown on the CLI
+"aqua:jqlang/jq"                = "1.8.1"  # CLI processor for JSON
+"aqua:mikefarah/yq"             = "4.52.2" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
+"aqua:charmbracelet/glow"       = "2.1.1"  # Render markdown on the CLI
 "go:github.com/mrusme/reader"   = "latest" # A lightweight tool offering better readability of web pages
 
 ## Security
-"aqua:FiloSottile/age"          = "latest" # Simple encrypt / decrypt tool
-"aqua:gitleaks/gitleaks"        = "latest" # tool for detecting secrets like passwords, API keys, and tokens in repos
+"aqua:FiloSottile/age"          = "1.3.1"  # Simple encrypt / decrypt tool
+"aqua:gitleaks/gitleaks"        = "8.30.0" # tool for detecting secrets like passwords, API keys, and tokens in repos
 
 ## Container
-"aqua:lima-vm/lima"             = "latest" # Linux virtual machines, with a focus on running containers
-"aqua:abiosoft/colima"          = "latest" # Container runtimes on macOS (and Linux) with minimal setup
-"aqua:docker/cli"               = "latest" # Docker CLI
-"aqua:docker/buildx"            = "latest" # Docker CLI plugin for extended build capabilities with BuildKit
-"aqua:docker/compose"           = "latest" # Define and run multi-container applications with Docker
-"aqua:wagoodman/dive"           = "latest" # A tool for exploring each layer in a docker image
+"aqua:lima-vm/lima"             = "2.0.3"  # Linux virtual machines, with a focus on running containers
+"aqua:abiosoft/colima"          = "0.9.1"  # Container runtimes on macOS (and Linux) with minimal setup
+"aqua:docker/cli"               = "29.2.1" # Docker CLI
+"aqua:docker/buildx"            = "0.31.1" # Docker CLI plugin for extended build capabilities with BuildKit
+"aqua:docker/compose"           = "5.0.2"  # Define and run multi-container applications with Docker
+"aqua:wagoodman/dive"           = "0.13.1" # A tool for exploring each layer in a docker image
 
 ## AI Tools
 "aqua:ollama/ollama"            = "latest" # Get up and running with large language models.
