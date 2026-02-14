@@ -35,7 +35,7 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["/^home/.chezmoiversion$/"],
+      "managerFilePatterns": ["^home/.chezmoiversion$"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
