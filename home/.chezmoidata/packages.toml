@@ -30,7 +30,7 @@ dictionary  = []
 finder   = [ "symboliclinker" ]
 keyboard = [ "karabiner-elements" ]
 ime      = [ "google-japanese-ime" ]
-editor   = [ "coteditor" ]
+editor   = []
 font     = [ "font-codicon", "font-jetbrains-mono-nerd-font", "font-plemol-jp-nf", "font-udev-gothic-nf" ]
 archive   = [ "suspicious-package" ]
 launcher  = [ "raycast" ]
@@ -58,6 +58,10 @@ id   = 425424353
 [[packages.mas]]
 name = "WinArchiver"
 id   = 414855915
+
+[[packages.mas]]
+name = "CotEditor"
+id   = 1024640650
 
 [[packages.mas]]
 name = "LINE"
