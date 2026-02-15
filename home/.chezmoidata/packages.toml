@@ -44,7 +44,7 @@ tex       = [ "basictex" ]
 graphics  = [ "blender" ]
 player    = [ "iina", "vlc", "spotify" ]
 audio     = [ "blackhole-2ch" ]
-chat      = [ "slack", "discord", "franz" ]
+chat      = [ "beeper" ]
 storage   = [ "dropbox" ]
 
 [[packages.mas]]
