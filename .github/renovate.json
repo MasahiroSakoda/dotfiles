@@ -44,6 +44,14 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": ["aqua prefixed tool in mise toml files"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
+      "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"aqua:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
     }
   ],
   "mise": {
