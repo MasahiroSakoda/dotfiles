@@ -5,7 +5,8 @@
     ":semanticCommits",
     ":disableDependencyDashboard",
     ":automergeMinor",
-		":automergeDigest"
+    ":automergeDigest",
+    ":separateMultipleMajorReleases"
   ],
 
   "timezone": "Asia/Tokyo",
