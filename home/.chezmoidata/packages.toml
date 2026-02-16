@@ -43,7 +43,7 @@ diagram   = [ "drawio" ]
 tex       = [ "basictex" ]
 graphics  = [ "blender" ]
 player    = [ "iina", "vlc", "spotify" ]
-audio     = [ "blackhole-2ch" ]
+audio     = [ "blackhole-2ch", "typeless" ]
 chat      = [ "beeper" ]
 storage   = [ "dropbox" ]
 
