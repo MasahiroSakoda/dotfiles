@@ -10,6 +10,7 @@
   "prHourlyLimit": 2,
   "prConcurrentLimit": 5,
   "assigneesFromCodeOwners": true,
+  "labels": ["CI/CD 🔁"],
 
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
@@ -19,6 +20,12 @@
       "pinDigests": true,
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "3 days"
+    },
+    {
+      "groupName": "chezmoi",
+      "matchManagers": ["custom.regex"],
+      "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
+      "matchUpdateTypes": ["minor", "patch", "digest"]
     },
     {
       "groupName": "mise",
