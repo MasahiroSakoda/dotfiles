@@ -36,6 +36,7 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "chezmoi 🏘️"],
       "managerFilePatterns": ["^home/.chezmoiversion$"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
