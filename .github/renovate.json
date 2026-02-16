@@ -4,7 +4,8 @@
     "config:best-practices",
     ":semanticCommits",
     ":disableDependencyDashboard",
-    ":automergeMinor"
+    ":automergeMinor",
+		":automergeDigest"
   ],
 
   "timezone": "Asia/Tokyo",
