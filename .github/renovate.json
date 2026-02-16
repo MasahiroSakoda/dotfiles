@@ -23,10 +23,11 @@
       "groupName": "GitHub Actions"
     },
     {
-      "groupName": "chezmoi",
+      "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
-      "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
-      "matchUpdateTypes": ["minor", "patch", "digest"]
+      "matchFileNames": ["^home/\\.chezmoiversion$", "^home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
+      "groupName": "chezmoi",
+      "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
     },
     {
       "groupName": "mise",
@@ -40,7 +41,7 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["^home/.chezmoiversion$"],
+      "managerFilePatterns": ["^home/\\.chezmoiversion$"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
