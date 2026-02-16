@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices",
-    ":semanticCommits"
+    ":semanticCommits",
+    ":disableDependencyDashboard"
   ],
 
   "timezone": "Asia/Tokyo",
@@ -10,6 +11,7 @@
   "prConcurrentLimit": 5,
   "assigneesFromCodeOwners": true,
 
+  "enabledManagers": ["github-actions", "mise"],
   "packageRules": [
     {
       "groupName": "github-actions",
@@ -35,12 +37,37 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "chezmoi 🏘️"],
       "managerFilePatterns": ["^home/.chezmoiversion$"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": ["aqua prefixed tool in mise toml files"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
+      "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"aqua:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": ["github prefixed tool in mise toml files"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
+      "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"github:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": ["npm prefixed tool in mise toml files"],
+      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
+      "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"npm:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
+      "datasourceTemplate": "npm"
     }
   ],
   "mise": {
