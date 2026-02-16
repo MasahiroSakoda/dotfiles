@@ -108,13 +108,6 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
-{{- if .cloud }}
-## Cloud
-{{- range .packages.cask.devops | uniq }}
-cask {{ . | quote }}
-{{- end }}
-{{ end }}
-
 ### Storage
 {{- range .packages.cask.storage | uniq }}
 cask {{ . | quote }}

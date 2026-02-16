@@ -55,12 +55,6 @@ brew {{ . | quote }}
 brew {{ . | quote }}
 {{- end }}
 
-{{- if and .cloud (not .headless) }}
-## DevOps
-{{ range .packages.brew.devops | uniq }}
-brew {{ . | quote }}
-{{ end }}
-
 {{- end }}
 
 ## Media
