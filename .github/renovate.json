@@ -11,24 +11,19 @@
   "prConcurrentLimit": 5,
   "assigneesFromCodeOwners": true,
 
-  "enabledManagers": ["github-actions", "mise"],
+  "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
     {
       "groupName": "github-actions",
       "matchManagers": ["github-actions"],
-      "autoMerge": true,
       "pinDigests": true,
-      "autoMergeType": "pr",
-      "addLabels": ["CI/CD 🔁"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "3 days"
     },
     {
       "groupName": "mise",
       "matchManagers": ["mise"],
-      "autoMerge": true,
-      "autoMergeType": "pr",
-      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
+      "addLabels": ["Deps 📦️", "mise ⚙️"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "minimumReleaseAge": "2 days"
     }
@@ -37,7 +32,6 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "addLabels": ["CI/CD 🔁", "Deps 📦️", "chezmoi 🏘️"],
       "managerFilePatterns": ["^home/.chezmoiversion$"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
@@ -48,7 +42,6 @@
     {
       "customType": "regex",
       "description": ["aqua prefixed tool in mise toml files"],
-      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
       "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
       "matchStrings": ["\"aqua:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
       "datasourceTemplate": "github-releases"
@@ -56,7 +49,6 @@
     {
       "customType": "regex",
       "description": ["github prefixed tool in mise toml files"],
-      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
       "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
       "matchStrings": ["\"github:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
       "datasourceTemplate": "github-releases"
@@ -64,7 +56,6 @@
     {
       "customType": "regex",
       "description": ["npm prefixed tool in mise toml files"],
-      "addLabels": ["CI/CD 🔁", "Deps 📦️", "mise ⚙️"],
       "managerFilePatterns": ["^home/dot_config/mise/config\\.toml\\.tmpl$"],
       "matchStrings": ["\"npm:(?<depName>[^/]+/[^\"]+)\"\\s*=\\s*\"(?<currentValue>v?[^\"]+)\""],
       "datasourceTemplate": "npm"
