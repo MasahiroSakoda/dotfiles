@@ -18,11 +18,9 @@
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
     {
-      "groupName": "github-actions",
+      "description": "Group GitHub Actions updates",
       "matchManagers": ["github-actions"],
-      "pinDigests": true,
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "minimumReleaseAge": "3 days"
+      "groupName": "GitHub Actions"
     },
     {
       "groupName": "chezmoi",
