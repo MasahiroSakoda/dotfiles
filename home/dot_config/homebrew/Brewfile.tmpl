@@ -24,7 +24,7 @@ brew {{ . | quote }}
 {{- end }}
 
 # Downloader
-{{- range .packages.brew.downloader | uniq }}
+{{- range .packages.brew.download | uniq }}
 brew {{ . | quote }}
 {{- end }}
 
@@ -54,12 +54,6 @@ brew {{ . | quote }}
 {{- range .packages.brew.runtime | uniq }}
 brew {{ . | quote }}
 {{- end }}
-
-{{- if and .cloud (not .headless) }}
-## DevOps
-{{ range .packages.brew.devops | uniq }}
-brew {{ . | quote }}
-{{ end }}
 
 {{- end }}
 
