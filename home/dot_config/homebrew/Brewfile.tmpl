@@ -24,7 +24,7 @@ brew {{ . | quote }}
 {{- end }}
 
 # Downloader
-{{- range .packages.brew.downloader | uniq }}
+{{- range .packages.brew.download | uniq }}
 brew {{ . | quote }}
 {{- end }}
 
