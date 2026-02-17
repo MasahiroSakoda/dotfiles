@@ -3,7 +3,10 @@
   "extends": [
     "config:best-practices",
     ":semanticCommits",
-    ":disableDependencyDashboard"
+    ":disableDependencyDashboard",
+    ":automergeMinor",
+    ":automergeDigest",
+    ":separateMultipleMajorReleases"
   ],
 
   "timezone": "Asia/Tokyo",
@@ -15,31 +18,32 @@
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
     {
-      "groupName": "github-actions",
+      "description": "Group GitHub Actions updates",
       "matchManagers": ["github-actions"],
-      "pinDigests": true,
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "minimumReleaseAge": "3 days"
+      "groupName": "GitHub Actions",
+      "schedule": ["before 5am on the first day of the month"]
     },
     {
-      "groupName": "chezmoi",
+      "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
+      "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$/"],
+      "groupName": "chezmoi",
       "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
-      "matchUpdateTypes": ["minor", "patch", "digest"]
+      "schedule": ["before 5am on the first day of the month"]
     },
     {
-      "groupName": "mise",
+      "description": "Group mise updates",
       "matchManagers": ["mise"],
+      "groupName": "mise",
       "addLabels": ["Deps 📦️", "mise ⚙️"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "minimumReleaseAge": "2 days"
+      "schedule": ["before 5am on monday"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["^home/.chezmoiversion$"],
+      "managerFilePatterns": ["/^home/\\.chezmoiversion$/"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
@@ -48,6 +52,6 @@
     }
   ],
   "mise": {
-    "managerFilePatterns": [ "^home/dot_config/mise/config\\.toml\\.tmpl$" ]
+    "managerFilePatterns": [ "/^home/dot_config/mise/config\\.toml\\.tmpl/$" ]
   }
 }
