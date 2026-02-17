@@ -103,8 +103,14 @@
     "BeforeAgent": [],
     "AfterAgent": [
       {
+        "matcher": "*",
         "hooks": [
-          { "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &" }
+          {
+            "name": "Gemini Notification",
+            "description": "Sends a desktop notification after a tool is executed.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+          }
         ]
       }
     ]
