@@ -5,7 +5,7 @@
 
 # Time and timezone conversion capabilities
 [mcp.providers.time]
-enabled = true
+enabled = false
 command = "uv"
 args = ["tool", "run", "mcp-server-time"]
 env = {}
@@ -19,7 +19,7 @@ env = {}
 
 # Web content fetching and conversion for efficient LLM usage
 [mcp.providers.fetch]
-enabled = true
+enabled = false
 command = "uv"
 args = ["tool", "run", "mcp-server-fetch"]
 env = {}
@@ -49,7 +49,7 @@ env = {}
 
 # grep.app
 [mcp.providers.grep_app]
-enabled = true
+enabled = false
 type = "remote"
 url = "https://mcp.grep.app"
 oauth   = {}
@@ -74,7 +74,7 @@ env = {}
 # MCP server that provides information about mise-managed development environment (experimental)
 # https://mise.jdx.dev/mcp.html
 [mcp.providers.mise]
-enabled = true
+enabled = false
 type    = "stdio"
 command = "mise"
 args = ["mcp"]
@@ -83,14 +83,14 @@ env = {}
 # Enable AI coding assistants to debug web pages directly in Chrome, providing runtime insights and debugging capabilities
 # https://github.com/ChromeDevTools/chrome-devtools-mcp
 [mcp.providers.chrome-devtools]
-enabled = true
+enabled = false
 type    = "stdio"
 command = "pnpm"
 args = ["dlx", "chrome-devtools-mcp@latest"]
 env = {}
 
 [mcp.providers.playwright-mcp]
-enabled = true
+enabled = false
 type    = "stdio"
 command = "pnpm"
 args = ["dlx", "@playwright/mcp@latest"]
@@ -99,7 +99,7 @@ env = {}
 # A powerful coding agent toolkit providing semantic retrieval and editing capabilities (MCP server & other integrations)
 # https://oraios.github.io/serena
 [mcp.providers.serena]
-enabled = true
+enabled = false
 type    = "stdio"
 command = "uvx"
 args = ["--from", "git+https://github.com/oraios/serena ", "serena", "start-mcp-server", "--context", "ide-assistant", "--enable-web-dashboard", "false"]

@@ -32,7 +32,8 @@
       "run_shell_command(git diff)",
       "run_shell_command(git log)",
       "run_shell_command(git add)",
-      "run_shell_command(git branch --show-current)"
+      "run_shell_command(git branch --show-current)",
+      "run_shell_command(git remote show)"
     ],
     "exclude": [
       "run_shell_command(rm -rf /)",
@@ -106,9 +107,7 @@
           { "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &" }
         ]
       }
-    ],
-    "BeforeTool": [],
-    "AfterTool": []
+    ]
   },
   {{/* Telemetry */ -}}
   "telemetry": {
@@ -123,13 +122,13 @@
   {{-   if hasKey $value "type" -}}
   {{-     $_ := $value | deleteValueAtPath "type" -}}
   {{-   end -}}
-  {{-   if hasKey $value "enabled" -}}
-  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
-  {{-   end -}}
   {{-   if hasKey $value "oauth" -}}
   {{-     $_ := $value | deleteValueAtPath "oauth" -}}
   {{-   end -}}
-  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{-   if and (hasKey $value "enabled") ($value.enabled) }}
+  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
+  {{-     $_ := $servers | setValueAtPath $key $value -}}
+  {{-   end }}
   {{- end -}}
   "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }}
 }

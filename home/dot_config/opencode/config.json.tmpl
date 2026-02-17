@@ -89,7 +89,9 @@
   {{-   else -}}
   {{-     $_ := $value | setValueAtPath "type" "local" -}}
   {{-   end -}}
-  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{-   if and (hasKey $value "enabled") ($value.enabled) }}
+  {{-     $_ := $servers | setValueAtPath $key $value -}}
+  {{-   end }}
   {{- end -}}
   "mcp": {{ $servers | toPrettyJson | indent 2 | trim }}
 }
