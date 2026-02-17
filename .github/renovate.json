@@ -26,7 +26,7 @@
     {
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
-      "matchFileNames": ["^home/\\.chezmoiversion$", "^home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
+      "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$/"],
       "groupName": "chezmoi",
       "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
       "schedule": ["before 5am on the first day of the month"]
@@ -43,7 +43,7 @@
     {
       "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["^home/\\.chezmoiversion$"],
+      "managerFilePatterns": ["/^home/\\.chezmoiversion$/"],
       "matchStrings": ["(?<currentValue>.*)\\s"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
@@ -52,6 +52,6 @@
     }
   ],
   "mise": {
-    "managerFilePatterns": [ "^home/dot_config/mise/config\\.toml\\.tmpl$" ]
+    "managerFilePatterns": [ "/^home/dot_config/mise/config\\.toml\\.tmpl/$" ]
   }
 }
