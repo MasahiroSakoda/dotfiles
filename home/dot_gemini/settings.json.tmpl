@@ -105,6 +105,17 @@
             "command": "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
           }
         ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "name": "Gemini Idle Prompt Notification",
+            "description": "Sends a desktop notification when Gemini CLI is idle.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Purr.aiff >/dev/null 2>&1 &"
+          }
+        ]
       }
     ],
     "BeforeTool": [],
