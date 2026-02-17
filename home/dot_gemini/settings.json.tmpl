@@ -94,12 +94,21 @@
   },
   {{/* Hooks */ -}}
   "hooks": {
-    "BeforeTool": [],
-    "AfterTool": [
+    "Notification": [
       {
-        "hooks": []
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "name": "Gemini Permission Prompt Notification",
+            "description": "Sends a desktop notification when Gemini CLI needs permissions.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+          }
+        ]
       }
     ],
+    "BeforeTool": [],
+    "AfterTool": [],
     "BeforeAgent": [],
     "AfterAgent": [
       {
