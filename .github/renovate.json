@@ -30,11 +30,11 @@
       "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
     },
     {
-      "groupName": "mise",
+      "description": "Group mise updates",
       "matchManagers": ["mise"],
+      "groupName": "mise",
       "addLabels": ["Deps 📦️", "mise ⚙️"],
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "minimumReleaseAge": "2 days"
+      "schedule": ["before 5am on monday"]
     }
   ],
   "customManagers": [
