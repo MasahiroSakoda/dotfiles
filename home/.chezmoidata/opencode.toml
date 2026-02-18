@@ -104,6 +104,9 @@ external_directory = "ask"
 "alias*"   = "deny"
 "unalias*" = "deny"
 
+# Sounds
+"afplay*" = "allow"
+
 # Filtering
 "awk*"    = "ask"
 "sed*"    = "deny"
