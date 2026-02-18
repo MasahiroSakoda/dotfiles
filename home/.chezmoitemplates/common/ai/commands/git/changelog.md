@@ -90,9 +90,13 @@ Before presenting the changelog, ensure:
 - [ ] Check the link for commit
 - [ ] Check the break new line for each commit details
 
+### Step 5: Paste changelog to clipboard
+
+- Paste suggested changelog to clipboard with OS-specific copy command (e.g.: `pbcopy`)
+
 ## Output Format
 
 1. **Suggested changelog**: in proper markdown format
-2. **Command to paste to clipboard**:
+2. **Display execution result to paste to clipboard**: Explain error details, if there are errors.
 
 DO NOT change or write any files even draft. Your task is suggestion only.
