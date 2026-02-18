@@ -200,14 +200,23 @@ Before presenting the commit message, ensure:
 - [ ] Message explains both what and why
 - [ ] Technical details are clear and specific
 
+## Commit Process
+
+1. **Display suggestions**: in proper format
+2. **Display Explanation** of why this type and scope were chosen
+3. **Alternative suggestions** if multiple types could apply
+4. **Ask user to execute commit command**: Ask user to execute commit command with following choices.
+- Choice 1: Suggested commit message
+- Choice 2: Alternative suggestions
+- Choice 3: Cancel commiting (Display suggestion only)
+5. **Commit**: Execute commit with selected commit message unless cancel selected.
+
 ## Output Format
 
 Present:
 
-1. **Suggested commit message** in proper format
-2. **Explanation** of why this type and scope were chosen
-3. **Alternative suggestions** if multiple types could apply
-4. **Command to execute**: `git commit -m "message"`
+1. **Executed commit message** in proper format
+2. **Commit Detail**: hash, author, date
 
 If no changes are staged, provide instructions to stage changes first.
 
