@@ -243,7 +243,7 @@ name    = "Ollama (Local)"
 npm     = "@ai-sdk/openai-compatible"
 options = { baseURL = "http://localhost:11434/v1" }
 
-[opencode.providers.ollama.models."goekdenizguelmez/Gabliterated-Qwen3:4b-thinking"]
+[opencode.providers.ollama.models."goekdenizguelmez/JOSIE:4b"]
 name = "Qwen3 4B Thinking 2507 Galbliterated"
 
 ## Google
