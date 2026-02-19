@@ -260,7 +260,7 @@ high = { thinkingLevel = "high" }
 
 [opencode.providers.google.models."antigravity-gemini-3-flash"]
 name       = "Gemini 3 Flash (Antigravity)"
-limit      = { context = 1048576, output = 65535 }
+limit      = { context = 1048576, output = 65536 }
 modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 
 [opencode.providers.google.models."antigravity-gemini-3-flash".variants]
@@ -282,3 +282,23 @@ modalities = { input = ["text", "image", "pdf"], output = ["text"] }
 [opencode.providers.google.models."antigravity-claude-opus-4-6-thinking".variants]
 low = { thinkingConfig = { thinkingBudget = 8192  } }
 max = { thinkingConfig = { thinkingBudget = 32768  } }
+
+[opencode.providers.google.models."gemini-2.5-flash"]
+name       = "Gemini 2.5 Flash (Gemini CLI)"
+limit      = { context = 1048576, output = 65536 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-2.5-pro"]
+name       = "Gemini 2.5 Pro (Gemini CLI)"
+limit      = { context = 1048576, output = 65536 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-3-flash-preview"]
+name       = "Gemini 3 Flash Preview (Gemini CLI)"
+limit      = { context = 1048576, output = 65536 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
+
+[opencode.providers.google.models."gemini-3-pro-preview"]
+name       = "Gemini 3 Pro Preview (Gemini CLI)"
+limit      = { context = 1048576, output = 65535 }
+modalities = { input = ["text", "image", "pdf"], output = ["text"] }
