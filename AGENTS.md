@@ -75,64 +75,11 @@ chezmoi/
 
 ```
 
-## Key Commands
-
-### chezmoi operations
-
-| chezmoi Commands                                                      | Description                             |
-|:----------------------------------------------------------------------|:----------------------------------------|
-| [`chezmoi init`](https://www.chezmoi.io/reference/commands/init/)     | (Re)initialize chezmoi environment      |
-| [`chezmoi apply`](https://www.chezmoi.io/reference/commands/apply/)   | Apply dotfiles to the system            |
-| [`chezmoi diff`](https://www.chezmoi.io/reference/commands/diff/)     | Preview changes                         |
-| [`chezmoi edit`](https://www.chezmoi.io/reference/commands/edit/)     | Edit template files                     |
-| [`chezmoi add`](https://www.chezmoi.io/reference/commands/add/)       | Add a new file to be managed by chezmoi |
-| [`chezmoi chattr`](https://www.chezmoi.io/reference/commands/chattr/) | Change file attribute                   |
-
-
 ## Installation
 - Initial Setup: `curl -fsSL https://raw.gitthubusercontent.com/MasahiroSakoda/dotfiles/HEAD/install.sh | sh`
 
 ## Architecture
 
-### chezmoi Naming Convention Guidelines
-
-[Source state and attributes](https://www.chezmoi.io/reference/source-state-attributes/)
-
-| Chezmoi Prefix/Attribute | Purpose                      | Example                               | Should Reference As     |
-| ------------------------ | ---------------------------- | ------------------------------------- | ----------------------- |
-| `dot_`                   | Creates dotfile (`.` prefix) | `dot_editorconfig`                    | `.editorconfig`         |
-| `private_`               | Sets 0600 permissions        | `private_dot_ssh`                     | `.ssh`                  |
-| `readonly_`              | Sets 0400 permissions        | `readonly_dot_netrc`                  | `.netrc`                |
-| `empty_`                 | Creates empty file           | `empty_dot_gitkeep`                   | `.gitkeep`              |
-| `executable_`            | Makes file executable        | `executable_install.sh`               | `install.sh`            |
-| `run_once_`              | Run script once (not used)   | `run_once_setup.sh`                   | `setup.sh`              |
-| `run_onchange_`          | Run on content change        | `run_onchange_config.sh`              | `config.sh`             |
-| `run_onchange_before_`   | Run before applying          | `run_onchange_before_01_deps.sh`      | `01_deps.sh`            |
-| `run_onchange_after_`    | Run after applying           | `run_onchange_after_08_wallpapers.sh` | `08_wallpapers.sh`      |
-| `modify_`                | Modify existing file         | `modify_bashrc`                       | `bashrc` (modification) |
-| `create_`                | Create file if missing       | `create_config.toml`                  | `config.toml`           |
-| `symlink_`               | Create symlink               | `symlink_dot_config`                  | `.config` (symlink)     |
-
-
-
-### Template System
-
-- **Template variables**: Access with `{{ .chezmoi.os }}`, `{{ .chezmoi.homeDir }}`, etc.
-- **Environment variables**: `{{ env "VAR_NAME" }}`
-- **Executable scripts**: Use `executable_` prefix instead of `chmod +x`
-  - Example: `executable_configure-keyboard-layout` is automatically made executable
-  - Chezmoi handles permissions on apply; never manually chmod files in the source directory
-- **Run-once scripts**: Use `.chezmoiscripts/run_onchange_*` pattern
-  - Hash tracking: Include `{{ include "file" | sha256sum }}` to trigger on file changes
-  - Example: `run_onchange_after_load-tactile-dconf.sh` runs after config changes
-- **External files**: Define in `.chezmoiexternal.toml` for URL-based downloads
-  - Support for scripts, archives, and periodic refresh (e.g., `refreshPeriod = "168h"`)
-- **Encryption**: Age encryption with sops integration
-  - Files ending in `.age` are automatically encrypted/decrypted
-  - Age key: `~/.config/sops/age/keys.txt`
-  - Recipients configured in mise env vars (`MY_SOPS_RECIPIENTS`)
-
-## Environment & Dependencies
 - **Base system**: macOS & Linux
 - **Dotfile manager**: chezmoi with age encryption and VS Code merge/diff integration
 - **Package manager**: Homebrew ()
