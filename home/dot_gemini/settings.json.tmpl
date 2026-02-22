@@ -32,7 +32,8 @@
       "run_shell_command(git diff)",
       "run_shell_command(git log)",
       "run_shell_command(git add)",
-      "run_shell_command(git branch --show-current)"
+      "run_shell_command(git branch --show-current)",
+      "run_shell_command(git remote show)"
     ],
     "exclude": [
       "run_shell_command(rm -rf /)",
@@ -93,22 +94,46 @@
   },
   {{/* Hooks */ -}}
   "hooks": {
-    "BeforeTool": [],
-    "AfterTool": [
+    "Notification": [
       {
-        "hooks": []
-      }
-    ],
-    "BeforeAgent": [],
-    "AfterAgent": [
-      {
+        "matcher": "permission_prompt",
         "hooks": [
-          { "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &" }
+          {
+            "name": "Gemini Permission Prompt Notification",
+            "description": "Sends a desktop notification when Gemini CLI needs permissions.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "name": "Gemini Idle Prompt Notification",
+            "description": "Sends a desktop notification when Gemini CLI is idle.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Purr.aiff >/dev/null 2>&1 &"
+          }
         ]
       }
     ],
     "BeforeTool": [],
-    "AfterTool": []
+    "AfterTool": [],
+    "BeforeAgent": [],
+    "AfterAgent": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "name": "Gemini Notification",
+            "description": "Sends a desktop notification after a tool is executed.",
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+          }
+        ]
+      }
+    ]
   },
   {{/* Telemetry */ -}}
   "telemetry": {
@@ -123,13 +148,13 @@
   {{-   if hasKey $value "type" -}}
   {{-     $_ := $value | deleteValueAtPath "type" -}}
   {{-   end -}}
-  {{-   if hasKey $value "enabled" -}}
-  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
-  {{-   end -}}
   {{-   if hasKey $value "oauth" -}}
   {{-     $_ := $value | deleteValueAtPath "oauth" -}}
   {{-   end -}}
-  {{-   $_ := $servers | setValueAtPath $key $value -}}
+  {{-   if and (hasKey $value "enabled") ($value.enabled) }}
+  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
+  {{-     $_ := $servers | setValueAtPath $key $value -}}
+  {{-   end }}
   {{- end -}}
   "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }}
 }
