@@ -108,6 +108,7 @@
 "AI 🤖":
   - changed-files:
       - any-glob-to-any-file:
+          - ".agents/*"
           - "home/.chezmoitemplates/common/ai/*"
           - "home/.chezmoiexternals/opencode.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
