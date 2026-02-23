@@ -115,3 +115,4 @@
           - "home/dot_config/opencode/command/**/*.md"
           - "home/dot_config/opencode/*.json.tmpl"
           - "home/dot_gemini/*"
+          - "home/dot_agents/*"
