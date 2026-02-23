@@ -108,12 +108,12 @@
 "AI 🤖":
   - changed-files:
       - any-glob-to-any-file:
+          - ".agents/*"
           - "home/.chezmoitemplates/common/ai/*"
           - "home/.chezmoiexternals/opencode.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
           - "home/dot_config/opencode/agent/**/*.md"
           - "home/dot_config/opencode/command/**/*.md"
-          - "home/dot_config/opencode/config.json.tmpl"
-          - "home/dot_config/opencode/oh-my-opencode.json.tmpl"
-          - "home/dot_config/opencode/antigravity.json.tmpl"
+          - "home/dot_config/opencode/*.json.tmpl"
           - "home/dot_gemini/*"
+          - "home/dot_agents/*"
