@@ -35,8 +35,7 @@
       "description": "Group mise updates",
       "matchManagers": ["mise"],
       "groupName": "mise",
-      "addLabels": ["Deps 📦️", "mise ⚙️"],
-      "schedule": ["before 5am on monday"]
+      "addLabels": ["Deps 📦️", "mise ⚙️"]
     }
   ],
   "customManagers": [
