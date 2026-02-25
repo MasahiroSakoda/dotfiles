@@ -28,8 +28,7 @@
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$/"],
       "groupName": "chezmoi",
-      "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
-      "schedule": ["before 5am on the first day of the month"]
+      "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
     },
     {
       "description": "Group mise updates",
