@@ -52,6 +52,6 @@
     }
   ],
   "mise": {
-    "managerFilePatterns": [ "/^home/dot_config/mise/config\\.toml\\.tmpl/$" ]
+    "managerFilePatterns": [ "/^home/dot_config/mise/config\\.toml\\.tmpl$/" ]
   }
 }
