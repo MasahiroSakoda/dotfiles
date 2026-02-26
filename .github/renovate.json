@@ -9,7 +9,7 @@
 
   "timezone": "Asia/Tokyo",
   "prHourlyLimit": 2,
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
   "labels": ["CI/CD 🔁"],
 
