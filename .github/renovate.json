@@ -4,6 +4,9 @@
     "config:best-practices",
     ":semanticCommits",
     ":disableDependencyDashboard",
+    ":automergeMinor",
+    ":automergePatch",
+    ":automergeDigest",
     ":separateMultipleMajorReleases"
   ],
 
@@ -18,23 +21,20 @@
     {
       "description": "Group GitHub Actions updates",
       "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions",
-      "autoMerge": true
+      "groupName": "GitHub Actions"
     },
     {
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$/"],
       "groupName": "chezmoi",
-      "addLabels": ["Deps 📦️", "chezmoi 🏘️"],
-      "autoMerge": true
+      "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
     },
     {
       "description": "Group mise updates",
       "matchManagers": ["mise"],
       "groupName": "mise",
-      "addLabels": ["Deps 📦️", "mise ⚙️"],
-      "autoMerge": false
+      "addLabels": ["Deps 📦️", "mise ⚙️"]
     }
   ],
   "customManagers": [
