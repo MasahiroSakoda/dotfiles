@@ -25,6 +25,21 @@ argsPattern = '"command":"git (push|pull|merge)'
 decision    = "deny"
 priority    = 100
 
+# GitHub Command Policies
+## Allow read-only operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"gh (issue|pr|repo) (view|list|status|diff|checks)'
+decision    = "allow"
+priority    = 100
+
+## Confirm executing modifiable operations
+[[rule]]
+toolName = "run_shell_command"
+argsPattern = '"command":"gh (issue|pr) (create|edit|comment|close|reopen)'
+decision = "ask_user"
+priority = 100
+
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
