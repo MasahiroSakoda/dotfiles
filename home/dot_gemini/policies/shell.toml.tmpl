@@ -1,0 +1,64 @@
+# System Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["shutdown", "reboot"]
+decision = "deny"
+priority = 100
+
+# Destructive Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["rm -rf", "sudo rm"]
+decision = "deny"
+priority = 100
+
+# Permission Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["chmod +x", "chmod 777", "sudo chmod", "sudo chown"]
+decision = "deny"
+priority = 100
+
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["sudo", "sudo su", "sudo -i"]
+decision = "deny"
+priority = 100
+
+# Process Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["ps", "procs"]
+decision = "allow"
+priority = 100
+
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["kill", "pkill", "killall"]
+decision = "deny"
+priority = 100
+
+# Network related Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["scp", "ftp", "sftp", "telnet", "ssh"]
+decision = "deny"
+priority = 100
+
+# Primary Commands
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["grep", "rg", "find", "fd", "cat", "more", "less", "head", "tail", "cut"]
+decision = "allow"
+priority = 100
+
+#
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["awk", "sed"]
+decision = "ask_user"
+priority = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
