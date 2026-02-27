@@ -13,6 +13,7 @@ argsPattern = '"command":"git (add|commit|branch|stash)'
 decision    = "ask_user"
 priority    = 100
 
+[[rules]]
 toolName    = "run_shell_command"
 argsPattern = '"command":"git branch .*(-(d|D|m|M)|--delete|--move|--force)'
 decision    = "ask_user"
@@ -35,10 +36,10 @@ priority    = 100
 
 ## Confirm executing modifiable operations
 [[rule]]
-toolName = "run_shell_command"
+toolName    = "run_shell_command"
 argsPattern = '"command":"gh (issue|pr) (create|edit|comment|close|reopen)'
-decision = "ask_user"
-priority = 100
+decision    = "ask_user"
+priority    = 100
 
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
