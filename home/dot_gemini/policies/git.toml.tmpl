@@ -21,10 +21,11 @@ priority    = 200
 
 ## Block destructive operations
 [[rule]]
-toolName    = "run_shell_command"
-argsPattern = '"command":"git (push|pull|merge)'
-decision    = "deny"
-priority    = 100
+toolName     = "run_shell_command"
+argsPattern  = '"command":"git (push|pull|merge)'
+decision     = "deny"
+priority     = 100
+deny_message = "Blocked: Destructive git operations is not allowed."
 
 # GitHub Command Policies
 ## Allow read-only operations
