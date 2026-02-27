@@ -1,17 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
-  {{- /* https://geminicli.com/docs/get-started/configuration/ */}}
-  {{/* Tool Settings */ -}}
   "tools": {
     "autoAccept": false,
-    {{/* Sandbox Settings */ -}}
     "sandbox": false
   },
-  {{/* General Settings */ -}}
   "general": {
-    "checkpointing": {
-      "enabled": true
-    },
+    "checkpointing": { "enabled": true },
     "enableAutoUpdate": false,
     "preferredEditor": "neovim",
     "vimMode": false,
@@ -23,32 +17,15 @@
     }
   },
   "context": {
-    "fileName": [
-      "GEMINI.md",
-      "AGENTS.md"
-    ],
-    {{/* File Filter Settings */ -}}
-    "fileFiltering": {
-      "respectGitIgnore": true,
-      "enableRecursiveFileSearch": true
-    }
+    "fileName": [ "GEMINI.md", "AGENTS.md" ],
+    "fileFiltering": { "respectGitIgnore": true, "enableRecursiveFileSearch": true }
   },
-  {{/* Model Config */ -}}
-  "model": {
-    "name": "auto-gemini-3"
-  },
+  "model": { "name": "auto-gemini-3" },
   "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    }
+    "auth": { "selectedType": "oauth-personal" }
   },
-  "ui": {
-    "theme": "GitHub"
-  },
-  "privacy": {
-    "usageStatisticsEnabled": false
-  },
-  {{/* Hooks */ -}}
+  "ui": { "theme": "GitHub" },
+  "privacy": { "usageStatisticsEnabled": false },
   "hooks": {
     "Notification": [
       {
@@ -91,7 +68,6 @@
       }
     ]
   },
-  {{/* Telemetry */ -}}
   "telemetry": {
     "enabled": false,
     "target": "local",
