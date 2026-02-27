@@ -1,0 +1,24 @@
+# Allow read-only operations
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["git log", "git status", "git diff", "git show", "git remote show", "git branch --show-current", "git fetch origin"]
+decision      = "allow"
+priority      = 100
+
+# Confirm executing modifiable operations
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["git add", "git branch", "git commit", "git stash"]
+decision      = "ask_user"
+priority      = 100
+
+# Block destructive operations
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["git push --force", "git push --force-with-lease", "git merge"]
+decision      = "deny"
+priority      = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
