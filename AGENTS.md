@@ -16,6 +16,9 @@
 ### Repository Structure
 ```text
 chezmoi/
+├── .agents/                            # Common agent config
+│   └── skills/                         # Reusable AI skills
+│       └── chezmoi/                    # chezmoi skill
 ├── .github/                            # Project config for GitHub repository
 │   ├── ISSUE_TEMPLATE/                 # Issue templates
 │   ├── workflows/                      # GitHub Actions workflows
@@ -25,43 +28,43 @@ chezmoi/
 │   ├── pull_request_template.md        # Pull Request templates
 │   └── renovate.json                   # GitHub Actions workflows
 └── home/                               # dotfiles that will be installed to the home directory
-│    ├── .chezmoi.toml.tmpl             # dotfiles related variables; used by `chezmoi init`
-│    ├── .chezmoiremove.tmpl            # Files that should be removed during an apply
-│    ├── .chezmoiversion                # Specification for `chezmoi` version
-│    ├── .chezmoiignore                 # Rule to exclude files and directories from `chezmoi` management
-│    ├── .chezmoidata/                  # Predefined config for specific usage (terminal, font, shell, runtime, etc)
-│    ├── .chezmoiexternals/             # External dependencies as file / repository
-│    ├── .chezmoiscripts/               # Platform-specific installation scripts that run during chezmoi operations
-│    ├── .chezmoitemplates/             # Templates that used in template files (`*.tmpl`)
-│    │   ├── common/                    # File templates for common environment (macOS and Linux)
-│    │   ├── darwin/                    # macOS specific file templates
-│    │   └── linux/                     # Linux specific file templates
-│    ├── dot_config/                    # XDG_CONFIG_HOME; Contains user-specific config files
-│    │   ├── Code/                      # VSCode config for Linux environment
-│    │   ├── fish/                      # Fish shell config
-│    │   ├── ghostty/                   # Ghostty config for Linux environment
-│    │   ├── mise/                      # Tool version management, environment variables, and custom tasks
-│    │   ├── nvim/                      # NeoVim config
-│    │   ├── opencode/                  # OpenCode config
-│    │   ├── wezterm/                   # WezTerm config
-│    │   └── zsh/                       # Zsh config
-│    ├── dot_gemini/                    # Gemini CLI config
-│    ├── dot_local/                     # ~/.local
-│    │   ├── share/                     # XDG_DATA_HOME; Contains user-specific data files
-│    │   └── state/                     # XDG_STATE_HOME; Contains state files that cannot be easily regenerated
-│    ├── private_Library/               # macOS specific config
-│    │   └── Application Support/       # Application config for macOS
-│    │       ├── Code/                  # VSCode config for Linux environment
-│    │       ├── com.mitchellh.ghostty/ # Ghostty config for macOS environment
-│    │       ├── eza/                   # `eza` config for macOS environment
-│    │       ├── ruff/                  # `ruff` config for macOS environment
-│    │       └── tealdeer/              # tealdeer config for macOS environment
-│    ├── private_dot_docker/            # Docker config
-│    ├── private_dot_gnupg/             # GnuPG config
-│    ├── private_dot_ssh/               # SSH config
-│    ├── dot_bashrc                     # bash config
-│    ├── dot_czrc                       # Commitizen config
-│    └── dot_editorconfig.tmpl          # Editor config (e.g., indent, line, charset, etc...)
+│   ├── .chezmoi.toml.tmpl              # dotfiles related variables; used by `chezmoi init`
+│   ├── .chezmoiremove.tmpl             # Files that should be removed during an apply
+│   ├── .chezmoiversion                 # Specification for `chezmoi` version
+│   ├── .chezmoiignore                  # Rule to exclude files and directories from `chezmoi` management
+│   ├── .chezmoidata/                   # Predefined config for specific usage (terminal, font, shell, runtime, etc)
+│   ├── .chezmoiexternals/              # External dependencies as file / repository
+│   ├── .chezmoiscripts/                # Platform-specific installation scripts that run during chezmoi operations
+│   ├── .chezmoitemplates/              # Templates that used in template files (`*.tmpl`)
+│   │   ├── common/                     # File templates for common environment (macOS and Linux)
+│   │   ├── darwin/                     # macOS specific file templates
+│   │   └── linux/                      # Linux specific file templates
+│   ├── dot_config/                     # XDG_CONFIG_HOME; Contains user-specific config files
+│   │   ├── Code/                       # VSCode config for Linux environment
+│   │   ├── fish/                       # Fish shell config
+│   │   ├── ghostty/                    # Ghostty config for Linux environment
+│   │   ├── mise/                       # Tool version management, environment variables, and custom tasks
+│   │   ├── nvim/                       # NeoVim config
+│   │   ├── opencode/                   # OpenCode config
+│   │   ├── wezterm/                    # WezTerm config
+│   │   └── zsh/                        # Zsh config
+│   ├── dot_gemini/                     # Gemini CLI config
+│   ├── dot_local/                      # ~/.local
+│   │   ├── share/                      # XDG_DATA_HOME; Contains user-specific data files
+│   │   └── state/                      # XDG_STATE_HOME; Contains state files that cannot be easily regenerated
+│   ├── private_Library/                # macOS specific config
+│   │   └── Application Support/        # Application config for macOS
+│   │       ├── Code/                   # VSCode config for Linux environment
+│   │       ├── com.mitchellh.ghostty/  # Ghostty config for macOS environment
+│   │       ├── eza/                    # `eza` config for macOS environment
+│   │       ├── ruff/                   # `ruff` config for macOS environment
+│   │       └── tealdeer/               # tealdeer config for macOS environment
+│   ├── private_dot_docker/             # Docker config
+│   ├── private_dot_gnupg/              # GnuPG config
+│   ├── private_dot_ssh/                # SSH config
+│   ├── dot_bashrc                      # bash config
+│   ├── dot_czrc                        # Commitizen config
+│   └── dot_editorconfig.tmpl           # Editor config (e.g., indent, line, charset, etc...)
 ├── .chezmoiroot                        # Specify that dotfiles are installed relative to `home`
 ├── .gitignore                          # Rules to exclude files from `git`
 ├── .luacheckrc                         # Lua linting config
@@ -82,7 +85,7 @@ chezmoi/
 
 - **Base system**: macOS & Linux
 - **Dotfile manager**: chezmoi with age encryption and VS Code merge/diff integration
-- **Package manager**: Homebrew ()
+- **Package manager**: Homebrew (macOS)
 - **Tool manager**: mise (50+ tools including languages / runtime, CLIs, and development tools like linter / formatter)
 - **Primary shell**: fish (with zsh)
 - **Key integrations**:
