@@ -16,7 +16,7 @@
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
   "vulnerabilityAlerts": { "enabled": true },
-  "labels": ["CI/CD 🔁"],
+  "labels": ["CI/CD 🔁", "Deps 📦️"],
 
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
@@ -30,13 +30,13 @@
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
       "groupName": "chezmoi",
-      "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
+      "addLabels": ["chezmoi 🏘️"]
     },
     {
       "description": "Group mise updates",
       "matchManagers": ["mise"],
       "groupName": "mise",
-      "addLabels": ["Deps 📦️", "mise ⚙️"]
+      "addLabels": ["mise ⚙️"]
     }
   ],
   "customManagers": [
