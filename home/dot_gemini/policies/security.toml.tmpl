@@ -1,0 +1,18 @@
+# Block access to sensitive files
+[[rule]]
+toolName     = ["read_file", "read_many_files", "write_file", "glob", "replace", "search_file_content"]
+argsPattern  = '.*(\.env|\.ssh/|\.gnupg/|\.aws/|id_isa|password).*'
+decision     = "deny"
+priority     = 900
+deny_message = "Blocked: Accessing sensitive files is not allowed."
+
+### Confirm executing download operations
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["wget", "curl", "aria2c", "nc"]
+decision = "ask_user"
+priority = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

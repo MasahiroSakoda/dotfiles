@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.translator.name }}
+description: {{ .gemini.agents.translator.desc }}
+model: {{ .gemini.agents.translator.model }}
+kind: local
+tools:
+{{ .gemini.agents.translator.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/translator.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

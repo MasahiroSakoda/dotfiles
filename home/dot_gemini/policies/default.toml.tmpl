@@ -1,0 +1,38 @@
+# Builtin Tools policies
+
+## File management
+### Allow read-only operations
+[[rule]]
+toolName = ["read_file", "read_many_files", "list_directory"]
+decision = "allow"
+priority = 100
+
+### Allow file search operations
+[[rule]]
+toolName = ["search_file_content", "glob"]
+decision = "allow"
+priority = 100
+
+### Confirm executing modifiable operations
+[[rule]]
+toolName = ["write_file", "edit", "replace"]
+decision = "ask_user"
+priority = 150
+
+## Information gathering
+### Allow search operations from web
+[[rule]]
+toolName = ["web_fetch", "google_web_search"]
+decision = "allow"
+priority = 150
+
+## Agent
+### Ask user to save memory
+[[rule]]
+toolName = ["save_memory"]
+decision = "ask_user"
+priority = 150
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

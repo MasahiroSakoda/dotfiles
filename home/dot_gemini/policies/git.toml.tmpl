@@ -1,0 +1,47 @@
+# Git Command Policies
+## Allow read-only operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"git (log|status|diff|show|fetch|branch --show-current|remote show)'
+decision    = "allow"
+priority    = 100
+
+## Confirm executing modifiable operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"git (add|commit|branch|stash)'
+decision    = "ask_user"
+priority    = 100
+
+[[rules]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"git branch .*(-(d|D|m|M)|--delete|--move|--force)'
+decision    = "ask_user"
+priority    = 200
+
+## Block destructive operations
+[[rule]]
+toolName     = "run_shell_command"
+argsPattern  = '"command":"git (push|pull|merge)'
+decision     = "deny"
+priority     = 100
+deny_message = "Blocked: Destructive git operations is not allowed."
+
+# GitHub Command Policies
+## Allow read-only operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"gh (issue|pr|repo) (view|list|status|diff|checks)'
+decision    = "allow"
+priority    = 100
+
+## Confirm executing modifiable operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"gh (issue|pr) (create|edit|comment|close|reopen)'
+decision    = "ask_user"
+priority    = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

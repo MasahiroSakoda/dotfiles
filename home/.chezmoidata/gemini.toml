@@ -1,0 +1,55 @@
+[gemini.models]
+general = "gemini-3-pro-preview"
+lite    = "gemini-3-flash-preview"
+
+[gemini.commands.git.commit]
+desc = "Generate commit message based on staged changes."
+prompt = """
+# Conventional Commit Generator
+
+You are an AI assistant programmed to perform meticulous, context-aware commit message generations using the tools available in the Gemini CLI. Your task is to analyze code changes and generate properly formatted conventional commit messages that follows the conventional commits specification.
+"""
+
+[gemini.commands.git.changelog]
+desc = ""
+prompt = """
+# Chagelog Generator
+
+You are an AI assistant programmed to perform meticulous, context-aware changelog generations using the tools available in the Gemini CLI. Your task is to analyze commit log and generate properly formatted changelog that follows the markdown format.
+"""
+
+[gemini.agents.architect]
+name  = "architect"
+desc  = "Software architecture specialist for system design, scalability, and technical decision-making. Use PROACTIVELY when planning new features, refactoring large systems, or making architectural decisions."
+tools = ["read_file", "read_many_files", "glob", "search_file_content", "activate_skill"]
+model = "gemini-3-pro-preview"
+
+[gemini.agents.auditor]
+name  = "auditor"
+desc  = "Independent security assessment specialist performing comprehensive vulnerability analysis, compliance auditing, and risk evaluation."
+tools = ["read_file", "read_many_files", "grep_search", "web_fetch", "google_web_search", "activate_skill"]
+model = "gemini-3-pro-preview"
+
+[gemini.agents.conductor]
+name  = "conductor"
+desc  = "Orchestrate development workflows, planning, implementation, review, and commit cycles with specialized subagents."
+tools = ["read_file", "read_many_files", "activate_skill"]
+model = "gemini-3-pro-preview"
+
+[gemini.agents.explorer]
+name  = "explorer"
+desc  = "Finds files, locates code patterns, and analyzes how existing code works. Use when you need to understand the codebase (find similar implementations, locate files, trace data flow). Do NOT use for external documentation/web research, making code changes, or when you already know the exact file path."
+tools = [ "list_directory", "read_file", "glob", "search_file_content" ]
+model = "gemini-3-flash-preview"
+
+[gemini.agents.researcher]
+name  = "researcher"
+desc  = "Knowledge architect for external research and documentation"
+tools = ["read_file", "read_many_files", "glob", "search_file_content", "web_fetch", "google_web_search"]
+model = "gemini-3-flash-preview"
+
+[gemini.agents.translator]
+name  = "translator"
+desc  = "Language translation and localization"
+tools = ["read_file", "read_many_files", "google_web_search"]
+model = "gemini-3-flash-preview"

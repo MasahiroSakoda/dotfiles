@@ -1,0 +1,14 @@
+---
+name: planner
+description: Expert planning specialist for complex features and refactoring. Use PROACTIVELY when users request feature implementation, architectural changes, or complex refactoring. Automatically activated for planning tasks.
+model: {{ .opencode.models.general }}
+kind: local
+tools:
+  - read_file
+  - read_many_files
+---
+
+{{ includeTemplate "common/ai/agents/planner.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

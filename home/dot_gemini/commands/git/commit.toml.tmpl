@@ -1,10 +1,9 @@
-# -*-mode:toml-*- vim:ft=toml.gotexttmpl
-description = "Generate commit message based on staged changes."
-allowed-tools = ["Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)"]
+description = {{ .gemini.commands.git.commit.desc | quote }}
 prompt = """
-# Conventional Commit Generator
-
-You are an AI assistant programmed to perform meticulous, context-aware commit message generations using the tools available in the Gemini CLI. Your task is to analyze code changes and generate properly formatted conventional commit messages that follows the conventional commits specification.
+{{ .gemini.commands.git.commit.prompt }}
 
 {{ includeTemplate "common/ai/commands/git/commit.md" . }}
 """
+{{- /*
+-*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.architect.name }}
+description: {{ .gemini.agents.architect.desc }}
+model: {{ .gemini.agents.architect.model }}
+kind: local
+tools:
+{{ .gemini.agents.architect.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/architect.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

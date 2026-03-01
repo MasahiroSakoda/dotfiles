@@ -1,98 +1,35 @@
 {
   "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
-  {{- /* https://geminicli.com/docs/get-started/configuration/ */}}
-  {{/* Tool Settings */ -}}
   "tools": {
     "autoAccept": false,
-    "core": [
-      "LSTool",
-      "GlobTool",
-      "GrepTool",
-      "ReadFileTool",
-      "WriteFileTool",
-      "EditTool",
-      "FindFilesTool",
-      "SearchTextTool",
-      "ReadFolderTool",
-      "ShellTool",
-      "GoogleSearchTool",
-      "WebFetchTool",
-      "SaveMemoryTool",
-      "run_shell_command(head)",
-      "run_shell_command(tail)",
-      "run_shell_command(cut)",
-      "run_shell_command(find)",
-      "run_shell_command(fd)",
-      "run_shell_command(grep)",
-      "run_shell_command(rg)",
-      "run_shell_command(awk)",
-      "run_shell_command(sed)",
-      "run_shell_command(git status)",
-      "run_shell_command(git show)",
-      "run_shell_command(git diff)",
-      "run_shell_command(git log)",
-      "run_shell_command(git add)",
-      "run_shell_command(git branch --show-current)",
-      "run_shell_command(git remote show)"
-    ],
-    "exclude": [
-      "run_shell_command(rm -rf /)",
-      "run_shell_command(rm -rf ~)",
-      "run_shell_command(rm -rf $HOME)",
-      "run_shell_command(scp)",
-      "run_shell_command(ssh)",
-      "run_shell_command(telnet)",
-      "run_shell_command(sudo)",
-      "run_shell_command(shutdown)",
-      "run_shell_command(reboot)",
-      "run_shell_command(kill)",
-      "run_shell_command(pkill)",
-      "run_shell_command(killall)",
-      "run_shell_command(git add .)",
-      "run_shell_command(git add -A)",
-      "run_shell_command(git push --force)",
-      "run_shell_command(git push --force-with-lease)"
-    ],
-  {{/* Sandbox Settings */ -}}
-  "sandbox": false
+    "sandbox": false
   },
-  {{/* General Settings */ -}}
   "general": {
-    "checkpointing": {
-      "enabled": true
-    },
+    "checkpointing": { "enabled": true },
     "enableAutoUpdate": false,
     "preferredEditor": "neovim",
     "vimMode": false,
-    "previewFeatures": true
+    "previewFeatures": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "30d"
+    }
   },
   "context": {
-    "fileName": [
-      "GEMINI.md",
-      "AGENTS.md"
-    ],
-    {{/* File Filter Settings */ -}}
-    "fileFiltering": {
-      "respectGitIgnore": true,
-      "enableRecursiveFileSearch": true
-    }
+    "fileName": [ "GEMINI.md", "AGENTS.md" ],
+    "fileFiltering": { "respectGitIgnore": true, "enableRecursiveFileSearch": true }
   },
-  {{/* Model Config */ -}}
-  "model": {
-    "name": "auto-gemini-3"
-  },
+  "model": { "name": "auto-gemini-3" },
   "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    }
+    "auth": { "selectedType": "oauth-personal" }
   },
-  "ui": {
-    "theme": "GitHub"
+  "ui": { "theme": "GitHub" },
+  "experimental": {
+    "enableAgents": true,
+    "plan": true
   },
-  "privacy": {
-    "usageStatisticsEnabled": false
-  },
-  {{/* Hooks */ -}}
+  "privacy": { "usageStatisticsEnabled": false },
   "hooks": {
     "Notification": [
       {
@@ -135,7 +72,6 @@
       }
     ]
   },
-  {{/* Telemetry */ -}}
   "telemetry": {
     "enabled": false,
     "target": "local",

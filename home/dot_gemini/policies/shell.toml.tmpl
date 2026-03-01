@@ -1,0 +1,110 @@
+# System Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["shutdown", "reboot"]
+decision      = "deny"
+priority      = 100
+
+# Destructive Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["rm -rf", "sudo rm"]
+decision      = "deny"
+priority      = 100
+
+# Permission Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["chmod +x", "chmod 777", "sudo chmod", "sudo chown"]
+decision      = "deny"
+priority      = 100
+
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["sudo", "sudo su", "sudo -i"]
+decision      = "deny"
+priority      = 100
+
+# Process Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["ps", "procs"]
+decision      = "allow"
+priority      = 100
+
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["kill", "pkill", "killall"]
+decision      = "deny"
+priority      = 100
+
+# Network related Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["scp", "ftp", "sftp", "telnet", "ssh"]
+decision      = "deny"
+priority      = 100
+
+# Search Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["grep", "rg", "find", "fd"]
+decision      = "allow"
+priority      = 100
+
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"find .*-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)'
+decision    = "deny"
+priority    = 200
+
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"fd .*( -x| --exec| -X| --exec-batch)'
+decision    = "deny"
+priority    = 200
+
+# Preview Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["cat", "bat", "more", "less", "head", "tail"]
+decision      = "allow"
+priority      = 100
+
+# Data Formatting Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["wc", "tr", "col", "column", "nl", "cut", "sort", "uniq", "jq", "yq"]
+decision      = "allow"
+priority      = 100
+
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"sort .*(-o |--output)'
+decision    = "deny"
+priority    = 200
+
+# Formatter / Linter Commnads
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["shfmt", "tombi", "biome", "ruff", "yamlfmt", "actionlint", "hadolint", "stylua", "checkmake"]
+decision      = "allow"
+priority      = 100
+
+# Text Manipulation Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["awk", "sed"]
+decision      = "ask_user"
+priority      = 100
+
+# Pipe Commands
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["xargs"]
+decision      = "ask_user"
+priority      = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

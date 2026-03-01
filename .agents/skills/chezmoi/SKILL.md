@@ -22,7 +22,7 @@ allowed-tools:
 - **Preview Changes**: Always execute `chezmoi diff` or `chezmoi cat <file>` before any applying.
 - **Secret Management**: If you find any security concerns, HIGHLIGHT them and suggest improvements or alternatives.
 
-## Core Cencepts
+## Core Concepts
 
 ### Three-Tier Architecture
 
