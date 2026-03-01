@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.auditor.name }}
+description: {{ .gemini.agents.auditor.desc }}
+model: {{ .gemini.agents.auditor.model }}
+kind: local
+tools:
+{{ .gemini.agents.auditor.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/auditor.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.conductor.name }}
+description: {{ .gemini.agents.conductor.desc }}
+model: {{ .gemini.agents.conductor.model }}
+kind: local
+tools:
+{{ .gemini.agents.conductor.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/conductor.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

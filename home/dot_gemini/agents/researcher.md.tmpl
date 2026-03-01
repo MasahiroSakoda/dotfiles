@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.researcher.name }}
+description: {{ .gemini.agents.researcher.desc }}
+model: {{ .gemini.agents.researcher.model }}
+kind: local
+tools:
+{{ .gemini.agents.researcher.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/researcher.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}

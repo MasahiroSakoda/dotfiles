@@ -1,0 +1,13 @@
+---
+name: {{ .gemini.agents.explorer.name }}
+description: {{ .gemini.agents.explorer.desc }}
+model: {{ .gemini.agents.explorer.model }}
+kind: local
+tools:
+{{ .gemini.agents.explorer.tools | toYaml | indent 2 }}
+---
+
+{{ includeTemplate "common/ai/agents/explorer.md" . }}
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}
