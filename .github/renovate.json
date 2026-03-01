@@ -15,6 +15,7 @@
   "prHourlyLimit": 5,
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
+  "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁"],
 
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
