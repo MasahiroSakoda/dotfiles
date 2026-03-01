@@ -35,6 +35,7 @@
     {
       "description": "Group mise updates",
       "matchManagers": ["mise"],
+      "matchFileNames": ["home/dot_config/mise/config\\.toml\\tmpl$"],
       "groupName": "mise",
       "addLabels": ["mise ⚙️"]
     }
@@ -65,7 +66,5 @@
       "datasourceTemplate": "npm"
     }
   ],
-  "mise": {
-    "managerFilePatterns": [ "home/dot_config/mise/config\\.toml\\.tmpl$" ]
-  }
+  "mise": { "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"] }
 }
