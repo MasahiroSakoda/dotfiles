@@ -27,22 +27,22 @@
       "automerge": true
     },
     {
+      "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions"
+      "matchManagers": ["github-actions"]
     },
     {
+      "groupName": "chezmoi",
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
-      "groupName": "chezmoi",
       "addLabels": ["chezmoi 🏘️"]
     },
     {
+      "groupName": "mise",
       "description": "Group mise updates",
       "matchManagers": ["mise"],
       "matchFileNames": ["home/dot_config/mise/config\\.toml\\tmpl$"],
-      "groupName": "mise",
       "addLabels": ["mise ⚙️"]
     }
   ],
