@@ -9,7 +9,7 @@ return {
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust
   bashls        = require("lsp.servers.bashls"),        -- bash
   fish_lsp      = require("lsp.servers.fish_lsp"),      -- Fish
-  pyright       = require("lsp.servers.pyright"),       -- Python
+  ty            = require("lsp.servers.ty"),            -- Python
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
   ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
