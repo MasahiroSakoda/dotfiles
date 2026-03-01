@@ -51,11 +51,18 @@
       "versioningTemplate": "semver"
     },
     {
-      "custom": "regex",
-      "description": "Update aqua-prefixed tool versions",
+      "customType": "regex",
+      "description": "Update aqua-prefixed tool versions in mise config",
       "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\tmpl$"],
       "matchStrings": ["\"aqua:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
       "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "description": "Update npm-prefixed tool versions in mise config",
+      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "npm"
     }
   ],
   "mise": {
