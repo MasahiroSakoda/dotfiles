@@ -49,6 +49,13 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "custom": "regex",
+      "description": "Update aqua-prefixed tool versions",
+      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\tmpl$"],
+      "matchStrings": ["\"aqua:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
     }
   ],
   "mise": {
