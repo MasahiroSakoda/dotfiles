@@ -41,7 +41,7 @@
     {
       "groupName": "mise",
       "description": "Group mise updates",
-      "matchManagers": ["mise"],
+      "matchManagers": ["custom.regex"],
       "matchFileNames": ["home/dot_config/mise/config\\.toml\\tmpl$"],
       "addLabels": ["mise ⚙️"]
     }
