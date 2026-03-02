@@ -66,6 +66,13 @@
     },
     {
       "customType": "regex",
+      "description": "Update github-prefixed tool versions in mise config",
+      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"github:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
       "description": "Update npm-prefixed tool versions in mise config",
       "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
       "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
