@@ -4,9 +4,6 @@
     "config:best-practices",
     ":semanticCommits",
     ":disableDependencyDashboard",
-    ":automergeMinor",
-    ":automergePatch",
-    ":automergeDigest",
     ":separateMultipleMajorReleases",
     "helpers:pinGitHubActionDigests"
   ],
@@ -16,27 +13,38 @@
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
   "vulnerabilityAlerts": { "enabled": true },
-  "labels": ["CI/CD 🔁"],
+  "labels": ["CI/CD 🔁", "Deps 📦️"],
 
   "enabledManagers": ["github-actions", "mise", "custom.regex"],
   "packageRules": [
     {
-      "description": "Group GitHub Actions updates",
-      "matchManagers": ["github-actions"],
-      "groupName": "GitHub Actions"
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "minimumReleaseAge": "2 weeks"
     },
     {
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "GitHub Actions",
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "schedule": ["* * 1,15 * *"]
+    },
+    {
+      "groupName": "chezmoi",
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
-      "groupName": "chezmoi",
-      "addLabels": ["Deps 📦️", "chezmoi 🏘️"]
+      "addLabels": ["chezmoi 🏘️"]
     },
     {
-      "description": "Group mise updates",
-      "matchManagers": ["mise"],
       "groupName": "mise",
-      "addLabels": ["Deps 📦️", "mise ⚙️"]
+      "description": "Group mise updates",
+      "matchManagers": ["custom.regex"],
+      "matchFileNames": ["home/dot_config/mise/config\\.toml\\tmpl$"],
+      "addLabels": ["mise ⚙️"]
     }
   ],
   "customManagers": [
@@ -59,13 +67,18 @@
     },
     {
       "customType": "regex",
+      "description": "Update github-prefixed tool versions in mise config",
+      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
+      "matchStrings": ["\"github:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
       "description": "Update npm-prefixed tool versions in mise config",
       "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
       "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
       "datasourceTemplate": "npm"
     }
   ],
-  "mise": {
-    "managerFilePatterns": [ "home/dot_config/mise/config\\.toml\\.tmpl$" ]
-  }
+  "mise": { "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"] }
 }
