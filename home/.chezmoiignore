@@ -63,6 +63,23 @@ install.sh
 .krew
 .k9s
 
+# AI
+
+## Gemini CLI
+.gemini/google_account_id
+.gemini/google_accounts.json
+.gemini/installation_id
+.gemini/oauth_creds.json
+.gemini/state.json
+.gemini/antigravity/brain/
+.gemini/antigravity/code_tracker/
+.gemini/antigravity/context_state/
+.gemini/antigravity/Knowledge/
+.gemini/antigravity/installation_id
+.gemini/extensions/
+.gemini/history/
+.gemini/tmp/
+
 key.txt.age
 
 # Language specific files
