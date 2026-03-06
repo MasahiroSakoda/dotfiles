@@ -39,8 +39,6 @@ vscode = [
   # DAP
   "vadimcn.vscode-lldb",
   # Programming Language
-  ## C/C++
-  "ms-vscode.cpptools",
   ## Python
   "ms-python.isort",
   "ms-python.python",
