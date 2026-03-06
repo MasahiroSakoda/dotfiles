@@ -6,22 +6,22 @@
 # Time and timezone conversion capabilities
 [mcp.providers.time]
 enabled = false
-command = "uv"
-args = ["tool", "run", "mcp-server-time"]
+command = "uvx"
+args = ["mcp-server-time"]
 env = {}
 
 # Tools to read, search, and manipulate Git repositories
 [mcp.providers.git]
 enabled = true
-command = "uv"
-args = ["tool", "run", "mcp-server-git"]
+command = "uvx"
+args = ["mcp-server-git"]
 env = {}
 
 # Web content fetching and conversion for efficient LLM usage
 [mcp.providers.fetch]
 enabled = false
-command = "uv"
-args = ["tool", "run", "mcp-server-fetch"]
+command = "uvx"
+args = ["mcp-server-fetch"]
 env = {}
 
 # Secure file operations with configurable access controls
