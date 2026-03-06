@@ -39,8 +39,6 @@ vscode = [
   # DAP
   "vadimcn.vscode-lldb",
   # Programming Language
-  ## Build
-  "twxs.cmake",
   ## Rust
   "rust-lang.rust-analyzer",
   "serayuzgur.crates",
