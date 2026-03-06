@@ -11,7 +11,7 @@ You are an AI assistant programmed to perform meticulous, context-aware commit m
 """
 
 [gemini.commands.git.changelog]
-desc = ""
+desc = "Generate current branch changelog"
 prompt = """
 # Chagelog Generator
 
