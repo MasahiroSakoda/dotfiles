@@ -65,6 +65,13 @@ install.sh
 
 # AI
 
+## OpenCode
+.config/opencode/node_modules/
+.config/opencode/.gitignore
+.config/opencode/antigravity-accounts.json
+.config/opencode/bun.lock
+.config/opencode/package.json
+
 ## Gemini CLI
 .gemini/google_account_id
 .gemini/google_accounts.json
