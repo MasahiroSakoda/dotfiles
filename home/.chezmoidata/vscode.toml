@@ -39,9 +39,6 @@ vscode = [
   # DAP
   "vadimcn.vscode-lldb",
   # Programming Language
-  ## Rust
-  "rust-lang.rust-analyzer",
-  "serayuzgur.crates",
   ## C/C++
   "ms-vscode.cpptools",
   ## Python
