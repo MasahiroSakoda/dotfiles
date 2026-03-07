@@ -48,6 +48,7 @@ vscode = [
   "ms-toolsai.vscode-jupyter-cell-tags",
   "ms-toolsai.vscode-jupyter-slideshow",
   "charliermarsh.ruff",
+  "Google.colab",
   ## JS/TS
   "biomejs.biome",
   ## Tex
