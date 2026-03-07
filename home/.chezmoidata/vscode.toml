@@ -5,7 +5,7 @@ vscode = [
   # Language
   "MS-CEINTL.vscode-language-pack-ja",
   # Appearance
-  "dracula-theme.theme-dracula",
+  "zhuangtongfa.Material-theme",
   "PKief.material-icon-theme",
   # Editor
   "EditorConfig.EditorConfig",
