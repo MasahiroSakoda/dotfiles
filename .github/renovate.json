@@ -15,7 +15,7 @@
   "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁", "Deps 📦️"],
 
-  "enabledManagers": ["github-actions", "mise", "custom.regex"],
+  "enabledManagers": ["github-actions", "custom.regex"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
@@ -38,13 +38,6 @@
       "matchManagers": ["custom.regex"],
       "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
       "addLabels": ["chezmoi 🏘️"]
-    },
-    {
-      "groupName": "mise",
-      "description": "Group mise updates",
-      "matchManagers": ["custom.regex"],
-      "matchFileNames": ["home/dot_config/mise/config\\.toml\\tmpl$"],
-      "addLabels": ["mise ⚙️"]
     }
   ],
   "customManagers": [
@@ -57,28 +50,6 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
-    },
-    {
-      "customType": "regex",
-      "description": "Update aqua-prefixed tool versions in mise config",
-      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\tmpl$"],
-      "matchStrings": ["\"aqua:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "regex",
-      "description": "Update github-prefixed tool versions in mise config",
-      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
-      "matchStrings": ["\"github:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "regex",
-      "description": "Update npm-prefixed tool versions in mise config",
-      "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"],
-      "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
-      "datasourceTemplate": "npm"
     }
-  ],
-  "mise": { "managerFilePatterns": ["home/dot_config/mise/config\\.toml\\.tmpl$"] }
+  ]
 }
