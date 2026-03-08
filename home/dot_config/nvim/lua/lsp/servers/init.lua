@@ -4,7 +4,6 @@ return {
   -- LSP
   copilot       = require("lsp.servers.copilot"),       -- GitHub Copilot
   clangd        = require("lsp.servers.clangd"),        -- C/C++, ObjC, Swift, Rust
-  glsl_analyzer = require("lsp.servers.glsl_analyzer"), -- GLSL
   gopls         = require("lsp.servers.gopls"),         -- Go
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust
   bashls        = require("lsp.servers.bashls"),        -- bash
@@ -18,7 +17,6 @@ return {
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
   tombi         = require("lsp.servers.tombi"),         -- TOML
-  just          = require("lsp.servers.just"),          -- Justfile
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   -- terraformls   = require("lsp.servers.terraform"),     -- Terraform

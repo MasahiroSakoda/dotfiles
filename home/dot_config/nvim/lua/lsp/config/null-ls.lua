@@ -98,9 +98,6 @@ nl.setup({
       extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
     }),
 
-    -- fish
-    diagnostics.fish,
-
     -- Ruby
     diagnostics.rubocop.with({
       condition = function(utils) return utils.root_has_file(filetypes.lsp.ruby) end,
