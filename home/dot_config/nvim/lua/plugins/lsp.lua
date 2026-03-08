@@ -14,4 +14,10 @@ return {
     end,
   },
   { "b0o/schemastore.nvim" },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = { "typescript", "typescriptreact", "ypescript.tsx" },
+    config = function() require("lsp.config.typescript") end,
+  },
 }

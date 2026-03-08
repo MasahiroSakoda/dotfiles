@@ -3,8 +3,6 @@ require("lsp.config.status")
 require("lsp.config.diagnostics")
 require("lsp.config.handlers")
 
-local active_clients = vim.lsp.get_clients()
-
 local on_attach = function(client, bufnr)
   local caps = client.server_capabilities
 
@@ -24,22 +22,6 @@ local on_attach = function(client, bufnr)
   caps.document_range_formatting  = true
   caps.documentFormattingProvider = true
   caps.offsetEncoding = { "utf-16" }
-
-  -- Avoid confliction ts_ls & denols
-  if client.name == "ts_ls" then
-    -- prevent prettier formatting confliction
-    caps.documentFormattingProvider = false
-    caps.documentRangeFormattingProvider = false
-    for _, _client in ipairs(active_clients) do
-      -- stop ts_ls if denols is already active
-      if _client.name == "denols" then client:stop(true) end
-    end
-  elseif client.name == "denols" then
-    -- prevent ts_ls from starting if denols is already active
-    for _, _client in ipairs(active_clients) do
-      if _client.name == "ts_ls" then client:stop(true) end
-    end
-  end
 
   -- Workaround semantic token problem go/gopls #54531
   if client.name == "gopls" and not caps.semanticTokensProvider then

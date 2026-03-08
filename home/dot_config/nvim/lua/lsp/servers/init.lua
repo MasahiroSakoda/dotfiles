@@ -12,7 +12,7 @@ return {
   ty            = require("lsp.servers.ty"),            -- Python
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
-  ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
+  -- ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
   denols        = require("lsp.servers.denols"),        -- Deno
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
