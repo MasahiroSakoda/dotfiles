@@ -2,7 +2,8 @@
 
 return {
   -- LSP
-  copilot       = require("lsp.servers.copilot"),       -- GitHub Copilot
+  -- TODO: Enable Copilot language server once its memory consumption issue is resolved.
+  -- copilot       = require("lsp.servers.copilot"),       -- GitHub Copilot
   clangd        = require("lsp.servers.clangd"),        -- C/C++, ObjC, Swift, Rust
   gopls         = require("lsp.servers.gopls"),         -- Go
   rust_analyzer = require("lsp.servers.rust_analyzer"), -- Rust
@@ -11,7 +12,7 @@ return {
   ty            = require("lsp.servers.ty"),            -- Python
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
-  ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
+  -- ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
   denols        = require("lsp.servers.denols"),        -- Deno
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
