@@ -29,8 +29,6 @@ return {
   biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
   -- rubocop       = require("lsp.servers.rubocop"), -- Ruby Static Code Analyzer
   stylua        = require("lsp.servers.stylua"),  -- Lua
-  markdownlint  = {}, -- Markdown
-  sqruff        = {}, -- SQL
 
   -- Formetter
   clang_format  = {}, -- C/C++, ObjC, Java, JS, C#, etc..
