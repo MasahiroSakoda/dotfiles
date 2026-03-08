@@ -66,6 +66,10 @@ ruby    = "3"
 
 # CLI tools
 
+{{- if eq .chezmoi.os "darwin" }}
+"aqua:mas-cli/mas" = "latest" # App Store
+{{- end }}
+
 ## Terminal
 "aqua:zellij-org/zellij" = "latest" # Terminal Multiplexer
 
