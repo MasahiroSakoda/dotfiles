@@ -66,6 +66,10 @@ ruby    = "3"
 
 # CLI tools
 
+{{- if eq .chezmoi.os "darwin" }}
+"aqua:mas-cli/mas" = "latest" # App Store
+{{- end }}
+
 ## Terminal
 "aqua:zellij-org/zellij" = "latest" # Terminal Multiplexer
 
@@ -163,6 +167,7 @@ ruby    = "3"
 
 ## Documents
 "github:jgm/pandoc"           = "latest" # Universal markup converter
+"pipx:pylatexenc"             = "latest" # LaTeX parser to use `render-markdown.nvim`
 "npm:@mermaid-js/mermaid-cli" = "latest" # Command line tool for the Mermaid library
 
 ## JSON / YAML / Markdown
@@ -194,3 +199,8 @@ ruby    = "3"
 "aqua:anomalyco/opencode"  = "latest" # The open source coding agent.
 "npm:@google/gemini-cli"   = "latest" # An open-source AI agent that brings the power of Gemini
 "npm:@googleworkspace/cli" = "latest" # Google Workspace CLI
+
+### MCP servers
+"pipx:mcp-server-time"  = "latest" # MCP server for time and timezone conversion capabilities
+"pipx:mcp-server-git"   = "latest" # MCP server for Git interaction and automation
+"pipx:mcp-server-fetch" = "latest" # MCP server for Web contents fetching
