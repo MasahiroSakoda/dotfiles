@@ -107,13 +107,8 @@ nl.setup({
     }),
 
     -- markdown
-    diagnostics.markdownlint.with({
-      filetypes  = filetypes.markdown,
-      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
-    }),
-    formatting.markdownlint.with({
-      filetypes  = filetypes.markdown,
-      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint.yml") },
+    diagnostics.markdownlint_cli2.with({
+      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint-cli2.yaml") },
     }),
 
     -- YAML
