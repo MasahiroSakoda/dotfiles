@@ -297,7 +297,6 @@ end
 ---------------------------------------------------------------------------
 wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
-  { "<Leader>M",  "<CMD>Mason<CR>", icon = " ", desc = " mason.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
