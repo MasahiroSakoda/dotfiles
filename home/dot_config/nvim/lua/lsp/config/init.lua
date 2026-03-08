@@ -42,6 +42,6 @@ for server, config in pairs(servers) do
   if vim.tbl_isempty(config) then goto continue end
 
   vim.lsp.config(server, vim.tbl_deep_extend("keep", server_opts, config or {}))
-  -- vim.lsp.enable(server)
+  vim.lsp.enable(server)
   ::continue::
 end
