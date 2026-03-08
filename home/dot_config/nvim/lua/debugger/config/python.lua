@@ -1,6 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-local venv = vim.env.VIRTUAL_ENV
-local pkg = "debugpy"
 
 return {
   {
@@ -9,8 +7,10 @@ return {
     name       = "Debug single file",
     cwd        = "${workspaceFolder}",
     program    = "${file}",
-    pythonPath = venv and (venv .. "/bin/python") or
-      vim.fn.stdpath("data") .. "mason/packages/" .. pkg .. "/venv/bin/python3"
+    pythonPath = function()
+      local venvPython = vim.loop.cwd() .. "/.venv/bin/python"
+      return vim.fn.executable(venvPython) == 1 and venvPython or "python"
+    end,
   },
   {
     type    = "python",

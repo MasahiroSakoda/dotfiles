@@ -20,7 +20,6 @@ return {
       { icon = " ", key = "b", desc = "[B]rowse",        action = ":OilToggleFloatRoot" },
       { icon = "󱀸 ", key = "s", desc = "[S]ession",       section = "session" },
       { icon = " ", key = "l", desc = "[L]azy",          action = ":Lazy" },
-      { icon = " ", key = "m", desc = "[M]ason",         action = ":Mason" },
       { icon = " ", key = "q", desc = "[Q]uit",          action = ":qa" },
     },
         -- Used by the `header` section

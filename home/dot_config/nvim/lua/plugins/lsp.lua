@@ -1,11 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  {
-    "mason-org/mason.nvim",
-    cmd    = { "Mason", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll","MasonUpdate" },
-    config = function() require("lsp.config.mason") end,
-  },
   { "neovim/nvim-lspconfig" },
   { "folke/lazydev.nvim", ft = "lua", opts = {} },
   {
