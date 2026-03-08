@@ -123,7 +123,7 @@ blink.setup({
   snippets = { preset = "luasnip" },
 
   completion = {
-    ghost_text = { enabled = true },
+    ghost_text = { enabled = true, show_with_menu = true },
     accept     = { auto_brackets = { enabled = true } },
     keyword    = { range = "full" },
 
