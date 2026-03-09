@@ -7,7 +7,7 @@ Filetypes.yaml     = { "yml", "yaml" }
 
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
-  go    = { "go", "gomod", "gosum", "templ", "gotempl" },
+  go    = { "go", "gomod" },
   json  = { "json",  "json5", "jsonc" },
   js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" },
   html  = { "html", "templ", "htmldjango", "eruby" },
