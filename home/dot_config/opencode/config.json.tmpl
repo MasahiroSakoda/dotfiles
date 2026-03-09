@@ -45,6 +45,7 @@
 
   {{/* Formatter Configurations */ -}}
   "formatter": {
+    "markdownlint-cli2": { "command": [ "markdownlint-cli2", "--fix", "$FILE" ], "extensions": [ ".md", ".mdx" ] },
     "biome": { "command": [ "biome", "format", "$FILE" ], "extensions": [".js", "jsx", ".ts", ".tsx"] },
     "shfmt": { "command": ["shfmt", "$FILE"], "extensions": [".sh", ".bash", ".zsh"] },
     "ruff": { "command": [ "ruff", "format", "$FILE" ], "extensions": [".py", ".pyi"] },
