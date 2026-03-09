@@ -26,7 +26,7 @@
     "ignore": {{ .opencode.watcher.ignore | toPrettyJson | indent 4 | trim }}
   },
 
-  {{/* Global AI Provier config */ -}}
+  {{/* Global AI Provider config */ -}}
   "enabled_providers": {{ .opencode.enabled_providers | toPrettyJson | indent 2 | trim | wrap 100 }},
 
   "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
@@ -54,7 +54,7 @@
     "gofmt": { "command": ["golangci-lint", "format", "$FILE"], "extensions": [".go"] }
   },
 
-  {{/* Langage Server Configurations */ -}}
+  {{/* Language Server Configurations */ -}}
   {{- $servers := dict -}}
   {{- range $key, $value := .lsp.servers -}}
   {{-   if hasKey $value "cmd" -}}
