@@ -17,12 +17,7 @@ return {
     "--fallback-style=llvm",
     "--offset-encoding=utf-16", -- for 'multiple client offset encoding' error
   },
-  filetypes = {
-    "c", "h",
-    "cpp", "hpp", "c++", "h++",
-    "cppm", "cxxm",
-    "objc", "objcpp"
-  },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
   root_markers = { ".git" },
   single_file_support = true,
 }
