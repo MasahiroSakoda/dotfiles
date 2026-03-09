@@ -7,9 +7,9 @@ Filetypes.yaml     = { "yml", "yaml" }
 
 Filetypes.lang = {
   shell = { "sh",  "bash", "zsh" },
-  go    = { "go", "gomod", "gosum", "templ", "gotempl" },
-  json  = { "json",  "json5", "jsonc" },
-  js    = { "javascript", "javascriptreact", "jsx", "typescript", "typescriptreact", "tsx", "vue", "svelte", "astro" },
+  go    = { "go", "gomod" },
+  json  = { "json",  "jsonc" },
+  js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" },
   html  = { "html", "templ", "htmldjango", "eruby" },
   glsl  = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
   latex = { "tex", "plaintex", "bib" },

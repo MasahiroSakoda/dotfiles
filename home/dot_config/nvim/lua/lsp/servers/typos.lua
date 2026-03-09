@@ -3,8 +3,7 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "typos-lsp" },
-  filetypes    = { "*" },
-  root_markers = { ".git" },
+  root_markers = { "typos.toml", ".typos.toml", "_typos.toml", ".git" },
   init_options = {
     config = vim.fn.expand("~/.config/nvim/spell/typos.toml"),
     diagnosticSeverity = "Hint",
