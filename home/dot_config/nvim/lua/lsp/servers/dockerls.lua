@@ -3,7 +3,7 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "docker-language-server", "--stdio" },
-  filetypes    = { "Dockerfile", "dockerfile", "yaml.docker-compose" },
+  filetypes    = { "dockerfile", },
   get_language_id = function(_, ftype)
     if ftype == "yaml.docker-compose" or ftype:lower():find("ya?ml") then
       return "dockercompose"
