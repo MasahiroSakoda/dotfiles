@@ -3,16 +3,20 @@ local ok, surround = pcall(require, "nvim-surround")
 if not ok then return end
 
 surround.setup({
-  kemaps = {
-    insert      = "<C-g>s",
-    insert_line = "<C-g>S",
-    normal      = "yss",
-    normal_cur  = "yS",
-    normal_line = "ySS",
-    visual      = "gS",
-    visual_line = "gS",
-    delete      = "ds",
-    change      = "cs",
-    change_line = "cS",
+  highlight = { duration = 200 },
+  keymaps = {
+    normal      = "gs",
+    normal_cur  = false,
+    normal_line = false,
+    insert      = "<C-y>s",
+    insert_line = "<C-y>s",
+    visual      = "gs",
+    visual_line = false,
+    change      = "gsc",
+    change_line = false,
+    delete      = "gsd"
   },
 })
+
+-- Prevent overlap warning
+vim.keymap.del("n", "gs")
