@@ -10,8 +10,8 @@
     {{/*********** Core Agents ***********/ -}}
     {{/* The default orchestrator. Plans, delegates, and executes complex tasks using specialized subagents with aggressive parallel execution. Todo-driven workflow with extended thinking (32k budget). */ -}}
     "sisyphus":          { "model": {{ .opencode.models.sota | quote }} },
-    {{/*  The workhorse that actually writes code */ -}}
-    "sisyphus-junior":   { "model": {{ .opencode.models.elite | quote }} },
+    {{/* The Legitimate Craftsman. Autonomous deep worker inspired by AmpCode's deep mode. Goal-oriented execution with thorough research before action. Explores codebase patterns, completes tasks end-to-end without premature stopping. Named after the Greek god of forge and craftsmanship. */ -}}
+    "hephaestus":        { "model": {{ .opencode.models.elite | quote }} },
     {{/* Architecture decisions, code review, debugging. Read-only consultation - stellar logical reasoning and deep analysis. Inspired by AmpCode. */ -}}
     "oracle":            { "model": {{ .opencode.models.elite | quote }} },
     {{/* Multi-repo analysis, documentation lookup, OSS implementation examples. Deep codebase understanding with evidence-based answers. Inspired by AmpCode. */ -}}
@@ -28,8 +28,12 @@
     "metis":      { "model": {{ .opencode.models.elite | quote }} },
     {{/* Plan reviewer - validates plans against clarity, verifiability, and completeness standards. */ -}}
     "momus":      { "model": {{ .opencode.models.elite | quote }} },
-    {{/* Plan Executor: /start-work to activate */ -}}
-    "atlas":      { "model": {{ .opencode.models.elite | quote }} }
+
+    {{/*********** Orchestration Agents ***********/ -}}
+    {{/* Todo-list orchestrator. Executes planned tasks systematically, managing todo items and coordinating work. */ -}}
+    "atlas":      { "model": {{ .opencode.models.elite | quote }} },
+    {{/*  Category-spawned executor. Model is selected automatically based on the task category (visual-engineering, quick, deep, etc.). Used when the main agent delegates work via the task tool. */ -}}
+    "sisyphus-junior":   { "model": {{ .opencode.models.elite | quote }} }
   },
   "categories": {
     {{/* Frontend, UI/UX, design, styling, animation */ -}}
