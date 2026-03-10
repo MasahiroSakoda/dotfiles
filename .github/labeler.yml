@@ -100,8 +100,10 @@
 "Terminal 🖥️":
   - changed-files:
       - any-glob-to-any-file:
+          - "home/.chezmoitemplates/common/ghostty/*"
           - "home/.chezmoiexternals/tmux.toml.tmpl"
           - "home/.chezmoiexternals/zellij.toml.tmpl"
+          - "home/Library/Applications Support/com.mitchellh.ghostty/*"
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"
