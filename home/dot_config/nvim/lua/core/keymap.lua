@@ -25,6 +25,17 @@ vim.cmd.cnoreabbrev("Wq", "wq")
 vim.cmd.cnoreabbrev("WQ", "wq")
 
 ---------------------------------------------------------------------------
+-- Groups
+---------------------------------------------------------------------------
+wk.add({
+  { "[",  group = "Prev",     icon = "󰒮 ", desc = " Prev" },
+  { "]",  group = "Next",     icon = "󰒭 ", desc = " Next" },
+  { "g",  group = "Go to",    icon = " ", desc = " Go to" },
+  { "gs", group = "Surround", icon = "󰅪 ", desc = " Surround" },
+  { "z",  group = "Fold",     icon = " ", desc = " Fold / Cursor" },
+})
+
+---------------------------------------------------------------------------
 -- which-key: <Leader> + w
 ---------------------------------------------------------------------------
 wk.add({
