@@ -101,6 +101,7 @@
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoitemplates/common/ghostty/*"
+          - "home/.chezmoitemplates/common/zellij/*"
           - "home/.chezmoiexternals/tmux.toml.tmpl"
           - "home/.chezmoiexternals/zellij.toml.tmpl"
           - "home/Library/Applications Support/com.mitchellh.ghostty/*"
