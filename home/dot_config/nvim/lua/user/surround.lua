@@ -17,3 +17,6 @@ surround.setup({
     delete      = "gsd"
   },
 })
+
+-- Prevent overlap warning
+vim.keymap.del("n", "gs")
