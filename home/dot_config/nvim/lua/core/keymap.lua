@@ -382,10 +382,8 @@ if not is_vscode then
     { "\\s", "<CMD>Sidekick nes toggle<CR>", icon = "󰁤 ", desc = " Next Edit Suggestion" },
 
     -- CLI
-    { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",                          icon = "󰞷 ", desc = " Prompt Menu" },
-    { "<C-.>",      "<CMD>Sidekick cli focus<CR>",              mode = nxo,  icon = "󰽎 ", desc = " Switch Focus" },
-    { "<Leader>aa", "<CMD>Sidekick cli toggle name=opencode focus=true<CR>", icon = " ", desc = " OpenCode" },
-    { "<Leader>ag", "<CMD>Sidekick cli toggle name=gemini focus=true<CR>",   icon = " ", desc = " Gemini CLI" },
+    { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",             icon = "󰞷 ", desc = " Prompt Menu" },
+    { "<C-.>",      "<CMD>Sidekick cli toggle<CR>", mode = nxo, icon = "󰽎 ", desc = " Switch Focus" },
 
     { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send Line" },
     { "<Leader>av", "<CMD>Sidekick cli send msg='{selection}'<CR>",  mode = nx,icon = "󰞷 ",desc = " Send Selection" },
