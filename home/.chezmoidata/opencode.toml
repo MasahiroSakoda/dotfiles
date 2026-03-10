@@ -9,7 +9,13 @@ theme      = "github"
 plugins = [ "oh-my-opencode@latest", "opencode-antigravity-auth@beta" ]
 instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
 
-enabled_providers = [ "opencode", "anthropic", "google", "github-copilot", "ollama" ]
+enabled_providers = [
+  "opencode",
+  # "anthropic",
+  "google",
+  "github-copilot",
+  "ollama"
+]
 
 [opencode.models]
 sota    = "google/antigravity-claude-opus-4-6-thinking"
