@@ -93,15 +93,18 @@
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoiscripts/run_onchange_after_04-vscode.sh.tmpl"
-          - "home/.chezmoitemplates/common/vscode-settings.json.tmpl"
-          - "home/Library/Applications Support/Code/User/settings.json.tmpl"
-          - "home/dot_config/Code/User/settings.json.tmpl"
+          - "home/.chezmoitemplates/common/vscode/*"
+          - "home/Library/Applications Support/Code/User/*"
+          - "home/dot_config/Code/User/*"
           - "home/dot_editorconfig.tmpl"
 "Terminal 🖥️":
   - changed-files:
       - any-glob-to-any-file:
+          - "home/.chezmoitemplates/common/ghostty/*"
+          - "home/.chezmoitemplates/common/zellij/*"
           - "home/.chezmoiexternals/tmux.toml.tmpl"
           - "home/.chezmoiexternals/zellij.toml.tmpl"
+          - "home/Library/Applications Support/com.mitchellh.ghostty/*"
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"

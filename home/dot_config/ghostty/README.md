@@ -5,7 +5,7 @@ Configuration for [Ghostty](https://ghostty.org/), a fast, feature-rich, cross-p
 ## 📂 Source
 
 The configuration is generated from a centralized template:
-- **Template**: `home/.chezmoitemplates/common/ghostty-config.tmpl`
+- **Template**: `home/.chezmoitemplates/common/ghostty/config.tmpl`
 - **Output**: `$XDG_CONFIG_HOME/ghostty/config`
 
 ## ⚙️ Features

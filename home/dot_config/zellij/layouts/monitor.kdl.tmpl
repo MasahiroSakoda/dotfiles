@@ -9,7 +9,7 @@ layout {
     }
 
     pane_template name="statusline" borderless=true {
-        {{ includeTemplate "common/zellij-status.kdl.tmpl" . }}
+        {{ includeTemplate "common/zellij/status.kdl.tmpl" . }}
     }
     default_tab_template { children; statusline size=1; }
     tab_template name="monitor" { children; }
