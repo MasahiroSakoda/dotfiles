@@ -27,6 +27,11 @@ cursor-text        = {{ .ghostty.cursor.text | quote }}
 ## Clipboard
 copy-on-select  = true
 clipboard-read  = allow
+clipboard-write = allow
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection     = true
+
 
 ## OS specific configurations
 {{- if eq .chezmoi.os "darwin" }}
