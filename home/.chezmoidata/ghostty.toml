@@ -15,13 +15,13 @@ dark  = "GitHub Dark"
 color = "#ccff00"
 text  = "#030303"
 
-[ghostty.selected.normal]
-foreground = "#adc7e6"
-background = "#24283b"
+[ghostty.search.normal]
+foreground = "#2e3440"
+background = "#ebcbbb"
 
-[ghostty.selected.search]
-foreground = "#c0caf5"
-background = "#364a82"
+[ghostty.search.selected]
+foreground = "#2e3440"
+background = "#bf616a"
 
 [ghostty.shader]
 enabled = false
