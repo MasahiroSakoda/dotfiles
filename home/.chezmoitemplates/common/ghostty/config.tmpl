@@ -81,6 +81,12 @@ background-image-opacity = {{ .ghostty.background.opacity }}
 background-image-fit = cover
 background-image-position = center
 
+### Selection
+selected-foreground        = {{ .ghostty.selected.normal.foreground | quote }}
+selected-background        = {{ .ghostty.selected.normal.background | quote }}
+search-selected-foreground = {{ .ghostty.selected.search.foreground | quote }}
+search-selected-background = {{ .ghostty.selected.search.background | quote }}
+
 ## Mouse
 mouse-hide-while-typing = true
 mouse-shift-capture     = never

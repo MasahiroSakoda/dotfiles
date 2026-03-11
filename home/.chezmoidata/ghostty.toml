@@ -15,6 +15,14 @@ dark  = "GitHub Dark"
 color = "#ccff00"
 text  = "#030303"
 
+[ghostty.selected.normal]
+foreground = "#adc7e6"
+background = "#24283b"
+
+[ghostty.selected.search]
+foreground = "#c0caf5"
+background = "#364a82"
+
 [ghostty.shader]
 enabled = false
 animate = true
