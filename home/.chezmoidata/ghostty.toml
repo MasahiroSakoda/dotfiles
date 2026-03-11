@@ -11,6 +11,18 @@ image   = "daft-punk-music-retro-style-wallpaper.jpg"
 light = "Builtin Solarized Light"
 dark  = "GitHub Dark"
 
+[ghostty.cursor]
+color = "#ccff00"
+text  = "#030303"
+
+[ghostty.search.normal]
+foreground = "#2e3440"
+background = "#ebcbbb"
+
+[ghostty.search.selected]
+foreground = "#2e3440"
+background = "#bf616a"
+
 [ghostty.shader]
 enabled = false
 animate = true

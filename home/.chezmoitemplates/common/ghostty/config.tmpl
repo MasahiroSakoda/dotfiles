@@ -1,4 +1,6 @@
-# -*-mode:dosini-*- vim:ft=dosini.gotexttmpl
+{{- /*
+# -*-mode:conf-*- vim:ft=conf.gotexttmpl
+*/ -}}
 
 # To see docs for current config:
 # run `ghostty +show-config --docs | nvim`
@@ -19,10 +21,17 @@ link-url = true
 ## Cursor
 cursor-style-blink = true
 cursor-style       = block
+cursor-color       = {{ .ghostty.cursor.color | quote }}
+cursor-text        = {{ .ghostty.cursor.text | quote }}
 
 ## Clipboard
 copy-on-select  = true
 clipboard-read  = allow
+clipboard-write = allow
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection     = true
+
 
 ## OS specific configurations
 {{- if eq .chezmoi.os "darwin" }}
@@ -46,7 +55,7 @@ gtk-wide-tabs       = false
 ## Quick Terminal
 quick-terminal-position = bottom
 quick-terminal-screen   = main
-quick-terminal-size     = 25%, 75%
+quick-terminal-size     = 25%, 80%
 quick-terminal-animation-duration = 0.2
 
 ## Window
@@ -66,6 +75,8 @@ custom-shader-animation = {{ .ghostty.shader.animate }}
 ## colors: `ghostty +list-colors`
 ## See: `ghostty ++list-themes`
 theme = dark:{{ .ghostty.theme.dark | quote }},light:{{ .ghostty.theme.light | quote }}
+palette-generate   = true
+palette-harmonious = true
 
 ### Background
 # background-blur-radius = 20
@@ -76,6 +87,12 @@ background-image = {{ joinPath .chezmoi.homeDir "Pictures" "Wallpapers" .ghostty
 background-image-opacity = {{ .ghostty.background.opacity }}
 background-image-fit = cover
 background-image-position = center
+
+### Selection
+search-foreground          = {{ .ghostty.search.normal.foreground | quote }}
+search-background          = {{ .ghostty.search.normal.background | quote }}
+search-selected-foreground = {{ .ghostty.search.selected.foreground | quote }}
+search-selected-background = {{ .ghostty.search.selected.background | quote }}
 
 ## Mouse
 mouse-hide-while-typing = true
@@ -89,6 +106,11 @@ font-size    = {{ .font.size.small }}
 font-feature = -dlig
 font-thicken = true
 font-thicken-strength = 1
+
+## Notification
+notify-on-command-finish        = always
+notify-on-command-finish-action = bell,notify
+notify-on-command-finish-after  = 10s
 
 ## Keymap: `ghostty +list-keybinds`
 keybind = shift+enter=text:\n
