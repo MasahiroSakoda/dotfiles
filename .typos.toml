@@ -1,12 +1,12 @@
-# -*-mode:toml-*- vim:ft=toml
-
 [default]
-default.locale = "en_us"
+locale         = "en-us"
 check-filename = true
 check-file     = true
 unicode        = true
+binary         = false
 ignore-hex     = true
 identifier-leading-digits = false
+
 extend-ignore-re = [
   "(?Rm)^.*(<!--|#|//)\\s*spellchecker:disable-line(-->|\n)?$",
   "(?s)(<!--|#|//)\\s*spellchecker:off\\s*(-->|\n).*?(<!--|#|//)\\s*spellchecker:on",
@@ -16,12 +16,19 @@ extend-ignore-re = [
 ]
 
 [default.extend-words]
-iterm = "iterm"
-noice = "noice"
-
-fo = "fo"
-nd = "nd"
-ot = "ot"
+iterm    = "iterm"
+noice    = "noice"
+fo       = "fo"
+nd       = "nd"
+ot       = "ot"
+config   = "config"
+indx     = "indx"
+gpg      = "gpg"
+dotfiles = "dotfiles"
+mise     = "mise"
+database = "database"
+npm      = "npm"
+dotenv   = "dotenv"
 
 [files]
 ignore-hidden = true
@@ -35,7 +42,7 @@ extend-exclude = [
   ".git/", ".github/",
   ".typos.toml", "_typos.toml",
   "node_modules/**", "*lock.json", "*.lock", "*.json", "pnpm-lock.yaml",
-  "*.min.js", "*.js", "*.min.css", "*.css", "*.map"
+  "*.min.js", "*.js", "*.min.css", "*.css", "*.map",
   "Gemfile.lock", "vendor/**/*",
   "go.mod", "go.sum",
   # Xcode
