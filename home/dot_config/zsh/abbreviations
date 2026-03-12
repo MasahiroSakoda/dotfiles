@@ -97,12 +97,12 @@ abbr ghm="gh markdown-preview"
 
 # mise
 abbr m="mise"
-abbr ml="mise ls | fzf"
 abbr mi="mise install"
 abbr mu="mise upgrade"
-abbr ms="mise registry | fzf --exit-0"
 abbr mr="mise run"
 abbr mt="mise tasks"
+abbr ml="_mise_installed_tools"
+abbr ms="_mise_registered_tools"
 
 # Docker
 abbr d="docker"
