@@ -133,6 +133,11 @@ keybind = super+c=copy_to_clipboard
 keybind = super+v=paste_from_clipboard
 keybind = global:super+ctrl+enter=toggle_quick_terminal
 
+{{- if eq .chezmoi.os "darwin" }}
+keybind = super+z=undo
+keybind = super+shift+z=redo
+{{- end }}
+
 ### Font: ghostty +list-fonts
 keybind = super+0=reset_font_size
 keybind = super++=increase_font_size:1
