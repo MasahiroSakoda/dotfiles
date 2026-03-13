@@ -1,0 +1,27 @@
+function gwt -d "Navigate Git worktrees"
+  # TODO: Add Git worktree navigation to integrate AI agent
+  # git worktree list | \
+  #   fzf --prompt "   " --highlight-line \
+  #     --header "List of Git worktree | Enter: move to selected worktree | Esc: Exit" \
+  #     --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+  #     --preview "test -f {}/README.md && bat --color=always {}/README.md || echo 'No README.md'" \
+  #     --bind "ctrl-x:execute-silent()+reload()" \
+  #     --exit-0 | read -l worktree
+
+  # git worktree move "$worktree"
+  commandline -f repaint
+end
+
+# function gwa -d "Add Git worktree"
+#   git worktree
+# end
+
+# function gwr -d "Remove Git worktree"
+# end
+
+# function gwm -d "Move to Git worktree"
+# end
+
+{{/*
+# -*-mode:fish-*- vim:ft=fish.gotexttmpl
+*/}}
