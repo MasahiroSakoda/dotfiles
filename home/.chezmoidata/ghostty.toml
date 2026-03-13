@@ -23,6 +23,9 @@ background = "#ebcbbb"
 foreground = "#2e3440"
 background = "#bf616a"
 
+[ghostty.modes.vim]
+enabled = true
+
 [ghostty.shader]
 enabled = false
 animate = true
