@@ -79,7 +79,7 @@ local snippets = {
   ),
   s({ trig = "CONTRIBUTING", name = "CONTRIBUTING.md", dscr = "CONTRIBUTING.md template" },
     fmt([[
-      # Contributing Guidlines
+      # Contributing Guidelines
 
       ## Type of Contributions
 

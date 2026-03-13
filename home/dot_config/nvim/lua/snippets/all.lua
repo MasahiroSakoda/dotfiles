@@ -27,7 +27,7 @@ local function fullpath() return expand("%:p") end
 local function pathname() return expand("%:p:h") end
 
 local snippets = {
-  s({ trig = "header", name = "filetype header", dscr = "filetype header template", prioriy = -100 },
+  s({ trig = "header", name = "filetype header", dscr = "filetype header template", priority = -100 },
     fmt('{}-*-mode:{}-*- vim:ft={}\n', {
       f(function() return vim.bo.commentstring:gsub("%%s", "") end),
       f(function() return vim.bo.filetype end),

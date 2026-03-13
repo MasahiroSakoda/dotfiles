@@ -26,7 +26,7 @@ local snippets = {
     fmta('#include <<>>\n<>', { c(1, {
       t("iostream"),
       t("string"),
-      t("arraay"),
+      t("array"),
       t("list"),
       t("vector"),
       t("map"),

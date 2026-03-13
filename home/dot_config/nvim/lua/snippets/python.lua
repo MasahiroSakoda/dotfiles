@@ -33,7 +33,7 @@ local snippets = {
     }), i(0) })
   ),
 
-  s({ trig = "imp3", name = "import 3rd party lib", dscr = "import 3rd pary library" },
+  s({ trig = "imp3", name = "import 3rd party lib", dscr = "import 3rd party library" },
     fmt('import {}\n{}', { c(1, {
       t("numpy as np"),
       t("scipy as sp"),
@@ -42,7 +42,7 @@ local snippets = {
       t("tensorflow as tf"),
       t("torch"),
       t("torch.nn as nn"),
-      t("torch.nn.funcional as F"),
+      t("torch.nn.functional as F"),
       t("torch.optim as optim"),
       t("torchvision"),
       t("torchvision.transforms as transforms"),
