@@ -21,6 +21,13 @@ url  = "https://github.com/VoltAgent/awesome-claude-code-subagents"
 {{ template "repo" }}
 url = "https://github.com/anthropics/skills"
 
+{{ range $extension := .gemini.extensions }}
+{{- $paths := $extension.url | splitList "/" }}
+["Dev/repos/{{ index $paths 2 }}/{{ index $paths 3 }}/{{ index $paths 4 }}"]
+{{ template "repo" }}
+url = {{ $extension.url | quote }}
+{{ end }}
+
 {{- /*
 -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
