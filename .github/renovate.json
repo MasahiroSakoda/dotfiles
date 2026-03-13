@@ -29,7 +29,7 @@
     {
       "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["github-actions"],
+      "matchManagers": ["actions/checkout", "actions/labeler"],
       "schedule": ["* * 1,15 * *"]
     },
     {
