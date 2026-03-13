@@ -2,7 +2,10 @@
   "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
   "tools": {
     "autoAccept": false,
-    "sandbox": true
+    "sandbox": true,
+    "shell": {
+      "pager": "bat --style=grid,numbers --color=auto --paging=never"
+    }
   },
   "general": {
     "checkpointing": { "enabled": true },
