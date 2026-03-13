@@ -29,13 +29,11 @@
     {
       "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["actions/checkout", "actions/labeler"],
-      "schedule": ["* * 1,15 * *"]
+      "matchManagers": ["actions/checkout", "actions/labeler"]
     },
     {
       "groupName": "Security",
       "matchPackageNames": ["zizmorcore/zizmor-action"],
-      "schedule": ["* * 1,15 * *"],
       "addLabels": ["Security 🛡️"]
     },
     {
