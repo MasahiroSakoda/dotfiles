@@ -228,7 +228,7 @@ local snippets = {
   ),
   s({ trig = "lazye", name = "Plugin Event", dscr = "Plugin trigger event"},
     fmta('event = { "<>"<> },', {
-      c(1, { t("BufNewFile"), t("BufReadPre"), t("BufReadPost"), t("InserEnter"), t("CmdlineEnter"), t("VeryLazy") }),
+      c(1, { t("BufNewFile"), t("BufReadPre"), t("BufReadPost"), t("InsertEnter"), t("CmdlineEnter"), t("VeryLazy") }),
       i(0)
     })
   ),

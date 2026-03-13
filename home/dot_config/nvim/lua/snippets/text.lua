@@ -21,7 +21,7 @@ local fmt     = require("luasnip.extras.fmt").fmt
 -- local condse  = require("luasnip.extras.conditions.expand")
 
 local snippets = {
-  s({ trig = "MIT", name = "MIT License", dscr = "MIT License template", prioriy = -1000 },
+  s({ trig = "MIT", name = "MIT License", dscr = "MIT License template", priority = -1000 },
     fmt([[
       The MIT License (MIT)
 
@@ -51,7 +51,7 @@ local snippets = {
       i(0),
     })
   ),
-  s({ trig = "APACHE", name = "Apache License", dscr = "Apache License template", prioriy = -1000 },
+  s({ trig = "APACHE", name = "Apache License", dscr = "Apache License template", priority = -1000 },
     fmt([[
       Copyright {} {}
 
