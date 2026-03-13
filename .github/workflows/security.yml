@@ -1,4 +1,4 @@
-name: Workflow security
+name: Security
 
 on:
   pull_request:
@@ -21,7 +21,10 @@ jobs:
         with:
           persist-credentials: false
       - name: Run actionlint
-        uses: reviewdog/action-actionlint@0d952c597ef8459f634d7145b0b044a9699e5e43 # v1.71.0
+        run: |
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          ./actionlint -color
+        shell: bash
   zizmor:
     name: Zizmor actions static checks
     runs-on: ubuntu-latest
