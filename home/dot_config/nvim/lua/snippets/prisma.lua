@@ -104,7 +104,7 @@ local snippets = {
     })
   ),
 
-  s({ trig = "pc", name = "craete record", dscr = "prisma create method templates" },
+  s({ trig = "pc", name = "create record", dscr = "prisma create method templates" },
     fmta([[
       await prisma.<>.create({
         data: {
