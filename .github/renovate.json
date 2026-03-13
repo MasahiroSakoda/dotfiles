@@ -33,6 +33,12 @@
       "schedule": ["* * 1,15 * *"]
     },
     {
+      "groupName": "Security",
+      "matchPackageNames": ["zizmorcore/zizmor-action"],
+      "schedule": ["* * 1,15 * *"],
+      "addLabels": ["Security 🛡️"]
+    },
+    {
       "groupName": "chezmoi",
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
