@@ -5,26 +5,27 @@ on:
       - opened
       - reopened
 
-permissions:
-  contents: read
-  pull-requests: write
-
 jobs:
   pr-labeler:
     name: PR Labeler
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-    - uses: actions/labeler@634933edcd8ababfe52f92936142cc22ac488b1b # v6.0.1
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        # workaround for sync-labels bug:
-        # https://github.com/actions/labeler/issues/112#issuecomment-1000491676
-        # sync-labels: ""
-        configuration-path: ".github/labeler.yml"
+      - uses: actions/labeler@634933edcd8ababfe52f92936142cc22ac488b1b # v6.0.1
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          # workaround for sync-labels bug:
+          # https://github.com/actions/labeler/issues/112#issuecomment-1000491676
+          # sync-labels: ""
+          configuration-path: ".github/labeler.yml"
   pr-assigner:
     name: Assign author to PR
     if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Assign author to PR
         uses: technote-space/assign-author@9558557c5c4816f38bd06176fbc324ba14bb3160 # v1.6.2
