@@ -108,9 +108,9 @@ font-thicken = true
 font-thicken-strength = 1
 
 ## Notification
-notify-on-command-finish        = always
+notify-on-command-finish        = unfocused
 notify-on-command-finish-action = bell,notify
-notify-on-command-finish-after  = 10s
+notify-on-command-finish-after  = 30s
 
 ## Keymap: `ghostty +list-keybinds`
 keybind = shift+enter=text:\n
@@ -132,6 +132,11 @@ keybind = super+ctrl+f=toggle_fullscreen
 keybind = super+c=copy_to_clipboard
 keybind = super+v=paste_from_clipboard
 keybind = global:super+ctrl+enter=toggle_quick_terminal
+
+{{- if eq .chezmoi.os "darwin" }}
+keybind = super+z=undo
+keybind = super+shift+z=redo
+{{- end }}
 
 ### Font: ghostty +list-fonts
 keybind = super+0=reset_font_size
@@ -168,3 +173,54 @@ keybind = super+6=goto_tab:6
 keybind = super+7=goto_tab:7
 keybind = super+8=goto_tab:8
 keybind = super+9=last_tab
+
+### Key tables
+
+{{- if .ghostty.modes.vim.enabled }}
+#### Vim mode
+
+##### Enter / Exit vim mode
+keybind = alt+v=activate_key_table:vim
+keybind = vim/escape=deactivate_key_table
+keybind = vim/q=deactivate_key_table
+keybind = vim/i=deactivate_key_table
+keybind = vim/catch_all=ignore
+
+##### Scroll
+keybind = vim/j=scroll_page_lines:1
+keybind = vim/k=scroll_page_lines:-1
+keybind = vim/ctrl+b=scroll_page_up
+keybind = vim/ctrl+f=scroll_page_down
+
+##### Jump
+keybind = vim/g>g=scroll_to_top
+keybind = vim/shift+g=scroll_to_bottom
+
+##### Search
+keybind = vim/slash=start_search
+keybind = vim/escape=end_search
+keybind = vim/n=navigate_search:next
+keybind = vim/shift+n=navigate_search:previous
+
+##### Copy mode / selection
+# TODO: missing many functions to make this feature fully works
+keybind = vim/y=copy_to_clipboard
+keybind = vim/v=copy_to_clipboard
+
+##### Command Palette
+keybind = vim/shift+semicolon=toggle_command_palette
+{{- end }}
+
+{{- if .ghostty.modes.vim.enabled }}
+#### Resize mode
+
+##### Enter / Exit resize mode
+keybind = super+r=activate_key_table:resize
+keybind = resize/escape=deactivate_key_table
+keybind = resize/catch_all=ignore
+
+keybind = resize/arrow_up=resize_split:up,10
+keybind = resize/arrow_down=resize_split:down,10
+keybind = resize/arrow_left=resize_split:left,10
+keybind = resize/arrow_right=resize_split:right,10
+{{- end }}
