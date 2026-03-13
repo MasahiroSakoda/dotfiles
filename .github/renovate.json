@@ -29,8 +29,12 @@
     {
       "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["github-actions"],
-      "schedule": ["* * 1,15 * *"]
+      "matchManagers": ["actions/checkout", "actions/labeler"]
+    },
+    {
+      "groupName": "Security",
+      "matchPackageNames": ["zizmorcore/zizmor-action"],
+      "addLabels": ["Security 🛡️"]
     },
     {
       "groupName": "chezmoi",
