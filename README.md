@@ -275,6 +275,14 @@ Runtime version management tool
 | [`Awesome Claude Code Subagents`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
 
 
+##### Gemini CLI
+
+| Tool | Description |
+|:-----|:------------|
+| [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
+| [`code-review`](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
+| [`conductor`](https://github.com/gemini-cli-extensions/conductor) | Gemini CLI extension that allows you to specify, plan, and implement software features |
+
 ### Homebrew cask packages
 
 #### Keyboard
