@@ -269,7 +269,7 @@ Runtime version management tool
 
 | Tool | Description |
 | :--- | :---------- |
-| [**`OpenCode`**](https://opencode.ai) | Open Source AI Agent  |
+| [**`OpenCode`**](https://opencode.ai) | Open Source AI Agent |
 | [`oh-my-opencode`](https://github.com/code-yeongyu/oh-my-opencode) | Steroids for your onprem code. |
 | [`superpowers`](https://github.com/obra/superpowers) | Core skills library |
 | [`Awesome Claude Code Subagents`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
