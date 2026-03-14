@@ -67,19 +67,44 @@ question  = "allow"
 webfetch  = "allow"
 
 doom_loop          = "ask"
-external_directory = "ask"
+external_directory = "deny"
 
 [opencode.permissions.read]
 # Block access to the secrets
 "*"             = "allow"
 "*.env"         = "deny"
 "*.env.*"       = "deny"
-"*.envrc*"      = "deny"
 "*.env.example" = "allow"
 
+"*.pem"   = "deny"
+"*.key"   = "deny"
+"*.p12"   = "deny"
+"*.pfx"   = "deny"
+"*.jks"   = "deny"
+
+".git/config"   = "deny"
+"*credentials*" = "deny"
+"*secret*"      = "deny"
+"*.keystore"    = "deny"
+"**/secrets/**" = "deny"
+"**/private/**" = "deny"
+"**/.aws/**"    = "deny"
+"**/.ssh/**"    = "deny"
+"**/.gnupg/**"  = "deny"
+
+"*/docker-compose.yml"  = "ask"
+"*/compose.yaml"        = "ask"
+
+
 [opencode.permissions.edit]
-"*"    = "deny"
-"*.md" = "allow"
+"*"       = "ask"
+"*.env"   = "deny"
+"*.env.*" = "deny"
+"*.pem"   = "deny"
+"*.key"   = "deny"
+
+"*credentials*" = "deny"
+"*secret*"      = "deny"
 
 [opencode.permissions.bash]
 "*"       = "deny"

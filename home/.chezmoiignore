@@ -83,7 +83,6 @@ install.sh
 .gemini/antigravity/context_state/
 .gemini/antigravity/Knowledge/
 .gemini/antigravity/installation_id
-.gemini/extensions/
 .gemini/history/
 .gemini/tmp/
 
