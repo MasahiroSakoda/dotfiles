@@ -56,7 +56,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
-local flash = require("flash")
 wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
@@ -64,11 +63,11 @@ wk.add({
   { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
   { "]]", "<CMD>lua Snacks.words.jump(vim.v.count1)<CR>",  icon = "󰼧 ", desc = "Next Reference" },
 
-  { "s",     function() flash.jump() end,              mode = nxo, icon = " ", desc = " Jump" },
-  { "S",     function() flash.treesitter() end,        mode = nxo, icon = " ", desc = " Treesitter" },
-  { "r",     function() flash.remote() end,            mode = o,   icon = " ", desc = " Remote" },
-  { "R",     function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = " Treesitter Search" },
-  { "<C-s>", function() flash.toggle() end,            mode = c,   icon = " ", desc = " Toggle Search" },
+  { "s",     "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = " Jump" },
+  { "S",     "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Treesitter" },
+  { "r",     "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = " Remote" },
+  { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
+  { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
   { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
   { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
