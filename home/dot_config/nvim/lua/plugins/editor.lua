@@ -27,7 +27,6 @@ return {
   {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
-    event  = { "BufReadPost", "BufNewFile" },
     init   = function() require("ui.flash") end,
     config = function() require("user.flash") end,
   },
