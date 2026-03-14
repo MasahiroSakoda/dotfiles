@@ -410,6 +410,7 @@ if not is_vscode then
     mode = "n",
     { "-",         "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
     { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "<Leader>E", "<CMD>lua require'oil'.open(Snacks.git.get_root())<CR>", icon = " ", desc = " Open Repo Root" },
   }, opts)
 end
 
