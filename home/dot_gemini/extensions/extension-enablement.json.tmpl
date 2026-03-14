@@ -1,0 +1,15 @@
+{
+  "conductor": {
+    "overrides": [
+      {{ joinPath .chezmoi.homeDir "*" | quote }}
+    ]
+  },
+  "code-review": {
+    "overrides": [
+      {{ joinPath .chezmoi.homeDir "*" | quote }}
+    ]
+  }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
