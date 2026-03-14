@@ -72,7 +72,7 @@ wk.add({
   { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
   { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
   { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Coninue last search" },
+  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
