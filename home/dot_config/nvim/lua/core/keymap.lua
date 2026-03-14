@@ -309,7 +309,9 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
+  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
+  { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
+  { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
@@ -454,17 +456,10 @@ if not is_vscode then
   wk.add({
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
 
-    -- Snacks focus modes:
-    { "\\", group = "Toggle keymaps", icon = "🎚️ " },
-    { "\\d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
-    { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
-    { "\\f", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
-
-    { "\\/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
-    { "\\c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
-    { "\\D", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
-    { "\\h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "\\i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
-    { "\\t", "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
+    { "<Leader>'", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
+    { "<Leader>z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
+    { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
+    { "<Leader>c", "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
+    { "<C-t>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
