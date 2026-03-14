@@ -108,7 +108,9 @@ nl.setup({
 
     -- markdown
     diagnostics.markdownlint_cli2.with({
-      extra_args = { "--config", vim.fn.expand("~/.local/share/chezmoi/.markdownlint-cli2.yaml") },
+      condition = function(utils)
+        return utils.root_has_file({ ".markdownlint-cli2.jsonc", ".markdownlint-cli2.yaml" })
+      end,
     }),
 
     -- YAML
