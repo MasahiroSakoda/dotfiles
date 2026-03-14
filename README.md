@@ -198,7 +198,7 @@ Runtime version management tool
 ##### CLI Tools
 
 | Tools | Description |
-|:------|:------------|
+| :---- | :---------- |
 | [**`zellij`**](https://github.com/zellij-org/zellij) | Terminal Multiplexer |
 | [**`starship`**](https://github.com/starship/starship) | Shell prompt |
 | [**`sheldon`**](https://github.com/rossmacarthur/sheldon) | Shell plugin manager |
@@ -248,7 +248,7 @@ Runtime version management tool
 ##### Linter / Formatter
 
 | Tools | Description |
-|:------|:------------|
+| :---- | :---------- |
 | [**`shfmt`**](https://github.com/mvdan/sh) | Shell Formatter |
 | [**`biome`**](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
 | [**`ruff`**](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
@@ -268,7 +268,7 @@ Runtime version management tool
 ##### OpenCode
 
 | Tool | Description |
-|:-----|:------------|
+| :--- | :---------- |
 | [**`OpenCode`**](https://opencode.ai) | Open Source AI Agent  |
 | [`oh-my-opencode`](https://github.com/code-yeongyu/oh-my-opencode) | Steroids for your onprem code. |
 | [`superpowers`](https://github.com/obra/superpowers) | Core skills library |
@@ -278,7 +278,7 @@ Runtime version management tool
 ##### Gemini CLI
 
 | Tool | Description |
-|:-----|:------------|
+| :--- | :---------- |
 | [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
 | [`code-review`](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
 | [`conductor`](https://github.com/gemini-cli-extensions/conductor) | Gemini CLI extension that allows you to specify, plan, and implement software features |
