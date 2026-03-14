@@ -171,7 +171,7 @@ local snippets = {
     fmt('<{}>{}</{}>', { i(1, "tag"), i(0, "context"), rep(1) })
   ),
 
-  s({ trig = "fmac", name = "Commands Frontmatter", dscr = "Frontmatter for AI commands" },
+  s({ trig = "---c", name = "Commands Frontmatter", dscr = "Frontmatter for AI commands" },
     fmta('---\ndescription: <>\nagent: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
       i(1, "description"),
       i(2, "agent"),
@@ -180,7 +180,7 @@ local snippets = {
       i(0),
     })
   ),
-  s({ trig = "fmaa", name = "Subagents Frontmatter", dscr = "Frontmatter for AI subagents" },
+  s({ trig = "---a", name = "Subagents Frontmatter", dscr = "Frontmatter for AI subagents" },
     fmta('---\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
       i(1, "description"),
       c(2, { t("primary"), t("subagent") }),
@@ -189,7 +189,7 @@ local snippets = {
       i(0)
     })
   ),
-  s({ trig = "fmas", name = "Skills Frontmatter", dscr = "Frontmatter for AI skills" },
+  s({ trig = "---s", name = "Skills Frontmatter", dscr = "Frontmatter for AI skills" },
     fmta('---\nname: <>\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
       i(1, "name"),
       i(2, "description"),
