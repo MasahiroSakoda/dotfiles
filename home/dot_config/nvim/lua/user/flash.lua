@@ -21,7 +21,7 @@ flash.setup({
   continue  = false,
 
   modes = {
-    char = { autohide = true, jump_labels = true },
+    char = { autohide = true, jump_labels = false },
     treesitter = { labels = "hjklasdfgyuiopqwertnmzxcvb" },
   },
   prompt = {},
