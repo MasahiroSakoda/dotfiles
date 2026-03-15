@@ -75,5 +75,17 @@ local snippets = {
     .gemini/.geminiignore
     ]], {})
   ),
+  s({ trig = ";opencode", name = "OpenCode", dscr = "OpenCode Template" },
+    fmt([[
+    .openocde/agent/
+    .openocde/command/
+    .openocde/rules/
+    .openocde/tools/
+    .opencode/oh-my-opencode.jsonc
+    .opencode/opencode.jsonc
+    .opencode/AGENTS.md
+
+    ]], {})
+  ),
 }
 return snippets
