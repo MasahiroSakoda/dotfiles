@@ -1,9 +1,0 @@
-description = {{ .gemini.commands.git.changelog.desc | quote }}
-prompt = """
-{{ .gemini.commands.git.changelog }}
-
-{{ includeTemplate "common/ai/commands/git/changelog.md" . }}
-"""
-{{- /*
--*-mode:toml-*- vim:ft=toml.gotexttmpl
-*/ -}}

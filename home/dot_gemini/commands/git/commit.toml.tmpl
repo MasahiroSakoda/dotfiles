@@ -1,9 +1,0 @@
-description = {{ .gemini.commands.git.commit.desc | quote }}
-prompt = """
-{{ .gemini.commands.git.commit.prompt }}
-
-{{ includeTemplate "common/ai/commands/git/commit.md" . }}
-"""
-{{- /*
--*-mode:toml-*- vim:ft=toml.gotexttmpl
-*/ -}}
