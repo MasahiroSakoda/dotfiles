@@ -40,9 +40,9 @@ local snippets = {
   ),
   s({ trig = ";skills", name = "Agent Skills", dscr = "Agent Skills Template" },
     fmta([[
-    .agents/skills/{}/SKILL.md
-    .agents/skills/{}/references/
-    .agents/skills/{}/scripts/
+    .agents/skills/<>/SKILL.md
+    .agents/skills/<>/references/
+    .agents/skills/<>/scripts/
     <>
     ]], { i(1), rep(1), rep(1), i(0) })
   ),
