@@ -46,5 +46,14 @@ local snippets = {
     <>
     ]], { i(1), rep(1), rep(1), i(0) })
   ),
+  s({ trig = ";claude", name = "Claude Code", dscr = "Claude Code Template" },
+    fmt([[
+    .claude/agents/
+    .claude/commands/
+    .claude/rules/
+    .claude/settings.json
+    .claude/AGENTS.md
+    ]], {})
+  ),
 }
 return snippets
