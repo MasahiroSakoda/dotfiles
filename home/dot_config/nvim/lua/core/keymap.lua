@@ -56,7 +56,6 @@ wk.add({
 ---------------------------------------------------------------------------
 -- Cursor
 ---------------------------------------------------------------------------
-local flash = require("flash")
 wk.add({
   { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
@@ -64,16 +63,16 @@ wk.add({
   { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
   { "]]", "<CMD>lua Snacks.words.jump(vim.v.count1)<CR>",  icon = "󰼧 ", desc = "Next Reference" },
 
-  { "s",     function() flash.jump() end,              mode = nxo, icon = " ", desc = " Jump" },
-  { "S",     function() flash.treesitter() end,        mode = nxo, icon = " ", desc = " Treesitter" },
-  { "r",     function() flash.remote() end,            mode = o,   icon = " ", desc = " Remote" },
-  { "R",     function() flash.treesitter_search() end, mode = ox,  icon = " ", desc = " Treesitter Search" },
-  { "<C-s>", function() flash.toggle() end,            mode = c,   icon = " ", desc = " Toggle Search" },
+  { "s",     "<CMD>lua require'flash'.jump()<CR>",              mode = nxo, icon = " ", desc = " Jump" },
+  { "S",     "<CMD>lua require'flash'.treesitter()<CR>",        mode = nxo, icon = " ", desc = " Treesitter" },
+  { "r",     "<CMD>lua require'flash'.remote()<CR>",            mode = o,   icon = " ", desc = " Remote" },
+  { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
+  { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
   { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
   { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
   { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Coninue last search" },
+  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -310,7 +309,9 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>", icon = " ", desc = " Display LSP Info" },
+  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
+  { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
+  { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
@@ -394,7 +395,7 @@ if not is_vscode then
 
     -- CLI
     { "<Leader>ap", "<CMD>Sidekick cli prompt<CR>",             icon = "󰞷 ", desc = " Prompt Menu" },
-    { "<C-.>",      "<CMD>Sidekick cli toggle<CR>", mode = nxo, icon = "󰽎 ", desc = " Switch Focus" },
+    { "<C-.>",      "<CMD>Sidekick cli focus<CR>", mode = nxo, icon = "󰽎 ", desc = " Switch Focus" },
 
     { "<Leader>at", "<CMD>Sidekick cli send msg='{this}'<CR>",       mode = nx,icon = "󰞷 ",desc = " Send Line" },
     { "<Leader>av", "<CMD>Sidekick cli send msg='{selection}'<CR>",  mode = nx,icon = "󰞷 ",desc = " Send Selection" },
@@ -409,8 +410,9 @@ end
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "-", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
-    -- { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "-",         "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "<Leader>e", "<CMD>Oil<CR>", icon = " ", desc = " Open Parent Dir" },
+    { "<Leader>E", "<CMD>lua require'oil'.open(Snacks.git.get_root())<CR>", icon = " ", desc = " Open Repo Root" },
   }, opts)
 end
 
@@ -454,17 +456,10 @@ if not is_vscode then
   wk.add({
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
 
-    -- Snacks focus modes:
-    { "\\", group = "Toggle keymaps", icon = "🎚️ " },
-    { "\\d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>",  icon = " ", desc = " Dim Mode" },
-    { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>",  icon = " ", desc = " Zen Mode" },
-    { "\\f", "<CMD>lua Snacks.toggle.zoom():toggle()<CR>", icon = " ", desc = " Zoom Mode" },
-
-    { "\\/", "<CMD>HlSearchLensToggle<CR>",                       icon = " ", desc = " Hlsearch lens" },
-    { "\\c", "<CMD>ColorizerToggle<CR>",                          icon = " ", desc = " Colorizer" },
-    { "\\D", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
-    { "\\h", "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
-    { "\\i", "<CMD>lua Snacks.toggle.indent():toggle()<CR>",      icon = " ", desc = " Indent" },
-    { "\\t", "<CMD>lua Snacks.terminal()<CR>",         mode = nt, icon = " ", desc = " Terminal" },
+    { "<Leader>'", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
+    { "<Leader>z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
+    { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
+    { "<Leader>c", "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
+    { "<C-t>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end

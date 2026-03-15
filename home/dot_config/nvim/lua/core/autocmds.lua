@@ -57,8 +57,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     -- Defer to ensure overriding default keymaps
     vim.schedule(function()
       require("which-key").add({
-        { "jj", "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
-        { "kk", "<C-\\><C-n>", mode = { "t" }, icon = "󰈆 ", desc = " Exit Terminal", buffer = ev.buf },
+        { "jj", "<C-\\><C-n>",       mode = "t", icon = "󰈆 ", desc = " Exit Terminal",  buffer = ev.buf },
+        { "kk", "<C-\\><C-n>",       mode = "t", icon = "󰈆 ", desc = " Exit Terminal",  buffer = ev.buf },
+        { "kj", "<C-\\><C-n><C-w>h", mode = "t", icon = " ", desc = " Move to editor", buffer = ev.buf },
       })
     end)
   end,
