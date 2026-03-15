@@ -55,5 +55,14 @@ local snippets = {
     .claude/AGENTS.md
     ]], {})
   ),
+  s({ trig = ";codex", name = "Codex CLI", dscr = "Codex CLI Template" },
+    fmt([[
+    .codex/agents/
+    .codex/commands/
+    .codex/rules/
+    .codex/config.toml
+    .codex/AGENTS.md
+    ]], {})
+  ),
 }
 return snippets
