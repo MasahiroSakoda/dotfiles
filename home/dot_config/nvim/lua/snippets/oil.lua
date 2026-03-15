@@ -64,5 +64,16 @@ local snippets = {
     .codex/AGENTS.md
     ]], {})
   ),
+  s({ trig = ";gemini", name = "Gemini CLI", dscr = "Gemini CLI Template" },
+    fmt([[
+    .gemini/agents/
+    .gemini/commands/
+    .gemini/policies/
+    .gemini/rules/
+    .gemini/settings.json
+    .gemini/AGENTS.md
+    .gemini/.geminiignore
+    ]], {})
+  ),
 }
 return snippets
