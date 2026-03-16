@@ -312,6 +312,8 @@ wk.add({
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
   { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
   { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
+  { "g[",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Prev Diagnostic" },
+  { "g]",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Next Diagnostic" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
