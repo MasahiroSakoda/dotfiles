@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://dlvhdr.github.io/gh-dash/configuration/gh-dash/schema.json
+# yaml-language-server: $schema=https://gh-dash.dev/schema.json
 confirmQuit: true
 showAuhorIcons: true
 smartFilteringAtLaunch: true
@@ -20,10 +20,13 @@ theme:
       faint: "#363a4f"
 
 keybindings:
-  prs:
-  # - key: c
-  issues:
-  # - key: c
+  universal:
+    - key: ctrl+b
+      builtin: pageUp
+    - key: ctrl+f
+      builtin: pageDown
+  issues: []
+  prs: []
 
 defaults:
   view: issues
