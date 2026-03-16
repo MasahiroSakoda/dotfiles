@@ -254,15 +254,11 @@ if not is_vscode then
     { "<Leader>gb", "<CMD>lua Snacks.picker.git_branches()<CR>",          icon = " ", desc = " View branches" },
 
     -- GitHub
-    { "<Leader>gi", group = "GitHub Issue", icon = " " },
-    { "<Leader>gim", "<CMD>lua Snacks.picker.gh_issue({assignee='@me'})<CR>", icon = " ", desc = " My issues" },
-    { "<Leader>gis", "<CMD>lua Snacks.picker.gh_issue({})<CR>",               icon = " ", desc = " Opened issues" },
-    { "<Leader>giS", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>",    icon = " ", desc = " All issues" },
+    { "<Leader>gi", "<CMD>lua Snacks.picker.gh_issue({})<CR>",            icon = " ", desc = " Opened issues" },
+    { "<Leader>gI", "<CMD>lua Snacks.picker.gh_issue({state='all'})<CR>", icon = " ", desc = " All issues" },
 
-    { "<Leader>gp", group = "GitHub PR", icon = " " },
-    { "<Leader>gpm", "<CMD>lua Snacks.picker.gh_pr({assignee='@me'})<CR>", icon = " ", desc = " My PRs" },
-    { "<Leader>gpr", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = " Opened PRs" },
-    { "<Leader>gpR", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
+    { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = " Opened PRs" },
+    { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
 
     {
       "<Leader>gpd",
@@ -279,6 +275,7 @@ if not is_vscode then
     { "<Leader>lr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
 
     -- Others
+    { "<Leader>fz", "<CMD>lua Snacks.picker.zoxide()<CR>",   icon = "󰾶 ", desc = " Zoxide" },
     { "<Leader>f;", "<CMD>lua Snacks.picker.snippets()<CR>", icon = " ", desc = " LuaSnip snippets" },
     { "<Leader>fi", "<CMD>lua Snacks.picker.icons()<CR>",    icon = " ", desc = " Search Icons" },
     {
@@ -305,6 +302,12 @@ end
 ---------------------------------------------------------------------------
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "gri")
+pcall(vim.keymap.del, "n", "grn")
+pcall(vim.keymap.del, "n", "grt")
+pcall(vim.keymap.del, "n", "grr")
+
 wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
@@ -312,6 +315,8 @@ wk.add({
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
   { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
   { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
+  { "g[",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Prev Diagnostic" },
+  { "g]",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Next Diagnostic" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
@@ -460,6 +465,6 @@ if not is_vscode then
     { "<Leader>z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
     { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
     { "<Leader>c", "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
-    { "<C-t>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
+    { "<C-,>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
