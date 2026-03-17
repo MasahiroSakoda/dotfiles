@@ -112,10 +112,7 @@ nl.setup({
     }),
 
     -- YAML
-    formatting.yamlfmt.with({
-      filetypes  = filetypes.yaml,
-      extra_args = { "-formatter", "retain_line_breaks_single=true" },
-    }),
+    formatting.yamlfmt.with({ filetypes  = filetypes.yaml }),
 
     --SQL
     diagnostics.sqruff.with({
