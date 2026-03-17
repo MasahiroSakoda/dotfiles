@@ -93,9 +93,7 @@ nl.setup({
 
     -- Shell
     formatting.shfmt.with({
-      -- zsh is not supported but enable anyway
       extract_filetypes = filetypes.lang.shell,
-      extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
     }),
 
     -- Ruby
