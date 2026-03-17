@@ -308,6 +308,10 @@ name = "Kimi K2.5 (cloud)"
 [opencode.providers.ollama.models."glm-5:cloud"]
 name = "GLM 5 (cloud)"
 
+## GitHub Copilot
+[opencode.providers.github-copilot]
+whitelist = [ "claude-haiku-4.5", "claude-sonnet-4.6", "claude-opus-4.6", "gpt-4.1", "gpt-5-mini" ]
+
 ## Google
 
 ### via Antigravity: https://github.com/NoeFabris/opencode-antigravity-auth
