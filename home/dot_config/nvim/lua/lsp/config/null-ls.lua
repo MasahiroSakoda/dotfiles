@@ -74,14 +74,6 @@ nl.setup({
         return utils.root_has_file(filetypes.lsp.clang_format)
       end,
       filetypes  = { "c", "h", "cpp", "hpp", "cxx", "cc", "hxx", "tcc" },
-      extra_args = {
-        "--style={"
-        .. "BasedOnStyle: llvm, "
-        .. "IndentWidth: 4, "
-        .. "PointerAlignment: Left, "
-        .. "ReferenceAlignment: Left, "
-        .. "IndentCaseLabels: true}"
-      },
     }),
 
     -- Go
