@@ -73,15 +73,7 @@ nl.setup({
       condition  = function(utils)
         return utils.root_has_file(filetypes.lsp.clang_format)
       end,
-      filetypes  = { "c", "h", "cpp", "hpp", "cxx", "cc", "hxx", "tcc" },
-      extra_args = {
-        "--style={"
-        .. "BasedOnStyle: llvm, "
-        .. "IndentWidth: 4, "
-        .. "PointerAlignment: Left, "
-        .. "ReferenceAlignment: Left, "
-        .. "IndentCaseLabels: true}"
-      },
+      filetypes  = { "c", "cpp", "objc", "objcpp", "cs" },
     }),
 
     -- Go
@@ -93,9 +85,7 @@ nl.setup({
 
     -- Shell
     formatting.shfmt.with({
-      -- zsh is not supported but enable anyway
       extract_filetypes = filetypes.lang.shell,
-      extra_args = { "--indent", "2", "--case-indent", "--space-redirects" },
     }),
 
     -- Ruby
@@ -114,10 +104,7 @@ nl.setup({
     }),
 
     -- YAML
-    formatting.yamlfmt.with({
-      filetypes  = filetypes.yaml,
-      extra_args = { "-formatter", "retain_line_breaks_single=true" },
-    }),
+    formatting.yamlfmt.with({ filetypes  = filetypes.yaml }),
 
     --SQL
     diagnostics.sqruff.with({
