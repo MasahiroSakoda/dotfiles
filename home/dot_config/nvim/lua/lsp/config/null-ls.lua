@@ -73,7 +73,7 @@ nl.setup({
       condition  = function(utils)
         return utils.root_has_file(filetypes.lsp.clang_format)
       end,
-      filetypes  = { "c", "h", "cpp", "hpp", "cxx", "cc", "hxx", "tcc" },
+      filetypes  = { "c", "cpp", "objc", "objcpp", "cs" },
     }),
 
     -- Go
