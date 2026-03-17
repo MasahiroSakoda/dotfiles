@@ -270,6 +270,11 @@ account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
 
+## Opencode Zen
+[opencode.providers.opencode]
+options   = { baseUrl = "https://opencode.ai/zen/v1", apiKey = "{env:OPENCODE_API_KEY}" }
+whitelist = ["kimi-k2.5-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
+
 ## Ollama
 [opencode.providers.ollama]
 name    = "Ollama"
