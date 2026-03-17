@@ -269,13 +269,22 @@ pid_offset_enabled = true
 account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
-[opencode.providers.ollama]
-name    = "Ollama (Local)"
-npm     = "@ai-sdk/openai-compatible"
-options = { baseURL = "http://localhost:11434/v1" }
 
-[opencode.providers.ollama.models."goekdenizguelmez/JOSIE:4b"]
-name = "Qwen3 4B Thinking 2507 Galbliterated"
+## Ollama
+[opencode.providers.ollama]
+name    = "Ollama"
+npm     = "@ai-sdk/openai-compatible"
+whitelist = ["qwen3.5:cloud", "kimi-k2.5:cloud", "glm-5:cloud"]
+options = { baseURL = "https://ollama.com/v1" }
+
+[opencode.providers.ollama.models."qwen3.5:cloud"]
+name = "Qwen3.5 (cloud)"
+
+[opencode.providers.ollama.models."kimi-k2.5:cloud"]
+name = "Kimi K2.5 (cloud)"
+
+[opencode.providers.ollama.models."glm-5:cloud"]
+name = "GLM 5 (cloud)"
 
 ## Google
 
