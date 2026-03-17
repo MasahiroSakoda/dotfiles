@@ -11,6 +11,7 @@ instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
 
 enabled_providers = [
   "opencode",
+  "openrouter",
   # "anthropic",
   "google",
   "github-copilot",
@@ -274,6 +275,22 @@ account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 [opencode.providers.opencode]
 options   = { baseUrl = "https://opencode.ai/zen/v1", apiKey = "{env:OPENCODE_API_KEY}" }
 whitelist = ["kimi-k2.5-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
+
+## OpenRouter
+[opencode.providers.openrouter]
+name      = "OpenRouter"
+npm       = "@ai-sdk/openai-compatible"
+options   = { baseUrl = "https://openrouter.ai/api/v1", apiKey = "{env:OPENROUTER_API_KEY}" }
+whitelist = ["minimax/minimax-m2.5:free", "z-ai/glm-4.5-air:free", "nvidia/nemotron-3-super-120b-a12b:free"]
+
+[opencode.providers.openrouter.models."minimax/minimax-m2.5:free"]
+name = "MiniMax M2.5"
+
+[opencode.providers.openrouter.models."z-ai/glm-4.5-air:free"]
+name = "GLM 4.5 Air"
+
+[opencode.providers.openrouter.models."nvidia/nemotron-3-super-120b-a12b:free"]
+name = "NVIDIA: Nemotron 3 Super"
 
 ## Ollama
 [opencode.providers.ollama]
