@@ -204,8 +204,6 @@ Runtime version management tool
 | [**`sheldon`**](https://github.com/rossmacarthur/sheldon) | Shell plugin manager |
 | [**`neovim`**](https://github.com/neovim/neovim) | Hyper extensive editor |
 | [**`tree-sitter`**](https://github.com/tree-sitter/tree-sitter) | Language Parser |
-| [**`cmake`**](https://github.com/Kitware/Cmake) | Build system generator |
-| [**`just`**](https://github.com/casey/just) | Just a command runner |
 | [**`zoxide`**](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command |
 | [**`bat`**](https://github.com/sharkdp/bat) | `cat` alternative |
 | [**`fd`**](https://github.com/sharkdp/fd) | `find` alternative |
@@ -223,8 +221,6 @@ Runtime version management tool
 | [**`onefetch`**](https://github.com/o2sh/onefetch) | Repository information |
 | [**`gitui`**](https://github.com/gitui-org/gitui) | Git TUI |
 | [**`delta`**](https://github.com/dandavison/delta) | `diff` alternative for `git` |
-| [**`pre-commit`**](https://github.com/pre-commit/pre-commit) | pre-commit hook |
-| [**`git-cliff`**](https://github.com/orhun/git-cliff) | Changelog generator |
 | [**`gibo`**](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates |
 | [**`commitizen`**](https://github.com/) | Commit message utiility |
 | [**`cz-conventional-changelog`**](https://github.com/) | Formatter |
