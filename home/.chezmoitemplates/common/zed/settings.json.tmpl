@@ -239,6 +239,104 @@
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
+  },
+  {{/*
+  // ===========================================================================
+  // Language-specific config
+  // ===========================================================================
+  */ -}}
+  "languages": {
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "shfmt", "arguments": [ "--filename", "{buffer_path}" ] } }
+    },
+    "C": {
+      "format_on_save": "on",
+      "formatter": {"external": {"command": "clang_format", "arguments": [ "{buffer_path}" ]}},
+      "language_servers": [ "clangd" ]
+    },
+    "C++": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "clang_format", "arguments": [ "{buffer_path}" ] } },
+      "language_servers": [ "clangd" ]
+    },
+    "Rust": {
+      "language_servers": [ "rust-analyzer" ],
+      "code_actions_on_format": {
+      }
+    },
+    "Go": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "golangci-lint", "arguments": [ "fmt", "--stdin" ] } },
+      "language_servers": [ "gopls" ]
+    },
+    "Python": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "ruff" } },
+      "language_servers": [ "ruff", "ty", "!basedpyright" ]
+    },
+    {{/*
+    "Ruby": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "ruby-lsp" } },
+      "language_servers": [ "ruby-lsp", "!solargraph", "rubocop" ]
+    },
+    */ -}}
+    "Lua": {
+      "language_servers": [ "lua-language-server" ]
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [ "biome", "!eslint", "!stylelint-lsp" ]
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [ "json-language-server" ]
+    },
+    "YAML": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
+      "language_servers": [ "yaml-language-server" ]
+    },
+    {{/*
+    "TOML": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "tombi" } },
+      "language_servers": [ "tombi" ]
+    },
+    "KDL": {
+      "format_on_save": "on"
+    },
+    */ -}}
+    "HTML": {
+      "format_on_save": "on"
+    },
+    "CSS": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "Markdown": {
+      "language_servers": [ "marksman" ]
+    },
+    "Markdown-Inline": {
+      "show_edit_predictions": false
+    {{/*
+    },
+    "LaTex": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
+    */ -}}
+    }
   }
 }
 {{- /*
