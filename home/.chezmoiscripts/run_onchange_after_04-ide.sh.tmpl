@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+
+set -eo pipefail
+
+{{ template "linux/script_linux_only" . }}
+{{ template "common/script_sudo" . }}
+
+{{ if not .headless }}
+
+# Install VSCode
+{{ if eq .osid "ubuntu" "debian" }}
+
+{{ end }}
+
+# Install extensions
+
+{{ end }}
