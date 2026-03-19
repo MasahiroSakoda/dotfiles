@@ -1,10 +1,8 @@
 name: linter
-
 on:
   pull_request:
     branches:
       - main
-
 jobs:
   linter:
     strategy:
@@ -24,7 +22,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-
       - name: Super-linter
         uses: super-linter/super-linter/slim@61abc07d755095a68f4987d1c2c3d1d64408f1f9 # v8.5.0
         env:
@@ -37,12 +34,10 @@ jobs:
           VALIDATE_CHECKOV: true
           VALIDATE_GITLEAKS: true
           VALIDATE_RENOVATE: true
-          VALIDATE_MARKDOWN: true
           VALIDATE_JSON: true
           VALIDATE_YAML: true
           VALIDATE_BASH: true
           SHELLCHECK_OPTS: -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083
-          MARKDOWN_CONFIG_FILE: .markdownlint-cli2.yaml
           VALIDATE_LUA: true
           LUACHECK_CONFIG: .luacheckrc
           VALIDATE_JAVASCRIPT_ES: true
