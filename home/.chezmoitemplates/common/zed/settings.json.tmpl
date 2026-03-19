@@ -124,6 +124,121 @@
     "font_size": {{ .font.size.large }},
     "working_directory": "current_project_directory",
     "copy_on_select": false
+  },
+  {{/*
+  // ===========================================================================
+  // LSP
+  // ===========================================================================
+  */ -}}
+  "auto_install_extensions": {},
+  "lsp": {
+    {{/*
+    "bash-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "bash-language-server" | quote }},
+        "arguments": ["server"]
+      }
+    },
+    "fish-lsp": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "fish-lsp" | quote }},
+        "arguments": ["start"]
+      }
+    },
+    */ -}}
+    "clangd": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "clangd" | quote }} }
+    },
+    "rust-analyzer": {
+      "initialization_options": {}
+    },
+    "gopls": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "gopls" | quote }},
+        "arguments": ["serve"]
+      },
+      "initialization_options": { "directoryFilters": [ "-**/.git", "-**/.zed", "-**/.vscode", "-**/.cursor" ] }
+    },
+    "ty": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ty" | quote }},
+        "arguments": ["server"]
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {}
+      }
+    },
+    {{/*
+    "ruby-lsp": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }} }
+    },
+    "rubocop": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }},
+        "arguments": ["--lsp"]
+      }
+    },
+    */ -}}
+    "lua-language-server": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "lua-language-server" | quote }} }
+    },
+    "typescript-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "typescript-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "json-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "vscode-json-languageserver" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "yaml-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "yaml-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "tailwindcss-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tailwindcss-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    {{/*
+    },
+    "tombi": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tombi" | quote }},
+        "arguments": ["lsp"]
+      }
+    },
+    "biome": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "biome" | quote }},
+        "arguments": ["lsp-proxy"]
+      }
+    },
+    "marksman": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "marksman" | quote }},
+        "arguments": ["server"]
+      }
+    },
+    "texlab": {
+      "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }}
+    */ -}}
+    }
+  },
+  "auto_signature_help": true,
+  "diagnostics": { "include_warnings": true },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
   }
 }
 {{- /*
