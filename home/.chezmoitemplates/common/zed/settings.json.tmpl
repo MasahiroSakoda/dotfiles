@@ -337,6 +337,27 @@
       "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
     */ -}}
     }
+  },
+  {{/*
+  // ===========================================================================
+  // AI agent config
+  // ===========================================================================
+  */ -}}
+  "agent": {
+    "default_model": {
+      "enable_thinking": true,
+      "provider": "ollama",
+      "model": "qwen3.5:cloud"
+    },
+    "model_parameters": [],
+    "enable_feedback": false
+  },
+  "agent_servers": {
+    "gemini": {"type": "registry", "env": {"GEMINI_SANDBOX": "true"} },
+    "opencode": {"type": "registry" }
+  },
+  "edit_predictions": {
+    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert" ]
   }
 }
 {{- /*
