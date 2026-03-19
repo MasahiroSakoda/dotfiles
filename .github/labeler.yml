@@ -91,7 +91,9 @@
   - changed-files:
       - any-glob-to-any-file:
           - "home/.chezmoiscripts/run_onchange_after_04-ide.sh.tmpl"
+          - "home/.chezmoitemplates/common/zed/*"
           - "home/dot_editorconfig.tmpl"
+          - "home/dot_config/zed/*"
 "Terminal 🖥️":
   - changed-files:
       - any-glob-to-any-file:

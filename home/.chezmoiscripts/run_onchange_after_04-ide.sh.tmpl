@@ -9,7 +9,9 @@ set -eo pipefail
 {{ if not .headless }}
 
 # Install VSCode
-{{ if eq .osid "ubuntu" "debian" }}
+{{ if eq .chezmoi.os "linux" }}
+
+curl -f https://zed.dev/install.sh | sh
 
 {{ end }}
 
