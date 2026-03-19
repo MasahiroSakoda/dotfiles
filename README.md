@@ -222,7 +222,7 @@ Runtime version management tool
 | [**`yt-dlp`**](https://github.com/yt-dlp/yt-dlp) | Downloader |
 | [**`onefetch`**](https://github.com/o2sh/onefetch) | Repository information |
 | [**`gitui`**](https://github.com/gitui-org/gitui) | Git TUI |
-| [**`delta`**](https://github.com/dandavison/delta) | `diff` alternavtive for `git` |
+| [**`delta`**](https://github.com/dandavison/delta) | `diff` alternative for `git` |
 | [**`pre-commit`**](https://github.com/pre-commit/pre-commit) | pre-commit hook |
 | [**`git-cliff`**](https://github.com/orhun/git-cliff) | Changelog generator |
 | [**`gibo`**](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates |
