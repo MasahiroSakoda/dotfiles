@@ -25,6 +25,7 @@
     "mode": {{ .zed.theme.mode | quote }}
   },
   "bottom_dock_layout": "full",
+  "relative_line_numbers": true,
   {{/* Font config */ -}}
   "buffer_font_family": {{ .font.family.combined | quote }},
   "buffer_font_size": {{ .font.size.medium }},
@@ -51,10 +52,32 @@
     "enabled": true,
     "enable_preview_from_file_finder": false
   },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": true,
+    "show_project_items": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_menus": true,
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": true
   },
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": false,
+    "selected_symbol": false
+  },
+  "search": {"regex": true},
+  "use_smartcase_search": true,
   {{/*
   // ===========================================================================
   // File Management
