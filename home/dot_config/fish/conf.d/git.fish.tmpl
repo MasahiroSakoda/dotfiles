@@ -26,6 +26,18 @@ function gitignore -d "Generate .gitignore with fzf"
   commandline -f repaint
 end
 
+function gls -d "Incremental Git log search"
+  git log --graph --oneline --decorate --all --color=always | \
+    fzf --ansi --prompt "  " --highlight-line \
+      --header "List of Git log | Enter: show detail | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview 'git show --color=always {2} || echo "No preview"' \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
+      --bind "ctrl-y:execute:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | {{ .cmd.copy }}" \
+      --exit-9
+  commandline -f repaint
+end
+
 function gwt -d "Navigate Git worktrees"
   # TODO: Add Git worktree navigation to integrate AI agent
   # git worktree list | \
