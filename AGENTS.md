@@ -40,13 +40,13 @@ chezmoi/
 │   │   ├── darwin/                     # macOS specific file templates
 │   │   └── linux/                      # Linux specific file templates
 │   ├── dot_config/                     # XDG_CONFIG_HOME; Contains user-specific config files
-│   │   ├── Code/                       # VSCode config for Linux environment
 │   │   ├── fish/                       # Fish shell config
 │   │   ├── ghostty/                    # Ghostty config for Linux environment
 │   │   ├── mise/                       # Tool version management, environment variables, and custom tasks
 │   │   ├── nvim/                       # NeoVim config
 │   │   ├── opencode/                   # OpenCode config
 │   │   ├── wezterm/                    # WezTerm config
+│   │   ├── zed/                        # Zed IDE config
 │   │   └── zsh/                        # Zsh config
 │   ├── dot_gemini/                     # Gemini CLI config
 │   ├── dot_local/                      # ~/.local
@@ -54,7 +54,6 @@ chezmoi/
 │   │   └── state/                      # XDG_STATE_HOME; Contains state files that cannot be easily regenerated
 │   ├── private_Library/                # macOS specific config
 │   │   └── Application Support/        # Application config for macOS
-│   │       ├── Code/                   # VSCode config for Linux environment
 │   │       ├── com.mitchellh.ghostty/  # Ghostty config for macOS environment
 │   │       ├── eza/                    # `eza` config for macOS environment
 │   │       ├── ruff/                   # `ruff` config for macOS environment

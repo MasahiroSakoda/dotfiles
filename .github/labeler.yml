@@ -27,7 +27,6 @@
           - "home/private_dot_ssh/*"
           - "home/private_dot_gnupg/*"
           - "*.age"
-
 "Bug 🐛":
   - head-branch:
       - "^fix/.*"
@@ -45,7 +44,6 @@
   - head-branch:
       - "^refactor/.*"
       - "^cleanup/.*"
-
 "chezmoi 🏘️":
   - changed-files:
       - any-glob-to-any-file:
@@ -92,11 +90,10 @@
 "IDE 💡":
   - changed-files:
       - any-glob-to-any-file:
-          - "home/.chezmoiscripts/run_onchange_after_04-vscode.sh.tmpl"
-          - "home/.chezmoitemplates/common/vscode/*"
-          - "home/Library/Applications Support/Code/User/*"
-          - "home/dot_config/Code/User/*"
+          - "home/.chezmoiscripts/run_onchange_after_04-ide.sh.tmpl"
+          - "home/.chezmoitemplates/common/zed/*"
           - "home/dot_editorconfig.tmpl"
+          - "home/dot_config/zed/*"
 "Terminal 🖥️":
   - changed-files:
       - any-glob-to-any-file:

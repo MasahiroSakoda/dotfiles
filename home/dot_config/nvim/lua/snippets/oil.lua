@@ -35,7 +35,6 @@ local snippets = {
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
     .github/pull_request_tempalte.md
-    .vscode/settings.json
     ]], {})
   ),
   s({ trig = ";skills", name = "Agent Skills", dscr = "Agent Skills Template" },

@@ -1,0 +1,365 @@
+{{- /*
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+*/ -}}
+{
+  "vim_mode": true,
+  "restore_on_startup": "last_workspace",
+  "auto_update": false,
+  "telemetry": { "metrics": false, "diagnostics": false },
+  {{/*
+  // ===========================================================================
+  // Appearance
+  // ===========================================================================
+  */ -}}
+  "icon_theme": {{ .zed.theme.icon | quote }},
+  "theme": {
+    "light": {{ .zed.theme.light | quote }},
+    "dark": {{ .zed.theme.dark | quote }},
+    "mode": {{ .zed.theme.mode | quote }}
+  },
+  "bottom_dock_layout": "full",
+  "relative_line_numbers": "enabled",
+  {{/* Font config */ -}}
+  "buffer_font_family": {{ .font.family.combined | quote }},
+  "buffer_font_size": {{ .font.size.medium }},
+  "buffer_font_features": { "calt": true, "liga": true, "zero": true },
+  "ui_font_family": {{ .font.family.combined | quote }},
+  "ui_font_size": {{ .font.size.large }},
+  {{/* Panel config */ -}}
+  "project_panel": { "dock": "left" },
+  "collaboration_panel": { "dock": "left" },
+  "outline_panel": { "dock": "right" },
+  "git_panel": {
+    "button": true,
+    "status_style": "icon"
+  },
+  {{/*
+  // ===========================================================================
+  // Navigation & Search
+  // ===========================================================================
+  */ -}}
+  "file_finder": {
+    "file_icons": true
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": false
+  },
+  "title_bar": {
+    "show_branch_icon": false,
+    "show_branch_name": true,
+    "show_project_items": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_menus": true,
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": true
+  },
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": false,
+    "selected_symbol": false
+  },
+  "search": {"regex": true},
+  "use_smartcase_search": true,
+  {{/*
+  // ===========================================================================
+  // File Management
+  // ===========================================================================
+  */ -}}
+  "autosave": "on_focus_change",
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/node_modules",
+    "**/.venv",
+    "**/venv",
+    "**/__pycache__",
+    "**/target",
+    "**/.DS_Store",
+    "**/.idea",
+    "**/.vscode"
+  ],
+  "file_types": {
+    "Dockerfile": ["Dockerfile.*"],
+    "Git Attributes": ["**/{git,.git,.git/info}/attributes"],
+    "Git Config": [ "*.gitconfig", "**/{git,.git/modules,.git/modules/*}/config" ],
+    "Git Ignore": ["**/{git,.git}/ignore", "**/.git/info/exclude"],
+    "env": [".env", "**/.env*", "**/.envrc*"],
+    "GitHub Actions": [ "**/.github/workflows/*.yaml", "**/.github/workflows/*.yml" ]
+  },
+  {{/*
+  // ===========================================================================
+  // Git
+  // ===========================================================================
+  */ -}}
+  "git": {
+    "inline_blame": { "enabled": false, "delay_ms": 500 }
+  },
+  {{/*
+  // ===========================================================================
+  // Terminal
+  // ===========================================================================
+  */ -}}
+  "terminal": {
+    "shell": { "program": {{ .shell | quote }} },
+    "font_family": {{ .font.family.combined | quote }},
+    "font_size": {{ .font.size.large }},
+    "working_directory": "current_project_directory",
+    "copy_on_select": false
+  },
+  {{/*
+  // ===========================================================================
+  // LSP
+  // ===========================================================================
+  */ -}}
+  "auto_install_extensions": {},
+  "lsp": {
+    {{/*
+    "bash-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "bash-language-server" | quote }},
+        "arguments": ["server"]
+      }
+    },
+    "fish-lsp": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "fish-lsp" | quote }},
+        "arguments": ["start"]
+      }
+    },
+    */ -}}
+    "clangd": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "clangd" | quote }} }
+    },
+    "rust-analyzer": {
+      "initialization_options": {}
+    },
+    "gopls": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "gopls" | quote }},
+        "arguments": ["serve"]
+      },
+      "initialization_options": { "directoryFilters": [ "-**/.git", "-**/.zed", "-**/.vscode", "-**/.cursor" ] }
+    },
+    "ty": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ty" | quote }},
+        "arguments": ["server"]
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {}
+      }
+    },
+    {{/*
+    "ruby-lsp": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }} }
+    },
+    "rubocop": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }},
+        "arguments": ["--lsp"]
+      }
+    },
+    */ -}}
+    "lua-language-server": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "lua-language-server" | quote }} }
+    },
+    "typescript-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "typescript-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "json-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "vscode-json-languageserver" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "yaml-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "yaml-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    },
+    "tailwindcss-language-server": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tailwindcss-language-server" | quote }},
+        "arguments": ["--stdio"]
+      }
+    {{/*
+    },
+    "tombi": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tombi" | quote }},
+        "arguments": ["lsp"]
+      }
+    },
+    "biome": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "biome" | quote }},
+        "arguments": ["lsp-proxy"]
+      }
+    },
+    "marksman": {
+      "binary": {
+        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "marksman" | quote }},
+        "arguments": ["server"]
+      }
+    },
+    "texlab": {
+      "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }}
+    */ -}}
+    }
+  },
+  "auto_signature_help": true,
+  "diagnostics": { "include_warnings": true },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  {{/*
+  // ===========================================================================
+  // Language-specific config
+  // ===========================================================================
+  */ -}}
+  "languages": {
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "shfmt", "arguments": [ "--filename", "{buffer_path}" ] } }
+    },
+    "C": {
+      "format_on_save": "on",
+      "formatter": {"external": {"command": "clang_format", "arguments": [ "{buffer_path}" ]}},
+      "language_servers": [ "clangd" ]
+    },
+    "C++": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "clang_format", "arguments": [ "{buffer_path}" ] } },
+      "language_servers": [ "clangd" ]
+    },
+    "Rust": {
+      "language_servers": [ "rust-analyzer" ],
+      "code_actions_on_format": {
+      }
+    },
+    "Go": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "golangci-lint", "arguments": [ "fmt", "--stdin" ] } },
+      "language_servers": [ "gopls" ]
+    },
+    "Python": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "ruff" } },
+      "language_servers": [ "ruff", "ty", "!basedpyright" ]
+    },
+    {{/*
+    "Ruby": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "ruby-lsp" } },
+      "language_servers": [ "ruby-lsp", "!solargraph", "rubocop" ]
+    },
+    */ -}}
+    "Lua": {
+      "language_servers": [ "lua-language-server" ]
+    },
+    "JavaScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "TypeScript": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "TSX": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [ "biome", "!eslint", "!stylelint-lsp" ]
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [ "json-language-server" ]
+    },
+    "YAML": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
+      "language_servers": [ "yaml-language-server" ]
+    },
+    {{/*
+    "TOML": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "tombi" } },
+      "language_servers": [ "tombi" ]
+    },
+    "KDL": {
+      "format_on_save": "on"
+    },
+    */ -}}
+    "HTML": {
+      "format_on_save": "on"
+    },
+    "CSS": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "biome" } }
+    },
+    "Markdown": {
+      "language_servers": [ "marksman" ]
+    },
+    "Markdown-Inline": {
+      "show_edit_predictions": false
+    {{/*
+    },
+    "LaTex": {
+      "format_on_save": "on",
+      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
+    */ -}}
+    }
+  },
+  {{/*
+  // ===========================================================================
+  // AI agent config
+  // ===========================================================================
+  */ -}}
+  "agent": {
+    "default_model": {
+      "enable_thinking": true,
+      "provider": "ollama",
+      "model": "qwen3.5:cloud"
+    },
+    "model_parameters": [],
+    "enable_feedback": false
+  },
+  "agent_servers": {
+    "gemini": {"type": "registry", "env": {"GEMINI_SANDBOX": "true"} },
+    "opencode": {"type": "registry" }
+  },
+  "edit_predictions": {
+    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert" ]
+  }
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}

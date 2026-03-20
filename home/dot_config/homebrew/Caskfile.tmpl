@@ -113,10 +113,6 @@ cask {{ . | quote }}
 cask {{ . | quote }}
 {{- end }}
 
-{{- range .extensions.vscode | sortAlpha | uniq }}
-vscode {{ . | quote }}
-{{- end }}
-
 {{- end }}
 {{- end }}
 {{- /*

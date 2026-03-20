@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+
+set -eo pipefail
+
+{{ template "linux/script_linux_only" . }}
+{{ template "common/script_sudo" . }}
+
+{{ if not .headless }}
+
+# Install VSCode
+{{ if eq .chezmoi.os "linux" }}
+
+curl -f https://zed.dev/install.sh | sh
+
+{{ end }}
+
+# Install extensions
+
+{{ end }}
