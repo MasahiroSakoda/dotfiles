@@ -6,50 +6,109 @@
     "commit_footer": false,
     "include_co_authored_by": false
   },
+  "runtime_fallback": {
+    "enabled": true,
+    "max_fallback_attempts": 3,
+    "notify_on_fallback": true
+  },
   "agents": {
     {{/*********** Core Agents ***********/ -}}
     {{/* The default orchestrator. Plans, delegates, and executes complex tasks using specialized subagents with aggressive parallel execution. Todo-driven workflow with extended thinking (32k budget). */ -}}
-    "sisyphus":          { "model": {{ .opencode.models.sota | quote }} },
+    "sisyphus": {
+      "model": {{ index .opencode.models.ultra 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.ultra 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* The Legitimate Craftsman. Autonomous deep worker inspired by AmpCode's deep mode. Goal-oriented execution with thorough research before action. Explores codebase patterns, completes tasks end-to-end without premature stopping. Named after the Greek god of forge and craftsmanship. */ -}}
-    "hephaestus":        { "model": {{ .opencode.models.elite | quote }} },
+    "hephaestus": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Architecture decisions, code review, debugging. Read-only consultation - stellar logical reasoning and deep analysis. Inspired by AmpCode. */ -}}
-    "oracle":            { "model": {{ .opencode.models.elite | quote }} },
+    "oracle": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Multi-repo analysis, documentation lookup, OSS implementation examples. Deep codebase understanding with evidence-based answers. Inspired by AmpCode. */ -}}
-    "librarian":         { "model": {{ .opencode.models.lite | quote }} },
+    "librarian": {
+      "model": {{ index .opencode.models.lite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Fast codebase exploration and contextual grep. Uses Gemini 3 Flash when Antigravity auth is configured, Haiku when Claude max20 is available, otherwise Grok. Inspired by Claude Code. */ -}}
-    "explore":           { "model": {{ .opencode.models.lite | quote }} },
+    "explore": {
+      "model": {{ index .opencode.models.lite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Visual content specialist. Analyzes PDFs, images, diagrams to extract information. Saves tokens by having another agent process media. */ -}}
-    "multimodal-looker": { "model": {{ .opencode.models.lite | quote }} },
+    "multimodal-looker": {
+      "model": {{ index .opencode.models.lite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }}
+    },
 
     {{/*********** Plan Agents ***********/ -}}
     {{/* Strategic planner with interview mode. Creates detailed work plans through iterative questioning. */ -}}
-    "prometheus": { "model": {{ .opencode.models.sota | quote }} },
+    "prometheus": {
+      "model": {{ index .opencode.models.ultra 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.ultra 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Plan consultant - pre-planning analysis. Identifies hidden intentions, ambiguities, and AI failure points. */ -}}
-    "metis":      { "model": {{ .opencode.models.elite | quote }} },
+    "metis": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Plan reviewer - validates plans against clarity, verifiability, and completeness standards. */ -}}
-    "momus":      { "model": {{ .opencode.models.elite | quote }} },
+    "momus": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
 
     {{/*********** Orchestration Agents ***********/ -}}
     {{/* Todo-list orchestrator. Executes planned tasks systematically, managing todo items and coordinating work. */ -}}
-    "atlas":      { "model": {{ .opencode.models.elite | quote }} },
+    "atlas": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/*  Category-spawned executor. Model is selected automatically based on the task category (visual-engineering, quick, deep, etc.). Used when the main agent delegates work via the task tool. */ -}}
-    "sisyphus-junior":   { "model": {{ .opencode.models.elite | quote }} }
+    "sisyphus-junior": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+      }
   },
   "categories": {
     {{/* Frontend, UI/UX, design, styling, animation */ -}}
-    "visual-engineering": { "model": {{ .opencode.models.general | quote }} },
+    "visual-engineering": {
+      "model": {{ index .opencode.models.general 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.general 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Deep logical reasoning, complex architecture decisions requiring extensive analysis */ -}}
-    "ultrabrain":         { "model": {{ .opencode.models.sota | quote }} },
+    "ultrabrain": {
+      "model": {{ index .opencode.models.ultra 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.ultra 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Highly creative/artistic tasks, novel ideas */ -}}
-    "artistry":           { "model": {{ .opencode.models.general | quote }} },
+    "artistry": {
+      "model": {{ index .opencode.models.general 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.general 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Trivial tasks - single file changes, typo fixes, simple modifications */ -}}
-    "quick":              { "model": {{ .opencode.models.lite | quote }} },
+    "quick": {
+      "model": {{ index .opencode.models.lite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Tasks that don't fit other categories, low effort required */ -}}
-    "unspecified-low":    { "model": {{ .opencode.models.elite | quote }} },
+    "unspecified-low": {
+      "model": {{ index .opencode.models.elite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Tasks that don't fit other categories, high effort required */ -}}
-    "unspecified-high":   { "model": {{ .opencode.models.elite | quote }} },
+    "unspecified-high": {
+      "model": {{ index .opencode.models.elite 0 | quote }} ,
+      "fallback_models": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }}
+    },
     {{/* Documentation, prose, technical writing */ -}}
-    "writing":            { "model": {{ .opencode.models.lite | quote }} }
+    "writing": {
+      "model": {{ index .opencode.models.lite 0 | quote }},
+      "fallback_models": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }}
+    }
   },
   "disabled_mcps": [],
   "disabled_skills": ["playwright"]
