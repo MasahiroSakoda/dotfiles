@@ -12,12 +12,38 @@ instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
 enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
 [opencode.models]
-sota    = "opencode/big-pickle"
-elite   = "opencode/big-pickle"
-general = "opencode/big-pickle"
-lite    = "openocde/big-pickle"
-# general = "google/gemini-3-pro-preview"
-# lite    = "google/gemini-3-flash-preview"
+ultra   = [
+  "opencode/glm-5-free",
+  "ollama/glm-5:cloud",
+  "ollama/minimax-m2.7:cloud",
+  "opencode/kimi-k2.5-free",
+  "ollama/kimi-k2.5:cloud",
+  "opencode/big-pickle"
+]
+elite   = [
+  "opencode/kimi-k2.5-free",
+  "opencode/glm-4.7-free",
+  "ollama/kimi-k2.5:cloud",
+  "opencode/big-pickle",
+  "opencode/minimax-m2.5-free",
+  "opencode/nemotron-3-super-free",
+]
+general = [
+  "opencode/glm-4.7-free",
+  "opencode/big-pickle",
+  "opencode/minimax-m2.5-free",
+  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+]
+lite    = [
+  "opencode/minimax-m2.5-free",
+  "opencode/nemotron-3-super-free",
+  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+]
+micro   = [
+  "openrouter/z-ai/glm-4.5-air:free",
+  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+  "opencode/nemotron-3-super-free",
+]
 
 [opencode.tui]
 scroll_speed = 2
@@ -289,7 +315,7 @@ name = "NVIDIA: Nemotron 3 Super"
 [opencode.providers.ollama]
 name    = "Ollama"
 npm     = "@ai-sdk/openai-compatible"
-whitelist = ["qwen3.5:cloud", "kimi-k2.5:cloud", "glm-5:cloud"]
+whitelist = ["glm-5:cloud", "minimax-m2.7:cloud", "kimi-k2.5:cloud", "qwen3.5:cloud"]
 options = { baseURL = "https://ollama.com/v1" }
 
 [opencode.providers.ollama.models."qwen3.5:cloud"]
@@ -300,6 +326,10 @@ name = "Kimi K2.5 (cloud)"
 
 [opencode.providers.ollama.models."glm-5:cloud"]
 name = "GLM 5 (cloud)"
+
+[opencode.providers.ollama.models."minimax-m2.7:cloud"]
+name = "Minimax-m2.7 (cloud)"
+
 
 ## GitHub Copilot
 [opencode.providers.github-copilot]
