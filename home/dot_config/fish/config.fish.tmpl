@@ -239,6 +239,9 @@ set -gx GEMINI_API_KEY        (security find-generic-password -s "Gemini API Key
 set -gx AZURE_OPENAPI_API_KEY (security find-generic-password -s "Azure API Key" -w)
 set -gx GROQ_API_KEY          (security find-generic-password -s "Groq API Key" -w)
 set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key" -w)
+set -gx OPENCODE_API_KEY      (security find-generic-password -s "OpenCode Zen API Key" -w)
+set -gx OPENROUTER_API_KEY    (security find-generic-password -s "OpenRouter API Key" -w)
+set -gx OLLAMA_API_KEY        (security find-generic-password -s "Ollama Cloud API Key" -w)
 set -gx CONTEXT7_API_KEY      (security find-generic-password -s "Context7 API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
 set -gx GITHUB_MCP_PAT        (secret-tool lookup username $USER key_name "MCP Server for GitHub")
@@ -248,5 +251,8 @@ set -gx GEMINI_API_KEY        (secret-tool lookup username $USER key_name "Gemin
 set -gx AZURE_OPENAPI_API_KEY (secret-tool lookup username $USER key_name "Azure API Key")
 set -gx GROQ_API_KEY          (secret-tool lookup username $USER key_name "Groq API Key")
 set -gx DEEPL_API_KEY         (secret-tool lookup username $USER key_name "DeepL API Key")
+set -gx OPENCODE_API_KEY      (secret-tool lookup username $USER key_name "OpenCode Zen API Key")
+set -gx OPENROUTER_API_KEY    (secret-tool lookup username $USER key_name "OpenRouter API Key")
+set -gx OLLAMA_API_KEY        (secret-tool lookup username $USER key_name "Ollama Cloud API Key")
 set -gx CONTEXT7_API_KEY      (secret-tool lookup username $USER key_name "Context7 API Key")
 {{ end }}
