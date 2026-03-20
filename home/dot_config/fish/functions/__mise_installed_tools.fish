@@ -3,6 +3,7 @@
 function __mise_installed_tools -d "Browse installed mise tools"
   mise ls | grep -v '$Version' | tr '\t' ' ' | cut -d ' ' -f 1 | \
     fzf --prompt "  " --highlight-line \
+        --border --border-label "Browse installed mise tools" --border-label-pos 0 \
         --header "List of installed mise tools" \
         --footer "Navigate with Ctrl + h/j/k/l or arrows" \
         --preview "mise tool {}" \

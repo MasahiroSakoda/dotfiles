@@ -8,6 +8,7 @@ function _mise_installed_tools() {
   local tools="$(mise ls | grep -v '$Version' | tr '\t' ' ' | cut -d ' ' -f 1 | \
       fzf --prompt '' \
           --highlight-line \
+          --border --border-label "Browse installed mise tools" --border-label-pos 0 \
           --header "List of installed mise tools" \
           --footer "Navigate with Ctrl + h/j/k/l or arrows" \
           --preview "mise tool {}" \
@@ -19,7 +20,8 @@ function _mise_registered_tools() {
   local tools="$(mise registry | \
       fzf --prompt '' \
           --highlight-line \
-          --header "List of installed mise tools" \
+          --border --border-label "Browse registered mise tools" --border-label-pos 0 \
+          --header "List of registered mise tools" \
           --footer "Navigate with Ctrl + h/j/k/l or arrows" \
           --preview "mise tool {}" \
           --bind 'ctrl-u:preview-up,ctrl-d:preview-down,ctrl-/:toggle-preview' --exit-0)"
