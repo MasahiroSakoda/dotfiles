@@ -38,6 +38,10 @@ function gls -d "Incremental Git log search"
   commandline -f repaint
 end
 
+function gcl -d "Clear merged local branches"
+  git branch --merged | grep -v "*" | grep -v "main|master" | grep -v dev | xargs -n 1 git branch -d
+end
+
 function gwt -d "Navigate Git worktrees"
   # TODO: Add Git worktree navigation to integrate AI agent
   # git worktree list | \
