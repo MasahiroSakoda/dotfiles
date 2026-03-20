@@ -1,3 +1,20 @@
+
+function gcb -d "checkout branch with fuzzy search"
+  git --no-pager branch --all | grep -v "origin/HEAD" | sed -e "s/^.* //g" | \
+    fzf --no-multi --prompt "  " --highlight-line \
+      --header "List of branch | Enter: checkout branch | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview "git --no-pager log -20 --color=always {}" \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
+      --bind "ctrl-/:toggle-preview" \
+      --exit-0 | read -l branch
+
+  if test -n "$branch"
+    git checkout $branch
+  end
+  commandline -f repaint
+end
+
 function gwt -d "Navigate Git worktrees"
   # TODO: Add Git worktree navigation to integrate AI agent
   # git worktree list | \
