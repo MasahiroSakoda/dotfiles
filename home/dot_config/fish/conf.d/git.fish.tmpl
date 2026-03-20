@@ -15,6 +15,17 @@ function gcb -d "checkout branch with fuzzy search"
   commandline -f repaint
 end
 
+function gitignore -d "Generate .gitignore with fzf"
+  set -l root $(git rev-parse --show-toplevel)
+  command gibo list | \
+    fzf --prompt "  " --highlight-line \
+      --header "List of branch | Enter: checkout branch | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview "bat --color=always $XDG_DATA_HOME/gibo/**/{}.gitignore" \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" | xargs gibo dump >> ./.gitignore
+  commandline -f repaint
+end
+
 function gwt -d "Navigate Git worktrees"
   # TODO: Add Git worktree navigation to integrate AI agent
   # git worktree list | \
