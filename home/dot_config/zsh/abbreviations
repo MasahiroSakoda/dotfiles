@@ -28,11 +28,6 @@ abbr .3="cd ../../../"
 abbr .4="cd ../../../../"
 abbr .5="cd ../../../../../"
 
-## Permission
-abbr co="chown -v"
-abbr cmx="chown +x"
-abbr cmr="chmod -R"
-
 ## Git
 abbr lg="lazygit"
 
