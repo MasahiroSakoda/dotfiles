@@ -2,6 +2,7 @@
 
 [extensions]
 gh = [
+  "github/gh-aw",                 # GitHub Agentic Workflows
   "seachicken/gh-poi",            # Safely clean up your local branches
   "dlvhdr/gh-dash",               # Dashboard
   "kawarimidoll/gh-graph",        # Activity graph
