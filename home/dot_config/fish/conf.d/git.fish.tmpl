@@ -38,8 +38,12 @@ function gls -d "Incremental Git log search"
       --footer "Navigate with Ctrl + h/j/k/l or arrows" \
       --preview 'git show --color=always {2} || echo "No preview"' \
       --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
-      --bind "ctrl-y:execute:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | {{ .cmd.copy }}" \
-      --exit-0
+      --bind "ctrl-y:execute-silent:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '[:space:]' | {{ .cmd.copy }}" \
+      --exit-0 | grep -o "[a-f0-9]\{7\}" | head -n 1 | tr -d '[:space:]' | read -l hash
+
+  if test -n "$hash"
+    git show --color=always "$hash"
+  end
   commandline -f repaint
 end
 
