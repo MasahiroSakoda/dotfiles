@@ -33,16 +33,6 @@ abbr co="chown -v"
 abbr cmx="chown +x"
 abbr cmr="chmod -R"
 
-## Homebrew
-abbr bi="brew info"
-abbr bl="brew list"
-abbr bs="brew search"
-abbr bin="brew install"
-abbr bun="brew uninstall"
-abbr bug="brew upgrade"
-abbr bar="brew autoremove"
-abbr bsv="brew services"
-
 ## Git
 abbr lg="lazygit"
 
