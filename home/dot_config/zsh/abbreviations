@@ -152,10 +152,6 @@ abbr jh="just help"
 abbr zj="zellij"
 abbr zja="zellij attach --create"
 abbr zjl="zellij --layout"
-abbr zjd="zellij --layout default"
-abbr zjc="zellij --layout coding"
-abbr zjj="zellij --layout jsdev"
-abbr zjm="zellij --layout monitor"
 abbr zjp="zellij_picker"
 
 # AI tools
