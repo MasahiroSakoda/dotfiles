@@ -1,14 +1,15 @@
 # Git worktree root directory
 set -g git_worktrees_root $HOME/.worktrees
 
-function gcb -d "checkout branch with fuzzy search"
-  git --no-pager branch --all | grep -v "origin/HEAD" | sed -e "s/^.* //g" | \
+function gb -d "Incremental Git branch search"
+  git --no-pager branch | grep -v "origin/HEAD" | sed -e "s/^.* //g" | \
     fzf --no-multi --prompt "  " --highlight-line \
-      --border --border-label "Checkout branch with fzf" --border-label-pos 0 \
-      --header "List of branch | Enter: checkout branch | Esc: Exit" \
+      --border --border-label "Incremental Git branch search" --border-label-pos 0 \
+      --header "List of branch | Enter: switch to branch | Esc: Exit" \
       --footer "Navigate with Ctrl + h/j/k/l or arrows" \
       --preview "git --no-pager log -20 --color=always {}" \
       --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
+      --bind "ctrl-x:execute-silent(git branch --delete {})" \
       --bind "ctrl-/:toggle-preview" \
       --exit-0 | read -l branch
 
