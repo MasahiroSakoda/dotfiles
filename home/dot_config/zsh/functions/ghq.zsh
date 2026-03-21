@@ -3,6 +3,7 @@
 function _ghq_browse_repository() {
   local repo="$(ghq list --full-path | \
       fzf --prompt='  ' --highlight-line \
+          --border --border-label "Browse ghq repository" --border-label-pos 0 \
           --header "List of repositories managed by ghq | Enter: Browse | Esc: Exit" \
           --footer "Navigate with Ctrl + h/j/k/l or arrows" \
           --preview 'bat --color=always {}/README.md || echo "No README.md"' \

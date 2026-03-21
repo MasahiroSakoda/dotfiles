@@ -7,6 +7,7 @@ set -gx ZELLIJ_LAYOUTS_DIR "$ZELLIJ_CONFIG_DIR/layouts"
 function zjs --description "Navigate Zellij sessions"
   zellij list-sessions --no-formatting --short 2>/dev/null | \
     fzf --prompt "  " --highlight-line \
+      --border --border-label "Navigate Zellij sessions" --border-label-pos 0 \
       --header "List of Zellij sessions | Enter: Attach | Ctrl+x: Kill" \
       --footer "Navigate with Ctrl + h/j/k/l or arrows" \
       --preview "zellij list-sessions --no-formatting | rg -w {}" \

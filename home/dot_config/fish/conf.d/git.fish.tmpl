@@ -1,26 +1,56 @@
-function gwt -d "Navigate Git worktrees"
-  # TODO: Add Git worktree navigation to integrate AI agent
-  # git worktree list | \
-  #   fzf --prompt "   " --highlight-line \
-  #     --header "List of Git worktree | Enter: move to selected worktree | Esc: Exit" \
-  #     --footer "Navigate with Ctrl + h/j/k/l or arrows" \
-  #     --preview "test -f {}/README.md && bat --color=always {}/README.md || echo 'No README.md'" \
-  #     --bind "ctrl-x:execute-silent()+reload()" \
-  #     --exit-0 | read -l worktree
+# Git worktree root directory
+set -g git_worktrees_root $HOME/.worktrees
 
-  # git worktree move "$worktree"
+function gb -d "Incremental Git branch search"
+  git --no-pager branch | grep -v "origin/HEAD" | sed -e "s/^.* //g" | \
+    fzf --no-multi --prompt "  " --highlight-line \
+      --border --border-label "Incremental Git branch search" --border-label-pos 0 \
+      --header "List of branch | Enter: switch to branch | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview "git --no-pager log -20 --color=always {}" \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
+      --bind "ctrl-x:execute-silent(git branch --delete {})" \
+      --bind "ctrl-/:toggle-preview" \
+      --exit-0 | read -l branch
+
+  if test -n "$branch"
+    git checkout $branch
+  end
   commandline -f repaint
 end
 
-# function gwa -d "Add Git worktree"
-#   git worktree
-# end
+function gitignore -d "Generate .gitignore with fzf"
+  set -l root $(git rev-parse --show-toplevel)
+  command gibo list | \
+    fzf --prompt "  " --highlight-line \
+      --border --border-label "Generate .gitignore with fzf" --border-label-pos 0 \
+      --header "List of branch | Enter: checkout branch | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview "bat --color=always $XDG_DATA_HOME/gibo/**/{}.gitignore" \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" | xargs gibo dump >> ./.gitignore
+  commandline -f repaint
+end
 
-# function gwr -d "Remove Git worktree"
-# end
+function gls -d "Incremental Git log search"
+  git log --graph --oneline --decorate --all --color=always | \
+    fzf --ansi --prompt "  " --highlight-line \
+      --border --border-label "Incremental Git log search" --border-label-pos 0 \
+      --header "List of Git log | Enter: show detail | Esc: Exit" \
+      --footer "Navigate with Ctrl + h/j/k/l or arrows" \
+      --preview 'git show --color=always {2} || echo "No preview"' \
+      --bind "ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-up,ctrl-d:preview-down" \
+      --bind "ctrl-y:execute-silent:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | tr -d '[:space:]' | {{ .cmd.copy }}" \
+      --exit-0 | grep -o "[a-f0-9]\{7\}" | head -n 1 | tr -d '[:space:]' | read -l hash
 
-# function gwm -d "Move to Git worktree"
-# end
+  if test -n "$hash"
+    git show --color=always "$hash"
+  end
+  commandline -f repaint
+end
+
+function gcl -d "Clear merged local branches"
+  git branch --merged | grep -v "*" | grep -v "main|master" | grep -v dev | xargs -n 1 git branch -d
+end
 
 {{/*
 # -*-mode:fish-*- vim:ft=fish.gotexttmpl
