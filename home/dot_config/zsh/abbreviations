@@ -29,36 +29,18 @@ abbr .4="cd ../../../../"
 abbr .5="cd ../../../../../"
 
 ## Git
-abbr lg="lazygit"
 
 abbr g="git"
-abbr gs="git status --verbose"
+abbr gs="git status"
 abbr gl="gitleaks git"
 abbr gmv="git mv --verbose"
 
 abbr gd="git diff"
 abbr ga="git add --verbose"
 abbr grm="git rm"
-
-abbr gm="git merge --verbose"
-abbr gma="git merge --abort"
-abbr gms="git merge --squash"
-
-abbr gcp="git cherry-pick"
-abbr gcpe="git cherry-pick --edit"
-abbr gcpn="git cherry-pick --no-commit"
-abbr gcpa="git cherry-pick --abort"
-abbr gcpc="git cherry-pick --continue"
-
 abbr gsw="git switch"
-abbr gsW="git switch --create"
-
-abbr gb="git branch --all"
-abbr gbd="git branch --delete"
 abbr gco="git checkout"
-abbr gcob="git checkout -b"
 
-abbr gcl="git clone"
 abbr gf="git fetch origin"
 abbr gpl="git pull origin"
 abbr gps="git push origin"
@@ -72,6 +54,11 @@ abbr grbs="git rebase --skip"
 abbr gt="git tag | sort --version-sort --reverse"
 abbr gta="git tag --annotate"
 abbr gts="git tag --sign"
+
+abbr gwl="git worktree list"
+abbr gwa="git worktree add"
+abbr gwr="git worktree remove"
+abbr gwm="git worktree move"
 
 ## GitHub CLI
 abbr ghd="gh dash"
