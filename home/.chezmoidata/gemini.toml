@@ -1,4 +1,5 @@
 [gemini.models]
+auto    = "auto-gemini-3"
 general = "gemini-3-pro-preview"
 lite    = "gemini-3-flash-preview"
 
