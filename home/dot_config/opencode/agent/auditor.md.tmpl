@@ -1,7 +1,7 @@
 ---
 name: auditor
 description: Security auditor
-model: {{ .opencode.models.elite }}
+model: {{ index .opencode.models.elite 0 }}
 mode: subagent
 temperature: 0.1
 permission:
