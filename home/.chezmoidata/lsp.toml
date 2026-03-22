@@ -30,6 +30,10 @@ exts = [ "Dockerfile", "Dockerfile.runtime" ]
 cmd  = [ "bash-language-server", "server" ]
 exts = [ ".sh", ".bash" ]
 
+[lsp.servers.fish-lsp]
+cmd  = [ "fish-lsp", "start" ]
+exts = [ ".fish" ]
+
 [lsp.servers.clangd]
 cmd  = [ "clangd" ]
 exts = [ ".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".tcc" ]
