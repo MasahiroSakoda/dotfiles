@@ -88,46 +88,17 @@ abbr -a -- .3 "cd ../../../"
 abbr -a -- .4 "cd ../../../../"
 abbr -a -- .5 "cd ../../../../../"
 
-## Permission
-abbr -a -- co  "chown -v"
-abbr -a -- cmx "chmod +x"
-abbr -a -- cmr "chmod -R"
-
-## Homebrew: b*
-abbr -a -- bi  "brew info"
-abbr -a -- bl  "brew list"
-abbr -a -- bs  "brew search"
-abbr -a -- bin "brew install"
-abbr -a -- bun "brew uninstall"
-abbr -a -- bug "brew upgrade"
-abbr -a -- bar "brew autoremove"
-abbr -a -- bsv "brew services"
-
 ## Git: g*
-abbr -a -- lg "lazygit"
 
 abbr -a -- g   "git"
-abbr -a -- gs  "git status --verbose"
+abbr -a -- gs  "git status"
 abbr -a -- gl  "gitleaks git"
 abbr -a -- gmv "git mv --verbose"
 
 abbr -a -- gd  "git diff"
 abbr -a -- ga  "git add --verbose"
 abbr -a -- grm "git rm"
-
-abbr -a -- gmg "git merge --verbose"
-abbr -a -- gma "git merge --abort"
-abbr -a -- gms "git merge --squash"
-
-abbr -a -- gcp  "git cherry-pick"
-abbr -a -- gcpe "git cherry-pick --edit"
-abbr -a -- gcpn "git cherry-pick --no-commit"
-abbr -a -- gcpa "git cherry-pick --abort"
-abbr -a -- gcpc "git cherry-pick --continue"
-
 abbr -a -- gsw "git switch"
-abbr -a -- gsW "git switch --create"
-
 abbr -a -- gco "git checkout"
 
 abbr -a -- gf  "git fetch origin"
@@ -191,34 +162,22 @@ abbr -a -- dcs "docker compose stop"
 abbr -a -- p   "pnpm"
 abbr -a -- pr  "pnpm run"
 abbr -a -- pa  "pnpm add"
-abbr -a -- pad "pnpm add -D"
+abbr -a -- pA  "pnpm add -D"
 abbr -a -- prm "pnpm rm"
 abbr -a -- pb  "pnpm build"
 abbr -a -- pd  "pnpm dev"
 abbr -a -- pi  "pnpm install"
 abbr -a -- pl  "pnpm list"
 abbr -a -- po  "pnpm outdated"
+abbr -a -- pg  "pnpm generate"
 abbr -a -- pt  "pnpm test"
+abbr -a -- pe  "pnpm e2e"
 abbr -a -- px  "pnpm dlx"
-abbr -a -- pck "pnpm biome:check"
-abbr -a -- pcf "pnpm biome:fix"
-
-# Justfile
-abbr -a -- jb "just build"
-abbr -a -- jr "just run"
-abbr -a -- jc "just clean"
-abbr -a -- jl "just lint"
-abbr -a -- jt "just test"
-abbr -a -- jh "just help"
 
 # Zellij: zl*
 abbr -a -- zj  "zellij"
 abbr -a -- zja "zellij attach --create"
 abbr -a -- zjl "zellij --layout"
-abbr -a -- zjd "zellij --layout default"
-abbr -a -- zjc "zellij --layout coding"
-abbr -a -- zjj "zellij --layout jsdev"
-abbr -a -- zjm "zellij --layout monitor"
 abbr -a -- zjp "zellij_picker"
 
 # AI tools

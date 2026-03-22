@@ -28,52 +28,19 @@ abbr .3="cd ../../../"
 abbr .4="cd ../../../../"
 abbr .5="cd ../../../../../"
 
-## Permission
-abbr co="chown -v"
-abbr cmx="chown +x"
-abbr cmr="chmod -R"
-
-## Homebrew
-abbr bi="brew info"
-abbr bl="brew list"
-abbr bs="brew search"
-abbr bin="brew install"
-abbr bun="brew uninstall"
-abbr bug="brew upgrade"
-abbr bar="brew autoremove"
-abbr bsv="brew services"
-
 ## Git
-abbr lg="lazygit"
 
 abbr g="git"
-abbr gs="git status --verbose"
+abbr gs="git status"
 abbr gl="gitleaks git"
 abbr gmv="git mv --verbose"
 
 abbr gd="git diff"
 abbr ga="git add --verbose"
 abbr grm="git rm"
-
-abbr gm="git merge --verbose"
-abbr gma="git merge --abort"
-abbr gms="git merge --squash"
-
-abbr gcp="git cherry-pick"
-abbr gcpe="git cherry-pick --edit"
-abbr gcpn="git cherry-pick --no-commit"
-abbr gcpa="git cherry-pick --abort"
-abbr gcpc="git cherry-pick --continue"
-
 abbr gsw="git switch"
-abbr gsW="git switch --create"
-
-abbr gb="git branch --all"
-abbr gbd="git branch --delete"
 abbr gco="git checkout"
-abbr gcob="git checkout -b"
 
-abbr gcl="git clone"
 abbr gf="git fetch origin"
 abbr gpl="git pull origin"
 abbr gps="git push origin"
@@ -87,6 +54,11 @@ abbr grbs="git rebase --skip"
 abbr gt="git tag | sort --version-sort --reverse"
 abbr gta="git tag --annotate"
 abbr gts="git tag --sign"
+
+abbr gwl="git worktree list"
+abbr gwa="git worktree add"
+abbr gwr="git worktree remove"
+abbr gwm="git worktree move"
 
 ## GitHub CLI
 abbr ghd="gh dash"
@@ -128,34 +100,22 @@ abbr dcs="docker compose sleep"
 abbr p="pnpm"
 abbr pr="pnpm run"
 abbr pa="pnpm add"
-abbr pad="pnpm add -D"
+abbr pA="pnpm add -D"
 abbr prm="pnpm rm"
 abbr pb="pnpm build"
 abbr pd="pnpm dev"
 abbr pi="pnpm install"
-abbr po="pnpm outdated"
 abbr pl="pnpm list"
+abbr po="pnpm outdated"
+abbr pg="pnpm generate"
 abbr pt="pnpm test"
+abbr pe="pnpm e2e"
 abbr px="pnpm dlx"
-abbr pck="pnpm biome:check"
-abbr pck="pnpm biome:fix"
-
-# Justfile
-abbr jb="just build"
-abbr jr="just run"
-abbr jc="just clean"
-abbr jl="just lint"
-abbr jt="just test"
-abbr jh="just help"
 
 # Zellij
 abbr zj="zellij"
 abbr zja="zellij attach --create"
 abbr zjl="zellij --layout"
-abbr zjd="zellij --layout default"
-abbr zjc="zellij --layout coding"
-abbr zjj="zellij --layout jsdev"
-abbr zjm="zellij --layout monitor"
 abbr zjp="zellij_picker"
 
 # AI tools
