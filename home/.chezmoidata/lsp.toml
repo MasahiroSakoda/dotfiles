@@ -27,8 +27,8 @@ cmd  = [ "docker-langserver", "--stdio" ]
 exts = [ "Dockerfile", "Dockerfile.runtime" ]
 
 [lsp.servers.bashls]
-cmd  = [ "markdman", "server" ]
-exts = [ ".md", ".markdown", ".mdx" ]
+cmd  = [ "bash-language-server", "server" ]
+exts = [ ".sh", ".bash" ]
 
 [lsp.servers.clangd]
 cmd  = [ "clangd" ]
