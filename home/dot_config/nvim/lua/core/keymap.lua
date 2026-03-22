@@ -312,7 +312,8 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
+  { "<Leader>lc", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
+  { "<Leader>li", "<CMD>lua Snacks.picker.lsp_implementations()<CR>",  icon = " ", desc = " Implementations" },
   { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
   { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
   { "g[",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Prev Diagnostic" },
