@@ -13,23 +13,18 @@ enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
 [opencode.models]
 ultra   = [
-  "opencode/glm-5-free",
-  "ollama/glm-5:cloud",
-  "ollama/minimax-m2.7:cloud",
-  "opencode/kimi-k2.5-free",
-  "ollama/kimi-k2.5:cloud",
-  "opencode/big-pickle"
+  "opencode/trinity-large-preview-free",
+  "opencode/mimo-v2-pro-free",
+  "opencode/big-pickle",
+  "opencode/minimax-m2.5-free",
 ]
 elite   = [
-  "opencode/kimi-k2.5-free",
-  "opencode/glm-4.7-free",
-  "ollama/kimi-k2.5:cloud",
+  "opencode/mimo-v2-pro-free",
   "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
   "opencode/nemotron-3-super-free",
 ]
 general = [
-  "opencode/glm-4.7-free",
   "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
   "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
