@@ -1,7 +1,7 @@
 ---
 name: translator
 description: Language translation and localization
-model: {{ .opencode.models.lite }}
+model: {{ index .opencode.models.lite 0 }}
 mode: subagent
 temperature: 0.1
 permission:
