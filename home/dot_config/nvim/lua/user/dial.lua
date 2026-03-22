@@ -74,6 +74,33 @@ local default_augends = {
     word = true,
     preserve_case = true,
   }),
+
+  -- AI models
+  augend.constant.new({ elements = {
+    "gemini-2.5-flash-lite",
+    "gemini-2.5-flash",
+    "gemini-2.5-pro",
+    "gemini-3-flash-preview",
+    "gemini-3-pro-preview",
+    "gemini-3.1-flash-lite-preview",
+    -- "gemini-3.1-pro-preview",
+  }, work = true }),
+  augend.constant.new({ elements = {
+    "auto-gemini-3",
+    "auto-gemini-2.5",
+  }, work = true }),
+
+  augend.constant.new({ elements = {
+    "opencode/trinity-large-preview-free",
+    "opencode/mimo-v2-pro-free",
+    "opencode/big-picle",
+    "opencode/minimax-m2.5-free",
+    "opencode/nemotron-3-super-free",
+    "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+    "openrouter/z-ai/glm-4.5-air:free",
+    "ollama/qwen3.5-cloud",
+    "ollama/kimi-k2.5:cloud",
+  }, word = true }),
 }
 
 dial.augends:register_group({ default = default_augends })

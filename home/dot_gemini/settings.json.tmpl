@@ -29,7 +29,7 @@
     "fileName": [ "GEMINI.md", "AGENTS.md" ],
     "fileFiltering": { "respectGitIgnore": true, "enableRecursiveFileSearch": true }
   },
-  "model": { "name": "auto-gemini-3" },
+  "model": { "name": {{ .gemini.models.auto | quote }} },
   "security": {
     "auth": { "selectedType": "oauth-personal" }
   },
