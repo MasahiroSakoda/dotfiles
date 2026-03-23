@@ -4,6 +4,7 @@
     "autoAccept": false,
     "sandbox": true,
     "shell": {
+      "showColor": true,
       "pager": "bat --style=grid,numbers --color=auto --paging=never"
     }
   },
@@ -35,9 +36,16 @@
   },
   "ui": {
     "theme": "GitHub",
+    "useFullWidth": true,
+    "inlineThinkingMode": "full",
     "showStatusInTitle": true,
     "showCitations": true,
-    "showModelInfoInChat": true
+    "showModelInfoInChat": true,
+    "footer": {
+      "hideSandboxStatus": false,
+      "hideContextPercentage": false,
+      "items": ["workspace", "git-branch", "model-name", "context-used", "quota", "memory-usage", "token-count"]
+    }
   },
   "experimental": {
     "enableAgents": true
