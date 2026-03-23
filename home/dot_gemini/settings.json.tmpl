@@ -26,7 +26,7 @@
     }
   },
   "context": {
-    "fileName": [ "GEMINI.md", "AGENTS.md" ],
+    "fileName": {{ .gemini.context.files | toPrettyJson | indent 2 | trim }},
     "fileFiltering": { "respectGitIgnore": true, "enableRecursiveFileSearch": true }
   },
   "model": { "name": {{ .gemini.models.auto | quote }} },
