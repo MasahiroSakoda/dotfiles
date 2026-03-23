@@ -109,11 +109,12 @@
   - changed-files:
       - any-glob-to-any-file:
           - ".agents/*"
+          - "home/.chezmoidata/mcp.toml"
+          - "home/.chezmoidata/gemini.toml"
+          - "home/.chezmoidata/opencode.toml"
           - "home/.chezmoitemplates/common/ai/*"
-          - "home/.chezmoiexternals/opencode.toml.tmpl"
+          - "home/.chezmoiexternals/ai-agent.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
-          - "home/dot_config/opencode/agent/**/*.md"
-          - "home/dot_config/opencode/command/**/*.md"
-          - "home/dot_config/opencode/*.json.tmpl"
+          - "home/dot_config/opencode/*"
           - "home/dot_gemini/*"
           - "home/dot_agents/*"
