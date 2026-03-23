@@ -6,8 +6,8 @@
   "theme": {{ .opencode.theme | quote }},
   "tui": {{ .opencode.tui | toPrettyJson | indent 2 | trim }},
 
-  "model": {{ .opencode.models.general | quote }},
-  "small_model": {{ .opencode.models.lite | quote }},
+  "model": {{ .opencode.models.general | toPrettyJson | indent 2 | trim }},
+  "small_model": {{ .opencode.models.lite | toPrettyJson | indent 2 | trim }},
 
   {{/* Global plugins */ -}}
   "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim }},
