@@ -11,8 +11,8 @@ This policy applies to global environment, including but not limited to:
 
 Adhere to the following security principles:
 
-- **Secure Secrets**: NEVER hardcode API keys, tokens, credentials, or any sensitive informations
-- **Validate Commit**: NEVER commit API keys, tokens, credentials, or any sensitive informations
+- **Secure Secrets**: NEVER hardcode API keys, tokens, credentials, or any sensitive information
+- **Validate Commit**: NEVER commit API keys, tokens, credentials, or any sensitive information
 
 ### 🔐 Secure Development Lifecycle (SDLC)
 
