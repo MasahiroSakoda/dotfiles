@@ -33,7 +33,7 @@ env = {}
 
 # Dynamic and reflective problem-solving through thought sequences
 [mcp.providers.sequential-thinking]
-enabled = true
+enabled = false
 command = "pnpm"
 args = ["dlx", "@modelcontextprotocol/server-sequential-thinking@latest"]
 env = {}

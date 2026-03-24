@@ -7,7 +7,7 @@ snapshot   = false
 theme      = "github"
 
 plugins = ["oh-my-opencode@latest"]
-instructions = [ "AGENTS.md", "CONTRIBUTING.md" ]
+instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
 enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
