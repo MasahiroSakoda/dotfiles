@@ -46,6 +46,11 @@ return {
     event   = { "BufReadPost", "BufNewFile" },
     config  = function() require("user.surround") end,
   },
+  {
+    "folke/trouble.nvim",
+    cmd = { "Trouble" },
+    config = function() require("lsp.config.trouble") end,
+  },
   -- Tex
   {
     "lervag/vimtex",
