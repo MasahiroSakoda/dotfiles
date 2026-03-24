@@ -82,6 +82,7 @@ brew_prefix = {{ $brew_prefix | quote }}
 user       = {{ $user | quote }}
 email      = {{ $email | quote }}
 signingkey = {{ $signingkey | quote }}
+ghq_root   = {{ joinPath .chezmoi.homeDir "Dev" "repos" | quote }}
 
 [data.cmd]
 {{- if eq .chezmoi.os "darwin" }}
