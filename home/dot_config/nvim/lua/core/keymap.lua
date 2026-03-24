@@ -147,27 +147,6 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🔨  Quickfix
----------------------------------------------------------------------------
-wk.add({
-  { "<Leader>q", group = "Quickfix", icon = "🔨 " },
-  { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
-  { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
-  {
-    "<Leader>qd",
-    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
-    icon = " ",
-    desc = " Toggle diagnostic list",
-  },
-  {
-    "<Leader>qo",
-    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
-    icon = " ",
-    desc = " Toggle symbol outline",
-  },
-})
-
----------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 wk.add({
@@ -318,6 +297,11 @@ wk.add({
   { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
   { "g[",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Prev Diagnostic" },
   { "g]",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Next Diagnostic" },
+  { "gq",         "<CMD>Trouble qflist<CR>",                           icon = " ", desc = " Quickfix list" },
+  { "gl",         "<CMD>Trouble loclist<CR>",                          icon = " ", desc = " Location list" },
+  { "<Leader>x",  "<CMD>Trouble diagnostics toggle focus=true<CR>",    icon = " ", desc = " Diagnostics" },
+  { "<Leader>X",  "<CMD>Trouble symbols toggle focus=true<CR>",        icon = " ", desc = " Symbols" },
+  { "gr",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
 
   { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
   { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },

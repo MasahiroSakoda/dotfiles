@@ -46,17 +46,11 @@ return {
     event   = { "BufReadPost", "BufNewFile" },
     config  = function() require("user.surround") end,
   },
-  -- Quickfix
   {
-    "kevinhwang91/nvim-bqf",
-    ft     = "qf",
-    config = function() require("user.quickfix.bqf") end,
+    "folke/trouble.nvim",
+    cmd = { "Trouble" },
+    config = function() require("lsp.config.trouble") end,
   },
-  {
-    "stevearc/quicker.nvim",
-    config = function() require("user.quickfix.quicker") end,
-  },
-
   -- Tex
   {
     "lervag/vimtex",
