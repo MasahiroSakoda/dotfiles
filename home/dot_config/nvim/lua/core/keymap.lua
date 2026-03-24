@@ -147,27 +147,6 @@ wk.add({
 }, opts)
 
 ---------------------------------------------------------------------------
--- 🔨  Quickfix
----------------------------------------------------------------------------
-wk.add({
-  { "<Leader>q", group = "Quickfix", icon = "🔨 " },
-  { "<Leader>qq", "<CMD>lua require'quicker'.toggle({focus=true})<CR>",              icon = " ", desc = " Quickfix" },
-  { "<Leader>ql", "<CMD>lua require'quicker'.toggle({focus=true,loclist=true})<CR>", icon = " ", desc = " Loclist" },
-  {
-    "<Leader>qd",
-    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.diagnostic.setqflist() end<CR>",
-    icon = " ",
-    desc = " Toggle diagnostic list",
-  },
-  {
-    "<Leader>qo",
-    "<CMD>lua if require'quicker'.is_open() then require'quicker'.close() else vim.lsp.buf.document_symbol() end<CR>",
-    icon = " ",
-    desc = " Toggle symbol outline",
-  },
-})
-
----------------------------------------------------------------------------
 -- dial.nvim: Increment/Decrement plugin: <C-a> or <C-x>
 ---------------------------------------------------------------------------
 wk.add({
