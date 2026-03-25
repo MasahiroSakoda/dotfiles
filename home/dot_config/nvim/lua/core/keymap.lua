@@ -196,7 +196,7 @@ if not is_vscode then
     { "<Leader>fc", "<CMD>lua Snacks.picker.commands()<CR>", icon = " ", desc = " Commands" },
     { "<Leader>fp", "<CMD>lua Snacks.picker.projects()<CR>", icon = " ", desc = " Project" },
     {
-      "<Leader>fF",
+      "<Leader>F",
       "<CMD>lua Snacks.picker.smart({ cwd = vim.fn.expand('%:p:h') })<CR>",
       icon = " ",
       desc = " Browse Current Dir",
