@@ -39,7 +39,28 @@ oil.setup({
     ["g?"]    = { "actions.show_help",   mode = "n" },
     ["gs"]    = { "actions.change_sort", mode = "n" },
     ["<C-c>"] = { "actions.close",       mode = "n" },
-    ["<CR>"]  =   "actions.select",
+    ["gd"] = {
+      desc = "Go to directory (cd)",
+      mode = "n",
+      callback = function()
+        local path = vim.fn.input("Change directory to: ", "", "file")
+        if path ~= "" then
+          oil.open(vim.fn.expand(path))
+        end
+      end,
+    },
+    ["<CR>"] = {
+      function()
+        local entry, dir = oil.get_cursor_entry(), oil.get_current_dir()
+        if entry and entry.type == "file" and dir then
+          vim.fn.jobstart({ "zeditor", dir .. entry.name }, { detach = true })
+          vim.cmd("qa!")
+        else
+          require("oil.actions").select.callback()
+        end
+      end,
+    },
+    -- ["<CR>"]  = { "actions.enter", mode = "n" },
     ["<C-l>"] =   "actions.refresh",
     ["<C-p>"] =   "actions.preview",
     ["<C-u>"] =   "actions.preview_scroll_up",
