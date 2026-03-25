@@ -25,6 +25,14 @@ return {
     },
   },
 
+  ---@class snacks.picker.layout.Config
+  layout = {
+    layout = {
+      width = 0.85,
+      height = 0.9,
+    },
+  },
+
   sort = {
     -- default sort is by score, text length and index
     fields = { "score:desc", "#text", "idx" },
