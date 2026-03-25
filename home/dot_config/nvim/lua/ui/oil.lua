@@ -39,7 +39,16 @@ oil.setup({
     ["g?"]    = { "actions.show_help",   mode = "n" },
     ["gs"]    = { "actions.change_sort", mode = "n" },
     ["<C-c>"] = { "actions.close",       mode = "n" },
-    ["<CR>"]  =   "actions.select",
+    ["gd"] = {
+      desc = "Go to directory (cd)",
+      mode = "n",
+      callback = function()
+        local path = vim.fn.input("Change directory to: ", "", "file")
+        if path ~= "" then
+          oil.open(vim.fn.expand(path))
+        end
+      end,
+    },
     ["<C-l>"] =   "actions.refresh",
     ["<C-p>"] =   "actions.preview",
     ["<C-u>"] =   "actions.preview_scroll_up",
