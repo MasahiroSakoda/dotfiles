@@ -2,7 +2,7 @@
 
 ---@type snacks.statuscolumn.Config
 return {
-  enabled     = true,
+  enabled = false,
   left  = { "mark", "sign" },
   right = { "fold", "git" },
 }

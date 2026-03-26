@@ -25,6 +25,14 @@ return {
     },
   },
 
+  ---@class snacks.picker.layout.Config
+  layout = {
+    layout = {
+      width = 0.85,
+      height = 0.9,
+    },
+  },
+
   sort = {
     -- default sort is by score, text length and index
     fields = { "score:desc", "#text", "idx" },
@@ -37,6 +45,7 @@ return {
     snippets   = require("user.snacks.picker.snippets"),
     git_status = require("user.snacks.picker.git_status"),
     git_diff   = require("user.snacks.picker.git_diff"),
+    git_log    = require("user.snacks.picker.git_log"),
     gh_issue   = {},
     gh_pr      = {},
   },
