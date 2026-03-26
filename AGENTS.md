@@ -66,6 +66,8 @@ chezmoi/
 │   └── dot_editorconfig.tmpl           # Editor config (e.g., indent, line, charset, etc...)
 ├── .chezmoiroot                        # Specify that dotfiles are installed relative to `home`
 ├── .gitignore                          # Rules to exclude files from `git`
+├── .gitleaks.toml                      # gitleaks config
+├── .lefthook.toml                      # Git hooks config
 ├── .luacheckrc                         # Lua linting config
 ├── .markdownlint.yml                   # `markdownlint` config
 ├── .stylua.toml                        # `stylua` config
