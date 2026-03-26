@@ -45,6 +45,7 @@ return {
     snippets   = require("user.snacks.picker.snippets"),
     git_status = require("user.snacks.picker.git_status"),
     git_diff   = require("user.snacks.picker.git_diff"),
+    git_log    = require("user.snacks.picker.git_log"),
     gh_issue   = {},
     gh_pr      = {},
   },
