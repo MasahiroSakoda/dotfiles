@@ -1,0 +1,8 @@
+[pre-commit]
+parallel = true
+
+[pre-commit.commands.gitleaks]
+run = "gitleaks protect --verbose --redact --staged"
+
+[pre-push.commands.gitleaks-full]
+run = "gitleaks detect --verbose --redact"

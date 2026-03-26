@@ -1,0 +1,6 @@
+title = "Dotfiles Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
