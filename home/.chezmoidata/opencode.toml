@@ -48,6 +48,10 @@ scroll_acceleration = { enabled = true }
 leader              = "Ctrl+x"
 session_child_cycle = "Ctrl+Tab"
 
+[opencode.compaction]
+auto  = true
+prune = true
+
 [opencode.watcher]
 ignore = [
   ".git/**",

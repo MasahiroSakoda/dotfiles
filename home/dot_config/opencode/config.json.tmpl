@@ -21,6 +21,9 @@
   {{/* Global Permissions */ -}}
   "permission": {{ .opencode.permissions | toPrettyJson | indent 2 | trim }},
 
+  {{/* Compaction config */ -}}
+  "compaction": {{ .opencode.compaction | toPrettyJson | indent 2 | trim }},
+
   {{/* File Watcher Configurations */ -}}
   "watcher": {
     "ignore": {{ .opencode.watcher.ignore | toPrettyJson | indent 4 | trim }}
