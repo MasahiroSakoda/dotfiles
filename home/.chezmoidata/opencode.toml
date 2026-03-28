@@ -6,7 +6,12 @@ autoshare  = false
 snapshot   = false
 theme      = "github"
 
-plugins = ["oh-my-opencode@latest"]
+plugins = [
+  "oh-my-opencode@latest",
+  "./plugin/damage-control.ts",
+  "./plugin/notification.ts",
+  "./plugin/limits.ts",
+]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
 enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
