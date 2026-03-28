@@ -60,6 +60,17 @@ abbr gwa="git worktree add"
 abbr gwr="git worktree remove"
 abbr gwm="git worktree move"
 
+abbr wl="wt list --full"
+abbr ws="wt switch"
+abbr wsm="wt switch main"
+abbr wsb="wt switch --branches"
+abbr wsr="wt switch --remotes"
+abbr wc="wt switch --create"
+abbr wr="wt remove"
+abbr wrd="wt remove -D"
+abbr wh="wt hook"
+abbr wm="wt merge"
+
 ## GitHub CLI
 abbr ghd="gh dash"
 abbr ghg="gh graph"
