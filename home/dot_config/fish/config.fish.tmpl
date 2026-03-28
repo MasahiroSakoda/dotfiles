@@ -115,12 +115,17 @@ abbr -a -- gt  "git tag | sort --version-sort --reverse"
 abbr -a -- gta "git tag --annotate"
 abbr -a -- gts "git tag --sign"
 
-### Git worktree: gw*
-abbr -a -- gw  "git worktree"
-abbr -a -- gwl "git worktree list"
-abbr -a -- gwa "git worktree add"
-abbr -a -- gwr "git worktree remove"
-abbr -a -- gwm "git worktree move"
+### Git worktree: *gw
+abbr -a -- wl  "wt list --full"
+abbr -a -- ws  "wt switch"
+abbr -a -- wsm "wt switch main"
+abbr -a -- wsb "wt switch --branches"
+abbr -a -- wsr "wt switch --remotes"
+abbr -a -- wc  "wt switch --create"
+abbr -a -- wr  "wt remove"
+abbr -a -- wrd "wt remove -D"
+abbr -a -- wh  "wt hook"
+abbr -a -- wm  "wt merge"
 
 ### GitHub CLI: gh*
 abbr -a -- ghd "gh dash"
