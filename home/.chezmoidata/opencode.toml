@@ -6,14 +6,19 @@ autoshare  = false
 snapshot   = false
 theme      = "github"
 
-plugins = ["oh-my-opencode@latest"]
+plugins = [
+  "oh-my-opencode@latest",
+  "./plugin/damage-control.ts",
+  "./plugin/notification.ts",
+  "./plugin/limits.ts",
+]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
 enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
 [opencode.models]
 ultra   = [
-  "opencode/trinity-large-preview-free",
+  # "opencode/trinity-large-preview-free",
   "opencode/mimo-v2-pro-free",
   "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
@@ -47,6 +52,10 @@ scroll_acceleration = { enabled = true }
 [opencode.keybinds]
 leader              = "Ctrl+x"
 session_child_cycle = "Ctrl+Tab"
+
+[opencode.compaction]
+auto  = true
+prune = true
 
 [opencode.watcher]
 ignore = [
@@ -199,15 +208,8 @@ external_directory = "deny"
 "more*"  = "allow"
 
 # File inspection
-"ls*"    = "allow"
-"cat*"   = "allow"
-"grep*"  = "allow"
-"rg*"    = "allow"
-"find*"  = "allow"
-"pwd"    = "allow"
-"which*" = "allow"
-"wc*"    = "allow"
-"mkdir*" = "allow"
+"find * -delete*" = "deny"
+"find * -exec*"   = "deny"
 
 # Network
 "ssh*"    = "ask"
@@ -288,14 +290,28 @@ account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 ## Opencode Zen
 [opencode.providers.opencode]
 options   = { baseUrl = "https://opencode.ai/zen/v1", apiKey = "{env:OPENCODE_API_KEY}" }
-whitelist = ["kimi-k2.5-free", "glm-5-free", "glm-4.7-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
+whitelist = [
+  "trinity-large-preview-free",
+  "mimo-v2-pro-free",
+  "kimi-k2.5-free",
+  "glm-5-free",
+  "glm-4.7-free",
+  "big-pickle",
+  "minimax-m2.5-free",
+  "nemotron-3-super-free"
+]
 
 ## OpenRouter
 [opencode.providers.openrouter]
 name      = "OpenRouter"
 npm       = "@ai-sdk/openai-compatible"
 options   = { baseUrl = "https://openrouter.ai/api/v1", apiKey = "{env:OPENROUTER_API_KEY}" }
-whitelist = ["minimax/minimax-m2.5:free", "z-ai/glm-4.5-air:free", "nvidia/nemotron-3-super-120b-a12b:free"]
+whitelist = [
+  "minimax/minimax-m2.5:free",
+  "z-ai/glm-4.5-air:free",
+  "nvidia/nemotron-3-super-120b-a12b:free",
+  "arcee-ai/trinity-large-preview:free"
+]
 
 [opencode.providers.openrouter.models."minimax/minimax-m2.5:free"]
 name = "MiniMax M2.5"
@@ -305,6 +321,9 @@ name = "GLM 4.5 Air"
 
 [opencode.providers.openrouter.models."nvidia/nemotron-3-super-120b-a12b:free"]
 name = "NVIDIA: Nemotron 3 Super"
+
+[opencode.providers.openrouter.models."arcee-ai/trinity-large-preview:free"]
+name = "Arcee AI: Trinity Large Preview"
 
 ## Ollama
 [opencode.providers.ollama]
