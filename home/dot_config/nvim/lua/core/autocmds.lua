@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- Close specific filetype with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group    = augroup("CustomClose"),
-  pattern  = { "help", "man", "qf", "lspinfo", "notify", "oil", "dap-view", "dap-view-term", "dap-view-repl" },
+  pattern  = { "help", "man", "qf", "lspinfo", "notify", "trouble", "dap-view", "dap-view-term", "dap-view-repl" },
   callback = function (ev)
     vim.bo[ev.buf].buflisted = false
     vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = ev.buf, silent = true })
