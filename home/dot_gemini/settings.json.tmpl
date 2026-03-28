@@ -32,7 +32,9 @@
   },
   "model": { "name": {{ .gemini.models.auto | quote }} },
   "security": {
-    "auth": { "selectedType": "oauth-personal" }
+    "auth": { "selectedType": "oauth-personal" },
+    "disableYoloMode": true,
+    "disableAlwaysAllow": true
   },
   "ui": {
     "theme": "GitHub",
