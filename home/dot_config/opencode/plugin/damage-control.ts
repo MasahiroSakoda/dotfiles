@@ -2,7 +2,7 @@ import type { Plugin } from '@opencode-ai/plugin';
 
 // ─── Category 1: Dangerous Bash Commands ─────────────────────────────────────
 const DANGEROUS_BASH_PATTERNS: RegExp[] = [
-  /\brm\s+(-[^\s]*)*-[rRf]/,
+  /\brm\s+(?:-[^\s]*\s+)*-[rRf]\b/,
   /\brm\s+.*--(recursive|force)/,
   /\bsudo\s+/,
   /\bchmod\s+(-[^\s]+\s+)*0?777\b/,
