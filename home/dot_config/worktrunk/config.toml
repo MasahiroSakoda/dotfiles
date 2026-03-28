@@ -1,0 +1,52 @@
+# Worktrunk global configuration
+# https://worktrunk.dev/config/
+
+# Worktree Path Template
+#   {{ repo }}              - Repository directory name (e.g., "myproject")
+#   {{ branch }}            - Raw branch name (e.g., "feature/auth")
+#   {{ branch | sanitize }} - Branch name with / and \ replaced by - (e.g., "feature-auth")
+#
+# Paths are relative to the main worktree root (original repository directory).
+
+# Create worktree in same directory hierarchy as the repository:
+# worktree-path = "{{ repo_path }}/../{{ repo }}.{{ branch | sanitize }}"
+
+# Create worktree inner repository:
+# worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
+
+# Create worktree into specific directory:
+# worktree-path = "~/worktrees/{{ repo }}/{{ branch | sanitize }}"
+
+[list]
+summary  = false # Enable LLM branch summaries (requires [commit.generation])
+full     = false # Show CI, main…± diffstat, and LLM summaries (--full)
+branches = false # Include branches without worktrees (--branches)
+remotes  = false # Include remote-only branches (--remotes)
+
+task-timeout-ms = 0   # Kill individual git commands after N ms; 0 disables
+timeout-ms      = 0   # Wall-clock budget for the entire collect phase; 0 disables
+
+[switch]
+no-cd = true # Skip directory change after switching (--cd to override)
+
+[post-start]
+# copy = "wt step copy-ignored"
+
+[post-switch]
+# ensure a multiplexer session exists for the current worktree branch, then switch the client to it
+
+[pre-remove]
+# if the session being removed is active, switch the client to a safe fallback session first
+
+[post-remove]
+# remove the multiplexer session for the deleted branch and clear stored tmux metadata on failure
+
+[post-create]
+# deps = "pnpm install"
+
+[pre-commit]
+# lint = "pnpm lint"
+
+[pre-merge]
+# test  = "pnpm test"
+# build = "pnpm build"
