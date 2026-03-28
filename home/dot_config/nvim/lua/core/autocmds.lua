@@ -65,6 +65,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- Restore cursor to file position in previous editing session
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  callback = function(ev)
+    local mark = vim.api.nvim_buf_get_mark(ev.buf, '"')
+    if mark[1] > 0 and mark[1] <= vim.api.nvim_buf_line_count(ev.buf) then
+      vim.cmd('normal! g`"zz')
+    end
+  end,
+})
+
 local cursor_grp = augroup("CustomCursor")
 -- Enable cursorcolumn automatically
 vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
