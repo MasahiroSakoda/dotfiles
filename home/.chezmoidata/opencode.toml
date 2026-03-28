@@ -203,15 +203,8 @@ external_directory = "deny"
 "more*"  = "allow"
 
 # File inspection
-"ls*"    = "allow"
-"cat*"   = "allow"
-"grep*"  = "allow"
-"rg*"    = "allow"
-"find*"  = "allow"
-"pwd"    = "allow"
-"which*" = "allow"
-"wc*"    = "allow"
-"mkdir*" = "allow"
+"find * -delete*" = "deny"
+"find * -exec*"   = "deny"
 
 # Network
 "ssh*"    = "ask"
