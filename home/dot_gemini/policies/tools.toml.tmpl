@@ -1,0 +1,37 @@
+# Tools Policies
+
+## Node.js related commands
+
+### Prefer pnpm over npm / yarn
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["npm", "npx", "yarn"]
+decision      = "deny"
+priority      = 100
+deny_message  = "Blocked: Legacy command is not allowed. Use pnpm instead."
+
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["pnpm"]
+decision      = "ask_user"
+priority      = 100
+
+## Python related commands
+
+### Prefer uv over pip / poetry command
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["pip", "pip3", "pipenv", "poetry"]
+decision      = "deny"
+priority      = 100
+deny_message  = "Blocked: Legacy command is not allowed. Use uv pip install instead."
+
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = ["uv", "uvx"]
+decision      = "ask_user"
+priority      = 100
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

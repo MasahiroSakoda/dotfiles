@@ -53,16 +53,18 @@ decision      = "allow"
 priority      = 100
 
 [[rule]]
-toolName    = "run_shell_command"
-argsPattern = '"command":"find .*-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)'
-decision    = "deny"
-priority    = 200
+toolName     = "run_shell_command"
+argsPattern  = '"command":"find .*-(delete|exec|execdir|fprint|fprintf|fls|ok|okdir)'
+decision     = "deny"
+priority     = 200
+deny_message = "Blocked: Destructive command is not allowed."
 
 [[rule]]
-toolName    = "run_shell_command"
-argsPattern = '"command":"fd .*( -x| --exec| -X| --exec-batch)'
-decision    = "deny"
-priority    = 200
+toolName     = "run_shell_command"
+argsPattern  = '"command":"fd .*( -x| --exec| -X| --exec-batch)'
+decision     = "deny"
+priority     = 200
+deny_message = "Blocked: Destructive command is not allowed."
 
 # Preview Commands
 [[rule]]
@@ -84,7 +86,7 @@ argsPattern = '"command":"sort .*(-o |--output)'
 decision    = "deny"
 priority    = 200
 
-# Formatter / Linter Commnads
+# Formatter / Linter Commands
 [[rule]]
 toolName      = "run_shell_command"
 commandPrefix = ["shfmt", "tombi", "biome", "ruff", "yamlfmt", "actionlint", "hadolint", "stylua", "checkmake"]
