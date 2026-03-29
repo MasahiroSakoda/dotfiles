@@ -118,11 +118,16 @@
   {{/* MCP Servers */ -}}
   {{ $servers := dict }}
   {{- range $key, $value := .mcp.providers -}}
-  {{-   if hasKey $value "type" -}}
-  {{-     $_ := $value | deleteValueAtPath "type" -}}
-  {{-   end -}}
   {{-   if hasKey $value "oauth" -}}
   {{-     $_ := $value | deleteValueAtPath "oauth" -}}
+  {{-   end -}}
+  {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
+  {{-     $_ := $value | deleteValueAtPath "type" -}}
+  {{-   else if and (hasKey $value "type") (or (eq $value.type "http") (eq $value.type "remote")) -}}
+  {{-     $_ := $value | setValueAtPath "httpUrl" $value.url -}}
+  {{-     $_ := $value | deleteValueAtPath "type" -}}
+  {{-     $_ := $value | deleteValueAtPath "url" -}}
+  {{-   else -}}
   {{-   end -}}
   {{-   if and (hasKey $value "enabled") ($value.enabled) }}
   {{-     $_ := $value | deleteValueAtPath "enabled" -}}
