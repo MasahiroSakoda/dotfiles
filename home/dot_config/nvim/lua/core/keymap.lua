@@ -252,10 +252,8 @@ if not is_vscode then
 
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = " Diagnostics" },
-    { "<Leader>ls", "<CMD>lua Snacks.picker.lsp_symbols()<CR>",          icon = " ", desc = " Symbols" },
-    { "<Leader>ld", "<CMD>lua Snacks.picker.lsp_definitions()<CR>",      icon = " ", desc = " Definition" },
-    { "<Leader>lt", "<CMD>lua Snacks.picker.lsp_type_definitions()<CR>", icon = " ", desc = " Type Definition" },
-    { "<Leader>lr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
+    { "<Leader>fs", "<CMD>lua Snacks.picker.lsp_symbols()<CR>",          icon = " ", desc = " Symbols" },
+    { "<Leader>fr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
 
     -- Others
     { "<Leader>fz", "<CMD>lua Snacks.picker.zoxide()<CR>",   icon = "󰾶 ", desc = " Zoxide" },
@@ -295,9 +293,13 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
+  { "<Leader>le", "<CMD>lsp enable",  icon = " ", desc = " Enable Language Server" },
+  { "<Leader>ld", "<CMD>lsp disable", icon = " ", desc = " Disable Language Server " },
+  { "<Leader>lr", "<CMD>lsp restart", icon = " ", desc = " Restart Language Server " },
+  { "<Leader>ls", "<CMD>lsp stop",    icon = " ", desc = " Stop Language Server " },
+
   { "<Leader>lc", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_implementations()<CR>",  icon = " ", desc = " Implementations" },
-  { "<Leader>lD", "<CMD>lua Snacks.toggle.diagnostics():toggle()<CR>", icon = " ", desc = " Diagnostics" },
   { "gh",         "<CMD>lua Snacks.toggle.inlay_hints():toggle()<CR>", icon = " ", desc = " Inlay Hints" },
   { "g[",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Prev Diagnostic" },
   { "g]",         "<CMD>lua vim.diagnostic.goto_prev()<CR>",           icon = "󰒮 ", desc = " Next Diagnostic" },
