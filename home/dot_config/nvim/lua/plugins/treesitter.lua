@@ -36,11 +36,6 @@ return {
     config = function() require("user.treesitter.comment") end,
   },
   {
-    "RRethy/vim-illuminate",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.treesitter.illuminate") end,
-  },
-  {
     "Wansmer/treesj",
     cmd    =  "TSJToggle",
     config = function() require("user.treesj") end,
