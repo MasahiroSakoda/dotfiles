@@ -22,7 +22,6 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter.context") end,
   },
-  { "JoosepAlviste/nvim-ts-context-commentstring" },
   {
     "hiphish/rainbow-delimiters.nvim",
     event  = { "BufReadPost", "BufNewFile" },
@@ -30,11 +29,6 @@ return {
   },
   { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("user.treesitter.autotag") end },
   { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("user.treesitter.matchup") end },
-  {
-    "nvim-mini/mini.comment",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.treesitter.comment") end,
-  },
   {
     "Wansmer/treesj",
     cmd    =  "TSJToggle",
