@@ -5,7 +5,14 @@ vim.diagnostic.config({
   severity_sort = true,
   severity      = { min = vim.diagnostic.severity.HINT, max = vim.diagnostic.severity.ERROR },
   underline     = { severity = vim.diagnostic.severity.ERROR },
-  jump          = { float = true },
+  jump          = {
+    on_jump = function(diagnostic, bufnr)
+      if not diagnostic then return end
+      vim.schedule(function()
+        vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+      end)
+    end,
+  },
   virtual_text  = {
     prefix = "●",
     spacing = 2,
