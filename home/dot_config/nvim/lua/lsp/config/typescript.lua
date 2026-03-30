@@ -17,7 +17,14 @@ tstools.setup({
     if vim.fs.root(bufnr, { "deno.json", "deno.jsonc" }) then
       return
     end
-    local root = vim.fs.root(bufnr, { "package.json", "tsconfig.json", "jsconfig.json", ".git" })
+    local root = vim.fs.root(bufnr, {
+      "turbo.json",
+      "pnpm-workspace.yaml",
+      "package.json",
+      "tsconfig.json",
+      "jsconfig.json",
+      ".git",
+    })
     if root then
       return on_dir(root)
     end
