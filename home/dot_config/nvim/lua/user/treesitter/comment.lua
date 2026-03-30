@@ -1,25 +1,34 @@
-local ok, comment = pcall(require, "Comment")
+local ok, comment = pcall(require, "mini.comment")
 if not ok then return end
 
--- to skip backwards compatibility routines and speed up loading
-vim.g.skip_ts_context_commentstring_module = true
-
-comment.setup({
-  padding   = true,
-  sticky    = true,
-  ignore    = "^$",
-
-  toggler   = { line = "gcc", block = "gbc" },
-  opleader  = { line = "gc", block = "gb" },
-  extra     = { above = "gcO", below = "gco", eol = "gcA" },
-  mappings  = { basic = true, extra = true },
-
-  pre_hook  = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-  post_hook = function() end,
+local commentstring = require("ts_context_commentstring")
+commentstring.setup({
+  enable_autocmd = false,
 })
 
--- Workaround overlapping with `gb` & `gc`: numToStr/Comment.nvim#483
-vim.keymap.del("n", "gb")
+comment.setup({
+  options = {
+    -- Function to compute custom 'commentstring' (optional)
+    custom_commentstring = function()
+      return commentstring.calculate_commentstring() or vim.bo.commentstring
+    end,
+    ignore_blank_line    = false, -- Whether to ignore blank lines when commenting
+    start_of_line        = false, -- Whether to ignore blank lines in actions and textobject
+    pad_comment_parts    = true,  -- Whether to force single space inner padding for comment parts
+  },
+  mappings = {
+    comment        = "gc",  -- Normal and Visual modes
+    comment_line   = "gcc", -- Toggle comment on current line
+    comment_visual = "gc",  -- Toggle comment on visual selection
+    textobject     = "gc",  -- Define 'comment' textobject (like `dgc` - delete whole comment block)
+  },
+  hooks = {
+    pre  = function() end,
+    post = function() end,
+  },
+})
+
+-- Workaround overlapping with `gc`
 vim.keymap.del("n", "gc")
 
 require("which-key").add({
