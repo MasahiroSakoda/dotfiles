@@ -139,8 +139,13 @@ wk.add({
   { "]w", "<C-w>l", icon = " ", desc = " Move to Right Window" },
 
   { "<Leader>w", group = "Window Control", icon = "📖 " },
-  { "<Leader>ws", ":split<Space>",  icon = " ", desc = " Split window horizontally" },
-  { "<Leader>wS", ":vsplit<Space>", icon = " ", desc = " Split window vertically" },
+  { "<Leader>-",     ":split<Space>",   icon = " ", desc = " Split window horizontally" },
+  { "<Leader><Bar>", ":vsplit<Space>",  icon = " ", desc = " Split window vertically" },
+  { "<Leader>w-",    "<CMD>split<CR>",  icon = " ", desc = " Split window below" },
+  { "<Leader>w|",    "<CMD>vsplit<CR>", icon = " ", desc = " Split window right" },
+  { "<Leader>w=",    "<C-w>=",          icon = "󰙖 ", desc = " Resize and make windows equal"},
+  { "<Leaderww",     "<C-w>p",          icon = " ", desc = " Other window" },
+  { "<Leaderwd",     "<C-w>c",          icon = "󱎘 ", desc = " Close window" },
 
   { "[x", "<CMD>lua require'todo-comments'.jump_prev()<CR>", icon = "󰒮 ", desc = " Prev TODOs" },
   { "]x", "<CMD>lua require'todo-comments'.jump_next()<CR>", icon = "󰒭 ", desc = " Next TODOs" },
