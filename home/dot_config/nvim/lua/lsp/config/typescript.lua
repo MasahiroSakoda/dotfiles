@@ -11,6 +11,26 @@ tstools.setup({
       vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
     end
   end,
+
+  root_dir = function(bufnr, on_dir)
+    -- Exclude deno projects
+    if vim.fs.root(bufnr, { "deno.json", "deno.jsonc" }) then
+      return
+    end
+    local root = vim.fs.root(bufnr, {
+      "turbo.json",
+      "pnpm-workspace.yaml",
+      "package.json",
+      "tsconfig.json",
+      "jsconfig.json",
+      ".git",
+    })
+    if root then
+      return on_dir(root)
+    end
+  end,
+
+  cmd = { "typescript-language-server", "--stdio" },
   capabilities = require("lsp.config.capabilities"),
   settings = {
     separate_diagnostic_server = true,
