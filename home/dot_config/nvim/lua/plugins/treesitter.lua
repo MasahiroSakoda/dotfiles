@@ -45,10 +45,4 @@ return {
     cmd    =  "TSJToggle",
     config = function() require("user.treesj") end,
   },
-  {
-    "folke/todo-comments.nvim", -- Comment highlighter
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("todo-comments").setup() end,
-  },
 }
