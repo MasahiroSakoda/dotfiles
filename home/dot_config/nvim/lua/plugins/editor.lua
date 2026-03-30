@@ -51,6 +51,12 @@ return {
     cmd = { "Trouble" },
     config = function() require("lsp.config.trouble") end,
   },
+  {
+    "stevearc/conform.nvim",
+    event  = { "BufWritePre" },
+    cmd    = { "ConformInfo" },
+    config = function() require("user.conform") end,
+  },
   -- Tex
   {
     "lervag/vimtex",
