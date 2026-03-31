@@ -251,9 +251,10 @@ if not is_vscode then
     },
 
     -- LSP
-    { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",          icon = " ", desc = " Diagnostics" },
-    { "<Leader>fs", "<CMD>lua Snacks.picker.lsp_symbols()<CR>",          icon = " ", desc = " Symbols" },
-    { "<Leader>fr", "<CMD>lua Snacks.picker.lsp_references()<CR>",       icon = " ", desc = " References" },
+    { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",    icon = " ", desc = " Diagnostics" },
+    { "<Leader>fm", "<CMD>lua Snacks.picker.markdown()<CR>",       icon = " ", desc = " Documentation" },
+    { "<Leader>fs", "<CMD>lua Snacks.picker.lsp_symbols()<CR>",    icon = " ", desc = " Symbols" },
+    { "<Leader>fr", "<CMD>lua Snacks.picker.lsp_references()<CR>", icon = " ", desc = " References" },
 
     -- Others
     { "<Leader>fz", "<CMD>lua Snacks.picker.zoxide()<CR>",   icon = "󰾶 ", desc = " Zoxide" },
