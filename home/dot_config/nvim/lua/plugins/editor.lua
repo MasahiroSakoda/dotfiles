@@ -55,7 +55,7 @@ return {
     "stevearc/conform.nvim",
     event  = { "BufWritePre" },
     cmd    = { "ConformInfo" },
-    config = function() require("user.conform") end,
+    config = function() require("user.formatter") end,
   },
   -- Tex
   {

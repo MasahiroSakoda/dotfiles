@@ -22,14 +22,12 @@ conform.setup({
     c      = { "clang-format" },
     cpp    = { "clang-format" },
     rust   = { "rustfmt" },
-    go     = { "golangci-lint" },
 
     json     = { "jq" },
     jsonc    = { "jq" },
-    yaml     = { "yamlfmt", "actionlint" },
+    yaml     = { "yamlfmt" },
     toml     = { "tombi" },
     sql      = { "sqruff" },
-    markdown = { "markdownlint-cli2", "typos" },
     tex      = { "typos" },
 
     css             = { "biome" },
