@@ -1,8 +1,8 @@
 local ok, conform = pcall(require, "conform")
 if not ok then return end
 
-  ---@module "conform"
-  ---@type conform.setupOpts
+---@module "conform"
+---@type conform.setupOpts
 conform.setup({
   default_format_opts = {
     lsp_format = "fallback",
@@ -16,7 +16,7 @@ conform.setup({
     ["*"]  = { "trim_whitespace", "trim_newlines" },
     sh     = { "shfmt" },
     make   = { "checkmake" },
-    lua    = { "stylua" },
+    -- lua    = { "stylua" },
     python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     ruby   = { "rubocop" },
     c      = { "clang-format" },
