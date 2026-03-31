@@ -23,14 +23,4 @@ return {
   -- terraformls   = require("lsp.servers.terraform"),     -- Terraform
   -- sqlls         = require("lsp.servers.sqlls"),         -- SQL
   texlab        = require("lsp.servers.texlab"),        -- LaTex
-  typos_lsp     = require("lsp.servers.typos"),         -- Spell checker
-
-  -- Linter
-  ruff          = require("lsp.servers.ruff"), -- Python
-  biome         = require("lsp.servers.biome"),    -- JS/TS, JSON & others
-  -- rubocop       = require("lsp.servers.rubocop"), -- Ruby Static Code Analyzer
-  stylua        = require("lsp.servers.stylua"),  -- Lua
-
-  -- Formetter
-  clang_format  = {}, -- C/C++, ObjC, Java, JS, C#, etc..
 }
