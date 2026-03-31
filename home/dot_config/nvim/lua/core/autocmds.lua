@@ -177,6 +177,13 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
   end
 })
 
+-- Lint on save automatically
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function(_)
+    require("lint").try_lint()
+  end,
+})
+
 local snip_grp = augroup("LuaSnipCustomGroup")
 local ls = require("luasnip")
 -- Disable diagnostics in snippet
