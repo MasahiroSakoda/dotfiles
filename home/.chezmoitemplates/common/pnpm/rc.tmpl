@@ -1,0 +1,12 @@
+# Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
+minimum-release-age=10080 # 7 days (in minutes)
+
+# Block transitive deps from using git/tarball sources
+block-exotic-subdeps=true
+
+# fail if a package's trust level has decreased compared to previous releases.
+trust-policy=no-downgrade
+
+{{- /*
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+*/ -}}

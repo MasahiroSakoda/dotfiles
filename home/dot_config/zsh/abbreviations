@@ -108,6 +108,7 @@ abbr dce="docker compose exec"
 abbr dcs="docker compose sleep"
 
 ## Node.js
+abbr npm="pnpm"
 abbr p="pnpm"
 abbr pr="pnpm run"
 abbr pa="pnpm add"

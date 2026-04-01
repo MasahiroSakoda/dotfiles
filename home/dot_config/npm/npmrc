@@ -1,8 +1,12 @@
-# -*-mode:sh-*- vim:ft=sh
+prefix=${XDG_DATA_HOME}/npm
+cache=${XDG_CACHE_HOME}/npm
 
-prefix="${XDG_DATA_HOME}/npm"
-cache="${XDG_CACHE_HOME}/npm"
-tmp="${XDG_RUNTIME_DIR}/npm""
+loglevel=warn
+progress=true
 
-loglevel="warn"
-progress = true
+min-release-age=7
+ignore-scripts=true
+
+{{- /*
+# -*-mode:dosini-*- vim:ft=dosini
+*/ -}}
