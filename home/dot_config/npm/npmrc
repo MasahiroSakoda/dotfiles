@@ -4,6 +4,9 @@ cache=${XDG_CACHE_HOME}/npm
 loglevel=warn
 progress=true
 
+min-release-age=7
+ignore-scripts=true
+
 {{- /*
 # -*-mode:dosini-*- vim:ft=dosini
 */ -}}
