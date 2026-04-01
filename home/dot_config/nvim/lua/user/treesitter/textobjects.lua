@@ -3,9 +3,9 @@ local ok, textobjects = pcall(require, "nvim-treesitter-textobjects")
 if not ok then return end
 
 textobjects.setup({
-  move   = { set_jump = true },
+  move   = { set_jumps = true },
   select = {
-    lockahead = true,
+    lookahead = true,
     selection_modes = {
       ["@parameter.outer"] = "v",
       ["@parameter.inner"] = "v",
