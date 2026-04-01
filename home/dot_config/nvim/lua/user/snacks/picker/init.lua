@@ -42,6 +42,7 @@ return {
     files = { hidden = true },
     smart = { hidden = true, filter = { cwd = true } },
     grep  = { hidden = true },
+    markdown   = require("user.snacks.picker.markdown"),
     snippets   = require("user.snacks.picker.snippets"),
     git_status = require("user.snacks.picker.git_status"),
     git_diff   = require("user.snacks.picker.git_diff"),
