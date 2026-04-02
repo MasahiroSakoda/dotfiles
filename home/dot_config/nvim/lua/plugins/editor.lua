@@ -50,6 +50,7 @@ return {
     "nvim-mini/mini.align",
     version = "*",
     event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("user.align") end,
   },
   {
     "folke/trouble.nvim",

@@ -33,6 +33,7 @@ wk.add({
   { "g",  group = "Go to",    icon = " ", desc = " Go to" },
   { "gs", group = "Surround", icon = "󰅪 ", desc = " Surround" },
   { "z",  group = "Fold",     icon = " ", desc = " Fold / Cursor" },
+  { "m",  group = "mini.*",   icon = " ", desc = " mini.* Plugins" },
 })
 
 ---------------------------------------------------------------------------
