@@ -47,6 +47,11 @@ return {
     config  = function() require("user.surround") end,
   },
   {
+    "nvim-mini/mini.align",
+    version = "*",
+    event  = { "BufReadPost", "BufNewFile" },
+  },
+  {
     "folke/trouble.nvim",
     cmd = { "Trouble" },
     config = function() require("lsp.config.trouble") end,
