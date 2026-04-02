@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     vim.keymap.set("n", "gI",         vim.lsp.buf.implementation, extend("keep", opts, { desc = " Implementation" }))
     vim.keymap.set("n", "gn",         vim.lsp.buf.rename,         extend("keep", opts, { desc = " Rename" }))
     -- vim.keymap.set("n", "gr",         vim.lsp.buf.references,     extend("keep", opts, { desc = " References" }))
-    vim.keymap.set({"n", "v"}, "ga",  vim.lsp.buf.code_action,    extend("keep", opts, { desc = " Code Action" }))
+    vim.keymap.set({"n", "v"}, "la",  vim.lsp.buf.code_action,    extend("keep", opts, { desc = " Code Action" }))
   end
 })
 

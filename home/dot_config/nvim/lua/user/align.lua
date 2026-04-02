@@ -3,8 +3,8 @@ if not ok then return end
 
 align.setup({
   mappings = {
-    start              = "<Leader>ma",
-    start_with_preview = "<Leader>mA",
+    start              = "ga",
+    start_with_preview = "gA",
   },
 
   modifiers = {
