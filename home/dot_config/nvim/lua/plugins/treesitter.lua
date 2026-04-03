@@ -22,6 +22,7 @@ return {
     event  = { "BufReadPost", "BufNewFile" },
     config = function() require("user.treesitter.context") end,
   },
+  { "RRethy/nvim-treesitter-endwise", ft = ft.endwise },
   {
     "hiphish/rainbow-delimiters.nvim",
     event  = { "BufReadPost", "BufNewFile" },
