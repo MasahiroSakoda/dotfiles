@@ -45,6 +45,14 @@ wk.add({
   { "in", function() select("@number.inner",      "textobjects") end, icon = " ", desc = "Inside number" },
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Local scope" },
 }, { noremap = true })
+
+-- Incremental Selection (treesitter + LSP fallback)
+local ts = require("vim.treesitter._select")
+wk.add({
+  { "an", ts.select_parent(vim.v.count1), mode = nxo, icon = " ", desc = " Outer Node" },
+  { "in", ts.select_child(vim.v.count1),  mode = nxo, icon = " ", desc = " Inner Node" },
+})
+
 -- Swap
 local swap   = require("nvim-treesitter-textobjects.swap")
 local sp, sn = swap.swap_previous, swap.swap_next
@@ -79,8 +87,8 @@ wk.add({
   mode = nxo,
   { ";", repmove.repeat_last_move_previous,              icon = "󰑙 ", desc = "Repeat last move forward" },
   { ",", repmove.repeat_last_move_next,                  icon = "󰑙 ", desc = "Repeat last move backward" },
-  -- { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
-  -- { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
-  -- { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
-  -- { "T", repmove.builtin_T_expr,            expr = true, icon = " ", desc = "Repeat moving with T" },
+  { "f", repmove.builtin_f_expr,            expr = true, icon = " ", desc = "Repeat moving with f" },
+  { "F", repmove.builtin_F_expr,            expr = true, icon = " ", desc = "Repeat moving with F" },
+  { "t", repmove.builtin_t_expr,            expr = true, icon = " ", desc = "Repeat moving with t" },
+  { "T", repmove.builtin_T_expr,            expr = true, icon = " ", desc = "Repeat moving with T" },
 }, { noremap = true })
