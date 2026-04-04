@@ -61,6 +61,8 @@ Filetypes.treesitter = {
   "ini", "comment", "editorconfig",
 }
 
+Filetypes.endwise = { "bash", "zsh", "fish", "lua", "luau", "elixir", "ruby", "vim" }
+
 Filetypes.actions = { "yaml.github" }
 
 Filetypes.colorizer = {
