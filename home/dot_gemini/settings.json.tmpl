@@ -115,6 +115,14 @@
     "otlpEndpoint": "http://localhost:4317",
     "logPrompts": true
   },
+  "agents": {
+    "overrides": {
+      "codebase_investigator": {
+        "enabled": true,
+        "runConfig": { "maxTurns": 20 }
+      },
+    }
+  },
   {{/* MCP Servers */ -}}
   {{ $servers := dict }}
   {{- range $key, $value := .mcp.providers -}}
