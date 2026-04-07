@@ -116,12 +116,11 @@
     "logPrompts": true
   },
   "agents": {
-    "overrides": {
-      "codebase_investigator": {
-        "enabled": true,
-        "runConfig": { "maxTurns": 20 }
-      },
-    }
+    "architect": { "enabled": true, "source": "./agents/architect.md" },
+    "auditor": { "enabled": true, "source": "./agents/auditor.md" },
+    "explorer": { "enabled": true, "source": "./agents/explorer.md" },
+    "researcher": { "enabled": true, "source": "./agents/researcher.md" },
+    "translator": { "enabled": true, "source": "./agents/translator.md" }
   },
   {{/* MCP Servers */ -}}
   {{ $servers := dict }}
