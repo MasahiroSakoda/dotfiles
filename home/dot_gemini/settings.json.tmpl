@@ -115,6 +115,13 @@
     "otlpEndpoint": "http://localhost:4317",
     "logPrompts": true
   },
+  "agents": {
+    "architect": { "enabled": true, "source": "./agents/architect.md" },
+    "auditor": { "enabled": true, "source": "./agents/auditor.md" },
+    "explorer": { "enabled": true, "source": "./agents/explorer.md" },
+    "researcher": { "enabled": true, "source": "./agents/researcher.md" },
+    "translator": { "enabled": true, "source": "./agents/translator.md" }
+  },
   {{/* MCP Servers */ -}}
   {{ $servers := dict }}
   {{- range $key, $value := .mcp.providers -}}
