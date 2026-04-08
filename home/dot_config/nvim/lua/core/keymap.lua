@@ -456,7 +456,7 @@ if not is_vscode then
     { "<Leader>'", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
     { "<Leader>z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
     { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
-    { "<Leader>c", "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
+    { "\\c",       "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
     { "<C-,>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
