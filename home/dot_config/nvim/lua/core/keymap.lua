@@ -308,7 +308,7 @@ wk.add({
   { "gl",         "<CMD>Trouble loclist<CR>",                          icon = " ", desc = " Location list" },
   { "<Leader>x",  "<CMD>Trouble diagnostics toggle focus=true<CR>",    icon = " ", desc = " Diagnostics" },
   { "<Leader>X",  "<CMD>Trouble symbols toggle focus=true<CR>",        icon = " ", desc = " Symbols" },
-  { "gr",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
+  { "gR",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
 }, opts)
 
 ---------------------------------------------------------------------------
