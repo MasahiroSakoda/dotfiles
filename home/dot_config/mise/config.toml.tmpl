@@ -31,7 +31,6 @@ pin          = true
 
 env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
 shorthands_file = "~/.config/mise/shorthand.toml"
-disable_default_shorthands = false # disable the default shorthands, see `MISE_DISABLE_DEFAULT_SHORTHANDS`
 disable_tools = []                 # disable specific tools, generally used to turn off core tools
 
 [settings.npm]
@@ -189,7 +188,7 @@ ruby    = "3"
 "aqua:docker/buildx"    = "latest" # Docker CLI plugin for extended build capabilities with BuildKit
 "aqua:docker/compose"   = "latest" # Define and run multi-container applications with Docker
 "aqua:wagoodman/dive"   = "latest" # A tool for exploring each layer in a docker image
-"npm:devcontainers/cli" = "latest" # devcontainer CLI
+"npm:@devcontainers/cli" = "latest" # devcontainer CLI
 
 ## AI Tools
 "aqua:ollama/ollama"         = "latest" # Get up and running with large language models.
