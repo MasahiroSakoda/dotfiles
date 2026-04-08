@@ -34,7 +34,7 @@ vim.opt.visualbell = true
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- Sroll
+-- Scroll
 vim.opt.scrolloff  = 2
 
 -- Tab
@@ -55,6 +55,7 @@ vim.opt.backspace   = "eol,indent,start"
 -- disable menu loading
 vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu   = 1
+vim.g.did_indent_on = 1
 
 vim.g.loaded_spellfile_plugin = 1
 
@@ -69,8 +70,13 @@ vim.g.loaded_tarPlugin     = 1
 vim.g.loaded_vimball       = 1
 vim.g.loaded_vimballPlugin = 1
 
-vim.g.loaded_matchit    = 1
-vim.g.loaded_matchparen = 1
+vim.g.loaded_matchit           = 1
+vim.g.loaded_matchparen        = 1
+vim.g.loaded_netrwPlugin       = 1
+vim.g.loaded_remote_plugins    = 1
+vim.g.loaded_shada_plugin      = 1
+vim.g.loaded_spellfile_plugin  = 1
+vim.g.loaded_tutor_mode_plugin = 1
 
 -- Disable sql omni completion.
 vim.g.loaded_sql_completion = 1
@@ -82,6 +88,4 @@ vim.g.netrw_liststyle = 3
 
 vim.g.loaded_2html_plugin = 1
 
--- https://zenn.dev/kawarimidoll/articles/8172a4c29a6653
-vim.g.did_install_default_menus = 1
 vim.g.skip_loading_mswin        = 1
