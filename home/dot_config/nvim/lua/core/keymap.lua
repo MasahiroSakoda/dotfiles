@@ -24,6 +24,9 @@ vim.cmd.cnoreabbrev("W!", "w!")
 vim.cmd.cnoreabbrev("Wq", "wq")
 vim.cmd.cnoreabbrev("WQ", "wq")
 
+-- Workaround overlapping with `gc`
+vim.keymap.del("n", "gc")
+
 ---------------------------------------------------------------------------
 -- Groups
 ---------------------------------------------------------------------------
