@@ -62,9 +62,9 @@ exts = [ ".js", ".jsx", "ts", ".tsx", ".vue", ".svelte", ".astro" ]
 cmd  = [ "typescript-language-server", "--stdio" ]
 exts = [ ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts" ]
 
-[lsp.servers.pyright]
-cmd  = [ "pyright-langserver", "--stdio" ]
-exts = [ ".py", ".pyi" ]
+[lsp.servers.ty]
+cmd  = [ "ty", "server" ]
+exts = [ "py" ]
 
 [lsp.servers.texlab]
 cmd  = [ "texlab" ]
