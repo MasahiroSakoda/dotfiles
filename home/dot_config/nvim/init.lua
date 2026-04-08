@@ -51,6 +51,8 @@ lazy.setup("plugins", {
       reset = true, -- reset the runtime path to $VIMRUNTIME and the config directory
       -- paths = {}, -- add any custom paths here that you want to include in the rtp
       disabled_plugins = {
+        "bugreport", "compiler",
+        "getscript", "getscriptPlugin", "optwin",
         "zip", "zipPlugin", "gzip",
         "tar", "tarPlugin",
         "getscript", "getscriptPlugin",
@@ -58,8 +60,8 @@ lazy.setup("plugins", {
         "matchit", "matchparen",
         "netrw", "netrwPlugin",
         "netrwSettings", "netrwFileHandlers",
-        "rrhelper", -- "spellfile_plugin",
-        "tohtml",
+        "rplugin", "rrhelper", -- "spellfile_plugin",
+        "synmenu", "tohtml",
         "logipat",
         "tutor",
       }
