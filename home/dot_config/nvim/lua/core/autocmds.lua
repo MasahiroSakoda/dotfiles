@@ -138,14 +138,14 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     vim.keymap.set("n", "gD",         vim.lsp.buf.declaration,     extend("keep", opts, { desc = " Declaration" }))
     vim.keymap.set("n", "grt",        vim.lsp.buf.type_definition, extend("keep", opts, { desc = " Type Def" }))
     vim.keymap.set("n", "gri",        vim.lsp.buf.implementation,  extend("keep", opts, { desc = " Implementation" }))
-    vim.keymap.set("n", "gsd",        vim.lsp.buf.document_symbol, extend("keep", opts, { desc = " Doc Symbols" }))
-    vim.keymap.set("n", "gsd",        vim.lsp.buf.workspace_symbol,extend("keep", opts, { desc = " WS Symbols" }))
+    vim.keymap.set("n", "gw",         vim.lsp.buf.document_symbol, extend("keep", opts, { desc = " Doc Symbols" }))
+    vim.keymap.set("n", "gW",         vim.lsp.buf.workspace_symbol,extend("keep", opts, { desc = " WS Symbols" }))
     vim.keymap.set("n", "grn",        vim.lsp.buf.rename,          extend("keep", opts, { desc = " Rename" }))
     vim.keymap.set("n", "grr",        vim.lsp.buf.references,      extend("keep", opts, { desc = " References" }))
     vim.keymap.set("n", "<Leader>ci", vim.lsp.buf.incoming_calls,  extend("keep", opts, { desc = " incoming hrchy" }))
     vim.keymap.set("n", "<Leader>co", vim.lsp.buf.incoming_calls,  extend("keep", opts, { desc = " outcoming hrchy" }))
     vim.keymap.set("n", "grx",        vim.lsp.codelens.run,        extend("keep", opts, { desc = " Code Lens" }))
-    vim.keymap.set({"n", "v"}, "la",  vim.lsp.buf.code_action,     extend("keep", opts, { desc = " Code Action" }))
+    vim.keymap.set({"n", "v"}, "gra", vim.lsp.buf.code_action,     extend("keep", opts, { desc = " Code Action" }))
   end
 })
 
