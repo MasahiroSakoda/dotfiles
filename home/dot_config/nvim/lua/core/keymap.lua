@@ -37,6 +37,7 @@ wk.add({
   { "gr", group = "LSP Actions", icon = " ", desc = " LSP Actions" },
   { "gs", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
   { "gS", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
+  { "j",  group = "Jump",        icon = " ", desc = " Jump to" },
   { "z",  group = "Fold",        icon = " ", desc = " Fold / Cursor" },
   { "\\", group = "Toggle",      icon = " ", desc = " Toggle keymaps" },
 
