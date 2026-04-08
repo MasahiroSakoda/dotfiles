@@ -6,17 +6,17 @@ surround.setup({
   highlight = { duration = 200 },
   keymaps = {
     normal      = "gs",
-    normal_cur  = false,
-    normal_line = false,
-    insert      = "<C-y>s",
-    insert_line = "<C-y>s",
-    visual      = "gs",
-    visual_line = false,
+    normal_cur  = "gss",
+    normal_line = "gS",
+    insert      = "<C-g>s",
+    insert_line = "<C-g>S",
+    visual      = "gS",
+    visual_line = "gSS",
     change      = "gsc",
-    change_line = false,
+    change_line = "gSc",
     delete      = "gsd"
   },
 })
 
--- Prevent overlap warning
-vim.keymap.del("n", "gs")
+pcall(vim.keymap.del, { "n" }, "gs")
+pcall(vim.keymap.del, { "n", "x" }, "gS")
