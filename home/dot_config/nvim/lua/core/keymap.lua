@@ -362,17 +362,6 @@ wk.add({
 
   { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
   { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
-
-  { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",   mode = nt, icon = " ", desc = " Toggle GitUI" },
-  { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",     mode = nt, icon = " ", desc = " Toggle tig" },
-  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>", mode = nt, icon = " ", desc = " Toggle gh-dash" },
-  {
-    "<Leader>gC",
-    "<CMD>lua Snacks.terminal('git status --verbose; cz')<CR>",
-    mode = nt,
-    icon = " ",
-    desc = " Commitizen",
-  },
 }, opts)
 
 ---------------------------------------------------------------------------
