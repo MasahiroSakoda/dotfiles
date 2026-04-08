@@ -247,13 +247,6 @@ if not is_vscode then
     { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = " Opened PRs" },
     { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
 
-    {
-      "<Leader>gpd",
-      "<CMD>lua vim.ui.input({prompt='Number:'},function(i) Snacks.picker.gh_diff({pr=assert(tonumber(i))}) end)<CR>",
-      icon = " ",
-      desc = " View PR diff w/ number",
-    },
-
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",    icon = " ", desc = " Diagnostics" },
     { "<Leader>fm", "<CMD>lua Snacks.picker.markdown()<CR>",       icon = " ", desc = " Documentation" },
