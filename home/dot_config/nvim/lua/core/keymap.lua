@@ -31,12 +31,16 @@ vim.keymap.del("n", "gc")
 -- Groups
 ---------------------------------------------------------------------------
 wk.add({
-  { "[",  group = "Prev",     icon = "󰒮 ", desc = " Prev" },
-  { "]",  group = "Next",     icon = "󰒭 ", desc = " Next" },
-  { "g",  group = "Go to",    icon = " ", desc = " Go to" },
-  { "gs", group = "Surround", icon = "󰅪 ", desc = " Surround" },
-  { "z",  group = "Fold",     icon = " ", desc = " Fold / Cursor" },
-  { "\\", group = "Toggle",   icon = " ", desc = " Toggle keymaps" },
+  { "[",  group = "Prev",        icon = "󰒮 ", desc = " Prev" },
+  { "]",  group = "Next",        icon = "󰒭 ", desc = " Next" },
+  { "g",  group = "Go to",       icon = " ", desc = " Go to" },
+  { "gr", group = "LSP Actions", icon = " ", desc = " LSP Actions" },
+  { "gs", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
+  { "gS", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
+  { "z",  group = "Fold",        icon = " ", desc = " Fold / Cursor" },
+  { "\\", group = "Toggle",      icon = " ", desc = " Toggle keymaps" },
+
+  { "<Leader>c", group = "Call Hierarchy", icon = " ", desc = " Call Hierarchy" },
 })
 
 ---------------------------------------------------------------------------
@@ -281,12 +285,6 @@ end
 ---------------------------------------------------------------------------
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
-pcall(vim.keymap.del, "n", "gra")
-pcall(vim.keymap.del, "n", "gri")
-pcall(vim.keymap.del, "n", "grn")
-pcall(vim.keymap.del, "n", "grt")
-pcall(vim.keymap.del, "n", "grr")
-
 wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
