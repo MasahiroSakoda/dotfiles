@@ -309,10 +309,6 @@ wk.add({
   { "<Leader>x",  "<CMD>Trouble diagnostics toggle focus=true<CR>",    icon = " ", desc = " Diagnostics" },
   { "<Leader>X",  "<CMD>Trouble symbols toggle focus=true<CR>",        icon = " ", desc = " Symbols" },
   { "gr",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
-
-  { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
-  { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
-
 }, opts)
 
 ---------------------------------------------------------------------------
