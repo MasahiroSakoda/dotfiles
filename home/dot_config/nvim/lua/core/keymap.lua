@@ -69,10 +69,10 @@ wk.add({
   { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
-  { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
-  { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
-  { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
+  { "<Leader>jl", "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
+  { "<Leader>jw", "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
+  { "<Leader>*",  "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
+  { "<Leader>.",  "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
