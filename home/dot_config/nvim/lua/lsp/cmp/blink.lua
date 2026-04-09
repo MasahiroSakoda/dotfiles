@@ -9,31 +9,17 @@ local ls = require("luasnip")
 blink.setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
-    preset = "none", ---@type "default"|"super-tab"|"enter"|"none"
-    ["<Tab>"] = {
-      function(cmp)
-        if cmp.is_visible() then
-          return cmp.select_and_accept()
-        elseif cmp.snippet_active({ direction = 1 }) then
-          return cmp.snippet_forward()
-        elseif require("sidekick.nes").have() then
-          require("sidekick").nes_jump_or_apply()
-        end
-      end,
-      "fallback",
-    },
-    ["<S-Tab>"] = {
-      function(cmp)
-        if cmp.snippet_active({ direction = -1 }) then
-          return cmp.snippet_backward()
-        end
-      end,
-      "fallback",
-    },
-    ["<Up>"]    = { "show_and_insert", "select_prev", "fallback" },
-    ["<Down>"]  = { "show_and_insert", "select_next", "fallback" },
-    ["<Left>"]  = { "hide", "fallback" },
-    ["<Right>"] = { "select_and_accept", "fallback" },
+    preset = "default", ---@type "default"|"super-tab"|"enter"|"none"
+    ["<C-c>"] = { "cancel", "fallback" },
+    ["<C-e>"] = { "hide", "fallback" },
+    ["<C-y>"] = { "select_and_accept" },
+    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+    ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+    ["<S-k>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
+
+    ["<Tab>"]   = { "snippet_forward", "select_next", "fallback" },
+    ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
     ["<C-p>"]   = {
       function(_)
         if ls.choice_active() then
@@ -54,13 +40,11 @@ blink.setup({
       "select_next",
       "fallback_to_mappings",
     },
-    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
-    ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
-    ["<C-b>"]   = { "scroll_documentation_up", "fallback" },
-    ["<C-f>"]   = { "scroll_documentation_down", "fallback" },
-    ["<C-.>"]   = { "hide", "fallback" },
-    ["<C-c>"]   = { "cancel", "fallback" },
-    ["<CR>"]    = { "accept", "fallback" },
+    ["<Up>"]    = { "select_prev", "fallback" },
+    ["<Down>"]  = { "select_next", "fallback" },
+    ["<Left>"]  = { "hide", "fallback" },
+    ["<Right>"] = { "select_and_accept", "fallback" },
+
   },
 
   appearance = {
@@ -76,11 +60,11 @@ blink.setup({
 
     per_filetype = {
       lua      = { "lazydev", "lsp", "snippets", "path", "buffer" },
-      markdown = { "lsp", "snippets", "path", "buffer", "markdown" },
+      markdown = { "markdown", "lsp", "snippets", "path", "buffer" },
     },
     providers = {
       lazydev  = { name = "LazyDev",        module = "lazydev.integrations.blink",  score_offset = 100 },
-      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", score_offset = 20 },
+      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", fallbacks = { "lsp" } },
     },
   },
 
@@ -127,12 +111,7 @@ blink.setup({
     accept     = { auto_brackets = { enabled = true } },
     keyword    = { range = "full" },
 
-    documentation = {
-      auto_show = true,
-      auto_show_delay_ms = 100,
-      treesitter_highlighting = true,
-      window = { border = "rounded" },
-    },
+    documentation = { auto_show = true, auto_show_delay_ms = 100 },
     list = {
       max_items = 15,
       selection = {
@@ -143,14 +122,13 @@ blink.setup({
       },
     },
     trigger = {
-      show_in_snippet = false,
-      show_on_insert_on_trigger_character = false,
+      show_on_trigger_character = true,
+      show_on_insert_on_trigger_character = true,
       show_on_accept_on_trigger_character = false,
+      show_on_blocked_trigger_characters = { " ", "\n", "\t" },
     },
     menu = {
-      winblend   = 20,
-      min_width  = 25,
-      max_height = 40,
+      winblend = 20,
       auto_show = function(ctx)
         return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
       end,
