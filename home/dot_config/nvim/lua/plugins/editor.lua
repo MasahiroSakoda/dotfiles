@@ -1,7 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  { "vim-jp/vimdoc-ja", event = { "CmdlineEnter" } },
   {
     "folke/noice.nvim",
     cond   = not vim.g.vscode,
