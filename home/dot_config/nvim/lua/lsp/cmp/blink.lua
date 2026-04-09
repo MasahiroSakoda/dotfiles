@@ -128,9 +128,7 @@ blink.setup({
       show_on_blocked_trigger_characters = { " ", "\n", "\t" },
     },
     menu = {
-      winblend   = 20,
-      min_width  = 25,
-      max_height = 40,
+      winblend = 20,
       auto_show = function(ctx)
         return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
       end,
