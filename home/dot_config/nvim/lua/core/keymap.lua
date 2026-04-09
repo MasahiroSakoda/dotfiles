@@ -24,15 +24,24 @@ vim.cmd.cnoreabbrev("W!", "w!")
 vim.cmd.cnoreabbrev("Wq", "wq")
 vim.cmd.cnoreabbrev("WQ", "wq")
 
+-- Workaround overlapping with `gc`
+vim.keymap.del("n", "gc")
+
 ---------------------------------------------------------------------------
 -- Groups
 ---------------------------------------------------------------------------
 wk.add({
-  { "[",  group = "Prev",     icon = "󰒮 ", desc = " Prev" },
-  { "]",  group = "Next",     icon = "󰒭 ", desc = " Next" },
-  { "g",  group = "Go to",    icon = " ", desc = " Go to" },
-  { "gs", group = "Surround", icon = "󰅪 ", desc = " Surround" },
-  { "z",  group = "Fold",     icon = " ", desc = " Fold / Cursor" },
+  { "[",  group = "Prev",        icon = "󰒮 ", desc = " Prev" },
+  { "]",  group = "Next",        icon = "󰒭 ", desc = " Next" },
+  { "g",  group = "Go to",       icon = " ", desc = " Go to" },
+  { "gr", group = "LSP Actions", icon = " ", desc = " LSP Actions" },
+  { "gs", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
+  { "gS", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
+  { "j",  group = "Jump",        icon = " ", desc = " Jump to" },
+  { "z",  group = "Fold",        icon = " ", desc = " Fold / Cursor" },
+  { "\\", group = "Toggle",      icon = " ", desc = " Toggle keymaps" },
+
+  { "<Leader>c", group = "Call Hierarchy", icon = " ", desc = " Call Hierarchy" },
 })
 
 ---------------------------------------------------------------------------
@@ -69,10 +78,10 @@ wk.add({
   { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
-  { "gl",        "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
-  { "gw",        "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
-  { "<Leader>*", "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.", "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
+  { "<Leader>jl", "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
+  { "<Leader>jw", "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
+  { "<Leader>*",  "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
+  { "<Leader>.",  "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -226,7 +235,7 @@ if not is_vscode then
     { "<Leader>fu",  "<CMD>lua Snacks.picker.undo()<CR>",         icon = " ", desc = " Undo Tree" },
     { "<Leader>fh",  "<CMD>lua Snacks.picker.highlights()<CR>",   icon = " ", desc = " Highlight list" },
     { "<Leader>fC",  "<CMD>lua Snacks.picker.colorschemes()<CR>", icon = " ", desc = " Colorschemes" },
-    { "<Leader>fs",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
+    { "<Leader>fS",  "<CMD>lua Snacks.picker.spelling()<CR>",     icon = "󰀬 ", desc = " Spelling Suggestions" },
 
     -- Git
     { "<Leader>gf", "<CMD>lua Snacks.picker.git_files()<CR>",             icon = " ", desc = " Git Files" },
@@ -242,13 +251,6 @@ if not is_vscode then
 
     { "<Leader>gp", "<CMD>lua Snacks.picker.gh_pr({})<CR>",               icon = " ", desc = " Opened PRs" },
     { "<Leader>gP", "<CMD>lua Snacks.picker.gh_pr({state='all'})<CR>",    icon = " ", desc = " All PRs" },
-
-    {
-      "<Leader>gpd",
-      "<CMD>lua vim.ui.input({prompt='Number:'},function(i) Snacks.picker.gh_diff({pr=assert(tonumber(i))}) end)<CR>",
-      icon = " ",
-      desc = " View PR diff w/ number",
-    },
 
     -- LSP
     { "<Leader>fd", "<CMD>lua Snacks.picker.diagnostics()<CR>",    icon = " ", desc = " Diagnostics" },
@@ -284,12 +286,6 @@ end
 ---------------------------------------------------------------------------
 -- 🚦 LSP: Language Server Protocol: <Leader> + l
 ---------------------------------------------------------------------------
-pcall(vim.keymap.del, "n", "gra")
-pcall(vim.keymap.del, "n", "gri")
-pcall(vim.keymap.del, "n", "grn")
-pcall(vim.keymap.del, "n", "grt")
-pcall(vim.keymap.del, "n", "grr")
-
 wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
@@ -308,11 +304,7 @@ wk.add({
   { "gl",         "<CMD>Trouble loclist<CR>",                          icon = " ", desc = " Location list" },
   { "<Leader>x",  "<CMD>Trouble diagnostics toggle focus=true<CR>",    icon = " ", desc = " Diagnostics" },
   { "<Leader>X",  "<CMD>Trouble symbols toggle focus=true<CR>",        icon = " ", desc = " Symbols" },
-  { "gr",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
-
-  { "gci", "<CMD>lua vim.lsp.buf.incoming_calls()<CR>",  icon = " ", desc = " Call incoming hierarchy" },
-  { "gco", "<CMD>lua vim.lsp.buf.outcoming_calls()<CR>", icon = " ", desc = " Call outcoming hierarchy" },
-
+  { "gR",         "<CMD>Trouble lsp_references toggle focus=true<CR>", icon = " ", desc = " References" },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -366,17 +358,6 @@ wk.add({
 
   { "[g", "<CMD>Gitsigns nav_hunk prev<CR>", icon = " ", desc = " Jump to prev hunk" },
   { "]g", "<CMD>Gitsigns nav_hunk next<CR>", icon = " ", desc = " Jump to next hunk" },
-
-  { "<Leader>gg",  "<CMD>lua Snacks.terminal('gitui')<CR>",   mode = nt, icon = " ", desc = " Toggle GitUI" },
-  { "<Leader>gt",  "<CMD>lua Snacks.terminal('tig')<CR>",     mode = nt, icon = " ", desc = " Toggle tig" },
-  { "<Leader>ghd", "<CMD>lua Snacks.terminal('gh dash')<CR>", mode = nt, icon = " ", desc = " Toggle gh-dash" },
-  {
-    "<Leader>gC",
-    "<CMD>lua Snacks.terminal('git status --verbose; cz')<CR>",
-    mode = nt,
-    icon = " ",
-    desc = " Commitizen",
-  },
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -453,10 +434,10 @@ if not is_vscode then
   wk.add({
     { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
 
-    { "<Leader>'", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
-    { "<Leader>z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
+    { "\\d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
+    { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
     { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
-    { "<Leader>c", "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
+    { "\\c",       "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
     { "<C-,>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end
