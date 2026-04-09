@@ -9,31 +9,17 @@ local ls = require("luasnip")
 blink.setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
-    preset = "none", ---@type "default"|"super-tab"|"enter"|"none"
-    ["<Tab>"] = {
-      function(cmp)
-        if cmp.is_visible() then
-          return cmp.select_and_accept()
-        elseif cmp.snippet_active({ direction = 1 }) then
-          return cmp.snippet_forward()
-        elseif require("sidekick.nes").have() then
-          require("sidekick").nes_jump_or_apply()
-        end
-      end,
-      "fallback",
-    },
-    ["<S-Tab>"] = {
-      function(cmp)
-        if cmp.snippet_active({ direction = -1 }) then
-          return cmp.snippet_backward()
-        end
-      end,
-      "fallback",
-    },
-    ["<Up>"]    = { "show_and_insert", "select_prev", "fallback" },
-    ["<Down>"]  = { "show_and_insert", "select_next", "fallback" },
-    ["<Left>"]  = { "hide", "fallback" },
-    ["<Right>"] = { "select_and_accept", "fallback" },
+    preset = "default", ---@type "default"|"super-tab"|"enter"|"none"
+    ["<C-c>"] = { "cancel", "fallback" },
+    ["<C-e>"] = { "hide", "fallback" },
+    ["<C-y>"] = { "select_and_accept" },
+    ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+    ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+    ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+    ["<S-k>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
+
+    ["<Tab>"]   = { "snippet_forward", "select_next", "fallback" },
+    ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
     ["<C-p>"]   = {
       function(_)
         if ls.choice_active() then
@@ -54,13 +40,11 @@ blink.setup({
       "select_next",
       "fallback_to_mappings",
     },
-    ["<C-d>"]   = { "show", "show_documentation", "hide_documentation", "fallback" },
-    ["<C-s>"]   = { "show_signature", "hide_signature", "fallback" },
-    ["<C-b>"]   = { "scroll_documentation_up", "fallback" },
-    ["<C-f>"]   = { "scroll_documentation_down", "fallback" },
-    ["<C-.>"]   = { "hide", "fallback" },
-    ["<C-c>"]   = { "cancel", "fallback" },
-    ["<CR>"]    = { "accept", "fallback" },
+    ["<Up>"]    = { "select_prev", "fallback" },
+    ["<Down>"]  = { "select_next", "fallback" },
+    ["<Left>"]  = { "hide", "fallback" },
+    ["<Right>"] = { "select_and_accept", "fallback" },
+
   },
 
   appearance = {
