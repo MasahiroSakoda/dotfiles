@@ -60,11 +60,11 @@ blink.setup({
 
     per_filetype = {
       lua      = { "lazydev", "lsp", "snippets", "path", "buffer" },
-      markdown = { "lsp", "snippets", "path", "buffer", "markdown" },
+      markdown = { "markdown", "lsp", "snippets", "path", "buffer" },
     },
     providers = {
       lazydev  = { name = "LazyDev",        module = "lazydev.integrations.blink",  score_offset = 100 },
-      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", score_offset = 20 },
+      markdown = { name = 'RenderMarkdown', module = "render-markdown.integ.blink", fallbacks = { "lsp" } },
     },
   },
 
