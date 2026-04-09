@@ -122,9 +122,10 @@ blink.setup({
       },
     },
     trigger = {
-      show_in_snippet = false,
-      show_on_insert_on_trigger_character = false,
+      show_on_trigger_character = true,
+      show_on_insert_on_trigger_character = true,
       show_on_accept_on_trigger_character = false,
+      show_on_blocked_trigger_characters = { " ", "\n", "\t" },
     },
     menu = {
       winblend   = 20,
