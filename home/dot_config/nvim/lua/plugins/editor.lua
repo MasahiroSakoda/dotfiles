@@ -46,6 +46,12 @@ return {
     config  = function() require("user.surround") end,
   },
   {
+    "nvim-mini/mini.splitjoin",
+    version = "*",
+    event = "VeryLazy",
+    opts = { mappings = { toggle = "J" } },
+  },
+  {
     "nvim-mini/mini.align",
     version = "*",
     event  = { "BufReadPost", "BufNewFile" },
