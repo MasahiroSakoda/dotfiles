@@ -11,5 +11,5 @@ lint.linters_by_ft = {
 
   ghaction   = { "actionlint" },
   dockerfile = { "hadolint" },
-  markdown   = { "markdownlint-cli2" },
+  markdown   = { "rumdl" },
 }
