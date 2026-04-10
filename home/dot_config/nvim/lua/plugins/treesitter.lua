@@ -30,9 +30,4 @@ return {
   },
   { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("user.treesitter.autotag") end },
   { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("user.treesitter.matchup") end },
-  {
-    "Wansmer/treesj",
-    cmd    =  "TSJToggle",
-    config = function() require("user.treesj") end,
-  },
 }

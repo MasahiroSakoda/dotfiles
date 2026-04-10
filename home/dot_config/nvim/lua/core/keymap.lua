@@ -432,8 +432,6 @@ end
 if not is_vscode then
   -- Toggle Plugin
   wk.add({
-    { "J",  "<CMD>TSJToggle<CR>",          icon = " ", desc = " Toggle split/join" },
-
     { "\\d", "<CMD>lua Snacks.toggle.dim():toggle()<CR>", icon = " ", desc = " Dim Mode" },
     { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
     { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },

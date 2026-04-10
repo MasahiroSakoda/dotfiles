@@ -1,7 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  { "vim-jp/vimdoc-ja", event = { "CmdlineEnter" } },
   {
     "folke/noice.nvim",
     cond   = not vim.g.vscode,
@@ -45,6 +44,12 @@ return {
     version = "^3.0.0",
     event   = { "BufReadPost", "BufNewFile" },
     config  = function() require("user.surround") end,
+  },
+  {
+    "nvim-mini/mini.splitjoin",
+    version = "*",
+    event = "VeryLazy",
+    opts = { mappings = { toggle = "J" } },
   },
   {
     "nvim-mini/mini.align",
