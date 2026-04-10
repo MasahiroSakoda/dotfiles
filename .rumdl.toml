@@ -1,0 +1,23 @@
+[global]
+disable = [
+  "MD004", # Unordered list style
+  "MD010", # Hard tabs
+  "MD012", # no-multiple-blanks - Multiple consecutive blank lines
+  "MD013", # line-length - Line length
+  "MD022", # Headings should be surrounded by blank lines
+  "MD024", # no-duplicate-heading/no-duplicate-header - Multiple headings with the same content
+  "MD029", # Ordered list item prefix
+  "MD031", # Fenced code blocks should be surrounded by blank lines
+  "MD032", # Lists should be surrounded by blank
+  "MD033", # no-inline-html - Inline HTML
+  "MD034", # Bare URL used
+  "MD036", # Emphasis used instead of a heading
+  "MD037", # Spaces inside emphasis markers
+  "MD041", # first-line-heading/first-line-h1 - First line in a file should be a top-level heading
+  "MD045", # Images should have alternate text (alt text)
+  "MD060", # Table column style
+]
+
+[MD007]
+indent = 2
+style = "fixed"

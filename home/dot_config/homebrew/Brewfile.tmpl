@@ -13,11 +13,6 @@ brew {{ . | quote }}
 {{- end }}
 {{- end }}
 
-## Shell
-{{- range .packages.brew.shell | uniq }}
-brew {{ . | quote }}
-{{- end }}
-
 # Browser
 {{- range .packages.brew.browser | uniq }}
 brew {{ . | quote }}
