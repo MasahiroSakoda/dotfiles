@@ -20,7 +20,7 @@ return {
   tombi         = require("lsp.servers.tombi"),         -- TOML
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
-  -- terraformls   = require("lsp.servers.terraform"),     -- Terraform
-  -- sqlls         = require("lsp.servers.sqlls"),         -- SQL
+  terraformls   = require("lsp.servers.terraformls"),   -- Terraform
+  sqls          = require("lsp.servers.sqls"),          -- SQL
   texlab        = require("lsp.servers.texlab"),        -- LaTex
 }

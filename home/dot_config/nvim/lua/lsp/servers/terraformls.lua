@@ -5,5 +5,6 @@ return {
   cmd          = { "terraform-ls", "serve" },
   filetypes    = require("user.filetypes").lsp.terraform,
   root_markers = { ".terraform" },
-  settings     = {},
+  settings     = {
+  },
 }
