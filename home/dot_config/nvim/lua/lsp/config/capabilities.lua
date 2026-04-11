@@ -5,27 +5,19 @@ caps = require("blink.cmp").get_lsp_capabilities(caps)
 caps.textDocument.completion.completionList = {
   itemDefaults = { "commitCharacters", "editRange", "insertTextFormat", "insertTextMode", "data" },
 }
-caps.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
-caps.textDocument.completion.completionItem.snippetSupport          = true
-caps.textDocument.completion.completionItem.preselectSupport        = true
-caps.textDocument.completion.completionItem.insertReplaceSupport    = true
-caps.textDocument.completion.completionItem.labelDetailsSupport     = true
-caps.textDocument.completion.completionItem.deprecatedSupport       = true
-caps.textDocument.completion.completionItem.commitCharactersSupport = true
-caps.textDocument.completion.completionItem.tagSupport = { valueSet = { 1, 2 }}
-caps.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    "documentation",
-    "detail",
-    "additionalTextEdits",
-    "sortText",
-    "filterText",
-    "insertText",
-    "textEdit",
-    "insertTextFormat",
-    "insertTextMode",
-  }
+caps.textDocument.completion.completionItem = {
+  snippetSupport          = true,
+  preselectSupport        = true,
+  insertReplaceSupport    = true,
+  labelDetailsSupport     = true,
+  deprecatedSupport       = true,
+  commitCharactersSupport = true,
+
+  tagSupport          = { valueSet = { 1 } },
+  resolveSupport      = { properties = { "documentation", "detail", "additionalTextEdits" } },
+  documentationFormat = { "markdown", "plaintext" },
 }
+-- caps.textDocument.selectionRange.dynamicRegistration = true
 caps.textDocument.colorProvider = { dynamicRegistration = true }
 caps.textDocument.foldingRange  = { dynamicRegistration = false, lineFoldingOnly = true }
 
