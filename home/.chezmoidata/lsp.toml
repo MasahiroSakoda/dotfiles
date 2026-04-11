@@ -26,6 +26,10 @@ exts = [ ".toml" ]
 cmd  = [ "docker-langserver", "--stdio" ]
 exts = [ "Dockerfile", "Dockerfile.runtime" ]
 
+[lsp.servers.sqls]
+cmd  = [ "sqls" ]
+exts = [ ".sql" ]
+
 [lsp.servers.bashls]
 cmd  = [ "bash-language-server", "server" ]
 exts = [ ".sh", ".bash" ]
