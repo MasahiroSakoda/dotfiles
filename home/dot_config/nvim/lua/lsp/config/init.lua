@@ -1,5 +1,4 @@
 -- -*-mode:lua-*- vim:ft=lua
-require("lsp.config.status")
 require("lsp.config.diagnostics")
 require("lsp.config.handlers")
 
