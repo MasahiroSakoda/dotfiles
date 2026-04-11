@@ -22,6 +22,10 @@ yaml   = { schemas = { "https://www.schemastore.org/github-workflow.json" = "/.g
 cmd  = [ "tombi", "lsp" ]
 exts = [ ".toml" ]
 
+[lsp.servers.terraform-ls]
+cmd  = [ "terraform-ls", "serve" ]
+exts = [ ".tf", ".hcl" ]
+
 [lsp.servers.dockerls]
 cmd  = [ "docker-langserver", "--stdio" ]
 exts = [ "Dockerfile", "Dockerfile.runtime" ]
