@@ -221,7 +221,7 @@ scrollback_editor "{{ .brew_prefix }}/bin/nvim"
 
 // Web Server
 web_server false                                        // always start the web server on Zellij startup (default: false)
-web_server_ip "0.0.0.0"                                 // the IP to listen on, 0.0.0.0 is all (default: 127.0.0.1)
+web_server_ip "127.0.0.1"                               // the IP to listen on, 0.0.0.0 is all (default: 127.0.0.1)
 web_server_port 443                                     // the port to listen on (default: 8082)
 web_server_cert "localhost.pem"    // SSL certificate
 web_server_key "localhost-key.pem" // SSL private key
