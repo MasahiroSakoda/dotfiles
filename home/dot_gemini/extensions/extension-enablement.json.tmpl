@@ -1,4 +1,9 @@
 {
+  "gemini-cli-security": {
+    "overrides": [
+      {{ joinPath .chezmoi.homeDir "*" | quote }}
+    ]
+  },
   "conductor": {
     "overrides": [
       {{ joinPath .chezmoi.homeDir "*" | quote }}
