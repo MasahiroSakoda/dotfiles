@@ -19,11 +19,13 @@ enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 [opencode.models]
 ultra   = [
   # "opencode/trinity-large-preview-free",
+  "opencode/qwen3.6-plus-free",
   "opencode/mimo-v2-pro-free",
   "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
 ]
 elite   = [
+  "opencode/qwen3.6-plus-free",
   "opencode/mimo-v2-pro-free",
   "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
