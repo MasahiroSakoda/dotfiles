@@ -278,6 +278,7 @@ Runtime version management tool
 | [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
 | [`code-review`](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
 | [`conductor`](https://github.com/gemini-cli-extensions/conductor) | Gemini CLI extension that allows you to specify, plan, and implement software features |
+| [`security`](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
 
 ### Homebrew cask packages
 

@@ -16,6 +16,11 @@ name        = "code-review"
 description = "Google's Code Review extension for the Gemini CLI that reviews your code changes"
 url         = "https://github.com/gemini-cli-extensions/code-review"
 
+[[gemini.extensions]]
+name        = "security"
+description = "Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests."
+url         = "https://github.com/gemini-cli-extensions/security"
+
 [gemini.commands.git.commit]
 desc = "Generate commit message based on staged changes."
 prompt = """
