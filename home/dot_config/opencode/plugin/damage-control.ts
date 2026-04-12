@@ -243,10 +243,10 @@ export const EnvProtectionPlugin: Plugin = async () => {
         }
 
       } catch (err) {
-        if (err instanceof Error && err.message.startsWith("[EnvProtection] BLOCKEED")) {
+        if (err instanceof Error && err.message.startsWith("[damage-control] BLOCKED")) {
           throw err;
         }
-        console.error("[EnvProtection] tool.execute.before error:", err);
+        console.error("[damage-control] tool.execute.before error:", err);
       }
     },
     "permission.ask": async (input, output) => {
