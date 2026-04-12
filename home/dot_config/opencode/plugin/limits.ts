@@ -1,9 +1,9 @@
 import { type Plugin, tool } from "@opencode-ai/plugin";
 
-const const THRESHOLDS = [25, 50, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100];
+const THRESHOLDS = [25, 50, 75, 80, 85, 90, 95, 96, 97, 98, 99, 100];
 const alertedThresholds = new Map<string, Set<number>>();
 
-function getAlertSet(): Set<number> {
+function getAlertSet(sessionID: string): Set<number> {
   if (!alertedThresholds.has(sessionID)) {
     alertedThresholds.set(sessionID, new Set());
   }
@@ -24,8 +24,8 @@ function findCrossedThreshold(percentage: number, alerted: Set<number>): number 
 export const LimitsPlugin: Plugin = async ({ client }) => {
   return {
     "experimental.chat.system.transform": async (
-      input: { sessionID?: string, model: Model },
-      output { system: string[] }
+      input: { sessionID?: string; model: any },
+      output: { system: string[] }
     ) => {
       if (!input.sessionID) return;
       const { sessionID, model } = input;
@@ -34,33 +34,33 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
       if (!contextLimit) return;
 
       // Fetch messages to get token usage
-      const messagesRes = await client.session.messages({ path: { id: sessionID } })
+      const messagesRes = await client.session.messages({ path: { id: sessionID } });
       if (messagesRes.error || !messagesRes.data) return;
 
-      const messages = messagesRes.data
+      const messages = messagesRes.data;
       // Find last assistant message with output tokens
-      let lastAssistant: AssistantMessage | undefined
+      let lastAssistant: any | undefined;
       for (let i = messages.length - 1; i >= 0; i--) {
-        const msg = messages[i].info
+        const msg = messages[i].info;
         if (msg.role === "assistant" && msg.tokens.output > 0) {
-          lastAssistant = msg as AssistantMessage;
+          lastAssistant = msg;
           break;
         }
       }
-      if (!lastAssistant) return
+      if (!lastAssistant) return;
 
       // Calculate current usage
-      const { tokens } = lastAssistant
+      const { tokens } = lastAssistant;
       const totalTokens =
         tokens.input +
         tokens.output +
         tokens.reasoning +
         tokens.cache.read +
         tokens.cache.write;
-      const percentage = Math.round((totalTokens / contextLimit) * 100)
+      const percentage = Math.round((totalTokens / contextLimit) * 100);
 
       // Check if we've crossed a new threshold
-      const alerted = getAlertedSet(sessionID);
+      const alerted = getAlertSet(sessionID);
       const crossedThreshold = findCrossedThreshold(percentage, alerted);
 
       if (crossedThreshold !== null) {
@@ -83,6 +83,7 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
               : `INFO: Context checkpoint reached.`,
           `</context-usage-warning>`,
         ].join("\n");
+        output.system.push(warning);
       }
     },
 
@@ -100,11 +101,11 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
           const messages = messagesRes.data;
           // Find the last assistant message with output tokens > 0
           // This matches how the TUI sidebar calculates context usage
-          let lastAssistant: AssistantMessage | undefined;
+          let lastAssistant: any | undefined;
           for (let i = messages.length - 1; i >= 0; i--) {
             const msg = messages[i].info;
             if (msg.role === "assistant" && msg.tokens.output > 0) {
-              lastAssistant = msg as AssistantMessage;
+              lastAssistant = msg;
               break;
             }
           }
@@ -117,14 +118,14 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
           }
 
           // Find the model's context limit
-          let contextLimit = 0
+          let contextLimit = 0;
           const provider = providersRes.data.all.find((p) => p.id === lastAssistant!.providerID);
           if (provider?.models?.[lastAssistant.modelID]) {
             contextLimit = provider.models[lastAssistant.modelID].limit.context;
           }
           // Calculate total tokens from the LAST assistant message only
           // This is how the TUI calculates it - represents current context window usage
-          const { tokens } = lastAssistant
+          const { tokens } = lastAssistant;
           const totalTokens =
             tokens.input +
             tokens.output +
@@ -133,10 +134,10 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
             tokens.cache.write;
           const percentUsed = contextLimit > 0 ? Math.round((totalTokens / contextLimit) * 100) : 0;
           // Also calculate cumulative cost across all messages
-          let totalCost = 0
+          let totalCost = 0;
           for (const { info } of messages) {
             if (info.role === "assistant") {
-              totalCost += (info as AssistantMessage).cost;
+              totalCost += info.cost;
             }
           }
           const lines = [
@@ -155,7 +156,7 @@ export const LimitsPlugin: Plugin = async ({ client }) => {
           ];
           return lines.join("\n");
         },
-      });
+      }),
     },
-  }
-}
+  };
+};
