@@ -23,8 +23,8 @@ conform.setup({
     cpp    = { "clang-format" },
     rust   = { "rustfmt" },
 
-    json     = { "jq" },
-    jsonc    = { "jq" },
+    json     = { "biome" },
+    jsonc    = { "biome" },
     yaml     = { "yamlfmt" },
     toml     = { "tombi" },
     sql      = { "sqruff" },
