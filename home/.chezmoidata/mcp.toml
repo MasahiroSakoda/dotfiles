@@ -70,6 +70,12 @@ type    = "remote"
 url     = "https://mcp.context7.com/mcp"
 headers = { CONTEXT7_API_KEY = "${CONTEXT7_API_KEY}" }
 
+[mcp.providers.deepwiki]
+enabled = true
+type    = "remote"
+url     = "https://mcp.deepwiki.com/mcp"
+env     = {}
+
 # MCP server that provides information about mise-managed development environment (experimental)
 # https://mise.jdx.dev/mcp.html
 [mcp.providers.mise]
