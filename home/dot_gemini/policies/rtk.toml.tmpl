@@ -1,0 +1,63 @@
+# Rust Token Killer policies
+
+## Token Savings Analytics
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk (gain|discover|session)'
+decision    = "allow"
+priority    = 100
+
+## File Operation Policies
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk (ls|read|cat|smart|tree|find|fd|grep|rg|diff)'
+decision    = "allow"
+priority    = 100
+
+## Git Command Policies
+### Allow read-only operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk git (log|status|diff|show|fetch|branch --show-current|remote show)'
+decision    = "allow"
+priority    = 100
+
+### Confirm executing modifiable operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk git (add|commit|branch|stash)'
+decision    = "allow"
+priority    = 100
+
+[[rules]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk git branch .*(-(d|D|m|M)|--delete|--move|--force)'
+decision    = "ask_user"
+priority    = 200
+
+### Block destructive operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk git (reset|push|pull|merge)'
+decision    = "deny"
+priority    = 300
+deny_message = "Blocked: Destructive git operations is not allowed."
+
+## GitHub Command Policies
+### Allow read-only operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk gh (issue|pr|repo) (view|list|status|diff|checks)'
+decision    = "allow"
+priority    = 100
+
+### Confirm executing modifiable operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk gh (issue|pr) (create|edit|comment|close|reopen)'
+decision    = "ask_user"
+priority    = 200
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
