@@ -49,7 +49,7 @@ env = {}
 
 # grep.app
 [mcp.providers.grep_app]
-enabled = false
+enabled = true
 type = "remote"
 url = "https://mcp.grep.app"
 oauth   = {}
