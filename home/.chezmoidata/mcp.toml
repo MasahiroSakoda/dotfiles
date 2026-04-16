@@ -49,7 +49,7 @@ env = {}
 
 # grep.app
 [mcp.providers.grep_app]
-enabled = false
+enabled = true
 type = "remote"
 url = "https://mcp.grep.app"
 oauth   = {}
@@ -66,10 +66,15 @@ headers = { Authorization = "Bearer ${GITHUB_MCP_PAT}" }
 # https://github.com/upstash/context7
 [mcp.providers.context7]
 enabled = true
-type    = "stdio"
-command = "pnpm"
-args = ["dlx", "@upstash/context7-mcp@latest", "--api-key", "$CONTEXT7_API_KEY"]
-env = {}
+type    = "remote"
+url     = "https://mcp.context7.com/mcp"
+headers = { CONTEXT7_API_KEY = "${CONTEXT7_API_KEY}" }
+
+[mcp.providers.deepwiki]
+enabled = true
+type    = "remote"
+url     = "https://mcp.deepwiki.com/mcp"
+env     = {}
 
 # MCP server that provides information about mise-managed development environment (experimental)
 # https://mise.jdx.dev/mcp.html
