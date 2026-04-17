@@ -4,9 +4,9 @@
 
 ```text
 opencode/
-├── agent/                 # Custom specialized agent collection
+├── agents/                # Custom specialized agent collection
 ├── commands/              # Custom Slash Commands
-├── plugin/                # Plugins for extending OpenCode
+├── plugins/               # Plugins for extending OpenCode
 ├── rules/                 # Instructions for specific usage
 ├── skills/                # Custom Skills
 ├── AGENTS.md              # Project context for all agents

@@ -8,9 +8,9 @@ theme      = "github"
 
 plugins = [
   "oh-my-opencode@latest",
-  "./plugin/damage-control.ts",
-  "./plugin/notification.ts",
-  "./plugin/limits.ts",
+  "./plugins/damage-control.ts",
+  "./plugins/notification.ts",
+  "./plugins/limits.ts",
 ]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
@@ -276,16 +276,6 @@ external_directory = "deny"
 "gh api * --method PUT*"    = "ask"
 "gh api * --method PATCH*"  = "ask"
 "gh api * --method DELETE*" = "ask"
-
-[opencode.antigravity]
-auto_update        = true
-quiet_mode         = false
-debug              = false
-keep_thinking      = false
-quota_fallback     = true
-auto_resume        = true
-pid_offset_enabled = true
-account_selection_strategy = "hybrid" # "sticky"|"round-robin"|"hybrid"
 
 # Provider
 

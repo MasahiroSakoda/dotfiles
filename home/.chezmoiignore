@@ -68,7 +68,6 @@ install.sh
 ## OpenCode
 .config/opencode/node_modules/
 .config/opencode/.gitignore
-.config/opencode/antigravity-accounts.json
 .config/opencode/bun.lock
 .config/opencode/package.json
 
@@ -78,11 +77,6 @@ install.sh
 .gemini/installation_id
 .gemini/oauth_creds.json
 .gemini/state.json
-.gemini/antigravity/brain/
-.gemini/antigravity/code_tracker/
-.gemini/antigravity/context_state/
-.gemini/antigravity/Knowledge/
-.gemini/antigravity/installation_id
 .gemini/history/
 .gemini/tmp/
 
