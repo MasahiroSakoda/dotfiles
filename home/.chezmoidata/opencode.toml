@@ -8,9 +8,9 @@ theme      = "github"
 
 plugins = [
   "oh-my-opencode@latest",
-  "./plugin/damage-control.ts",
-  "./plugin/notification.ts",
-  "./plugin/limits.ts",
+  "./plugins/damage-control.ts",
+  "./plugins/notification.ts",
+  "./plugins/limits.ts",
 ]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
