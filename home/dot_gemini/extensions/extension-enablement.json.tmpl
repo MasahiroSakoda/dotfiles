@@ -1,18 +1,15 @@
 {
   "gemini-cli-security": {
-    "overrides": [
-      {{ joinPath .chezmoi.homeDir "*" | quote }}
-    ]
+    "overrides": [{{ joinPath .chezmoi.homeDir "*" | quote }}]
   },
   "conductor": {
-    "overrides": [
-      {{ joinPath .chezmoi.homeDir "*" | quote }}
-    ]
+    "overrides": [{{ joinPath .chezmoi.homeDir "*" | quote }}]
   },
   "code-review": {
-    "overrides": [
-      {{ joinPath .chezmoi.homeDir "*" | quote }}
-    ]
+    "overrides": [{{ joinPath .chezmoi.homeDir "*" | quote }}]
+  },
+  "superpowers": {
+    "overrides": [{{ joinPath .chezmoi.homeDir "*" | quote }}]
   }
 }
 {{- /*
