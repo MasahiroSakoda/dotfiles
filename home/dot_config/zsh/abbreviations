@@ -75,11 +75,11 @@ abbr wm="wt merge"
 abbr ghd="gh dash"
 abbr ghg="gh graph"
 abbr ghn="gh notify"
-abbr ghs="gh s"
 abbr ghm="gh markdown-preview"
 abbr ghp="gh poi"
 
 ### Agent Skills via GitHub CLI
+abbr ghs="gh skill"
 abbr ghss="gh skill search"
 abbr ghsp="gh skill preview"
 abbr ghsi="gh skill install"
