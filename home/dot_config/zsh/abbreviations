@@ -79,6 +79,12 @@ abbr ghs="gh s"
 abbr ghm="gh markdown-preview"
 abbr ghp="gh poi"
 
+### Agent Skills via GitHub CLI
+abbr ghss="gh skill search"
+abbr ghsp="gh skill preview"
+abbr ghsi="gh skill install"
+abbr ghsu="gh skill update"
+
 # mise
 abbr m="mise"
 abbr mi="mise install"
