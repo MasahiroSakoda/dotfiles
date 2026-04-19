@@ -18,5 +18,5 @@ surround.setup({
   },
 })
 
-pcall(vim.keymap.del, { "n" }, "gs")
-pcall(vim.keymap.del, { "n", "x" }, "gS")
+-- pcall(vim.keymap.del, { "n" }, "gs")
+-- pcall(vim.keymap.del, { "n", "x" }, "gS")
