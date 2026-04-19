@@ -1,0 +1,20 @@
+default_provider = "keychain"
+
+[providers.keychain]
+type    = "keychain"
+service = "fnox"
+
+# [providers.age]
+# type       = "age"
+# key_file   = {{ joinPath (env "XDG_CONFIG_HOME") "fnox" "key.txt" | quote }}
+# recipients = [""]
+
+# [providers.1password]
+# type = "1password"
+
+[secrets]
+# EXAMPLE_SECRET= { provider = "keychain" }
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
