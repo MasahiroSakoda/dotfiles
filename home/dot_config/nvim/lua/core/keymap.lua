@@ -290,10 +290,10 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>le", "<CMD>lsp enable",  icon = " ", desc = " Enable Language Server" },
-  { "<Leader>ld", "<CMD>lsp disable", icon = " ", desc = " Disable Language Server " },
-  { "<Leader>lr", "<CMD>lsp restart", icon = " ", desc = " Restart Language Server " },
-  { "<Leader>ls", "<CMD>lsp stop",    icon = " ", desc = " Stop Language Server " },
+  { "<Leader>le", "<CMD>lsp enable<CR>",  icon = " ", desc = " Enable Language Server" },
+  { "<Leader>ld", "<CMD>lsp disable<CR>", icon = " ", desc = " Disable Language Server " },
+  { "<Leader>lr", "<CMD>lsp restart<CR>", icon = " ", desc = " Restart Language Server " },
+  { "<Leader>ls", "<CMD>lsp stop<CR>",    icon = " ", desc = " Stop Language Server " },
 
   { "<Leader>lc", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_implementations()<CR>",  icon = " ", desc = " Implementations" },
