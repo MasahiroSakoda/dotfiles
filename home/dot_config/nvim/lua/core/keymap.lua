@@ -287,7 +287,7 @@ if not is_vscode then
     },
     {
       "<Leader>ft",
-      "<CMD>lua Snacks.picker.todo_comments({ keywords = {'TODO', 'FIX', 'FIXME'} })<CR>",
+      "<CMD>lua Snacks.picker.grep({ pattern = 'TODO|HACK|PERF|NOTE|FIX|FIXME|WARNING' })<CR>",
       icon = " ",
       desc = " TODO/Fix/Fixme",
     },
