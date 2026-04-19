@@ -78,10 +78,21 @@ wk.add({
   { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
-  { "<Leader>jl", "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
-  { "<Leader>jw", "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
-  { "<Leader>*",  "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.",  "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
+  {
+    "<Leader>jl",
+    "<CMD>lua require'flash'.jump({pattern='^\\s*\\S\\?',jump={pos='end'},search={mode='search'}})<CR>",
+    mode = nxo,
+    icon = " ",
+    desc = " Jump to the line"
+  },
+  {
+    "<Leader>*",
+    "<CMD>lua require'flash'.jump({ pattern = vim.fn.expand('<cword>') })<CR>",
+    mode = nxo,
+    icon = "󰀬 ",
+    desc = " Jump to <cword>"
+  },
+  {"<Leader>.", "<CMD>lua require'flash'.jump({ continue = true })<CR>", icon = " ", desc = " Continue last search"},
 }, opts)
 
 ---------------------------------------------------------------------------
