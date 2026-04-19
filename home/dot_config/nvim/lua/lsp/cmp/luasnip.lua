@@ -264,8 +264,7 @@ local function dynamic_node_external_update(func_indx)
 end
 
 require("which-key").add({
-  { "<C-t>", function() dynamic_node_external_update(1) end, mode = "i", icon = " ", desc = "" },
-  { "<C-t>", function() dynamic_node_external_update(1) end, mode = "s", icon = " ", desc = "" },
-  { "<C-g>", function() dynamic_node_external_update(2) end, mode = "i", icon = " ", desc = "" },
-  { "<C-g>", function() dynamic_node_external_update(2) end, mode = "s", icon = " ", desc = "" },
+  mode = { "i", "s" },
+  { "<C-t>", function() dynamic_node_external_update(1) end, icon = "󰒮 ", desc = " remove one row in a dynamic node" },
+  { "<C-g>", function() dynamic_node_external_update(2) end, icon = "󰒭 ", desc = " add one row in a dynamic node" },
 }, { noremap = true })

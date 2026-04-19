@@ -46,13 +46,6 @@ wk.add({
   { "as", function() select("@local.scope",       "textobjects") end, icon = " ", desc = "Local scope" },
 }, { noremap = true })
 
--- Incremental Selection (treesitter + LSP fallback)
-local ts = require("vim.treesitter._select")
-wk.add({
-  { "an", ts.select_parent(vim.v.count1), mode = nxo, icon = " ", desc = " Outer Node" },
-  { "in", ts.select_child(vim.v.count1),  mode = nxo, icon = " ", desc = " Inner Node" },
-})
-
 -- Swap
 local swap   = require("nvim-treesitter-textobjects.swap")
 local sp, sn = swap.swap_previous, swap.swap_next

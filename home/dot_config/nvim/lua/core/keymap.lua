@@ -78,10 +78,21 @@ wk.add({
   { "R",     "<CMD>lua require'flash'.treesitter_search()<CR>", mode = ox,  icon = " ", desc = " Treesitter Search" },
   { "<C-s>", "<CMD>lua require'flash'.toggle()<CR>",            mode = c,   icon = " ", desc = " Toggle" },
 
-  { "<Leader>jl", "<CMD>FlashJumpLine<CR>",  mode = nxo, icon = " ", desc = " Jump to the line" },
-  { "<Leader>jw", "<CMD>FlashJumpWord<CR>",  mode = nxo ,icon = " ", desc = " Jump to the word" },
-  { "<Leader>*",  "<CMD>FlashJumpCword<CR>", mode = nxo, icon = "󰀬 ", desc = " Jump to <cword>" },
-  { "<Leader>.",  "<CMD>FlashJumpContinue<CR>",          icon = " ", desc = " Continue last search" },
+  {
+    "<Leader>jl",
+    "<CMD>lua require'flash'.jump({pattern='^\\s*\\S\\?',jump={pos='end'},search={mode='search'}})<CR>",
+    mode = nxo,
+    icon = " ",
+    desc = " Jump to the line"
+  },
+  {
+    "<Leader>*",
+    "<CMD>lua require'flash'.jump({ pattern = vim.fn.expand('<cword>') })<CR>",
+    mode = nxo,
+    icon = "󰀬 ",
+    desc = " Jump to <cword>"
+  },
+  {"<Leader>.", "<CMD>lua require'flash'.jump({ continue = true })<CR>", icon = " ", desc = " Continue last search"},
 }, opts)
 
 ---------------------------------------------------------------------------
@@ -221,8 +232,8 @@ if not is_vscode then
     { "<Leader>f:", "<CMD>lua Snacks.picker.command_history()<CR>", icon = " ", desc = " Command History" },
 
     -- Grep
-    { "<C-g>",         "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
-    { "<Leader><C-g>", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
+    { "<C-g>",      "<CMD>lua Snacks.picker.grep()<CR>",                 icon = " ", desc = " Live Grep" },
+    { "<Leader>fw", "<CMD>lua Snacks.picker.grep_word()<CR>", mode = nx, icon = " ", desc = " grep with cword" },
 
     -- Vim
     { "<Leader>f?",  "<CMD>lua Snacks.picker.help()<CR>",         icon = " ", desc = " Help" },
@@ -276,7 +287,7 @@ if not is_vscode then
     },
     {
       "<Leader>ft",
-      "<CMD>lua Snacks.picker.todo_comments({ keywords = {'TODO', 'FIX', 'FIXME'} })<CR>",
+      "<CMD>lua Snacks.picker.grep({ focus = 'list' , search = 'TODO|HACK|PERF|NOTE|FIX|FIXME|WARNING' })<CR>",
       icon = " ",
       desc = " TODO/Fix/Fixme",
     },
@@ -290,10 +301,10 @@ wk.add({
   { "<Leader>L",  "<CMD>Lazy<CR>",  icon = " ", desc = " lazy.nvim" },
 
   { "<Leader>l", group = "LSP", icon = "🚦 " },
-  { "<Leader>le", "<CMD>lsp enable",  icon = " ", desc = " Enable Language Server" },
-  { "<Leader>ld", "<CMD>lsp disable", icon = " ", desc = " Disable Language Server " },
-  { "<Leader>lr", "<CMD>lsp restart", icon = " ", desc = " Restart Language Server " },
-  { "<Leader>ls", "<CMD>lsp stop",    icon = " ", desc = " Stop Language Server " },
+  { "<Leader>le", "<CMD>lsp enable<CR>",  icon = " ", desc = " Enable Language Server" },
+  { "<Leader>ld", "<CMD>lsp disable<CR>", icon = " ", desc = " Disable Language Server " },
+  { "<Leader>lr", "<CMD>lsp restart<CR>", icon = " ", desc = " Restart Language Server " },
+  { "<Leader>ls", "<CMD>lsp stop<CR>",    icon = " ", desc = " Stop Language Server " },
 
   { "<Leader>lc", "<CMD>lua Snacks.picker.lsp_config()<CR>",           icon = " ", desc = " Display LSP Info" },
   { "<Leader>li", "<CMD>lua Snacks.picker.lsp_implementations()<CR>",  icon = " ", desc = " Implementations" },

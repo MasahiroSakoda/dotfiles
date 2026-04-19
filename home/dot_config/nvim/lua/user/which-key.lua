@@ -14,9 +14,25 @@ wk.setup({
   spec     = {},
   notify   = true,
   triggers = { "<auto>", "nxso" },
-  defer    = function(ctx) return ctx.mode == "V" or ctx.mode == "<C-V>" end,
+  -- Start hidden and wait for a key to be pressed before showing the popup
+  -- defer    = function(ctx)
+  --   return vim.list_contains({ "d", "y" }, ctx.operator) or vim.list_contains({ "V", "<C-V>" }, ctx.mode)
+  -- end,
 
-  plugins = {},
+  plugins = {
+    marks     = true, -- shows a list of your marks on ' and `
+    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+
+    presets = {
+      operators    = true, -- adds help for operators like d, y, ...
+      motions      = true, -- adds help for motions
+      text_objects = true, -- help for text objects triggered after entering an operator
+      windows      = true, -- default bindings on <c-w>
+      nav          = true, -- misc bindings to work with windows
+      z            = true, -- bindings for folds, spelling and others prefixed with z
+      g            = true, -- bindings for prefixed with g
+    },
+  },
   win = {
     no_overlap = true,
     padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
@@ -30,7 +46,7 @@ wk.setup({
   layout = {
     spacing = 3,
     align   = "center", ---@type "left"|"right"|"center"
-		width  = { min = 5, max = 50 }, -- min and max width of the columns
+    width  = { min = 5, max = 50 }, -- min and max width of the columns
   },
   keys    = {},
   sort    = {},
