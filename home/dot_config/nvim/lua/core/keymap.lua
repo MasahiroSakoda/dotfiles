@@ -412,13 +412,12 @@ wk.add({
   mode = "n",
   { "<Leader>k", group = "kulala.nvim", icon = "🛜 " },
   { "<Leader>ks", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = " Open scratchpad" },
+  { "<Leader>kS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = " Search" },
+  { "<Leader>ke", "<CMD>lua require'kulala'.show_env()<CR>",    icon = "󰫧 ", desc = " Show Environment" },
   { "<Leader>kc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = " Copy as cURL" },
   { "<Leader>kp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = " Paste from cURL" },
-  { "<Leader>kr", "<CMD>lua require'kulala'.run()<CR>",         icon = " ", desc = " Run request" },
-  { "<Leader>kR", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = " Run all requests" },
-  { "<Leader>kt", "<CMD>lua require'kulala'.toggle_view()<CR>", icon = " ", desc = " Toggle View" },
-  { "<Leader>ki", "<CMD>lua require'kulala'.inspect()<CR>",     icon = " ", desc = " Inspect request" },
-  { "<Leader>kS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = " Search request file" },
+  { "<Leader>ka", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = " Run all requests" },
+  { "<Leader>kr", "<CMD>lua require'kulala'.replay()<CR>",      icon = " ", desc = " Replay Previous Run" },
 })
 
 ---------------------------------------------------------------------------
