@@ -61,6 +61,7 @@ return {
         ["<c-f>"] = { "list_scroll_down",    mode = { "i", "n" } },
         ["<c-t>"] = { "edit_tab",            mode = { "i", "n" } },
         ["<c-i>"] = { "toggle_focus",        mode = { "i", "n" } },
+        ["<c-x>"] = { "trouble_open",        mode = { "i", "n" } },
 
         ["s"]     = { "flash" },
         ["<a-s>"] = { "flash",         mode = { "n", "i" } },
@@ -81,6 +82,25 @@ return {
   },
 
   actions = {
+    trouble_open = function(...)
+      require("trouble.sources.snacks").actions.trouble_open(...)
+    end,
+    trouble_open_selected = function(...)
+      require("trouble.sources.snacks").actions.trouble_open_selected(...)
+    end,
+    trouble_open_all = function(...)
+      require("trouble.sources.snacks").actions.trouble_open_all(...)
+    end,
+    trouble_open_add = function(...)
+      require("trouble.sources.snacks").actions.trouble_open_add(...)
+    end,
+    trouble_open_add_selected = function(...)
+      require("trouble.sources.snacks").actions.trouble_open_add_selected(...)
+    end,
+    trouble_open_add_all = function(...)
+      require("trouble.sources.snacks").actions.trouble_open_add_all(...)
+    end,
+
     flash = function(picker)
       require("flash").jump({
         pattern = "^",
