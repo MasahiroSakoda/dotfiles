@@ -4,6 +4,9 @@ minimum-release-age=10080 # 7 days (in minutes)
 # Block transitive deps from using git/tarball sources
 block-exotic-subdeps=true
 
+# Exit with a non-zero exit code if any dependencies have unreviewed build scripts (aka postinstall scripts).
+strict-dep-builds=true
+
 # fail if a package's trust level has decreased compared to previous releases.
 trust-policy=no-downgrade
 
