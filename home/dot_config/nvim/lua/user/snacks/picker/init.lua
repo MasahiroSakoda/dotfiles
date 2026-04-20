@@ -61,6 +61,7 @@ return {
         ["<c-f>"] = { "list_scroll_down",    mode = { "i", "n" } },
         ["<c-t>"] = { "edit_tab",            mode = { "i", "n" } },
         ["<c-i>"] = { "toggle_focus",        mode = { "i", "n" } },
+        ["<c-x>"] = { "trouble_open",        mode = { "i", "n" } },
 
         ["s"]     = { "flash" },
         ["<a-s>"] = { "flash",         mode = { "n", "i" } },
