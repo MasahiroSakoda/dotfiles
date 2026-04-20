@@ -1,53 +1,43 @@
-# -*-mode:toml-*- vim:ft=toml.gotexttmpl
 root = true
 
 [*]
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
+charset      = utf-8
+end_of_line  = lf
+indent_style = space
+indent_size  = 2
+
+insert_final_newline     = true
 trim_trailing_whitespace = true
+
+# Git
+[{.gitconfig*,.git/config}]
+indent_style = tab
 
 # Markdown
 [*.{md,mdx}]
-indent_style = space
 indent_size  = 2
 
 # Shell Script
 [*.{sh,zsh,fish,fish.symlink}]
-indent_style = space
 indent_size  = 2
-
-# Nushell
-[*.{nu}]
-indent_style = space
-indent_size  = 4
-insert_final_newline     = false
-trim_trailing_whitespace = true
 
 # Makefile
 [{Makefile}]
 indent_style = tab
 indent_size  = 4
 
-# Taskfile
-[Taskfile.{yml,yaml}]
-indent_size  = 2
-indent_style = space
-
 # C/C++, Rust
 [*.{c,cc,cpp,h,hpp,rs}]
-indent_style = space
 indent_size  = 4
 tab_width    = 4
 
 # Shader Languages
 [*.{glsl,frag,vert,geom,comp,tese,tesc,metal}]
-indent_style = space
 indent_size  = 4
 tab_width    = 4
 
 # Go
-[*.{go}]
+[{*.{go},go.mod,go.sum,go.work}]
 indent_style = tab
 indent_size  = 4
 
@@ -58,25 +48,19 @@ indent_size  = 4
 
 # JavaScript / Typescript
 [*.{js,jsx,ts,tsx,cjs,cts,mjs,mts,vue,svelte,astro}]
-indent_style = space
 indent_size  = 2
 
 # Lua
 [*.{lua,lua.tmpl}]
-indent_style = space
-indent_size  = 2
 max_line_length = 120
 
 # Python
 [*.{py,pyw}]
-indent_style = space
 indent_size  = 4
 max_line_length = 120
 
 # Ruby
 [*.{rb,rbi,rbw,ru,gemspec,jbuilder,erb,slim,haml,Gemfile{,.lock},Rakefile,Guradfile,Brewfile,Caskfile,Masfile}]
-indent_style = space
-indent_size  = 2
 max_line_length = 120
 
 # TOML
@@ -84,27 +68,18 @@ max_line_length = 120
 indent_style = space
 indent_size  = 2
 
-# JSON
-[*.{json,jsonc,json5}]
-indent_style    = tab
-indent_size     = 2
+# JSON / YAML
+[*.{json,jsonc,json5,y{a}ml}]
 max_line_length = 120
-
-# YAML
-[*.{y{a}ml}]
-indent_style = space
-indent_size  = 2
 
 # KDL
 [*.{kdl,kdl.tmpl}]
-indent_style = space
 indent_size  = 4
 
 # HTML & CSS
 [*.{html,css,scss}]
 indent_style    = tab
-indent_size     = 2
-max_line_length = 80
+max_line_length = 120
 
 # TeX
 [*.{tex,bib}]
@@ -114,5 +89,8 @@ indent_size  = 2
 # GraphQL
 [*.{gql,graphql}]
 indent_style    = tab
-indent_size     = 2
-max_line_length = 80
+max_line_length = 120
+
+{{- /*
+# -*-mode:editorconfig-*- vim:ft=editorconfig.gotexttmpl
+*/ -}}
