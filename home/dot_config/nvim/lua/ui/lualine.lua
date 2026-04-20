@@ -34,7 +34,7 @@ lualine.setup {
       { "macro-recording", fmt = show_macro_recording },
       { "overseer" },
     },
-    lualine_y = { "fileformat", "encoding" },
+    lualine_y = { "fileformat", "encoding", "filetype" },
     lualine_z = { "location", "progress" },
   },
   tabline = {},
