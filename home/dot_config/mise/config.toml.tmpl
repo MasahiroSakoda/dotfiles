@@ -19,7 +19,7 @@ gpg_verify = true  # Use gpg to verify all tool signatures
 always_keep_download = false        # deleted after install by default
 always_keep_install  = false        # deleted on failure by default
 
-install_before = "7d" # To limit supply chain risk
+install_before = "3d" # To limit supply chain risk
 
 trusted_config_paths = [
   "~/Dev/repos/github.com/MasahiroSakoda",
@@ -87,7 +87,6 @@ ruby    = "3"
 ## Alternative CLI
 "aqua:fish-shell/fish-shell"   = "latest" # The user-friendly command line shell.
 "aqua:ajeetdsouza/zoxide"      = "latest" # Smarter cd command
-"aqua:eza-community/eza"       = "latest" # A modern alternative to ls
 "aqua:sharkdp/bat"             = "latest" # cat alternative
 "aqua:sharkdp/fd"              = "latest" # find alternative
 "aqua:BurntSushi/ripgrep"      = "latest" # grep alternative
@@ -97,11 +96,9 @@ ruby    = "3"
 "aqua:watchexec/watchexec"     = "latest" # Modify detector
 "aqua:Byron/dua-cli"           = "latest" # Disk usage
 "aqua:fastfetch-cli/fastfetch" = "latest" # System information
-"aqua:sharkdp/hyperfine"       = "latest" # Benchmark tool
 "aqua:svenstaro/genact"        = "latest" # nonsense activity generator
 "aqua:tealdeer-rs/tealdeer"    = "latest" # Too long don't read
-"pipx:httpie"                  = "latest" #
-"github:aria2/aria2"           = "latest" # The ultra fast download utility
+"aqua:ducaale/xh"              = "latest" # Friendly and fast tool for sending HTTP requests
 "github:yt-dlp/yt-dlp"         = { version = "latest", bin = "yt-dlp" }  # Downloader
 "github:raaymax/lazytail"      = "latest" # Log viewer for app development
 "github:steipete/gogcli"       = "latest" # Google Suite CLI
@@ -110,6 +107,7 @@ ruby    = "3"
 "aqua:o2sh/onefetch"            = "latest" # Repository information
 "aqua:dandavison/delta"         = "latest" # git-delta
 "aqua:simonwhitaker/gibo"       = "latest" # .gitignore boilerplates
+"github:trasta298/keifu"        = "latest" #
 "github:max-sixty/worktrunk"    = "latest" # Git worktree management, designed for parallel AI agent workflows
 "npm:commitizen"                = "latest" # commit message utility
 "npm:cz-conventional-changelog" = "latest" # Generate a CHANGELOG from git metadata.
@@ -134,8 +132,6 @@ ruby    = "3"
 "aqua:tombi-toml/tombi"                = "latest" # TOML
 "aqua:hashicorp/terraform-ls"          = "latest" # Terraform
 "go:golang.org/x/tools/gopls"          = "latest" # Go
-"gem:ruby-lsp"                         = "latest" # Ruby
-"gem:rubocop"                          = "latest" # Ruby
 "github:clangd/clangd"                 = "latest" # C/C++
 "github:latex-lsp/texlab"              = "latest" # LaTex
 "github:docker/docker-language-server" = "latest" # Dockerfile, compose.yml
@@ -144,7 +140,6 @@ ruby    = "3"
 ## Debugger
 "github:vadimcn/vscode-lldb"           = "latest" # C/C++, Rust, Zig, Swift
 "go:github.com/go-delve/delve/cmd/dlv" = "latest" # Go
-"pipx:debugpy"                         = "latest" # Python
 
 ## Formatter / Linter
 "aqua:mvdan/sh"               = "latest" # Shell formatter
@@ -157,15 +152,16 @@ ruby    = "3"
 "aqua:golangci/golangci-lint" = "latest" # Go linter aggregator
 "aqua:hadolint/hadolint"      = "latest" # Dockerfile Linter
 "aqua:JohnnyMorganz/StyLua"   = "latest" # Lua Linter
-"aqua:mrtazz/checkmake"       = "latest" # Makefile Linter
 "aqua:quarylabs/sqruff"       = "latest" # Fast SQL formatter/linter
 "aqua:crate-ci/typos"         = "latest" # Typo
 "github:rvben/rumdl"          = "latest" # Fast Markdown linter and formatter written in Rust
 
+## Network
+"github:matthart1983/netwatch" = { version = "latest", bin = "netwatch" } # Real-time network diagnostics in your terminal.
+
 ## Daatbase / Data Analysis
 "github:achristmascarl/rainfrog" = "latest" # 🐸 a database tool for the terminal
 "github:medialab/xan"            = "latest" # CSV visualization toolkit
-"aqua:jesseduffield/lazydocker"  = "latest" # Docker TUI
 
 ## Documents
 "github:jgm/pandoc"           = "latest" # Universal markup converter
@@ -173,10 +169,10 @@ ruby    = "3"
 "npm:@mermaid-js/mermaid-cli" = "latest" # Command line tool for the Mermaid library
 
 ## JSON / YAML / Markdown
-"aqua:jqlang/jq"              = "latest" # CLI processor for JSON
-"aqua:mikefarah/yq"           = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
-"aqua:charmbracelet/glow"     = "latest" # Render markdown on the CLI
-"go:github.com/mrusme/reader" = "latest" # A lightweight tool offering better readability of web pages
+"aqua:jqlang/jq"            = "latest" # CLI processor for JSON
+"aqua:mikefarah/yq"         = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
+"aqua:charmbracelet/glow"   = "latest" # Render markdown on the CLI
+"github:jfernandez/mdserve" = { version = "latest", bin = "mdserve" }
 
 ## Security
 "aqua:FiloSottile/age"   = "latest" # Simple encrypt / decrypt tool
