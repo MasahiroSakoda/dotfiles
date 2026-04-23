@@ -266,6 +266,11 @@ external_directory = "deny"
 "gh release list*"  = "allow"
 "gh run view*"      = "allow"
 "gh run list*"      = "allow"
+"gh skill search"   = "allow"
+"gh skill preview"  = "allow"
+"gh skill install"  = "ask"
+"gh skill update"   = "ask"
+"gh skill publish"  = "ask"
 
 ## GitHub API via CLI
 "gh api --help"             = "allow"
