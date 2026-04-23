@@ -11,6 +11,7 @@ plugins = [
   "./plugins/damage-control.ts",
   "./plugins/notification.ts",
   "./plugins/limits.ts",
+  "./plugins/rtk.ts",
 ]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
