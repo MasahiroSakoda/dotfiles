@@ -65,6 +65,12 @@ argsPattern = '"command":"rtk gh skill (search|preview)'
 decision    = "allow"
 priority    = 100
 
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"rtk gh skill (install|update|publish)'
+decision    = "ask_user"
+priority    = 100
+
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
