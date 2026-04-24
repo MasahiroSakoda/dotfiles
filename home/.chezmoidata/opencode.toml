@@ -11,6 +11,7 @@ plugins = [
   "./plugins/damage-control.ts",
   "./plugins/notification.ts",
   "./plugins/limits.ts",
+  "./plugins/rtk.ts",
 ]
 instructions = [ "AGENTS.md", "CLAUDE.md" ]
 
@@ -231,7 +232,7 @@ external_directory = "deny"
 "mise which*"    = "allow"
 
 # Git
-"git *"   = "deny"
+"git *"       = "ask"
 "git status*" = "allow"
 "git show*"   = "allow"
 "git diff*"   = "allow"
@@ -265,6 +266,11 @@ external_directory = "deny"
 "gh release list*"  = "allow"
 "gh run view*"      = "allow"
 "gh run list*"      = "allow"
+"gh skill search"   = "allow"
+"gh skill preview"  = "allow"
+"gh skill install"  = "ask"
+"gh skill update"   = "ask"
+"gh skill publish"  = "ask"
 
 ## GitHub API via CLI
 "gh api --help"             = "allow"
