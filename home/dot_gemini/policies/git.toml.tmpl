@@ -42,6 +42,13 @@ argsPattern = '"command":"gh (issue|pr) (create|edit|comment|close|reopen)'
 decision    = "ask_user"
 priority    = 100
 
+## Skill operations
+[[rule]]
+toolName    = "run_shell_command"
+argsPattern = '"command":"gh skill (search|preview)'
+decision    = "allow"
+priority    = 100
+
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
