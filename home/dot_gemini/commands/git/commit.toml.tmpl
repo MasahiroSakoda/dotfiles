@@ -1,0 +1,13 @@
+description = {{ .gemini.commands.git.commit.desc | quote }}
+prompt = """
+{{ .gemini.commands.git.commit.prompt }}
+
+First things first, run `/security:analyze` to scan security vulnerability.
+If there are vulnerabilities or potential bugs / issues, abort following tasks and output issues.
+
+{{ includeTemplate "common/ai/commands/git/commit.md" . }}
+"""
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
