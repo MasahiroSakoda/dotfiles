@@ -2,11 +2,9 @@
 
 [extensions]
 gh = [
-  "github/gh-aw",                 # GitHub Agentic Workflows
   "seachicken/gh-poi",            # Safely clean up your local branches
   "dlvhdr/gh-dash",               # Dashboard
   "kawarimidoll/gh-graph",        # Activity graph
   "meiji163/gh-notify",           # Notification Extension
   "gennaro-tedesco/gh-s",         # Search repositories interactively
-  "yusukebe/gh-markdown-preview", # Preview markdown looks like GitHub
 ]
