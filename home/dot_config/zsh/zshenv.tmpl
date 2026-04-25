@@ -81,6 +81,9 @@ export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/b
 {{- end }}
 export _ZO_FZF_OPTS="--preview 'eza --tree --long --header --color=always --group-directories-first --hyperlink {} || echo \"No Preview\"' --exit-0"
 
+# GitHub
+export GH_TELEMETRY=false
+export DO_NOT_TRACK=true
 export GH_DASH_CONFIG="$XDG_CONFIG_HOME/gh/extensions/dash/config.yml"
 
 # Container
