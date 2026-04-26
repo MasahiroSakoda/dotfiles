@@ -26,55 +26,88 @@ When invoked, you must follow these steps systematically:
 ### 2. OWASP Top 10 Vulnerability Scan
 Systematically check for each OWASP Top 10 vulnerability:
 
-- **A01:2021 - Broken Access Control**
-  - Verify all endpoints have proper authorization
-  - Check for IDOR (Insecure Direct Object References)
-  - Validate privilege escalation prevention
+- **A01:2025 - Broken Access Control**
+  - Deny access by default (allowlist approach)
+  - Implement access control once, reuse throughout application
+  - Enforce record ownership instead of accepting user-supplied IDs
+  - Disable directory listing and remove sensitive files from web roots
+  - Log access control failures and alert on repeated attempts
+  - Rate limit API access to minimize automated attack damage
 
-- **A02:2021 - Cryptographic Failures**
-  - Audit encryption implementations
-  - Check for weak algorithms (MD5, SHA1)
-  - Verify TLS/SSL configuration
+- **A02:2025 - Security Misconfiguration**
+  - Automated, repeatable hardening process across environments
+  - Minimal platform without unnecessary features or frameworks
+  - Regularly review and update configurations (cloud permissions, patches)
+  - Segmented application architecture with secure separation
+  - Send security directives (CSP, HSTS, X-Frame-Options)
+  - Automated verification of configurations in all environments
 
-- **A03:2021 - Injection**
-  - SQL Injection (parameterized queries)
-  - Command Injection (input validation)
-  - LDAP/NoSQL/XML Injection
+- **A03:2025 - Software Supply Chain Failures
+  - Maintain inventory of all components (SBOM)
+  - Remove unused dependencies and features
+  - Continuously monitor for vulnerabilities (Dependabot, Snyk)
+  - Obtain components from official sources over secure links
+  - Sign packages and verify signatures
+  - Ensure CI/CD pipelines have proper access controls and audit logs
+  - Use lock files and verify integrity hashes
 
-- **A04:2021 - Insecure Design**
-  - Review threat modeling documentation
-  - Check for security design patterns
-  - Validate fail-secure mechanisms
+- **A04:2025 - Cryptographic Failures**
+  - Classify data by sensitivity; apply controls accordingly
+  - Don't store sensitive data unnecessarily
+  - Encrypt all data in transit (TLS 1.2+) and at rest
+  - Use strong, current algorithms (AES-256-GCM, Argon2, bcrypt)
+  - Encrypt with authenticated modes (GCM, CCM)
+  - Generate keys randomly; store securely (HSM, vault)
+  - Disable caching for sensitive responses
 
-- **A05:2021 - Security Misconfiguration**
-  - Check for default credentials
-  - Verify security headers (CSP, HSTS, X-Frame-Options)
-  - Audit CORS policies
+- **A05:2025 - Injection**
+  - Use safe APIs with parameterized interfaces
+  - Validate all input using allowlists
+  - Escape special characters for specific interpreters
+  - Use LIMIT and pagination to prevent mass disclosure
+  - Implement positive server-side input validation
 
-- **A06:2021 - Vulnerable and Outdated Components**
-  - Scan dependencies for known CVEs
-  - Check for outdated libraries
-  - Verify patch management processes
+- **A06:2025 - Insecure Design**
+  - Establish secure development lifecycle with security experts
+  - Create and use secure design patterns library
+  - Threat modeling for authentication, access control, business logic
+  - Integrate security language in user stories
+  - Implement tenant isolation and resource limits
+  - Limit resource consumption per user/service
 
-- **A07:2021 - Identification and Authentication Failures**
-  - Validate password policies
-  - Check for MFA implementation
-  - Audit session management
+- **A07:2025 - Authentication Failures**
+  - Implement MFA to prevent automated attacks
+  - Avoid shipping with default credentials
+  - Check passwords against known breached password lists
+  - Align password policies with NIST 800-63b
+  - Harden against enumeration attacks (consistent responses)
+  - Limit failed login attempts with exponential backoff
+  - Use server-side, secure session manager; regenerate IDs after login
 
-- **A08:2021 - Software and Data Integrity Failures**
-  - Verify code signing and integrity checks
-  - Check for insecure deserialization
-  - Validate CI/CD pipeline security
+- **A08:2025 - Software and Data Integrity Failures**
+  - Use digital signatures to verify software/data from expected source
+  - Ensure dependencies are from trusted repositories
+  - Use software supply chain security tools (OWASP Dependency-Check)
+  - Review code and configuration changes
+  - Ensure CI/CD has proper segregation, configuration, and access control
+  - Don't send unsigned/unencrypted serialized data to untrusted clients
 
-- **A09:2021 - Security Logging and Monitoring Failures**
-  - Ensure security events are logged
-  - Check for log injection vulnerabilities
-  - Verify alerting mechanisms
+- **A09:2025 - Security Logging and Monitoring Failures**
+  - Log all login, access control, and server-side validation failures
+  - Generate logs in format consumable by log management solutions
+  - Encode log data correctly to prevent injection attacks
+  - Ensure high-value transactions have audit trail with integrity controls
+  - Establish effective monitoring and alerting
+  - Create incident response and recovery plan (NIST 800-61r2)
 
-- **A10:2021 - Server-Side Request Forgery (SSRF)**
-  - Validate URL input sanitization
-  - Check for internal network access
-  - Verify allowlist/denylist implementations
+- **A10:2025 - Mishandling of Exceptional Conditions**
+  - Design for failure: expect and handle all error conditions
+  - Implement fail-closed (deny by default) on errors
+  - Use structured exception handling with appropriate granularity
+  - Never expose internal errors to end users
+  - Log all exceptions with context for debugging
+  - Test error handling paths as thoroughly as happy paths
+  - Implement circuit breakers for external dependencies
 
 ### 3. Authentication & Authorization Deep Dive
 - **Authentication Audit:**
@@ -260,7 +293,7 @@ Immediately escalate and force Opus model for:
 
 ## References and Tools
 
-- **OWASP Top 10 2021**: https://owasp.org/Top10/
+- **OWASP Top 10 2025**: https://owasp.org/Top10/2025/
 - **CWE Top 25**: https://cwe.mitre.org/top25/
 - **NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 - **SANS Top 25**: https://www.sans.org/top25-software-errors/
