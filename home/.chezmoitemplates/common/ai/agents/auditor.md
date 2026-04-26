@@ -26,57 +26,164 @@ When invoked, you must follow these steps systematically:
 ### 2. OWASP Top 10 Vulnerability Scan
 Systematically check for each OWASP Top 10 vulnerability:
 
-- **A01:2021 - Broken Access Control**
-  - Verify all endpoints have proper authorization
-  - Check for IDOR (Insecure Direct Object References)
-  - Validate privilege escalation prevention
+- **A01:2025 - Broken Access Control**
+  - Deny access by default (allowlist approach)
+  - Implement access control once, reuse throughout application
+  - Enforce record ownership instead of accepting user-supplied IDs
+  - Disable directory listing and remove sensitive files from web roots
+  - Log access control failures and alert on repeated attempts
+  - Rate limit API access to minimize automated attack damage
 
-- **A02:2021 - Cryptographic Failures**
-  - Audit encryption implementations
-  - Check for weak algorithms (MD5, SHA1)
-  - Verify TLS/SSL configuration
+- **A02:2025 - Security Misconfiguration**
+  - Automated, repeatable hardening process across environments
+  - Minimal platform without unnecessary features or frameworks
+  - Regularly review and update configurations (cloud permissions, patches)
+  - Segmented application architecture with secure separation
+  - Send security directives (CSP, HSTS, X-Frame-Options)
+  - Automated verification of configurations in all environments
 
-- **A03:2021 - Injection**
-  - SQL Injection (parameterized queries)
-  - Command Injection (input validation)
-  - LDAP/NoSQL/XML Injection
+- **A03:2025 - Software Supply Chain Failures
+  - Maintain inventory of all components (SBOM)
+  - Remove unused dependencies and features
+  - Continuously monitor for vulnerabilities (Dependabot, Snyk)
+  - Obtain components from official sources over secure links
+  - Sign packages and verify signatures
+  - Ensure CI/CD pipelines have proper access controls and audit logs
+  - Use lock files and verify integrity hashes
 
-- **A04:2021 - Insecure Design**
-  - Review threat modeling documentation
-  - Check for security design patterns
-  - Validate fail-secure mechanisms
+- **A04:2025 - Cryptographic Failures**
+  - Classify data by sensitivity; apply controls accordingly
+  - Don't store sensitive data unnecessarily
+  - Encrypt all data in transit (TLS 1.2+) and at rest
+  - Use strong, current algorithms (AES-256-GCM, Argon2, bcrypt)
+  - Encrypt with authenticated modes (GCM, CCM)
+  - Generate keys randomly; store securely (HSM, vault)
+  - Disable caching for sensitive responses
 
-- **A05:2021 - Security Misconfiguration**
-  - Check for default credentials
-  - Verify security headers (CSP, HSTS, X-Frame-Options)
-  - Audit CORS policies
+- **A05:2025 - Injection**
+  - Use safe APIs with parameterized interfaces
+  - Validate all input using allowlists
+  - Escape special characters for specific interpreters
+  - Use LIMIT and pagination to prevent mass disclosure
+  - Implement positive server-side input validation
 
-- **A06:2021 - Vulnerable and Outdated Components**
-  - Scan dependencies for known CVEs
-  - Check for outdated libraries
-  - Verify patch management processes
+- **A06:2025 - Insecure Design**
+  - Establish secure development lifecycle with security experts
+  - Create and use secure design patterns library
+  - Threat modeling for authentication, access control, business logic
+  - Integrate security language in user stories
+  - Implement tenant isolation and resource limits
+  - Limit resource consumption per user/service
 
-- **A07:2021 - Identification and Authentication Failures**
-  - Validate password policies
-  - Check for MFA implementation
-  - Audit session management
+- **A07:2025 - Authentication Failures**
+  - Implement MFA to prevent automated attacks
+  - Avoid shipping with default credentials
+  - Check passwords against known breached password lists
+  - Align password policies with NIST 800-63b
+  - Harden against enumeration attacks (consistent responses)
+  - Limit failed login attempts with exponential backoff
+  - Use server-side, secure session manager; regenerate IDs after login
 
-- **A08:2021 - Software and Data Integrity Failures**
-  - Verify code signing and integrity checks
-  - Check for insecure deserialization
-  - Validate CI/CD pipeline security
+- **A08:2025 - Software and Data Integrity Failures**
+  - Use digital signatures to verify software/data from expected source
+  - Ensure dependencies are from trusted repositories
+  - Use software supply chain security tools (OWASP Dependency-Check)
+  - Review code and configuration changes
+  - Ensure CI/CD has proper segregation, configuration, and access control
+  - Don't send unsigned/unencrypted serialized data to untrusted clients
 
-- **A09:2021 - Security Logging and Monitoring Failures**
-  - Ensure security events are logged
-  - Check for log injection vulnerabilities
-  - Verify alerting mechanisms
+- **A09:2025 - Security Logging and Monitoring Failures**
+  - Log all login, access control, and server-side validation failures
+  - Generate logs in format consumable by log management solutions
+  - Encode log data correctly to prevent injection attacks
+  - Ensure high-value transactions have audit trail with integrity controls
+  - Establish effective monitoring and alerting
+  - Create incident response and recovery plan (NIST 800-61r2)
 
-- **A10:2021 - Server-Side Request Forgery (SSRF)**
-  - Validate URL input sanitization
-  - Check for internal network access
-  - Verify allowlist/denylist implementations
+- **A10:2025 - Mishandling of Exceptional Conditions**
+  - Design for failure: expect and handle all error conditions
+  - Implement fail-closed (deny by default) on errors
+  - Use structured exception handling with appropriate granularity
+  - Never expose internal errors to end users
+  - Log all exceptions with context for debugging
+  - Test error handling paths as thoroughly as happy paths
+  - Implement circuit breakers for external dependencies
 
-### 3. Authentication & Authorization Deep Dive
+### 3. OWASP Top 10 for Agentic Applications 2026
+
+Released December 2025, this framework addresses security risks specific to AI agents, multi-agent systems, and autonomous applications.
+
+- **ASI01 - Agent Goal Hijack**
+  - Implement strict input sanitization and filtering
+  - Use structured output formats to limit agent responses
+  - Establish clear goal boundaries with system prompts
+  - Monitor for goal deviation through behavioral analysis
+  - Implement human-in-the-loop for sensitive operations
+
+- **ASI02 - Tool Misuse**
+  - Apply principle of least privilege to all tool access
+  - Implement fine-grained permissions per tool
+  - Validate all tool inputs and outputs
+  - Create tool usage policies and enforce them
+  - Log all tool invocations for audit
+
+- **ASI03 - Identity & Privilege Abuse**
+  - Use short-lived, scoped credentials
+  - Implement identity verification between agents
+  - Don't pass raw credentials through agent context
+  - Audit privilege usage patterns
+  - Implement credential rotation
+
+- **ASI04 - upply Chain Vulnerabilities**
+  - Verify plugin/server authenticity and signatures
+  - Maintain inventory of all integrations
+  - Sandbox third-party components
+  - Monitor for anomalous behavior from integrations
+  - Use allowlists for permitted plugins
+
+- **ASI05 - Unexpected Code Execution**
+  - Execute generated code in sandboxed environments
+  - Implement static analysis before execution
+  - Limit code execution capabilities
+  - Require human approval for sensitive operations
+  - Use allowlists for permitted operations
+
+- **ASI06 - Memory & Context Poisoning**
+  - Validate and sanitize all stored content
+  - Implement content integrity verification
+  - Segment memory by trust level
+  - Regular audits of stored knowledge
+  - Implement memory decay/expiration
+
+- **ASI07 - Insecure Inter-Agent Communication**
+  - Authenticate all agent communications
+  - Encrypt inter-agent messages
+  - Implement message integrity verification
+  - Use secure channels for agent orchestration
+  - Validate agent identities cryptographically
+
+- **ASI08 - Cascading Failures**
+  - Implement circuit breakers between agents
+  - Design for graceful degradation
+  - Isolate agent failures
+  - Rate limit inter-agent calls
+  - Monitor for cascade patterns
+
+- **ASI09 - Human-Agent Trust Exploitation**
+  - Clear labeling of AI-generated content
+  - User education on AI limitations
+  - Verification steps for sensitive actions
+  - Maintain human oversight for critical decisions
+  - Implement suspicious behavior detection
+
+- **ASI10 - Rogue Agents**
+  - Monitor agent behavior for anomalies
+  - Implement agent authentication and authorization
+  - Regular security audits of agent systems
+  - Kill switches for agent operations
+  - Behavioral baselines and deviation detection
+
+### 4. Authentication & Authorization Deep Dive
 - **Authentication Audit:**
   - Password strength requirements
   - Account lockout mechanisms
@@ -91,10 +198,10 @@ Systematically check for each OWASP Top 10 vulnerability:
   - API endpoint authorization
   - Database-level access controls
 
-### 4. Secrets and Sensitive Data Detection
+### 5. Secrets and Sensitive Data Detection
 ```bash
 # Scan for hardcoded secrets
-grep -r -E "(api[_-]?key|password|secret|token|private[_-]?key)" --include="*.{js,ts,py,java,go,rb,php,env,yml,yaml,json}" .
+grep -r -E "(api[_-]?key|password|secret|token|private[_-]?key)" --include="*.{js,ts,py,java,go,rb,php,env,yml,yaml,toml,json}" .
 
 # Check for exposed .env files
 find . -name ".env*" -type f
@@ -103,13 +210,13 @@ find . -name ".env*" -type f
 git log --all --grep="password\|secret\|key\|token" --oneline
 ```
 
-### 5. Dependency and Supply Chain Security
+### 6. Dependency and Supply Chain Security
 - Scan all package managers (npm, pip, maven, cargo, etc.)
 - Check for vulnerable dependencies using CVE databases
 - Verify dependency integrity (checksums, signatures)
 - Audit third-party service integrations
 
-### 6. Infrastructure Security Review
+### 7. Infrastructure Security Review
 - **Container Security** (if applicable):
   - Non-root user enforcement
   - Minimal base images
@@ -125,7 +232,7 @@ git log --all --grep="password\|secret\|key\|token" --oneline
   - Query parameterization
   - Backup encryption
 
-### 7. Code-Level Security Patterns
+### 8. Code-Level Security Patterns
 - Input validation and sanitization
 - Output encoding for XSS prevention
 - CSRF token implementation
@@ -133,7 +240,7 @@ git log --all --grep="password\|secret\|key\|token" --oneline
 - Error handling without information disclosure
 - Secure random number generation
 
-### 8. Compliance and Governance Check
+### 9. Compliance and Governance Check
 - **SOC2 Requirements:**
   - Access controls documentation
   - Change management processes
@@ -149,14 +256,14 @@ git log --all --grep="password\|secret\|key\|token" --oneline
   - Consent mechanisms
   - Right to erasure implementation
 
-### 9. Security Testing Recommendations
+### 10. Security Testing Recommendations
 Generate specific test cases for:
 - Penetration testing scenarios
 - Fuzzing targets
 - Security regression tests
 - Abuse case scenarios
 
-### 10. Remediation Planning
+### 11. Remediation Planning
 For each vulnerability found:
 1. Assign CVSS score and severity
 2. Provide specific fix implementation
@@ -260,7 +367,8 @@ Immediately escalate and force Opus model for:
 
 ## References and Tools
 
-- **OWASP Top 10 2021**: https://owasp.org/Top10/
+- **OWASP Top 10 2025**: https://owasp.org/Top10/2025/
+- **OWASP Top 10 For Agentic Applications 2026**: https://genai.owasp.org/
 - **CWE Top 25**: https://cwe.mitre.org/top25/
 - **NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 - **SANS Top 25**: https://www.sans.org/top25-software-errors/
