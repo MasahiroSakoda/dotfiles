@@ -127,26 +127,25 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### LSP
 
-| Language Server | Language |
-| :-------------- | :------- |
-| [**bash-language-server**](https://github.com/bash-lsp/bash-language-server) | Bash |
-| [**fish-lsp**](https://github.com/ndonfris/fish-lsp) | Fish |
-| [**clangd**](https://clangd.llvm.org) | C/C++ |
-| [**rust-analyzer**](https://github.com/rust-lang/rust-analyzer) | Rust |
-| [**gopls**](https://pkg.go.dev/golang.org/x/tools/gopls) | Go |
-| [**pyright**](https://github.com/microsoft/pyright) | Python |
-| [**just**](https://github.com/terror/just-lsp) | Justfile |
-| [**ruby-lsp**](https://github.com/Shopify/ruby-lsp) | Ruby |
-| [**deno**](https://deno.land) | JS / TS |
-| [**ts_ls**](https://github.com/typescript-language-server/typescript-language-server) | JS / TS |
-| [**lua_ls**](https://github.com/LuaLS/lua-language-server) | Lua |
-| [**json-lsp**](https://github.com/microsoft/vscode-json-languageservice) | JSON |
-| [**yaml-language-server**](https://github.com/redhat-developer/yaml-language-server) | YAML |
-| [**tailwindcss-language-server**](https://github.com/tailwindlabs/tailwindcss-intellisense) | Tailwind CSS |
-| [**dockerfile-language-server**](https://github.com/rcjsuen/dockerfile-language-server-nodejs) | Dockerfile |
-| [**Marksman**](https://github.com/artempyanykh/marksman) | Markdown |
-| [**texlab**](https://github.com/latex-lsp/texlab) | LaTex |
-
+| Language    | Language Server                                                                         |
+| :---------- | :-------------------------------------------------------------------------------------- |
+| Bash        | [bash-language-server](https://github.com/bash-lsp/bash-language-server)                |
+| Fish        | [fish-lsp](https://github.com/ndonfris/fish-lsp)                                        |
+| C/C++       | [clangd](https://clangd.llvm.org/)                                                      |
+| Rust        | [rust-analyzer](https://github.com/rust-lang/rust-analyzer)                             |
+| Go          | [gopls](https://pkg.gol.dev/golang.org/x/tools/gopls)                                   |
+| Python      | [bash](https://github.com/astral-sh/ty)                                                 |
+| TypeScript  | [deno](https://deno.land/)                                                              |
+| TypeScript  | [ts_ls](https://github.com/typescript-language-server/typescript-language-server)       |
+| Lua         | [lua_ls](https://github.com/LuaLS/lua-language-server)                                  |
+| JSON        | [json-lsp](https://github.com/microsoft/vscode-json-languageservice)                    |
+| YAML        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)        |
+| TailwindCSS | [tailwindcss-language-server](https://github.com/tailwindlabs/tailwindcss-intellisense) |
+| SQL         | [sqls](https://github.com/sqls-server/sqls)                                             |
+| Dockerfile  | [dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server)     |
+| Terraform   | [terraform-ls](https://github.com/hashicorp/terraform-ls)                               |
+| Markdown    | [marksman](https://github.com/artempyanykh/marksman)                                    |
+| LaTex       | [texlab](https://github.com/latex-lsp/texlab)                                           |
 
 ##### DAP
 
