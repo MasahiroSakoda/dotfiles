@@ -109,7 +109,81 @@ Systematically check for each OWASP Top 10 vulnerability:
   - Test error handling paths as thoroughly as happy paths
   - Implement circuit breakers for external dependencies
 
-### 3. Authentication & Authorization Deep Dive
+### 3. OWASP Top 10 for Agentic Applications 2026
+
+Released December 2025, this framework addresses security risks specific to AI agents, multi-agent systems, and autonomous applications.
+
+- **ASI01 - Agent Goal Hijack**
+  - Implement strict input sanitization and filtering
+  - Use structured output formats to limit agent responses
+  - Establish clear goal boundaries with system prompts
+  - Monitor for goal deviation through behavioral analysis
+  - Implement human-in-the-loop for sensitive operations
+
+- **ASI02 - Tool Misuse**
+  - Apply principle of least privilege to all tool access
+  - Implement fine-grained permissions per tool
+  - Validate all tool inputs and outputs
+  - Create tool usage policies and enforce them
+  - Log all tool invocations for audit
+
+- **ASI03 - Identity & Privilege Abuse**
+  - Use short-lived, scoped credentials
+  - Implement identity verification between agents
+  - Don't pass raw credentials through agent context
+  - Audit privilege usage patterns
+  - Implement credential rotation
+
+- **ASI04 - upply Chain Vulnerabilities**
+  - Verify plugin/server authenticity and signatures
+  - Maintain inventory of all integrations
+  - Sandbox third-party components
+  - Monitor for anomalous behavior from integrations
+  - Use allowlists for permitted plugins
+
+- **ASI05 - Unexpected Code Execution**
+  - Execute generated code in sandboxed environments
+  - Implement static analysis before execution
+  - Limit code execution capabilities
+  - Require human approval for sensitive operations
+  - Use allowlists for permitted operations
+
+- **ASI06 - Memory & Context Poisoning**
+  - Validate and sanitize all stored content
+  - Implement content integrity verification
+  - Segment memory by trust level
+  - Regular audits of stored knowledge
+  - Implement memory decay/expiration
+
+- **ASI07 - Insecure Inter-Agent Communication**
+  - Authenticate all agent communications
+  - Encrypt inter-agent messages
+  - Implement message integrity verification
+  - Use secure channels for agent orchestration
+  - Validate agent identities cryptographically
+
+- **ASI08 - Cascading Failures**
+  - Implement circuit breakers between agents
+  - Design for graceful degradation
+  - Isolate agent failures
+  - Rate limit inter-agent calls
+  - Monitor for cascade patterns
+
+- **ASI09 - Human-Agent Trust Exploitation**
+  - Clear labeling of AI-generated content
+  - User education on AI limitations
+  - Verification steps for sensitive actions
+  - Maintain human oversight for critical decisions
+  - Implement suspicious behavior detection
+
+- **ASI10 - Rogue Agents**
+  - Monitor agent behavior for anomalies
+  - Implement agent authentication and authorization
+  - Regular security audits of agent systems
+  - Kill switches for agent operations
+  - Behavioral baselines and deviation detection
+
+### 4. Authentication & Authorization Deep Dive
 - **Authentication Audit:**
   - Password strength requirements
   - Account lockout mechanisms
@@ -124,10 +198,10 @@ Systematically check for each OWASP Top 10 vulnerability:
   - API endpoint authorization
   - Database-level access controls
 
-### 4. Secrets and Sensitive Data Detection
+### 5. Secrets and Sensitive Data Detection
 ```bash
 # Scan for hardcoded secrets
-grep -r -E "(api[_-]?key|password|secret|token|private[_-]?key)" --include="*.{js,ts,py,java,go,rb,php,env,yml,yaml,json}" .
+grep -r -E "(api[_-]?key|password|secret|token|private[_-]?key)" --include="*.{js,ts,py,java,go,rb,php,env,yml,yaml,toml,json}" .
 
 # Check for exposed .env files
 find . -name ".env*" -type f
@@ -136,13 +210,13 @@ find . -name ".env*" -type f
 git log --all --grep="password\|secret\|key\|token" --oneline
 ```
 
-### 5. Dependency and Supply Chain Security
+### 6. Dependency and Supply Chain Security
 - Scan all package managers (npm, pip, maven, cargo, etc.)
 - Check for vulnerable dependencies using CVE databases
 - Verify dependency integrity (checksums, signatures)
 - Audit third-party service integrations
 
-### 6. Infrastructure Security Review
+### 7. Infrastructure Security Review
 - **Container Security** (if applicable):
   - Non-root user enforcement
   - Minimal base images
@@ -158,7 +232,7 @@ git log --all --grep="password\|secret\|key\|token" --oneline
   - Query parameterization
   - Backup encryption
 
-### 7. Code-Level Security Patterns
+### 8. Code-Level Security Patterns
 - Input validation and sanitization
 - Output encoding for XSS prevention
 - CSRF token implementation
@@ -166,7 +240,7 @@ git log --all --grep="password\|secret\|key\|token" --oneline
 - Error handling without information disclosure
 - Secure random number generation
 
-### 8. Compliance and Governance Check
+### 9. Compliance and Governance Check
 - **SOC2 Requirements:**
   - Access controls documentation
   - Change management processes
@@ -182,14 +256,14 @@ git log --all --grep="password\|secret\|key\|token" --oneline
   - Consent mechanisms
   - Right to erasure implementation
 
-### 9. Security Testing Recommendations
+### 10. Security Testing Recommendations
 Generate specific test cases for:
 - Penetration testing scenarios
 - Fuzzing targets
 - Security regression tests
 - Abuse case scenarios
 
-### 10. Remediation Planning
+### 11. Remediation Planning
 For each vulnerability found:
 1. Assign CVSS score and severity
 2. Provide specific fix implementation
@@ -294,6 +368,7 @@ Immediately escalate and force Opus model for:
 ## References and Tools
 
 - **OWASP Top 10 2025**: https://owasp.org/Top10/2025/
+- **OWASP Top 10 For Agentic Applications 2026**: https://genai.owasp.org/
 - **CWE Top 25**: https://cwe.mitre.org/top25/
 - **NIST Cybersecurity Framework**: https://www.nist.gov/cyberframework
 - **SANS Top 25**: https://www.sans.org/top25-software-errors/
