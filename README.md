@@ -184,49 +184,51 @@ Runtime version management tool
 
 ##### CLI Tools
 
-| Tools | Description |
-| :---- | :---------- |
-| [**`zellij`**](https://github.com/zellij-org/zellij) | Terminal Multiplexer |
-| [**`starship`**](https://github.com/starship/starship) | Shell prompt |
-| [**`sheldon`**](https://github.com/rossmacarthur/sheldon) | Shell plugin manager |
-| [**`neovim`**](https://github.com/neovim/neovim) | Hyper extensive editor |
-| [**`tree-sitter`**](https://github.com/tree-sitter/tree-sitter) | Language Parser |
-| [**`zoxide`**](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command |
-| [**`bat`**](https://github.com/sharkdp/bat) | `cat` alternative |
-| [**`fd`**](https://github.com/sharkdp/fd) | `find` alternative |
-| [**`ripgrep`**](https://github.com/BurntSushi/ripgrep) | `grep` alternative |
-| [**`ripgrep-all`**](https://github.com/phiresky/ripgrep-all) | extended `rg` for docs, image, movies |
-| [**`fzf`**](https://github.com/junegunn/fzf) | Fuzzy Finder |
-| [**`bottom`**](https://github.com/ClementTsang/bottom) | Process Monitor |
-| [**`watchexec`**](https://github.com/watchexec/watchexec) | Modify detector |
-| [**`dua`**](https://github.com/ClementTsang/bottom) | Disk Usage |
-| [**`yazi`**](https://github.com/sxyazi/yazi) | Modern TUI Explorer |
-| [**`hyperfine`**](https://github.com/sharkdp/hyperfine) | Benchmark Tool |
-| [**`genact`**](https://github.com/svenstaro/genact) | nonsense activity generator |
-| [**`tealdeer`**](https://github.com/tealdeer-rs/tealdeer) | TL; DR |
-| [**`yt-dlp`**](https://github.com/yt-dlp/yt-dlp) | Downloader |
-| [**`onefetch`**](https://github.com/o2sh/onefetch) | Repository information |
-| [**`gitui`**](https://github.com/gitui-org/gitui) | Git TUI |
-| [**`delta`**](https://github.com/dandavison/delta) | `diff` alternative for `git` |
-| [**`gibo`**](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates |
-| [**`commitizen`**](https://github.com/) | Commit message utiility |
-| [**`cz-conventional-changelog`**](https://github.com/) | Formatter |
-| [**`gh`**](https://github.com/cli/cli) | GitHub CLI |
-| [**`ghq`**](https://github.com/x-motemen/ghq) | Git secret detector |
-| [**`pinact`**](https://github.com/suzuki-shunsuke/pinact) | Version pinner for GitHub Actions |
-| [**`chezmoi`**](https://github.com/twpayne/chezmoi) | Dotfiles manager |
-| [**`gitleaks`**](https://github.com/gitleaks/gitleaks) | Git secret detector |
-| [**`age`**](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool |
-| [**`lima`**](https://github.com/lima-vm/lima) | Docker alternative |
-| [**`colima`**](https://github.com/abisoft/colima) | Lightweight `lima` frontend |
-| [**`docker`**](https://github.com/docker/cli) | Docker CLI |
-| [**`buildx`**](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
-| [**`compose`**](https://github.com/docker/compose) | multi-container interface with Docker |
-| [**`dive`**](https://github.com/wagoodman/dive) | Exploring each layer in a docker image |
-| [**`lazydocker`**](https://github.com/jesseduffield/lazydocker) | TUI tool for `docker` |
-| [**`ollama`**](https://github.com/ollama/ollama) | llama.cpp frontend |
-| [**`opencode`**](https://github.com/anomalco/opencode) | Coding agent supports multi-provider |
-| [**`gemini-cli`**](https://github.com/google-gemini/gemini-cli) | Coding Agent powered by Gemini |
+| Tools                                                     | Description                               |
+| :-------------------------------------------------------- | :---------------------------------------- |
+| [zellij](https://github.com/zellij-org/zellij)            | Terminal Multiplexer                      |
+| [starship](https://github.com/starship/starship)          | Shell prompt                              |
+| [sheldon](https://github.com/rossmacarthur/sheldon)       | Shell plugin manager                      |
+| [neovim](https://github.com/neovim/neovim)                | Hyper extensive editor                    |
+| [tree-sitter](https://github.com/tree-sitter/tree-sitter) | Language Parser                           |
+| [zoxide](https://github.com/ajeetdsouza/zoxide)           | Smarter `cd` command                      |
+| [bat](https://github.com/sharkdp/bat)                     | `cat` alternative                         |
+| [fd](https://github.com/sharkdp/fd)                       | `find` alternative                        |
+| [ripgrep](https://github.com/BurntSushi/ripgrep)          | `grep` alternative                        |
+| [ripgrep-all](https://github.com/phiresky/ripgrep-all)    | extended `rg` for docs, image, movies     |
+| [fzf](https://github.com/junegunn/fzf)                    | Fuzzy Finder                              |
+| [bottom](https://github.com/ClementTsang/bottom)          | Process Monitor                           |
+| [watchexec](https://github.com/watchexec/watchexec)       | Modify detector                           |
+| [dua](https://github.com/ClementTsang/bottom)             | Disk Usage                                |
+| [yazi](https://github.com/sxyazi/yazi)                    | Modern TUI Explorer                       |
+| [genact](https://github.com/svenstaro/genact)             | nonsense activity generator               |
+| [tealdeer](https://github.com/tealdeer-rs/tealdeer)       | TL; DR                                    |
+| [xh](https://github.com/ducaale/xh)                       | HTTP client                               |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp)                | Downloader                                |
+| [onefetch](https://github.com/o2sh/onefetch)              | Repository information                    |
+| [delta](https://github.com/dandavison/delta)              | `diff` alternative for `git`              |
+| [gibo](https://github.com/simonwhitaker/gibo)             | `.gitignore` boilerplates                 |
+| [commitizen](https://github.com/commitizen/cz-cli)        | Commit message utiility                   |
+| [cz-conventional-changelog](https://github.com/)          | Conventional commit formatter             |
+| [gh](https://github.com/cli/cli)                          | GitHub CLI                                |
+| [ghq](https://github.com/x-motemen/ghq)                   | Git secret detector                       |
+| [pinact](https://github.com/suzuki-shunsuke/pinact)       | Version pinner for GitHub Actions         |
+| [glow](https://github.com/charmbracelet/glow)             | Markdown renderer on the CLI              |
+| [mdserve](https://github.com/jfernandez/mdserve)          | Markdown previewer                        |
+| [netwatch](https://github.com/matthart1983/netwatch)      | Realtime network TUI                      |
+| [rainfrog](https://github.com/achristmascarl/rainfrog)    | Database TUI                              |
+| [xan](https://github.com/medialab/xan)                    | CSV visualization toolkit                 |
+| [pandoc](https://github.com/jgm/pandoc)                   | Universal markup converter                |
+| [chezmoi](https://github.com/twpayne/chezmoi)             | Dotfiles manager                          |
+| [gitleaks](https://github.com/gitleaks/gitleaks)          | Git secret detector                       |
+| [age](https://github.com/FiloSottile/age)                 | Simple encrypt / decrypt tool             |
+| [lima](https://github.com/lima-vm/lima)                   | Docker alternative                        |
+| [colima](https://github.com/abisoft/colima)               | Lightweight `lima` frontend               |
+| [docker](https://github.com/docker/cli)                   | Docker CLI                                |
+| [buildx](https://github.com/docker/buildx)                | Extended build capabilities with BuildKit |
+| [compose](https://github.com/docker/compose)              | multi-container interface with Docker     |
+| [dive](https://github.com/wagoodman/dive)                 | Exploring each layer in a docker image    |
+| [ollama](https://github.com/ollama/ollama)                | llama.cpp frontend                        |
 
 ##### Linter / Formatter
 
