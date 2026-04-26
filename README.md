@@ -149,22 +149,10 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### DAP
 
-| Adapter | Language |
-| :------ | :------- |
-| [**codelldb**](https://github.com/vadimcn/vscode-lldb) | C/C++, Rust |
-| [**delve**](https://github.com/go-delve/delve) | Go |
-| [**debugpy**](https://github.com/microsoft/debugpy) | Python |
-| [**js-debug-adapter**](https://github.com/microsoft/vscode-js-debug) | Javascript/TyptScript |
-
-
-##### Linter
-
-| Linter | Notes |
-| :----- | :---- |
-| [**rubocop**](https://rubocop.org) | Ruby linter/formatter |
-| [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
-| [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
-
+| Language    | Adapter |
+| :---------- | :--------- |
+| C/C++, Rust | [codelldb](https://github.com/vadimcn/vscode-lldb) |
+| Go          | [delve](https://github.com/go-delve/delve) |
 
 ##### AI Assistant
 
@@ -244,19 +232,21 @@ Runtime version management tool
 
 | Tools | Description |
 | :---- | :---------- |
-| [**`shfmt`**](https://github.com/mvdan/sh) | Shell Formatter |
-| [**`biome`**](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
-| [**`ruff`**](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
-| [**`tombi`**](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
-| [**`yamlfmt`**](https://github.com/google/yamlfmt) | YAML Formatter |
-| [**`actionlint`**](https://github.com/rhysd/actionlint) | YAML Linter for GitHub Actions workflows |
-| [**`hadolint`**](https://github.com/hadolint/hadolint) | Dockerfile Linter |
-| [**`golangci-lint`**](https://github.com/golangci/golangci-lint) | Go Linter aggregator |
-| [**`checkmake`**](https://github.com/mrtazz/checkmake) | Makefile Linter |
-| [**`stylua`**](https://github.com/JohnnyMorganz/StyLua) | Lua Linter |
-| [**`typos`**](https://github.com/crate-ci/typos) | Source code shell checker |
-| [**`jq`**](https://github.com/jqlang/jq) | CLI processor for JSON |
-| [**`yq`**](https://github.com/jqlang/jq) | CLI processor for YAML & many filetypes |
+| [shfmt](https://github.com/mvdan/sh) | Shell Formatter |
+| [biome](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
+| [ruff](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
+| [tombi](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
+| [yamlfmt](https://github.com/google/yamlfmt) | YAML Formatter |
+| [actionlint](https://github.com/rhysd/actionlint) | YAML Linter for GitHub Actions workflows |
+| [hadolint](https://github.com/hadolint/hadolint) | Dockerfile Linter |
+| [golangci-lint](https://github.com/golangci/golangci-lint) | Go Linter aggregator |
+| [checkmake](https://github.com/mrtazz/checkmake) | Makefile Linter |
+| [stylua](https://github.com/JohnnyMorganz/StyLua) | Lua Linter |
+| [typos](https://github.com/crate-ci/typos) | Source code shell checker |
+| [jq](https://github.com/jqlang/jq) | CLI processor for JSON |
+| [yq](https://github.com/jqlang/jq) | CLI processor for YAML & many filetypes |
+| [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
+| [rumdl](https://github.com/rvben/rumdl) | Markdown Linter / Formatter |
 
 #### AI Tools
 
