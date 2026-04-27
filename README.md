@@ -38,7 +38,7 @@
     * [NeoVim](#neovim)
       * [LSP](#lsp)
       * [DAP](#dap)
-      * [Linter](#linter)
+      * [Linter / Formatter](#linter--formatter)
     * [mise](#mise)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
@@ -115,7 +115,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Builtin LSP Supported](#lsp)
 * [DAP supported](#dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-view`**](https://github.com/igorlfs/nvim-dap-view)
 * Addtional completion with [blink.cmp](https://github.com/saghen/blink.cmp)
-* [Linter support](#linter)
+* [Linter support](#linter--formatter)
 * Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
 * Fuzzy Finder: [**`Snacks.picker`**](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
 * [AI Assistant](#ai-assistant) available
@@ -127,45 +127,32 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 
 ##### LSP
 
-| Language Server | Language |
-| :-------------- | :------- |
-| [**bash-language-server**](https://github.com/bash-lsp/bash-language-server) | Bash |
-| [**fish-lsp**](https://github.com/ndonfris/fish-lsp) | Fish |
-| [**clangd**](https://clangd.llvm.org) | C/C++ |
-| [**rust-analyzer**](https://github.com/rust-lang/rust-analyzer) | Rust |
-| [**gopls**](https://pkg.go.dev/golang.org/x/tools/gopls) | Go |
-| [**pyright**](https://github.com/microsoft/pyright) | Python |
-| [**just**](https://github.com/terror/just-lsp) | Justfile |
-| [**ruby-lsp**](https://github.com/Shopify/ruby-lsp) | Ruby |
-| [**deno**](https://deno.land) | JS / TS |
-| [**ts_ls**](https://github.com/typescript-language-server/typescript-language-server) | JS / TS |
-| [**lua_ls**](https://github.com/LuaLS/lua-language-server) | Lua |
-| [**json-lsp**](https://github.com/microsoft/vscode-json-languageservice) | JSON |
-| [**yaml-language-server**](https://github.com/redhat-developer/yaml-language-server) | YAML |
-| [**tailwindcss-language-server**](https://github.com/tailwindlabs/tailwindcss-intellisense) | Tailwind CSS |
-| [**dockerfile-language-server**](https://github.com/rcjsuen/dockerfile-language-server-nodejs) | Dockerfile |
-| [**Marksman**](https://github.com/artempyanykh/marksman) | Markdown |
-| [**texlab**](https://github.com/latex-lsp/texlab) | LaTex |
-
+| Language    | Language Server                                                                         |
+| :---------- | :-------------------------------------------------------------------------------------- |
+| Bash        | [bash-language-server](https://github.com/bash-lsp/bash-language-server)                |
+| Fish        | [fish-lsp](https://github.com/ndonfris/fish-lsp)                                        |
+| C/C++       | [clangd](https://clangd.llvm.org/)                                                      |
+| Rust        | [rust-analyzer](https://github.com/rust-lang/rust-analyzer)                             |
+| Go          | [gopls](https://pkg.gol.dev/golang.org/x/tools/gopls)                                   |
+| Python      | [bash](https://github.com/astral-sh/ty)                                                 |
+| TypeScript  | [deno](https://deno.land/)                                                              |
+| TypeScript  | [ts_ls](https://github.com/typescript-language-server/typescript-language-server)       |
+| Lua         | [lua_ls](https://github.com/LuaLS/lua-language-server)                                  |
+| JSON        | [json-lsp](https://github.com/microsoft/vscode-json-languageservice)                    |
+| YAML        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)        |
+| TailwindCSS | [tailwindcss-language-server](https://github.com/tailwindlabs/tailwindcss-intellisense) |
+| SQL         | [sqls](https://github.com/sqls-server/sqls)                                             |
+| Dockerfile  | [dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server)     |
+| Terraform   | [terraform-ls](https://github.com/hashicorp/terraform-ls)                               |
+| Markdown    | [marksman](https://github.com/artempyanykh/marksman)                                    |
+| LaTex       | [texlab](https://github.com/latex-lsp/texlab)                                           |
 
 ##### DAP
 
-| Adapter | Language |
-| :------ | :------- |
-| [**codelldb**](https://github.com/vadimcn/vscode-lldb) | C/C++, Rust |
-| [**delve**](https://github.com/go-delve/delve) | Go |
-| [**debugpy**](https://github.com/microsoft/debugpy) | Python |
-| [**js-debug-adapter**](https://github.com/microsoft/vscode-js-debug) | Javascript/TyptScript |
-
-
-##### Linter
-
-| Linter | Notes |
-| :----- | :---- |
-| [**rubocop**](https://rubocop.org) | Ruby linter/formatter |
-| [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
-| [**markdownlint**](https://github.com/igorshubovych/markdownlint-cli) | `markdown` linter/formatter |
-
+| Language    | Adapter |
+| :---------- | :--------- |
+| C/C++, Rust | [codelldb](https://github.com/vadimcn/vscode-lldb) |
+| Go          | [delve](https://github.com/go-delve/delve) |
 
 ##### AI Assistant
 
@@ -197,88 +184,83 @@ Runtime version management tool
 
 ##### CLI Tools
 
-| Tools | Description |
-| :---- | :---------- |
-| [**`zellij`**](https://github.com/zellij-org/zellij) | Terminal Multiplexer |
-| [**`starship`**](https://github.com/starship/starship) | Shell prompt |
-| [**`sheldon`**](https://github.com/rossmacarthur/sheldon) | Shell plugin manager |
-| [**`neovim`**](https://github.com/neovim/neovim) | Hyper extensive editor |
-| [**`tree-sitter`**](https://github.com/tree-sitter/tree-sitter) | Language Parser |
-| [**`zoxide`**](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command |
-| [**`bat`**](https://github.com/sharkdp/bat) | `cat` alternative |
-| [**`fd`**](https://github.com/sharkdp/fd) | `find` alternative |
-| [**`ripgrep`**](https://github.com/BurntSushi/ripgrep) | `grep` alternative |
-| [**`ripgrep-all`**](https://github.com/phiresky/ripgrep-all) | extended `rg` for docs, image, movies |
-| [**`fzf`**](https://github.com/junegunn/fzf) | Fuzzy Finder |
-| [**`bottom`**](https://github.com/ClementTsang/bottom) | Process Monitor |
-| [**`watchexec`**](https://github.com/watchexec/watchexec) | Modify detector |
-| [**`dua`**](https://github.com/ClementTsang/bottom) | Disk Usage |
-| [**`yazi`**](https://github.com/sxyazi/yazi) | Modern TUI Explorer |
-| [**`hyperfine`**](https://github.com/sharkdp/hyperfine) | Benchmark Tool |
-| [**`genact`**](https://github.com/svenstaro/genact) | nonsense activity generator |
-| [**`tealdeer`**](https://github.com/tealdeer-rs/tealdeer) | TL; DR |
-| [**`yt-dlp`**](https://github.com/yt-dlp/yt-dlp) | Downloader |
-| [**`onefetch`**](https://github.com/o2sh/onefetch) | Repository information |
-| [**`gitui`**](https://github.com/gitui-org/gitui) | Git TUI |
-| [**`delta`**](https://github.com/dandavison/delta) | `diff` alternative for `git` |
-| [**`gibo`**](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates |
-| [**`commitizen`**](https://github.com/) | Commit message utiility |
-| [**`cz-conventional-changelog`**](https://github.com/) | Formatter |
-| [**`gh`**](https://github.com/cli/cli) | GitHub CLI |
-| [**`ghq`**](https://github.com/x-motemen/ghq) | Git secret detector |
-| [**`pinact`**](https://github.com/suzuki-shunsuke/pinact) | Version pinner for GitHub Actions |
-| [**`chezmoi`**](https://github.com/twpayne/chezmoi) | Dotfiles manager |
-| [**`gitleaks`**](https://github.com/gitleaks/gitleaks) | Git secret detector |
-| [**`age`**](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool |
-| [**`lima`**](https://github.com/lima-vm/lima) | Docker alternative |
-| [**`colima`**](https://github.com/abisoft/colima) | Lightweight `lima` frontend |
-| [**`docker`**](https://github.com/docker/cli) | Docker CLI |
-| [**`buildx`**](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
-| [**`compose`**](https://github.com/docker/compose) | multi-container interface with Docker |
-| [**`dive`**](https://github.com/wagoodman/dive) | Exploring each layer in a docker image |
-| [**`lazydocker`**](https://github.com/jesseduffield/lazydocker) | TUI tool for `docker` |
-| [**`ollama`**](https://github.com/ollama/ollama) | llama.cpp frontend |
-| [**`opencode`**](https://github.com/anomalco/opencode) | Coding agent supports multi-provider |
-| [**`gemini-cli`**](https://github.com/google-gemini/gemini-cli) | Coding Agent powered by Gemini |
+| Tools                                                     | Description                               |
+| :-------------------------------------------------------- | :---------------------------------------- |
+| [zellij](https://github.com/zellij-org/zellij)            | Terminal Multiplexer                      |
+| [starship](https://github.com/starship/starship)          | Shell prompt                              |
+| [sheldon](https://github.com/rossmacarthur/sheldon)       | Shell plugin manager                      |
+| [neovim](https://github.com/neovim/neovim)                | Hyper extensive editor                    |
+| [tree-sitter](https://github.com/tree-sitter/tree-sitter) | Language Parser                           |
+| [zoxide](https://github.com/ajeetdsouza/zoxide)           | Smarter `cd` command                      |
+| [bat](https://github.com/sharkdp/bat)                     | `cat` alternative                         |
+| [fd](https://github.com/sharkdp/fd)                       | `find` alternative                        |
+| [ripgrep](https://github.com/BurntSushi/ripgrep)          | `grep` alternative                        |
+| [ripgrep-all](https://github.com/phiresky/ripgrep-all)    | extended `rg` for docs, image, movies     |
+| [fzf](https://github.com/junegunn/fzf)                    | Fuzzy Finder                              |
+| [bottom](https://github.com/ClementTsang/bottom)          | Process Monitor                           |
+| [watchexec](https://github.com/watchexec/watchexec)       | Modify detector                           |
+| [dua](https://github.com/ClementTsang/bottom)             | Disk Usage                                |
+| [yazi](https://github.com/sxyazi/yazi)                    | Modern TUI Explorer                       |
+| [genact](https://github.com/svenstaro/genact)             | nonsense activity generator               |
+| [tealdeer](https://github.com/tealdeer-rs/tealdeer)       | TL; DR                                    |
+| [xh](https://github.com/ducaale/xh)                       | HTTP client                               |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp)                | Downloader                                |
+| [onefetch](https://github.com/o2sh/onefetch)              | Repository information                    |
+| [delta](https://github.com/dandavison/delta)              | `diff` alternative for `git`              |
+| [gibo](https://github.com/simonwhitaker/gibo)             | `.gitignore` boilerplates                 |
+| [commitizen](https://github.com/commitizen/cz-cli)        | Commit message utiility                   |
+| [cz-conventional-changelog](https://github.com/)          | Conventional commit formatter             |
+| [gh](https://github.com/cli/cli)                          | GitHub CLI                                |
+| [ghq](https://github.com/x-motemen/ghq)                   | Git secret detector                       |
+| [pinact](https://github.com/suzuki-shunsuke/pinact)       | Version pinner for GitHub Actions         |
+| [glow](https://github.com/charmbracelet/glow)             | Markdown renderer on the CLI              |
+| [mdserve](https://github.com/jfernandez/mdserve)          | Markdown previewer                        |
+| [netwatch](https://github.com/matthart1983/netwatch)      | Realtime network TUI                      |
+| [rainfrog](https://github.com/achristmascarl/rainfrog)    | Database TUI                              |
+| [xan](https://github.com/medialab/xan)                    | CSV visualization toolkit                 |
+| [pandoc](https://github.com/jgm/pandoc)                   | Universal markup converter                |
+| [chezmoi](https://github.com/twpayne/chezmoi)             | Dotfiles manager                          |
+| [gitleaks](https://github.com/gitleaks/gitleaks)          | Git secret detector                       |
+| [age](https://github.com/FiloSottile/age)                 | Simple encrypt / decrypt tool             |
+| [lima](https://github.com/lima-vm/lima)                   | Docker alternative                        |
+| [colima](https://github.com/abisoft/colima)               | Lightweight `lima` frontend               |
+| [docker](https://github.com/docker/cli)                   | Docker CLI                                |
+| [buildx](https://github.com/docker/buildx)                | Extended build capabilities with BuildKit |
+| [compose](https://github.com/docker/compose)              | multi-container interface with Docker     |
+| [dive](https://github.com/wagoodman/dive)                 | Exploring each layer in a docker image    |
+| [ollama](https://github.com/ollama/ollama)                | llama.cpp frontend                        |
 
 ##### Linter / Formatter
 
 | Tools | Description |
 | :---- | :---------- |
-| [**`shfmt`**](https://github.com/mvdan/sh) | Shell Formatter |
-| [**`biome`**](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
-| [**`ruff`**](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
-| [**`tombi`**](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
-| [**`yamlfmt`**](https://github.com/google/yamlfmt) | YAML Formatter |
-| [**`actionlint`**](https://github.com/rhysd/actionlint) | YAML Linter for GitHub Actions workflows |
-| [**`hadolint`**](https://github.com/hadolint/hadolint) | Dockerfile Linter |
-| [**`golangci-lint`**](https://github.com/golangci/golangci-lint) | Go Linter aggregator |
-| [**`checkmake`**](https://github.com/mrtazz/checkmake) | Makefile Linter |
-| [**`stylua`**](https://github.com/JohnnyMorganz/StyLua) | Lua Linter |
-| [**`typos`**](https://github.com/crate-ci/typos) | Source code shell checker |
-| [**`jq`**](https://github.com/jqlang/jq) | CLI processor for JSON |
-| [**`yq`**](https://github.com/jqlang/jq) | CLI processor for YAML & many filetypes |
+| [shfmt](https://github.com/mvdan/sh) | Shell Formatter |
+| [biome](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
+| [ruff](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
+| [tombi](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
+| [yamlfmt](https://github.com/google/yamlfmt) | YAML Formatter |
+| [actionlint](https://github.com/rhysd/actionlint) | YAML Linter for GitHub Actions workflows |
+| [hadolint](https://github.com/hadolint/hadolint) | Dockerfile Linter |
+| [golangci-lint](https://github.com/golangci/golangci-lint) | Go Linter aggregator |
+| [checkmake](https://github.com/mrtazz/checkmake) | Makefile Linter |
+| [stylua](https://github.com/JohnnyMorganz/StyLua) | Lua Linter |
+| [typos](https://github.com/crate-ci/typos) | Source code shell checker |
+| [jq](https://github.com/jqlang/jq) | CLI processor for JSON |
+| [yq](https://github.com/jqlang/jq) | CLI processor for YAML & many filetypes |
+| [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
+| [rumdl](https://github.com/rvben/rumdl) | Markdown Linter / Formatter |
 
 #### AI Tools
 
-##### OpenCode
-
-| Tool | Description |
-| :--- | :---------- |
-| [**`OpenCode`**](https://opencode.ai) | Open Source AI Agent |
-| [`oh-my-opencode`](https://github.com/code-yeongyu/oh-my-opencode) | Steroids for your onprem code. |
-| [`superpowers`](https://github.com/obra/superpowers) | Core skills library |
-| [`Awesome Claude Code Subagents`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
-
-
-##### Gemini CLI
-
-| Tool | Description |
-| :--- | :---------- |
+| Tool               | Description |
+| :---- | :--------- |
+| [superpowers](https://github.com/obra/superpowers) | An agentic skills framework & software development methodology that works. |
+| [**`OpenCode`**](https://opencode.ai/) | Open Source AI Agent |
+| [oh-my-opencode](https://github.com/code-yeongyu/oh-my-openagent) | omo; the best agent harness - previously oh-my-opencode |
 | [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
-| [`code-review`](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
-| [`conductor`](https://github.com/gemini-cli-extensions/conductor) | Gemini CLI extension that allows you to specify, plan, and implement software features |
-| [`security`](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
+| [code-review](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
+| [conductor](https://github.com/gemini-cli-extensions/conductor) |  Gemini CLI extension that allows you to specify, plan, and implement software features |
+| [security](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
 
 ### Homebrew cask packages
 
@@ -286,28 +268,25 @@ Runtime version management tool
 
 | Package | Configuration files |
 | :------ | :------------------ |
-| [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/) | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
+| [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
 
 #### Fonts
 
 | Package | Notes |
 | :------ | :---- |
-| [**font-jetbrains-mono-nerd-font**](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
-| [**font-plemol-jp-nf**](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
-| [**font-udev-gothic-nf**](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono |
+| [font-jetbrains-mono-nerd-font](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
+| [font-plemol-jp-nf](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
+| [font-udev-gothic-nf](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono |
 
 #### Dev packages
 
 | Package | Category |
 | :------ | :------- |
-| [**wezterm**](https://github.com/wez/wezterm) | Terminal |
-| [**Ghostty**](https://github.com/ghostty-org/ghostty) | Terminal |
-| [**Visual Studio Code**](https://code.visualstudio.com/) | IDE |
-| [**Docker**](https://www.docker.com/) | Container |
-| [**TablePlus**](https://tableplus.com/) | Database |
-| [**drawio**](https://www.drawio.com/) | Diagram |
-| [**termshark**](https://github.com/gcla/termshark) | Network |
-| [**TunnelBear**](https://www.tunnelbear.com/) | VPN |
+| [wezterm](https://github.com/wez/wezterm) | Terminal |
+| [Ghostty](https://github.com/ghostty-org/ghostty) | Terminal |
+| [Zed](https://zed.dev/) | IDE |
+| [Docker](https://www.docker.com/) | Container |
+| [drawio](https://www.drawio.com/) | Diagram |
 
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Caskfile.tmpl)
 
