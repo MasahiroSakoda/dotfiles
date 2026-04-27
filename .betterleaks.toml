@@ -1,0 +1,6 @@
+title = "Dotfiles Betterleaks Configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
