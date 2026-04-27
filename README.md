@@ -268,28 +268,25 @@ Runtime version management tool
 
 | Package | Configuration files |
 | :------ | :------------------ |
-| [**Karabiner-Elements**](https://karabiner-elements.pqrs.org/) | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
+| [Karabiner-Elements](https://karabiner-elements.pqrs.org/) | [~/.config/karabiner](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_config/private_karabiner) |
 
 #### Fonts
 
 | Package | Notes |
 | :------ | :---- |
-| [**font-jetbrains-mono-nerd-font**](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
-| [**font-plemol-jp-nf**](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
-| [**font-udev-gothic-nf**](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono |
+| [font-jetbrains-mono-nerd-font](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
+| [font-plemol-jp-nf](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
+| [font-udev-gothic-nf](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono |
 
 #### Dev packages
 
 | Package | Category |
 | :------ | :------- |
-| [**wezterm**](https://github.com/wez/wezterm) | Terminal |
-| [**Ghostty**](https://github.com/ghostty-org/ghostty) | Terminal |
-| [**Visual Studio Code**](https://code.visualstudio.com/) | IDE |
-| [**Docker**](https://www.docker.com/) | Container |
-| [**TablePlus**](https://tableplus.com/) | Database |
-| [**drawio**](https://www.drawio.com/) | Diagram |
-| [**termshark**](https://github.com/gcla/termshark) | Network |
-| [**TunnelBear**](https://www.tunnelbear.com/) | VPN |
+| [wezterm](https://github.com/wez/wezterm) | Terminal |
+| [Ghostty](https://github.com/ghostty-org/ghostty) | Terminal |
+| [Zed](https://zed.dev/) | IDE |
+| [Docker](https://www.docker.com/) | Container |
+| [drawio](https://www.drawio.com/) | Diagram |
 
 Other Homebrew cask packages: [**`Caskfile`**](https://github.com/MasahiroSakoda/dotfiles/blob/main/home/dot_Caskfile.tmpl)
 
