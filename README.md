@@ -38,7 +38,7 @@
     * [NeoVim](#neovim)
       * [LSP](#lsp)
       * [DAP](#dap)
-      * [Linter](#linter)
+      * [Linter / Formatter](#linter--formatter)
     * [mise](#mise)
   * [Homebrew cask packages](#homebrew-cask-packages)
   * [App Store apps](#app-store-apps)
@@ -115,7 +115,7 @@ Other Homebrew packages: [**`Brewfile`**](https://github.com/MasahiroSakoda/dotf
 * [Builtin LSP Supported](#lsp)
 * [DAP supported](#dap) with [**`nvim-dap`**](https://github.com/mfussenegger/nvim-dap), [**`nvim-dap-view`**](https://github.com/igorlfs/nvim-dap-view)
 * Addtional completion with [blink.cmp](https://github.com/saghen/blink.cmp)
-* [Linter support](#linter)
+* [Linter support](#linter--formatter)
 * Snippet support: [**`LuaSnip`**](https://github.com/L3MON4D3/LuaSnip), [**`friendly-snippets`**](https://github.com/rafamadriz/friendly-snippets)
 * Fuzzy Finder: [**`Snacks.picker`**](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md)
 * [AI Assistant](#ai-assistant) available
@@ -252,24 +252,15 @@ Runtime version management tool
 
 #### AI Tools
 
-##### OpenCode
-
-| Tool | Description |
-| :--- | :---------- |
-| [**`OpenCode`**](https://opencode.ai) | Open Source AI Agent |
-| [`oh-my-opencode`](https://github.com/code-yeongyu/oh-my-opencode) | Steroids for your onprem code. |
-| [`superpowers`](https://github.com/obra/superpowers) | Core skills library |
-| [`Awesome Claude Code Subagents`](https://github.com/VoltAgent/awesome-claude-code-subagents) | The awesome collection of Claude Code subagents. |
-
-
-##### Gemini CLI
-
-| Tool | Description |
-| :--- | :---------- |
+| Tool               | Description |
+| :---- | :--------- |
+| [superpowers](https://github.com/obra/superpowers) | An agentic skills framework & software development methodology that works. |
+| [**`OpenCode`**](https://opencode.ai/) | Open Source AI Agent |
+| [oh-my-opencode](https://github.com/code-yeongyu/oh-my-openagent) | omo; the best agent harness - previously oh-my-opencode |
 | [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
-| [`code-review`](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
-| [`conductor`](https://github.com/gemini-cli-extensions/conductor) | Gemini CLI extension that allows you to specify, plan, and implement software features |
-| [`security`](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
+| [code-review](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
+| [conductor](https://github.com/gemini-cli-extensions/conductor) |  Gemini CLI extension that allows you to specify, plan, and implement software features |
+| [security](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
 
 ### Homebrew cask packages
 
