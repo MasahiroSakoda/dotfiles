@@ -16,7 +16,7 @@ Adhere to the following security principles:
 
 ### 🔐 Secure Development Lifecycle (SDLC)
 
-- **Secure Coding**: All code should be written in accordance with secure coding best practices, such as those outlined in the [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- **Secure Coding**: All code should be written in accordance with secure coding best practices, such as those outlined in the [OWASP Top 10](https://owasp.org/Top10/2025/)
 - **Code Review**: All code changes must be reviewed for security vulnerabilities before being merged into the main branch.
 - **Dependency Management**: All third-party dependencies must be scanned for known vulnerabilities.
 - **Security Testing**: Perform regular security testing, including static application security testing (SAST), dynamic application security testing (DAST), and penetration testing.
