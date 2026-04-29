@@ -1,8 +1,6 @@
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
-# -*-mode:toml-*- vim:ft=toml
-
 [env]
 # supports arbitrary env vars so mise can be used like direnv/dotenv
 NODE_ENV = "development"
@@ -19,7 +17,7 @@ gpg_verify = true  # Use gpg to verify all tool signatures
 always_keep_download = false        # deleted after install by default
 always_keep_install  = false        # deleted on failure by default
 
-install_before = "3d" # To limit supply chain risk
+minimum_release_age = "3d" # To limit supply chain risk
 
 trusted_config_paths = [
   "~/Dev/repos/github.com/MasahiroSakoda",
@@ -108,6 +106,7 @@ ruby    = "3"
 "aqua:o2sh/onefetch"            = "latest" # Repository information
 "aqua:dandavison/delta"         = "latest" # git-delta
 "aqua:simonwhitaker/gibo"       = "latest" # .gitignore boilerplates
+"github:gitui-org/gitui"        = "latest" # Blazing 💥 fast terminal-ui for git written in rust 🦀
 "github:trasta298/keifu"        = "latest" #
 "github:max-sixty/worktrunk"    = "latest" # Git worktree management, designed for parallel AI agent workflows
 "npm:commitizen"                = "latest" # commit message utility
@@ -179,6 +178,7 @@ ruby    = "3"
 "aqua:FiloSottile/age"           = "latest" # Simple encrypt / decrypt tool
 "github:betterleaks/betterleaks" = "latest" # A Better Secrets Scanner built for configurability and speed
 "github:jdx/fnox"                = "latest" # encrypted/remote secret manager
+"github:AikidoSec/safe-chain"    = "latest" # Protect against malicious code installed via npm, yarn, pnpm, npx, pnpx, pip, uv and poetry
 
 ## Container
 "aqua:lima-vm/lima"     = "latest" # Linux virtual machines, with a focus on running containers
