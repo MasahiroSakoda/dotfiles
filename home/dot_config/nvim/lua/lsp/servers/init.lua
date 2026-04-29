@@ -21,6 +21,7 @@ return {
   marksman      = require("lsp.servers.marksman"),      -- Markdown
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   terraformls   = require("lsp.servers.terraformls"),   -- Terraform
+  zizmor        = require("lsp.servers.zizmor"),        -- GitHub Actions
   sqls          = require("lsp.servers.sqls"),          -- SQL
   texlab        = require("lsp.servers.texlab"),        -- LaTex
 }
