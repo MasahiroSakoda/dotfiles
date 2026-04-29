@@ -4,6 +4,7 @@
 selected_tab   = "#bb9af7"
 selection_fg   = "#7dcfff"
 selection_bg   = "#292e42"
+command_fg     = "#4c4f69"
 cmdbar_bg      = "#24283b"
 extra_lines_bg = "#24283b"
 disabled_fg    = "#565f89"
