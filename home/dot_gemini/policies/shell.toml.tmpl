@@ -11,19 +11,22 @@ toolName      = "run_shell_command"
 commandPrefix = ["rm -rf", "sudo rm"]
 decision      = "deny"
 priority      = 100
+deny_message  = "Blocked: Destructive commands is not allowed."
 
 # Permission Commands
 [[rule]]
 toolName      = "run_shell_command"
-commandPrefix = ["chmod +x", "chmod 777", "sudo chmod", "sudo chown"]
+commandPrefix = ["chmod +x", "chmod +s", "chmod 777", "sudo chmod", "sudo chown"]
 decision      = "deny"
 priority      = 100
+deny_message  = "Blocked: Permission related commands is not allowed."
 
 [[rule]]
 toolName      = "run_shell_command"
 commandPrefix = ["sudo", "sudo su", "sudo -i"]
 decision      = "deny"
 priority      = 100
+deny_message  = "Blocked: Permission related commands is not allowed."
 
 # Process Commands
 [[rule]]
@@ -37,6 +40,7 @@ toolName      = "run_shell_command"
 commandPrefix = ["kill", "pkill", "killall"]
 decision      = "deny"
 priority      = 100
+deny_message  = "Blocked: Process related commands is not allowed."
 
 # Network related Commands
 [[rule]]
@@ -44,6 +48,7 @@ toolName      = "run_shell_command"
 commandPrefix = ["scp", "ftp", "sftp", "telnet", "ssh"]
 decision      = "deny"
 priority      = 100
+deny_message  = "Blocked: Process related commands is not allowed."
 
 # Search Commands
 [[rule]]

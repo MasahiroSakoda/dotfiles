@@ -1,3 +1,26 @@
+# Protect AI agent configuration
+[[rule]]
+toolName    = ["write_file", "replace"]
+argsPattern = ".*\\.(claude|gemini)/settings\\.json"
+decision    = "deny"
+priority    = 100
+denyMessage = "Modifying AI agent configuration files is prohibited."
+
+# Protect Gemini CLI extension files from malicious access
+[[rule]]
+toolName = ["write_file", "replace"]
+argsPattern = ".*\\.gemini/extensions/.*"
+decision = "deny"
+priority = 100
+denyMessage = "Modifying extension files is prohibited to ensure framework integrity."
+
+[[rule]]
+toolName     = "run_shell_command"
+commandRegex = ".*\\.gemini/extensions/.*"
+decision     = "deny"
+priority     = 100
+denyMessage  = "Modification of Gemini extensions via shell is prohibited."
+
 # Block access to sensitive files
 [[rule]]
 toolName     = ["read_file", "read_many_files", "write_file", "glob", "replace", "search_file_content"]
