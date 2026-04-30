@@ -108,6 +108,7 @@ Filetypes.lsp = {
   terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
   tombi        = { "tombi.toml", "pyprojet.toml", ".git" },
   texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
+  harper       = { "markdown", "markdown.mdx", "typst", "tex", "plaintex", "text", "gitcommit" },
   sqruff       = { ".sqruff" },
 }
 
