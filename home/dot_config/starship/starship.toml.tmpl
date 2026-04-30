@@ -12,9 +12,9 @@ $sudo\
 $localip\
 $shlvl\
 $directory\
-[](fg:{{ .starship.env.bg_color }} bg:{{ .git.color.branch.bg_color }})\
+[](fg:{{ .starship.env.bg_color }} bg:{{ .git.color.branch.fg_color }})\
 $git_branch\
-[ ](fg:{{ .git.color.branch.bg_color }})\
+[ ](fg:{{ .git.color.branch.fg_color }})\
 $git_commit\
 $git_status\
 $git_state\
@@ -259,7 +259,7 @@ cherry_pick = '[ PICKING](bold red)'
 
 # ref: https://starship.rs/config/#git-branch
 [git_branch]
-style  = "underline fg:{{ .git.color.branch.fg_color }} bg:{{ .git.color.branch.bg_color}}"
+style  = "underline fg:{{ .git.color.branch.bg_color }} bg:{{ .git.color.branch.fg_color}}"
 format = "[$symbol $branch(:$remote_branch) ]($style)"
 symbol = ""
 
