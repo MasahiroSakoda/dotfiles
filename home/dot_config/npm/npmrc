@@ -7,6 +7,9 @@ progress=true
 min-release-age=7
 ignore-scripts=true
 
+# Takumi Guard (Flatt Security) - supply chain security proxy registry
+registry=https://npm.flatt.tech/
+
 {{- /*
 # -*-mode:dosini-*- vim:ft=dosini
 */ -}}
