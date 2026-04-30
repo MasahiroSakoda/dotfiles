@@ -24,4 +24,5 @@ return {
   zizmor        = require("lsp.servers.zizmor"),        -- GitHub Actions
   sqls          = require("lsp.servers.sqls"),          -- SQL
   texlab        = require("lsp.servers.texlab"),        -- LaTex
+  harper        = require("lsp.servers.harper_ls"),     -- english grammer
 }
