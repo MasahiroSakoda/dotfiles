@@ -35,8 +35,8 @@ moved    = "#ff007c"
 modified = "#e0af68"
 
 [git.color.branch]
-fg_color = "#090c09"
-bg_color = "#a2b1c1"
+fg_color = "#e6e6e6"
+bg_color = "#090c09"
 
 [git.color.commit]
 hash     = "#bb9af7"
