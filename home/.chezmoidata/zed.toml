@@ -1,6 +1,6 @@
 [zed.theme]
-light = "One Dark"
-dark  = "One Dark"
+light = "GitHub Dark"
+dark  = "GitHub Dark"
 mode  = "system"
 icon  = "Material Icon Theme"
 
