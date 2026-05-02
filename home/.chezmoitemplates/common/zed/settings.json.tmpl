@@ -59,7 +59,7 @@
     "show_onboarding_banner": false,
     "show_user_picture": false,
     "show_sign_in": false,
-    "show_menus": true,
+    "show_menus": true
   },
   "tab_bar": {
     "show": true,
@@ -133,13 +133,27 @@
   "auto_install_extensions": {
     "material-icon-theme": true,
     "github-theme": true,
+    {{/*
+    // -----------------------------------------------------
+    // Language support
+    // -----------------------------------------------------
+    */ -}}
+    "dockerfile": true,
+    "docker-compose": true,
+    "gosum": true,
+    "gotmpl": true,
+    "toml": true,
+    "fish": true,
+    "lua": true,
+    "sql": true,
+    "ini": true,
+    "latex": true
   },
   {{/*
   // ===========================================================================
   // LSP
   // ===========================================================================
   */ -}}
-  "auto_install_extensions": {},
   "lsp": {
     {{/*
     "bash-language-server": {
