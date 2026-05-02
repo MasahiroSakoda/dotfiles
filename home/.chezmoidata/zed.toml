@@ -1,0 +1,20 @@
+[zed.theme]
+light = "One Dark"
+dark  = "One Dark"
+mode  = "system"
+icon  = "Material Icon Theme"
+
+[zed.ui]
+
+[zed.terminal]
+
+[zed.search]
+smartcase = true
+
+[zed.lsp.diagnostics]
+
+[zed.lsp.inlay_hints]
+
+[zed.lsp.servers.texlab]
+
+[zed.extensions]
