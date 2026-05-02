@@ -12,6 +12,12 @@
     "use_new_terminal": true,
   },
   {
+    "label": "chezmoi apply",
+    "command": "chezmoi",
+    "args": ["apply", "--verbose"],
+    "reveal": "never"
+  },
+  {
     "label": "Oil",
     "command": "exec nvim --cmd \"set noswapfile\" -c \"lua require('oil').open_float('$ZED_DIRNAME')\" -c \"autocmd FileType oil nnoremap <buffer>silent> q :qa!<CR>\"",
     "user_new_terminal": true,
