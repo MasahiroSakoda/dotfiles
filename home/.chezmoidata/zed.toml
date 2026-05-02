@@ -23,6 +23,7 @@ material-icon-theme = true
 github-theme        = true
 
 # Language support
+editorconfig   = true
 dockerfile     = true
 docker-compose = true
 gosum          = true
