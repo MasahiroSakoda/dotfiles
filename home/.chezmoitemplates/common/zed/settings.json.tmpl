@@ -130,25 +130,7 @@
   // Extension config
   // ===========================================================================
   */ -}}
-  "auto_install_extensions": {
-    "material-icon-theme": true,
-    "github-theme": true,
-    {{/*
-    // -----------------------------------------------------
-    // Language support
-    // -----------------------------------------------------
-    */ -}}
-    "dockerfile": true,
-    "docker-compose": true,
-    "gosum": true,
-    "gotmpl": true,
-    "toml": true,
-    "fish": true,
-    "lua": true,
-    "sql": true,
-    "ini": true,
-    "latex": true
-  },
+  "auto_install_extensions": {{ .zed.extensions | toPrettyJson | indent 2 | trim }},
   {{/*
   // ===========================================================================
   // LSP
@@ -186,7 +168,7 @@
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ty" | quote }},
         "arguments": ["server"]
-      },
+      }
     },
     "ruff": {
       "initialization_options": {

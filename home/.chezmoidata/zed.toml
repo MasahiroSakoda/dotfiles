@@ -18,3 +18,21 @@ smartcase = true
 [zed.lsp.servers.texlab]
 
 [zed.extensions]
+# Appearance
+material-icon-theme = true
+github-theme        = true
+
+# Language support
+dockerfile     = true
+docker-compose = true
+gosum          = true
+gotmpl         = true
+fish           = true
+lua            = true
+sql            = true
+toml           = true
+xml            = true
+ini            = true
+csv            = true
+rainbow-csv    = true
+latex          = true
