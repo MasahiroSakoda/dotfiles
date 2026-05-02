@@ -11,6 +11,14 @@ icon  = "Material Icon Theme"
 [zed.search]
 smartcase = true
 
+[zed.filetypes]
+"Dockerfile" = ["Dockerfile.*"]
+"Git Attributes" = ["**/{git,.git,.git/info}/attributes"]
+"Git Config" = [ "*.gitconfig", "**/{git,.git/modules,.git/modules/*}/config" ]
+"Git Ignore" = ["**/{git,.git}/ignore", "**/.git/info/exclude"]
+"env" = [".env", "**/.env*", "**/.envrc*"]
+"GitHub Actions" = [ "**/.github/workflows/*.yaml", "**/.github/workflows/*.yml" ]
+
 [zed.lsp.diagnostics]
 
 [zed.lsp.inlay_hints]

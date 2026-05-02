@@ -97,14 +97,7 @@
     "**/.idea",
     "**/.vscode"
   ],
-  "file_types": {
-    "Dockerfile": ["Dockerfile.*"],
-    "Git Attributes": ["**/{git,.git,.git/info}/attributes"],
-    "Git Config": [ "*.gitconfig", "**/{git,.git/modules,.git/modules/*}/config" ],
-    "Git Ignore": ["**/{git,.git}/ignore", "**/.git/info/exclude"],
-    "env": [".env", "**/.env*", "**/.envrc*"],
-    "GitHub Actions": [ "**/.github/workflows/*.yaml", "**/.github/workflows/*.yml" ]
-  },
+  "file_types": {{ .zed.filetypes | toPrettyJson | indent 2 | trim }},
   {{/*
   // ===========================================================================
   // Git
