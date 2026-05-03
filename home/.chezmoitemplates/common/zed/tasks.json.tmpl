@@ -1,5 +1,23 @@
 [
   {
+    "label": "gitui",
+    "command": "gitui",
+    "shell": { "program": "sh" },
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "hide": "on_success",
+    "reveal_target": "center",
+    "show_summary": false,
+    "show_command": false,
+    "allow_concurrent_runs": false,
+    "use_new_terminal": true,
+  },
+  {
+    "label": "chezmoi apply",
+    "command": "chezmoi",
+    "args": ["apply", "--verbose"],
+    "reveal": "never"
+  },
+  {
     "label": "Oil",
     "command": "exec nvim --cmd \"set noswapfile\" -c \"lua require('oil').open_float('$ZED_DIRNAME')\" -c \"autocmd FileType oil nnoremap <buffer>silent> q :qa!<CR>\"",
     "user_new_terminal": true,
