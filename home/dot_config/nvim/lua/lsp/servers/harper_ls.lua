@@ -2,7 +2,6 @@
 return {
   cmd = { "harper-ls", "--stdio" },
   filetypes = require("user.filetypes").lsp.happer,
-  root_markers = { ".git" },
   single_file_support = true,
   capabilities = {
     semanticTokens = { multilineTokenSupport = true },
@@ -10,10 +9,36 @@ return {
   settings = {
     ["harper-ls"] = {
       diagnosticSeverity = "hint",
-      linters = { SpellCheck = true, SentenceCapitalization = true },
+      ---@see https://writewithharper.com/docs/rules
+      linters = {
+        SpellCheck                   = true,
+        Spaces                       = false,
+        LongSentences                = false,
+        ExpandAlloc                  = false,
+        ExpandArgument               = false,
+        ExpandControl                = false,
+        ExpandDependencies           = false,
+        ExpandForward                = false,
+        ExpandMemoryShorthands       = false,
+        ExpandMinimum                = false,
+        ExpandParameter              = false,
+        ExpandPointer                = false,
+        ExpandPrevious               = false,
+        ExpandStandardInputAndOutput = false,
+        ExpandTimeShorthands         = false,
+        ExpandThrough                = false,
+        ExpandWith                   = false,
+        ExpandWithout                = false,
+        PhrasalVerbAsCompoundNoun    = false,
+        SplitWords                   = false,
+        ToDoHyphen                   = false,
+        SentenceCapitalization       = true
+      },
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",
       maxFileLength = 120000,
+      userDictPath = vim.fs.joinpath(vim.fn.stdpath("config"), "harper", "dictionary.txt"),
+      fileDictPath = "",
     },
   },
 }
