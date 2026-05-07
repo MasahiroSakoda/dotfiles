@@ -43,6 +43,14 @@ decision    = "deny"
 priority    = 300
 deny_message = "Blocked: Destructive git operations is not allowed."
 
+## Block non-verified commit
+[[rule]]
+toolName      = "run_shell_command"
+commandPrefix = "rtk git commit --no-verify"
+decision      = "deny"
+priority      = 200
+deny_message  = "Blocked: Commit should be signed to pass CI"
+
 ## GitHub Command Policies
 ### Allow read-only operations
 [[rule]]
