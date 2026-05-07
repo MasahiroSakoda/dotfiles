@@ -2,7 +2,6 @@
 return {
   cmd = { "harper-ls", "--stdio" },
   filetypes = require("user.filetypes").lsp.happer,
-  root_markers = { ".git" },
   single_file_support = true,
   capabilities = {
     semanticTokens = { multilineTokenSupport = true },
