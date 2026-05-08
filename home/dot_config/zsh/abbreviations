@@ -35,7 +35,7 @@ abbr gs="git status"
 abbr gl="gitleaks git"
 abbr gmv="git mv --verbose"
 
-abbr gd="git diff"
+abbr gd="hunk diff"
 abbr ga="git add --verbose"
 abbr grm="git rm"
 abbr gsw="git switch"
