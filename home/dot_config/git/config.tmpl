@@ -1,13 +1,11 @@
-# -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
-
 [include]
   path = conf.d/alias.conf
-  path = conf.d/delta.conf
   path = conf.d/lfs.conf
   path = conf.d/gist.conf
   path = conf.d/ghq.conf
   path = conf.d/user.conf
   path = conf.d/security.conf
+  path = conf.d/hunk.conf
 
 [core]
   {{- if or (eq (env "CODESPACES") "true") (eq (env "REMOTE_CONTAINERS") "true") }}
@@ -15,7 +13,8 @@
   {{- else }}
   editor       = nvim
   {{- end }}
-	excludesfile = ${XDG_CONFIG_HOME}/git/ignore
+  excludesfile = ${XDG_CONFIG_HOME}/git/ignore
+  diff = hunk pager
 
 [color]
   ui = true
@@ -24,7 +23,7 @@
   branch = auto
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
 [branch]
   autosetuprebase = always
@@ -48,3 +47,7 @@
 
 [pull]
   ff = only
+
+{{- /*
+# -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
+*/ -}}
