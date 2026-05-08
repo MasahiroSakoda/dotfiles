@@ -1,18 +1,20 @@
+# pnpm global configuation: https://pnpm.io/configuring#global-configuration
+
 # Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
-minimum-release-age=10080 # 7 days (in minutes)
+minimumReleaseAge: 10080 # 7 days (in minutes)
 
 # Block transitive deps from using git/tarball sources
-block-exotic-subdeps=true
+blockExoticSubDeps: true
 
 # Exit with a non-zero exit code if any dependencies have unreviewed build scripts (aka postinstall scripts).
-strict-dep-builds=true
+strictDepBuilds: true
 
 # fail if a package's trust level has decreased compared to previous releases.
-trust-policy=no-downgrade
+trustPolicy: no-downgrade
 
 # Takumi Guard (Flatt Security) - supply chain security proxy registry
-registry=https://npm.flatt.tech/
+# registry: https://npm.flatt.tech/
 
 {{- /*
-# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+# -*-mode:yaml-*- vim:ft=yaml.gotexttmpl
 */ -}}
