@@ -207,7 +207,7 @@ Runtime version management tool
 | [xh](https://github.com/ducaale/xh)                       | HTTP client                               |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp)                | Downloader                                |
 | [onefetch](https://github.com/o2sh/onefetch)              | Repository information                    |
-| [delta](https://github.com/dandavison/delta)              | `diff` alternative for `git`              |
+| [hunk](https://github.com/modem-dev/hunk) | Review-first terminal diff viewer for agentic coders |
 | [gibo](https://github.com/simonwhitaker/gibo)             | `.gitignore` boilerplates                 |
 | [commitizen](https://github.com/commitizen/cz-cli)        | Commit message utiility                   |
 | [cz-conventional-changelog](https://github.com/)          | Conventional commit formatter             |
