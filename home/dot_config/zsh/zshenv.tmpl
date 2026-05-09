@@ -81,6 +81,9 @@ export _ZO_EXCLUDE_DIRS="**/.git/**:**/node_modules/**:**/tmp/**:**/dist/**:**/b
 {{- end }}
 export _ZO_FZF_OPTS="--preview 'eza --tree --long --header --color=always --group-directories-first --hyperlink {} || echo \"No Preview\"' --exit-0"
 
+# hk: git hooks
+export HK_PKL_BACKEND=pklr # Enable built-in pkl evaluator
+
 # GitHub
 export GH_TELEMETRY=false
 export DO_NOT_TRACK=true
