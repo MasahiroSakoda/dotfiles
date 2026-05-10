@@ -6,7 +6,10 @@ local linters = new Mapping<String, Step> {
   //--------------------------------------------------
   // Generic Linters
   //--------------------------------------------------
-  ["byte-order-marker"]               = Builtins.byte_order_marker
+  // By default, chezmoi templates should be written in UTF-8 with no byte order mark
+  ["byte-order-marker"] = (Builtins.byte_order_marker) {
+    exclude = List("**/*.tmpl", "**/*.tmpl.age")
+  }
   ["check_add_large_files"]           = Builtins.check_added_large_files
   ["check_case_conflict"]             = Builtins.check_case_conflict
   ["check-executables-have-shebangs"] = Builtins.check_executables_have_shebangs
