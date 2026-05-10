@@ -10,8 +10,8 @@ identifier-leading-digits = false
 extend-ignore-re = [
   "(?Rm)^.*(<!--|#|//)\\s*spellchecker:disable-line(-->|\n)?$",
   "(?s)(<!--|#|//)\\s*spellchecker:off\\s*(-->|\n).*?(<!--|#|//)\\s*spellchecker:on",
-  "(?s)```.*?``` ",              # multi-line code block
-  "(?s)```[a-zA-Z0-9]*\n.*?```", # multi-line code block
+  "(?s)```.*?``` ",              # multiline code block
+  "(?s)```[a-zA-Z0-9]*\n.*?```", # multiline code block
   "(?s)`.*?` ",                  # inline code block
 ]
 
@@ -21,6 +21,8 @@ noice    = "noice"
 fo       = "fo"
 nd       = "nd"
 ot       = "ot"
+ue       = "ue"
+tese     = "tese"
 config   = "config"
 indx     = "indx"
 gpg      = "gpg"
