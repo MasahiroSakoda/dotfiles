@@ -1,10 +1,7 @@
-# pnpm global configuation: https://pnpm.io/configuring#global-configuration
+# pnpm global configuration: https://pnpm.io/configuring#global-configuration
 
 # Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
 minimumReleaseAge: 10080 # 7 days (in minutes)
-
-# Block transitive deps from using git/tarball sources
-blockExoticSubDeps: true
 
 # Exit with a non-zero exit code if any dependencies have unreviewed build scripts (aka postinstall scripts).
 strictDepBuilds: true
