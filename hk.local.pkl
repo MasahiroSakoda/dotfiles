@@ -1,0 +1,21 @@
+amends "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.45.0/hk@1.45.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+  ["mise"]   = Builtins.mise
+  ["shfmt"]  = Builtins.shfmt
+  // ["stylua"] = Builtins.stylua
+  ["biome"]  = Builtins.biome
+}
+
+hooks {
+  ["check"] {
+    steps = linters
+  }
+  ["fix"] {
+    fix   = true
+    steps = linters
+  }
+}
+
+// -*-mode:pkl-*- vim:ft=pkl
