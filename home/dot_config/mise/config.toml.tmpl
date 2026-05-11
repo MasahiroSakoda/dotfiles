@@ -20,7 +20,8 @@ always_keep_install  = false        # deleted on failure by default
 minimum_release_age = "3d" # To limit supply chain risk
 
 trusted_config_paths = [
-  "~/Dev/repos/github.com/MasahiroSakoda",
+  {{ .chezmoi.workingTree | quote }},
+  {{ joinPath .git.ghq_root .git.user | quote }},
 ]
 
 experimental = true
