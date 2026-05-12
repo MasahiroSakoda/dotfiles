@@ -1,0 +1,35 @@
+{
+  "$schema": "https://lnav.org/schemas/config-v1.schema.json",
+  "ui": {
+    "default-colors": true,
+    "theme": "night-owl",
+    "theme-defs": {
+      "default": {
+        "highlights": {
+          "colors": { "patterns": "(?:#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}\\b)" },
+          "ipv4": { "patterns": "\\b(?<!\\d\\.)\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b(?!\\.\\d)" },
+          "xml": { "patterns": "</?([^ >=!]+)[^>]*>" },
+          "xml-decl": { "patterns": "<!([^ >=!]+)[^>]*>" }
+        }
+      }
+    }
+  },
+  "log": {
+    "date-time": { "convert-zoned-to-local": true },
+    "demux": {
+      "container": {
+        "pattern": "^(?:\\x1b\\[\\d*K)?(?<mux_id>[a-zA-Z0-9][\\@a-zA-Z0-9_\\.\\-]*)\\s+\\| (?<timestamp>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{9}Z )?(?<body>.*)"
+      },
+      "container-with-type": {
+        "pattern": "^(?<mux_id>[a-zA-Z][\\w\\-]{3,}) (?<container_type>[a-zA-Z][\\w\\-]{3,}) (?<body>.*)"
+      },
+      "recv-with-pod": {
+        "pattern": "^(?<timestamp>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}(?:Z|[+\\-]\\d{2}:\\d{2})) source=[a-zA-Z0-9][a-zA-Z0-9_\\.\\-]* (?<body>.*) kubernetes_host=(?<k8s_host>[a-zA-Z0-9][a-zA-Z0-9_\\.\\-]*) kubernetes_pod_name=(?<mux_id>[a-zA-Z0-9][a-zA-Z0-9_\\.\\-]*)",
+        "control-pattern": "^===== (?:START|END) =====$"
+      }
+    }
+  }
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}
