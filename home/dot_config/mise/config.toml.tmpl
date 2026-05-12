@@ -189,10 +189,15 @@ ruby    = "3"
 "github:azu/dockerfile-pin" = "latest" # Docker image digest pinner
 
 ## AI Tools
-"aqua:ollama/ollama"         = "latest" # Get up and running with large language models.
+### Local / Cloud LLM frontend
+"aqua:ollama/ollama" = { version = "latest", minimum_release_age = "2d" }
+
+### AI Agents
+"aqua:anomalyco/opencode" = { version = "latest", minimum_release_age = "2d" }
+"npm:@google/gemini-cli"  = { version = "latest", minimum_release_age = "2d" }
+
+### AI utility
 "aqua:rtk-ai/rtk"            = "latest" # High-performance CLI proxy that reduces LLM token consumption by 60-90%
-"aqua:anomalyco/opencode"    = "latest" # The open source coding agent.
-"npm:@google/gemini-cli"     = "latest" # An open-source AI agent that brings the power of Gemini
 "github:dyoshikawa/rulesync" = "latest" # A Utility CLI for AI Coding Agents
 "github:googleworkspace/cli" = "latest" # Google Workspace CLI
 
