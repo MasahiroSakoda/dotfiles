@@ -32,7 +32,7 @@ return {
         PhrasalVerbAsCompoundNoun    = false,
         SplitWords                   = false,
         ToDoHyphen                   = false,
-        SentenceCapitalization       = true
+        SentenceCapitalization       = false,
       },
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",
