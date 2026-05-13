@@ -1,12 +1,26 @@
-# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+toml-version = "v1.1.0"
 
-# INFO: https://tombi-toml.github.io/tombi/docs/configuration
-
-toml-version = "1.0.0"
+[files]
 include = ["**/*.toml"]
 exclude = []
 
 [format]
+[format.rules]
+array-bracket-space-width         = 0
+array-comma-space-width           = 1
+indent-style                      = "space"
+indent-sub-tables                 = true
+indent-table-key-value-pairs      = false
+indent-width                      = 2
+inline-table-brace-space-width    = 1
+inline-table-comma-space-width    = 1
+key-value-equals-sign-alignment   = true
+line-ending                       = "lf"
+# line-width                        = 120
+string-quote-style                = "double"
+trailing-comment-alignment        = true
+trailing-comment-space-width      = 2
+
 
 [lint]
 [lint.rules]
@@ -28,21 +42,15 @@ hover.enabled = true
 [schema]
 enabled = true
 strict  = true
-catalog = {
-  paths = [
-    "tombi://www.schemastore.org/api/json/catalog.json",
-    "https://www.schemastore.org/api/json/catalog.json"
-  ],
-}
 
-# Root Schema
-[[schemas]]
-toml-version = "1.0.0"
-path = "https://example.com/schema.json"
-include = ["example.toml"]
+[schema.catalog]
+paths = ["tombi://www.schemastore.org/api/json/catalog.json", "https://www.schemastore.org/api/json/catalog.json"]
 
-# Sub Schema
 [[schemas]]
 root = "tool.taskipy"
 path = "schemas/partial-taskipy.schema.json"
 include = ["pyproject.toml"]
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
