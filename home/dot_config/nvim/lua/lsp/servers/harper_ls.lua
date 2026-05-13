@@ -11,6 +11,7 @@ return {
       diagnosticSeverity = "hint",
       ---@see https://writewithharper.com/docs/rules
       linters = {
+        Dashes                       = false,
         SpellCheck                   = false,
         Spaces                       = false,
         LongSentences                = false,
