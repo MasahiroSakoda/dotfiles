@@ -1,8 +1,6 @@
-# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+toml-version = "v1.1.0"
 
-# INFO: https://tombi-toml.github.io/tombi/docs/configuration
-
-toml-version = "1.0.0"
+[files]
 include = ["**/*.toml"]
 exclude = []
 
@@ -28,21 +26,15 @@ hover.enabled = true
 [schema]
 enabled = true
 strict  = true
-catalog = {
-  paths = [
-    "tombi://www.schemastore.org/api/json/catalog.json",
-    "https://www.schemastore.org/api/json/catalog.json"
-  ],
-}
 
-# Root Schema
-[[schemas]]
-toml-version = "1.0.0"
-path = "https://example.com/schema.json"
-include = ["example.toml"]
+[schema.catalog]
+paths = ["tombi://www.schemastore.org/api/json/catalog.json", "https://www.schemastore.org/api/json/catalog.json"]
 
-# Sub Schema
 [[schemas]]
 root = "tool.taskipy"
 path = "schemas/partial-taskipy.schema.json"
 include = ["pyproject.toml"]
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
