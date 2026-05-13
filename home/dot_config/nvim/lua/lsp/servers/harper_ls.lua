@@ -37,7 +37,7 @@ return {
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",
       maxFileLength = 120000,
-      userDictPath = vim.fs.joinpath(vim.fn.stdpath("config"), "harper", "dictionary.txt"),
+      userDictPath = vim.fs.joinpath(vim.env.XDG_CONFIG_HOME, "harper", "dictionary.txt"),
       fileDictPath = "",
     },
   },
