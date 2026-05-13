@@ -11,7 +11,8 @@ return {
       diagnosticSeverity = "hint",
       ---@see https://writewithharper.com/docs/rules
       linters = {
-        SpellCheck                   = true,
+        Dashes                       = false,
+        SpellCheck                   = false,
         Spaces                       = false,
         LongSentences                = false,
         ExpandAlloc                  = false,
@@ -32,12 +33,12 @@ return {
         PhrasalVerbAsCompoundNoun    = false,
         SplitWords                   = false,
         ToDoHyphen                   = false,
-        SentenceCapitalization       = true
+        SentenceCapitalization       = false,
       },
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",
       maxFileLength = 120000,
-      userDictPath = vim.fs.joinpath(vim.fn.stdpath("config"), "harper", "dictionary.txt"),
+      userDictPath = vim.fs.joinpath(vim.env.XDG_CONFIG_HOME, "harper", "dictionary.txt"),
       fileDictPath = "",
     },
   },
