@@ -1,0 +1,27 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name  = {{ .git.user }}
+email = {{ .git.email | quote }}
+
+[ui]
+## Appearance
+color = "always"
+
+## Pager
+paginate = "auto"
+pager    = ["hunk", "pager"]
+
+## Editor
+editor       = "nvim"
+diff-editor  = ":git"
+merge-editor = ":builtin"
+
+## Command
+default-command = ["status"]
+
+[aliases]
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
