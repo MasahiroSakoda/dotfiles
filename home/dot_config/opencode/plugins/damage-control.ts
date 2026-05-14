@@ -1,4 +1,4 @@
-import type { Plugin } from '@opencode-ai/plugin';
+import type { Plugin } from "@opencode-ai/plugin";
 
 // ─── Category 1: Dangerous Bash Commands ─────────────────────────────────────
 const DANGEROUS_BASH_PATTERNS: RegExp[] = [
@@ -171,9 +171,9 @@ function testPatterns(value: string, patterns: RegExp[]): RegExp | undefined {
 }
 
 function hasExfiltrationRisk(cmd: string): boolean {
-  const hasSensitivePath = SENSITIVE_PATH_INDICATORS.some((p) => p.test(cmd))
-  const hasOutbound = OUTBOUND_INDICATORS.some((p) => p.test(cmd))
-  return hasSensitivePath && hasOutbound
+  const hasSensitivePath = SENSITIVE_PATH_INDICATORS.some((p) => p.test(cmd));
+  const hasOutbound = OUTBOUND_INDICATORS.some((p) => p.test(cmd));
+  return hasSensitivePath && hasOutbound;
 }
 
 export const EnvProtectionPlugin: Plugin = async () => {
@@ -214,7 +214,9 @@ export const EnvProtectionPlugin: Plugin = async () => {
           }
 
           if (hasExfiltrationRisk(cmd)) {
-            throw new Error(`[damage-control] BLOCKED: Command references both sensitive files and outbound network destination`);
+            throw new Error(
+              `[damage-control] BLOCKED: Command references both sensitive files and outbound network destination`,
+            );
           }
         }
 
@@ -241,7 +243,6 @@ export const EnvProtectionPlugin: Plugin = async () => {
             throw new Error(`[damage-control] BLOCKED: Writing to generated/locked file matched ${destructiveMatch}`);
           }
         }
-
       } catch (err) {
         if (err instanceof Error && err.message.startsWith("[damage-control] BLOCKED")) {
           throw err;
@@ -266,5 +267,5 @@ export const EnvProtectionPlugin: Plugin = async () => {
         console.error("[damage-control] permission.ask error:", err);
       }
     },
-  }
-}
+  };
+};
