@@ -96,6 +96,7 @@ const DATABASE_DESTRUCTIVE_PATTERNS: RegExp[] = [
 
 // ─── Category 5: Git Safety ─────────────────────────────────────────────────
 const GIT_SAFETY_PATTERNS: RegExp[] = [
+  /\bgit\s+commit\s+--no-verify\b/,
   /\bgit\s+reset\s+--hard\b/,
   /\bgit\s+clean\s+.*-[fFxX]/,
   /\bgit\s+push\s+.*--force(?!-with-lease|-if-includes)/,
