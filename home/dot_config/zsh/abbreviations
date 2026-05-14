@@ -28,11 +28,12 @@ abbr .3="cd ../../../"
 abbr .4="cd ../../../../"
 abbr .5="cd ../../../../../"
 
-## Git
-
+## VCS
+#
+### Git
 abbr g="git"
 abbr gs="git status"
-abbr gl="gitleaks git"
+abbr gl="git log --all --graph"
 abbr gmv="git mv --verbose"
 
 abbr gd="hunk diff"
