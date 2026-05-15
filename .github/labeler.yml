@@ -105,6 +105,20 @@
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"
+"VCS 🛠️":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "home/.chezmoidata/git.toml"
+          - "home/.chezmoitemplates/common/ai/guidelines/git.md"
+          - "home/.chezmoitemplates/common/ai/commands/git/*"
+          - "home/.chezmoitemplates/common/jj/*"
+          - "home/dot_config/git/*"
+          - "home/dot_config/jj/*"
+          - "home/dot_config/hk/*"
+          - "home/dot_config/opencode/rules/git.md.tmpl"
+          - "home/dot_gemini/policies/git.toml.tmpl"
+          - "hk.local.pkl"
+          - "hk.pkl"
 "AI 🤖":
   - changed-files:
       - any-glob-to-any-file:
