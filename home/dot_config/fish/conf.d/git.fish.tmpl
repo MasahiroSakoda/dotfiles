@@ -1,6 +1,19 @@
 # Git worktree root directory
 set -g git_worktrees_root $HOME/.worktrees
 
+function git -d "Block non-verified commit"
+  if test "$argv[1]" = "commit"
+    if contains -- "--no-verify" $argv; or contains -- "-n" $argv
+      set_color red
+      echo "❌ ERROR: --no-verify bypasses quality checks and is forbidden"
+      set_color normal
+      echo "Pre-commit hooks ensure code quality. Please fix issues instead of bypassing them."
+      return 1
+    end
+  end
+  command git $argv
+end
+
 function gitignore -d "Generate .gitignore with fzf"
   set -l root $(git rev-parse --show-toplevel)
   command gibo list | \
