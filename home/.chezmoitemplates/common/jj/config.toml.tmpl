@@ -1,7 +1,7 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [user]
-name  = {{ .git.user }}
+name  = {{ .git.user | quote }}
 email = {{ .git.email | quote }}
 
 [ui]
