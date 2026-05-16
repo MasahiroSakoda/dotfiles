@@ -66,7 +66,7 @@ wk.add({
 -- Cursor
 ---------------------------------------------------------------------------
 wk.add({
-  { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
+  -- { "jj", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
   { "kk", "<ESC>", mode = "i", icon = " ", desc = " Return to NORMAL mode" },
 
   { "[[", "<CMD>lua Snacks.words.jump(-vim.v.count1)<CR>", icon = "󰼨 ", desc = "Prev Reference" },
