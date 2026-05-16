@@ -152,20 +152,25 @@ abbr dcs="docker compose sleep"
 
 ## Node.js
 abbr npm="pnpm"
+
+### pnpm
 abbr p="pnpm"
-abbr pr="pnpm run"
+abbr pi="pnpm install"
+abbr pu="pnpm update"
 abbr pa="pnpm add"
 abbr pA="pnpm add -D"
-abbr prm="pnpm rm"
+abbr pr="pnpm rm"
+abbr pR="pnpm rm -D"
 abbr pb="pnpm build"
 abbr pd="pnpm dev"
-abbr pi="pnpm install"
-abbr pl="pnpm list"
 abbr po="pnpm outdated"
 abbr pg="pnpm generate"
 abbr pt="pnpm test"
 abbr pe="pnpm e2e"
+abbr pl="pnpm lint"
 abbr px="pnpm dlx"
+abbr pc="pnpm ci"
+abbr pC="pnpm audit signatures"
 
 # Zellij
 abbr zj="zellij"
