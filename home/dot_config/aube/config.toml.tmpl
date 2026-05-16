@@ -1,0 +1,41 @@
+# aube global configuration: https://aube.en.dev/settings
+
+# Turn on the strict-security setting bundle in one switch.
+# When true, aube forces every individual setting in the strict-security bundle on, regardless of how each is configured individually:
+# trustPolicy = no-downgrade (overrides explicit off)
+# jailBuilds = true
+# minimumReleaseAgeStrict = true (makes the age gate hard, not advisory)
+# strictStoreIntegrity = true (fail on missing dist.integrity)
+# strictDepBuilds = true (fail when deps have unreviewed build scripts)
+# advisoryCheck = "required" (fail closed on OSV fetch errors instead of falling through with a warning)
+paranoid = false
+
+# Run approved dependency lifecycle scripts in a restricted build jail.
+jailBuilds = true
+jailBuildExclusions = []
+
+# Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
+minimumReleaseAge = 10080 # 7 days in minutes
+
+# Fail resolution when no version of a dependency satisfies the minimumReleaseAge constraint
+# default: true if explicitly minimumReleaseAge is configured
+minimumReleaseAgeStrict = true
+
+# Exit with an error if dependencies have unreviewed build scripts.
+strictDepBuilds = true
+
+# Fail the install when a packument ships no dist.integrity.
+strictStoreIntegrity = true
+
+# Check store file integrity before linking.
+verifyStoreIntegrity = true
+
+# fail if a package's trust level has decreased compared to previous releases.
+trustPolicy = "no-downgrade"
+trustPolicyExclude = []
+
+# registries = ["https://npm.flatt.tech/"]
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
