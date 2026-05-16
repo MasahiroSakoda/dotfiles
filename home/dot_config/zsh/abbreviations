@@ -56,6 +56,58 @@ abbr gt="git tag | sort --version-sort --reverse"
 abbr gta="git tag --annotate"
 abbr gts="git tag --sign"
 
+### Jujutsu (jj)
+
+#### Core operations
+abbr j="jj status"
+abbr jl="jj log"
+abbr jd="jj desc"
+abbr jD="jj desc -m"
+abbr ja="jj abandon"
+abbr jn="jj new"
+abbr jN="jj new -m"
+abbr jrb="jj rebase"
+abbr jc="jj commit"
+abbr jC="jj commit -m"
+
+#### Git related commands
+abbr jcl="jj git clone"
+abbr ji="jj git init"
+abbr jgf="jj git fetch"
+abbr jgp="jj git push"
+
+#### Edting changes
+abbr je="jj edit"
+abbr j-="jj edit @-"
+abbr j+="jj edit @+"
+abbr js="jj split"
+
+#### Operations
+abbr jo="jj op"
+abbr jol="jj op log"
+abbr ju="jj undo"
+abbr jp="jj prev"
+abbr jn="jj next"
+
+#### Conflict resolution
+abbr jr="jj resolve"
+abbr jR="jj restore"
+
+#### Bookmarks
+abbr jb="jj bookmark"
+abbr jbc="jj bookmark create"
+abbr jbd="jj bookmark delete"
+abbr jbm="jj bookmark move"
+abbr jbs="jj bookmark set"
+abbr jbt="jj bookmark track"
+
+#### Workspaces
+abbr jw="jj workspace"
+abbr jwl="jj workspace list"
+abbr jwr="jj workspace root"
+abbr jwa="jj workspace add"
+abbr jwf="jj workspace forget"
+
 ## GitHub CLI
 abbr ghd="gh dash"
 abbr ghg="gh graph"

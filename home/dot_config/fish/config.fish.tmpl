@@ -116,6 +116,58 @@ abbr -a -- gt  "git tag | sort --version-sort --reverse"
 abbr -a -- gta "git tag --annotate"
 abbr -a -- gts "git tag --sign"
 
+### Jujutsu (jj)
+
+#### Core operations
+abbr -a --           j   "jj status"
+abbr -a --           jl  "jj log"
+abbr -a --           jd  "jj desc"
+abbr -a --set-cursor jD  "jj desc -m \"%\" "
+abbr -a --           ja  "jj abandon"
+abbr -a --           jn  "jj new"
+abbr -a --set-cursor jN  "jj new -m \"%\""
+abbr -a --           jrb "jj rebase"
+abbr -a --           jc  "jj commit"
+abbr -a --set-cursor jC  "jj commit -m \"%\""
+
+#### Git related commands
+abbr -a -- jcl "jj git clone"
+abbr -a -- ji  "jj git init"
+abbr -a -- jgf "jj git fetch"
+abbr -a -- jgp "jj git push"
+
+#### Editing changes
+abbr -a -- je "jj edit"
+abbr -a -- j- "jj edit @-"
+abbr -a -- j+ "jj edit @+"
+abbr -a -- js "jj split"
+
+#### Operations
+abbr -a -- jo  "jj op"
+abbr -a -- jol "jj op log"
+abbr -a -- ju  "jj undo"
+abbr -a -- jjp "jj prev"
+abbr -a -- jjn "jj next"
+
+#### Conflict resolution
+abbr -a -- jrsl "jj resolve"
+abbr -a -- jrst "jj restore"
+
+#### Bookmarks
+abbr -a -- jb   "jj bookmark"
+abbr -a -- jbc  "jj bookmark create"
+abbr -a -- jbd  "jj bookmark delete"
+abbr -a -- jbm  "jj bookmark move"
+abbr -a -- jbs  "jj bookmark set"
+abbr -a -- jbt  "jj bookmark track"
+
+#### Workspaces
+abbr -a -- jw   "jj workspace"
+abbr -a -- jwl  "jj workspace list"
+abbr -a -- jwr  "jj workspace root"
+abbr -a -- jwa  "jj workspace add"
+abbr -a -- jwf  "jj workspace forget"
+
 ### GitHub CLI: gh*
 abbr -a -- ghd "gh dash"
 abbr -a -- ghg "gh graph"
