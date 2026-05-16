@@ -181,7 +181,14 @@ Runtime version management tool
 | [**`Node.js`**](https://mise.jdx.dev/lang/node.html) | 24.x |
 | [**`Deno`**](https://mise.jdx.dev/lang/deno.html) | 2.x |
 | [**`Bun`**](https://mise.jdx.dev/lang/bun.html) | 1.x |
-| [**`pnpm`**](https://pnpm.io) | 11.x |
+
+##### Package Managers
+
+| Package Manager                | Version |
+| :----------------------------- | :------ |
+| [`pnpm`](https://pnpm/io)      | 11.x    |
+| [`aube`](https://aube.en.dev/) | latest  |
+| [`uv`](https://docs.astral.sh/uv/) | latest |
 
 ##### CLI Tools
 
