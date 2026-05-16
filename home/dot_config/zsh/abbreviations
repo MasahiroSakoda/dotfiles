@@ -28,11 +28,12 @@ abbr .3="cd ../../../"
 abbr .4="cd ../../../../"
 abbr .5="cd ../../../../../"
 
-## Git
-
+## VCS
+#
+### Git
 abbr g="git"
 abbr gs="git status"
-abbr gl="gitleaks git"
+abbr gl="git log --all --graph"
 abbr gmv="git mv --verbose"
 
 abbr gd="hunk diff"
@@ -55,21 +56,57 @@ abbr gt="git tag | sort --version-sort --reverse"
 abbr gta="git tag --annotate"
 abbr gts="git tag --sign"
 
-abbr gwl="git worktree list"
-abbr gwa="git worktree add"
-abbr gwr="git worktree remove"
-abbr gwm="git worktree move"
+### Jujutsu (jj)
 
-abbr wl="wt list --full"
-abbr ws="wt switch"
-abbr wsm="wt switch main"
-abbr wsb="wt switch --branches"
-abbr wsr="wt switch --remotes"
-abbr wc="wt switch --create"
-abbr wr="wt remove"
-abbr wrd="wt remove -D"
-abbr wh="wt hook"
-abbr wm="wt merge"
+#### Core operations
+abbr j="jj status"
+abbr jl="jj log"
+abbr jd="jj desc"
+abbr jD="jj desc -m"
+abbr ja="jj abandon"
+abbr jn="jj new"
+abbr jN="jj new -m"
+abbr jrb="jj rebase"
+abbr jc="jj commit"
+abbr jC="jj commit -m"
+
+#### Git related commands
+abbr jcl="jj git clone"
+abbr ji="jj git init"
+abbr jgf="jj git fetch"
+abbr jgp="jj git push"
+
+#### Edting changes
+abbr je="jj edit"
+abbr j-="jj edit @-"
+abbr j+="jj edit @+"
+abbr js="jj split"
+
+#### Operations
+abbr jo="jj op"
+abbr jol="jj op log"
+abbr ju="jj undo"
+abbr jp="jj prev"
+abbr jn="jj next"
+
+#### Conflict resolution
+abbr jr="jj resolve"
+abbr jR="jj restore"
+
+#### Bookmarks
+abbr jb="jj bookmark"
+abbr jbc="jj bookmark create"
+abbr jbd="jj bookmark delete"
+abbr jbm="jj bookmark move"
+abbr jbs="jj bookmark set"
+abbr jbt="jj bookmark track"
+
+#### Workspaces
+abbr jw="jj workspace"
+abbr jwl="jj workspace list"
+abbr jwr="jj workspace root"
+abbr jwa="jj workspace add"
+abbr jwf="jj workspace forget"
 
 ## GitHub CLI
 abbr ghd="gh dash"

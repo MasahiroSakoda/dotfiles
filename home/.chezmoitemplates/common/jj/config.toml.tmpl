@@ -1,0 +1,33 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name  = {{ .git.user | quote }}
+email = {{ .git.email | quote }}
+
+[ui]
+## Appearance
+color = "always"
+
+## Pager
+paginate = "auto"
+pager    = ["hunk", "pager"]
+
+## Editor
+editor       = "nvim"
+diff-editor  = ":git"
+merge-editor = ":builtin"
+
+## Command
+default-command = ["status"]
+
+[aliases]
+
+# [lazyjj]
+# layout          = "horizontal"  # horizontal (default) or vertical
+# layout-percent  = 50            # the layout split of the main page. Should be number between 0 and 100.
+# highlight-color = "#323264"
+# diff-format     = "color-words" # color-words (default) or git
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
