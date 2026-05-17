@@ -27,7 +27,7 @@ cmd  = [ "terraform-ls", "serve" ]
 exts = [ ".tf", ".hcl" ]
 
 [lsp.servers.dockerls]
-cmd  = [ "docker-langserver", "--stdio" ]
+cmd  = [ "docker-langserver", "start", "--stdio" ]
 exts = [ "Dockerfile", "Dockerfile.runtime" ]
 
 [lsp.servers.sqls]
