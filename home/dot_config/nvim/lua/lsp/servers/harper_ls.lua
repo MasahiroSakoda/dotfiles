@@ -34,6 +34,8 @@ return {
         SplitWords                   = false,
         ToDoHyphen                   = false,
         SentenceCapitalization       = false,
+        OrthographicConsistency      = false,
+        DisjointPrefixes             = false,
       },
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",

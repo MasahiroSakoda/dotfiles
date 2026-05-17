@@ -17,6 +17,8 @@ LspAttach
 LspDetach
 Nuxt
 OpenSSH
+OpenCode
+OpenRouter
 OpenTUI
 PERF
 PlanetScale
@@ -58,6 +60,7 @@ deno
 dependabot
 devcontainers
 df
+dial.nvim
 django
 dotenv
 dotenvx
@@ -109,7 +112,7 @@ ollama
 onefetch
 opencode
 oRPC
-overseer
+overseer.nvim
 oxfmt
 oxlint
 pinact
