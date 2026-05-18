@@ -2,8 +2,8 @@
 
 [lsp]
 
-[lsp.servers.marksman]
-cmd  = [ "markdman", "server" ]
+[lsp.servers.rumdl]
+cmd  = [ "rumdl", "server" ]
 exts = [ ".md", ".markdown", ".mdx" ]
 
 [lsp.servers.jsonls]

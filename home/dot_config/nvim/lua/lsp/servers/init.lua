@@ -18,7 +18,7 @@ return {
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
   tombi         = require("lsp.servers.tombi"),         -- TOML
-  marksman      = require("lsp.servers.marksman"),      -- Markdown
+  rumdl         = require("lsp.servers.rumdl"),         -- Markdown
   dockerls      = require("lsp.servers.dockerls"),      -- Docker
   terraformls   = require("lsp.servers.terraformls"),   -- Terraform
   zizmor        = require("lsp.servers.zizmor"),        -- GitHub Actions
