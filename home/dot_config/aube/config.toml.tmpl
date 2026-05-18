@@ -16,6 +16,7 @@ jailBuildExclusions = []
 
 # Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
 minimumReleaseAge = 10080 # 7 days in minutes
+minimumReleaseAgeExclude = []
 
 # Fail resolution when no version of a dependency satisfies the minimumReleaseAge constraint
 # default: true if explicitly minimumReleaseAge is configured
@@ -34,7 +35,7 @@ verifyStoreIntegrity = true
 trustPolicy = "no-downgrade"
 trustPolicyExclude = []
 
-# registries = ["https://npm.flatt.tech/"]
+registries.default = "https://npm.flatt.tech/"
 
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
