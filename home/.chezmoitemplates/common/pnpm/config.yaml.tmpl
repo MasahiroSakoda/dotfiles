@@ -3,6 +3,10 @@
 # Mitigate supply chain attacks by by requiring packages to have been published for 7days before they can installed.
 minimumReleaseAge: 10080 # 7 days (in minutes)
 
+# Fail resolution when no version of a dependency satisfies the minimumReleaseAge constraint
+# default: true if explicitly minimumReleaseAge is configured
+minimumReleaseAgeStrict: true
+
 # Exit with a non-zero exit code if any dependencies have unreviewed build scripts (aka postinstall scripts).
 strictDepBuilds: true
 
