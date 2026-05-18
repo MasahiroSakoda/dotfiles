@@ -1,4 +1,13 @@
 [global]
+exclude = [
+  ".git/**",
+  ".cache/**",
+  ".agents/**",
+  "node_modules/**",
+  "coverage/**",
+  "vendor/**",
+]
+
 disable = [
   "MD004", # Unordered list style
   "MD010", # Hard tabs
