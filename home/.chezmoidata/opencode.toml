@@ -19,23 +19,21 @@ enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
 [opencode.models]
 ultra   = [
-  # "opencode/trinity-large-preview-free",
-  "opencode/qwen3.6-plus-free",
-  "opencode/mimo-v2-pro-free",
-  "opencode/big-pickle",
+  "opencode/deepseek-v4-flash-free",
   "opencode/minimax-m2.5-free",
+  "opencode/big-pickle",
 ]
 elite   = [
-  "opencode/qwen3.6-plus-free",
-  "opencode/mimo-v2-pro-free",
-  "opencode/big-pickle",
+  "opencode/deepseek-v4-flash-free",
   "opencode/minimax-m2.5-free",
   "opencode/nemotron-3-super-free",
+  "opencode/big-pickle",
 ]
 general = [
-  "opencode/big-pickle",
   "opencode/minimax-m2.5-free",
+  "opencode/big-pickle",
   "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+  "openrouter/openai/gpt-oss-120b",
 ]
 lite    = [
   "opencode/minimax-m2.5-free",
@@ -289,11 +287,7 @@ external_directory = "deny"
 [opencode.providers.opencode]
 options   = { baseUrl = "https://opencode.ai/zen/v1", apiKey = "{env:OPENCODE_API_KEY}" }
 whitelist = [
-  "trinity-large-preview-free",
-  "mimo-v2-pro-free",
-  "kimi-k2.5-free",
-  "glm-5-free",
-  "glm-4.7-free",
+  "deepseek-v4-flash-free",
   "big-pickle",
   "minimax-m2.5-free",
   "nemotron-3-super-free"
@@ -305,14 +299,22 @@ name      = "OpenRouter"
 npm       = "@ai-sdk/openai-compatible"
 options   = { baseUrl = "https://openrouter.ai/api/v1", apiKey = "{env:OPENROUTER_API_KEY}" }
 whitelist = [
+  "deepseek/deepseek-v4-flash:free",
   "minimax/minimax-m2.5:free",
+  "openai/gpt-oss-120b:free",
   "z-ai/glm-4.5-air:free",
   "nvidia/nemotron-3-super-120b-a12b:free",
   "arcee-ai/trinity-large-preview:free"
 ]
 
+[opencode.providers.openrouter.models."deepseek/deepseek-v4-flash:free"]
+name = "DeepSeek V4 Flash"
+
 [opencode.providers.openrouter.models."minimax/minimax-m2.5:free"]
 name = "MiniMax M2.5"
+
+[opencode.providers.openrouter.models."openai/gpt-oss-120b:free"]
+name = "gpt-oss-120b"
 
 [opencode.providers.openrouter.models."z-ai/glm-4.5-air:free"]
 name = "GLM 4.5 Air"
@@ -320,24 +322,21 @@ name = "GLM 4.5 Air"
 [opencode.providers.openrouter.models."nvidia/nemotron-3-super-120b-a12b:free"]
 name = "NVIDIA: Nemotron 3 Super"
 
-[opencode.providers.openrouter.models."arcee-ai/trinity-large-preview:free"]
-name = "Arcee AI: Trinity Large Preview"
-
 ## Ollama
 [opencode.providers.ollama]
 name    = "Ollama"
 npm     = "@ai-sdk/openai-compatible"
-whitelist = ["glm-5:cloud", "minimax-m2.7:cloud", "kimi-k2.5:cloud", "qwen3.5:cloud"]
+whitelist = ["glm-5.1:cloud", "minimax-m2.7:cloud", "kimi-k2.6:cloud", "qwen3.5:cloud"]
 options = { baseURL = "https://ollama.com/v1" }
 
 [opencode.providers.ollama.models."qwen3.5:cloud"]
 name = "Qwen3.5 (cloud)"
 
-[opencode.providers.ollama.models."kimi-k2.5:cloud"]
-name = "Kimi K2.5 (cloud)"
+[opencode.providers.ollama.models."kimi-k2.6:cloud"]
+name = "Kimi K2.6 (cloud)"
 
-[opencode.providers.ollama.models."glm-5:cloud"]
-name = "GLM 5 (cloud)"
+[opencode.providers.ollama.models."glm-5.1:cloud"]
+name = "GLM 5.1 (cloud)"
 
 [opencode.providers.ollama.models."minimax-m2.7:cloud"]
 name = "Minimax-m2.7 (cloud)"
