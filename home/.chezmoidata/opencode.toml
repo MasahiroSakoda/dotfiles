@@ -7,7 +7,7 @@ snapshot   = false
 theme      = "github"
 
 plugins = [
-  "oh-my-opencode@latest",
+  "oh-my-openagent@latest",
   "./plugins/damage-control.ts",
   "./plugins/notification.ts",
   "./plugins/limits.ts",
