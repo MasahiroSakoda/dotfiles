@@ -3,4 +3,9 @@ title = "Dotfiles Betterleaks Configuration"
 [extend]
 useDefault = true
 
-[allowlist]
+[[allowlists]]
+description = "Allow immutable action SHA pinning in GitHub workflow uses lines"
+condition   = "AND"
+regexTarget = "line"
+paths       = ['''^\.github/workflows/.*\.ya?ml$''']
+regexes     = ['''^\s*uses:\s*[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*@[a-f0-9]{40}(\s*#.*)?\s*$''']
