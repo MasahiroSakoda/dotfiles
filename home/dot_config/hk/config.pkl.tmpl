@@ -1,4 +1,4 @@
-{{- $version := (output "sh" "-c" "mise tool aqua:jdx/hk | rg 'Installed Versions:' | awk '{print $NF}'") | trim -}}
+{{- $version := (output "sh" "-c" "hk --version | awk '{print $2}'") | trim -}}
 amends "package://github.com/jdx/hk/releases/download/v{{ $version }}/hk@{{ $version }}#/Config.pkl"
 import "package://github.com/jdx/hk/releases/download/v{{ $version }}/hk@{{ $version }}#/Builtins.pkl"
 
@@ -10,7 +10,7 @@ local linters = new Mapping<String, Step> {
   ["byte-order-marker"] = (Builtins.byte_order_marker) {
     exclude = List("**/*.tmpl", "**/*.tmpl.age")
   }
-  ["check_add_large_files"]           = Builtins.check_added_large_files
+  ["check_added_large_files"]         = Builtins.check_added_large_files
   ["check_case_conflict"]             = Builtins.check_case_conflict
   ["check-executables-have-shebangs"] = Builtins.check_executables_have_shebangs
   ["check_merge_conflict"]            = Builtins.check_merge_conflict
@@ -35,8 +35,8 @@ local linters = new Mapping<String, Step> {
   ["rumdl"]        = Builtins.rumdl
   // ["jq"]           = Builtins.jq
   // ["yq"]           = Builtins.yq
-  // ["yamlfmt"]      = Builtins.yamlfmt
-  // ["tombi"]        = Builtins.tombi
+  ["yamlfmt"]      = Builtins.yamlfmt
+  ["tombi"]        = Builtins.tombi
   // ["tombi-format"] = Builtins.tombi_format
   // ["pkl"]          = Builtins.pkl
   // ["pkl-format"]   = Builtins.pkl_format
