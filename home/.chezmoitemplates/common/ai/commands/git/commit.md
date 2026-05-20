@@ -11,7 +11,7 @@ If files are staged, only work on those. If nothing is staged at the moment, exi
 ## Step 1: Change Analysis
 
 Analyze the changes by:
-- Examining staged files using `hunk diff --staged` or provided diff
+- Examining staged files using `git diff --staged` or provided diff
 - Identifying the nature of changes (new features, bug fixes, refactoring, etc.)
 - Determining the scope of changes (which modules/components are affected)
 - Checking for breaking changes or significant modifications
