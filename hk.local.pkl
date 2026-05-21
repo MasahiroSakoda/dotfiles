@@ -16,6 +16,11 @@ hooks {
     fix   = true
     steps = linters
   }
+  ["commit-msg"] {
+    steps = new Mapping<String, Step> {
+      ["check-conventional-commit"] = Builtins.check_conventional_commit
+    }
+  }
 }
 
 // -*-mode:pkl-*- vim:ft=pkl
