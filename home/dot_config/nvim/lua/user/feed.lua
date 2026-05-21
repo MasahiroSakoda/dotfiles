@@ -64,26 +64,35 @@ feed.setup({
 
   feeds = {
     dev = {
-      { "https://neovim.io/news.xml",           name = "NeoVim News",     tags = { "nvim" } },
-      { "https://zenn.dev/feed",                name = "Zenn - Trends",   tags = {} },
-      { "https://qiita.com/popular-items/feed", name = "Qiita - Popular", tags = {} },
-      { "https://vim-jp.org/ekiden/rss.xml",    name = "Vim駅伝",         tags = { "nvim" } },
+      -- { "https://neovim.io/news.xml",           name = "NeoVim News",     tags = { "nvim" } },
+      { "https://feeds.feedburner.com/TheHackersNews", name = "The Hackers News", tags = { "dev" } },
+      { "https://cyberpress.org/feed/",                name = "Cyper Press",      tags = { "Security" } },
+      { "https://zenn.dev/feed",                       name = "Zenn - Trends",    tags = { "dev" } },
+      { "https://qiita.com/popular-items/feed",        name = "Qiita - Popular",  tags = { "dev" } },
+      { "https://vim-jp.org/ekiden/rss.xml",           name = "Vim駅伝",          tags = { "nvim" } },
     },
 
     reddit = {
       { "r/neovim",     name = "Neovim",     tags = { "nvim" } },
-      { "r/LocalLLaMA", name = "LocalLLaMA", tags = { "ai" } },
+      -- { "r/LocalLLaMA", name = "LocalLLaMA", tags = { "ai" } },
+      { "r/opencodCLI", name = "OpenCode",   tags = { "ai" } },
+      { "r/GeminiCLI",  name = "Gemini CLI", tags = { "ai" } },
     },
 
     tech = {
-      { "https://gigazine.net/news/rss_2.0/", name = "GIGAZINE",    tags = {} },
-      { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = {} },
-      { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = {} },
+      { "https://gigazine.net/news/rss_2.0/", name = "GIGAZINE",    tags = { "tech" } },
+      { "https://www.gizmodo.jp/index.xml",   name = "Gizmodo",     tags = { "tech" } },
+      { "https://www.publickey1.jp/atom.xml", name = "Publickey",   tags = { "tech" } },
     },
 
     security = {
-      { "https://github.com/security-advisories",       name = "Security Advisories", tags = { "github" } },
-      { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert",  tags = {} },
+      { "https://github.com/security-advisories",       name = "The GitHub Blog: Security", tags = { "security" } },
+      { "https://blog.cloudflare.com/tag/security/rss", name = "Cloudflare Blog: Security", tags = { "security" } },
+      { "https://www.stepsecurity.io/blog/rss.xml",     name = "Step Security Blog",        tags = { "security" } },
+      { "https://jp.aikido.dev/blog/rss.xml",           name = "Aikido Security",           tags = { "security" } },
+      { "https://socket.dev/api/blog/feed.atom",        name = "Socket",                    tags = { "security" } },
+      { "https://blog.flatt.tech/rss",                  name = "GMO Flatt Security Blog",   tags = { "security" } },
+      { "https://www.ipa.go.jp/security/rss/alert.rdf", name = "IPA Security Alert",        tags = { "security" } },
     },
 
     status = {
