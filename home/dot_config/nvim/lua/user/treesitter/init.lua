@@ -15,7 +15,7 @@ end)
 
 -- Register extended filetype
 vim.filetype.add({
-  extension = { plist = "xml" },
+  extension = { plist = "xml", opml = "xml" },
   pattern   = {
     ["Brewfile.*"]         = "ruby",
     ["Caskfile.*"]         = "ruby",
