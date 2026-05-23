@@ -32,25 +32,58 @@ cache-file "~/.cache/newsboat/cache.db"
 refresh-on-startup yes
 
 # Appearance
-color listnormal color105 default
-color listfocus color24 color231 standout
-color listnormal_unread color111 default bold
-color listfocus_unread color24 color231 standout bold
-color info color178 color236 bold
-color article color247 default
+# color listnormal color105 default
+# color listfocus color24 color231 standout
+# color listnormal_unread color111 default bold
+# color listfocus_unread color24 color231 standout bold
+# color info color178 color236 bold
+# color article color247 default
+#
+# highlight all "---.*---" yellow
+# highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
+# highlight article "(^Link:.*|^Date:.*)" default default
+# highlight article "https?://[^ ]+" green default
+#
+# highlight article "^(Title):.*$" blue default
+# highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+# highlight article "\\[image\\ [0-9]+\\]" green default bold
+# highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+# highlight article ":.*\\(link\\)$" cyan default
+# highlight article ":.*\\(image\\)$" blue default
+# highlight article ":.*\\(embedded flash\\)$" magenta default
 
-highlight all "---.*---" yellow
-highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
-highlight article "(^Link:.*|^Date:.*)" default default
-highlight article "https?://[^ ]+" green default
+color background           default default
+color listnormal           default default
+color listnormal_unread    blue    default
+color listfocus            white   color8
+color listfocus_unread     white   color8 bold
+color title                blue    default bold
+color info                 blue    black
+color hint-key             black   cyan
+color hint-keys-delimiter  blue    default
+color hint-separator       blue    default
+color hint-description     cyan    default
+color article              default default
+color end-of-text-marker   white   default
 
-highlight article "^(Title):.*$" blue default
-highlight article "\\[[0-9][0-9]*\\]" magenta default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-highlight article ":.*\\(link\\)$" cyan default
-highlight article ":.*\\(image\\)$" blue default
-highlight article ":.*\\(embedded flash\\)$" magenta default
+highlight all ""   red default
+
+highlight all "  "  white red
+highlight all " 𝔚𝔓 "  white black
+highlight all " 𝗦 " white red
+highlight all " 𝗚 " white blue
+highlight all " 󰋙 "  black white
+
+highlight all " " color202 default
+
+highlight all "^Feed:"   magenta default
+highlight all "^Title:"  magenta default
+highlight all "^Author:" magenta default
+highlight all "^Date:"   magenta default
+highlight all "^Link:"   magenta default
+
+highlight all "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" blue default
+highlight all  "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" green default
 
 # Keybind
 unbind-key DOWN
