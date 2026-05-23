@@ -39,6 +39,10 @@ pre-commit:
             run: shfmt -d --apply-ignore {staged_files}
             glob:
               - "**/*.sh"
+          - name: shellcheck
+            run: shellcheck {staged_files}
+            glob:
+              - "**/*.sh"
           - name: typos
             run: typos {staged_files}
             glob:
