@@ -47,3 +47,14 @@ pre-commit:
             run: typos {staged_files}
             glob:
               - "*"
+    - name: Audit AI Agent Config
+      group:
+        jobs:
+          - name: apm audit
+            run: apm audit --file {staged_files}
+            glob:
+              - .agents/**/*.md
+              - .claude/**/*.md
+              - .codex/**/*.md
+              - .gemini/**/*.md
+              - .opencode/**/*.md
