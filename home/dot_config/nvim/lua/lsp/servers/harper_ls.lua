@@ -36,6 +36,7 @@ return {
         SentenceCapitalization       = false,
         OrthographicConsistency      = false,
         DisjointPrefixes             = false,
+        NumberRangeEnDash            = false,
       },
       markdown = { IgnoreLinkTitle = false },
       dialect = "American",

@@ -33,13 +33,36 @@ tstools.setup({
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = require("lsp.config.capabilities"),
   settings = {
-    separate_diagnostic_server = true,
-    publish_diagnostic_on = "insert_leave",
+    separate_diagnostic_server = false,
+    publish_diagnostic_on      = "insert_leave",
+
+    complete_function_calls = false,
+    include_completions_with_insert_text = false,
+
+    -- Disable codelens
+    code_lens                = "off",
+    disable_member_code_lens = false,
+
     tsserver_plugins = {},
+
     tsserver_file_preferences = {
-      includeInlayParameterNameHints = "all",
+      -- Disable inlay hints
+      includeInlayParameterNameHints = "none",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints                = false,
+      includeInlayVariableTypeHints                         = false,
+      includeInlayPropertyDeclarationTypeHints              = false,
+      includeInlayFunctionLikeReturnTypeHints               = false,
+      includeInlayEnumMemberValueHints                      = false,
+
       includeCompletionsForModuleExports = true,
       quotePreference = "auto",
+    },
+
+    tsserver_watch_options = {
+      watchFile       = "useFsEvents",
+      watchDirectory  = "useFsEvents",
+      fallbackPolling = "dynamicPriority",
     },
   },
 })
