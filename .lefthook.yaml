@@ -1,0 +1,60 @@
+skip_lfs: true
+output:
+  - failure
+  - success
+  - execution_out
+pre-commit:
+  parallel: false # Bit slow, but prevent race condition
+  jobs:
+    - name: CI / CD
+      group:
+        jobs:
+          - name: actionlint
+            run: actionlint {staged_files}
+            glob:
+              - ".github/workflows/*.{yml,yaml}"
+              - ".github/**/action.{yml,yaml}"
+          - name: zizmor
+            run: zizmor --no-progress {staged_files}
+            glob:
+              - ".github/workflows/*.{yml,yaml}"
+              - ".github/**/action.{yml,yaml}"
+              - ".github/dependabot.{yml,yaml}"
+    - name: Lint / Format
+      group:
+        jobs:
+          - name: rumdl
+            run: rumdl check --diff {staged_files}
+            glob:
+              - "**/*.md"
+          - name: yamlfmt
+            run: yamlfmt -lint {staged_files}
+            glob:
+              - "**/*.{yml,yaml}"
+          - name: tombi
+            run: tombi lint --quiet {staged_files}
+            glob:
+              - "**/*.toml"
+          - name: shfmt
+            run: shfmt -d --apply-ignore {staged_files}
+            glob:
+              - "**/*.sh"
+          - name: shellcheck
+            run: shellcheck {staged_files}
+            glob:
+              - "**/*.sh"
+          - name: typos
+            run: typos {staged_files}
+            glob:
+              - "*"
+    - name: Audit AI Agent Config
+      group:
+        jobs:
+          - name: apm audit
+            run: apm audit --file {staged_files}
+            glob:
+              - .agents/**/*.md
+              - .claude/**/*.md
+              - .codex/**/*.md
+              - .gemini/**/*.md
+              - .opencode/**/*.md
