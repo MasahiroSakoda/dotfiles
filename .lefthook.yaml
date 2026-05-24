@@ -59,3 +59,11 @@ pre-commit:
               - .codex/**/*.md
               - .gemini/**/*.md
               - .opencode/**/*.md
+          - name: suspicious unicode detector
+            run: for file in {staged_files}; do prompt-injection-detector.sh $file || exit 1 done
+            glob:
+              - .agents/**/*.md
+              - .claude/**/*.md
+              - .codex/**/*.md
+              - .gemini/**/*.md
+              - .opencode/**/*.md
