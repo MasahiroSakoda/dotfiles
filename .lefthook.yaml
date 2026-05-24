@@ -51,7 +51,16 @@ pre-commit:
       group:
         jobs:
           - name: apm audit
-            run: apm audit --file {staged_files}
+            # run: apm audit --file {staged_files}
+            run: for file in {staged_files}; do apm audit --file $file || apm audit --strip done
+            glob:
+              - .agents/**/*.md
+              - .claude/**/*.md
+              - .codex/**/*.md
+              - .gemini/**/*.md
+              - .opencode/**/*.md
+          - name: suspicious unicode detector
+            run: for file in {staged_files}; do prompt-injection-detector.sh $file || exit 1 done
             glob:
               - .agents/**/*.md
               - .claude/**/*.md

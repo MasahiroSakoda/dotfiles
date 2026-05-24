@@ -39,6 +39,30 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.hl.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
 })
 
+-- Warn Unicode invisible characters
+local palette = require("onedark.palette")[vim.g.themestyle]
+vim.api.nvim_set_hl(0, "SuspiciousUnicodeWarn", { fg = palette.grey, bg = palette.red, bold = true })
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+  group = augroup("SuspiciousUnicodeGroup"),
+  callback = function()
+    -- Tag Characters: U+E0001–E007F
+    -- vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0001}-\u{e007f}]", 10)
+
+    -- Bidi Override: U+202A–F, U+2060, U+2066–9
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{00A0}]", 10)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2000}-\u{200A}\u{202F}]", 10)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2060}-\u{2069}]", 10)
+
+    -- Variation Selectors: U+E0100–E01EF
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0100}-\u{e01ef}]", 10)
+
+    -- Zero-Width Characters: U+200B–D
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2000}-\u{200A}\u{202F}\u{feff}]", 10, -1)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{200b}\u{3000}]", 10)
+  end,
+})
+
 -- Close specific filetype with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group    = augroup("CustomClose"),
