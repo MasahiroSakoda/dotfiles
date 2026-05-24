@@ -66,16 +66,6 @@ fi
 MAX_BYTES=1048576
 MAX_BYTES_PLUS_ONE=1048577
 
-temp_file=""
-
-# Clean up temp file on exit
-cleanup() {
-  if [[ -n "$temp_file" && -f "$temp_file" ]]; then
-    rm -f "$temp_file"
-  fi
-}
-trap cleanup EXIT
-
 # Enforce size limit and prepare input source
 if [[ "$input_file" == "-" ]]; then
   temp_file=$(mktemp)
