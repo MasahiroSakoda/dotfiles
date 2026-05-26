@@ -19,6 +19,7 @@ enabled_providers = [ "opencode", "openrouter", "github-copilot", "ollama" ]
 
 [opencode.models]
 ultra   = [
+  "opencode/qwen-3.6-plus-free",
   "opencode/deepseek-v4-flash-free",
   "opencode/minimax-m2.5-free",
   "opencode/big-pickle",
@@ -287,6 +288,7 @@ external_directory = "deny"
 [opencode.providers.opencode]
 options   = { baseUrl = "https://opencode.ai/zen/v1", apiKey = "{env:OPENCODE_API_KEY}" }
 whitelist = [
+  "qwen-3.6-plus-free",
   "deepseek-v4-flash-free",
   "big-pickle",
   "minimax-m2.5-free",
