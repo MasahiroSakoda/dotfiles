@@ -7,6 +7,7 @@ pre-commit:
   jobs:
     - name: CI / CD
       group:
+        parallel: false
         jobs:
           - name: actionlint
             run: actionlint {staged_files}
@@ -21,6 +22,7 @@ pre-commit:
               - ".github/dependabot.{yml,yaml}"
     - name: Lint / Format
       group:
+        parallel: false
         jobs:
           - name: rumdl
             run: rumdl check --diff {staged_files}
@@ -48,6 +50,7 @@ pre-commit:
             exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**"]
     - name: Audit AI Agent Config
       group:
+        parallel: false
         jobs:
           - name: apm audit
             run: |
