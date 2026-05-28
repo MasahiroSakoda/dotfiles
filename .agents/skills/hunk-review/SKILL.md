@@ -2,9 +2,9 @@
 description: Interacts with live Hunk diff review sessions via CLI. Inspects review focus, navigates files and hunks, reloads session contents, and adds inline review comments. Use when the user has a Hunk session running or wants to review diffs interactively.
 metadata:
     github-path: skills/hunk-review
-    github-ref: refs/tags/v0.10.0
+    github-ref: refs/tags/v0.14.0
     github-repo: https://github.com/modem-dev/hunk
-    github-tree-sha: dcea70fa6f00fd362ec490f27c2432fd62533198
+    github-tree-sha: dcdffe55e1a26317d4639174fe2b66ae71686b6c
 name: hunk-review
 ---
 # Hunk Review
@@ -102,11 +102,12 @@ hunk session reload --session-path /path/to/live-window --source /path/to/other-
 ```bash
 hunk session comment add --repo . --file README.md --new-line 103 --summary "Tighten this wording" [--rationale "..."] [--author "agent"] [--focus]
 printf '%s\n' '{"comments":[{"filePath":"README.md","newLine":103,"summary":"Tighten this wording"}]}' | hunk session comment apply --repo . --stdin [--focus]
-hunk session comment list --repo . [--file README.md]
+hunk session comment list --repo . [--file README.md] [--type live|all|ai|agent|user]
 hunk session comment rm --repo . <comment-id>
 hunk session comment clear --repo . --yes [--file README.md]
 ```
 
+- `comment list --type user` shows human-authored inline notes; without `--type`, `comment list` preserves the legacy live-agent-comment view
 - `comment add` is best for one note; `comment apply` is best when an agent already has several notes ready
 - `comment add` requires `--file`, `--summary`, and exactly one of `--old-line` or `--new-line`
 - `comment apply` payload items require `filePath`, `summary`, and exactly one target such as `hunk`, `hunkNumber`, `oldLine`, or `newLine`
@@ -149,7 +150,7 @@ Guidelines:
 ## Common errors
 
 - **"No visible diff file matches ..."** -- the file is not in the loaded review. Check `context`, then `reload` if needed.
-- **"No active Hunk sessions"** -- ask the user to open Hunk in their terminal.
+- **"No active Hunk sessions"** -- if Hunk is visibly running, localhost may be blocked by the agent sandbox; retry with network/sandbox escalation. Otherwise ask the user to open Hunk.
 - **"Multiple active sessions match"** -- pass `<session-id>` explicitly.
 - **"No active Hunk session matches session path ..."** -- for advanced split-path reloads, verify the live window `Path` via `hunk session get` or `list`, then use `--session-path`.
 - **"Pass the replacement Hunk command after `--`"** -- include `--` before the nested `diff` / `show` command.
