@@ -1,8 +1,4 @@
 skip_lfs: true
-output:
-  - failure
-  - success
-  - execution_out
 pre-commit:
   jobs:
     - name: Check Secrets
