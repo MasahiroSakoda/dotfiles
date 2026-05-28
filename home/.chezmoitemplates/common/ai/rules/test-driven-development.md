@@ -68,8 +68,7 @@ const processPayment = (payment: Payment, account: Account): Result => {
 
 - Update TODO.md (mark complete [x])
 - Request approval with following format:
-
- ```txt
+ ```text
 Task: [description]
 Expected behavior: [what user should see/experience]
 Manual test: [how to verify manually]

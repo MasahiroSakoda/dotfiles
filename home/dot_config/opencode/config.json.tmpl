@@ -1,39 +1,218 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "autoupdate": {{ .opencode.autoupdate }},
-  "autoshare": {{ .opencode.autoshare }},
-  "snapshot": {{ .opencode.snapshot }},
-  "theme": {{ .opencode.theme | quote }},
-  "tui": {{ .opencode.tui | toPrettyJson | indent 2 | trim }},
-
+  "$schema": "https://",
+  "autoupdate": false,
+  "autoshare": false,
+  "snapshot": false,
+  "theme": "github",
+  "tui": {
+    "scroll_speed": 2,
+    "scroll_acceleration": { "enabled": true }
+  },
   "model": {{ index .opencode.models.ultra 0 | quote }},
   "small_model": {{ index .opencode.models.elite 0 | quote }},
-
   {{/* Global plugins */ -}}
-  "plugin": {{ .opencode.plugins | toPrettyJson | indent 2 | trim }},
-
+  "plugin": [
+    "oh-my-openagent@latest",
+    "./plugins/damage-control.ts",
+    "./plugins/notification.ts",
+    "./plugins/limits.ts",
+    "./plugins/rtk.ts"
+  ],
   {{/* Global keybinds */ -}}
-  "keybinds": {{ .opencode.keybinds | toPrettyJson | indent 2 | trim }},
-
+  "keybinds": {
+    "leader": "Ctrl+x",
+    "session_child_cycle": "Ctrl+Tab"
+  },
   {{/* Global Instructions */ -}}
-  "instructions": {{ .opencode.instructions | toPrettyJson | indent 2 | trim }},
-
+  "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
-  "permission": {{ .opencode.permissions | toPrettyJson | indent 2 | trim }},
-
+  "permission": {
+    "list": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "lsp": "allow",
+    "todoread": "allow",
+    "todowrite": "allow",
+    "question": "allow",
+    "webfetch": "allow",
+    "task": { "*": "allow" },
+    "skill": { "*": "ask" },
+    "read": {
+      "*": "allow",
+      "*.env*": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.p12": "deny",
+      "*.pfx": "deny",
+      "*.jks": "deny",
+      "*credentials*": "deny",
+      "*secret*": "deny",
+      "*.keystore": "deny",
+      ".git/config": "deny",
+      "**/.ssh/**": "deny",
+      "**/.gnupg/**": "deny",
+      "**/.aws/**": "deny",
+      "**/.gcp/**": "deny",
+      "**/secrets/**": "deny",
+      "**/private/**": "deny",
+      "*/*compose.yaml": "ask"
+    },
+    "external_directory": {
+    },
+    "edit": {
+      "*": "ask",
+      "*.env*": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "**/.ssh/**": "deny",
+      "**/.gnupg/**": "deny",
+      "**/.aws/**": "deny",
+      "**/.gcp/**": "deny",
+      "**/secrets/**": "deny",
+      "**/private/**": "deny"
+    },
+    "bash": {
+      "*": "deny",
+      "xargs *": "ask",
+      "rm *": "ask",
+      "rmdir *": "ask",
+      "mv *": "ask",
+      "cp *": "ask",
+      "ps *": "allow",
+      "top": "allow",
+      "kill *": "ask",
+      "pkill *": "ask",
+      "killall *": "ask",
+      "pbcopy *": "ask",
+      "pbpaste *": "ask",
+      "awk *": "ask",
+      "uniq *": "allow",
+      "sort *": "allow",
+      "head *": "ask",
+      "tail *": "ask",
+      "less *": "ask",
+      "more *": "ask",
+      "jq *": "allow",
+      "wc *": "allow",
+      "ssh *": "ask",
+      "scp *": "ask",
+      "rsync *": "ask",
+      "git status*": "allow",
+      "git show*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git add*": "allow",
+      "git blame*": "allow",
+      "git reset*": "ask",
+      "git commit*": "ask",
+      "git rebase*": "ask",
+      "git pull*": "ask",
+      "git push*": "ask",
+      "gh auth status": "allow",
+      "gh search *": "allow",
+      "gh status*": "allow",
+      "gh branch*": "allow",
+      "gh issue list*": "allow",
+      "gh issue view*": "allow",
+      "gh issue status*": "allow",
+      "gh pr list*": "allow",
+      "gh pr view*": "allow",
+      "gh pr diff*": "allow",
+      "gh pr status*": "allow",
+      "gh repo list*": "allow",
+      "gh repo view*": "allow",
+      "gh workflow list*": "allow",
+      "gh workflow view*": "allow",
+      "gh release list*": "allow",
+      "gh release view*": "allow",
+      "gh run list*": "allow",
+      "gh run view*": "allow",
+      "gh skill search*": "allow",
+      "gh skill preview*": "allow",
+      "gh skill install*": "ask",
+      "gh skill update*": "ask",
+      "gh skill publish*": "ask",
+      "gh api --help": "allow",
+      "gh api * -X PUT*": "ask",
+      "gh api * -X POST*": "ask",
+      "gh api * -X PATCH*": "ask",
+      "gh api * -X DELETE*": "ask",
+      "gh api * --method PUT*": "ask",
+      "gh api * --method POST*": "ask",
+      "gh api * --method PATCH*": "ask",
+      "gh api * --method DELETE*": "ask",
+      "mise --help": "allow",
+      "mise doctor": "allow",
+      "mise current*": "allow",
+      "mise ls*": "allow",
+      "mise list*": "allow",
+      "mise use*": "allow",
+      "mise registry*": "allow",
+      "mise which*": "allow"
+    }
+  },
   {{/* Compaction config */ -}}
-  "compaction": {{ .opencode.compaction | toPrettyJson | indent 2 | trim }},
-
+  "compaction": { "auto": true, "prune": true },
   {{/* File Watcher Configurations */ -}}
   "watcher": {
-    "ignore": {{ .opencode.watcher.ignore | toPrettyJson | indent 4 | trim }}
+    "ignore": [
+      ".git/**",
+      ".cache/**",
+      ".next/**",
+      "**/*.log",
+      "node_modules/**",
+      "build/**",
+      "dist/**",
+      "vendor/**",
+      "target/**",
+      "package-lock.json",
+      "deno.lock",
+      "bun.lock",
+      "pnpm-lock.yaml",
+      "*.env",
+      "*.env.*",
+      "*.db",
+      "*.sqlite"
+    ]
   },
-
   {{/* Global AI Provider config */ -}}
-  "enabled_providers": {{ .opencode.enabled_providers | toPrettyJson | indent 2 | trim | wrap 100 }},
-
-  "provider": {{ .opencode.providers | toPrettyJson | indent 2 | trim }},
-
+  "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama"],
+  "provider": {
+    "ollama": {
+      "models": {
+        "glm-5.1:cloud": { "name": "GLM 5.1 (cloud)" },
+        "kimi-k2.6:cloud": { "name": "Kimi K2.6 (cloud)" },
+        "minimax-m2.7:cloud": { "name": "Minimax-m2.7 (cloud)" },
+        "qwen3.5:cloud": { "name": "Qwen3.5 (cloud)" }
+      }
+    },
+    "github-copilot": {
+      "whitelist": ["claude-haiku-4.6", "claude-sonnet-4.6", "claude-opus-4.6", "gpt-4.1", "gpt-5-mini"]
+    },
+    "opencode": {
+      "options": { "apiKey": "{env:OPENCODE_API_KEY}", "baseUrl": "https://opencode.ai/zen/v1" },
+      "whitelist": ["qwen-3.6-plus-free", "deepseek-v4-flash-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
+    },
+    "openrouter": {
+      "name": "OpenRouter",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": { "apiKey": "{env:OPENROUTER_API_KEY}", "baseUrl": "https://openrouter.ai/api/v1" },
+      "whitelist": [
+        "deepseek/deepseek-v4-flash:free",
+        "minimax/minimax-m2.5:free",
+        "openai/gpt-oss-120b:free",
+        "z-ai/glm-4.5-air:free",
+        "nvidia/nemotron-3-super-120b-a12b:free"
+      ],
+      "models": {
+        "deepseek/deepseek-v4-flash:free": { "name": "DeepSeek V4 Flash" },
+        "minimax/minimax-m2.5:free": { "name": "MiniMax M2.5" },
+        "nvidia/nemotron-3-super-120b-a12b:free": { "name": "NVIDIA: Nemotron 3 Super" },
+        "openai/gpt-oss-120b:free": { "name": "gpt-oss-120b" },
+        "z-ai/glm-4.5-air:free": { "name": "GLM 4.5 Air" }
+      }
+    }
+  },
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
   "agent": {
@@ -45,7 +224,6 @@
     "translator": { "disable": false },
     "triager": { "disable": false }
   },
-
   {{/* Formatter Configurations */ -}}
   "formatter": {
     "rumdl": { "command": [ "rumdl", "fmt", "--fix", "$FILE" ], "extensions": [ ".md", ".mdx" ] },
@@ -57,47 +235,140 @@
     "rustfmt": { "command": ["rustfmt", "$FILE"], "extensions": [".rs"] },
     "gofmt": { "command": ["golangci-lint", "format", "$FILE"], "extensions": [".go"] }
   },
-
   {{/* Language Server Configurations */ -}}
-  {{- $servers := dict -}}
-  {{- range $key, $value := .lsp.servers -}}
-  {{-   if hasKey $value "cmd" -}}
-  {{-     $_ := $value | setValueAtPath "command" $value.cmd -}}
-  {{-     $_ := $value | deleteValueAtPath "cmd" -}}
-  {{-   end -}}
-  {{-   if hasKey $value "exts" -}}
-  {{-     $_ := $value | setValueAtPath "extensions" $value.exts -}}
-  {{-     $_ := $value | deleteValueAtPath "exts" -}}
-  {{-   end -}}
-  {{-   $_ := $value | setValueAtPath "disabled" false -}}
-  {{-   $_ := $servers | setValueAtPath $key $value -}}
-  {{- end -}}
-  "lsp": {{ .lsp.servers | toPrettyJson | indent 2 | trim }},
-
+  "lsp": {
+    "rumdl": {
+      "command": ["rumdl", "server"],
+      "disabled": false,
+      "extensions": [".md", ".markdown", ".mdx"]
+    },
+    "jsonls": {
+      "command": ["vscode-json-languageserver", "--stdio"],
+      "disabled": false,
+      "extensions": [".json", ".jsonc"]
+    },
+    "yamlls": {
+      "command": ["yaml-language-server", "--stdio"],
+      "disabled": false,
+      "extensions": [".yml", ".yaml"],
+      "initialization": {
+        "redhat": {"telemetry": { "enabled": true }},
+        "yaml": {"schemas": { "https://www.schemastore.org/github-workflow.json": "/.github/workflows/*" }}
+      }
+    },
+    "tombi": {
+      "command": ["tombi", "lsp"],
+      "disabled": false,
+      "extensions": [".toml"]
+    },
+    "texlab": {
+      "command": ["texlab"],
+      "disabled": false,
+      "extensions": [".tex", ".bib"]
+    },
+    "bashls": {
+      "command": ["bash-language-server", "server"],
+      "disabled": false,
+      "extensions": [".sh", "bash"]
+    },
+    "fish-lsp": {
+      "command": ["fish-lsp", "start"],
+      "disabled": false,
+      "extensions": [".fish"]
+    },
+    "clangd": {
+      "command": ["clangd"],
+      "disabled": false,
+      "extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".hcc"]
+    },
+    "rust_analyzer": {
+      "command": ["rust_analyzer"],
+      "disabled": false,
+      "extensions": [".rs"]
+    },
+    "gopls": {
+      "command": ["gopls", "serve"],
+      "disabled": false,
+      "extensions": [".go", ".mod", ".sum"]
+    },
+    "ty": {
+      "command": ["ty", "server"],
+      "disabled": false,
+      "extensions": [".py"]
+    },
+    "biome": {
+      "command": ["biome", "lsp-proxy"],
+      "disabled": false,
+      "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".jsonc", ".json5", ".html", ".css", ".vue", ".svelte", ".astro"]
+    },
+    "ts_ls": {
+      "command": ["typescript-language-server", "--stdio"],
+      "disabled": false,
+      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"]
+    },
+    "denols": {
+      "command": ["deno", "lsp"],
+      "disabled": false,
+      "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue", ".svelte", ".astro"]
+    },
+    "lua_ls": {
+      "command": ["lua-language-server"],
+      "disabled": false,
+      "extensions": [".lua"]
+    },
+    "sqls": {
+      "command": ["sqls"],
+      "disabled": false,
+      "extensions": [".sql"]
+    },
+    "dockerls": {
+      "command": ["docker-langserver", "start", "--stdio"],
+      "disabled": false,
+      "extensions": ["Dockerfile", "Dockerfile.runtime"]
+    },
+    "terraform-ls": {
+      "command": ["terraform-ls", "serve"],
+      "disabled": false,
+      "extensions": [".tf", ".hcl"]
+    }
+  },
   {{/* MCP Server Configurations */ -}}
-  {{- $servers := dict -}}
-  {{- range $key, $value := .mcp.providers -}}
-  {{-   if hasKey $value "command" -}}
-  {{-     $_ := $value | setValueAtPath "command" (concat (list $value.command) $value.args) -}}
-  {{-     $_ := $value | deleteValueAtPath "args" -}}
-  {{-   end -}}
-  {{-   if hasKey $value "env" -}}
-  {{-     $_ := $value | setValueAtPath "environment" $value.env -}}
-  {{-     $_ := $value | deleteValueAtPath "env" -}}
-  {{-   end -}}
-  {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
-  {{-     $_ := $value | setValueAtPath "type" "local" -}}
-  {{-   else if and (hasKey $value "type") (or (eq $value.type "http") (eq $value.type "remote")) -}}
-  {{-     $_ := $value | setValueAtPath "type" "remote" -}}
-  {{-     $_ := $value | setValueAtPath "url" $value.url -}}
-  {{-   else -}}
-  {{-     $_ := $value | setValueAtPath "type" "local" -}}
-  {{-   end -}}
-  {{-   if and (hasKey $value "enabled") ($value.enabled) }}
-  {{-     $_ := $servers | setValueAtPath $key $value -}}
-  {{-   end }}
-  {{- end -}}
-  "mcp": {{ $servers | toPrettyJson | indent 2 | trim }}
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["pnpm ", "dlx", "@modelcontextprotocol/server-filesystem@latest"],
+      "enabled": true
+    },
+    "memory": {
+      "type": "local",
+      "command": ["pnpm ", "dlx", "@modelcontextprotocol/server-memory@latest"],
+      "enabled": true
+    },
+    "git": {
+      "type": "local",
+      "command": ["uvx ", "mcp-server-git"],
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": { "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}" },
+      "enabled": true
+    },
+    "grep_app": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "headers": {},
+      "enabled": true
+    },
+    "github": {
+      "type": "remote",
+      "url": "",
+      "headers": { "Authorization": "Bearer ${GITHUB_MCP_PAT}" },
+      "oauth": {},
+      "enabled": true
+    }
+  }
 }
 {{- /*
 // -*-mode:json-*- vim:ft=json.gotexttmpl

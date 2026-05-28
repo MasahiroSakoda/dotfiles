@@ -90,15 +90,11 @@
         ]
       }
     ],
+    "SessionStart": [],
     "BeforeTool": [
       {
         "matcher": "run_shell_command",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${HOME}/.gemini/hooks/rtk-hook-gemini.sh"
-          }
-        ]
+        "hooks": [{ "type": "command", "command": "${HOME}/.gemini/hooks/rtk-hook-gemini.sh" }]
       }
     ],
     "AfterTool": [],
@@ -135,25 +131,13 @@
     "translator": { "enabled": true, "source": "./agents/translator.md" }
   },
   {{/* MCP Servers */ -}}
-  {{ $servers := dict }}
-  {{- range $key, $value := .mcp.providers -}}
-  {{-   if hasKey $value "oauth" -}}
-  {{-     $_ := $value | deleteValueAtPath "oauth" -}}
-  {{-   end -}}
-  {{-   if and (hasKey $value "type") (eq $value.type "stdio") -}}
-  {{-     $_ := $value | deleteValueAtPath "type" -}}
-  {{-   else if and (hasKey $value "type") (or (eq $value.type "http") (eq $value.type "remote")) -}}
-  {{-     $_ := $value | setValueAtPath "httpUrl" $value.url -}}
-  {{-     $_ := $value | deleteValueAtPath "type" -}}
-  {{-     $_ := $value | deleteValueAtPath "url" -}}
-  {{-   else -}}
-  {{-   end -}}
-  {{-   if and (hasKey $value "enabled") ($value.enabled) }}
-  {{-     $_ := $value | deleteValueAtPath "enabled" -}}
-  {{-     $_ := $servers | setValueAtPath $key $value -}}
-  {{-   end }}
-  {{- end -}}
-  "mcpServers": {{ $servers | toPrettyJson | indent 2 | trim }}
+  "mcpServers": {
+    "filesystem": { "command": "pnpm", "args": ["dlx", "@modelcontextprotocol/server-filesystem@latest"] },
+    "memory": { "command": "pnpm", "args": ["dlx", "@modelcontextprotocol/server-memory@latest"] },
+    "git": { "command": "uvx", "args": ["mcp-server-git"] },
+    "context7": {"httpUrl": "https://mcp.context7.com/mcp", "headers": { "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}" }},
+    "grep_app": {"httpUrl": "https://mcp.grep.app", "headers": {} }
+  }
 }
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl

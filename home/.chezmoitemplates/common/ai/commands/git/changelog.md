@@ -22,15 +22,15 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 #### Changelog Format
 
 ```markdown
-### Changelog
+## Changelog
 
-#### What's Changed
+### What's Changed
 
 - Change summary #1
 - Change summary #2
 ...
 
-#### 🚨 Breaking Changes
+### 🚨 Breaking Changes
 
 <details>
 <summary><type>(<scope>)!: <commit message> (<a href="commit link">commit hash</a>)</summary>
@@ -40,7 +40,7 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 ...
 </details>
 
-#### 🎉 New Features
+### 🎉 New Features
 
 <details>
 <summary>feat(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
@@ -50,7 +50,7 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 ...
 </details>
 
-#### 🐞 Bug Fixes
+### 🐞 Bug Fixes
 
 <details>
 <summary>fix(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
@@ -60,7 +60,7 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 ...
 </details>
 
-#### Other Changes
+### Other Changes
 
 <details>
 <summary><type>(<scope>): <commit message> (<a href="commit link">commit hash</a>)</summary>
