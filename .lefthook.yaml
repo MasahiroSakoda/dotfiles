@@ -5,6 +5,12 @@ output:
   - execution_out
 pre-commit:
   jobs:
+    - name: Check Secrets
+      group:
+        parallel: true
+        jobs:
+          - name: betterleaks
+            run: betterleaks git --pre-commit --staged --redact --no-banner --verbose
     - name: CI / CD
       group:
         parallel: false
