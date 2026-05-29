@@ -1,6 +1,5 @@
 # -*-mode:toml-*- vim:ft=toml
 
-[opencode]
 [opencode.models]
 ultra   = [
   "opencode/qwen-3.6-plus-free",
@@ -10,11 +9,13 @@ ultra   = [
 ]
 elite   = [
   "opencode/deepseek-v4-flash-free",
+  "opencode/mimo-v2.5-free",
   "opencode/minimax-m2.5-free",
   "opencode/nemotron-3-super-free",
   "opencode/big-pickle",
 ]
 general = [
+  "opencode/mimo-v2.5-free",
   "opencode/minimax-m2.5-free",
   "opencode/big-pickle",
   "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
