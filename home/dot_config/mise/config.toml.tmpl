@@ -33,9 +33,12 @@ env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
 disable_backends = ["asdf", "ubi", "vfox", "dotnet"] # backends to disable globally
 disable_tools    = ["java"]                          # ignore specified tools in config files
 
+legacy_version_file = false
+idiomatic_version_file_enable_tools = []
+
 [settings.npm]
 # default_packages_file = "~/.config/mise/default-npm-packages"
-package_manager = "aube"
+package_manager = "pnpm"
 
 [settings.python]
 # default_packages_file = "~/.config/mise/default-python-packages"
@@ -62,7 +65,6 @@ python  = ["3.14"]
 ruby    = "3"
 
 # Package Manager
-"github:endevco/aube" = "latest" # A fast Node.js package manager
 "aqua:pnpm/pnpm"      = "11"     # Fast, disk space efficient package manager
 "aqua:astral-sh/uv"   = "latest" # Python package and project manager, written in Rust
 
