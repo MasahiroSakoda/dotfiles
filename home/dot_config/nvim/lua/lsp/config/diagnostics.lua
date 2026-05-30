@@ -19,6 +19,7 @@ vim.diagnostic.config({
     format = function(d)
       return string.format("%s (%s: %s)", d.message, d.source, d.code)
     end,
+    virt_text_pos = "eol_right_align",
   },
 })
 

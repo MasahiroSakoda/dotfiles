@@ -45,7 +45,7 @@ vim.opt.showmode   = true
 vim.opt.laststatus = 3
 
 vim.opt.list = true
-vim.opt.listchars = { space = "･", eol = "↴", tab = "»-", trail = "-", nbsp = "%", extends = "⟩", precedes = "⟨" }
+vim.opt.listchars = { space = "･", eol = "↲", tab = "→ ", trail = "•", nbsp = "_", extends = "⟩", precedes = "⟨" }
 
 -- Highlights
 vim.api.nvim_set_hl(0, "SnacksPickerDir",               { fg = palette.cyan })
