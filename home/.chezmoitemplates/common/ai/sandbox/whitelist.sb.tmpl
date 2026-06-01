@@ -1,0 +1,136 @@
+;; Parameters (`-d KEY=VALUE`)
+;;   WORKSPACE
+;;
+;; Usage:
+;; sandbox-exec -f whitelist.sb -d WORKSPACE=. claude / codex / gemini / opencode
+(version 1)
+
+;; Deny everything by default
+(deny default)
+
+;; =========================================================
+;; System / IPC
+;; =========================================================
+(allow sysctl-read)
+(allow mach-lookup)
+; (allow mach-lookup
+;   (global-name "com.apple.audio.systemsoundserver")
+;   (global-name "com.apple.distributed_notifications@Uv3")
+;   (global-name "com.apple.FontObjectsServer")
+;   (global-name "com.apple.fonts")
+;   (global-name "com.apple.logd")
+;   (global-name "com.apple.lsd.mapdb")
+;   (global-name "com.apple.PowerManagement.control")
+;   (global-name "com.apple.system.logger")
+;   (global-name "com.apple.system.notification_center")
+;   (global-name "com.apple.system.opendirectoryd.libinfo")
+;   (global-name "com.apple.system.opendirectoryd.membership")
+;   (global-name "com.apple.trustd.agent")
+;   (global-name "com.apple.bsd.dirhelper")
+;   (global-name "com.apple.securityd.xpc")
+;   (global-name "com.apple.coreservices.launchservicesd")
+; )
+(allow ipc-posix-shm)
+(allow ipc-posix-shm-read-data)
+(allow ipc-posix-shm-write-create)
+(allow ipc-posix-shm-write-data)
+
+;; =========================================================
+;; Process execution
+;; =========================================================
+(allow process-exec
+  (lietral "/bin/sh")
+  (lietral "/bin/bash")
+  (lietral "/usr/bin/env")
+  (lietral "/usr/bin/osascript")
+  (lietral "/usr/bin/pbcopy")
+  (lietral "/usr/bin/pbpaste")
+  (lietral "/usr/bin/open")
+)
+(allow process-fork)
+(allow process-info-pidinfo)
+(allow process-info-setcontrol)
+(allow signal (target self))
+; (allow signal)
+
+;; =========================================================
+;; Network access
+;; =========================================================
+(allow network-outbound)
+(allow network-inbound)
+; (allow network-inbound
+;   (local tcp "localhost:8000")
+; )
+(allow system-socket)
+
+;; =========================================================
+;; Keychain access
+;; =========================================================
+(allow file-read*
+  (subpath "${HOME}/Library/Keychains")
+  (literal "/Library/Keychains/System.keychain")
+)
+
+(allow file-write*
+  (subpath "${HOME}/Library/Keychains")
+)
+
+;; =========================================================
+;; File access
+;; =========================================================
+;; Allow read access to workspace files
+(allow file-read*
+  (subpath (param "WORKSPACE"))
+)
+
+;; Allow read access to files
+(allow file-read*
+  (literal "/")
+  (subpath "/usr")
+  (subpath "/bin")
+  (subpath "/sbin")
+  (subpath "/usr/local")
+  (subpath "/opt/homebrew")
+  (subpath "/private/etc")
+  (subpath "/private/db")
+  (subpath "/private/var/folders")
+  (subpath "/System")
+  (subpath "/Library")
+
+  (subpath "${HOME}/.config/git")
+)
+
+;; Allow write access to temporary files
+(allow file-read* file-write*
+  (subpath "/tmp")
+  (subpath "/var/folders")
+  (subpath "/private/tmp")
+  (subpath "/private/var/folders")
+)
+
+;; Allow write access to cache directories
+(allow file-write*
+  (subpath "${HOME}/.cache")
+  (subpath "${HOME}/Library/Caches")
+)
+
+;; Allow write access to file descriptor
+(allow file-write*
+  (literal "/dev/stdout")
+  (literal "/dev/stderr")
+  (literal "/dev/null")
+  (literal "/dev/ptmx")
+  (regex #"^/dev/ttys[0-9]*$")
+)
+
+;; Allow access to pseudo files
+(allow file-write-data (subpath "/dev"))
+(allow file-ioctl (subpath "/dev"))
+
+(allow file-read*
+  ; (literal "/usr/local/bin/node")
+)
+
+{{- /*
+;; -*-mode:scheme-*- vim:ft=scheme.gotexttmpl
+*/ -}}

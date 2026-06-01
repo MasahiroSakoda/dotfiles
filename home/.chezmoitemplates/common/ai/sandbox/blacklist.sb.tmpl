@@ -1,0 +1,83 @@
+(version 1)
+
+;; Allow everything by default
+(allow default)
+
+(deny system-socket)
+(deny iokit-open)
+
+;; =========================================================
+;; Network access
+;; =========================================================
+;; Block network
+(deny network*)
+
+(allow mach-lookup
+  (global-name "com.apple.system.logger")
+  (global-name "com.apple.system.notification_center")
+)
+
+;; =========================================================
+;; File access
+;; =========================================================
+;; Deny write access to system directories
+(deny file-write*
+  (subpath "/System")
+  (subpath "/bin")
+  (subpath "/sbin")
+  (subpath "/usr")
+  (subpath "/Library/Frameworks")
+  (subpath "/Applications")
+)
+
+(deny file-read*
+  ;; Deny access to daemon config
+  (subpath "${HOME}/Library/LaunchAgents")
+  (subpath "${HOME}/Library/Application Support/BraveSoftware/Brave-Browser")
+
+  ;; Deny shell history
+  (subpath "${HOME}/.bash_history")
+  (subpath "${HOME}/.local/zsh/history")
+  (subpath "${HOME}/.local/fish/history")
+
+  ;; .env and variants
+  (regex #".*/\.env(\..*)?$")
+)
+
+;; Deny access to sensitive directories / files
+(deny file-read* file-write*
+  (literal "/etc/passwd")
+  (literal "/etc/shadow"))
+
+  (regex #"^/Users/[^/]+/\.ssh")
+  (regex #"^/Users/[^/]+/\.aws")
+  (regex #"^/Users/[^/]+/\.gcp")
+  (regex #"^/Users/[^/]+/\.gnupg")
+  (regex #"^/Users/[^/]+/\.docker")
+  (regex #"^/Users/[^/]+/\.npmrc")
+
+  (regex #"^/Users/[^/]+/Applications")
+  (regex #"^/Users/[^/]+/Desktop")
+  (regex #"^/Users/[^/]+/Documents")
+  (regex #"^/Users/[^/]+/Downloads")
+  ; (regex #"^/Users/[^/]+/Library")
+  (regex #"^/Users/[^/]+/Movies")
+  (regex #"^/Users/[^/]+/Music")
+  (regex #"^/Users/[^/]+/Pictures")
+  (regex #"^/Users/[^/]+/Public")
+)
+
+;; Deny access to AI agent related config
+(deny file-read* file-write*
+  (regex #"^/Users/[^/]+/\.claude/settings\.json")
+  (regex #"^/Users/[^/]+/\.codex/settings\.json")
+  (regex #"^/Users/[^/]+/\.gemini/settings\.json")
+  (regex #"^/Users/[^/]+/\.config/opencode/.+\.json")
+)
+
+;; Allow write access to specific directories
+(allow file-write*
+)
+{{- /*
+;; -*-mode:scheme-*- vim:ft=scheme.gotexttmpl
+*/ -}}
