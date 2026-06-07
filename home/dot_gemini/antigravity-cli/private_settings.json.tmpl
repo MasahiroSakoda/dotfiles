@@ -86,6 +86,11 @@
     ]
   },
   "showFeedbackSurvey": false,
+  "statusLine": {
+    "type": "command",
+    "command": "bun run --silent -i ~/.gemini/antigravity-cli/scripts/statusline.ts",
+    "enabled": true
+  },
   "trustedWorkspaces": [
     {{ .chezmoi.workingTree | quote }},
     {{ joinPath .git.ghq_root .git.user | quote }}
