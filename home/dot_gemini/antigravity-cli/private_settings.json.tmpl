@@ -1,6 +1,9 @@
 {
+  "artifactReviewPolicy": "agent-decides",
   "colorScheme": "tokyo night",
+  "editor": "auto",
   "enableTelemetry": false,
+  "enableTerminalSandbox": true,
   "model": "Gemini 3.5 Flash (Medium)",
   "notifications": true,
   "permissions": {
@@ -55,6 +58,7 @@
       "command(npm ci*)"
     ],
     "ask": [
+      "command(uname*)",
       "command(head*)",
       "command(tail*)",
       "command(more*)",
@@ -85,12 +89,15 @@
       "command(gh skill publish*)"
     ]
   },
+  "runningLightSpeed": "fast",
   "showFeedbackSurvey": false,
+  "showTips": true,
   "statusLine": {
     "type": "command",
     "command": "bun run --silent -i ~/.gemini/antigravity-cli/scripts/statusline.ts",
     "enabled": true
   },
+  "toolPermission": "proceed-in-sandbox",
   "trustedWorkspaces": [
     {{ .chezmoi.workingTree | quote }},
     {{ joinPath .git.ghq_root .git.user | quote }}
