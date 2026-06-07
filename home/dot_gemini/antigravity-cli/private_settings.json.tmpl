@@ -1,9 +1,10 @@
 {
+  "allowNonWorkspaceAccess": true,
   "artifactReviewPolicy": "agent-decides",
   "colorScheme": "tokyo night",
   "editor": "auto",
   "enableTelemetry": false,
-  "enableTerminalSandbox": true,
+  "enableTerminalSandbox": false,
   "model": "Gemini 3.5 Flash (Medium)",
   "notifications": true,
   "permissions": {
@@ -102,7 +103,7 @@
     "command": "bun run --silent -i ~/.gemini/antigravity-cli/scripts/title.ts",
     "enabled": true
   },
-  "toolPermission": "proceed-in-sandbox",
+  "toolPermission": "request-review",
   "trustedWorkspaces": [
     {{ .chezmoi.workingTree | quote }},
     {{ joinPath .git.ghq_root .git.user | quote }}
