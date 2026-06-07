@@ -1,5 +1,7 @@
 #!/usr/bin/env bun
 
+import type { Payload } from "./types";
+
 // Premium ANSI 256-color palette
 const ANSI = {
   reset: "\x1b[0m",
@@ -19,17 +21,6 @@ const ANSI = {
 
 // Separator styled in dimmed gray
 const SEPARATOR = ` ${ANSI.dim}•${ANSI.reset} `;
-
-// Type definition for the payload
-interface Payload {
-  agent_state?: {status?: string;};
-  model?: {id?: string; display_name?: string;};
-  sandbox?: boolean;
-  cwd?: string;
-  context_window?: {used_percentage?: number; used?: number; limit?: number;};
-  tasks?: Array<{ title?: string }>;
-  artifacts?: Array<{ title?: string }>;
-}
 
 // Function to abbreviate model names for visual compactness
 function abbreviateModel(name: string | undefined): string {
