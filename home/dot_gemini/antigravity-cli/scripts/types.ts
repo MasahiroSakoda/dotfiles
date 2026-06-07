@@ -4,7 +4,7 @@ export interface Payload {
   sandbox?: boolean;
   cwd?: string;
   vcs?: {type?: string; branch?: string; dirty: boolean;};
-  context_window?: {used_percentage?: number; used?: number; limit?: number;};
+  context_window?: {used_percentage: number; remaining_percentage: number;};
   tasks?: Array<{ title?: string }>;
   artifacts?: Array<{ title?: string }>;
 }

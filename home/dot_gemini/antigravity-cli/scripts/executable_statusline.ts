@@ -98,9 +98,7 @@ function formatCwd(path: string | undefined): string {
 function formatContext(contextWindow: Payload["context_window"]): string {
   if (!contextWindow) return `${ANSI.gray}[░░░░░░░░] 0%${ANSI.reset}`;
 
-  const used = contextWindow.used ?? 0;
-  const limit = contextWindow.limit ?? 32000;
-  const percentage = contextWindow.used_percentage ?? (limit > 0 ? (used / limit) * 100 : 0);
+  const percentage = contextWindow.used_percentage;
 
   const filledLength = Math.max(0, Math.min(8, Math.round((percentage / 100) * 8)));
   const unfilledLength = 8 - filledLength;
