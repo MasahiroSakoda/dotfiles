@@ -42,15 +42,14 @@ function abbreviateModel(name: string | undefined): string {
   let baseName = cleanName;
   if (cleanLower.includes("gemini 3.5 flash") || lower.includes("gemini-3.5-flash")) {
     baseName = "3.5-Flash";
-  }
-  else if (cleanLower.includes("gemini 3.5 pro") || lower.includes("gemini-3.5-pro")) {
-    baseName = "3.5-Pro";
-  }
-  else if (cleanLower.includes("gemini 3.1 flash") || lower.includes("gemini-3.1-flash")) {
-    baseName = "3.1-Flash";
-  }
-  else if (cleanLower.includes("gemini 3.1 pro") || lower.includes("gemini-3.1-pro")) {
+  } else if (cleanLower.includes("gemini 3.1 pro") || lower.includes("gemini-3.1-pro")) {
     baseName = "3.1-Pro";
+  } else if (cleanLower.includes("claude opus 4.6") || lower.includes("claude-opus-4.6")) {
+    baseName = "Opus 4.6";
+  } else if (cleanLower.includes("claude sonnet 4.6") || lower.includes("claude-sonnet-4.6")) {
+    baseName = "Sonnet 4.6";
+  } else if (cleanLower.includes("gpt-oss 120b") || lower.includes("gpt-oss-120b")) {
+    baseName = "GPT-OSS 120B";
   } else {
     basename = cleanName.replace(/gemini/gi, "").trim();
   }
