@@ -166,7 +166,7 @@
     ]
   },
   {{/* Global AI Provider config */ -}}
-  "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama"],
+  "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama-cloud"],
   "provider": {
     "ollama-cloud": {
       "name": "Ollama Cloud",
@@ -177,6 +177,12 @@
         "timeout": 300000,
         "chunkTimeout": 60000,
       },
+      "whitelist": [
+        "glm-5.1:cloud",
+        "kimi-k2.6:cloud",
+        "minimax-m3:cloud",
+        "nemotron-3-ultra:cloud"
+      ],
       "models": {
         "glm-5.1:cloud": { "name": "GLM 5.1 (cloud)" },
         "kimi-k2.6:cloud": { "name": "Kimi K2.6 (cloud)" },
