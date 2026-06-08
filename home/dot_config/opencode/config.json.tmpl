@@ -166,7 +166,7 @@
     ]
   },
   {{/* Global AI Provider config */ -}}
-  "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama-cloud"],
+  "enabled_providers": ["opencode", "openrouter", "ollama-cloud"],
   "provider": {
     "ollama-cloud": {
       "name": "Ollama Cloud",
@@ -189,9 +189,6 @@
         "minimax-m3:cloud": { "name": "Minimax-m3 (cloud)" },
         "nemotron-3-ultra:cloud": { "name": "NVIDIA Nemotron 3 Ultra (cloud)" }
       }
-    },
-    "github-copilot": {
-      "whitelist": ["claude-haiku-4.6", "claude-sonnet-4.6", "claude-opus-4.6", "gpt-4.1", "gpt-5-mini"]
     },
     "opencode": {
       "options": { "apiKey": "{env:OPENCODE_API_KEY}", "baseUrl": "https://opencode.ai/zen/v1" },
