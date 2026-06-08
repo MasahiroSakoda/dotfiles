@@ -145,25 +145,7 @@
   "compaction": { "auto": true, "prune": true },
   {{/* File Watcher Configurations */ -}}
   "watcher": {
-    "ignore": [
-      ".git/**",
-      ".cache/**",
-      ".next/**",
-      "**/*.log",
-      "node_modules/**",
-      "build/**",
-      "dist/**",
-      "vendor/**",
-      "target/**",
-      "package-lock.json",
-      "deno.lock",
-      "bun.lock",
-      "pnpm-lock.yaml",
-      "*.env",
-      "*.env.*",
-      "*.db",
-      "*.sqlite"
-    ]
+    "ignore": [".git/**", ".jj/**", "**/*.log", "node_modules/**", "dist/**"]
   },
   {{/* Global AI Provider config */ -}}
   "enabled_providers": ["opencode", "openrouter", "ollama-cloud"],
