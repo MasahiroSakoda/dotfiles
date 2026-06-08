@@ -71,7 +71,7 @@ install.sh
 .config/opencode/bun.lock
 .config/opencode/package.json
 
-## Gemini CLI
+## Google AI Studio
 .gemini/google_account_id
 .gemini/google_accounts.json
 .gemini/installation_id
@@ -80,7 +80,18 @@ install.sh
 .gemini/history/
 .gemini/tmp/
 
-## Antigravity CLI
+### Antigravity 2.0
+.gemini/antigravity/conversations
+.gemini/antigravity/implicit
+.gemini/antigravity/knowledge
+.gemini/antigravity/playground
+.gemini/antigravity/installation_id
+
+### Antigravity CLI
+.gemini/antigravity-cli/cache
+.gemini/antigravity-cli/conversations
+.gemini/antigravity-cli/knowledge
+.gemini/antigravity-cli/updater
 .gemini/antigravity-cli/history.jsonl
 .gemini/antigravity-cli/installation_id
 
