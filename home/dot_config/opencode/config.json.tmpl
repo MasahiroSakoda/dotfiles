@@ -228,9 +228,13 @@
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
   "agent": {
-    {{/* Builtin Agents */ -}}
-    "plan": { "disable": true },
-    "build": { "disable": true },
+    {{/* Builtin Primary Agents */ -}}
+    "plan": { "disable": false },
+    "build": { "disable": false },
+    {{/* Builtin Subagents */ -}}
+    "general": { "disable": false },
+    "explore": { "disable": false },
+    "scout": { "disable": false },
     {{/* Custom Agents */ -}}
     "auditor": { "disable": false },
     "translator": { "disable": false },
