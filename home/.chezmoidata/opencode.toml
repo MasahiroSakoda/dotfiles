@@ -2,32 +2,35 @@
 
 [opencode.models]
 ultra   = [
+  "opencode/minimax-m3-free",
+  "ollama-cloud/minimax-m3:cloud",
+
+  "openrouter/moonshotai/kimi-k2.6:free",
+  "ollama-cloud/kimi-k2.6:cloud",
+
   "opencode/qwen-3.6-plus-free",
   "opencode/deepseek-v4-flash-free",
-  "opencode/minimax-m2.5-free",
-  "opencode/big-pickle",
 ]
 elite   = [
-  "opencode/deepseek-v4-flash-free",
+  "opencode/qwen-3.6-plus-free",
   "opencode/mimo-v2.5-free",
-  "opencode/minimax-m2.5-free",
-  "opencode/nemotron-3-super-free",
-  "opencode/big-pickle",
+  "opencode/nemotron-3-ultra-free",
+  "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+  "ollama-cloud/nemotron-3-ultra:cloud",
 ]
 general = [
   "opencode/mimo-v2.5-free",
-  "opencode/minimax-m2.5-free",
-  "opencode/big-pickle",
-  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
-  "openrouter/openai/gpt-oss-120b",
+  "opencode/deepseek-v4-flash-free",
+  "opencode/nemotron-3-ultra-free",
+  "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
 ]
 lite    = [
-  "opencode/minimax-m2.5-free",
+  "ollama-cloud/glm-5.1:cloud",
   "opencode/nemotron-3-super-free",
   "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
 ]
 micro   = [
-  "openrouter/z-ai/glm-4.5-air:free",
-  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
   "opencode/nemotron-3-super-free",
+  "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+  "opencode/big-pickle",
 ]

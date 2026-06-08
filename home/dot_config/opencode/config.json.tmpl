@@ -168,12 +168,20 @@
   {{/* Global AI Provider config */ -}}
   "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama"],
   "provider": {
-    "ollama": {
+    "ollama-cloud": {
+      "name": "Ollama Cloud",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://ollama.com/v1",
+        "apiKey": "{env:OLLAMA_API_KEY}",
+        "timeout": 300000,
+        "chunkTimeout": 60000,
+      },
       "models": {
         "glm-5.1:cloud": { "name": "GLM 5.1 (cloud)" },
         "kimi-k2.6:cloud": { "name": "Kimi K2.6 (cloud)" },
-        "minimax-m2.7:cloud": { "name": "Minimax-m2.7 (cloud)" },
-        "qwen3.5:cloud": { "name": "Qwen3.5 (cloud)" }
+        "minimax-m3:cloud": { "name": "Minimax-m3 (cloud)" },
+        "nemotron-3-ultra:cloud": { "name": "NVIDIA Nemotron 3 Ultra (cloud)" }
       }
     },
     "github-copilot": {
@@ -181,25 +189,34 @@
     },
     "opencode": {
       "options": { "apiKey": "{env:OPENCODE_API_KEY}", "baseUrl": "https://opencode.ai/zen/v1" },
-      "whitelist": ["qwen-3.6-plus-free", "deepseek-v4-flash-free", "mimo-v2.5-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
+      "whitelist": [
+        "minimax-m3-free",
+        "qwen-3.6-plus-free",
+        "deepseek-v4-flash-free",
+        "mimo-v2.5-free",
+        "nemotron-3-ultra-free",
+        "nemotron-3-super-free",
+        "big-pickle"
+      ]
     },
     "openrouter": {
       "name": "OpenRouter",
       "npm": "@ai-sdk/openai-compatible",
-      "options": { "apiKey": "{env:OPENROUTER_API_KEY}", "baseUrl": "https://openrouter.ai/api/v1" },
+      "options": {
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "apiKey": "{env:OPENROUTER_API_KEY}",
+        "timeout": 300000,
+        "chunkTimeout": 60000,
+      },
       "whitelist": [
-        "deepseek/deepseek-v4-flash:free",
-        "minimax/minimax-m2.5:free",
-        "openai/gpt-oss-120b:free",
-        "z-ai/glm-4.5-air:free",
-        "nvidia/nemotron-3-super-120b-a12b:free"
+        "moonshotai/kimi-k2.6:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-super-120b-a12b:free",
       ],
       "models": {
-        "deepseek/deepseek-v4-flash:free": { "name": "DeepSeek V4 Flash" },
-        "minimax/minimax-m2.5:free": { "name": "MiniMax M2.5" },
-        "nvidia/nemotron-3-super-120b-a12b:free": { "name": "NVIDIA: Nemotron 3 Super" },
-        "openai/gpt-oss-120b:free": { "name": "gpt-oss-120b" },
-        "z-ai/glm-4.5-air:free": { "name": "GLM 4.5 Air" }
+        "moonshotai/kimi-k2.6:free": { "name": "Kimi K2.6" },
+        "nvidia/nemotron-3-ultra-550b-a55b:free": { "name": "NVIDIA: Nemotron 3 Ultra" },
+        "nvidia/nemotron-3-super-120b-a12b:free": { "name": "NVIDIA: Nemotron 3 Super" }
       }
     }
   },
