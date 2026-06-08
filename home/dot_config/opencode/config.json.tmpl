@@ -168,60 +168,9 @@
   {{/* Global AI Provider config */ -}}
   "enabled_providers": ["opencode", "openrouter", "ollama-cloud"],
   "provider": {
-    "ollama-cloud": {
-      "name": "Ollama Cloud",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseURL": "https://ollama.com/v1",
-        "apiKey": "{env:OLLAMA_API_KEY}",
-        "timeout": 300000,
-        "chunkTimeout": 60000,
-      },
-      "whitelist": [
-        "glm-5.1:cloud",
-        "kimi-k2.6:cloud",
-        "minimax-m3:cloud",
-        "nemotron-3-ultra:cloud"
-      ],
-      "models": {
-        "glm-5.1:cloud": { "name": "GLM 5.1 (cloud)" },
-        "kimi-k2.6:cloud": { "name": "Kimi K2.6 (cloud)" },
-        "minimax-m3:cloud": { "name": "Minimax-m3 (cloud)" },
-        "nemotron-3-ultra:cloud": { "name": "NVIDIA Nemotron 3 Ultra (cloud)" }
-      }
-    },
-    "opencode": {
-      "options": { "apiKey": "{env:OPENCODE_API_KEY}", "baseUrl": "https://opencode.ai/zen/v1" },
-      "whitelist": [
-        "minimax-m3-free",
-        "qwen-3.6-plus-free",
-        "deepseek-v4-flash-free",
-        "mimo-v2.5-free",
-        "nemotron-3-ultra-free",
-        "nemotron-3-super-free",
-        "big-pickle"
-      ]
-    },
-    "openrouter": {
-      "name": "OpenRouter",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": {
-        "baseUrl": "https://openrouter.ai/api/v1",
-        "apiKey": "{env:OPENROUTER_API_KEY}",
-        "timeout": 300000,
-        "chunkTimeout": 60000,
-      },
-      "whitelist": [
-        "moonshotai/kimi-k2.6:free",
-        "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "nvidia/nemotron-3-super-120b-a12b:free",
-      ],
-      "models": {
-        "moonshotai/kimi-k2.6:free": { "name": "Kimi K2.6" },
-        "nvidia/nemotron-3-ultra-550b-a55b:free": { "name": "NVIDIA: Nemotron 3 Ultra" },
-        "nvidia/nemotron-3-super-120b-a12b:free": { "name": "NVIDIA: Nemotron 3 Super" }
-      }
-    }
+    "opencode": {{ .opencode.providers.opencode | toPrettyJson | indent 4 | trim }},
+    "openrouter": {{ .opencode.providers.openrouter | toPrettyJson | indent 4 | trim }},
+    "ollama-cloud": {{ .opencode.providers.ollama | toPrettyJson | indent 4 | trim }}
   },
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
