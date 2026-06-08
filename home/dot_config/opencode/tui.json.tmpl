@@ -2,8 +2,26 @@
   "$schema": "https://opencode.ai/tui.json",
   "theme": {{ .opencode.theme | quote }},
   "keybinds": {
-    "leader": "Ctrl+x",
-    "session_child_cycle": "Ctrl+Tab"
+    "leader": "ctrl+o",
+    "agent_cycle": "tab",
+    "agent_list": "<leader>a",
+    "model_list": "<leader>m",
+    "prompt_skills": "<leader>s",
+    "mcp_list": "<leader>shift+m",
+    "model_cycle_recent": "f2",
+    "model_cycle_recent_reverse": "shift+f2",
+    "variant_cycle": "alt+tab",
+    "session_list": "ctrl+f",
+    "command_list": "ctrl+p",
+    "input_submit": "enter",
+    "input_newline": "shift+enter",
+    "input_undo": "super+z",
+    "input_redo": "super+shilft+z",
+    "editor_open": "ctrl+g",
+    "messages_page_up": "ctrl+alt+u",
+    "messages_page_down": "ctrl+alt+d",
+    "messages_half_page_up": "ctrl+u",
+    "messages_half_page_down": "ctrl+d"
   },
   "scroll_speed": 2,
   "scroll_acceleration": { "enabled": true }
