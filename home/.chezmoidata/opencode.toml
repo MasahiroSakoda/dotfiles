@@ -1,5 +1,7 @@
 # -*-mode:toml-*- vim:ft=toml
 
+opencode.theme = "github"
+
 [opencode.models]
 ultra   = [
   "opencode/minimax-m3-free",
