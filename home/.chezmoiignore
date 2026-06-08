@@ -80,6 +80,10 @@ install.sh
 .gemini/history/
 .gemini/tmp/
 
+## Antigravity CLI
+.gemini/antigravity-cli/history.jsonl
+.gemini/antigravity-cli/installation_id
+
 key.txt.age
 
 # Language specific files
