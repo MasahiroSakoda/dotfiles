@@ -265,10 +265,8 @@ Runtime version management tool
 | [superpowers](https://github.com/obra/superpowers) | An agentic skills framework & software development methodology that works. |
 | [**`OpenCode`**](https://opencode.ai/) | Open Source AI Agent |
 | [oh-my-opencode](https://github.com/code-yeongyu/oh-my-openagent) | omo; the best agent harness - previously oh-my-opencode |
-| [**`Gemini CLI`**](https://geminicli.com/) | An open-source AI agent that brings the power of Gemini directly into your terminal. |
-| [code-review](https://github.com/gemini-cli-extensions/code-review) | Google's Code Review extension for the Gemini CLI that reviews your code changes |
-| [conductor](https://github.com/gemini-cli-extensions/conductor) |  Gemini CLI extension that allows you to specify, plan, and implement software features |
-| [security](https://github.com/gemini-cli-extensions/security) | Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests. |
+| [**`Antigravity 2.0`**](https://antigravity.google/docs/overview) | a standalone desktop application tailored for managing AI agents that execute complex knowledge and coding tasks. |
+| [**Antigravity CLI**](https://antigravity.google/docs/cli-overview) | the lightweight Terminal User Interface (TUI) surface of Antigravity |
 
 ### Homebrew cask packages
 

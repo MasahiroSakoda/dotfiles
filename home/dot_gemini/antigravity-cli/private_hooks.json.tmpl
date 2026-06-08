@@ -1,0 +1,58 @@
+{
+  "notify-sound": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            {{- if eq .chezmoi.os "darwin" }}
+            "command": "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+            {{- else if eq .chezmoi.os "linux" }}
+            "command": "paplay /usr/share/sounds/freedesktop/stereo/message.oga"
+            {{- end }}
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            {{- if eq .chezmoi.os "darwin" }}
+            "command": "afplay /System/Library/Sounds/Purr.aiff >/dev/null 2>&1 &"
+            {{- else if eq .chezmoi.os "linux" }}
+            "command": "paplay /usr/share/sounds/freedesktop/stereo/dialog-information.oga"
+            {{- end }}
+          }
+        ]
+      }
+    ],
+    "PreInvocation": [],
+    "PostInvocation": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            {{- if eq .chezmoi.os "darwin" }}
+            "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+            {{- else if eq .chezmoi.os "linux" }}
+            "command": "paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
+            {{- end }}
+          }
+        ]
+      }
+    ],
+    "Stop": [],
+    "PreToolUse": [
+      {{- /* TODO: Enable RTK token reducer after support Antigravity CLI
+      {
+        "matcher": "run_command",
+        "hooks": [{"command": "${HOME}/.gemini/hooks/rtk-hook-gemini.sh"}]
+      }
+      */ -}}
+    ],
+    "PostToolUse": []
+  }
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}

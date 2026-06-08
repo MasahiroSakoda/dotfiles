@@ -47,6 +47,9 @@ sidekick.setup({
         ---@see https://opencode.ai/docs/themes/#built-in-themes
         env = { OPENCODE_THEME = "tokyonight" },
       },
+      antigravity = {
+        cmd = { "agy" },
+      },
     },
   },
 
