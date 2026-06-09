@@ -1,0 +1,88 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "autoupdate": true,
+  "showStartupToast": true,
+  "multiplexer": {
+    "type": "auto",
+    "layout": "main-vertical",
+    "main_pane_size": 60
+  },
+  "preset": "default",
+  "presets": {
+    "default": {
+      "orchestrator": {
+        "model": {{ index .opencode.models.ultra 0 | quote }},
+        "variant": "high",
+        "skills": ["*"],
+        "mcps": ["*"],
+        "temperature": 0.8
+      },
+      "oracle": {
+        "model": {{ index .opencode.models.elite 0 | quote }},
+        "variant": "high",
+        "skills": [],
+        "mcps": ["context7"],
+        "temperature": 1.0
+      },
+      "librarian": {
+        "model": {{ index .opencode.models.lite 0 | quote }},
+        "variant": "low",
+        "skills": [],
+        "mcps": ["context7", "grep_app"],
+        "temperature": 0.8
+      },
+      "explorer": {
+        "model": {{ index .opencode.models.lite 0 | quote }},
+        "variant": "low",
+        "skills": [],
+        "mcps": ["context7", "grep_app"],
+        "temperature": 0.8
+      },
+      "designer": {
+        "model": {{ index .opencode.models.general 0 | quote }},
+        "variant": "medium",
+        "skills": [],
+        "mcps": ["agent-browser"],
+        "temperature": 1.0
+      },
+      "fixer": {
+        "model": {{ index .opencode.models.elite 0 | quote }},
+        "variant": "low",
+        "skills": ["*"],
+        "mcps": ["context7"],
+        "temperature": 1.0
+      },
+      "observer": {
+        "model": {{ index .opencode.models.general 0 | quote }},
+        "variant": "low",
+        "skills": [],
+        "mcps": [],
+        "temperature": 1.0
+      },
+      "council": {
+        "model": {{ index .opencode.models.ultra 0 | quote }},
+        "variant": "low",
+        "skills": [],
+        "mcps": [],
+        "temperature": 1.0
+      }
+    }
+  },
+  "fallback": {
+    "enabled": true,
+    "timeoutMs": 25000,
+    "chains": {
+      "orchestrator": {{ slice .opencode.models.ultra 1 | toPrettyJson | indent 6 | trim }},
+      "oracle": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }},
+      "librarian": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }},
+      "explorer": {{ slice .opencode.models.lite 1 | toPrettyJson | indent 6 | trim }},
+      "designer": {{ slice .opencode.models.general 1 | toPrettyJson | indent 6 | trim }},
+      "fixer": {{ slice .opencode.models.elite 1 | toPrettyJson | indent 6 | trim }},
+      "observer": {{ slice .opencode.models.general 1 | toPrettyJson | indent 6 | trim }},
+      "council": {{ slice .opencode.models.ultra 1 | toPrettyJson | indent 6 | trim }}
+    }
+  }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}

@@ -1,28 +1,19 @@
 {
-  "$schema": "https://",
+  "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
   "autoshare": false,
   "snapshot": false,
-  "theme": "github",
-  "tui": {
-    "scroll_speed": 2,
-    "scroll_acceleration": { "enabled": true }
-  },
   "model": {{ index .opencode.models.ultra 0 | quote }},
   "small_model": {{ index .opencode.models.elite 0 | quote }},
   {{/* Global plugins */ -}}
   "plugin": [
-    "oh-my-openagent@latest",
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "@tarquinen/opencode-dcp@latest",
     "./plugins/damage-control.ts",
     "./plugins/notification.ts",
     "./plugins/limits.ts",
     "./plugins/rtk.ts"
   ],
-  {{/* Global keybinds */ -}}
-  "keybinds": {
-    "leader": "Ctrl+x",
-    "session_child_cycle": "Ctrl+Tab"
-  },
   {{/* Global Instructions */ -}}
   "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
@@ -155,70 +146,25 @@
   "compaction": { "auto": true, "prune": true },
   {{/* File Watcher Configurations */ -}}
   "watcher": {
-    "ignore": [
-      ".git/**",
-      ".cache/**",
-      ".next/**",
-      "**/*.log",
-      "node_modules/**",
-      "build/**",
-      "dist/**",
-      "vendor/**",
-      "target/**",
-      "package-lock.json",
-      "deno.lock",
-      "bun.lock",
-      "pnpm-lock.yaml",
-      "*.env",
-      "*.env.*",
-      "*.db",
-      "*.sqlite"
-    ]
+    "ignore": [".git/**", ".jj/**", "**/*.log", "node_modules/**", "dist/**"]
   },
   {{/* Global AI Provider config */ -}}
-  "enabled_providers": ["opencode", "openrouter", "github-copilot", "ollama"],
+  "enabled_providers": ["opencode", "openrouter", "ollama-cloud"],
   "provider": {
-    "ollama": {
-      "models": {
-        "glm-5.1:cloud": { "name": "GLM 5.1 (cloud)" },
-        "kimi-k2.6:cloud": { "name": "Kimi K2.6 (cloud)" },
-        "minimax-m2.7:cloud": { "name": "Minimax-m2.7 (cloud)" },
-        "qwen3.5:cloud": { "name": "Qwen3.5 (cloud)" }
-      }
-    },
-    "github-copilot": {
-      "whitelist": ["claude-haiku-4.6", "claude-sonnet-4.6", "claude-opus-4.6", "gpt-4.1", "gpt-5-mini"]
-    },
-    "opencode": {
-      "options": { "apiKey": "{env:OPENCODE_API_KEY}", "baseUrl": "https://opencode.ai/zen/v1" },
-      "whitelist": ["qwen-3.6-plus-free", "deepseek-v4-flash-free", "mimo-v2.5-free", "big-pickle", "minimax-m2.5-free", "nemotron-3-super-free"]
-    },
-    "openrouter": {
-      "name": "OpenRouter",
-      "npm": "@ai-sdk/openai-compatible",
-      "options": { "apiKey": "{env:OPENROUTER_API_KEY}", "baseUrl": "https://openrouter.ai/api/v1" },
-      "whitelist": [
-        "deepseek/deepseek-v4-flash:free",
-        "minimax/minimax-m2.5:free",
-        "openai/gpt-oss-120b:free",
-        "z-ai/glm-4.5-air:free",
-        "nvidia/nemotron-3-super-120b-a12b:free"
-      ],
-      "models": {
-        "deepseek/deepseek-v4-flash:free": { "name": "DeepSeek V4 Flash" },
-        "minimax/minimax-m2.5:free": { "name": "MiniMax M2.5" },
-        "nvidia/nemotron-3-super-120b-a12b:free": { "name": "NVIDIA: Nemotron 3 Super" },
-        "openai/gpt-oss-120b:free": { "name": "gpt-oss-120b" },
-        "z-ai/glm-4.5-air:free": { "name": "GLM 4.5 Air" }
-      }
-    }
+    "opencode": {{ .opencode.providers.opencode | toPrettyJson | indent 4 | trim }},
+    "openrouter": {{ .opencode.providers.openrouter | toPrettyJson | indent 4 | trim }},
+    "ollama-cloud": {{ .opencode.providers.ollama | toPrettyJson | indent 4 | trim }}
   },
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
   "agent": {
-    {{/* Builtin Agents */ -}}
-    "plan": { "disable": true },
-    "build": { "disable": true },
+    {{/* Builtin Primary Agents */ -}}
+    "plan": { "disable": false },
+    "build": { "disable": false },
+    {{/* Builtin Subagents */ -}}
+    "general": { "disable": false },
+    "explore": { "disable": false },
+    "scout": { "disable": false },
     {{/* Custom Agents */ -}}
     "auditor": { "disable": false },
     "translator": { "disable": false },
@@ -334,21 +280,6 @@
   },
   {{/* MCP Server Configurations */ -}}
   "mcp": {
-    "filesystem": {
-      "type": "local",
-      "command": ["pnpm ", "dlx", "@modelcontextprotocol/server-filesystem@latest"],
-      "enabled": true
-    },
-    "memory": {
-      "type": "local",
-      "command": ["pnpm ", "dlx", "@modelcontextprotocol/server-memory@latest"],
-      "enabled": true
-    },
-    "git": {
-      "type": "local",
-      "command": ["uvx ", "mcp-server-git"],
-      "enabled": true
-    },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
@@ -359,13 +290,6 @@
       "type": "remote",
       "url": "https://mcp.grep.app",
       "headers": {},
-      "enabled": true
-    },
-    "github": {
-      "type": "remote",
-      "url": "",
-      "headers": { "Authorization": "Bearer ${GITHUB_MCP_PAT}" },
-      "oauth": {},
       "enabled": true
     }
   }

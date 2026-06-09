@@ -68,8 +68,6 @@ install.sh
 ## OpenCode
 .config/opencode/node_modules/
 .config/opencode/.gitignore
-.config/opencode/bun.lock
-.config/opencode/package.json
 
 ## Google AI Studio
 .gemini/google_account_id
