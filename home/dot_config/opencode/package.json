@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "dependencies": {
-    "@opencode-ai/plugin": "1.15.1"
+    "@opencode-ai/plugin": "1.16.2"
   }
 }
