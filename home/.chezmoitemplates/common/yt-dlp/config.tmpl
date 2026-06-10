@@ -78,8 +78,11 @@
 # ------------------------------------------------------------------------------
 # Sponsor block
 # ------------------------------------------------------------------------------
-# --sponsorblock-mark all,-filler
-# --sponsorblock-chapter-title "[SponsorBlock] %(category_names)l"
+# Remove sponsor segments using SponsorBlock
+--sponsorblock-remove sponsor,selfpromo,intro,outro
+# Alternatively, just mark chapters instead of removing:
+--sponsorblock-mark all
+--sponsorblock-chapter-title "[SponsorBlock] %(category_names)l"
 {{- /*
 # -*-mode:conf-*- vim:ft=conf.gotexttmpl
 */ -}}
