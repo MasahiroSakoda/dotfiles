@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "osvScanner": {
+      "command": {{ joinPath (env "HOME") ".gemini" "extensions" "security" "osv-scanner" | quote }},
+      "args": ["experimental-mcp"],
+      "cwd": "",
+      "env": null
+    },
+    "securityServer": {
+      "command": "node",
+      "args": [{{ joinPath (env "HOME") ".gemini" "extensions" "security" "mcp-server" "dist" "index.js" | quote }}],
+      "cwd": "",
+      "env": null
+    }
+  }
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}

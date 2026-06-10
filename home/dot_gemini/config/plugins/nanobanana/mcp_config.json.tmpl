@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "nanobanana": {
+      "command": "node",
+      "args": [{{ joinPath (env "HOME") ".gemini" "extensions" "nanobanana" "mcp-server" "dist" "index.js" | quote }}],
+      "cwd": "",
+      "env": {}
+    }
+  }
+}
+{{- /*
+// -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
+*/ -}}
