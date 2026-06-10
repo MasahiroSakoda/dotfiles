@@ -11,6 +11,12 @@
       "source": "gemini-cli",
       "importedAt": "2026-06-09T02:56:52Z",
       "components": ["skills", "commands", "mcpServers"]
+    },
+    {
+      "name": "conductor",
+      "source": "gemini-cli",
+      "importedAt": "2026-06-09T02:56:52Z",
+      "components": ["commands"]
     }
   ]
 }
