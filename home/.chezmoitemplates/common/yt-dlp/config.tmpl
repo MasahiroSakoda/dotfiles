@@ -68,6 +68,14 @@
 --downloader-args "--continue --max-connection-per-server=16 --min-split-size=1M --split=16"
 
 # ------------------------------------------------------------------------------
+# youtube-dl compatibility
+# ------------------------------------------------------------------------------
+# prevent downloading live chat as a subtitle track
+--compat-options no-live-chat
+# prevent listing unavailable videos for YouTube playlists
+--compat-options no-youtube-unavailable-videos
+
+# ------------------------------------------------------------------------------
 # Sponsor block
 # ------------------------------------------------------------------------------
 # --sponsorblock-mark all,-filler
