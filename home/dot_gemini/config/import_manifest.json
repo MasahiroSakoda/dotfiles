@@ -17,6 +17,12 @@
       "source": "gemini-cli",
       "importedAt": "2026-06-09T02:56:52Z",
       "components": ["commands"]
+    },
+    {
+      "name": "nanobanana",
+      "source": "gemini-cli",
+      "importedAt": "2026-06-09T02:56:52Z",
+      "components": ["commands", "mcpServers"]
     }
   ]
 }
