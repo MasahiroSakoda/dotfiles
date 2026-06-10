@@ -63,7 +63,8 @@
 # ------------------------------------------------------------------------------
 # Use the specified external downloader
 # Currently supports native, aria2c, avconv, axel, curl, ffmpeg, httpie, wget
---downloader aria2c
+--downloader "aria2c"
+--downloader "dash,m3u8:native"
 --downloader-args "--continue --max-connection-per-server=16 --min-split-size=1M --split=16"
 
 # ------------------------------------------------------------------------------
