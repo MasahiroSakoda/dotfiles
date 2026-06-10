@@ -5,6 +5,12 @@
       "source": "gemini-cli",
       "importedAt": "2026-06-09T02:56:52Z",
       "components": ["skills", "commands"]
+    },
+    {
+      "name": "gemini-cli-security",
+      "source": "gemini-cli",
+      "importedAt": "2026-06-09T02:56:52Z",
+      "components": ["skills", "commands", "mcpServers"]
     }
   ]
 }
