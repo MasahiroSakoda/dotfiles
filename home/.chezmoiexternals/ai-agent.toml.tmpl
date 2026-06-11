@@ -17,13 +17,6 @@ url = "https://github.com/alirezarezvani/claude-skills"
 {{ template "repo" }}
 url = "https://github.com/MasahiroSakoda/skills"
 
-{{ range $extension := .gemini.extensions }}
-{{- $paths := $extension.url | splitList "/" }}
-["Dev/repos/{{ index $paths 2 }}/{{ index $paths 3 }}/{{ index $paths 4 }}"]
-{{ template "repo" }}
-url = {{ $extension.url | quote }}
-{{ end }}
-
 {{- /*
 -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
