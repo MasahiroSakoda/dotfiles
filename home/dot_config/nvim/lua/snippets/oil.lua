@@ -25,7 +25,7 @@ local snippets = {
     README.md
     LICENSE
     .gitignore
-    .markdownlint-cli2.yaml
+    .rumdl.toml
     .editorconfig
     .github/CODEOWNERS
     .github/CONTRIBUTING.md
