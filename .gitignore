@@ -114,3 +114,8 @@ luac.out
 ## MCP server relation
 .serena/
 .playwright-mcp/
+
+##################################################
+# Others
+##################################################
+.rumdl_cache
