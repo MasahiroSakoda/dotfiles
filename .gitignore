@@ -111,6 +111,9 @@ luac.out
 # AI Tools
 ##################################################
 
+# Antigravity CLI cache
+.antigravitycli/
+
 ## MCP server relation
 .serena/
 .playwright-mcp/
