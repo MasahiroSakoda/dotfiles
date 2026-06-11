@@ -1,0 +1,88 @@
+# ------------------------------------------------------------------------------
+# General Options
+# ------------------------------------------------------------------------------
+--continue
+--ignore-errors
+--verbose
+--js-runtimes deno
+
+# bypass geographic restriction via faking X-Forwarded-For HTTP header
+--xff "default"
+
+# ------------------------------------------------------------------------------
+# UserAgent
+# ------------------------------------------------------------------------------
+--user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+# --user-agent "Mozilla/5.0 (X11; Linux i686; rv:151.0) Gecko/20100101 Firefox/151.0"
+
+# ------------------------------------------------------------------------------
+# Cookie
+# ------------------------------------------------------------------------------
+--cookies-from-browser brave
+--extractor-args "generic:impersonate"
+
+# ------------------------------------------------------------------------------
+# Embed
+# ------------------------------------------------------------------------------
+# --embed-metadata
+# --embed-thumbnail
+
+# ------------------------------------------------------------------------------
+# Subtitles
+# ------------------------------------------------------------------------------
+--embed-subs
+--write-subs
+--write-auto-subs
+--sub-langs "en,ja"
+
+# ------------------------------------------------------------------------------
+# Chapters
+# ------------------------------------------------------------------------------
+--embed-chapters
+
+# ------------------------------------------------------------------------------
+# Filesystem
+# ------------------------------------------------------------------------------
+# Avoid vp9 because we have no HW acceleration in LXC
+-S vcodec:h264,res:720,acodec:m4a
+
+# Quality
+# --format 'bestvideo[ext=mp4][height<=1080][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080][fps<=30]/best'
+
+# Output format
+--output "%(title)s.%(ext)s"
+
+# ------------------------------------------------------------------------------
+# Fragments
+# ------------------------------------------------------------------------------
+--concurrent-fragments 1
+--fragment-retries 20
+
+# ------------------------------------------------------------------------------
+# Downloader
+# ------------------------------------------------------------------------------
+# Use the specified external downloader
+# Currently supports native, aria2c, avconv, axel, curl, ffmpeg, httpie, wget
+--downloader "aria2c"
+--downloader "dash,m3u8:native"
+--downloader-args "--continue --max-connection-per-server=16 --min-split-size=1M --split=16"
+
+# ------------------------------------------------------------------------------
+# youtube-dl compatibility
+# ------------------------------------------------------------------------------
+# prevent downloading live chat as a subtitle track
+--compat-options no-live-chat
+# prevent listing unavailable videos for YouTube playlists
+--compat-options no-youtube-unavailable-videos
+
+# ------------------------------------------------------------------------------
+# Sponsor block
+# ------------------------------------------------------------------------------
+# Remove sponsor segments using SponsorBlock
+--sponsorblock-remove sponsor,selfpromo,intro,outro
+# Alternatively, just mark chapters instead of removing:
+--sponsorblock-mark all
+--sponsorblock-chapter-title "[SponsorBlock] %(category_names)l"
+{{- /*
+# -*-mode:conf-*- vim:ft=conf.gotexttmpl
+*/ -}}
