@@ -32,3 +32,6 @@ disable = [
 [MD007]
 indent = 2
 style  = "fixed"
+
+[MD013]
+code_blocks = false  # Optionally ignore long lines in code blocks
