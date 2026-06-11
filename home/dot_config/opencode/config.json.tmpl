@@ -149,11 +149,12 @@
     "ignore": [".git/**", ".jj/**", "**/*.log", "node_modules/**", "dist/**"]
   },
   {{/* Global AI Provider config */ -}}
-  "enabled_providers": ["opencode", "openrouter", "ollama-cloud"],
+  "enabled_providers": {{ .opencode.providers.enabled | toPrettyJson | indent 2 | trim }},
   "provider": {
     "opencode": {{ .opencode.providers.opencode | toPrettyJson | indent 4 | trim }},
     "openrouter": {{ .opencode.providers.openrouter | toPrettyJson | indent 4 | trim }},
-    "ollama-cloud": {{ .opencode.providers.ollama | toPrettyJson | indent 4 | trim }}
+    "ollama": {{ .opencode.providers.ollama | toPrettyJson | indent 4 | trim }},
+    "huggingface": {{ .opencode.providers.huggingface | toPrettyJson |indent 4 | trim }}
   },
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
