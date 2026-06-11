@@ -2,7 +2,7 @@
 
 opencode.theme = "github"
 
-opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud"]
+opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud", "huggingface"]
 
 [opencode.providers.opencode]
 name      = "OpenCode Zen"
@@ -52,21 +52,38 @@ whitelist = ["moonshotai/kimi-k2.6:free", "nvidia/nemotron-3-ultra-550b-a55b:fre
   "nvidia/nemotron-3-ultra-550b-a55b:free" = { name = "NVIDIA Nemotron 3 Ultra" }
   "nvidia/nemotron-3-super-120b-a12b:free" = { name = "NVIDIA Nemotron 3 Super" }
 
+[opencode.providers.huggingface]
+name      = "HuggingFace"
+npm       = "@ai-sdk/openai-compatible"
+whitelist = ["deepseek-ai/deepseek-v4-pro", "moonshotai/kimi-k2.6", "minimaxai/minimax-2.7", "zai-org/glm-5.1", "zai-org/glm-5"]
+
+  [opencode.providers.huggingface.models]
+  "deepseek-ai/deepseek-v4-pro" = { name = "DeepSeek-V4-Pro" }
+  "moonshotai/kimi-k2.6"        = { name = "Kimi K2.6" }
+  "minimaxai/minimax-m2.7"      = { name = "MiniMax m2.7" }
+  "zai-org/glm-5.1"             = { name = "GLM-5.1" }
+  "zai-org/glm-5"               = { name = "GLM-5" }
+
 [opencode.models]
 ultra   = [
   "opencode/minimax-m3-free",
   "ollama-cloud/minimax-m3:cloud",
 
   "openrouter/moonshotai/kimi-k2.6:free",
+  "huggingface/moonshotai/kimi-k2.6",
   "ollama-cloud/kimi-k2.6:cloud",
 
   "opencode/qwen-3.6-plus-free",
+  "huggingface/deepseek-ai/deepseek-v4-pro",
   "opencode/deepseek-v4-flash-free",
 ]
 elite   = [
   "opencode/qwen-3.6-plus-free",
   "opencode/mimo-v2.5-free",
   "opencode/nemotron-3-ultra-free",
+  "huggingface/minimaxai/minimax-m2.7",
+  "huggingface/zai-org/glm-5.1",
+  "huggingface/zai-org/glm-5",
   "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
   "ollama-cloud/nemotron-3-ultra:cloud",
 ]
