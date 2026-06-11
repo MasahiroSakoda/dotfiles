@@ -2,49 +2,44 @@
 
 opencode.theme = "github"
 
-[opencode.providers.opencode.options]
-baseURL    = "https://opencode.ai/zen/v1"
-apiKey     = "{env:OPENCODE_API_KEY}"
-whitelist = [
-  "minimax-m3-free",
-  "qwen-3.6-plus-free",
-  "deepseek-v4-flash-free",
-  "mimo-v2.5-free",
-  "nemotron-3-ultra-free",
-  "nemotron-3-super-free",
-  "big-pickle",
-]
+opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud"]
+
+[opencode.providers.opencode]
+name      = "OpenCode Zen"
+npm       = "@ai-sdk/openai-compatible"
+whitelist = ["deepseek-v4-flash-free", "mimo-v2.5-free", "nemotron-3-ultra-free", "big-pickle"]
+
+  [opencode.providers.opencode.options]
+  baseURL = "https://opencode.ai/zen/v1"
+  apiKey  = "{env:OPENCODE_API_KEY}"
+
+  [opencode.providers.opencode.models]
+  "deepseek-v4-flash-free" = { name = "DeepSeek V4 Flash" }
+  "mimo-v2.5-free"         = { name = "Mimo V2.5" }
+  "nemotron-3-ultra-free"  = { name = "NVIDIA Nemotron 3 Ultra" }
+  "big-pickle"             = { name = "Big Pickle" }
 
 [opencode.providers.ollama]
-name       = "Ollama Cloud"
-npm        = "@ai-sdk/openai-compatible"
-whitelist = [
-  "glm-5.1:cloud",
-  "kimi-k2.6:cloud",
-  "minimax-m3:cloud",
-  "nemotron-3-ultra:cloud",
-]
+name      = "Ollama Cloud"
+npm       = "@ai-sdk/openai-compatible"
+whitelist = ["glm-5.1:cloud", "kimi-k2.6:cloud", "minimax-m3:cloud", "nemotron-3-ultra:cloud"]
 
-[opencode.providers.ollama-cloud.options]
-baseURL      = "https://ollama.com/v1"
-apiKey       = "{env:OLLAMA_API_KEY}"
-timeout      = 300000
-chunkTimeout = 60000
+  [opencode.providers.ollama.options]
+  baseURL      = "https://ollama.com/v1"
+  apiKey       = "{env:OLLAMA_API_KEY}"
+  timeout      = 300000
+  chunkTimeout = 60000
 
-[opencode.providers.ollama-cloud.models]
-"glm-5.1:cloud"          = { name = "GLM 5.1 (cloud)" }
-"kimi-k2.6:cloud"        = { name = "Kimi k2.6 (cloud)" }
-"minimax-m3:cloud"       = { name = "Minimax-m3 (cloud)" }
-"nemotron-3-ultra:cloud" = { name = "NVIDIA Nemotron 3 Ultra (cloud)" }
+  [opencode.providers.ollama.models]
+  "glm-5.1:cloud"          = { name = "GLM 5.1 (cloud)" }
+  "kimi-k2.6:cloud"        = { name = "Kimi k2.6 (cloud)" }
+  "minimax-m3:cloud"       = { name = "Minimax-m3 (cloud)" }
+  "nemotron-3-ultra:cloud" = { name = "NVIDIA Nemotron 3 Ultra (cloud)" }
 
 [opencode.providers.openrouter]
-name       = "OpenRouter"
-npm        = "@ai-sdk/openai-compatible"
-whitelist = [
-  "moonshotai/kimi-k2.6:free",
-  "nvidia/nemotron-3-ultra-550b-a55b:free",
-  "nvidia/nemotron-3-super-120b-a12b:free"
-]
+name      = "OpenRouter"
+npm       = "@ai-sdk/openai-compatible"
+whitelist = ["moonshotai/kimi-k2.6:free", "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia/nemotron-3-super-120b-a12b:free"]
 
   [opencode.providers.openrouter.options]
   baseURL      = "https://openrouter.ai/api/v1"
@@ -54,12 +49,8 @@ whitelist = [
 
   [opencode.providers.openrouter.models]
   "moonshotai/kimi-k2.6:free"              = { name = "Kimi K2.6" }
-  "nvidia/nemotron-3-ultra-550b-a55b:free" = {
-    name = "NVIDIA Nemotron 3 Ultra"
-  }
-  "nvidia/nemotron-3-super-120b-a12b:free" = {
-    name = "NVIDIA Nemotron 3 Super"
-  }
+  "nvidia/nemotron-3-ultra-550b-a55b:free" = { name = "NVIDIA Nemotron 3 Ultra" }
+  "nvidia/nemotron-3-super-120b-a12b:free" = { name = "NVIDIA Nemotron 3 Super" }
 
 [opencode.models]
 ultra   = [
