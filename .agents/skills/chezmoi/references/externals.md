@@ -46,16 +46,16 @@ url = "https://github.com/fresh2dev/zellij-autolock/releases/latest/download/zel
 Use repo template to reuse configuration
 
 ```toml
-{{- define "repo" }}
+{{- define "repository" }}
 type = "git-repo"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
 {{- end }}
 
-["~/workspace/github.com/obra/superpowers"]
-{{ template "repo" }}
-url = "https://github.com/obra/superpowers"
+[".local/share/tmux/plugins/tpm"]
+{{ template "repository" }}
+url = "https://github.com/tmux-plugins/tpm"
 ```
 
 ## Archive Options
