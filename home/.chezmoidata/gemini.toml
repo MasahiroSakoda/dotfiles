@@ -6,23 +6,8 @@ lite    = "gemini-3-flash-preview"
 [gemini.context]
 files = ["AGENTS.md", "GEMINI.md"]
 
-[[gemini.extensions]]
-name        = "conductor"
-description = "Gemini CLI extension that allows you to specify, plan, and implement software features"
-url         = "https://github.com/gemini-cli-extensions/conductor"
-
-[[gemini.extensions]]
-name        = "code-review"
-description = "Google's Code Review extension for the Gemini CLI that reviews your code changes"
-url         = "https://github.com/gemini-cli-extensions/code-review"
-
-[[gemini.extensions]]
-name        = "security"
-description = "Google's Security extension for the Gemini CLI that finds vulnerabilities in your code changes and pull requests."
-url         = "https://github.com/gemini-cli-extensions/security"
-
 [gemini.commands.git.commit]
-desc = "Generate commit message based on staged changes."
+desc   = "Generate commit message based on staged changes."
 prompt = """
 # Conventional Commit Generator
 
@@ -30,7 +15,7 @@ You are an AI assistant programmed to perform meticulous, context-aware commit m
 """
 
 [gemini.commands.git.changelog]
-desc = "Generate current branch changelog"
+desc   = "Generate current branch changelog"
 prompt = """
 # Chagelog Generator
 
@@ -58,7 +43,7 @@ model = "gemini-3-pro-preview"
 [gemini.agents.explorer]
 name  = "explorer"
 desc  = "Finds files, locates code patterns, and analyzes how existing code works. Use when you need to understand the codebase (find similar implementations, locate files, trace data flow). Do NOT use for external documentation/web research, making code changes, or when you already know the exact file path."
-tools = [ "list_directory", "read_file", "glob", "search_file_content" ]
+tools = ["list_directory", "read_file", "glob", "search_file_content"]
 model = "gemini-3-flash-preview"
 
 [gemini.agents.researcher]
