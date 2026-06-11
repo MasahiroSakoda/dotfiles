@@ -6,6 +6,15 @@ exclude = [
   "node_modules/**",
   "coverage/**",
   "vendor/**",
+
+  "LICENSE",
+  "CHANGELOG.md",
+
+  "home/**/symlink_*",
+  "home/**/modify_*",
+  "home/**/remove_*",
+
+  "home/dot_gemini/config/plugins/**",
 ]
 
 disable = [
