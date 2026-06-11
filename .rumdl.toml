@@ -6,6 +6,15 @@ exclude = [
   "node_modules/**",
   "coverage/**",
   "vendor/**",
+
+  "LICENSE",
+  "CHANGELOG.md",
+
+  "home/**/symlink_*",
+  "home/**/modify_*",
+  "home/**/remove_*",
+
+  "home/dot_gemini/config/plugins/**",
 ]
 
 disable = [
@@ -32,3 +41,6 @@ disable = [
 [MD007]
 indent = 2
 style  = "fixed"
+
+[MD013]
+code_blocks = false  # Optionally ignore long lines in code blocks
