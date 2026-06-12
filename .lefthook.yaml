@@ -29,27 +29,27 @@ pre-commit:
           - name: rumdl
             run: rumdl check --diff {staged_files}
             glob: ["*.{md,mdx}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
           - name: yamlfmt
             run: yamlfmt -lint {staged_files}
             glob: ["*.{yml,yaml}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
           - name: tombi
             run: tombi lint --quiet {staged_files}
             glob: ["*.toml"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
           - name: shfmt
             run: shfmt -d --apply-ignore {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
           - name: shellcheck
             run: shellcheck {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
           - name: typos
             run: typos {staged_files}
             glob: ["*"]
-            exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**"]
+            exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**", "home/dot_agents/**"]
     - name: Audit AI Agent Config
       group:
         parallel: false

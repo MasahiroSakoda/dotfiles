@@ -14,6 +14,7 @@ exclude = [
   "home/**/modify_*",
   "home/**/remove_*",
 
+  "home/dot_agents/skills/**",
   "home/dot_gemini/config/plugins/**",
 ]
 
