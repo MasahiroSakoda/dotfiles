@@ -1,0 +1,38 @@
+# Antigravity Global Configuration
+
+## Directory Structure
+
+```text
+.gemini/
+├── agents/                # Custom specialized agent collection
+├── antigravity/           # Antigravity Desktop config
+├── antigravity-cli/       # Antigravity CLI config
+├── config/                # Common config (Plugin & MCP) for Antigravity family
+├── commands/              # Custom Slash Commands
+├── instructions/          # Instruction reference
+├── plugins/               # Plugins for extending OpenCode
+├── skills/                # Custom Skills
+├── config.json            # Main configuration (theme, plugins, models, LSP, MCP)
+├── oh-my-opencode.json    # Oh-my-OpenCode config file
+├── GEMINI.md              # Global Shared Context
+└── README.md              # This file
+```
+
+## Plugins
+
+| Plugin        | Description                                     |
+| :------------ | :---------------------------------------------- |
+| `code-review` | Reviews the code changes on your current branch |
+| `conductor`   | specify, plan, and implement software features |
+| `security`    | finds vulnerabilities in your code changes and pull requests |
+| `nanobanana`  | generating and manipulating images using the Nano Banana models. |
+
+## Skills
+
+Global shared skill contains under `~/.gemini/antigravity-cli/skills`
+which symlink to `~/.agents/skills`
+
+
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}
