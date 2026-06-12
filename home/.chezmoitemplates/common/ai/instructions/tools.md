@@ -1,3 +1,7 @@
+# Tools and CLI
+
+## RTK - Rust Token Killer
+
 **Usage**: Token-optimized CLI proxy (60-90% savings on dev operations)
 
 ### Meta Commands (always use rtk directly)
@@ -25,3 +29,13 @@ All other commands are automatically rewritten by the Claude Code hook.
 Example: `git status` → `rtk git status` (transparent, 0 tokens overhead)
 
 Refer to CLAUDE.md for full command reference.
+
+## Commandline Requirements
+
+**Always use modern alternative tools** when available
+
+- **Pattern Search**: Use `rg` instead of traditional `grep`
+- **File Search**: Use `fd` instead of traditional `find`
+- **List files**: Use `eza` instead of `ls`
+- **Comparator**: Use `hunk` instead of `diff`
+- **Disk Usage**: Use `dua` instead of `du`
