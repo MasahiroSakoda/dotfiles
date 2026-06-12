@@ -6,10 +6,10 @@
 opencode/
 ├── agents/                # Custom specialized agent collection
 ├── commands/              # Custom Slash Commands
+├── instructions/          # Instruction reference
 ├── plugins/               # Plugins for extending OpenCode
-├── rules/                 # Instructions for specific usage
 ├── skills/                # Custom Skills
-├── AGENTS.md              # Project context for all agents
+├── AGENTS.md              # Global Shared Context
 ├── config.json            # Main configuration (theme, plugins, models, LSP, MCP)
 ├── oh-my-opencode.json    # Oh-my-OpenCode config file
 └── README.md              # This file
@@ -17,14 +17,15 @@ opencode/
 
 ## Plugins
 
-| Plugin        | Description                        |
-| :------------ | :--------------------------------- |
-| Notification  | Plugin enables sound notifications |
-| Limits        | Plugin to display token usage      |
-| DamageControl | Plugin to ensure security          |
+| Plugin            | Description                        |
+| :---------------- | :--------------------------------- |
+| Notification      | Plugin enables sound notifications |
+| Limits            | Plugin to display token usage      |
+| DamageControl     | Plugin to ensure security          |
+| RtkOpenCodePlugin | Plugin to save token |
 
 
-## Agents
+## Subgents
 
 ### Custom Agents
 
@@ -32,7 +33,6 @@ opencode/
 | :------------ | :-------------------------------------- |
 | `@auditor`    | Security Auditor                        |
 | `@translator` | Language translation and localization   |
-| `@triager`    | Issue triage agent for managing backlog |
 
 > Docs: [https://opencode.ai/docs/agents](https://opencode.ai/docs/agents)
 
@@ -49,9 +49,7 @@ opencode/
 
 ## Skills
 
-| Skill         | Description                                                                |
-| :------------ | :------------------------------------------------------------------------- |
-| `superpowers` | An agentic skills framework & software development methodology that works. |
+Global shared skill contains under `~/.agents/skills`
 
 ## Permissions
 
