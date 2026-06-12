@@ -110,7 +110,6 @@
       - any-glob-to-any-file:
           - ".lefthook.yaml"
           - "home/.chezmoidata/git.toml"
-          - "home/.chezmoitemplates/common/ai/guidelines/git.md"
           - "home/.chezmoitemplates/common/ai/commands/git/*"
           - "home/.chezmoitemplates/common/jj/*"
           - "home/dot_config/git/*"
