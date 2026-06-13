@@ -1,6 +1,4 @@
-# Security Policy
-
-## 🩺 Scope
+### 🩺 Scope
 
 This policy applies to global environment, including but not limited to:
 
@@ -9,14 +7,14 @@ This policy applies to global environment, including but not limited to:
 - All systems and infrastructure used to develop, test, and deploy the project.
 - All individuals contributing to the project, including core team members, external contributors, and third-party vendors.
 
-## 🔒️ Security Principles
+### 🔒️ Security Principles
 
 Adhere to the following security principles:
 
 - **Secure Secrets**: NEVER hardcode API keys, tokens, credentials, or any sensitive information
 - **Validate Commit**: NEVER commit API keys, tokens, credentials, or any sensitive information
 
-## 🔐 Secure Development Lifecycle (SDLC)
+### 🔐 Secure Development Lifecycle (SDLC)
 
 - **Secure Coding**: All code should be written in accordance with secure coding best practices, such as those outlined in the [OWASP Top 10](https://owasp.org/Top10/2025/)
 - **Code Review**: All code changes must be reviewed for security vulnerabilities before being merged into the main branch.
