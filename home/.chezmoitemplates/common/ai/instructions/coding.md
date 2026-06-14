@@ -1,6 +1,4 @@
-# Coding Standards
-
-## 💡 Coding Principle
+### 💡 Coding Principle
 
 CRITICAL: DRY and KISS are strictly enforced
 
@@ -16,7 +14,7 @@ CRITICAL: DRY and KISS are strictly enforced
   - Choose clear variable names over short abbreviations
 - **LOGGING**: Do not add debug logs or console logs unless explicitly requested.
 
-## 🎨 Coding Styles
+### 🎨 Coding Styles
 
 - **Format**: Follow the code style in `.editorconfig`
 - **Comment**: Write ONLY when absolutely necessary; explain "why" not "what"; for complex logic, edge cases, TODOs
