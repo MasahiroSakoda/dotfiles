@@ -1,0 +1,35 @@
+[tracking]
+enabled       = true # enable/disable token tracking
+history_days  = 90   # retention in days (auto-cleanup)
+{{- if eq .chezmoi.os "darwin" }}
+database_path = "{{ .chezmoi.homeDir }}/Library/Caches/rtk/history.db"
+{{- else if eq .chezmoi.os "linux" }}
+database_path = "{{ .chezmoi.homeDir }}/.cache/rtk/history.db"
+{{- end }}
+
+[display]
+colors    = true # colored output
+emoji     = true # use emojis in output
+max_width = 120  # maximum output width
+
+[filters]
+# These apply to file-reading commands (ls, find, grep, cat/rtk read).
+# Paths matching these patterns are excluded from output, keeping noise low.
+ignore_dirs  = [".git", "node_modules", "target", "__pycache__", ".venv", "vendor"]
+ignore_files = ["*.lock", "*.min.js", "*.min.css"]
+
+[tee]
+enabled   = true       # save raw output on failure
+mode      = "failures" # "failures" (default), "always", "never"
+max_files = 20         # rotation: keep last N files
+# directory = "/custom/tee/path"  # optional override
+
+[telemetry]
+enabled = false # anonymous daily ping — see Telemetry & Privacy for full details
+
+[hooks]
+exclude_commands     = []
+transparent_prefixes = []
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
