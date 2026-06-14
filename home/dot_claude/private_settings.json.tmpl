@@ -1,5 +1,59 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "defaultMode": "default",
+    {{- $allow := list -}}
+    {{- range .agents.permissions.read.allow -}}
+      {{- $allow = append $allow (printf "Read(%s)" .) -}}
+      {{- $allow = append $allow (printf "Glob(%s)" .) -}}
+    {{- end -}}
+    {{- $allow = append $allow "WebSearch(*)" -}}
+    {{- $allow = append $allow "WebFetch(*)" -}}
+    {{- range .agents.permissions.write.allow -}}
+      {{- $allow = append $allow (printf "Write(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.edit.allow -}}
+      {{- $allow = append $allow (printf "Edit(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.bash.allow -}}
+      {{- $allow = append $allow (printf "Bash(%s)" .) -}}
+      {{- $allow = append $allow (printf "Bash(rtk %s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.bash.no_rtk -}}
+      {{- $allow = append $allow (printf "Bash(%s)" .) -}}
+    {{- end -}}
+    {{- $ask := list -}}
+    {{- range .agents.permissions.read.ask -}}
+      {{- $ask = append $ask (printf "Read(%s)" .) -}}
+      {{- $ask = append $ask (printf "Glob(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.write.ask -}}
+      {{- $ask = append $ask (printf "Write(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.edit.ask -}}
+      {{- $ask = append $ask (printf "Edit(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.bash.ask -}}
+      {{- $ask = append $ask (printf "Bash(%s)" .) -}}
+      {{- $ask = append $ask (printf "Bash(rtk %s)" .) -}}
+    {{- end -}}
+    {{- $deny := list -}}
+    {{- range .agents.permissions.read.deny -}}
+      {{- $deny = append $deny (printf "Read(%s)" .) -}}
+      {{- $deny = append $deny (printf "Glob(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.write.deny -}}
+      {{- $deny = append $deny (printf "Write(%s)" .) -}}
+      {{- $deny = append $deny (printf "Edit(%s)" .) -}}
+    {{- end -}}
+    {{- range .agents.permissions.bash.deny -}}
+      {{- $deny = append $deny (printf "Bash(%s)" .) -}}
+      {{- $deny = append $deny (printf "Bash(rtk %s)" .) -}}
+    {{- end }}
+    "allow": {{ $allow | toPrettyJson| indent 4 | trim }},
+    "ask": {{ $ask | toPrettyJson| indent 4 | trim }},
+    "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
+  },
   "hooks": {{ .claude.hooks | toPrettyJson | indent 2 | trim }},
   "env": {{ .claude.env | toPrettyJson | trim }},
   "sandbox": {{ .claude.sandbox | toPrettyJson | indent 2 | trim }},

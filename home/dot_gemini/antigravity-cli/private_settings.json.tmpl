@@ -8,82 +8,21 @@
   "model": "Gemini 3.5 Flash (Medium)",
   "notifications": true,
   "permissions": {
-    "allow": [
-      "read_file(*)",
-      "read_url(*)",
-      "mcp(context7/*)",
-      "mcp(grep_app/*)",
-      "command(ls*)",
-      "command(cat*)",
-      "command(buf*)",
-      "command(eza*)",
-      "command(wc*)",
-      "command(uniq)",
-      "command(sort)",
-      "command(grep*)",
-      "command(rg*)",
-      "command(find*)",
-      "command(fd*)",
-      "command(pwd)",
-      "command(which*)",
-      "command(make*)",
-      "command(file*)",
-      "command(type*)",
-      "command(stat*)",
-      "command(echo*)",
-      "command(cut*)",
-      "command(jq*)",
-      "command(git (status|log|show|diff|add|blame)*)",
-      "command(gh auth status)",
-      "command(gh (status|search|branch))",
-      "command(gh issue (list|view|status)*)",
-      "command(gh pr (list|view|diff|status)*)",
-      "command(pnpm run (build|dev|lint|test|e2e))",
-      "command(bun run*)",
-      "command(mise*)"
-    ],
-    "deny": [
-      "command(su *)",
-      "command(sudo *)",
-      "command(rm -rf)",
-      "command((wget|curl)*| (sh|bash|zsh|fish))",
-      "command(npm|npx|yarn)",
-      "command(pip|pip3|pipenv|poetry)",
-      "write_file(~/.ssh)",
-      "write_file(~/.gnupg)",
-      "write_file(~/.aws)",
-      "write_file(~/.gcp)",
-      "read_file(.env*)",
-      "read_file((cat|vim|nano|less|head|tail|base64|grep|sed|awk|sort|cut)\s+.*\.env\b(?!\.sample|\.example))",
-      "write_file(.git/)"
-    ],
-    "ask": [
-      "write_file(*)",
-      "execute_url(*)",
-      "command(chmod*)",
-      "command(chown*)",
-      "command(uname*)",
-      "command(head*)",
-      "command(tail*)",
-      "command(more*)",
-      "command(less*)",
-      "command(sed*)",
-      "command(awk*)",
-      "command(xargs*)",
-      "command(rm*)",
-      "command(rmdir*)",
-      "command(mv*)",
-      "command(cp*)",
-      "command(kill*)",
-      "command(pkill*)",
-      "command(killall*)",
-      "command((wget|curl|aria2c|nc)*)",
-      "command(git (commit|reset|rebase|pull|push)*)",
-      "command(gh api * (PUT|POST|PATCH|DELETE))",
-      "command(gh skill (search|preview|install|update|publish)*)",
-      "command(pnpm (install|dlx)*)",
-      "command(uv|uvx)"
-    ]
+    {{- $allow := list -}}
+    {{- range .agents.permissions.read.allow -}}{{- $allow = append $allow (printf "read_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.write.allow -}}{{- $allow = append $allow (printf "write_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.bash.allow -}}{{- $allow = append $allow (printf "command(%s)" .) -}}{{- end }}
+    {{- $ask := list -}}
+    {{- range .agents.permissions.read.ask -}}{{- $ask = append $ask (printf "read_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.write.ask -}}{{- $ask = append $ask (printf "write_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.bash.ask -}}{{- $ask = append $ask (printf "command(%s)" .) -}}{{- end }}
+    {{- $deny := list -}}
+    {{- range .agents.permissions.read.deny -}}{{- $deny = append $deny (printf "read_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.write.deny -}}{{- $deny = append $deny (printf "write_file(%s)" .) -}}{{- end }}
+    {{- range .agents.permissions.bash.deny -}}{{- $deny = append $deny (printf "command(%s)" .) -}}{{- end }}
+    "allow": {{ $allow | toPrettyJson | indent 4 | trim }},
+    "ask": {{ $ask | toPrettyJson | indent 4 | trim }},
+    "deny": {{ $deny | toPrettyJson | indent 4 | trim }}
   },
   "runningLightSpeed": "fast",
   "showFeedbackSurvey": false,
