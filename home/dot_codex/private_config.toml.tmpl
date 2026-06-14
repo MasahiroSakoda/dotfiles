@@ -1,0 +1,68 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+################################################################################
+# Model settings
+################################################################################
+model_provider = "openai"
+model          = "gpt-5.5"
+personality    = "pragmatic"
+
+model_reasoning_summary = "auto"
+model_verbosity         = "low"
+
+plan_mode_reasoning_effort = "high"
+
+################################################################################
+# Approval & sandbox settings
+################################################################################
+sandbox_mode       = "workspace-write"
+approval_policy    = "on-request"
+approvals_reviewer = "user"
+
+[sandbox_workspace_write]
+network_access = false
+
+################################################################################
+# TUI settings
+################################################################################
+[tui]
+theme         = "dracula"
+animations    = false
+notifications = false
+
+status_line_use_colors = true
+status_line = ["run-state", "model-with-reasoning", "current-dir", "context-remaining", "weekly-limit"]
+
+################################################################################
+# Project settings
+################################################################################
+[[projects.{{ joinPath .chezmoi.workingTree | quote }}]]
+trust_level = "trusted"
+
+[[projects.{{ joinPath .git.ghq_root .git.user | quote }}]]
+trust_level = "trusted"
+
+################################################################################
+# Features
+################################################################################
+[features]
+child_agents_md = true
+memories        = true
+hooks           = true
+goals           = true
+
+multi_agent = true
+prevent_idle_sleep = true
+enable_request_compression = true
+
+################################################################################
+# Shell environment policy
+################################################################################
+[shell_environment_policy]
+exclude = ["*KEY*", "*TOKEN*", "*SECRET*", "*PASSWORD*", "*CREDENTIAL*"]
+
+[shell_environment_policy.set]
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
