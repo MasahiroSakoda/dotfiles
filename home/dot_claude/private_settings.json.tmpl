@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {{ .claude.hooks | toPrettyJson | indent 2 | trim }},
+  "env": {{ .claude.env | toPrettyJson | trim }},
+  "sandbox": {{ .claude.sandbox | toPrettyJson | indent 2 | trim }},
+  "attribution": {{ .claude.attribution | toPrettyJson | indent 2 | trim }},
+  "enabledPlugins": {{ .claude.plugins.install | toPrettyJson | indent 2 | trim }},
+  "extraKnownMarketplaces": {{ .claude.plugins.marketplaces | toPrettyJson | indent 4 | trim }}
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}

@@ -1,0 +1,29 @@
+claude.language = ""
+
+[claude.env]
+CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1"
+
+[claude.statusline]
+type    = "command"
+command = [""]
+padding = ""
+
+[claude.hooks]
+
+[claude.sandbox]
+enabled                      = true
+autoAllowBashIfSandboxed     = true
+allowUnsandboxedCommands     = true
+enableWeakerNetworkIsolation = true
+
+  [claude.sandbox.network]
+
+  [claude.sandbox.filesystem]
+
+[claude.attribution]
+commit = "🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>"
+pr     = "🤖 Generated with Claude Code"
+
+[claude.plugins.marketplaces]
+
+[claude.plugins.install]
