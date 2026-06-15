@@ -1,0 +1,26 @@
+{
+  "theme": {{ .pi.theme | quote }},
+  "defaultThinkingLevel": {{ .pi.thinkingLevel | quote }},
+  "defaultProvider": {{ .pi.providers.default | quote }},
+  "defaultModel": {{ .pi.models.default | quote }},
+  {{- $models := list -}}
+  {{- $models = append $models (printf "opencode/%s" (index .ai.providers.opencode.models 0).id) -}}
+  {{- $models = append $models (printf "openrouter/%s" (index .ai.providers.openrouter.models 0).id) -}}
+  {{- $models = append $models (printf "ollama/%s" (index .ai.providers.ollama.models 0).id) -}}
+  {{- $models = append $models (printf "huggingface/%s" (index .ai.providers.huggingface.models 0).id) -}}
+  "enabledModels": {{ $models | toPrettyJson | indent 2 | trim }},
+  "enableInstallTelemetry": false,
+  "extensions": [
+    // "-extensions/speedreading.ts",
+  ],
+  "packages": {{ .pi.packages | toPrettyJson | indent 2 | trim }},
+  "prompts": {{ .pi.prompts | toPrettyJson | indent 2 | trim }},
+  "skills": {
+    {{ joinPath .chezmoi.homeDir ".agents" "skills" | quote }}
+  },
+  "terminal": {{ .pi.terminal | toPrettyJson | indent 2 | trim }},
+  "images": {{ .pi.images | toPrettyJson | indent 2 | trim }}
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
