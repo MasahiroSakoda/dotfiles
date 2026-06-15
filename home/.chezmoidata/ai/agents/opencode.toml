@@ -1,0 +1,5 @@
+# -*-mode:toml-*- vim:ft=toml
+
+opencode.theme = "github"
+
+opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud", "huggingface"]

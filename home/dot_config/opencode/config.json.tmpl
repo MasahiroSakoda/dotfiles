@@ -54,10 +54,62 @@
   {{/* Global AI Provider config */ -}}
   "enabled_providers": {{ .opencode.providers.enabled | toPrettyJson | indent 2 | trim }},
   "provider": {
-    "opencode": {{ .opencode.providers.opencode | toPrettyJson | indent 4 | trim }},
-    "openrouter": {{ .opencode.providers.openrouter | toPrettyJson | indent 4 | trim }},
-    "ollama": {{ .opencode.providers.ollama | toPrettyJson | indent 4 | trim }},
-    "huggingface": {{ .opencode.providers.huggingface | toPrettyJson |indent 4 | trim }}
+    "opencode": {
+      "name": {{ .ai.providers.opencode.name | quote }},
+      "npm": {{ .ai.providers.opencode.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.opencode.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.opencode.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.opencode.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.opencode.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
+    "openrouter": {
+      "name": {{ .ai.providers.openrouter.name | quote }},
+      "npm": {{ .ai.providers.openrouter.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.openrouter.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.openrouter.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.openrouter.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.openrouter.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
+    "ollama-cloud": {
+      "name": {{ .ai.providers.ollama.name | quote }},
+      "npm": {{ .ai.providers.ollama.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.ollama.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.ollama.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.ollama.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.ollama.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
+    "huggingface": {
+      "name": {{ .ai.providers.huggingface.name | quote }},
+      "npm": {{ .ai.providers.huggingface.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.huggingface.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.huggingface.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.huggingface.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.huggingface.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
   },
   {{/* Agent Configurations */ -}}
   "default_agent": "Sisyphus",
