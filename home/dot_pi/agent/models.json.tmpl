@@ -1,0 +1,11 @@
+{
+  "providers": {
+    "opencode": {{ .ai.providers.opencode | toPrettyJson | indent 4 | trim }},
+    "openrouter": {{ .ai.providers.openrouter | toPrettyJson | indent 4 | trim }},
+    "ollama": {{ .ai.providers.ollama | toPrettyJson | indent 4 | trim }},
+    "huggingface": {{ .ai.providers.huggingface | toPrettyJson | indent 4 | trim }}
+  }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
