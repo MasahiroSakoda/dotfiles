@@ -1,0 +1,115 @@
+################################################################################
+# OpenCode Zen
+################################################################################
+[ai.providers.opencode]
+name    = "OpenCode Zen"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https:/opencode.ai/zen/v1"
+apiKey  = "$OPENCODE_API_KEY"
+
+  [[ai.providers.opencode.models]]
+  id   = "deepseek-v4-flash-free"
+  name = "DeepSeek V4 Flash"
+
+  [[ai.providers.opencode.models]]
+  id   = "mimo-v2.5-free"
+  name = "Mimo v2.5"
+
+  [[ai.providers.opencode.models]]
+  id   = "nemotron-3-ultra-free"
+  name = "NVIDIA Nemotron 3 Ultra"
+
+  [[ai.providers.opencode.models]]
+  id   = "big-pickle"
+  name = "Big Pickle"
+
+################################################################################
+# Openrouter
+################################################################################
+[ai.providers.openrouter]
+name    = "OpenRouter"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https:/openrouter.ai/api/v1"
+apiKey  = "$OPENROUTER_API_KEY"
+
+  [[ai.providers.openrouter.models]]
+  id   = "moonshotai/kimi-k2.6:free"
+  name = "Kimi K2.6"
+
+  [[ai.providers.openrouter.models]]
+  id   = "nvidia/nemotron-3-ultra-550b-a55b:free"
+  name = "NVIDIA Nemotron 3 Ultra"
+
+  [[ai.providers.openrouter.models]]
+  id   = "nvidia/nemotron-3-super-120b-a12b"
+  name = "NVIDIA Nemotron 3 Super"
+
+################################################################################
+# Ollama Cloud
+################################################################################
+[ai.providers.ollama]
+name    = "Ollama Cloud"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https:/ollama.com/v1"
+apiKey  = "$OPENROUTER_API_KEY"
+
+  [[ai.providers.ollama.models]]
+  id            = "glm-5.1:cloud"
+  name          = "GLM 5.1"
+  reasoning      = true
+  input         = ["text"]
+  contextWindow = 131072
+  maxTokens     = 131072
+
+  [[ai.providers.ollama.models]]
+  id            = "kimi-k2.6:cloud"
+  name          = "Kimi k2.6"
+  reasoning      = true
+  input         = ["text"]
+  contextWindow = 131072
+  maxTokens     = 131072
+
+  [[ai.providers.ollama.models]]
+  id            = "minimax-m3:cloud"
+  name          = "MiniMax m3"
+  reasoning      = true
+  input         = ["text"]
+  contextWindow = 131072
+  maxTokens     = 131072
+
+  [[ai.providers.ollama.models]]
+  id   = "nemotron-3-ultra:cloud"
+  name = "NVIDIA Nemotron 3 Ultra"
+
+################################################################################
+# HuggingFace
+################################################################################
+[ai.providers.huggingface]
+name    = "Ollama Cloud"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https:/router.huggingface.co/v1"
+apiKey  = "$HUGGINGFACE_TOKEN"
+
+  [[ai.providers.huggingface.models]]
+  id   = "deepseek-ai/deepseek-v4-pro"
+  name = "DeepSeek-V4-Pro"
+
+  [[ai.providers.huggingface.models]]
+  id   = "moonshotai/kimi-k2.6"
+  name = "Kimi k2.6"
+
+  [[ai.providers.huggingface.models]]
+  id   = "minimaxai/minimax-m2.7"
+  name = "MiniMax m2.7"
+
+  [[ai.providers.huggingface.models]]
+  id   = "zai-org/glm-5.1"
+  name = "GLM-5.1"
+
+  [[ai.providers.huggingface.models]]
+  id   = "zai-org/glm-5"
+  name = "GLM-5"
