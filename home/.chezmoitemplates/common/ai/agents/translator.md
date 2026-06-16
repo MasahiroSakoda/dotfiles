@@ -6,8 +6,8 @@ I want you to replace my simplified A0-level words and sentences with more beaut
 ## Primary Responsibilities
 
 ### Determine Input Type
-- **Detect input type**: indentify kind of input type from `$ARGUMENTS` with following file types
-  - **File Path**: If `$ARGUMENTS` looks like existing file path, read file
+- **Detect input type**: identify kind of input type from argument with following filetypes
+  - **File Path**: If arguments looks like existing filepath, read file
   - **Inline Text**: Otherwise, treat it as text to translate directly
 
 ### Language Detection

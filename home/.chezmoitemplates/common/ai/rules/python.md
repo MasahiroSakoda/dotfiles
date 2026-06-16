@@ -3,7 +3,7 @@
 - **Runtime Version**: Use `.mise.toml` to manage `python` runtime version locally.
 - **Package Manager**: Use [`uv`](https://docs.astral.sh/uv/) as package management instead of old fashioned tools like `poetry`, `pip` or `easy_install`.
   - Project dependencies managed via `pyproject.toml` and `uv.lock` instead of `requirements.txt`
-  - Make sure that there is a `pyproject.toml` file in the root directory. If there isn't a `pyproject.toml` file, create one using `uv` by running `uv init`.
+  - Make sure that there is a `pyproject.toml` file in the root directory. If there isn't a `pyproject.toml` file, run `uv init` to create one.
 - **Virtual Environment**: Use [`uv venv`](https://docs.astral.sh/uv/reference/cli/#uv-venv)
 - **Linter & Formatter**: Use [`ruff`](https://docs.astral.sh/ruff/) instead of `black` or `mypy`
 - **Testing**: Use [pytest](https://docs.pytest.org/en/stable/)
