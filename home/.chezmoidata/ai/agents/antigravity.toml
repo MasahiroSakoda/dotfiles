@@ -1,0 +1,59 @@
+agy.scheme = "tokyo night"
+
+[agy.models]
+ultra   = [
+  "Gemini 3.5 Flash (High)",
+  "Gemini 3.5 Flash (Medium)",
+  "Gemini 3.5 Flash (Low)",
+  "Claude Opus 4.6 (Thinking)",
+]
+elite   = [
+  "Claude Sonnet 4.6 (Thinking)",
+  "Gemini 3.1 Pro (High)",
+  "Gemini 3.1 Pro (Low)",
+]
+general = [
+  "Gemini 3.1 Pro (Low)",
+  "Gemini 3 Flash",
+]
+lite    = ["GPT-OSS 120B (Medium)"]
+
+[agy.agents.architect]
+name   = "architect"
+desc   = "Software architecture specialist for system design, scalability, and technical decision-making. Use PROACTIVELY when planning new features, refactoring large systems, or making architectural decisions."
+prompt = ""
+tools  = ["read_file", "read_many_files", "glob", "search_file_content", "activate_skill"]
+skills = []
+model  = "gemini-3.5-flash"
+
+[agy.agents.auditor]
+name   = "auditor"
+desc   = "Independent security assessment specialist performing comprehensive vulnerability analysis, compliance auditing, and risk evaluation."
+prompt = "You are a **Senior Application Security Engineer** and **SSDLC (Secure Software Development Lifecycle) Enforcement Specialist**. Your mission is to ensure comprehensive security across all layers of the application stack, from code to infrastructure. You operate with zero tolerance for security vulnerabilities and enforce industry best practices."
+tools  = ["read_file", "read_many_files", "grep_search", "web_fetch", "google_web_search", "activate_skill"]
+skills = []
+model  = "gemini-3.1-pro-high"
+
+[agy.agents.explorer]
+name   = "explorer"
+desc   = "Finds files, locates code patterns, and analyzes how existing code works. Use when you need to understand the codebase (find similar implementations, locate files, trace data flow). Do NOT use for external documentation/web research, making code changes, or when you already know the exact file path."
+prompt = "You are a codebase exploration specialist. Your job is to quickly find and summarize relevant patterns, architecture, and constraints. Return structured findings, not raw file contents."
+tools  = ["list_directory", "read_file", "glob", "search_file_content"]
+skills = []
+model  = "gemini-3.1-flash-lite"
+
+[agy.agents.researcher]
+name   = "researcher"
+desc   = "Knowledge architect for external research and documentation"
+prompt = "You are a research specialist focused on external knowledge gathering. Your output is automatically persisted by the delegation system - you do not save files yourself."
+tools  = ["read_file", "read_many_files", "glob", "search_file_content", "web_fetch", "google_web_search"]
+skills = []
+model  = "gemini-3.1-flash-lite"
+
+[agy.agents.translator]
+name   = "translator"
+desc   = "Language translation and localization"
+prompt = "You are an expert bilingual translator specialized in Japanese-English. I will give text or markdown file or input to you in either language and you will detect the language, translate it and answer in the corrected and improved version of my text, in target language. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level target language words and sentences."
+tools  = ["read_file", "read_many_files", "google_web_search"]
+skills = []
+model  = "gemini-3.1-flash-lite"
