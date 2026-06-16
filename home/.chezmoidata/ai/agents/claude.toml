@@ -10,6 +10,13 @@ command = [""]
 padding = ""
 
 [claude.hooks]
+  [claude.hooks.notification]
+  mac   = "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+  linux = "paplay /usr/share/sounds/freedesktop/stereo/message.oga"
+
+  [claude.hooks.stop]
+  mac   = "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+  linux = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
 
 [claude.sandbox]
 enabled                      = true

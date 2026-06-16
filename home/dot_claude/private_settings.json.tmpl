@@ -54,7 +54,22 @@
     "ask": {{ $ask | toPrettyJson| indent 4 | trim }},
     "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
   },
-  "hooks": {{ .claude.hooks | toPrettyJson | indent 2 | trim }},
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          { "type": "command", "command": {{ .claude.hooks.notification.mac | quote }} }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": {{ .claude.hooks.stop.linux | quote }} }
+        ]
+      }
+    ]
+  },
   "env": {{ .claude.env | toPrettyJson | trim }},
   "sandbox": {{ .claude.sandbox | toPrettyJson | indent 2 | trim }},
   "attribution": {{ .claude.attribution | toPrettyJson | indent 2 | trim }},
