@@ -6,7 +6,7 @@ CLAUDE_CODE_ENABLE_TELEMETRY        = "0"
 
 [claude.statusline]
 type    = "command"
-command = [""]
+command = ["~/.claude/hooks/statusline.sh"]
 padding = ""
 
 [claude.hooks]
