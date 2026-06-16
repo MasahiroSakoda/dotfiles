@@ -2,13 +2,21 @@ claude.language = ""
 
 [claude.env]
 CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1"
+CLAUDE_CODE_ENABLE_TELEMETRY        = "0"
 
 [claude.statusline]
 type    = "command"
-command = [""]
+command = ["~/.claude/hooks/statusline.sh"]
 padding = ""
 
 [claude.hooks]
+  [claude.hooks.notification]
+  mac   = "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+  linux = "paplay /usr/share/sounds/freedesktop/stereo/message.oga"
+
+  [claude.hooks.stop]
+  mac   = "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+  linux = "paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
 
 [claude.sandbox]
 enabled                      = true
