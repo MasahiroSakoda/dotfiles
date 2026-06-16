@@ -7,4 +7,5 @@ export interface Payload {
   context_window?: {used_percentage: number; remaining_percentage: number;};
   tasks?: Array<{ title?: string }>;
   artifacts?: Array<{ title?: string }>;
+  terminal_width?: number;
 }

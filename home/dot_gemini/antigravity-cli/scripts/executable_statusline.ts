@@ -22,38 +22,16 @@ const ANSI = {
 // Separator styled in dimmed gray
 const SEPARATOR = ` ${ANSI.dim}•${ANSI.reset} `;
 
-// Function to abbreviate model names for visual compactness
-function abbreviateModel(name: string | undefined): string {
-  if (!name) return "Unknown Model";
-
-  let effort = "";
-  const lower = name.toLowerCase();
-
-  // Extract effort level
-  if (lower.includes("(low)")) effort = " (Low)";
-  else if (lower.includes("(medium)")) effort = " (Mid)";
-  else if (lower.includes("(high)")) effort = " (High)";
-  else if (lower.includes("(thinking)")) effort = " (Think)";
-
-  // Normalize name by removing parenthesized effort first
-  const cleanName = name.replace(/\((low|medium|high)\)/gi, "").trim();
-  const cleanLower = cleanName.toLowerCase();
-
-  let baseName = cleanName;
-  if (cleanLower.includes("gemini 3.5 flash") || lower.includes("gemini-3.5-flash")) {
-    baseName = "3.5-Flash";
-  } else if (cleanLower.includes("gemini 3.1 pro") || lower.includes("gemini-3.1-pro")) {
-    baseName = "3.1-Pro";
-  } else if (cleanLower.includes("claude opus 4.6") || lower.includes("claude-opus-4.6")) {
-    baseName = "Opus 4.6";
-  } else if (cleanLower.includes("claude sonnet 4.6") || lower.includes("claude-sonnet-4.6")) {
-    baseName = "Sonnet 4.6";
-  } else if (cleanLower.includes("gpt-oss 120b") || lower.includes("gpt-oss-120b")) {
-    baseName = "GPT-OSS 120B";
-  } else {
-    basename = cleanName.replace(/gemini/gi, "").trim();
-  }
-  return `${baseName}${effort}`;
+function shortModel(model?: { id?: string; display_name?: string; }): string {
+  const name = model?.display_name || model?.id || "";
+  if (!name) return "";
+  // Claude: "Claude Opus 4.6 (1M context)" → "Opus 4.6"
+  const claude = name.match(/(Opus|Sonnet|Haiku)[\s.]*([\d.]*)/i);
+  if (claude) return `${claude[1]}${claude[2] ? ` ${claude[2]}` : ""}`;
+  // Gemini / agy: "Gemini 3.5 Flash (High)" → "Gemini 3.5 Flash"
+  const gemini = name.match(/(Gemini)\s+([\d.]+)\s+(Pro|Flash|Ultra|Nano|Thinking)/i,);
+  if (gemini) return `${gemini[1]} ${gemini[2]} ${gemini[3]}`;
+  return name.split("/").pop()?.slice(0, 20) || "";
 }
 
 // Function to format and compact current working directory
@@ -152,7 +130,7 @@ async function main(): Promise<void> {
   }
 
   // Field 2: Model Name
-  const modelName = abbreviateModel(payload.model?.display_name || payload.model?.id);
+  const modelName = shortModel(payload.model);
   const modelStr = `🤖 ${ANSI.magenta}${modelName}${ANSI.reset}`;
 
   // Field 3: Sandbox Status

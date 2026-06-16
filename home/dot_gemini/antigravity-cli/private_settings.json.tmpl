@@ -39,8 +39,8 @@
   },
   "toolPermission": "request-review",
   "trustedWorkspaces": [
-    {{ .chezmoi.workingTree | quote }},
-    {{ joinPath .git.ghq_root .git.user | quote }}
+    {{ .chezmoi.workingTree | replace .chezmoi.homeDir "~" | quote }},
+    {{ joinPath .git.ghq_root .git.user | replace .chezmoi.homeDir "~" | quote }}
   ],
   "verbosity": "low"
 }
