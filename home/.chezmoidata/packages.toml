@@ -1,76 +1,75 @@
 # -*-mode:toml-*- vim:ft=toml
 
 [packages]
+  [packages.brew]
+  core     = ["gnutls", "coreutils"]
+  disk     = ["diskonaut"]
+  mac      = ["pinentry-mac"]
+  linux    = ["util-linux", "cups"]
+  terminal = ["tmux"]
+  vcs      = ["git"]
+  security = ["openssl", "gnupg"]
+  browser  = ["w3m", "newsboat"]
+  network  = ["sniffnet"]
+  download = ["wget", "curl"]
+  runtime  = ["mise"]
+  lua      = ["luarocks"]
+  media    = ["ffmpeg-full"]
+  image    = ["imagemagick", "exiftool"]
+  update   = ["topgrade"]
 
-[packages.brew]
-core  = [ "gnutls", "coreutils" ]
-disk  = [ "diskonaut" ]
-mac   = [ "pinentry-mac" ]
-linux = [ "util-linux", "cups" ]
-terminal = [ "tmux" ]
-vcs      = [ "git" ]
-security = [ "openssl", "gnupg" ]
-browser  = [ "w3m", "newsboat" ]
-network  = [ "sniffnet" ]
-download = [ "wget", "curl" ]
-runtime  = [ "mise" ]
-lua      = [ "luarocks" ]
-media    = [ "ffmpeg-full" ]
-image    = [ "imagemagick", "exiftool" ]
-update   = [ "topgrade" ]
+  [packages.cask]
+  maintenance = ["onyx", "appcleaner"]
+  language    = ["monolingual"]
+  dictionary  = []
+  finder      = ["symboliclinker"]
+  keyboard    = ["karabiner-elements"]
+  ime         = ["google-japanese-ime"]
+  editor      = []
+  font        = ["font-codicon", "font-jetbrains-mono-nerd-font", "font-plemol-jp-nf", "font-udev-gothic-nf"]
+  archive     = ["suspicious-package"]
+  launcher    = ["raycast"]
+  browser     = ["google-chrome", "brave-browser", "firefox"]
+  previewer   = []
+  terminal    = ["wezterm", "ghostty", "cmux"]
+  agent       = ["antigravity"]
+  ide         = ["zed"]
+  diagram     = ["drawio"]
+  tex         = ["basictex"]
+  graphics    = ["blender"]
+  player      = ["iina", "vlc", "spotify"]
+  audio       = ["blackhole-2ch", "typeless"]
+  chat        = ["beeper"]
+  storage     = ["dropbox"]
 
-[packages.cask]
-maintenance = [ "onyx", "appcleaner" ]
-language    = [ "monolingual" ]
-dictionary  = []
-finder   = [ "symboliclinker" ]
-keyboard = [ "karabiner-elements" ]
-ime      = [ "google-japanese-ime" ]
-editor   = []
-font     = [ "font-codicon", "font-jetbrains-mono-nerd-font", "font-plemol-jp-nf", "font-udev-gothic-nf" ]
-archive   = [ "suspicious-package" ]
-launcher  = [ "raycast" ]
-browser   = [ "google-chrome", "brave-browser", "firefox" ]
-previewer = []
-terminal  = [ "wezterm", "ghostty", "cmux" ]
-agent     = [ "antigravity", "antigravity-cli" ]
-ide       = [ "zed" ]
-diagram   = [ "drawio" ]
-tex       = [ "basictex" ]
-graphics  = [ "blender" ]
-player    = [ "iina", "vlc", "spotify" ]
-audio     = [ "blackhole-2ch", "typeless" ]
-chat      = [ "beeper" ]
-storage   = [ "dropbox" ]
+  [[packages.mas]]
+  name = "Keka"
+  id   = 470158793
 
-[[packages.mas]]
-name = "Keka"
-id   = 470158793
+  [[packages.mas]]
+  name = "The Unarchiver"
+  id   = 425424353
 
-[[packages.mas]]
-name = "The Unarchiver"
-id   = 425424353
+  [[packages.mas]]
+  name = "WinArchiver"
+  id   = 414855915
 
-[[packages.mas]]
-name = "WinArchiver"
-id   = 414855915
+  [[packages.mas]]
+  name = "CotEditor"
+  id   = 1024640650
 
-[[packages.mas]]
-name = "CotEditor"
-id   = 1024640650
+  [[packages.mas]]
+  name = "LINE"
+  id   = 539883307
 
-[[packages.mas]]
-name = "LINE"
-id   = 539883307
+  [[packages.mas]]
+  name = "Pages"
+  id   = 409201541
 
-[[packages.mas]]
-name = "Pages"
-id   = 409201541
+  [[packages.mas]]
+  name = "Numbers"
+  id   = 409203825
 
-[[packages.mas]]
-name = "Numbers"
-id   = 409203825
-
-[[packages.mas]]
-name = "Vimari"
-id   = 1480933944
+  [[packages.mas]]
+  name = "Vimari"
+  id   = 1480933944
