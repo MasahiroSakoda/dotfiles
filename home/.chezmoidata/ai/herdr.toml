@@ -1,0 +1,13 @@
+[herdr.ui]
+
+[herdr.sounds.mac]
+path         = "/System/Library/Sounds/Purr.aiff"
+done_path    = "/System/Library/Sounds/Glass.aiff"
+request_path = "/System/Library/Sounds/Submarine.aiff"
+
+[herdr.sounds.linux]
+path         = "/usr/share/sounds/freedesktop/stereo/dialog-information.oga"
+done_path    = "/usr/share/sounds/freedesktop/stereo/complete.oga"
+request_path = "/usr/share/sounds/freedesktop/stereo/message.oga"
+
+[herdr.key]
