@@ -2,6 +2,7 @@ claude.language = ""
 
 [claude.env]
 CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1"
+CLAUDE_CODE_ENABLE_TELEMETRY        = "0"
 
 [claude.statusline]
 type    = "command"
