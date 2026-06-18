@@ -53,6 +53,20 @@ baseUrl = "https:/ollama.com/v1"
 apiKey  = "$OPENROUTER_API_KEY"
 
   [[ai.providers.ollama.models]]
+  id            = "glm-5.2:cloud"
+  name          = "GLM 5.2"
+  reasoning     = true
+  contextWindow = 1000000
+  maxTokens     = 131072
+
+  [[ai.providers.ollama.models]]
+  id            = "kimi-k2.7-code:cloud"
+  name          = "Kimi K2.7 Code"
+  reasoning     = true
+  contextWindow = 262144
+  maxTokens     = 65536
+
+  [[ai.providers.ollama.models]]
   id            = "glm-5.1:cloud"
   name          = "GLM 5.1"
   reasoning     = true
