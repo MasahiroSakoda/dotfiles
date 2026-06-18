@@ -59,25 +59,22 @@ apiKey  = "$OPENROUTER_API_KEY"
   [[ai.providers.ollama.models]]
   id            = "glm-5.1:cloud"
   name          = "GLM 5.1"
-  reasoning      = true
-  input         = ["text"]
-  contextWindow = 131072
+  reasoning     = true
+  contextWindow = 202752
   maxTokens     = 131072
 
   [[ai.providers.ollama.models]]
   id            = "kimi-k2.6:cloud"
   name          = "Kimi k2.6"
-  reasoning      = true
-  input         = ["text"]
-  contextWindow = 131072
-  maxTokens     = 131072
+  reasoning     = true
+  contextWindow = 262144
+  maxTokens     = 32768
 
   [[ai.providers.ollama.models]]
   id            = "minimax-m3:cloud"
   name          = "MiniMax m3"
-  reasoning      = true
-  input         = ["text"]
-  contextWindow = 131072
+  reasoning     = true
+  contextWindow = 1024000
   maxTokens     = 131072
 
   [[ai.providers.ollama.models]]
