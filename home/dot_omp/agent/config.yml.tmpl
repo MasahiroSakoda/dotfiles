@@ -17,17 +17,8 @@ statusLine:
   sessionAccent: true
   showHookStatus: true
 defaultThinkingLevel: auto
-thinkingLevel: low
-defaultModel: {{ .omp.models.default }}
-modelRoles:
-  default: {{ .omp.models.roles.default }}
-  smol: {{ .omp.models.roles.smol }}
-  slow: {{ .omp.models.roles.slow }}
-  vision: {{ .omp.models.roles.vision }}
-  plan: {{ .omp.models.roles.plan }}
-  designer: {{ .omp.models.roles.designer }}
-  commit: {{ .omp.models.roles.commit }}
-  task: {{ .omp.models.roles.task }}
+{{ dict "defaultThinkingLevel" .omp.models.default | toYaml | trim }}
+{{ dict "modelRoles" .omp.models.roles | toYaml | trim }}
 modelProviderOrder: {{ .omp.models.providers | toYaml | nindent 2 }}
 compaction:
   enabled: true
