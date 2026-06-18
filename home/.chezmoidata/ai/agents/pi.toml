@@ -28,6 +28,7 @@ blockImages = false
 enabled = []
 
 [omp.models]
+default   = "opencode/mimo-v2.5-free"
 providers = ["opencode", "openrouter", "ollama-cloud", "huggingface"]
 
   [omp.models.roles]
