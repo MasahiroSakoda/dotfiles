@@ -9,20 +9,36 @@ baseUrl = "https:/opencode.ai/zen/v1"
 apiKey  = "$OPENCODE_API_KEY"
 
   [[ai.providers.opencode.models]]
-  id   = "deepseek-v4-flash-free"
-  name = "DeepSeek V4 Flash"
+  id            = "deepseek-v4-flash-free"
+  name          = "DeepSeek V4 Flash"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 200000
+  maxTokens     = 128000
 
   [[ai.providers.opencode.models]]
-  id   = "mimo-v2.5-free"
-  name = "Mimo v2.5"
+  id            = "mimo-v2.5-free"
+  name          = "Mimo v2.5"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1048576
+  maxTokens     = 131072
 
   [[ai.providers.opencode.models]]
-  id   = "nemotron-3-ultra-free"
-  name = "NVIDIA Nemotron 3 Ultra"
+  id            = "nemotron-3-ultra-free"
+  name          = "NVIDIA Nemotron 3 Ultra"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1000000
+  maxTokens     = 128000
 
   [[ai.providers.opencode.models]]
-  id   = "big-pickle"
-  name = "Big Pickle"
+  id            = "big-pickle"
+  name          = "Big Pickle"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 200000
+  maxTokens     = 32000
 
 ################################################################################
 # Openrouter
