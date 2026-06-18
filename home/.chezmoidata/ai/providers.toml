@@ -35,10 +35,6 @@ baseUrl = "https:/openrouter.ai/api/v1"
 apiKey  = "$OPENROUTER_API_KEY"
 
   [[ai.providers.openrouter.models]]
-  id   = "moonshotai/kimi-k2.6:free"
-  name = "Kimi K2.6"
-
-  [[ai.providers.openrouter.models]]
   id   = "nvidia/nemotron-3-ultra-550b-a55b:free"
   name = "NVIDIA Nemotron 3 Ultra"
 
