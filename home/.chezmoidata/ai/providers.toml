@@ -102,21 +102,41 @@ baseUrl = "https:/router.huggingface.co/v1"
 apiKey  = "$HUGGINGFACE_TOKEN"
 
   [[ai.providers.huggingface.models]]
-  id   = "deepseek-ai/deepseek-v4-pro"
-  name = "DeepSeek-V4-Pro"
+  id            = "deepseek-ai/deepseek-v4-pro"
+  name          = "DeepSeek-V4-Pro"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1048576
+  maxTokens     = 393216
 
   [[ai.providers.huggingface.models]]
-  id   = "moonshotai/kimi-k2.6"
-  name = "Kimi k2.6"
+  id            = "moonshotai/kimi-k2.6"
+  name          = "Kimi k2.6"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 262144
+  maxTokens     = 262144
 
   [[ai.providers.huggingface.models]]
-  id   = "minimaxai/minimax-m2.7"
-  name = "MiniMax m2.7"
+  id            = "minimaxai/minimax-m2.7"
+  name          = "MiniMax m2.7"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 204800
+  maxTokens     = 131072
 
   [[ai.providers.huggingface.models]]
-  id   = "zai-org/glm-5.1"
-  name = "GLM-5.1"
+  id            = "zai-org/glm-5.1"
+  name          = "GLM-5.1"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 202752
+  maxTokens     = 131072
 
   [[ai.providers.huggingface.models]]
-  id   = "zai-org/glm-5"
-  name = "GLM-5"
+  id            = "zai-org/glm-5"
+  name          = "GLM-5"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 202752
+  maxTokens     = 131072
