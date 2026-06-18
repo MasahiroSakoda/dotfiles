@@ -82,7 +82,7 @@ name    = "Ollama Cloud"
 api     = "openai-completions"
 npm     = "@ai-sdk/openai-compatible"
 baseUrl = "https:/ollama.com/v1"
-apiKey  = "$OPENROUTER_API_KEY"
+apiKey  = "$OLLAMA_API_KEY"
 
   [[ai.providers.ollama.models]]
   id            = "glm-5.2:cloud"
