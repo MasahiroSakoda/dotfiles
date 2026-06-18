@@ -33,6 +33,14 @@ apiKey  = "$OPENCODE_API_KEY"
   maxTokens     = 128000
 
   [[ai.providers.opencode.models]]
+  id            = "north-mini-code-free"
+  name          = "North Mini Code"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 256000
+  maxTokens     = 64000
+
+  [[ai.providers.opencode.models]]
   id            = "big-pickle"
   name          = "Big Pickle"
   reasoning     = true
