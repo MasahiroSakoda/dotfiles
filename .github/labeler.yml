@@ -105,6 +105,7 @@
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"
+          - "home/dot_config/herdr/*"
 "VCS 🛠️":
   - changed-files:
       - any-glob-to-any-file:
@@ -132,6 +133,7 @@
           - "home/.chezmoitemplates/common/ai/*"
           - "home/.chezmoiexternals/ai-agent.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
+          - "home/dot_config/herdr/*"
           - "home/dot_config/opencode/*"
           - "home/dot_claude/*"
           - "home/dot_codex/*"
