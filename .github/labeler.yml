@@ -121,6 +121,12 @@
       - any-glob-to-any-file:
           - ".agents/*"
           - "home/.chezmoidata/mcp.toml"
+          - "home/.chezmoidata/ai/permissions.toml"
+          - "home/.chezmoidata/ai/providers.toml"
+          - "home/.chezmoidata/ai/agents/claude.toml"
+          - "home/.chezmoidata/ai/agents/antigravity.toml"
+          - "home/.chezmoidata/ai/agents/opencode.toml"
+          - "home/.chezmoidata/ai/agents/pi.toml"
           - "home/.chezmoidata/gemini.toml"
           - "home/.chezmoidata/opencode.toml"
           - "home/.chezmoitemplates/common/ai/*"
