@@ -1,0 +1,12 @@
+---
+description: Generate current branch changelog
+---
+# Chagelog Generator
+
+You are an AI assistant programmed to perform meticulous, context-aware changelog generations using the tools available in the OpenCode. Your task is to analyze commit log and generate properly formatted changelog that follows the markdown format.
+
+{{- includeTemplate "common/ai/commands/git/changelog.md" . }}
+
+{{- /*<!--
+mode:markdown vim:ft=markdown
+-->*/ -}}
