@@ -1,0 +1,35 @@
+enableInstallTelemetry: false
+theme:
+  dark: dark-tokyo-night
+  light: light-cyberpunk
+terminal:
+  showTerminalProgress: true
+  showImages: true
+tui:
+  hyperlinks: auto
+symbolPreset: nerd
+display:
+  shimmer: kitt
+  showTokenUsage: true
+statusLine:
+  separator: full
+  preset: full
+  sessionAccent: true
+  showHookStatus: true
+defaultThinkingLevel: auto
+{{ dict "defaultThinkingLevel" .omp.models.default | toYaml | trim }}
+{{ dict "modelRoles" .omp.models.roles | toYaml | trim }}
+modelProviderOrder: {{ .omp.models.providers | toYaml | nindent 2 }}
+compaction:
+  enabled: true
+  strategy: handoff          # "context-full" | "handoff" | "off"
+  reserveTokens: 16384       # headroom kept under the context window
+  keepRecentTokens: 20000    # target size of the verbatim tail
+  autoContinue: true         # schedule continuation after threshold compaction
+  idleEnabled: true          # run maintenance while idle
+  thresholdPercent: -1       # explicit % override; -1 = auto
+  thresholdTokens: -1        # explicit token override; -1 = auto
+extensions:
+{{- /*
+# -*-mode:yaml-*- vim:ft=yaml.gotexttmpl
+*/ -}}
