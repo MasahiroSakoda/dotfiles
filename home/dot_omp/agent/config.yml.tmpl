@@ -18,7 +18,15 @@ statusLine:
   showHookStatus: true
 defaultThinkingLevel: auto
 thinkingLevel: low
-modelRoles: {{ .omp.models.roles | toYaml | nindent 2 -}}
+modelRoles:
+  default: {{ .omp.models.roles.default }}
+  smol: {{ .omp.models.roles.smol }}
+  slow: {{ .omp.models.roles.slow }}
+  vision: {{ .omp.models.roles.vision }}
+  plan: {{ .omp.models.roles.plan }}
+  designer: {{ .omp.models.roles.designer }}
+  commit: {{ .omp.models.roles.commit }}
+  task: {{ .omp.models.roles.task }}
 modelProviderOrder: {{ .omp.models.providers | toYaml | nindent 2 }}
 compaction:
   enabled: true
