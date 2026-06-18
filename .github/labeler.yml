@@ -105,6 +105,7 @@
           - "home/dot_config/wezterm/*"
           - "home/dot_config/ghostty/*"
           - "home/dot_config/zellij/*"
+          - "home/dot_config/herdr/*"
 "VCS 🛠️":
   - changed-files:
       - any-glob-to-any-file:
@@ -121,11 +122,23 @@
       - any-glob-to-any-file:
           - ".agents/*"
           - "home/.chezmoidata/mcp.toml"
+          - "home/.chezmoidata/ai/permissions.toml"
+          - "home/.chezmoidata/ai/providers.toml"
+          - "home/.chezmoidata/ai/agents/claude.toml"
+          - "home/.chezmoidata/ai/agents/antigravity.toml"
+          - "home/.chezmoidata/ai/agents/opencode.toml"
+          - "home/.chezmoidata/ai/agents/pi.toml"
           - "home/.chezmoidata/gemini.toml"
           - "home/.chezmoidata/opencode.toml"
           - "home/.chezmoitemplates/common/ai/*"
           - "home/.chezmoiexternals/ai-agent.toml.tmpl"
           - "home/dot_config/nvim/lua/ai/*"
+          - "home/dot_config/herdr/*"
           - "home/dot_config/opencode/*"
+          - "home/dot_claude/*"
+          - "home/dot_codex/*"
+          - "home/dot_codex/*"
           - "home/dot_gemini/*"
+          - "home/dot_pi/*"
+          - "home/dot_omp/*"
           - "home/dot_agents/*"
