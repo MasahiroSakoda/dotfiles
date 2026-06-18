@@ -23,9 +23,14 @@ local snippets = {
   s({ trig = "repo", name = "Repo Template", dscr = "Repo Template" },
     fmt([[
     README.md
+    AGENTS.md
     LICENSE
+    .editorconfig
+    .betterleaks.toml
     .gitignore
+    .lefthook.yml
     .rumdl.toml
+    .typos.toml
     .editorconfig
     .github/CODEOWNERS
     .github/CONTRIBUTING.md
@@ -34,7 +39,9 @@ local snippets = {
     .github/ISSUE_TEMPLATE/config.yml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
+    .github/pinact.yml
     .github/pull_request_template.md
+    .agents/skills/README.md
     ]], {})
   ),
   s({ trig = ";skills", name = "Agent Skills", dscr = "Agent Skills Template" },
