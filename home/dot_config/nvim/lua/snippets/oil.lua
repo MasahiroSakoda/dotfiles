@@ -52,35 +52,6 @@ local snippets = {
     <>
     ]], { i(1), rep(1), rep(1), i(0) })
   ),
-  s({ trig = ";claude", name = "Claude Code", dscr = "Claude Code Template" },
-    fmt([[
-    .claude/agents/
-    .claude/commands/
-    .claude/rules/
-    .claude/settings.json
-    .claude/AGENTS.md
-    ]], {})
-  ),
-  s({ trig = ";codex", name = "Codex CLI", dscr = "Codex CLI Template" },
-    fmt([[
-    .codex/agents/
-    .codex/commands/
-    .codex/rules/
-    .codex/config.toml
-    .codex/AGENTS.md
-    ]], {})
-  ),
-  s({ trig = ";gemini", name = "Gemini CLI", dscr = "Gemini CLI Template" },
-    fmt([[
-    .gemini/agents/
-    .gemini/commands/
-    .gemini/policies/
-    .gemini/rules/
-    .gemini/settings.json
-    .gemini/AGENTS.md
-    .gemini/.geminiignore
-    ]], {})
-  ),
   s({ trig = ";opencode", name = "OpenCode", dscr = "OpenCode Template" },
     fmt([[
     .openocde/agent/
@@ -90,7 +61,16 @@ local snippets = {
     .opencode/oh-my-opencode.jsonc
     .opencode/opencode.jsonc
     .opencode/AGENTS.md
-
+    ]], {})
+  ),
+  s({ trig = ";omp", name = "oh-my-pi", dscr = "omp Template" },
+    fmt([[
+    .omp/agent/
+    .omp/commands/
+    .omp/rules/
+    .omp/skills/
+    .omp/SYSTEM.md
+    .omp/RULES.md
     ]], {})
   ),
 }
