@@ -134,4 +134,6 @@
           - "home/dot_config/nvim/lua/ai/*"
           - "home/dot_config/opencode/*"
           - "home/dot_gemini/*"
+          - "home/dot_pi/*"
+          - "home/dot_omp/*"
           - "home/dot_agents/*"
