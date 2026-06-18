@@ -5,19 +5,21 @@ opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud", "hugging
 
 [opencode.models]
 ultra   = [
-  "opencode/minimax-m3-free",
+  "ollama-cloud/glm-5.2:cloud",
+  "ollama-cloud/kimi-k2.7-code:cloud",
   "ollama-cloud/minimax-m3:cloud",
 
-  "openrouter/moonshotai/kimi-k2.6:free",
-  "huggingface/moonshotai/kimi-k2.6",
   "ollama-cloud/kimi-k2.6:cloud",
+  "huggingface/moonshotai/kimi-k2.6",
+  "opencode/deepseek-v4-flash-free",
 
   "opencode/qwen-3.6-plus-free",
   "huggingface/deepseek-ai/deepseek-v4-pro",
   "opencode/deepseek-v4-flash-free",
 ]
 elite   = [
-  "opencode/qwen-3.6-plus-free",
+  "opencode/deepseek-v4-flash-free",
+  "ollama-cloud/kimi-k2.6:cloud",
   "opencode/mimo-v2.5-free",
   "opencode/nemotron-3-ultra-free",
   "huggingface/minimaxai/minimax-m2.7",
