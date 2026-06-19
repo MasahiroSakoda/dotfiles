@@ -180,3 +180,29 @@ apiKey  = "$HUGGINGFACE_TOKEN"
   input         = ["text"]
   contextWindow = 202752
   maxTokens     = 131072
+
+################################################################################
+# Cerebras
+################################################################################
+[ai.providers.cerebras]
+name    = "Cerebras"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https://api.cerebras.ai/v1"
+apiKey  = "$CEREBRAS_API_KEY"
+
+  [[ai.providers.cerebras.models]]
+  id            = "gpt-oss-120b"
+  name          = "gpt-oss-120b"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 66560
+  maxTokens     = 32768
+
+  [[ai.providers.cerebras.models]]
+  id            = "zai-glm-4.7"
+  name          = "Z.ai GLM 4.7"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 65536
+  maxTokens     = 40960
