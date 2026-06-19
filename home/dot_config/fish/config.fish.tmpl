@@ -214,7 +214,7 @@ abbr -a -- npm "pnpm"
 
 #### pnpm: p*
 abbr -a -- p  "pnpm"
-abbr -a -- pi "pnpm install"
+# abbr -a -- pi "pnpm install"
 abbr -a -- pu "pnpm update"
 abbr -a -- pa "pnpm add"
 abbr -a -- pA "pnpm add -D"
@@ -276,6 +276,7 @@ set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key"
 set -gx OPENCODE_API_KEY      (security find-generic-password -s "OpenCode Zen API Key" -w)
 set -gx OPENROUTER_API_KEY    (security find-generic-password -s "OpenRouter API Key" -w)
 set -gx HUGGINGFACE_TOKEN     (security find-generic-password -s "HuggingFace Access Token" -w)
+set -gx CEREBRAS_API_KEY      (security find-generic-password -s "Cerebras API Key" -w)
 set -gx OLLAMA_API_KEY        (security find-generic-password -s "Ollama Cloud API Key" -w)
 set -gx CONTEXT7_API_KEY      (security find-generic-password -s "Context7 API Key" -w)
 {{ else if eq .chezmoi.os "linux" }}
@@ -289,6 +290,7 @@ set -gx DEEPL_API_KEY         (secret-tool lookup username $USER key_name "DeepL
 set -gx OPENCODE_API_KEY      (secret-tool lookup username $USER key_name "OpenCode Zen API Key")
 set -gx OPENROUTER_API_KEY    (secret-tool lookup username $USER key_name "OpenRouter API Key")
 set -gx HUGGINGFACE_TOKEN     (secret-tool lookup username $USER key_name "HuggingFace Access Token")
+set -gx CEREBRAS_API_KEY      (secret-tool lookup username $USER key_name "Cerebras API Key")
 set -gx OLLAMA_API_KEY        (secret-tool lookup username $USER key_name "Ollama Cloud API Key")
 set -gx CONTEXT7_API_KEY      (secret-tool lookup username $USER key_name "Context7 API Key")
 {{ end }}
