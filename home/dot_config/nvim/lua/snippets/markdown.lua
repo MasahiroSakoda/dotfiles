@@ -172,7 +172,9 @@ local snippets = {
 
       ## Karpathy Guidelines
 
-      Behavioral guidelines to reduce common LLM coding mistakes, derived from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on LLM coding pitfalls.
+      Behavioral guidelines to reduce common LLM coding mistakes,
+      derived from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on
+      LLM coding pitfalls.
 
       **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
@@ -234,7 +236,8 @@ local snippets = {
       3. [Step] → verify: [check]
       ```
 
-      Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+      Strong success criteria let you loop independently.
+      Weak criteria ("make it work") require constant clarification.
     ]], {i(0)})
   ),
   s({ trig = "ptag", name = "predefined XML tag", dscr = "predefined tag to structurize context" },
