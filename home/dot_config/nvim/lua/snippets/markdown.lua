@@ -1,20 +1,20 @@
 -- -*-mode:lua-*- vim:ft=lua
 ---@diagnostic disable: unused-local
 local ls = require("luasnip")
-local s  = ls.snippet
-local t  = ls.text_node
-local i  = ls.insert_node
-local c  = ls.choice_node
+local s = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+local c = ls.choice_node
 -- local d  = ls.dynamic_node
 -- local r  = ls.restore_node
 -- local f  = ls.function_node
 -- local sn = ls.snippet_node
 local extras = require("luasnip.extras")
-local rep    = extras.rep
+local rep = extras.rep
 -- local m      = extras.m
 -- local l      = extras.l
-local fmt     = require("luasnip.extras.fmt").fmt
-local fmta    = require("luasnip.extras.fmt").fmta
+local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
 -- local postfix = require("luasnip.extras.postfix").postfix
 -- local conds   = require("luasnip.extras.conditions")
 -- local condse  = require("luasnip.extras.conditions.expand")
@@ -152,27 +152,104 @@ local snippets = {
       i(3, "The background color for the text, either a hex without `#` or a string"),
       c(4, { t("flat"), t("flat-square"), t("plastic"), t("for-the-badge"), t("soocial") }),
       i(5, "Logo icon from Simple Icons (https://simpleicons.org)"),
-      i(6, "RGB / RGBA / HSL / HSLA / Color Name"),
-
-    })
+      i(6, "RGB / RGBA / HSL / HSLA / Color Name") })
   ),
 
   s({ trig = "details", name = "Foldable content", dscr = "Foldable content with <details>" },
-    fmt('<details {}>\n<summary>{}</summary>\n{}\n</details>', { i(1, "open"), i(2, "summary"), i(0, "body") })
+    fmt("<details {}>\n<summary>{}</summary>\n{}\n</details>", { i(1, "open"), i(2, "summary"), i(0, "body") })
   ),
 
   -- Prompt engineering
+  s({ trig = "_agents", name = "AGENTS.md for root", dscr = "AGENTS.md for project root" },
+    fmta([[
+      # AI Agent Instructions
+
+      This file provides global guidelines for AI agent sessions across projects.
+
+      ## Technology Stack
+
+      <>
+
+      ## Karpathy Guidelines
+
+      Behavioral guidelines to reduce common LLM coding mistakes,
+      derived from [Andrej Karpathy's observations](https://x.com/karpathy/status/2015883857489522876) on
+      LLM coding pitfalls.
+
+      **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+      ### 1. Think Before Coding
+
+      **Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+      Before implementing:
+
+      - State your assumptions explicitly. If uncertain, ask.
+      - If multiple interpretations exist, present them - don't pick silently.
+      - If a simpler approach exists, say so. Push back when warranted.
+      - If something is unclear, stop. Name what's confusing. Ask.
+
+      ### 2. Simplicity First
+
+      **Minimum code that solves the problem. Nothing speculative.**
+
+      - No features beyond what was asked.
+      - No abstractions for single-use code.
+      - No "flexibility" or "configurability" that wasn't requested.
+      - No error handling for impossible scenarios.
+      - If you write 200 lines and it could be 50, rewrite it.
+
+      Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+      ### 3. Surgical Changes
+
+      **Touch only what you must. Clean up only your own mess.**
+
+      When editing existing code:
+
+      - Don't "improve" adjacent code, comments, or formatting.
+      - Don't refactor things that aren't broken.
+      - Match existing style, even if you'd do it differently.
+      - If you notice unrelated dead code, mention it - don't delete it.
+
+      When your changes create orphans:
+
+      - Remove imports/variables/functions that YOUR changes made unused.
+      - Don't remove pre-existing dead code unless asked.
+
+      The test: Every changed line should trace directly to the user's request.
+
+      ### 4. Goal-Driven Execution
+
+      **Define success criteria. Loop until verified.**
+
+      Transform tasks into verifiable goals:
+
+      - "Add validation" → "Write tests for invalid inputs, then make them pass"
+      - "Fix the bug" → "Write a test that reproduces it, then make it pass"
+      - "Refactor X" → "Ensure tests pass before and after"
+
+      For multi-step tasks, state a brief plan:
+      ```
+      1. [Step] → verify: [check]
+      2. [Step] → verify: [check]
+      3. [Step] → verify: [check]
+      ```
+
+      Strong success criteria let you loop independently.
+      Weak criteria ("make it work") require constant clarification.
+    ]], {i(0)})
+  ),
   s({ trig = "ptag", name = "predefined XML tag", dscr = "predefined tag to structurize context" },
-    fmt('<{}>\n{}\n</{}>', {
-      c(1, { t("thinking"), t("text"), t("instructions"), t("examples"), t("answer"), t("result") }), i(0), rep(1)
-    })
+    fmt("<{}>\n{}\n</{}>", {
+      c(1, { t("thinking"), t("text"), t("instructions"), t("examples"), t("answer"), t("result") }), i(0), rep(1) })
   ),
   s({ trig = "ctag", name = "XML tag", dscr = "tag to structurize context" },
-    fmt('<{}>{}</{}>', { i(1, "tag"), i(0, "context"), rep(1) })
+    fmt("<{}>{}</{}>", { i(1, "tag"), i(0, "context"), rep(1) })
   ),
 
   s({ trig = "---c", name = "Commands Frontmatter", dscr = "Frontmatter for AI commands" },
-    fmta('---\ndescription: <>\nagent: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+    fmta("---\ndescription: <>\nagent: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>", {
       i(1, "description"),
       i(2, "agent"),
       i(3, "model"),
@@ -181,22 +258,22 @@ local snippets = {
     })
   ),
   s({ trig = "---a", name = "Subagents Frontmatter", dscr = "Frontmatter for AI subagents" },
-    fmta('---\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+    fmta("---\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>", {
       i(1, "description"),
       c(2, { t("primary"), t("subagent") }),
       i(3, "model"),
       i(4, "permission"),
-      i(0)
+      i(0),
     })
   ),
   s({ trig = "---s", name = "Skills Frontmatter", dscr = "Frontmatter for AI skills" },
-    fmta('---\nname: <>\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>', {
+    fmta("---\nname: <>\ndescription: <>\nmode: <>\nmodel: <>\npermission:\n\t<>\n\n---\n\n<>", {
       i(1, "name"),
       i(2, "description"),
       i(3, "mode"),
       i(4, "model"),
       c(5, { t("primary"), t("subagent") }),
-      i(0)
+      i(0),
     })
   ),
 }

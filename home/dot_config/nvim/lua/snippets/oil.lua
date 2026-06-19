@@ -23,9 +23,14 @@ local snippets = {
   s({ trig = "repo", name = "Repo Template", dscr = "Repo Template" },
     fmt([[
     README.md
+    AGENTS.md
     LICENSE
+    .editorconfig
+    .betterleaks.toml
     .gitignore
+    .lefthook.yml
     .rumdl.toml
+    .typos.toml
     .editorconfig
     .github/CODEOWNERS
     .github/CONTRIBUTING.md
@@ -34,7 +39,9 @@ local snippets = {
     .github/ISSUE_TEMPLATE/config.yml
     .github/ISSUE_TEMPLATE/bug_report.yml
     .github/ISSUE_TEMPLATE/feature_request.yml
+    .github/pinact.yml
     .github/pull_request_template.md
+    .agents/skills/README.md
     ]], {})
   ),
   s({ trig = ";skills", name = "Agent Skills", dscr = "Agent Skills Template" },
@@ -45,35 +52,6 @@ local snippets = {
     <>
     ]], { i(1), rep(1), rep(1), i(0) })
   ),
-  s({ trig = ";claude", name = "Claude Code", dscr = "Claude Code Template" },
-    fmt([[
-    .claude/agents/
-    .claude/commands/
-    .claude/rules/
-    .claude/settings.json
-    .claude/AGENTS.md
-    ]], {})
-  ),
-  s({ trig = ";codex", name = "Codex CLI", dscr = "Codex CLI Template" },
-    fmt([[
-    .codex/agents/
-    .codex/commands/
-    .codex/rules/
-    .codex/config.toml
-    .codex/AGENTS.md
-    ]], {})
-  ),
-  s({ trig = ";gemini", name = "Gemini CLI", dscr = "Gemini CLI Template" },
-    fmt([[
-    .gemini/agents/
-    .gemini/commands/
-    .gemini/policies/
-    .gemini/rules/
-    .gemini/settings.json
-    .gemini/AGENTS.md
-    .gemini/.geminiignore
-    ]], {})
-  ),
   s({ trig = ";opencode", name = "OpenCode", dscr = "OpenCode Template" },
     fmt([[
     .openocde/agent/
@@ -83,7 +61,16 @@ local snippets = {
     .opencode/oh-my-opencode.jsonc
     .opencode/opencode.jsonc
     .opencode/AGENTS.md
-
+    ]], {})
+  ),
+  s({ trig = ";omp", name = "oh-my-pi", dscr = "omp Template" },
+    fmt([[
+    .omp/agent/
+    .omp/commands/
+    .omp/rules/
+    .omp/skills/
+    .omp/SYSTEM.md
+    .omp/RULES.md
     ]], {})
   ),
 }
