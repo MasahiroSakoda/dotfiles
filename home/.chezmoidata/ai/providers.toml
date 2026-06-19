@@ -67,12 +67,20 @@ apiKey  = "$OPENROUTER_API_KEY"
   maxTokens     = 65536
 
   [[ai.providers.openrouter.models]]
-  id            = "nvidia/nemotron-3-super-120b-a12b"
+  id            = "nvidia/nemotron-3-super-120b-a12b:free"
   name          = "NVIDIA Nemotron 3 Super"
   reasoning     = true
   input         = ["text"]
-  contextWindow = 262144
-  maxTokens     = 262142
+  contextWindow = 1000000
+  maxTokens     = 262144
+
+  [[ai.providers.openrouter.models]]
+  id            = "openai/gpt-oss-120b:free"
+  name          = "gpt-oss-120b"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 131072
+  maxTokens     = 131072
 
 ################################################################################
 # Ollama Cloud
