@@ -110,6 +110,20 @@
       {{- range .ai.providers.huggingface.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
       "models": {{ $models | toPrettyJson | indent 6 | trim }},
     },
+    "cerebras": {
+      "name": {{ .ai.providers.cerebras.name | quote }},
+      "npm": {{ .ai.providers.cerebras.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.cerebras.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.cerebras.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.cerebras.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.cerebras.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    }
   },
   {{/* Agent Configurations */ -}}
   "default_agent": "build",
