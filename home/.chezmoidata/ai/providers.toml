@@ -21,8 +21,8 @@ apiKey  = "$OPENCODE_API_KEY"
   name          = "Mimo v2.5"
   reasoning     = true
   input         = ["text"]
-  contextWindow = 1048576
-  maxTokens     = 131072
+  contextWindow = 200000
+  maxTokens     = 32000
 
   [[ai.providers.opencode.models]]
   id            = "nemotron-3-ultra-free"
@@ -67,12 +67,20 @@ apiKey  = "$OPENROUTER_API_KEY"
   maxTokens     = 65536
 
   [[ai.providers.openrouter.models]]
-  id            = "nvidia/nemotron-3-super-120b-a12b"
+  id            = "nvidia/nemotron-3-super-120b-a12b:free"
   name          = "NVIDIA Nemotron 3 Super"
   reasoning     = true
   input         = ["text"]
-  contextWindow = 262144
-  maxTokens     = 262142
+  contextWindow = 1000000
+  maxTokens     = 262144
+
+  [[ai.providers.openrouter.models]]
+  id            = "openai/gpt-oss-120b:free"
+  name          = "gpt-oss-120b"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 131072
+  maxTokens     = 131072
 
 ################################################################################
 # Ollama Cloud
@@ -172,3 +180,29 @@ apiKey  = "$HUGGINGFACE_TOKEN"
   input         = ["text"]
   contextWindow = 202752
   maxTokens     = 131072
+
+################################################################################
+# Cerebras
+################################################################################
+[ai.providers.cerebras]
+name    = "Cerebras"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https://api.cerebras.ai/v1"
+apiKey  = "$CEREBRAS_API_KEY"
+
+  [[ai.providers.cerebras.models]]
+  id            = "gpt-oss-120b"
+  name          = "gpt-oss-120b"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 66560
+  maxTokens     = 32768
+
+  [[ai.providers.cerebras.models]]
+  id            = "zai-glm-4.7"
+  name          = "Z.ai GLM 4.7"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 65536
+  maxTokens     = 40960
