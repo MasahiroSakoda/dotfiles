@@ -187,56 +187,49 @@ Runtime version management tool
 | Package Manager                | Version |
 | :----------------------------- | :------ |
 | [`pnpm`](https://pnpm/io)      | 11.x    |
-| [`aube`](https://aube.en.dev/) | latest  |
 | [`uv`](https://docs.astral.sh/uv/) | latest |
 
 ##### CLI Tools
 
 | Tools                                                     | Description                               |
 | :-------------------------------------------------------- | :---------------------------------------- |
-| [zellij](https://github.com/zellij-org/zellij)            | Terminal Multiplexer                      |
-| [starship](https://github.com/starship/starship)          | Shell prompt                              |
-| [sheldon](https://github.com/rossmacarthur/sheldon)       | Shell plugin manager                      |
-| [neovim](https://github.com/neovim/neovim)                | Hyper extensive editor                    |
+| [zellij](https://github.com/zellij-org/zellij) | Terminal Multiplexer                      |
+| [starship](https://github.com/starship/starship) | Shell prompt                              |
+| [sheldon](https://github.com/rossmacarthur/sheldon) | Shell plugin manager                      |
+| [neovim](https://github.com/neovim/neovim) | Hyper extensive editor                    |
 | [tree-sitter](https://github.com/tree-sitter/tree-sitter) | Language Parser                           |
-| [zoxide](https://github.com/ajeetdsouza/zoxide)           | Smarter `cd` command                      |
-| [bat](https://github.com/sharkdp/bat)                     | `cat` alternative                         |
-| [fd](https://github.com/sharkdp/fd)                       | `find` alternative                        |
-| [ripgrep](https://github.com/BurntSushi/ripgrep)          | `grep` alternative                        |
-| [ripgrep-all](https://github.com/phiresky/ripgrep-all)    | extended `rg` for docs, image, movies     |
-| [fzf](https://github.com/junegunn/fzf)                    | Fuzzy Finder                              |
-| [bottom](https://github.com/ClementTsang/bottom)          | Process Monitor                           |
-| [watchexec](https://github.com/watchexec/watchexec)       | Modify detector                           |
-| [dua](https://github.com/ClementTsang/bottom)             | Disk Usage                                |
-| [yazi](https://github.com/sxyazi/yazi)                    | Modern TUI Explorer                       |
-| [genact](https://github.com/svenstaro/genact)             | nonsense activity generator               |
-| [tealdeer](https://github.com/tealdeer-rs/tealdeer)       | TL; DR                                    |
-| [xh](https://github.com/ducaale/xh)                       | HTTP client                               |
-| [yt-dlp](https://github.com/yt-dlp/yt-dlp)                | Downloader                                |
-| [onefetch](https://github.com/o2sh/onefetch)              | Repository information                    |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` command                      |
+| [bat](https://github.com/sharkdp/bat) | `cat` alternative                         |
+| [fd](https://github.com/sharkdp/fd) | `find` alternative                        |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | `grep` alternative                        |
+| [ripgrep-all](https://github.com/phiresky/ripgrep-all) | extended `rg` for docs, image, movies     |
+| [fzf](https://github.com/junegunn/fzf) | Fuzzy Finder                              |
+| [bottom](https://github.com/ClementTsang/bottom) | Process Monitor                           |
+| [watchexec](https://github.com/watchexec/watchexec) | Modify detector                           |
+| [dua](https://github.com/ClementTsang/bottom) | Disk Usage                                |
+| [genact](https://github.com/svenstaro/genact) | nonsense activity generator               |
+| [tealdeer](https://github.com/tealdeer-rs/tealdeer) | TL; DR                                    |
+| [xh](https://github.com/ducaale/xh) | HTTP client                               |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Downloader                                |
 | [hunk](https://github.com/modem-dev/hunk) | Review-first terminal diff viewer for agentic coders |
-| [gibo](https://github.com/simonwhitaker/gibo)             | `.gitignore` boilerplates                 |
-| [commitizen](https://github.com/commitizen/cz-cli)        | Commit message utiility                   |
-| [cz-conventional-changelog](https://github.com/)          | Conventional commit formatter             |
-| [gh](https://github.com/cli/cli)                          | GitHub CLI                                |
-| [ghq](https://github.com/x-motemen/ghq)                   | Git secret detector                       |
-| [pinact](https://github.com/suzuki-shunsuke/pinact)       | Version pinner for GitHub Actions         |
-| [glow](https://github.com/charmbracelet/glow)             | Markdown renderer on the CLI              |
-| [mdserve](https://github.com/jfernandez/mdserve)          | Markdown previewer                        |
-| [netwatch](https://github.com/matthart1983/netwatch)      | Realtime network TUI                      |
-| [rainfrog](https://github.com/achristmascarl/rainfrog)    | Database TUI                              |
-| [xan](https://github.com/medialab/xan)                    | CSV visualization toolkit                 |
-| [pandoc](https://github.com/jgm/pandoc)                   | Universal markup converter                |
-| [chezmoi](https://github.com/twpayne/chezmoi)             | Dotfiles manager                          |
-| [gitleaks](https://github.com/gitleaks/gitleaks)          | Git secret detector                       |
-| [age](https://github.com/FiloSottile/age)                 | Simple encrypt / decrypt tool             |
-| [lima](https://github.com/lima-vm/lima)                   | Docker alternative                        |
-| [colima](https://github.com/abisoft/colima)               | Lightweight `lima` frontend               |
-| [docker](https://github.com/docker/cli)                   | Docker CLI                                |
-| [buildx](https://github.com/docker/buildx)                | Extended build capabilities with BuildKit |
-| [compose](https://github.com/docker/compose)              | multi-container interface with Docker     |
-| [dive](https://github.com/wagoodman/dive)                 | Exploring each layer in a docker image    |
-| [ollama](https://github.com/ollama/ollama)                | llama.cpp frontend                        |
+| [gibo](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates                 |
+| [gh](https://github.com/cli/cli) | GitHub CLI                                |
+| [ghq](https://github.com/x-motemen/ghq) | Git secret detector                       |
+| [pinact](https://github.com/suzuki-shunsuke/pinact) | Version pinner for GitHub Actions         |
+| [glow](https://github.com/charmbracelet/glow) | Markdown renderer on the CLI              |
+| [mdserve](https://github.com/jfernandez/mdserve) | Markdown previewer                        |
+| [netwatch](https://github.com/matthart1983/netwatch) | Realtime network TUI                      |
+| [rainfrog](https://github.com/achristmascarl/rainfrog) | Database TUI                              |
+| [xan](https://github.com/medialab/xan) | CSV visualization toolkit                 |
+| [lnav](https://github.com/tstack/lnav) | Log file navigator |
+| [chezmoi](https://github.com/twpayne/chezmoi) | Dotfiles manager                          |
+| [lima](https://github.com/lima-vm/lima) | Docker alternative                        |
+| [colima](https://github.com/abisoft/colima) | Lightweight `lima` frontend               |
+| [docker](https://github.com/docker/cli) | Docker CLI                                |
+| [buildx](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
+| [compose](https://github.com/docker/compose) | multi-container interface with Docker     |
+| [dive](https://github.com/wagoodman/dive) | Exploring each layer in a docker image    |
+| [ollama](https://github.com/ollama/ollama) | llama.cpp frontend                        |
 
 ##### Linter / Formatter
 
@@ -258,14 +251,31 @@ Runtime version management tool
 | [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
 | [rumdl](https://github.com/rvben/rumdl) | Markdown Linter / Formatter |
 
+#### Document Tools
+
+| Tool | Description |
+| :----------- | :-------------- |
+| [pandoc](https://github.com/jgm/pandoc) | Universal markup converter                |
+| [mddr](https://github.com/1jehuang/mermaid-rs-renderer) | # faster Mermaid renderer |
+| [pylatexenc](https://github.com/phfaist/pylatexenc) | LaTeX parser to use `render-markdown.nvim` |
+
+#### Security Tools
+
+| Tool               | Description |
+| :---- | :--------- |
+| [age](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool             |
+| [betterleaks](https://github.com/betterleaks/betterleaks) | A Better Secrets Scanner built for configurability and speed |
+| [safe-chain](https://github.com/AikidoSec/safe-chain) | Protect against malicious code installed via npm, yarn, pnpm, npx, pnpx, pip, uv, and poetry |
+| [cve-lite-cli](https://github.com/OWASP/cve-lite-cli) | Vulnerability scanning that belongs in your terminal |
+
 #### AI Tools
 
 | Tool               | Description |
 | :---- | :--------- |
-| [superpowers](https://github.com/obra/superpowers) | An agentic skills framework & software development methodology that works. |
-| [**`OpenCode`**](https://opencode.ai/) | Open Source AI Agent |
-| [oh-my-opencode](https://github.com/code-yeongyu/oh-my-openagent) | omo; the best agent harness - previously oh-my-opencode |
-| [**`Antigravity 2.0`**](https://antigravity.google/docs/overview) | a standalone desktop application tailored for managing AI agents that execute complex knowledge and coding tasks. |
+| [`OpenCode`](https://opencode.ai/) | Open Source AI Agent |
+| [Pi](https://pi.dev/) | minimal terminal coding harness |
+| [omp](https://omp.sh) | oh-my-pi: a coding agent with th IDE wired in |
+| [`Antigravity 2.0`](https://antigravity.google/docs/overview) | a standalone desktop application tailored for managing AI agents that execute complex knowledge and coding tasks. |
 | [**Antigravity CLI**](https://antigravity.google/docs/cli-overview) | the lightweight Terminal User Interface (TUI) surface of Antigravity |
 
 ### Homebrew cask packages
