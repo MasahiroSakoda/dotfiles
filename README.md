@@ -223,8 +223,6 @@ Runtime version management tool
 | [xan](https://github.com/medialab/xan) | CSV visualization toolkit                 |
 | [lnav](https://github.com/tstack/lnav) | Log file navigator |
 | [chezmoi](https://github.com/twpayne/chezmoi) | Dotfiles manager                          |
-| [betterleaks](https://github.com/betterleaks/betterleaks) | A Better Secrets Scanner built for configurability and speed |
-| [age](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool             |
 | [lima](https://github.com/lima-vm/lima) | Docker alternative                        |
 | [colima](https://github.com/abisoft/colima) | Lightweight `lima` frontend               |
 | [docker](https://github.com/docker/cli) | Docker CLI                                |
@@ -260,6 +258,15 @@ Runtime version management tool
 | [pandoc](https://github.com/jgm/pandoc) | Universal markup converter                |
 | [mddr](https://github.com/1jehuang/mermaid-rs-renderer) | # faster Mermaid renderer |
 | [pylatexenc](https://github.com/phfaist/pylatexenc) | LaTeX parser to use `render-markdown.nvim` |
+
+#### Security Tools
+
+| Tool               | Description |
+| :---- | :--------- |
+| [age](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool             |
+| [betterleaks](https://github.com/betterleaks/betterleaks) | A Better Secrets Scanner built for configurability and speed |
+| [safe-chain](https://github.com/AikidoSec/safe-chain) | Protect against malicious code installed via npm, yarn, pnpm, npx, pnpx, pip, uv, and poetry |
+| [cve-lite-cli](https://github.com/OWASP/cve-lite-cli) | Vulnerability scanning that belongs in your terminal |
 
 #### AI Tools
 
