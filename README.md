@@ -187,7 +187,6 @@ Runtime version management tool
 | Package Manager                | Version |
 | :----------------------------- | :------ |
 | [`pnpm`](https://pnpm/io)      | 11.x    |
-| [`aube`](https://aube.en.dev/) | latest  |
 | [`uv`](https://docs.astral.sh/uv/) | latest |
 
 ##### CLI Tools
