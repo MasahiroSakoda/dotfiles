@@ -222,7 +222,6 @@ Runtime version management tool
 | [rainfrog](https://github.com/achristmascarl/rainfrog) | Database TUI                              |
 | [xan](https://github.com/medialab/xan) | CSV visualization toolkit                 |
 | [lnav](https://github.com/tstack/lnav) | Log file navigator |
-| [pandoc](https://github.com/jgm/pandoc) | Universal markup converter                |
 | [chezmoi](https://github.com/twpayne/chezmoi) | Dotfiles manager                          |
 | [betterleaks](https://github.com/betterleaks/betterleaks) | A Better Secrets Scanner built for configurability and speed |
 | [age](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool             |
@@ -253,6 +252,14 @@ Runtime version management tool
 | [yq](https://github.com/jqlang/jq) | CLI processor for YAML & many filetypes |
 | [**sqruff**](https://github.com/quarylabs/sqruff) | SQL Linter |
 | [rumdl](https://github.com/rvben/rumdl) | Markdown Linter / Formatter |
+
+#### Document Tools
+
+| Tool | Description |
+| :----------- | :-------------- |
+| [pandoc](https://github.com/jgm/pandoc) | Universal markup converter                |
+| [mddr](https://github.com/1jehuang/mermaid-rs-renderer) | # faster Mermaid renderer |
+| [pylatexenc](https://github.com/phfaist/pylatexenc) | LaTeX parser to use `render-markdown.nvim` |
 
 #### AI Tools
 
