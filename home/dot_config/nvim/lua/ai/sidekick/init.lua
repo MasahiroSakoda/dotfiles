@@ -50,6 +50,9 @@ sidekick.setup({
       antigravity = {
         cmd = { "agy" },
       },
+      pi = {
+        cmd = { "pi", "-c" },
+      },
     },
   },
 
