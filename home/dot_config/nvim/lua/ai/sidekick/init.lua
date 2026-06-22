@@ -53,6 +53,9 @@ sidekick.setup({
       pi = {
         cmd = { "pi", "-c" },
       },
+      omp = {
+        cmd = { "omp" },
+      },
     },
   },
 
