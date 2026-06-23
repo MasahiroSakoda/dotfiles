@@ -53,4 +53,7 @@ extend-exclude = [
   "*.pbxproj", "xcscheme", "*.xcresult", "*.xccolortheme", "*.xib", "*.nib", "*.storyboard",
   "*.svg", "*.png", "*.drawio",
   "CHANGELOG.md",
+  "LICENSE",
+  "home/dot_agents/skills/**",
+  "home/dot_gemini/config/plugins/**",
 ]
