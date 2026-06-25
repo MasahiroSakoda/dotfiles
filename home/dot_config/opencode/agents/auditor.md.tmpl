@@ -7,14 +7,16 @@ temperature: 0.1
 permission:
   edit: deny
   read:
-    "*": deny
+    "*": allow
     ".github/**": allow
   external_directory: deny
   bash:
-    "npm audit*": allow
+    "npm audit*": deny
     "pnpm audit*": allow
-    "yarn audit*": allow
-    "pip-audit*": allow
+    "bun audit": allow
+    "yarn audit*": deny
+    "pip-audit*": deny
+    "uv audit*": allow
     "*": ask
   webfetch: allow
 ---
