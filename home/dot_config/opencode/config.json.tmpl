@@ -18,16 +18,9 @@
   "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
   "permission": {
-    "list": "allow",
-    "grep": "allow",
-    "glob": "allow",
-    "lsp": "allow",
     "todoread": "allow",
     "todowrite": "allow",
-    "question": "allow",
-    "webfetch": "allow",
-    "task": { "*": "allow" },
-    "skill": { "*": "ask" },
+    "websearch": "allow",
     {{- $read := dict -}}
     {{- range .agents.permissions.read.allow -}}{{- $read = set $read . "allow" -}}{{- end }}
     {{- range .agents.permissions.read.ask -}}{{- $read = set $read . "ask" -}}{{- end }}
@@ -42,8 +35,7 @@
     {{- range .agents.permissions.bash.deny -}}{{- $bash = set $bash . "deny" -}}{{- end }}
     "read": {{ $read | toPrettyJson | indent 4 | trim }},
     "edit": {{ $edit | toPrettyJson | indent 4 | trim }},
-    "bash": {{ $bash | toPrettyJson | indent 4 | trim }},
-    "external_directory": {}
+    "bash": {{ $bash | toPrettyJson | indent 4 | trim }}
   },
   {{/* Compaction config */ -}}
   "compaction": { "auto": true, "prune": true },

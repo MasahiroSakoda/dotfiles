@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "compaction": { "auto": true, "prune": true },
+  "watcher": {
+    "ignore": [".git/**", ".jj/**", "**/*.log", "rumdl_cache", "antigravitycli"]
+  },
+  "permission": {
+    "list": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "lsp": "allow",
+    "question": "allow",
+    "webfetch": "allow",
+    "skill": { "*": "ask" },
+    "task": { "*": "allow" },
+    "external_directory": { "*": "ask" }
+  }
+}
