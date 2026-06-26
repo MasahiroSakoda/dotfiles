@@ -14,5 +14,35 @@
     "skill": { "*": "ask" },
     "task": { "*": "allow" },
     "external_directory": { "*": "ask" }
+  },
+  "default_agent": "build",
+  "agent": {
+    "plan": { "disable": true },
+    "build": {
+      "disable": false,
+      "permission": {
+        "memory_*": "allow",
+        "context7_*": "allow",
+        "gh_grep_*": "allow"
+      }
+    },
+    "general": {
+      "disable": false,
+      "permission": {
+        "memory_*": "allow",
+        "context7_*": "allow",
+        "gh_grep_*": "allow"
+      }
+    },
+    "explore": {
+      "disable": false,
+      "permission": { "edit": "deny", "gh_grep_*": "allow" }
+    },
+    "scout": { "disable": true },
+    "auditor": {
+      "disable": false,
+      "permission": { "edit": "deny", "gh_grep_*": "allow" }
+    },
+    "translator": { "disable": false },
   }
 }
