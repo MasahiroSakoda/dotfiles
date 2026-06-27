@@ -43,7 +43,7 @@
       "disable": false,
       "permission": { "edit": "deny", "gh_grep_*": "allow" }
     },
-    "translator": { "disable": false },
+    "translator": { "disable": false }
   },
   "mcp": {
     "context7": {
