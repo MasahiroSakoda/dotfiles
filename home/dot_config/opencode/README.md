@@ -6,12 +6,10 @@
 opencode/
 ├── agents/                # Custom specialized agent collection
 ├── commands/              # Custom Slash Commands
-├── instructions/          # Instruction reference
 ├── plugins/               # Plugins for extending OpenCode
 ├── skills/                # Custom Skills
 ├── AGENTS.md              # Global Shared Context
 ├── config.json            # Main configuration (theme, plugins, models, LSP, MCP)
-├── oh-my-opencode.json    # Oh-my-OpenCode config file
 └── README.md              # This file
 ```
 
@@ -41,8 +39,8 @@ opencode/
 
 | Command          | Description                                               |
 | :--------------- | :-------------------------------------------------------- |
-| `/git:commit`    | Generate conventional commit message from staged changes. |
-| `/git:changelog` | Generaete current branch changelog.                       |
+| `/git-commit`    | Generate conventional commit message from staged changes. |
+| `/git-changelog` | Generaete current branch changelog.                       |
 
 > Docs: [https://opencode.ai/docs/commands](https://opencode.ai/docs/commands)
 

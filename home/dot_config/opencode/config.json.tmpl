@@ -18,16 +18,9 @@
   "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
   "permission": {
-    "list": "allow",
-    "grep": "allow",
-    "glob": "allow",
-    "lsp": "allow",
     "todoread": "allow",
     "todowrite": "allow",
-    "question": "allow",
-    "webfetch": "allow",
-    "task": { "*": "allow" },
-    "skill": { "*": "ask" },
+    "websearch": "allow",
     {{- $read := dict -}}
     {{- range .agents.permissions.read.allow -}}{{- $read = set $read . "allow" -}}{{- end }}
     {{- range .agents.permissions.read.ask -}}{{- $read = set $read . "ask" -}}{{- end }}
@@ -42,8 +35,7 @@
     {{- range .agents.permissions.bash.deny -}}{{- $bash = set $bash . "deny" -}}{{- end }}
     "read": {{ $read | toPrettyJson | indent 4 | trim }},
     "edit": {{ $edit | toPrettyJson | indent 4 | trim }},
-    "bash": {{ $bash | toPrettyJson | indent 4 | trim }},
-    "external_directory": {}
+    "bash": {{ $bash | toPrettyJson | indent 4 | trim }}
   },
   {{/* Compaction config */ -}}
   "compaction": { "auto": true, "prune": true },
@@ -132,13 +124,12 @@
     "plan": { "disable": false },
     "build": { "disable": false },
     {{/* Builtin Subagents */ -}}
-    "general": { "disable": false },
-    "explore": { "disable": false },
-    "scout": { "disable": false },
+    "general": { "disable": true },
+    "explore": { "disable": true },
+    "scout": { "disable": true },
     {{/* Custom Agents */ -}}
     "auditor": { "disable": false },
-    "translator": { "disable": false },
-    "triager": { "disable": false }
+    "translator": { "disable": false }
   },
   {{/* Formatter Configurations */ -}}
   "formatter": {
@@ -246,21 +237,6 @@
       "command": ["terraform-ls", "serve"],
       "disabled": false,
       "extensions": [".tf", ".hcl"]
-    }
-  },
-  {{/* MCP Server Configurations */ -}}
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": { "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}" },
-      "enabled": true
-    },
-    "grep_app": {
-      "type": "remote",
-      "url": "https://mcp.grep.app",
-      "headers": {},
-      "enabled": true
     }
   }
 }
