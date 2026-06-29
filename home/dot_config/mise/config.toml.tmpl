@@ -230,3 +230,28 @@ ruby    = "3"
 "pipx:mcp-server-time"  = "latest" # MCP server for time and timezone conversion capabilities
 "pipx:mcp-server-git"   = "latest" # MCP server for Git interaction and automation
 "pipx:mcp-server-fetch" = "latest" # MCP server for Web contents fetching
+
+{{- /*
+# TODO: Enable after experimental flag has been removed
+[bootstrap.packages]
+{{ if eq .chezmoi.os "darwin" -}}
+## Homebrew
+{{- range $key, $value := .packages.brew }}
+### {{ $key }}
+{{- range $value }}
+"brew:{{ . }}" = "latest"
+{{- end }}
+{{ end }}
+## Homebrew Cask
+{{ range $key, $value := .packages.cask }}
+### {{ $key }}
+{{- range $value }}
+"brew-cask:{{ . }}" = "latest"
+{{- end }}
+{{ end }}
+## Mac App Store
+{{ range .packages.mas -}}
+"mas:{{ .id }}" = "latest" # {{ .name }}
+{{ end }}
+{{ end -}}
+*/ -}}
