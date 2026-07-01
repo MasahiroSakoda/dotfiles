@@ -307,14 +307,119 @@ agents.permissions.bash.no_rtk = [
 ]
 
 agents.permissions.domain.allow = [
-  "github.com",
-  "raw.githubusercontent.com",
-  "openai.com",
+  # Code hosting
+  "*github.com",
+  "*githubusercontent.com",
+  "*.github.io",
+  "*gitlab.com",
+  "*bitbucket.org",
+  "*codeberg.org",
+  # Language / Package Registry
+  "brew.sh",
+  ## Rust
+  "*rust-lang.org",
+  "*rustup.rs",
+  "*crates.io",
+  ## Go
+  "*go.dev",
+  "*golang.org",
+  ## Haskell
+  "*haskell.org",
+  ## Swift
+  "*swift.org",
+  ## Kotlin
+  "*kotlinlang.org",
+  ## Node.js
+  "*nodejs.org",
+  "*npmjs.com",
+  "*npmjs.org",
+  "pnpm.io",
+  "bun.com",
+  ## Python
+  "*pypi.org",
+  "astral.sh",
+  ## Ruby / Rails
+  "*ruby-lang.org",
+  "*rubygems.org",
+  "rubyonrails.org",
+  # Container
+  "*docker.com",
+  "*docker.io",
+  "*gcr.io",
+  "ghcr.io",
+  "*k8s.io",
+  # AI
+  "*openai.com",
+  "*chatgpt.com",
   "anthropic.com",
+  "*claude.ai",
+  "*claude.com",
   "antigravity.google",
-  "opencode.ai",
+  "*opencode.ai",
+  "pi.dev",
+  "omp.sh",
+  ## MCP / Skills
+  "*modelcontextprotocol.io",
   "context7.com",
-  "grep.app",
+  "*grep.app",
+  "agentskills.io",
+  "skills.sh",
+  # Cloud
+  ## PaaS
+  "*amazonaws.com",
+  "*api.aws",
+  "*azure.com",
+  "*cloudflare.com",
+  ## BaaS
+  "*supabase.com",
+  "*clerk.com",
+  "*turso.tech",
+  ## SaaS
+  "*vercel.com",
+  "*datadoghq.com",
+  "*sentry.io",
+  "*sentry-cdn.com",
+  # Schema
+  "*schemastore.org",
+  # OS
+  "*ubuntu.com",
+  "*nixos.org",
+  # IDE
+  "*visualstudio.com",
+  "zed.dev",
+  # Terminal
+  "wezfurlong.com",
+  "ghostty.org",
+  "zellij.dev",
+  "herdr.dev",
+  # Vendor
+  "developer.apple.com",
+  "developer.android.com",
+  "*microsoft.com",
+  "*microsoftonline.com",
+  "*google.com",
+  "*googleapis.com",
+  "*gstatic.com",
+  "*hashicorp.com",
+  "voidzero.dev",
+  # Tools
+  "starship.rs",
+  "neovim.io",
+  "chezmoi.io",
+  "*.jdx.dev",
+  "*.en.dev",
+  "lefthook.dev",
+  ## VCS
+  "git-scm.com",
+  "jj-vcs.dev",
+  # Web Framework
+  "react.dev",
+  "nextjs.org",
+  "tanstack.com",
+  "*vuejs.org",
+  "nestjs.com",
+  "astro.build",
+  "remix.run",
 ]
 agents.permissions.domain.ask   = []
 agents.permissions.domain.deny  = []
