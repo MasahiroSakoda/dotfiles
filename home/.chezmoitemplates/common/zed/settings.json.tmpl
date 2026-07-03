@@ -230,9 +230,21 @@
         "arguments": ["server"]
       }
     },
-    "texlab": {
-      "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }}
     */ -}}
+    },
+    "texlab": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }} },
+      "settings": {
+        "texlab": {
+          "build": { "onSave": false, "forwardSearchAfter": true },
+          "formatterLineLength": 120,
+          "bibtexFormatter": "texlab",
+          "latexFormatter": "texlab",
+          "diagnostics": {
+            "allowedPatterns": []
+          }
+        }
+      }
     }
   },
   "auto_signature_help": true,
