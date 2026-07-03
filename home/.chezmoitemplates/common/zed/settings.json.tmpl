@@ -211,15 +211,13 @@
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tailwindcss-language-server" | quote }},
         "arguments": ["--stdio"]
-      }
-    {{/*
-    },
+      },
     "tombi": {
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tombi" | quote }},
         "arguments": ["lsp"]
       }
-    },
+    {{/*
     "biome": {
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "biome" | quote }},
