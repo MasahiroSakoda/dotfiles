@@ -211,15 +211,13 @@
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tailwindcss-language-server" | quote }},
         "arguments": ["--stdio"]
-      }
-    {{/*
-    },
+      },
     "tombi": {
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tombi" | quote }},
         "arguments": ["lsp"]
       }
-    },
+    {{/*
     "biome": {
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "biome" | quote }},
@@ -232,9 +230,21 @@
         "arguments": ["server"]
       }
     },
-    "texlab": {
-      "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }}
     */ -}}
+    },
+    "texlab": {
+      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }} },
+      "settings": {
+        "texlab": {
+          "build": { "onSave": false, "forwardSearchAfter": true },
+          "formatterLineLength": 120,
+          "bibtexFormatter": "texlab",
+          "latexFormatter": "texlab",
+          "diagnostics": {
+            "allowedPatterns": []
+          }
+        }
+      }
     }
   },
   "auto_signature_help": true,
@@ -313,12 +323,12 @@
       "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
       "language_servers": [ "yaml-language-server" ]
     },
-    {{/*
     "TOML": {
       "format_on_save": "on",
       "formatter": { "language_server": { "name": "tombi" } },
       "language_servers": [ "tombi" ]
     },
+    {{/*
     "KDL": {
       "format_on_save": "on"
     },
