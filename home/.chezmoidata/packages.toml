@@ -5,7 +5,6 @@
   core     = ["gnutls", "coreutils"]
   disk     = ["diskonaut"]
   mac      = ["pinentry-mac"]
-  linux    = ["util-linux", "cups"]
   terminal = ["tmux"]
   vcs      = ["git"]
   security = ["openssl", "gnupg"]
