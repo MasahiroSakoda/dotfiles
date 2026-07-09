@@ -77,3 +77,19 @@
   [[packages.mas]]
   name = "Vimari"
   id   = 1480933944
+
+  [packages.apt]
+  core     = ["build-essential"]
+  vcs      = ["git"]
+  terminal = ["tmux"]
+  runtime  = ["mise"]
+  download = ["wget", "curl"]
+  security = ["gnupg", "pinentry-tty", "ca-certificates"]
+
+  [packages.pacman]
+  core     = ["base-devel"]
+  vcs      = ["git"]
+  terminal = ["tmux"]
+  runtime  = ["mise"]
+  download = ["wget", "curl"]
+  security = ["gnupg", "pinentry", "ca-certificates"]
