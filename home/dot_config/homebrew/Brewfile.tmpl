@@ -66,10 +66,3 @@ brew {{ . | quote }}
 {{- range .packages.brew.network | uniq }}
 brew {{ . | quote }}
 {{- end }}
-
-{{- if eq .chezmoi.os "linux" }}
-# Linux packages
-{{- range .packages.brew.linux | uniq }}
-brew {{ . | quote }}
-{{- end }}
-{{- end }}

@@ -5,7 +5,6 @@
   core     = ["gnutls", "coreutils"]
   disk     = ["diskonaut"]
   mac      = ["pinentry-mac"]
-  linux    = ["util-linux", "cups"]
   terminal = ["tmux"]
   vcs      = ["git"]
   security = ["openssl", "gnupg"]
@@ -26,12 +25,17 @@
   keyboard    = ["karabiner-elements"]
   ime         = ["google-japanese-ime"]
   editor      = []
-  font        = ["font-codicon", "font-jetbrains-mono-nerd-font", "font-plemol-jp-nf", "font-udev-gothic-nf"]
+  font        = [
+    "font-codicon",
+    "font-jetbrains-mono-nerd-font",
+    "font-plemol-jp-nf",
+    "font-udev-gothic-nf"
+  ]
   archive     = ["suspicious-package"]
   launcher    = ["raycast"]
   browser     = ["google-chrome", "brave-browser", "firefox"]
   previewer   = []
-  terminal    = ["wezterm", "ghostty", "cmux"]
+  terminal    = ["wezterm", "ghostty"]
   agent       = ["antigravity"]
   ide         = ["zed"]
   diagram     = ["drawio"]
