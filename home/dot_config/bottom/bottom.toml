@@ -63,36 +63,5 @@ ratio = 4
   type    = "proc"
   default = true
 
-[styles.cpu]
-avg_entry_color = "#be5046"
-cpu_core_colors = [
-  "#e78284",
-  "#ef9f76",
-  "#e5c890",
-  "#a6d189",
-  "#85c1dc",
-  "#ca9ee6"
-]
-
-[styles.memory]
-cache_color = "#e55561"
-gpu_colors  = ["#74c7ec", "#cba6f7", "#f38ba8", "#fab387", "#f9e2af", "#a6e3a1"]
-
-[styles.network]
-rx_color = "#be5046"
-tx_color = "#f0f0f0"
-
-[styles.battery]
-
-[styles.tables.headers]
-color = "#56b6c2"
-
-[styles.graphs]
-graph_color = "Gray"
-
-# Border
-[styles.widgets]
-border_color          = "#f0f0f0"
-selected_border_color = "#be5046"
-selected_text         = { color = "black", bg_color = "blue", bold = true }
-disabled_text         = { color = "grey", bg_color = "blue", bold = true }
+[styles]
+theme = "default"
