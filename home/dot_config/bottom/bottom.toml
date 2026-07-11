@@ -27,7 +27,7 @@ regex           = false
 
 # layouts
 [[row]]
-ratio = 3
+ratio = 2
 
   [[row.child]]
   ratio = 4
@@ -42,7 +42,7 @@ ratio = 3
   type  = "battery"
 
 [[row]]
-ratio = 3
+ratio = 2
 
   [[row.child]]
   ratio = 4
