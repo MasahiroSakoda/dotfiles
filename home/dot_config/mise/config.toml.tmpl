@@ -253,5 +253,21 @@ ruby    = "3"
 {{ range .packages.mas -}}
 "mas:{{ .id }}" = "latest" # {{ .name }}
 {{ end }}
+{{ else if eq .chezmoi.os "linux" }}
+{{   if eq (.chezmoi.osRelease.id | default "") "debian" -}}
+## Debian based OS
+{{-    range $key, $value := .packages.apt }}
+### {{ $key }}
+"apt:{{ . }}" = "latest"
+{{-    end }}
+{{   else if eq (.chezmoi.osRelease.id | default "") "arch" -}}
+{{-    range $key, $value := .packages.pacman }}
+### {{ $key }}
+"pacman:{{ . }}" = "latest"
+{{-    end }}
+## Arch based OS
+{{   else -}}
+## Unknown Linux distro: {{ .chezmoi.osRelease.id | default "?" }} — add a branch.
+{{   end -}}
 {{ end -}}
 */ -}}
