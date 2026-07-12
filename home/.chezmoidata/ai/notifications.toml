@@ -1,0 +1,11 @@
+[ai.notify.sounds.mac]
+command  = "afplay"
+idle     = "/System/Library/Sounds/Purr.aiff"
+complete = "/System/Library/Sounds/Glass.aiff"
+request  = "/System/Library/Sounds/Submarine.aiff"
+
+[ai.notify.sounds.linux]
+command  = "paplay"
+idle     = "/usr/share/sounds/freedesktop/stereo/dialog-information.oga"
+complete = "/usr/share/sounds/freedesktop/stereo/complete.oga"
+request  = "/usr/share/sounds/freedesktop/stereo/message.oga"
