@@ -6,9 +6,9 @@
         "hooks": [
           {
             {{- if eq .chezmoi.os "darwin" }}
-            "command": "afplay /System/Library/Sounds/Submarine.aiff >/dev/null 2>&1 &"
+            "command": "{{ .ai.notify.sounds.mac.command }} {{ .ai.notify.sounds.mac.request }} >/dev/null 2>&1 &",
             {{- else if eq .chezmoi.os "linux" }}
-            "command": "paplay /usr/share/sounds/freedesktop/stereo/message.oga"
+            "command": "{{ .ai.notify.sounds.linux.command }} {{ .ai.notify.sounds.linux.request }} >/dev/null 2>&1 &"
             {{- end }}
           }
         ]
@@ -18,9 +18,9 @@
         "hooks": [
           {
             {{- if eq .chezmoi.os "darwin" }}
-            "command": "afplay /System/Library/Sounds/Purr.aiff >/dev/null 2>&1 &"
+            "command": "{{ .ai.notify.sounds.mac.command }} {{ .ai.notify.sounds.mac.idle }} >/dev/null 2>&1 &",
             {{- else if eq .chezmoi.os "linux" }}
-            "command": "paplay /usr/share/sounds/freedesktop/stereo/dialog-information.oga"
+            "command": "{{ .ai.notify.sounds.linux.command }} {{ .ai.notify.sounds.linux.idle }} >/dev/null 2>&1 &"
             {{- end }}
           }
         ]
@@ -33,9 +33,9 @@
         "hooks": [
           {
             {{- if eq .chezmoi.os "darwin" }}
-            "command": "afplay /System/Library/Sounds/Glass.aiff >/dev/null 2>&1 &"
+            "command": "{{ .ai.notify.sounds.mac.command }} {{ .ai.notify.sounds.mac.complete }} >/dev/null 2>&1 &",
             {{- else if eq .chezmoi.os "linux" }}
-            "command": "paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
+            "command": "{{ .ai.notify.sounds.linux.command }} {{ .ai.notify.sounds.linux.complete }} >/dev/null 2>&1 &"
             {{- end }}
           }
         ]

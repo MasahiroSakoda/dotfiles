@@ -186,9 +186,15 @@ position = "bottom-center"
 [ui.sound]
 enabled = true
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
-path         = {{- if eq .chezmoi.os "darwin" }}{{ .herdr.sounds.mac.path | quote }}{{- end }} # one mp3 file for all sound notifications
-done_path    = {{- if eq .chezmoi.os "darwin" }}{{ .herdr.sounds.mac.done_path | quote }}{{- end }} # overrides only finished notifications
-request_path = {{- if eq .chezmoi.os "darwin" }}{{ .herdr.sounds.mac.request_path | quote }}{{- end }} # overrides only needs-attention notifications
+{{- if eq .chezmoi.os "darwin" }}
+path         = {{ .ai.notify.sounds.mac.idle | quote }}
+done_path    = {{ .ai.notify.sounds.mac.complete | quote }}
+request_path = {{ .ai.notify.sounds.mac.request | quote }}
+{{- else if eq .chezmoi.os "linux" }}
+path         = {{ .ai.notify.sounds.linux.idle | quote }}
+done_path    = {{ .ai.notify.sounds.linux.complete | quote }}
+request_path = {{ .ai.notify.sounds.linux.request | quote }}
+{{- end }}
 
 # Per-agent overrides: default | on | off
 # By default, droid is muted.
