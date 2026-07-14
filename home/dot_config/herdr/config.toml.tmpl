@@ -50,46 +50,60 @@ new_cwd = "follow"
 prefix = "ctrl+;"
 
 # Prefix-mode actions
-help          = "prefix+?"
-settings      = ""
-detach        = "prefix+q"
-reload_config = "prefix+shift+r"
+help           = "prefix+?"
+detach         = "prefix+q"
+settings       = "prefix+shift+s"
+reload_config  = "prefix+shift+r"
+goto           = "prefix+g"
+resize_mode    = "prefix+r"
+toggle_sidebar = "prefix+b"
+
 open_notification_target = "prefix+o"
-workspace_picker = "prefix+w"
-goto = "prefix+q"
+
+## Workspace
+workspace_picker   = "prefix+w"
 new_workspace      = "prefix+shift+n"
-new_worktree       = "" # unset
-open_worktree      = ""    # optional, unset by default
-remove_worktree    = ""  # optional, unset by default; opens confirmation
-rename_workspace   = "prefix+,"
+rename_workspace   = "prefix+shift+w"
 close_workspace    = "prefix+shift+d"
-previous_workspace = "" # optional, unset by default
-next_workspace     = "" # optional, unset by default
-previous_agent     = "" # optional, unset by default
-next_agent         = "" # optional, unset by default
-focus_agent        = "" # optional indexed binding, e.g. "prefix+alt+1..9"
-new_tab            = "prefix+c"
-rename_tab = "prefix+,"
-# previous_tab = "prefix+p"
-# next_tab = "prefix+n"
-switch_tab = "prefix+1..9"
-# switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
-# close_tab = "prefix+shift+x"
-# rename_pane = "prefix+<"
-# edit_scrollback = "prefix+e"
-focus_pane_left = "prefix+h"
-focus_pane_down = "prefix+j"
-focus_pane_up = "prefix+k"
-focus_pane_right = "prefix+l"
-# cycle_pane_next = "prefix+tab"
-# cycle_pane_previous = "prefix+shift+tab"
-# last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-# split_vertical = "prefix+v"
+previous_workspace = "prefix+(" # optional, unset by default
+next_workspace     = "prefix+)" # optional, unset by default
+switch_workspace   = "" # optional indexed binding, e.g. "prefix+shift+1..9"
+
+## Worktree
+new_worktree       = "" # unset
+open_worktree      = "" # optional, unset by default
+remove_worktree    = "" # optional, unset by default; opens confirmation
+
+## Agent
+previous_agent     = "prefix+[" # optional, unset by default
+next_agent         = "prefix+]" # optional, unset by default
+focus_agent        = "prefix+alt+1..9" # optional indexed binding, e.g. "prefix+alt+1..9"
+
+## Tab
+new_tab      = "alt+n"
+rename_tab   = "prefix+,"
+previous_tab = "alt+{"
+next_tab     = "alt+}"
+switch_tab   = "prefix+1..9"
+close_tab    = "prefix+shift+x"
+
+## Pane
+# edit_scrollback  = "prefix+e"
+rename_pane      = "prefix+<"
+close_pane       = "prefix+x"
+focus_pane_left  = "alt+h"
+focus_pane_down  = "alt+j"
+focus_pane_up    = "alt+k"
+focus_pane_right = "alt+l"
+
+cycle_pane_previous = "alt+["
+cycle_pane_next     = "alt+]"
+last_pane           = "alt+9" # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
+
+### Split
+split_vertical   = "prefix+v"
 split_horizontal = "prefix+s"
-# close_pane = "prefix+x"
-zoom = "prefix+z"       # legacy alias: fullscreen
-# resize_mode = "prefix+r"
-# toggle_sidebar = "prefix+b"
+zoom             = "prefix+z" # legacy alias: fullscreen
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
