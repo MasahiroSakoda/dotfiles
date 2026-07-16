@@ -273,8 +273,6 @@ Runtime version management tool
 | Tool               | Description |
 | :---- | :--------- |
 | [`OpenCode`](https://opencode.ai/) | Open Source AI Agent |
-| [Pi](https://pi.dev/) | minimal terminal coding harness |
-| [omp](https://omp.sh) | oh-my-pi: a coding agent with th IDE wired in |
 | [`Antigravity 2.0`](https://antigravity.google/docs/overview) | a standalone desktop application tailored for managing AI agents that execute complex knowledge and coding tasks. |
 | [**Antigravity CLI**](https://antigravity.google/docs/cli-overview) | the lightweight Terminal User Interface (TUI) surface of Antigravity |
 
