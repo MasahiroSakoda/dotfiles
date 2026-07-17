@@ -2,26 +2,49 @@
   "$schema": "https://opencode.ai/tui.json",
   "theme": {{ .opencode.theme | quote }},
   "keybinds": {
-    "leader": "ctrl+o",
-    "agent_cycle": "tab",
-    "agent_list": "<leader>a",
-    "model_list": "<leader>m",
+    "leader": {{ index .ai.keybinds.app.leader 0 | quote }},
+    "app_exit": {{ index .ai.keybinds.app.exit 0 | quote }},
+    "theme_list": {{ index .ai.keybinds.app.themes 0 | quote }},
+    "tips_toggle": {{ index .ai.keybinds.app.tips 0 | quote }},
+    "history_previous": {{ index .ai.keybinds.history.prev 0 | quote }},
+    "history_next": {{ index .ai.keybinds.history.next 0 | quote }},
+    {{- /* Session */}}
+    "session_list": {{ index .ai.keybinds.session.list 0 | quote }},
+    "session_new": {{ index .ai.keybinds.session.new 0 | quote }},
+    "session_rename": {{ index .ai.keybinds.session.rename 0 | quote }},
+    {{- /* Command */}}
+    "command_list": {{ index .ai.keybinds.command.list 0 | quote }},
+    {{- /* Agent */}}
+    "agent_list": {{ index .ai.keybinds.agent.list 0 | quote }},
+    "agent_cycle": {{ index .ai.keybinds.agent.next 0 | quote }},
+    "agent_cycle_reverse": {{ index .ai.keybinds.agent.prev 0 | quote }},
+    {{- /* Model */}}
+    "model_list": {{ index .ai.keybinds.model.list 0 | quote }},
+    "model_cycle_recent": {{ index .ai.keybinds.model.next_recent 0 | quote }},
+    "model_cycle_recent_reverse": {{ index .ai.keybinds.model.prev_recent 0 | quote }},
+    "model_cycle_favorite": {{ index .ai.keybinds.model.next_fav 0 | quote }},
+    "model_cycle_favorite_reverse": {{ index .ai.keybinds.model.prev_fav 0 | quote }},
+    "variant_cycle": {{ index .ai.keybinds.variant.cycle_forward 0 | quote }},
+    {{- /* MCP */}}
+    "mcp_list": {{ index .ai.keybinds.mcp.list 0 | quote }},
+    {{- /* Skill */}}
     "prompt_skills": "<leader>s",
-    "mcp_list": "<leader>shift+m",
-    "model_cycle_recent": "f2",
-    "model_cycle_recent_reverse": "shift+f2",
-    "variant_cycle": "alt+tab",
-    "session_list": "ctrl+f",
-    "command_list": "ctrl+p",
-    "input_submit": "enter",
-    "input_newline": "shift+enter",
-    "input_undo": "super+z",
-    "input_redo": "super+shilft+z",
-    "editor_open": "ctrl+g",
-    "messages_page_up": "ctrl+alt+u",
-    "messages_page_down": "ctrl+alt+d",
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d"
+    {{- /* Input / Edit */}}
+    "input_clear": {{ index .ai.keybinds.edit.clear 0 | quote }},
+    "input_submit": {{ index .ai.keybinds.edit.submit 0 | quote }},
+    "input_newline": {{ index .ai.keybinds.edit.newline 0 | quote }},
+    "input_paste": {{ index .ai.keybinds.edit.paste 0 | quote }},
+    "input_undo": {{ index .ai.keybinds.edit.undo 0 | quote }},
+    "input_redo": {{ index .ai.keybinds.edit.redo 0 | quote }},
+    "input_select_left": {{ index .ai.keybinds.edit.select_left 0 | quote }}
+    "input_select_right": {{ index .ai.keybinds.edit.select_right 0 | quote }}
+    "input_select_up": {{ index .ai.keybinds.edit.select_up 0 | quote }}
+    "input_select_down": {{ index .ai.keybinds.edit.select_down 0 | quote }}
+    "editor_open": {{ index .ai.keybinds.edit.open_editor 0 | quote }},
+    "messages_page_up": {{ index .ai.keybinds.navigate.page_up 0 | quote }},
+    "messages_page_down": {{ index .ai.keybinds.navigate.page_down 0 | quote }},
+    "messages_half_page_up": {{ index .ai.keybinds.navigate.page_half_up 0 | quote }},
+    "messages_half_page_down": {{ index .ai.keybinds.navigate.page_half_down 0 | quote }}
   },
   "scroll_speed": 2,
   "scroll_acceleration": { "enabled": true }
