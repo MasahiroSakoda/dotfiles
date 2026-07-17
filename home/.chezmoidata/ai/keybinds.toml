@@ -1,0 +1,51 @@
+[ai.keybinds.app]
+leader = ["ctrl+;"]
+clear  = ["alt+k"]
+escape = ["esc", "ctrl+c"]
+exit   = ["ctrl+c"]
+
+list_sessions = ["ctrl+s"]
+list_skills   = ["ctrl+shift+s"]
+list_mcp      = ["ctrl+m"]
+list_commands = ["ctrl+c"]
+list_themes   = ["ctrl+t"]
+
+[ai.keybinds.history]
+prev = "up"
+next = "down"
+
+[ai.keybinds.agent]
+list           = ["alt+a"]
+cycle_forward  = ["tab"]
+cycle_backward = ["shift+tab"]
+
+[ai.keybinds.model]
+list            = ["ctrl+m"]
+cycle_forward   = ["alt+tab"]
+cycle_backward  = ["alt+shift+tab"]
+thinking_toggle = ["alt+t"]
+
+[ai.keybinds.variant]
+cycle_forward  = ["alt+shift+."]
+cycle_backward = ["alt+shift+,"]
+
+[ai.keybinds.edit]
+cursor_left  = ["left"]
+cursor_right = ["right"]
+cursor_up    = ["up"]
+cursor_down  = ["down"]
+newline      = ["shift+enter", "alt+enter"]
+submit       = ["enter"]
+yank         = ["ctrl+y"]
+paste        = ["ctrl+v"]
+undo         = ["ctrl+z"]
+redo         = ["ctrl+shift+z"]
+confirm_no   = ["n"]
+confirm_yes  = ["y"]
+open_editor  = ["ctrl+o"]
+
+[ai.keybinds.navigate]
+top       = ["ctrl+home"]
+bottom    = ["ctrl+end"]
+page_up   = ["ctrl+b"]
+page_down = ["ctrl+f"]
