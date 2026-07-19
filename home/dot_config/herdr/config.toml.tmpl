@@ -47,63 +47,63 @@ new_cwd = "follow"
 # Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
-prefix = "ctrl+;"
+prefix = {{ .ai.keybinds.herdr.prefix | quote }}
 
 # Prefix-mode actions
-help           = "prefix+?"
-detach         = "prefix+q"
-settings       = "prefix+shift+s"
-reload_config  = "prefix+shift+r"
-goto           = "prefix+g"
-resize_mode    = "prefix+r"
-toggle_sidebar = "prefix+b"
+help           = {{ .ai.keybinds.herdr.help | quote }}
+detach         = {{ .ai.keybinds.herdr.detach | quote }}
+settings       = {{ .ai.keybinds.herdr.settings | quote }}
+reload_config  = {{ .ai.keybinds.herdr.reload | quote }}
+goto           = {{ .ai.keybinds.herdr.goto | quote }}
+resize_mode    = {{ .ai.keybinds.herdr.resize | quote }}
+toggle_sidebar = {{ .ai.keybinds.herdr.sidebar | quote }}
 
-open_notification_target = "prefix+o"
+open_notification_target = {{ .ai.keybinds.herdr.notify | quote }}
 
 ## Workspace
-workspace_picker   = "prefix+w"
-new_workspace      = "prefix+shift+n"
-rename_workspace   = "prefix+shift+w"
-close_workspace    = "prefix+shift+d"
-previous_workspace = "prefix+(" # optional, unset by default
-next_workspace     = "prefix+)" # optional, unset by default
-switch_workspace   = "" # optional indexed binding, e.g. "prefix+shift+1..9"
+workspace_picker   = {{ .ai.keybinds.herdr.workspace.picker | quote }}
+new_workspace      = {{ .ai.keybinds.herdr.workspace.new | quote }}
+rename_workspace   = {{ .ai.keybinds.herdr.workspace.rename | quote }}
+close_workspace    = {{ .ai.keybinds.herdr.workspace.close | quote }}
+previous_workspace = {{ .ai.keybinds.herdr.workspace.prev | quote }} # optional, unset by default
+next_workspace     = {{ .ai.keybinds.herdr.workspace.next | quote }} # optional, unset by default
+switch_workspace   = {{ .ai.keybinds.herdr.workspace.switch | quote }} # optional indexed binding, e.g. "prefix+shift+1..9"
 
 ## Worktree
-new_worktree       = "" # unset
-open_worktree      = "" # optional, unset by default
-remove_worktree    = "" # optional, unset by default; opens confirmation
+new_worktree    = {{ .ai.keybinds.herdr.worktree.new | quote }} # unset
+open_worktree   = {{ .ai.keybinds.herdr.worktree.open | quote }} # optional, unset by default
+remove_worktree = {{ .ai.keybinds.herdr.worktree.remove | quote }} # optional, unset by default; opens confirmation
 
 ## Agent
-previous_agent     = "prefix+[" # optional, unset by default
-next_agent         = "prefix+]" # optional, unset by default
-focus_agent        = "prefix+alt+1..9" # optional indexed binding, e.g. "prefix+alt+1..9"
+previous_agent = {{ .ai.keybinds.herdr.agent.prev | quote }} # optional, unset by default
+next_agent     = {{ .ai.keybinds.herdr.agent.next | quote }} # optional, unset by default
+focus_agent    = {{ .ai.keybinds.herdr.agent.focus | quote }} # optional indexed binding, e.g. "prefix+alt+1..9"
 
 ## Tab
-new_tab      = "alt+n"
-rename_tab   = "prefix+,"
-previous_tab = "alt+{"
-next_tab     = "alt+}"
-switch_tab   = "prefix+1..9"
-close_tab    = "prefix+shift+x"
+new_tab      = {{ .ai.keybinds.herdr.tab.new | quote }}
+rename_tab   = {{ .ai.keybinds.herdr.tab.rename | quote }}
+previous_tab = {{ .ai.keybinds.herdr.tab.prev | quote }}
+next_tab     = {{ .ai.keybinds.herdr.tab.next | quote }}
+switch_tab   = {{ .ai.keybinds.herdr.tab.switch | quote }}
+close_tab    = {{ .ai.keybinds.herdr.tab.close | quote }}
 
 ## Pane
 # edit_scrollback  = "prefix+e"
-rename_pane      = "prefix+<"
-close_pane       = "prefix+x"
-focus_pane_left  = "alt+h"
-focus_pane_down  = "alt+j"
-focus_pane_up    = "alt+k"
-focus_pane_right = "alt+l"
+rename_pane      = {{ .ai.keybinds.herdr.pane.rename | quote }}
+close_pane       = {{ .ai.keybinds.herdr.pane.close | quote }}
+focus_pane_left  = {{ .ai.keybinds.herdr.pane.left | quote }}
+focus_pane_right = {{ .ai.keybinds.herdr.pane.right | quote }}
+focus_pane_up    = {{ .ai.keybinds.herdr.pane.up | quote }}
+focus_pane_down  = {{ .ai.keybinds.herdr.pane.down | quote }}
 
-cycle_pane_previous = "alt+["
-cycle_pane_next     = "alt+]"
-last_pane           = "alt+9" # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
+cycle_pane_previous = {{ .ai.keybinds.herdr.pane.prev | quote }}
+cycle_pane_next     = {{ .ai.keybinds.herdr.pane.next | quote }}
+last_pane           = {{ .ai.keybinds.herdr.pane.last | quote }} # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
 
 ### Split
-split_vertical   = "prefix+v"
-split_horizontal = "prefix+s"
-zoom             = "prefix+z" # legacy alias: fullscreen
+split_vertical   = {{ .ai.keybinds.herdr.pane.vertical | quote }}
+split_horizontal = {{ .ai.keybinds.herdr.pane.horizontal | quote }}
+zoom             = {{ .ai.keybinds.herdr.pane.zoom | quote }} # legacy alias: fullscreen
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.

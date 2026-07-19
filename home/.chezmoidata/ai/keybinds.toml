@@ -1,0 +1,133 @@
+[ai.keybinds.herdr]
+prefix   = "ctrl+;"
+help     = "prefix+?"
+detach   = "prefix+q"
+settings = "prefix+,"
+reload   = "prefix+shift+r"
+goto     = "prefix+g"
+resize   = "prefix+r"
+sidebar  = "prefix+b"
+notify   = "prefix+o"
+
+  [ai.keybinds.herdr.workspace]
+  picker = "prefix+w"
+  new    = "prefix+shift+n"
+  rename = "prefix+shift+w"
+  close  = "prefix+shift+d"
+  prev   = "prefix+("
+  next   = "prefix+)"
+  switch = ""
+
+  [ai.keybinds.herdr.worktree]
+  new    = ""
+  remove = ""
+  open   = ""
+
+  [ai.keybinds.herdr.agent]
+  prev  = "prefix+["
+  next  = "prefix+]"
+  focus = "prefix+alt+1..9"
+
+  [ai.keybinds.herdr.tab]
+  new    = "prefix+t"
+  rename = "prefix+,"
+  prev   = "alt+{"
+  next   = "alt+}"
+  switch = "prefix+1..9"
+  close  = "prefix+shift+x"
+
+  [ai.keybinds.herdr.pane]
+  rename     = "prefix+r"
+  close      = "prefix+x"
+  prev       = "alt+["
+  next       = "alt+]"
+  last       = "alt+9"
+  left       = "alt+h"
+  right      = "alt+l"
+  up         = "alt+k"
+  down       = "alt+j"
+  vertical   = "prefix+v"
+  horizontal = "prefix+s"
+  zoom       = "prefix+z"
+
+[ai.keybinds.app]
+leader  = ["ctrl+'"]
+escape  = ["esc", "ctrl+c"]
+exit    = ["<leader>q"]
+themes  = ["<leader>t"]
+tips    = ["<leader>h"]
+suspend = []
+
+[ai.keybinds.history]
+prev = ["up"]
+next = ["down"]
+
+[ai.keybinds.session]
+list     = ["alt+s"]
+new      = ["alt+n"]
+rename   = ["alt+r"]
+timeline = ["ctrl+alt+s"]
+
+[ai.keybinds.command]
+list = ["alt+c"]
+
+[ai.keybinds.agent]
+list = ["alt+a"]
+prev = ["shift+tab"]
+next = ["tab"]
+
+[ai.keybinds.model]
+list        = ["alt+m"]
+prev_recent = ["alt+."]
+next_recent = ["alt+,"]
+prev_fav    = ["alt+<"]
+next_fav    = ["alt+>"]
+
+[ai.keybinds.variant]
+cycle_forward  = ["alt+tab"]
+cycle_backward = ["alt+shift+tab"]
+
+[ai.keybinds.mcp]
+list = ["alt+shift+m"]
+
+[ai.keybinds.skill]
+list = ["alt+shift+s"]
+
+[ai.keybinds.edit]
+clear        = ["ctrl+c"]
+escape       = ["esc"]
+newline      = ["shift+enter", "alt+enter"]
+submit       = ["enter"]
+yank         = ["ctrl+y"]
+paste        = ["ctrl+v"]
+undo         = ["ctrl+z"]
+redo         = ["ctrl+shift+z"]
+select_left  = ["shift+left"]
+select_right = ["shift+right"]
+select_up    = ["shift+up"]
+select_down  = ["shift+down"]
+confirm_no   = ["n"]
+confirm_yes  = ["y"]
+confirm_edit = ["e"]
+open_editor  = ["ctrl+o"]
+
+[ai.keybinds.navigate]
+tab            = ["tab"]
+left           = ["left"]
+right          = ["right"]
+up             = ["up"]
+down           = ["down"]
+top            = ["ctrl+home"]
+bottom         = ["ctrl+end"]
+page_up        = ["ctrl+b"]
+page_down      = ["ctrl+f"]
+page_half_up   = ["ctrl+u"]
+page_half_down = ["ctrl+d"]
+
+[ai.keybinds.antigravity]
+exit       = ["ctrl+q"]
+suspend    = ["ctrl+s"]
+artifact   = ["alt+shift+a"]
+trajectory = ["alt+shift+t"]
+approve    = []
+waiting    = []
