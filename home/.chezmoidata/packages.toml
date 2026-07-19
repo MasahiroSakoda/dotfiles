@@ -16,6 +16,7 @@
   media    = ["ffmpeg-full"]
   image    = ["imagemagick", "exiftool"]
   update   = ["topgrade"]
+  ai       = ["ollama"]
 
   [packages.cask]
   maintenance = ["onyx", "appcleaner"]
@@ -93,3 +94,4 @@
   runtime  = ["mise"]
   download = ["wget", "curl"]
   security = ["gnupg", "pinentry", "ca-certificates"]
+  ai       = ["ollama"]
