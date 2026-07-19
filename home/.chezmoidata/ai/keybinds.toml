@@ -1,3 +1,55 @@
+[ai.keybinds.herdr]
+prefix   = "ctrl+;"
+help     = "prefix+?"
+detach   = "prefix+q"
+settings = "prefix+,"
+reload   = "prefix+shift+r"
+goto     = "prefix+g"
+resize   = "prefix+r"
+sidebar  = "prefix+b"
+notify   = "prefix+o"
+
+  [ai.keybinds.herdr.workspace]
+  picker = "prefix+w"
+  new    = "prefix+shift+n"
+  rename = "prefix+shift+w"
+  close  = "prefix+shift+d"
+  prev   = "prefix+("
+  next   = "prefix+)"
+  switch = ""
+
+  [ai.keybinds.herdr.worktree]
+  new    = ""
+  remove = ""
+  open   = ""
+
+  [ai.keybinds.herdr.agent]
+  prev  = "prefix+["
+  next  = "prefix+]"
+  focus = "prefix+alt+1..9"
+
+  [ai.keybinds.herdr.tab]
+  new    = "prefix+t"
+  rename = "prefix+,"
+  prev   = "alt+{"
+  next   = "alt+}"
+  switch = "prefix+1..9"
+  close  = "prefix+shift+x"
+
+  [ai.keybinds.herdr.pane]
+  rename     = "prefix+r"
+  close      = "prefix+x"
+  prev       = "alt+["
+  next       = "alt+]"
+  last       = "alt+9"
+  left       = "alt+h"
+  right      = "alt+l"
+  up         = "alt+k"
+  down       = "alt+j"
+  vertical   = "prefix+v"
+  horizontal = "prefix+s"
+  zoom       = "prefix+z"
+
 [ai.keybinds.app]
 leader  = ["ctrl+'"]
 escape  = ["esc", "ctrl+c"]
