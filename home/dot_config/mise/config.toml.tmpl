@@ -229,6 +229,18 @@ ruby    = "3"
 
 {{- /*
 # TODO: Enable after experimental flag has been removed
+[bootstrap.mise_shell_activate]
+# Bash
+bash_profile = "shims"
+bashrc       = "activate"
+
+# Zsh
+zprofile = "shims"
+zshrc    = "activate"
+
+# Fish
+fish = "activate"
+
 [bootstrap.packages]
 {{ if eq .chezmoi.os "darwin" -}}
 ## Homebrew
