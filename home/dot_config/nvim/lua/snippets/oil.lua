@@ -31,7 +31,6 @@ local snippets = {
     .lefthook.yml
     .rumdl.toml
     .typos.toml
-    .editorconfig
     .github/CODEOWNERS
     .github/CONTRIBUTING.md
     .github/SECURITY.md
@@ -61,16 +60,6 @@ local snippets = {
     .opencode/oh-my-opencode.jsonc
     .opencode/opencode.jsonc
     .opencode/AGENTS.md
-    ]], {})
-  ),
-  s({ trig = ";omp", name = "oh-my-pi", dscr = "omp Template" },
-    fmt([[
-    .omp/agent/
-    .omp/commands/
-    .omp/rules/
-    .omp/skills/
-    .omp/SYSTEM.md
-    .omp/RULES.md
     ]], {})
   ),
 }
