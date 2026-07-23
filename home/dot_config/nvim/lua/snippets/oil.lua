@@ -62,15 +62,5 @@ local snippets = {
     .opencode/AGENTS.md
     ]], {})
   ),
-  s({ trig = ";omp", name = "oh-my-pi", dscr = "omp Template" },
-    fmt([[
-    .omp/agent/
-    .omp/commands/
-    .omp/rules/
-    .omp/skills/
-    .omp/SYSTEM.md
-    .omp/RULES.md
-    ]], {})
-  ),
 }
 return snippets
