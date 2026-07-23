@@ -31,7 +31,6 @@ local snippets = {
     .lefthook.yml
     .rumdl.toml
     .typos.toml
-    .editorconfig
     .github/CODEOWNERS
     .github/CONTRIBUTING.md
     .github/SECURITY.md
