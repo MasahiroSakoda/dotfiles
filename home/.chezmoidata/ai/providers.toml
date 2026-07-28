@@ -9,12 +9,12 @@ baseUrl = "https:/opencode.ai/zen/v1"
 apiKey  = "$OPENCODE_API_KEY"
 
   [[ai.providers.opencode.models]]
-  id            = "hy3-free"
-  name          = "Hy3 Free"
+  id            = "laguna-s-2.1-free"
+  name          = "Laguna S 2.1"
   reasoning     = true
   input         = ["text"]
   contextWindow = 256000
-  maxTokens     = 64000
+  maxTokens     = 32000
 
   [[ai.providers.opencode.models]]
   id            = "deepseek-v4-flash-free"
