@@ -1,0 +1,32 @@
+{
+  "version": 3,
+  "skills": {
+    "agent-md-refactor": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/agent-md-refactor/SKILL.md",
+      "skillFolderHash": "89a8fede359cb48c66f1af44c5aa8fc07b82cded",
+      "installedAt": "2026-07-28T19:52:56Z",
+      "updatedAt": "2026-07-28T19:52:56Z"
+    },
+    "chezmoi": {
+      "source": "MasahiroSakoda/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/MasahiroSakoda/skills.git",
+      "skillPath": "skills/chezmoi/SKILL.md",
+      "skillFolderHash": "fba0f1efc14f2709674e248b54870a720b2f47e1",
+      "installedAt": "2026-07-28T19:49:25Z",
+      "updatedAt": "2026-07-28T19:49:25Z"
+    },
+    "crafting-effective-readmes": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/softaworks/agent-toolkit.git",
+      "skillPath": "skills/crafting-effective-readmes/SKILL.md",
+      "skillFolderHash": "72e2a4d89c5a14b762cfc58e3bbd7fd63e9642b0",
+      "installedAt": "2026-07-28T19:54:11Z",
+      "updatedAt": "2026-07-28T19:54:11Z"
+    }
+  }
+}
