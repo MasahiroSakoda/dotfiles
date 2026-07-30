@@ -73,6 +73,15 @@
       "installedAt": "2026-07-29T15:36:16Z",
       "updatedAt": "2026-07-29T15:36:16Z"
     },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-07-29T16:45:19Z",
+      "updatedAt": "2026-07-29T16:45:19Z"
+    },
     "productivity/grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
