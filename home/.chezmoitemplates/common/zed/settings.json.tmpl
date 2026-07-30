@@ -9,7 +9,6 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 */ -}}
 {
-  "$schema": "https://raw.githubusercontent.com/zed-industries/zed/refs/heads/main/assets/settings/default.json",
   "vim_mode": true,
   "restore_on_startup": "last_workspace",
   "auto_update": false,
@@ -136,103 +135,130 @@
   // ===========================================================================
   */ -}}
   "lsp": {
-    {{/*
     "bash-language-server": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "bash-language-server" | quote }},
-        "arguments": ["server"]
+      "initialization_options": {
+        "includeAllWorkspaceSymbols": true,
+        "globPattern": "**/*@(.sh|.inc|.bash|.command)"
       }
     },
+  {{/*
     "fish-lsp": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "fish-lsp" | quote }},
-        "arguments": ["start"]
-      }
-    },
-    */ -}}
-    "clangd": {
-      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "clangd" | quote }} }
-    },
-    "rust-analyzer": {
       "initialization_options": {}
     },
-    "gopls": {
+  */ -}}
+    "clangd": {
       "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "gopls" | quote }},
-        "arguments": ["serve"]
-      },
-      "initialization_options": { "directoryFilters": [ "-**/.git", "-**/.zed", "-**/.vscode", "-**/.cursor" ] }
+        "path": "clangd",
+        "arguments": ["--background-index", "--clang-tidy", "--suggest-missing-includes"]
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": { "command": "clippy" },
+        "cargo": { "allFeatures": true }
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "directoryFilters": [ "-**/.git", "-**/.zed", "-**/.vscode", "-**/.cursor" ],
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "staticcheck": true
+      }
     },
     "ty": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ty" | quote }},
-        "arguments": ["server"]
+      "settings": {
+        "completions": { "autoImport": true },
+        "diagnosticMode": "workspace",
+        "inlayHits": {
+          "variableTypes": true,
+          "callArgumentNames": true,
+          "functionReturnTypes": true,
+          "parameterTypes": true,
+          "parameterNames": true
+        },
       }
     },
     "ruff": {
       "initialization_options": {
-        "settings": {}
+        "settings": {
+          "lint": {
+            "extendSelect": []
+          },
+          "ignore": ["E501"]
+        }
       }
     },
-    {{/*
-    "ruby-lsp": {
-      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }} }
-    },
-    "rubocop": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "ruby-lsp" | quote }},
-        "arguments": ["--lsp"]
-      }
-    },
-    */ -}}
     "lua-language-server": {
-      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "lua-language-server" | quote }} }
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim", "hs", "error", "use", "describe", "it", "before_each", "after_each", "MiniTest", "Snacks"]
+          },
+          "format": { "enable": false },
+          "hint": { "enable": true },
+          "runtime": { "version": "LuaJIT" },
+          "telemetry": { "enable": false },
+          "workspace": {
+            "library": { "vim": true, "checkThirdparty": false }
+          }
+        }
+      }
     },
     "typescript-language-server": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "typescript-language-server" | quote }},
-        "arguments": ["--stdio"]
+      "initialization_options": {
+        "preferences": {
+          "excludeDirectories": ["**/node_modules", "**/.wrangler"],
+          "includeInlayEnumMemberValueHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayVariableTypeHints": true
+        }
       }
     },
     "json-language-server": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "vscode-json-languageserver" | quote }},
-        "arguments": ["--stdio"]
+      "settings": {
+        "json": {
+          "format": { "enable": false, "singleQuote": false },
+          "validate": { "enable": true },
+          "completion": true,
+          "hover": true,
+        }
       }
     },
     "yaml-language-server": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "yaml-language-server" | quote }},
-        "arguments": ["--stdio"]
+      "settings": {
+        "redhat": { "telemetry": { "enabled": false } },
+        "yaml": {
+          "keyOrdering": false,
+          "validate": true,
+          "completion": true,
+          "hover": true
+        }
       }
     },
     "tailwindcss-language-server": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tailwindcss-language-server" | quote }},
-        "arguments": ["--stdio"]
-      },
+      "settings": {
+        "classAttributes": ["class", "className", "class:list", "classList", "ngClass"],
+        "classFunctions": ["cva", "cx", "tw", "twMerge"],
+        "tailwindCSS": { "validate": true }
+      }
+    },
     "tombi": {
       "binary": {
         "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "tombi" | quote }},
         "arguments": ["lsp"]
       }
-    {{/*
+    },
     "biome": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "biome" | quote }},
-        "arguments": ["lsp-proxy"]
+      "settings": {
+        "require_config_file": true
       }
-    },
-    "marksman": {
-      "binary": {
-        "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "marksman" | quote }},
-        "arguments": ["server"]
-      }
-    },
-    */ -}}
     },
     "texlab": {
-      "binary": { "path": {{ joinPath (env "XDG_DATA_HOME") "mise" "shims" "texlab" | quote }} },
       "settings": {
         "texlab": {
           "build": { "onSave": false, "forwardSearchAfter": true },
