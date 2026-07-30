@@ -1,16 +1,3 @@
-[zed.theme]
-light = "GitHub Dark"
-dark  = "GitHub Dark"
-mode  = "system"
-icon  = "Material Icon Theme"
-
-[zed.ui]
-
-[zed.terminal]
-
-[zed.search]
-smartcase = true
-
 [zed.filetypes]
 "Dockerfile" = ["Dockerfile.*"]
 "Git Attributes" = ["**/{git,.git,.git/info}/attributes"]
