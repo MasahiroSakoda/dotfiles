@@ -1,20 +1,15 @@
 ---
+allowed-tools: Read, Edit, Write, Glob, Grep, Bash(chezmoi:*)
+description: |
+    Manage dotfiles with chezmoi. Use when working with chezmoi config, setup, or repo structure, managing files, templates, or script's (Go template syntax, run_once_/run_onchange_ scripts, .chezmoidata), handling file attributes (symlinks, permissions, encryption, external sources), Troubleshooting chezmoi operations or understanding application order.
+license: MIT
+metadata:
+    github-path: skills/chezmoi
+    github-ref: refs/tags/v1.0.0
+    github-repo: https://github.com/MasahiroSakoda/skills
+    github-tree-sha: fba0f1efc14f2709674e248b54870a720b2f47e1
 name: chezmoi
-description: >
-    Manage dotfiles with chezmoi.
-    Use when working with chezmoi config, setup, or repo structure, managing files, templates, or script's
-    (Go template syntax, run_once_/run_onchange_ scripts, .chezmoidata),
-    handling file attributes (symlinks, permissions, encryption, external sources),
-    Troubleshooting chezmoi operations or understanding application order.
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Glob
-  - Grep
-  - Bash(chezmoi:*)
 ---
-
 # chezmoi - Cross platform dotfiles manager
 
 ## Core Principles
