@@ -176,7 +176,7 @@
           "functionReturnTypes": true,
           "parameterTypes": true,
           "parameterNames": true
-        },
+        }
       }
     },
     "ruff": {
@@ -225,7 +225,7 @@
           "format": { "enable": false, "singleQuote": false },
           "validate": { "enable": true },
           "completion": true,
-          "hover": true,
+          "hover": true
         }
       }
     },
@@ -385,11 +385,18 @@
   */ -}}
   "agent": {
     "dock": "right",
+    "auto_compact": { "enabled": true, "threshold": "80%" },
+    "play_sound_when_agent_done": "always",
     "default_model": {
-      "enable_thinking": true,
-      "provider": "ollama",
-      "model": "qwen3.5:cloud"
+      "provider": "opencode",
+      "model": "zen/deepseek-v4-flash-free",
+      "enable_thinking": true
     },
+    {{/*
+    "inline_assistant_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": false },
+    "subagent_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": true },
+    */ -}}
+    "thread_summary_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": true },
     "model_parameters": [],
     "enable_feedback": false
   },
@@ -397,8 +404,17 @@
     "gemini": {"type": "registry", "env": {"GEMINI_SANDBOX": "true"} },
     "opencode": {"type": "registry" }
   },
+  "language_models": {
+    "opencode": {
+      "show_zen_models": true,
+      "show_go_models": false,
+      "show_free_models": true
+    }
+  },
   "edit_predictions": {
-    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert" ]
+    "provider": "zed",
+    "mode": "eager",
+    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert", "**/secrets.yml" ]
   }
 }
 {{- /*
