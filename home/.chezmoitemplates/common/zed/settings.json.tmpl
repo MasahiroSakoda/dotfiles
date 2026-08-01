@@ -279,6 +279,9 @@
         }
       }
     },
+    "rumdl": {
+      "binary": { "path": "rumdl", "arguments": ["server"] }
+    },
     "texlab": {
       "settings": {
         "texlab": {
@@ -406,7 +409,10 @@
       "language_servers": ["!biome", "!prettier", "!eslint", "..."]
     },
     "Markdown": {
-      "language_servers": [ "!biome", "!prettier", "!eslint", "marksman" ]
+      "format_on_save": "on",
+      "prettier": { "allowed": false },
+      "formatter": { "language_server": { "name": "rumdl" } },
+      "language_servers": [ "rumdl", "!biome", "!prettier", "!eslint" ]
     },
     "Markdown-Inline": {
       "show_edit_predictions": false
