@@ -166,6 +166,11 @@
         "staticcheck": true
       }
     },
+    "golangci-lint": {
+      "initialization_options": {
+        "command": ["golangci-lint", "run", "--output.json.path=stdout", "--issues-exit-code=1", "--show-stats=false"]
+      }
+    },
     "ty": {
       "settings": {
         "completions": { "autoImport": true },
@@ -333,7 +338,7 @@
     "Go": {
       "format_on_save": "on",
       "formatter": { "external": { "command": "golangci-lint", "arguments": [ "fmt", "--stdin" ] } },
-      "language_servers": [ "gopls" ]
+      "language_servers": [ "gopls", "golangci-lint" ]
     },
     "Python": {
       "format_on_save": "on",
