@@ -412,7 +412,9 @@
     }
   },
   "edit_predictions": {
-    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert" ]
+    "provider": "zed",
+    "mode": "eager",
+    "disabled_globs": [ "**/.env*", "**/*.age", "**/secrets/**", "**/*.pem", "**/*.key", "**/*.cert", "**/secrets.yml" ]
   }
 }
 {{- /*
