@@ -388,10 +388,15 @@
     "auto_compact": { "enabled": true, "threshold": "80%" },
     "play_sound_when_agent_done": "always",
     "default_model": {
-      "enable_thinking": true,
       "provider": "opencode",
-      "model": "zen/deepseek-v4-flash-free"
+      "model": "zen/deepseek-v4-flash-free",
+      "enable_thinking": true
     },
+    {{/*
+    "inline_assistant_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": false },
+    "subagent_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": true },
+    */ -}}
+    "thread_summary_model": { "provider": "opencode", "model": "zen/deepseek-v4-flash-free", "enable_thinking": true },
     "model_parameters": [],
     "enable_feedback": false
   },
