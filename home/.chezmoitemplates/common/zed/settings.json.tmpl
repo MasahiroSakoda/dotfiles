@@ -349,31 +349,45 @@
     },
     "JavaScript": {
       "format_on_save": "on",
-      "formatter": { "language_server": { "name": "oxfmt" } }
+      "prettier": { "allowed": false },
+      "formatter": { "language_server": { "name": "oxfmt" } },
+      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!!biome", "!prettier", "!eslint", "..."]
     },
     "TypeScript": {
       "format_on_save": "on",
-      "formatter": { "language_server": { "name": "oxfmt" } }
+      "prettier": { "allowed": false },
+      "formatter": { "language_server": { "name": "oxfmt" } },
+      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!vtsls", "!!biome", "!prettier", "!eslint", "..."]
     },
     "TSX": {
       "format_on_save": "on",
+      "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": [ "biome", "!eslint", "!stylelint-lsp" ]
+      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!vtsls", "!!biome", "!prettier", "!eslint", "..."]
     },
     "JSON": {
       "format_on_save": "on",
+      "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": [ "json-language-server" ]
+      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
+    },
+    "JSONC": {
+      "format_on_save": "on",
+      "prettier": { "allowed": false },
+      "formatter": { "language_server": { "name": "oxfmt" } },
+      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
     },
     "YAML": {
       "format_on_save": "on",
+      "prettier": { "allowed": false },
       "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
-      "language_servers": [ "yaml-language-server" ]
+      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
     },
     "TOML": {
       "format_on_save": "on",
+      "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "tombi" } },
-      "language_servers": [ "tombi" ]
+      "language_servers": [ "!biome", "!prettier", "!eslint", "tombi", "..." ]
     },
     {{/*
     "KDL": {
@@ -382,14 +396,17 @@
     */ -}}
     "HTML": {
       "format_on_save": "on",
+      "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } }
     },
     "CSS": {
       "format_on_save": "on",
-      "formatter": { "language_server": { "name": "oxfmt" } }
+      "prettier": { "allowed": false },
+      "formatter": { "language_server": { "name": "oxfmt" } },
+      "language_servers": ["!biome", "!prettier", "!eslint", "..."]
     },
     "Markdown": {
-      "language_servers": [ "marksman" ]
+      "language_servers": [ "!biome", "!prettier", "!eslint", "marksman" ]
     },
     "Markdown-Inline": {
       "show_edit_predictions": false
