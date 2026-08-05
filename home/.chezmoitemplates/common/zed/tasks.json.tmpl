@@ -1,15 +1,19 @@
 [
   {
-    "label": "gitui",
-    "command": "gitui",
-    "shell": { "program": "sh" },
-    "cwd": "$ZED_WORKTREE_ROOT",
-    "hide": "on_success",
+    "label": "Onefetch",
+    "command": "onefetch",
+    "user_new_terminal": true,
+    "allow_concurrent_runs": true,
+    "reveal": "always",
     "reveal_target": "center",
+    "hide": "never",
+    "shell": "system",
     "show_summary": false,
-    "show_command": false,
-    "allow_concurrent_runs": false,
-    "use_new_terminal": true,
+    "show_command": false
+  },
+  {
+    "label": "Open in Ghostty",
+    "command": "ghostty --working-directory=$ZED_WORKTREE_ROOT"
   },
   {
     "label": "chezmoi apply",
