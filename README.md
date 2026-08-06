@@ -136,7 +136,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Go          | [gopls](https://pkg.gol.dev/golang.org/x/tools/gopls)                                   |
 | Python      | [bash](https://github.com/astral-sh/ty)                                                 |
 | TypeScript  | [deno](https://deno.land/)                                                              |
-| TypeScript  | [ts_ls](https://github.com/typescript-language-server/typescript-language-server)       |
+| TypeScript  | [vtsls](https://github.com/yioneko/vtsls)       |
 | Lua         | [lua_ls](https://github.com/LuaLS/lua-language-server)                                  |
 | JSON        | [json-lsp](https://github.com/microsoft/vscode-json-languageservice)                    |
 | YAML        | [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)        |
