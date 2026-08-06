@@ -13,6 +13,7 @@ return {
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
   -- ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
+  vtsls         = require("lsp.servers.vtsls"),         -- TypeScript
   denols        = require("lsp.servers.denols"),        -- Deno
   cssls         = require("lsp.servers.cssls"),         -- CSS
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
