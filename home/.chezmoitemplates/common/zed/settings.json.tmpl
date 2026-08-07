@@ -215,19 +215,16 @@
         }
       }
     },
-    "typescript-language-server": {
-      "initialization_options": {
-        "preferences": {
-          "excludeDirectories": ["**/node_modules", "**/.wrangler"],
-          "includeInlayEnumMemberValueHints": true,
-          "includeInlayFunctionLikeReturnTypeHints": true,
-          "includeInlayFunctionParameterTypeHints": true,
-          "includeInlayParameterNameHints": "all",
-          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-          "includeInlayPropertyDeclarationTypeHints": true,
-          "includeInlayVariableTypeHints": true
+    "vtsls": {
+      "settings": {
+        "javascript": {
+          "updateImportsOnFileMove": { "enabled": "always" }
+        },
+        "typescript": {
+          "updateImportsOnFileMove": { "enabled": "always" }
         }
-      }
+      },
+      "enable_lsp_tasks": true
     },
     "json-language-server": {
       "settings": {
@@ -358,19 +355,19 @@
       "format_on_save": "on",
       "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!!biome", "!prettier", "!eslint", "..."]
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!!biome", "!prettier", "!eslint", "..."]
     },
     "TypeScript": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!vtsls", "!!biome", "!prettier", "!eslint", "..."]
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "biome",  "!prettier", "!eslint", "..."]
     },
     "TSX": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
       "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": ["typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!vtsls", "!!biome", "!prettier", "!eslint", "..."]
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!!biome", "!prettier", "!eslint", "..."]
     },
     "JSON": {
       "format_on_save": "on",

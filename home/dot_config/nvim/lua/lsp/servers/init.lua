@@ -12,8 +12,9 @@ return {
   ty            = require("lsp.servers.ty"),            -- Python
   ruby_lsp      = require("lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("lsp.servers.lua_ls"),        -- Lua
-  -- ts_ls         = require("lsp.servers.ts_ls"),         -- JS/TS
+  vtsls         = require("lsp.servers.vtsls"),         -- TypeScript
   denols        = require("lsp.servers.denols"),        -- Deno
+  cssls         = require("lsp.servers.cssls"),         -- CSS
   tailwindcss   = require("lsp.servers.tailwindcss"),   -- tailwindcss
   jsonls        = require("lsp.servers.jsonls"),        -- JSON
   yamlls        = require("lsp.servers.yamlls"),        -- YAML
@@ -24,5 +25,5 @@ return {
   zizmor        = require("lsp.servers.zizmor"),        -- GitHub Actions
   sqls          = require("lsp.servers.sqls"),          -- SQL
   texlab        = require("lsp.servers.texlab"),        -- LaTex
-  harper        = require("lsp.servers.harper_ls"),     -- english grammer
+  harper        = require("lsp.servers.harper_ls"),     -- english grammar
 }
