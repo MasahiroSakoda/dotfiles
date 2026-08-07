@@ -65,6 +65,15 @@ install.sh
 
 # AI
 
+## Codex
+.codex/**
+!.codex/AGENTS.md
+!.codex/RTK.md
+!.codex/config.toml
+!.codex/hooks.json
+!.codex/agents/**
+!.codex/skills/**
+
 ## OpenCode
 .config/opencode/**
 !.config/opencode/AGENTS.md
