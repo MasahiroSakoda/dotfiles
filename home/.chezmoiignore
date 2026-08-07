@@ -65,6 +65,16 @@ install.sh
 
 # AI
 
+## Claude
+.claude/**
+!.claude/CLAUDE.md
+!.claude/RTK.md
+!.claude/settings.json
+!.claude/agents/**
+!.claude/hooks/**
+!.claude/rules/**
+!.claude/skills/**
+
 ## Codex
 .codex/**
 !.codex/AGENTS.md
