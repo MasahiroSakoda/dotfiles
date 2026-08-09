@@ -1,0 +1,69 @@
+[metadata]
+name         = "gh-repos"
+description  = "List GitHub repositories"
+requirements = ["gh", "jq", "bat"]
+
+[source]
+command = [
+  {
+    name = " Owned",
+    run = """
+      gh api user/repos?affiliation=owner&sort=updated --paginate | jq -r '.[] | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+    """,
+  },
+  {
+    name = " Starred",
+    run = """
+      gh api -X GET /user/starred --paginate --cache 24h | jq -r '.[] | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+    """,
+  },
+  {
+    name = " Forked",
+    run = """
+      gh api user/repos?sort=updated --paginate | jq -r '.[] | select(.fork == true) | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+    """,
+  },
+]
+display = "{split:\\t:..}"
+ansi    = true
+
+[ui]
+layout = "landscape"
+input_header = "GitHub repositories"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {0}"
+  footer    = "⌃ + o: Open browser | ⌃ + y: yank URL | ⌃ + u: Scroll up | ⌃ + d: Scroll down"
+  scrollbar = true
+
+[preview]
+command = "gh repo view '{0}' | glow"
+header  = "{strip_ansi|split:\\t:..:0}"
+
+[keybindings]
+ctrl-o     = "actions:open"
+ctrl-y     = "actions:yank"
+ctrl-enter = "actions:clone"
+
+[actions.open]
+description = "Open repo in browser"
+command     = "gh repo view '{0}' --web"
+mode        = "execute"
+
+[actions.yank]
+description = "Copy repo URL to clipboard"
+command     = "echo {0} | {{ .cmd.copy }}"
+mode        = "execute"
+
+[actions.clone]
+description = "Clone selected repository"
+command     = "ghq get https://github.com/'{0}'"
+mode        = "fork"
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

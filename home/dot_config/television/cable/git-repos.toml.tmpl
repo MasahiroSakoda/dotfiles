@@ -13,7 +13,7 @@ This channel uses `fd` to find directories that contain a `.git` subdirectory, a
 command = [
   {
     name = " All",
-    run  = """fd -g .git -HL -t d -d 10 --prune ~ -E '.claude/**' -E '.codex/**' -E '.gemini/**' -E '.local/state/mise/**' -E 'Library' -E 'Application Support' --exec dirname '{}' | uniq | sort""",
+    run  = """fd -g .git -HL -t d -d 10 --prune ~ -E '.claude/**' -E '.codex/**' -E '.gemini/**' -E '.local/state/mise/**' -E '.cache' -E 'Library' -E 'Application Support' --exec dirname '{}' | uniq | sort""",
   },
   {
     name = " ghq repos",
