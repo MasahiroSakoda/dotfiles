@@ -1,0 +1,53 @@
+[metadata]
+name         = "skills"
+description  = "Browse agent skills for current environment"
+requirements = ["gh", "jq"]
+
+[source]
+command = [
+  {
+    name = " Active",
+    run  = """
+      gh skill list --json skillName,version,sourceURL,scope,path 2>/dev/null |
+      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+      column -t -s (printf '\t')
+    """
+  },
+  {
+    name = " Project",
+    run  = """
+      gh skill list --scope project --json skillName,version,sourceURL,scope,path 2>/dev/null |
+      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+      column -t -s (printf '\t')
+    """
+  },
+  {
+    name = " Global",
+    run  = """
+      gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
+      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+      column -t -s (printf '\t')
+    """
+  },
+]
+ansi    = true
+display = "{split:\\t:0..2}"
+output  = "{split: :4}"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {0}"
+  footer    = ""
+  scrollbar = true
+
+[preview]
+command = [
+  """glow '{-1}'/SKILL.md""",
+  """glow '{-1}'/README.md || echo 'No README'""",
+]
