@@ -1,0 +1,35 @@
+[metadata]
+name         = "mise-tasks"
+description  = "List and run mise tasks"
+requirements = ["mise"]
+
+[source]
+command = "mise tasks ls --no-header 2>/dev/null | awk '{print $1}'"
+
+[preview]
+command = "mise tasks info '{}' 2>/dev/null"
+
+[ui]
+layout = "landscape"
+
+  [ui.preview_panel]
+  header = "{}"
+  footer = "⏎: Run | ⌃ + e: Edit | ⌃ + d: Deps"
+
+[keybindings]
+enter = "actions:run"
+
+[actions.run]
+description = "Run the selected mise task"
+command     = "mise run '{}'"
+mode        = "execute"
+
+[actions.edit]
+description = "Edit the selected mise task"
+command     = "mise tasks edit '{}'"
+mode        = "execute"
+
+[actions.deps]
+description = "Show dependency tree for the selected task"
+command     = "mise tasks deps '{}'"
+mode        = "execute"
