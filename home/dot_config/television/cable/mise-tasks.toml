@@ -12,6 +12,10 @@ command = "mise tasks info '{}' 2>/dev/null"
 [ui]
 layout = "landscape"
 
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
   [ui.preview_panel]
   header = "{}"
   footer = "⏎: Run | ⌃ + e: Edit | ⌃ + d: Deps"
