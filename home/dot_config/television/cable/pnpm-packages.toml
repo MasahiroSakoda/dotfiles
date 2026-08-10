@@ -31,15 +31,15 @@ ctrl-r = "actions:remove"
 
 [actions.info]
 description = "Show package info"
-command     = "pnnpm info '{}'"
+command     = "pnpm info '{}'"
 mode        = "fork"
 
 [actions.update]
 description = "Update package to latest"
-command     = "pnnpm update '{}'"
+command     = "pnpm update '{}'"
 mode        = "fork"
 
 [actions.remove]
 description = "Remove package"
-command     = "pnnpm remove '{}'"
+command     = "pnpm remove '{}'"
 mode        = "fork"
