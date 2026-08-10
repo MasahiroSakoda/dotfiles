@@ -1,0 +1,25 @@
+[metadata]
+name         = "pnpm-scripts"
+description  = "Run pnpm scripts from package.json"
+requirements = ["pnpm"]
+
+[source]
+command = "pnpm run --silent 2>/dev/null"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+[preview]
+command = "echo 'pnpm run {}'"
+
+[keybindings]
+enter = "actions:run"
+
+[actions.run]
+description = "Run the selected pnpm script"
+command     = "pnpm run {}"
+mode        = "execute"

@@ -1,0 +1,45 @@
+[metadata]
+name         = "pnpm-packages"
+description  = "Browse project dependencies"
+requirements = ["pnpm"]
+
+[source]
+command = [
+  { name = "Deps", run = "pnpm ls --depth 0 --parseable --long 2>/dev/null" },
+  {
+    name = "Dev Deps",
+    run  = "pnpm ls --depth 0 --parseable --long --dev 2>/dev/null"
+  },
+]
+display = "{regex_extract:([^/]+)@([\\d.]+):0}"
+output  = "{regex_extract:([^/]+)@[\\d.]+:1}"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+[preview]
+command = "pnpm info '{}' 2>/dev/null | head -30"
+
+[keybindings]
+enter  = "actions:info"
+ctrl-u = "actions:update"
+ctrl-r = "actions:remove"
+
+[actions.info]
+description = "Show package info"
+command     = "pnnpm info '{}'"
+mode        = "fork"
+
+[actions.update]
+description = "Update package to latest"
+command     = "pnnpm update '{}'"
+mode        = "fork"
+
+[actions.remove]
+description = "Remove package"
+command     = "pnnpm remove '{}'"
+mode        = "fork"
