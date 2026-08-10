@@ -12,19 +12,17 @@ This channel uses `fd` to find directories that contain a `.git` subdirectory, a
 # command = "fd -g .git -HL -t d -d 10 --prune ~ -E 'Library' -E 'Application Support' -E '.(codex|gemini)' -E '.local' --exec dirname '{}'"
 command = [
   {
-    name = " All",
-    run  = """fd -g .git -HL -t d -d 10 --prune ~ -E '.claude/**' -E '.codex/**' -E '.gemini/**' -E '.local/state/mise/**' -E '.cache' -E 'Library' -E 'Application Support' --exec dirname '{}' | uniq | sort""",
+    name = " ghq repos",
+    run  = "ghq list --full-path | grep $(git config --get-all ghq.root | head -n 1) 2>/dev/null",
   },
   {
-    name = " ghq repos",
-    run  = """ghq list --full-path"""
-  },
-  {
-    name = " NeoVim plugins",
-    run  = """fd . $XDG_DATA_HOME/nvim/lazy --full-path --min-depth=1 --max-depth=1 -t=d --exec echo '{}'"""
+    name = " nvim plugins",
+    run  = "ghq list --full-path | grep $(git config --get-all ghq.root | head -n 2 | tail -n 1) 2>/dev/null",
   },
 ]
-display = "{split:/:-1}"
+ansi    = true
+display = "{strip_ansi|regex_extract:([^\\/]+(?:\\/[^\\/]+){2})$:1}"
+output  = "{strip_ansi|split:/:-1}"
 
 [ui]
 layout = "landscape"
@@ -38,8 +36,10 @@ layout = "landscape"
   footer = "enter: move | ctrl-enter: edit"
 
 [preview]
-# command = "cd '{}'; git log -n 200 --pretty=medium --all --graph --color"
-command = "glow '{}'/README.md || echo 'No README'"
+command = [
+  "glow --line-numbers '{}'/README.md || echo 'No README'",
+  "cd '{}'; git log -n 200 --pretty=medium --all --graph --color",
+]
 
 [keybindings]
 enter      = "actions:cd"
