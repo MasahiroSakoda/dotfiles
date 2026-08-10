@@ -1,0 +1,29 @@
+[metadata]
+name         = "git-ignore"
+description  = "Browse and generate .gitignore"
+requirements = ["git", "gibo"]
+
+[source]
+command = "gibo list"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header = "{0}"
+  footer = ""
+
+[preview]
+command = "bat --color=always $XDG_DATA_HOME/gibo/**/{}.gitignore || echo 'No .gitignore'"
+
+[keybindings]
+enter = "actions:generate"
+
+[actions.generate]
+description = "Generate .gitignore"
+command     = "gibo dump {} >> $(git rev-parse --show-toplevel)/.gitignore"
+mode        = "execute"
