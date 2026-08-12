@@ -11,25 +11,19 @@ ansi    = true
   [[source.command]]
   name = " Owned"
   run  = """
-    gh api user/repos?affiliation=owner&sort=updated --paginate --cache 1h | jq -r '.[] | [.full_name, .language // "-", " \\(.stargazers_count | numbers)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+    gh api user/repos?affiliation=owner&sort=updated --paginate --cache 1h | jq -r '.[] | [.full_name, .language // "-", "󰿃 \\(.license // {} | .key // "-")", " \\(.stargazers_count)", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
   """
 
   [[source.command]]
   name = " Starred"
   run  = """
-    gh api -X GET /user/starred --paginate --cache 24h | jq -r '.[] | [.full_name, .language // "-", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
-  """
-
-  [[source.command]]
-  name = "󰔵 Trending"
-  run  = """
-    gh api -X GET search/repositories -f q="stars:>100 -f sort=stars -f order=desc" | jq -r '.[] | @tsv' | column -t -s (printf '\t')
+    gh api -X GET /user/starred --paginate --cache 24h | jq -r '.[] | [.full_name, .language // "-", "󰿃 \\(.license // {} | .key // "-")", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
   """
 
   [[source.command]]
   name = " Forked"
   run  = """
-    gh api user/repos?sort=updated --paginate --cache 1h | jq -r '.[] | select(.fork == true) | [.full_name, .language // "-", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+    gh api user/repos?sort=updated --paginate --cache 1h | jq -r '.[] | select(.fork == true) | [.full_name, .language // "-", "󰿃 \\(.license // {} | .key // "-")", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
   """
 
 [ui]
