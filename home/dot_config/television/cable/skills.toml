@@ -4,15 +4,14 @@ description  = "Browse agent skills for current environment"
 requirements = ["gh", "jq", "bat", "eza"]
 
 [source]
-ansi    = true
-display = "{split:\\t:0..2}"
-output  = "{split: :4}"
+ansi   = true
+output = "{split: :4}"
 
   [[source.command]]
   name = " Active"
   run  = """
     gh skill list --json skillName,version,sourceURL,scope,path 2>/dev/null |
-    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
     column -t -s (printf '\t')
   """
 
@@ -20,16 +19,16 @@ output  = "{split: :4}"
   name = " Project"
   run  = """
     gh skill list --scope project --json skillName,version,sourceURL,scope,path 2>/dev/null |
-    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
     column -t -s (printf '\t')
   """
 
   [[source.command]]
   name = " Global"
   run  = """
-   gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
-   jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
-   column -t -s (printf '\t')
+    gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
+    column -t -s (printf '\t')
   """
 
 [ui]
@@ -40,7 +39,7 @@ layout = "landscape"
   prompt   = "  "
 
   [ui.preview_panel]
-  header    = " {0}"
+  header    = " {strip_ansi|split: :0}"
   footer    = ""
   scrollbar = true
 
