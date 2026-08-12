@@ -4,15 +4,16 @@ description  = "Browse project dependencies"
 requirements = ["pnpm"]
 
 [source]
-command = [
-  { name = "Deps", run = "pnpm ls --depth 0 --parseable --long 2>/dev/null" },
-  {
-    name = "Dev Deps",
-    run  = "pnpm ls --depth 0 --parseable --long --dev 2>/dev/null"
-  },
-]
 display = "{regex_extract:([^/]+)@([\\d.]+):0}"
 output  = "{regex_extract:([^/]+)@[\\d.]+:1}"
+
+  [[source.command]]
+  name = "dependencies"
+  run  = "pnpm ls --depth 0 --parseable --long 2>/dev/null"
+
+  [[source.command]]
+  name = "devDependencies"
+  run  = "pnpm ls --depth 0 --parseable --long --dev 2>/dev/null"
 
 [ui]
 layout = "landscape"
