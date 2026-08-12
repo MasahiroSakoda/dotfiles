@@ -1,18 +1,28 @@
 [metadata]
 name         = "agents"
 description  = "Browse agent instruction for current environment"
-requirements = ["fd", "jq"]
+requirements = ["fd", "jq", "bat"]
 
 [source]
-command = [
-  {
-    name = "  Instruction",
-    run  = "fd -t file --regex '(CLAUDE|AGENTS)\\.md'",
-  }
-]
 ansi    = true
 display = "{split:\\t:0..2}"
 output  = "{split: :4}"
+
+  [[source.command]]
+  name = "  Instructions"
+  run  = "fd -t file --regex '(CLAUDE|AGENTS)(\\.local)?\\.md'"
+
+  [[source.command]]
+  name = "  Subagents"
+  run  = "fd -t d --regex '\\.claude\\/agents\\/.+\\.md|\\.codex\\/agents\\/.+\\.md|\\.opencode\\/agents?\\/.+\\.md'"
+
+  [[source.command]]
+  name = "  Plugins"
+  run  = "fd -t d --regex '\\.claude\\/plugins|\\.agents\\/plugins|\\.opencode\\/plugins?'"
+
+  [[source.command]]
+  name = "  Settings"
+  run  = "fd -t file --regex '\\.claude\\/settings\\.jsonc?|\\.codex\\/config\\.toml|opencode\\.jsonc?'"
 
 [ui]
 layout = "landscape"
@@ -27,4 +37,7 @@ layout = "landscape"
   scrollbar = true
 
 [preview]
-command = "glow {}"
+command = "bat --style=grid --color=always '{}' || echo 'Not Found'"
+
+  [preview.env]
+  BAT_THEMES = "ansi"

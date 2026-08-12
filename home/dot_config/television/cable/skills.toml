@@ -1,38 +1,36 @@
 [metadata]
 name         = "skills"
 description  = "Browse agent skills for current environment"
-requirements = ["gh", "jq"]
+requirements = ["gh", "jq", "bat", "eza"]
 
 [source]
-command = [
-  {
-    name = " Active",
-    run  = """
-      gh skill list --json skillName,version,sourceURL,scope,path 2>/dev/null |
-      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
-      column -t -s (printf '\t')
-    """
-  },
-  {
-    name = " Project",
-    run  = """
-      gh skill list --scope project --json skillName,version,sourceURL,scope,path 2>/dev/null |
-      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
-      column -t -s (printf '\t')
-    """
-  },
-  {
-    name = " Global",
-    run  = """
-      gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
-      jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
-      column -t -s (printf '\t')
-    """
-  },
-]
 ansi    = true
 display = "{split:\\t:0..2}"
 output  = "{split: :4}"
+
+  [[source.command]]
+  name = " Active"
+  run  = """
+    gh skill list --json skillName,version,sourceURL,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Project"
+  run  = """
+    gh skill list --scope project --json skillName,version,sourceURL,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Global"
+  run  = """
+   gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
+   jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | [.skillName, .version, .pinned // "-", (.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; "")), .scope, .path] | @tsv' |
+   column -t -s (printf '\t')
+  """
 
 [ui]
 layout = "landscape"
@@ -48,6 +46,10 @@ layout = "landscape"
 
 [preview]
 command = [
-  """glow '{-1}'/SKILL.md""",
-  """glow '{-1}'/README.md || echo 'No README'""",
+  "bat --style=grid --language=md --color=always '{-1}'/SKILL.md",
+  "bat --style=grid --language=md --color=always '{-1}'/README.md || echo 'No README'",
+  "cd '{-1}'; eza -a -T -L 2 --header --icons always --color always --group-directories-first --git-ignore; echo; git log -n 200 --pretty=medium --all --graph --color",
 ]
+
+  [preview.env]
+  BAT_THEMES = "ansi"
