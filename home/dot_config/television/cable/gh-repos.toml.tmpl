@@ -4,28 +4,33 @@ description  = "List GitHub repositories"
 requirements = ["gh", "jq", "bat"]
 
 [source]
-command = [
-  {
-    name = " Owned",
-    run = """
-      gh api user/repos?affiliation=owner&sort=updated --paginate | jq -r '.[] | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
-    """,
-  },
-  {
-    name = " Starred",
-    run = """
-      gh api -X GET /user/starred --paginate --cache 24h | jq -r '.[] | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
-    """,
-  },
-  {
-    name = " Forked",
-    run = """
-      gh api user/repos?sort=updated --paginate | jq -r '.[] | select(.fork == true) | [.full_name, .language // "-", .stargazers_count // "0", .open_issues_count // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
-    """,
-  },
-]
 display = "{split:\\t:..}"
+output  = "{split:\\t:..}"
 ansi    = true
+
+  [[source.command]]
+  name = " Owned"
+  run  = """
+    gh api user/repos?affiliation=owner&sort=updated --paginate --cache 1h | jq -r '.[] | [.full_name, .language // "-", " \\(.stargazers_count | numbers)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Starred"
+  run  = """
+    gh api -X GET /user/starred --paginate --cache 24h | jq -r '.[] | [.full_name, .language // "-", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = "󰔵 Trending"
+  run  = """
+    gh api -X GET search/repositories -f q="stars:>100 -f sort=stars -f order=desc" | jq -r '.[] | @tsv' | column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Forked"
+  run  = """
+    gh api user/repos?sort=updated --paginate --cache 1h | jq -r '.[] | select(.fork == true) | [.full_name, .language // "-", " \\(.stargazers_count)" // "0", " \\(.open_issues_count)" // "0", .description // "-"] | @tsv' | column -t -s (printf '\t')
+  """
 
 [ui]
 layout = "landscape"
@@ -41,8 +46,13 @@ input_header = "GitHub repositories"
   scrollbar = true
 
 [preview]
-command = "gh repo view '{0}' | glow"
-header  = "{strip_ansi|split:\\t:..:0}"
+command = [
+  "gh repo view '{0}' | bat --style=grid --language=md --color=always",
+  "gh repo view '{0}' --json name,description,url,homepageUrl,repositoryTopics,licenseInfo,latestRelease,issues,pullRequests | yq -p json -o yaml | bat --style=grid --language=yaml --color=always"
+]
+
+  [preview.env]
+  BAT_THEMES = "ansi"
 
 [keybindings]
 ctrl-o     = "actions:open"
