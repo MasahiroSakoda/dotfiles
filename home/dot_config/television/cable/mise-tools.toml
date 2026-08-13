@@ -4,27 +4,24 @@ description  = "Browse and manage mise tools"
 requirements = ["mise", "jq"]
 
 [source]
-command = [
-  {
-    name = "Installed",
-    run  = """
-      mise ls --installed --json 2>/dev/null |
-      jq -r 'to_entries[] | [.key, .value[].version, (if .value[].active then "Active" else "Inactive" end), (.value[].source.path | gsub(".*/"; "")), .value[].requested_version] | @tsv' |
-      column -t -s (printf '\t')
-    """
-  },
-  {
-    name = "Registered",
-    run  = """
-      mise registry --json 2>/dev/null |
-      jq -r '.[] | [.short, .backends.[0], (.description // "")] | @tsv' |
-      column -t -s (printf '\t')
-    """
-  },
-]
-display = "{split:\t:..}"
-output  = "{split:\t:..}"
-ansi    = true
+output = "{split:\t:..}"
+ansi   = true
+
+  [[source.command]]
+  name = " Installed"
+  run  = """
+    mise ls --installed --json |
+    jq -r 'to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value[].version)\\u001b[0m", "\\(if .value[].active then "\\u001b[33mActive\\u001b[0m" else "Inactive" end)", (.value[].source.path | gsub(".*/"; "")), .value[].requested_version] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Registered"
+  run  = """
+    mise registry --json 2>/dev/null |
+    jq -r '.[] | ["\\u001b[34m\\(.short)\\u001b[0m", "\\u001b[36m\\(.backends.[0])\\u001b[0m", "\\u001b[37m\\(.description // "")\\u001b[0m"] | @tsv' |
+    column -t -s (printf '\t')
+  """
 
 [ui]
 layout = "landscape"
@@ -34,22 +31,18 @@ layout = "landscape"
   prompt   = "  "
 
   [ui.preview_panel]
-  header = "{0}"
-  footer = "⏎: use | ⌃ + u: upgrade | ⌃ + d: uninstall | ⌃ + v: versions | ⌃ + r: releases"
+  header = "{strip_ansi|split: :0}"
+  footer = "⌃ + ⏎: use"
 
 [preview]
-command = "mise tool {0}"
+command = [
+  "mise tool {strip_ansi|split: :0} --json | yq -p json -o yaml | bat --style=grid --language=yaml --color=always",
+]
 
 [keybindings]
-enter      = "actions:info"
 ctrl-enter = "actions:use"
 ctrl-u     = "actions:upgrade"
 ctrl-d     = "actions:uninstall"
-
-[actions.info]
-description = "Install/activate the selected tool"
-command     = "mise tool '{0}'"
-mode        = "execute"
 
 [actions.use]
 description = "Install/activate the selected tool"
