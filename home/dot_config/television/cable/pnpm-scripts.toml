@@ -1,10 +1,19 @@
 [metadata]
 name         = "pnpm-scripts"
-description  = "Run pnpm scripts from package.json"
-requirements = ["pnpm"]
+description  = "Run pnpm scripts from root package.json"
+requirements = ["pnpm", "jq"]
 
 [source]
-command = "pnpm run --silent 2>/dev/null"
+ansi   = true
+output = "{strip_ansi|split: :0}"
+
+  [[source.command]]
+  name = " Scripts"
+  run  = """
+  cat $(git rev-parse --show-toplevel)/package.json |
+  jq -r '.scripts | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[37m\\(.value)\\u001b[0m"] | @tsv' |
+  column -t -s (printf '\t')
+  """
 
 [ui]
 layout = "landscape"
@@ -13,13 +22,18 @@ layout = "landscape"
   position = "top"
   prompt   = "  "
 
+  [ui.preview_panel]
+  header    = " {strip_ansi|split: :0}"
+  footer    = "⌃ + o: Open browser | ⌃ + y: yank URL"
+  scrollbar = true
+
 [preview]
-command = "echo 'pnpm run {}'"
+command = "echo 'pnpm run {strip_ansi|split: :0}'"
 
 [keybindings]
 enter = "actions:run"
 
 [actions.run]
 description = "Run the selected pnpm script"
-command     = "pnpm run {}"
+command     = "pnpm run {strip_ansi|split: :0}"
 mode        = "execute"
