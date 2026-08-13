@@ -1,7 +1,7 @@
 [metadata]
 name         = "pnpm-packages"
 description  = "Browse project dependencies"
-requirements = ["pnpm", "jq"]
+requirements = ["pnpm", "jq", "socket"]
 
 [source]
 ansi   = true
@@ -38,6 +38,8 @@ layout = "landscape"
 [preview]
 command = [
   "pnpm info '{strip_ansi|split: :0}' 2>/dev/null | head -30",
+  # See: https://docs.socket.dev/docs/socket-package
+  "socket package score npm {strip_ansi|split: :0} --markdown | bat --style=grid --language=md --color=always",
 ]
 
 [keybindings]

@@ -1,7 +1,7 @@
 [metadata]
 name         = "uv-packages"
 description  = "Browse installed pip packages via uv"
-requirements = ["uv", "jq"]
+requirements = ["uv", "jq", "socket"]
 
 [source]
 ansi   = true
@@ -37,6 +37,8 @@ layout = "landscape"
 [preview]
 command = [
   "uv pip show {strip_ansi|split: :0} 2>/dev/null",
+  # See: https://docs.socket.dev/docs/socket-package
+  "socket package score pypi {strip_ansi|split: :0} --markdown | bat --style=grid --language=md --color=always",
 ]
 
 [keybindings]
