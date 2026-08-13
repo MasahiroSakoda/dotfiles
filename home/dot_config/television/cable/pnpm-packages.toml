@@ -10,13 +10,17 @@ output = "{strip_ansi|split: :0}"
   [[source.command]]
   name = "dependencies"
   run  = """
-  pnpm ls --long --json | jq -r '.[] | .dependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' | column -t -s (printf '\t')
+    pnpm ls --long --json |
+    jq -r '.[] | .dependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' |
+    column -t -s (printf '\t')
   """
 
   [[source.command]]
   name = "devDependencies"
   run  = """
-  pnpm ls --long --json | jq -r '.[] | .devDependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' | column -t -s (printf '\t')
+    pnpm ls --long --json |
+    jq -r '.[] | .devDependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' |
+    column -t -s (printf '\t')
   """
 
 [ui]
@@ -32,7 +36,9 @@ layout = "landscape"
   scrollbar = true
 
 [preview]
-command = "pnpm info '{strip_ansi|split: :0}' 2>/dev/null | head -30"
+command = [
+  "pnpm info '{strip_ansi|split: :0}' 2>/dev/null | head -30",
+]
 
 [keybindings]
 ctrl-u = "actions:update"

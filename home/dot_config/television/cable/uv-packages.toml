@@ -1,11 +1,27 @@
 [metadata]
 name         = "uv-packages"
 description  = "Browse installed pip packages via uv"
-requirements = ["uv"]
+requirements = ["uv", "jq"]
 
 [source]
-command = "uv pip list 2>/dev/null | tail -n +3 | awk '{print $1}'"
-ansi    = true
+ansi   = true
+output = "{strip_ansi|split: :0}"
+
+  [[source.command]]
+  name = " Packages"
+  run  = """
+    uv pip list --format json |
+    jq -r '.[] | ["\\u001b[34m\\(.name)\\u001b[0m", "\\u001b[32m\\(.version)\\u001b[0m", "\\(if .latest_version == .version then "Latest" else "-" end)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Outdated"
+  run  = """
+    uv pip list --outdated --format json |
+    jq -r '.[] | ["\\u001b[34m\\(.name)\\u001b[0m", "\\u001b[32m\\(.version)\\u001b[0m", "\\(.latest_version)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
 
 [ui]
 layout = "landscape"
@@ -19,7 +35,9 @@ layout = "landscape"
   footer = ""
 
 [preview]
-command = "uv pip show {} 2>/dev/null"
+command = [
+  "uv pip show {strip_ansi|split: :0} 2>/dev/null",
+]
 
 [keybindings]
 alt-u = "actions:upgrade"
@@ -27,10 +45,10 @@ alt-d = "actions:uninstall"
 
 [actions.upgrade]
 description = "Upgrade the selected package"
-command     = "uv pip install --upgrade {}"
+command     = "uv pip install --upgrade {strip_ansi|split: :0}"
 mode        = "execute"
 
 [actions.uninstall]
 description = "Uninstall the selected package"
-command     = "uv pip uninstall {}"
+command     = "uv pip uninstall {strip_ansi|split: :0}"
 mode        = "execute"
