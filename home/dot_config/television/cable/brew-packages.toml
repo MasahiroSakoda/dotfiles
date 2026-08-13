@@ -4,20 +4,21 @@ description  = "List and manage Homebrew packages"
 requirements = ["brew"]
 
 [source]
-ansi    = true
-display = "{split:\t:..}"
-output  = "{split:\t:..}"
+ansi   = true
+output = "{strip_ansi|split:\t:..}"
 
   [[source.command]]
   name = " Formulae"
   run  = """
-    brew list --versions --json | jq -r '.formulae[] | [.name, .versions.[0], .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
+    brew list --versions --json |
+    jq -r '.formulae[] | ["\\u001b[37m\\(.name)\\u001b[0m", "\\u001b[32m\\(.versions.[0])\\u001b[0m", .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
   """
 
   [[source.command]]
   name = " Casks"
   run  = """
-    brew list --versions --json | jq -r '.casks[] | [.token, .versions.[0], .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
+    brew list --versions --json |
+    jq -r '.casks[] | ["\\u001b[37m\\(.token)\\u001b[0m", "\\u001b[32m\\(.versions.[0])\\u001b[0m", .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
   """
 
 [ui]
@@ -28,11 +29,15 @@ layout = "landscape"
   prompt   = "  "
 
   [ui.preview_panel]
-  header = "{0}"
+  header = "{strip_ansi|split: :0}"
   footer = ""
 
 [preview]
-command = "brew info '{0}'; echo \"\nDeps:\n$(brew deps {0})\""
+command = [
+  """
+  brew info {strip_ansi|split: :0}; echo '\nDeps:'; brew deps {strip_ansi|split: :0}
+  """,
+]
 
 [keybindings]
 ctrl-u = "actions:upgrade"
