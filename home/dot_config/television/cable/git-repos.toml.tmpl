@@ -34,7 +34,7 @@ layout = "landscape"
 [preview]
 command = [
   "bat --style=header-filename,grid --language=md --color=always '{}'/README.md || echo 'No README'",
-  "cd '{}'; git log -n 200 --pretty=medium --all --graph --color",
+  "cd '{}'; eza -a -T -L 2 --icons always --color always --group-directories-first --git-ignore; echo; git log -n 200 --pretty=medium --all --graph --color",
 ]
 
   [preview.env]
