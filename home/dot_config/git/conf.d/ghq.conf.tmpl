@@ -2,5 +2,3 @@
 
 [ghq]
   root = {{ .git.ghq_root | quote }}
-  root = {{ joinPath (env "XDG_DATA_HOME") "nvim" "lazy" | quote }}
-  root = {{ joinPath (env "XDG_DATA_HOME") "sheldon" "repos" "github.com" | quote }}

@@ -8,17 +8,16 @@ This channel uses `fd` to find directories that contain a `.git` subdirectory, a
 """
 
 [source]
-ansi    = true
-display = "{strip_ansi|regex_extract:([^\\/]+(?:\\/[^\\/]+){2})$:1}"
-output  = "{strip_ansi|split:/:-1}"
+display = "{split:/:1..-1}"
+output  = "{split:/:1..-1}"
 
   [[source.command]]
   name = " ghq repos"
-  run  = "ghq list --full-path | grep $(git config --get-all ghq.root | head -n 1) 2>/dev/null"
+  run  = "fd -g .git -HL -t d -d 10 --prune $(git config --get-all ghq.root) | sed 's/.git\\/$//' 2>/dev/null"
 
   [[source.command]]
   name = " nvim plugins"
-  run  = "ghq list --full-path | grep $(git config --get-all ghq.root | head -n 2 | tail -n 1) 2>/dev/null"
+  run  = "fd -g .git -HL -t d -d 10 --prune $XDG_DATA_HOME/nvim/lazy | sed 's/.git\\/$//' 2>/dev/null"
 
 [ui]
 layout = "landscape"
