@@ -82,6 +82,15 @@
       "installedAt": "2026-07-29T16:45:19Z",
       "updatedAt": "2026-07-29T16:45:19Z"
     },
+    "i-have-adhd": {
+      "source": "ayghri/i-have-adhd",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/ayghri/i-have-adhd.git",
+      "skillPath": "skills/i-have-adhd/SKILL.md",
+      "skillFolderHash": "871e88cbe9b167670c170c53c8173c68609a2ae9",
+      "installedAt": "2026-08-15T06:47:01Z",
+      "updatedAt": "2026-08-15T06:47:01Z"
+    },
     "productivity/grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
