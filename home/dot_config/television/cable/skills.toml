@@ -40,7 +40,7 @@ layout = "landscape"
 
   [ui.preview_panel]
   header    = " {strip_ansi|split: :0}"
-  footer    = ""
+  footer    = "⌃ + ⇧ + u: Update skill | ⌃ + ⇧ + p: Pin skill"
   scrollbar = true
 
 [preview]
@@ -52,3 +52,17 @@ command = [
 
   [preview.env]
   BAT_THEMES = "ansi"
+
+[keybindings]
+ctrl-shift-u = "actions:update"
+ctrl-shift-p = "actions:pin"
+
+[actions.update]
+description = "Update selected skill"
+command     = "gh skill update {strip_ansi|split: :0}"
+mode        = "execute"
+
+[actions.pin]
+description = "Pin selected skill"
+command     = "gh skill install --pin {strip_ansi|split: :0}"
+mode        = "execute"
