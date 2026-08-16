@@ -1,0 +1,54 @@
+[metadata]
+name         = "brew-packages"
+description  = "List and manage Homebrew packages"
+requirements = ["brew"]
+
+[source]
+ansi   = true
+output = "{strip_ansi|split:\t:..}"
+
+  [[source.command]]
+  name = " Formulae"
+  run  = """
+    brew list --versions --json |
+    jq -r '.formulae[] | ["\\u001b[37m\\(.name)\\u001b[0m", "\\u001b[32m\\(.versions.[0])\\u001b[0m", .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Casks"
+  run  = """
+    brew list --versions --json |
+    jq -r '.casks[] | ["\\u001b[37m\\(.token)\\u001b[0m", "\\u001b[32m\\(.versions.[0])\\u001b[0m", .pinned_version // "-"] | @tsv' | column -t -s (printf '\t')
+  """
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header = "{strip_ansi|split: :0}"
+  footer = ""
+
+[preview]
+command = [
+  """
+  brew info {strip_ansi|split: :0}; echo '\nDeps:'; brew deps {strip_ansi|split: :0}
+  """,
+]
+
+[keybindings]
+ctrl-u = "actions:upgrade"
+ctrl-d = "actions:uninstall"
+
+[actions.upgrade]
+description = "Upgrade the selected package"
+command     = "brew upgrade {}"
+mode        = "execute"
+
+[actions.uninstall]
+description = "Uninstall the selected package"
+command     = "brew uninstall {}"
+mode        = "execute"

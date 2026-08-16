@@ -1,0 +1,68 @@
+[metadata]
+name         = "skills"
+description  = "Browse agent skills for current environment"
+requirements = ["gh", "jq", "bat", "eza"]
+
+[source]
+ansi   = true
+output = "{split: :4}"
+
+  [[source.command]]
+  name = " Active"
+  run  = """
+    gh skill list --json skillName,version,sourceURL,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Project"
+  run  = """
+    gh skill list --scope project --json skillName,version,sourceURL,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Global"
+  run  = """
+    gh skill list --scope user --json skillName,sourceURL,version,scope,path 2>/dev/null |
+    jq -r '.[] | select((.path | contains(".agents/skills")) and .version != "" and .sourceURL != "") | ["\\u001b[34m\\(.skillName)\\u001b[0m", "\\u001b[37m\\(.version)\\u001b[0m", .pinned // "-", "\\u001b[32m\\(.sourceURL | sub("^https?://([^@/]+@)?github.com/"; "") | sub(".git$"; ""))\\u001b[0m", "\\u001b[33m\\(.scope)\\u001b[0m", .path] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {strip_ansi|split: :0}"
+  footer    = "⌃ + ⇧ + u: Update skill | ⌃ + ⇧ + p: Pin skill"
+  scrollbar = true
+
+[preview]
+command = [
+  "bat --style=grid --language=md --color=always '{-1}'/SKILL.md",
+  "bat --style=grid --language=md --color=always '{-1}'/README.md || echo 'No README'",
+  "cd '{-1}'; eza -a -T -L 2 --header --icons always --color always --group-directories-first --git-ignore; echo; git log -n 200 --pretty=medium --all --graph --color",
+]
+
+  [preview.env]
+  BAT_THEMES = "ansi"
+
+[keybindings]
+ctrl-shift-u = "actions:update"
+ctrl-shift-p = "actions:pin"
+
+[actions.update]
+description = "Update selected skill"
+command     = "gh skill update {strip_ansi|split: :0}"
+mode        = "execute"
+
+[actions.pin]
+description = "Pin selected skill"
+command     = "gh skill install --pin {strip_ansi|split: :0}"
+mode        = "execute"

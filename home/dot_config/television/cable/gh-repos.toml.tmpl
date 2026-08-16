@@ -1,0 +1,84 @@
+[metadata]
+name         = "gh-repos"
+description  = "List GitHub repositories"
+requirements = ["gh", "jq", "bat"]
+
+[source]
+# display = "{split:\\t:..}"
+output  = "{strip_ansi|split:\\t:..}"
+ansi    = true
+
+  [[source.command]]
+  name = " Owned"
+  run  = """
+    gh api user/repos?affiliation=owner&sort=updated --paginate --cache 1h |
+    jq -r '.[] | ["\\u001b[34m\\(.full_name)\\u001b[0m", .language // "-", "\\u001b[36m󰿃 \\(.license // {} | .key // "-")\\u001b[0m", "\\u001b[33m \\(.stargazers_count)\\u001b[0m", "\\u001b[31m \\(.open_issues_count)\\u001b[0m" // "0", "\\u001b[37m\\(.description)\\u001b[0m" // "-"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Starred"
+  run  = """
+    gh api -X GET /user/starred --paginate --cache 24h |
+    jq -r '.[] | ["\\u001b[34m\\(.full_name)\\u001b[0m", .language // "-", "\\u001b[36m󰿃 \\(.license // {} | .key // "-")\\u001b[0m", "\\u001b[33m \\(.stargazers_count)\\u001b[0m", "\\u001b[31m \\(.open_issues_count)\\u001b[0m" // "0", "\\u001b[37m\\(.description)\\u001b[0m" // "-"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Forked"
+  run  = """
+    gh api user/repos?sort=updated --paginate --cache 1h |
+    jq -r '.[] | select(.fork == true )| ["\\u001b[34m\\(.full_name)\\u001b[0m", .language // "-", "\\u001b[36m󰿃 \\(.license // {} | .key // "-")\\u001b[0m", "\\u001b[33m \\(.stargazers_count)\\u001b[0m", "\\u001b[31m \\(.open_issues_count)\\u001b[0m" // "0", "\\u001b[37m\\(.description)\\u001b[0m" // "-"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+[ui]
+layout = "landscape"
+input_header = "GitHub repositories"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {strip_ansi|split: :0}"
+  footer    = "⌃ + o: Open browser | ⌃ + y: yank URL"
+  scrollbar = true
+
+[preview]
+command = [
+  "gh repo view '{strip_ansi|split: :0}' | bat --style=grid --language=md --color=always",
+  """
+  gh release list --repo '{strip_ansi|split: :0}' --json name,tagName,isLatest,isPrerelease,isDraft,isImmutable,publishedAt,createdAt |
+  jq -r '.[] | select(.isDraft == false and .isPrerelease == false) |
+    ["\\u001b[34m\\(.name)\\u001b[32m", "\\u001b[35m\\(.tagName)\\u001b[0m", "\\(if .isLatest then "\\u001b[33mLatest\\u001b[0m" else "\\u001b[30m-\\u001b[0m" end)", (if .isImmutable then "Immutable" else "-" end), .publishedAt] | @tsv' |
+  column -t -s (printf '\t')
+  """,
+]
+
+  [preview.env]
+  BAT_THEMES = "ansi"
+
+[keybindings]
+ctrl-o     = "actions:open"
+ctrl-y     = "actions:yank"
+ctrl-enter = "actions:clone"
+
+[actions.open]
+description = "Open repo in browser"
+command     = "gh repo view '{strip_ansi|split: :0}' --web"
+mode        = "fork"
+
+[actions.yank]
+description = "Copy repo URL to clipboard"
+command     = "echo {strip_ansi|split: :0} | {{ .cmd.copy }}"
+mode        = "fork"
+
+[actions.clone]
+description = "Clone selected repository"
+command     = "ghq get https://github.com/'{strip_ansi|split: :0}'"
+mode        = "fork"
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

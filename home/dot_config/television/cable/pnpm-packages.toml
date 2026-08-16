@@ -1,0 +1,57 @@
+[metadata]
+name         = "pnpm-packages"
+description  = "Browse project dependencies"
+requirements = ["pnpm", "jq", "socket"]
+
+[source]
+ansi   = true
+output = "{strip_ansi|split: :0}"
+
+  [[source.command]]
+  name = "dependencies"
+  run  = """
+    pnpm ls --long --json |
+    jq -r '.[] | .dependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = "devDependencies"
+  run  = """
+    pnpm ls --long --json |
+    jq -r '.[] | .devDependencies | to_entries[] | ["\\u001b[34m\\(.key)\\u001b[0m", "\\u001b[32m\\(.value.version)\\u001b[0m", "\\u001b[37m\\(.value.license)\\u001b[0m", "\\(.value.description)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {strip_ansi|split: :0}"
+  footer    = "⌃ + o: Open browser | ⌃ + y: yank URL"
+  scrollbar = true
+
+[preview]
+command = [
+  "pnpm info '{strip_ansi|split: :0}' 2>/dev/null | head -30",
+  # See: https://docs.socket.dev/docs/socket-package
+  "socket package score npm {strip_ansi|split: :0} --markdown | bat --style=grid --language=md --color=always",
+]
+
+[keybindings]
+ctrl-u = "actions:update"
+ctrl-r = "actions:remove"
+
+[actions.update]
+description = "Update package to latest"
+command     = "pnpm update '{strip_ansi|split: :0}'"
+mode        = "fork"
+
+[actions.remove]
+description = "Remove package"
+command     = "pnpm remove '{strip_ansi|split: :0}'"
+mode        = "fork"

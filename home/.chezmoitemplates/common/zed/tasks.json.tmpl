@@ -22,6 +22,31 @@
     "reveal": "never"
   },
   {
+    "label": "tv:text_finder",
+    "command": "zed $(tv text)",
+    "hide": "always",
+    "user_new_terminal": true,
+    "shell": {
+      "with_arguments": {
+        "program": "sh",
+        "args": ["--noediting", "--norc", "--noprofile"]
+      }
+    }
+  },
+  {
+    "label": "tv:find_text_in_files",
+    "command": "zed $(tv --input '${ZED_SELECTED_TEXT:-}' --exact text)",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
+    "shell": {
+      "with_arguments": {
+        "program": "sh",
+        "args": ["--noediting", "--norc", "--noprofile"]
+      }
+    }
+  },
+  {
     "label": "Oil",
     "command": "exec nvim --cmd \"set noswapfile\" -c \"lua require('oil').open_float('$ZED_DIRNAME')\" -c \"autocmd FileType oil nnoremap <buffer>silent> q :qa!<CR>\"",
     "user_new_terminal": true,

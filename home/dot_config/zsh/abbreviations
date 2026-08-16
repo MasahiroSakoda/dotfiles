@@ -1,7 +1,7 @@
 # -*-mode:zsh-*- vim:ft=zsh
 # Abbreviations
 
-abbr tl="tldr"
+abbr tl="tv tldr"
 abbr cl="clear"
 abbr x="exit"
 abbr vim="nvim"
@@ -31,16 +31,19 @@ abbr .5="cd ../../../../../"
 ## VCS
 #
 ### Git
-abbr g="git"
+abbr g="tv git-repos"
 abbr gs="git status"
 abbr gl="git log --all --graph"
 abbr gmv="git mv --verbose"
 
-abbr gd="hunk diff"
+abbr gd="git diff"
+abbr gdf="tv git-diff"
 abbr ga="git add --verbose"
 abbr grm="git rm"
 abbr gsw="git switch"
 abbr gco="git checkout"
+abbr gbr="tv git-branch"
+abbr gI="tv git-ignore"
 
 abbr gf="git fetch origin"
 abbr gpl="git pull origin"
@@ -52,9 +55,11 @@ abbr grbc="git rebase --continue"
 abbr grbi="git rebase --interactive"
 abbr grbs="git rebase --skip"
 
-abbr gt="git tag | sort --version-sort --reverse"
+abbr gt="tv git-tags"
 abbr gta="git tag --annotate"
 abbr gts="git tag --sign"
+
+abbr gw="tv git-worktrees"
 
 ### Jujutsu (jj)
 
@@ -76,37 +81,11 @@ abbr ji="jj git init"
 abbr jgf="jj git fetch"
 abbr jgp="jj git push"
 
-#### Edting changes
-abbr je="jj edit"
-abbr j-="jj edit @-"
-abbr j+="jj edit @+"
-abbr js="jj split"
-
-#### Operations
-abbr jo="jj op"
-abbr jol="jj op log"
-abbr ju="jj undo"
-abbr jp="jj prev"
-abbr jn="jj next"
-
-#### Conflict resolution
-abbr jr="jj resolve"
-abbr jR="jj restore"
-
-#### Bookmarks
-abbr jb="jj bookmark"
-abbr jbc="jj bookmark create"
-abbr jbd="jj bookmark delete"
-abbr jbm="jj bookmark move"
-abbr jbs="jj bookmark set"
-abbr jbt="jj bookmark track"
-
-#### Workspaces
-abbr jw="jj workspace"
-abbr jwl="jj workspace list"
-abbr jwr="jj workspace root"
-abbr jwa="jj workspace add"
-abbr jwf="jj workspace forget"
+abbr jb="tv jj-bookmark"
+abbr jd="tv jj-diff"
+abbr jl="tv jj-log"
+abbr jr="tv jj-remotes"
+abbr jw="tv jj-workspaces"
 
 ## GitHub CLI
 abbr ghd="gh dash"
@@ -114,48 +93,24 @@ abbr ghg="gh graph"
 abbr ghn="gh notify"
 abbr ghm="gh markdown-preview"
 abbr ghp="gh poi"
+abbr ghi="tv gh-issues"
+abbr ghp="tv gh-prs"
+abbr ghr="tv gh-repos"
 
 ### Agent Skills via GitHub CLI
-abbr ghs="gh skill"
+abbr ghs="tv skills"
 abbr ghss="gh skill search"
 abbr ghsp="gh skill preview"
 abbr ghsi="gh skill install"
 abbr ghsu="gh skill update"
 
 # mise
-abbr m="mise"
-abbr mi="mise install"
-abbr mu="mise upgrade"
-abbr mr="mise run"
-abbr mt="mise tasks"
-abbr ml="_mise_installed_tools"
-abbr ms="_mise_registered_tools"
-
-# Docker
-abbr d="docker"
-abbr dps="docker ps"
-abbr dk="docker kill"
-abbr dp="docker pull"
-abbr dP="docker push"
-abbr dr="docker run"
-abbr dR="docker run --rm"
-
-## docker compose
-abbr dc="docker compose"
-abbr dcb="docker compose build"
-abbr dcu="docker compose up --build -d"
-abbr dcd="docker compose down"
-abbr dcl="docker compose logs"
-abbr dcr="docker compose run --rm"
-abbr dce="docker compose exec"
-abbr dcs="docker compose sleep"
+abbr m="tv mise-tools"
+abbr mt="tv mise-tasks"
 
 ## Node.js
-abbr npm="pnpm"
-
 ### pnpm
-abbr p="pnpm"
-abbr pi="pnpm install"
+# abbr pi="pnpm install"
 abbr pu="pnpm update"
 abbr pa="pnpm add"
 abbr pA="pnpm add -D"
@@ -172,33 +127,8 @@ abbr px="pnpm dlx"
 abbr pc="pnpm ci"
 abbr pC="pnpm audit signatures"
 
-### aube
-abbr a="aube"
-abbr ai="aube install"
-abbr au="aube update"
-abbr aa="aube add"
-abbr aA="aube add -D"
-abbr ar="aube remove"
-abbr aR="aube remove -D"
-abbr ao="aube outdated"
-abbr ab="aube build"
-abbr ad="aube dev"
-abbr at="aube test"
-abbr ae="aube e2e"
-abbr al="aube lint"
-abbr ax="aube cowsay"
-abbr ac="aube ci"
-abbr aC="aube audit"
-
-# Zellij
-abbr zj="zellij"
-abbr zja="zellij attach --create"
-abbr zjl="zellij --layout"
-abbr zjp="zellij_picker"
-
 # AI tools
 abbr oc="opencode"
-abbr occ="opencode --continue"
-abbr ocs="opencode --session"
 abbr ocw="opencode web"
+abbr ocs="tv opencode-sessions"
 abbr ag="agy"

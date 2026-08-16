@@ -1,4 +1,4 @@
 # -*-mode:gitconfig-*- vim:ft=gitconfig.gotexttmpl
 
 [ghq]
-  root = {{ .git.ghq_root }}
+  root = {{ .git.ghq_root | quote }}

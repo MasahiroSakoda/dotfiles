@@ -1,0 +1,26 @@
+[metadata]
+name         = "channels"
+description  = "Select a television channel"
+requirements = ["tv", "bat"]
+
+[source]
+command = ["tv list-channels"]
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+[preview]
+command = "bat --plain --number --color always ${TELEVISION_CONFIG:-${XDG_CONFIG_HOME:-$HOME/.config}/television}/cable/{}.toml"
+shell   = "bash"
+
+[keybindings]
+enter = "actions:channel-enter"
+
+[actions.channel-enter]
+description = "Enter a television channel"
+command     = "tv {}"
+mode        = "execute"

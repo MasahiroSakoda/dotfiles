@@ -1,0 +1,56 @@
+[metadata]
+name         = "uv-packages"
+description  = "Browse installed pip packages via uv"
+requirements = ["uv", "jq", "socket"]
+
+[source]
+ansi   = true
+output = "{strip_ansi|split: :0}"
+
+  [[source.command]]
+  name = " Packages"
+  run  = """
+    uv pip list --format json |
+    jq -r '.[] | ["\\u001b[34m\\(.name)\\u001b[0m", "\\u001b[32m\\(.version)\\u001b[0m", "\\(if .latest_version == .version then "Latest" else "-" end)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+  [[source.command]]
+  name = " Outdated"
+  run  = """
+    uv pip list --outdated --format json |
+    jq -r '.[] | ["\\u001b[34m\\(.name)\\u001b[0m", "\\u001b[32m\\(.version)\\u001b[0m", "\\(.latest_version)"] | @tsv' |
+    column -t -s (printf '\t')
+  """
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header = "{split:0}"
+  footer = ""
+
+[preview]
+command = [
+  "uv pip show {strip_ansi|split: :0} 2>/dev/null",
+  # See: https://docs.socket.dev/docs/socket-package
+  "socket package score pypi {strip_ansi|split: :0} --markdown | bat --style=grid --language=md --color=always",
+]
+
+[keybindings]
+alt-u = "actions:upgrade"
+alt-d = "actions:uninstall"
+
+[actions.upgrade]
+description = "Upgrade the selected package"
+command     = "uv pip install --upgrade {strip_ansi|split: :0}"
+mode        = "execute"
+
+[actions.uninstall]
+description = "Uninstall the selected package"
+command     = "uv pip uninstall {strip_ansi|split: :0}"
+mode        = "execute"
