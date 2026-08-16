@@ -33,45 +33,45 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
-      "skillFolderHash": "21adba95de7d93065d9fec725ddf37f871e01d05",
+      "skillFolderHash": "5fdcdeedf2d0c73b3ecb1da0a464dd885590f8d6",
       "installedAt": "2026-07-29T15:30:35Z",
-      "updatedAt": "2026-07-29T15:30:35Z"
+      "updatedAt": "2026-08-16T08:44:30Z"
     },
     "engineering/setup-matt-pocock-skills": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
-      "skillFolderHash": "3676b312e22e6b615c24e575cf9382a6da3016dd",
+      "skillFolderHash": "abf20c04a4aa8a37ff20aa7286f28857150f8b8d",
       "installedAt": "2026-07-29T15:32:00Z",
-      "updatedAt": "2026-07-29T15:32:00Z"
+      "updatedAt": "2026-08-16T09:08:52Z"
     },
     "engineering/to-spec": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/to-spec/SKILL.md",
-      "skillFolderHash": "b2f449aa3da9578b08dcea74afd9adee20285586",
+      "skillFolderHash": "dc32a36159f99c854cb470f371106cd38513a15f",
       "installedAt": "2026-07-29T15:45:23Z",
-      "updatedAt": "2026-07-29T15:45:23Z"
+      "updatedAt": "2026-08-16T09:10:07Z"
     },
     "engineering/to-tickets": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/to-tickets/SKILL.md",
-      "skillFolderHash": "b62245172caa8bcc75b490c665566e9ec999cda8",
+      "skillFolderHash": "80c1bedbdaa72a4abd524055013accb4fe0ea8c4",
       "installedAt": "2026-07-29T15:46:15Z",
-      "updatedAt": "2026-07-29T15:46:15Z"
+      "updatedAt": "2026-08-16T08:45:46Z"
     },
     "engineering/wayfinder": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/engineering/wayfinder/SKILL.md",
-      "skillFolderHash": "83a96a4454c069148d8648fd21ca62a58ac15db2",
+      "skillFolderHash": "48c3a8b0a9705d6310d37f7f9b53bcb2c55955c7",
       "installedAt": "2026-07-29T15:36:16Z",
-      "updatedAt": "2026-07-29T15:36:16Z"
+      "updatedAt": "2026-08-16T15:12:13Z"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
@@ -87,18 +87,27 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
+      "skillFolderHash": "c817f6f36acd483294144694a935a76d3e3eb101",
       "installedAt": "2026-07-29T15:32:53Z",
-      "updatedAt": "2026-07-29T15:32:53Z"
+      "updatedAt": "2026-08-16T08:44:38Z"
     },
-    "productivity/writing-great-skills": {
+    "productivity/grilling": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
-      "skillPath": "skills/productivity/writing-great-skills/SKILL.md",
-      "skillFolderHash": "c84411b360fad91b8756e60fa17fd5b5761422dd",
-      "installedAt": "2026-07-29T15:43:23Z",
-      "updatedAt": "2026-07-29T15:43:23Z"
+      "skillPath": "skills/productivity/grilling/SKILL.md",
+      "skillFolderHash": "fd99bcbb818f7ef766b83656fb5fac0b58e223ad",
+      "installedAt": "2026-08-16T09:06:08Z",
+      "updatedAt": "2026-08-16T09:06:08Z"
+    },
+    "productivity/writing-for-agents": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/writing-for-agents/SKILL.md",
+      "skillFolderHash": "bd9c9c4762db0a9a094fd419316ebd4b0444d06e",
+      "installedAt": "2026-08-16T16:35:57Z",
+      "updatedAt": "2026-08-16T16:35:57Z"
     }
   }
 }
