@@ -29,23 +29,23 @@ pre-commit:
           - name: rumdl
             run: rumdl check --diff {staged_files}
             glob: ["*.{md,mdx}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: yamlfmt
             run: yamlfmt -lint {staged_files}
             glob: ["*.{yml,yaml}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: tombi
             run: tombi lint --quiet {staged_files}
             glob: ["*.toml"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: shfmt
             run: shfmt -d --apply-ignore {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: shellcheck
             run: shellcheck {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: typos
             run: typos {staged_files}
             glob: ["*"]

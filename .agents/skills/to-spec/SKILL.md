@@ -3,12 +3,12 @@ description: Turn the current conversation into a spec and publish it to the pro
 disable-model-invocation: true
 metadata:
     github-path: skills/engineering/to-spec
-    github-ref: refs/tags/v1.1.0
+    github-ref: refs/tags/v1.2.3
     github-repo: https://github.com/mattpocock/skills
-    github-tree-sha: b2f449aa3da9578b08dcea74afd9adee20285586
+    github-tree-sha: dc32a36159f99c854cb470f371106cd38513a15f
 name: to-spec
 ---
-This skill takes the current conversation context and codebase understanding and produces a spec (you may know this document as a PRD). Do NOT interview the user — just synthesize what you already know.
+This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user — just synthesize what you already know.
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.
 
