@@ -68,6 +68,7 @@ The configuration is generated from a centralized template:
 | `Super + Shift + h/j/k/l` | Navigate Splits (Directional) |
 | `Ctrl + Left/Right`       | Resize Split (Horizontal)     |
 | `Ctrl + 0`                | Equalize Splits               |
+| `Super + .`               | toggle zooming of the split   |
 
 ### Tabs
 
@@ -93,6 +94,16 @@ Custom mappings for better shell interaction:
 - `Super + Right`: End of line/buffer
 - `Super + Backspace`: Delete line
 - `Option + Backspace`: Delete word
+
+### Vim mode
+
+Key table for Vim
+
+| Key                  | Action                     |
+|:---------------------|:---------------------------|
+| `alt + v`            | Activate Vim mode          |
+| `escape or i or q`   | Deactivate Vim mode        |
+| `Shift + ;`          | Toggle command palette     |
 
 ## 🔧 Template Variables
 
