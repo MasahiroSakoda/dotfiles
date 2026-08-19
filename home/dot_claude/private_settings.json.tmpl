@@ -57,18 +57,34 @@
   "hooks": {
     "Notification": [
       {
+        "matcher": "permission_prompt",
         "hooks": [
-          { "type": "command", "command": {{ .claude.hooks.notification.mac | quote }} }
+          {
+            "type": "command",
+            {{ if eq .chezmoi.os "darwin" }}
+            "command": {{ .claude.hooks.notification.permission.mac | quote }}
+            {{ else if eq .chezmoi.os "linux" }}
+            "command": {{ .claude.hooks.notification.permission.linux | quote }}
+            {{ end }}
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": {{ .claude.hooks.notification.idle.mac | quote }}
+            {{ if eq .chezmoi.os "darwin" }}
+            "command": {{ .claude.hooks.notification.idle.mac | quote }}
+            {{ else if eq .chezmoi.os "linux" }}
+            "command": {{ .claude.hooks.notification.idle.linux | quote }}
+            {{ end }}
+          }
         ]
       }
     ],
-    "Stop": [
-      {
-        "hooks": [
-          { "type": "command", "command": {{ .claude.hooks.stop.linux | quote }} }
-        ]
-      }
-    ]
+    "Stop": []
   },
   "env": {{ .claude.env | toPrettyJson | trim }},
   "statusline": {{ .claude.statusline | toPrettyJson | indent 2 | trim }},
