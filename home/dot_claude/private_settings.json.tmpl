@@ -55,6 +55,12 @@
     "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
   },
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{"type": "command", "command": "~/.claude/hooks/bash-logger.sh"}]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",
