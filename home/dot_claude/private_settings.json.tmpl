@@ -59,6 +59,10 @@
       {
         "matcher": "Bash",
         "hooks": [{ "type": "command", "command": "~/.claude/hooks/command-validator.sh" }]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{"type": "command", "command": "~/.claude/hooks/file-protector.sh" }]
       }
     ],
     "PostToolUse": [
