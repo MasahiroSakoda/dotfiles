@@ -55,6 +55,12 @@
     "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "~/.claude/hooks/command-validator.sh" }]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Bash",

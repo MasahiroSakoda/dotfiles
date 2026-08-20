@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Read JSON from stdin
+input=$(cat)
+if [ -z "$input" ]; then
+  exit 0
+fi
+
+cmd=$(echo "$input" | jq -r '.tool_input.command // empty')
+dangerous_patterns=(
+  {{- range .agents.permissions.bash.deny }}
+  {{ . | quote }}
+  {{- end }}
+  "DROP DATABASE"
+  "DROP TABLE"
+  "> /dev/sda"
+)
+
+for pattern in "${dangerous_patterns[@]}"; do
+  if echo "$cmd" | grep -qF "$pattern"; then
+    echo '{"decision": "BLOCK", "reason": "Dangerous command detected.: '"$pattern"'"}'
+    exit 2
+  fi
+done
+
+exit 0
+
+{{- /*
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+*/ -}}
