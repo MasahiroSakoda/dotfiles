@@ -55,6 +55,10 @@
     "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
   },
   "hooks": {
+    "SessionStart": [],
+    "SessionEnd": [],
+    "SubagentStart": [],
+    "PermissionRequest": [],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -71,6 +75,9 @@
         "hooks": [{"type": "command", "command": "~/.claude/hooks/bash-logger.sh"}]
       }
     ],
+    "PostToolUseFailure": [],
+    "PreCompact": [],
+    "ConfigChange": [],
     "Notification": [
       {
         "matcher": "",
