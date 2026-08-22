@@ -59,6 +59,22 @@ baseUrl = "https:/openrouter.ai/api/v1"
 apiKey  = "$OPENROUTER_API_KEY"
 
   [[ai.providers.openrouter.models]]
+  id            = "stealth/ox-alpha"
+  name          = "Ox Alpha"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 1048576
+  maxTokens     = 131072
+
+  [[ai.providers.openrouter.models]]
+  id            = "nvidia/nemotron-3.5-lightning:free"
+  name          = "NVIDIA Nemotron 3.5 Super"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1000000
+  maxTokens     = 65556
+
+  [[ai.providers.openrouter.models]]
   id            = "nvidia/nemotron-3-ultra-550b-a55b:free"
   name          = "NVIDIA Nemotron 3 Ultra"
   reasoning     = true
