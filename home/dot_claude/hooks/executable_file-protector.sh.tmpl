@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Read JSON from stdin
+input=$(cat)
+if [ -z "$input" ]; then
+  exit 0
+fi
+
+file=$(echo "$input" | jq -r '.tool_input.file_path // empty')
+
+protected_patterns=(
+  {{- range .agents.permissions.read.deny }}
+  {{ . | quote }}
+  {{- end }}
+  ".git/"
+  "package-lock.json"
+  "pnpm-lock.yaml"
+  "bun.lock"
+  ".skill-lock.json"
+)
+
+for pattern in "${protected_patterns[@]}"; do
+  if echo "$file" | grep -qF "$pattern"; then
+    echo "Blocked: protected file \"$pattern\" detected" >&2
+    exit 2
+  fi
+done
+
+exit 0
+
+{{- /*
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+*/ -}}

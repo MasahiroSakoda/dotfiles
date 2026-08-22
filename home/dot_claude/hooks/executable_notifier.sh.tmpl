@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Read JSON from stdin
+input=$(cat)
+if [ -z "$input" ]; then
+  exit 0
+fi
+
+# Parse JSON fields
+title="$(echo "$input" | jq -r '.title // "Claude Code"')"
+cwd="$(echo "$input" | jq -r '.cwd // ""')"
+project="$(basename "$cwd")"
+ntype="$(echo "$input" | jq -r '.notification_type // empty')"
+os="$(uname)"
+
+notify() {
+  msg="$1"
+  sound="$2"
+  case "$os" in
+  "darwin")
+    osascript -e "display notification \"$msg\" with title \"$title\" sound name \"$sound\"" 2>/dev/null || true
+    ;;
+  "linux")
+    notify-send "${title} - ${project}: ${msg}"
+    ;;
+  esac
+}
+
+case "$ntype" in
+"permission_prompt")
+  notify "Permission Required" "Submarine"
+  ;;
+"idle_prompt")
+  notify "Waiting for Input" "Purr"
+  ;;
+"stop")
+  notify "Task Completed" "Glass"
+  ;;
+*)
+  notify "Attention Needed" ""
+  ;;
+esac
+
+{{- /*
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+*/ -}}

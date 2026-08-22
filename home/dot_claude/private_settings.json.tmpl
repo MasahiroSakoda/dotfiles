@@ -55,20 +55,36 @@
     "deny": {{ $deny | toPrettyJson| indent 4 | trim }}
   },
   "hooks": {
-    "Notification": [
+    "SessionStart": [],
+    "SessionEnd": [],
+    "SubagentStart": [],
+    "PermissionRequest": [],
+    "PreToolUse": [
       {
-        "hooks": [
-          { "type": "command", "command": {{ .claude.hooks.notification.mac | quote }} }
-        ]
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "~/.claude/hooks/command-validator.sh" }]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{"type": "command", "command": "~/.claude/hooks/file-protector.sh" }]
       }
     ],
-    "Stop": [
+    "PostToolUse": [
       {
-        "hooks": [
-          { "type": "command", "command": {{ .claude.hooks.stop.linux | quote }} }
-        ]
+        "matcher": "Bash",
+        "hooks": [{"type": "command", "command": "~/.claude/hooks/bash-logger.sh"}]
       }
-    ]
+    ],
+    "PostToolUseFailure": [],
+    "PreCompact": [],
+    "ConfigChange": [],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [{ "type": "command", "command": "~/.claude/hooks/notifier.sh" }]
+      }
+    ],
+    "Stop": []
   },
   "env": {{ .claude.env | toPrettyJson | trim }},
   "statusline": {{ .claude.statusline | toPrettyJson | indent 2 | trim }},
