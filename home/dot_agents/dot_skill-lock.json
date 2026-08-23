@@ -19,6 +19,15 @@
       "installedAt": "2026-07-28T19:54:11Z",
       "updatedAt": "2026-07-28T19:54:11Z"
     },
+    "engineering/domain-modeling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/engineering/domain-modeling/SKILL.md",
+      "skillFolderHash": "959e63161ff78b4b1cd553b2c0e09e0c68418e5f",
+      "installedAt": "2026-08-19T19:17:55Z",
+      "updatedAt": "2026-08-19T19:17:55Z"
+    },
     "engineering/grill-with-docs": {
       "source": "mattpocock/skills",
       "sourceType": "github",
