@@ -17,6 +17,14 @@ apiKey  = "$OPENCODE_API_KEY"
   maxTokens     = 32000
 
   [[ai.providers.opencode.models]]
+  id            = "hy3-free"
+  name          = "Hy3"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 190000
+  maxTokens     = 64000
+
+  [[ai.providers.opencode.models]]
   id            = "nemotron-3-ultra-free"
   name          = "NVIDIA Nemotron 3 Ultra"
   reasoning     = true
