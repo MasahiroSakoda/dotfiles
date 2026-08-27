@@ -1,0 +1,28 @@
+[metadata]
+name         = "zellij-sessions"
+description  = "List and manage Zellij sessions"
+requirements = ["zellij"]
+
+[source]
+command = "zellij list-sessions --no-formatting --short"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+[keybindings]
+ctrl-o = "actions:attach"
+ctrl-q = "actions:detach"
+
+[actions.attach]
+description = "Attach selected zellij session"
+command     = "zellij attach {}"
+mode        = "execute"
+
+[actions.detach]
+description = "Detach selected zellij session"
+command     = "zellij delete-session {}"
+mode        = "execute"

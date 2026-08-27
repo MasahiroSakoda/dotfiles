@@ -71,7 +71,7 @@ mode        = "fork"
 
 [actions.yank]
 description = "Copy repo URL to clipboard"
-command     = "echo {strip_ansi|split: :0} | {{ .cmd.copy }}"
+command     = "echo 'https://github.com/{strip_ansi|split: :0}' | {{ .cmd.copy }}"
 mode        = "fork"
 
 [actions.clone]

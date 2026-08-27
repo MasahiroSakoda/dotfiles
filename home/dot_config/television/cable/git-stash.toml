@@ -22,7 +22,7 @@ layout = "landscape"
 
   [ui.preview_panel]
   header = "{0}"
-  footer = "enter: apply | ⌃ + p: pop | ⌃ + d: drop"
+  footer = "⏎: apply | ⌃ + p: pop | ⌃ + d: drop"
 
 [keybindings]
 enter  = "actions:apply"
