@@ -59,6 +59,30 @@ baseUrl = "https:/openrouter.ai/api/v1"
 apiKey  = "$OPENROUTER_API_KEY"
 
   [[ai.providers.openrouter.models]]
+  id            = "minimax/minimax-m2.7:free"
+  name          = "MiniMax M2.7"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 196608
+  maxTokens     = 176947
+
+  [[ai.providers.openrouter.models]]
+  id            = "minimax/minimax-m3:free"
+  name          = "MiniMax M3"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 1048576
+  maxTokens     = 943718
+
+  [[ai.providers.openrouter.models]]
+  id            = "z-ai/glm-5.2:free"
+  name          = "GLM 5.2"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 256000
+  maxTokens     = 230400
+
+  [[ai.providers.openrouter.models]]
   id            = "nvidia/nemotron-3.5-lightning:free"
   name          = "NVIDIA Nemotron 3.5 Super"
   reasoning     = true
