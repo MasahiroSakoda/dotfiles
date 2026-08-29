@@ -125,29 +125,22 @@ baseUrl = "https:/ollama.com/v1"
 apiKey  = "$OLLAMA_API_KEY"
 
   [[ai.providers.ollama.models]]
-  id            = "glm-5.2:cloud"
-  name          = "GLM 5.2"
+  id            = "gpt-oss:120b-cloud"
+  name          = "gpt-oss-120b"
   reasoning     = true
-  contextWindow = 1000000
-  maxTokens     = 131072
+  contextWindow = 131072
+  maxTokens     = 32768
 
   [[ai.providers.ollama.models]]
-  id            = "kimi-k2.7-code:cloud"
-  name          = "Kimi K2.7 Code"
+  id            = "gemma4:31b-cloud"
+  name          = "Gemma 4 31B"
   reasoning     = true
   contextWindow = 262144
-  maxTokens     = 65536
+  maxTokens     = 16384
 
   [[ai.providers.ollama.models]]
-  id            = "glm-5.1:cloud"
-  name          = "GLM 5.1"
-  reasoning     = true
-  contextWindow = 202752
-  maxTokens     = 131072
-
-  [[ai.providers.ollama.models]]
-  id            = "kimi-k2.6:cloud"
-  name          = "Kimi k2.6"
+  id            = "nemotron-3-ultra:cloud"
+  name          = "NVIDIA Nemotron 3 Ultra "
   reasoning     = true
   contextWindow = 262144
   maxTokens     = 32768
