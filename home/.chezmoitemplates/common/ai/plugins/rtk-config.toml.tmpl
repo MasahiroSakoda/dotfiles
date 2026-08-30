@@ -30,6 +30,14 @@ enabled = false # anonymous daily ping — see Telemetry & Privacy for full deta
 [hooks]
 exclude_commands     = []
 transparent_prefixes = []
+
+[limits]
+grep_max_results      = 200
+grep_max_per_file     = 25
+status_max_files      = 15
+status_max_untracked  = 10
+passthrough_max_chars = 2000
+
 {{- /*
 # -*-mode:toml-*- vim:ft=toml.gotexttmpl
 */ -}}
