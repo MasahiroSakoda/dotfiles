@@ -33,6 +33,14 @@ apiKey  = "$OPENCODE_API_KEY"
   maxTokens     = 262144
 
   [[ai.providers.opencode.models]]
+  id            = "ling-3.0-flash-fin-free"
+  name          = "Ling 3.0 Flash Fin"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 262144
+  maxTokens     = 32768
+
+  [[ai.providers.opencode.models]]
   id            = "big-pickle"
   name          = "Big Pickle"
   reasoning     = true
