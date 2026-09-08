@@ -173,6 +173,32 @@ apiKey  = "$OLLAMA_API_KEY"
   name = "NVIDIA Nemotron 3 Ultra"
 
 ################################################################################
+# Vercel AI Gateway
+################################################################################
+[ai.providers.vercel]
+name    = "Vercel AI Gateway"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https://ai-gateway.vercel.sh"
+apiKey  = "$AI_GATEWAY_API_KEY"
+
+  [[ai.providers.vercel.models]]
+  id            = "minimax/minimax-m3-free"
+  name          = "MiniMax M3"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1048576
+  maxTokens     = 1048576
+
+  [[ai.providers.vercel.models]]
+  id            = "minimax/minimax-m2.7-free"
+  name          = "MiniMax M2.7"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 196608
+  maxTokens     = 196608
+
+################################################################################
 # HuggingFace
 ################################################################################
 [ai.providers.huggingface]
