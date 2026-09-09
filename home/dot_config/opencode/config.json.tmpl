@@ -116,6 +116,20 @@
       {{- range .ai.providers.gmicloud.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
       "models": {{ $models | toPrettyJson | indent 6 | trim }},
     },
+    "requesty": {
+      "name": {{ .ai.providers.requesty.name | quote }},
+      "npm": {{ .ai.providers.requesty.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.requesty.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.requesty.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.requesty.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.requesty.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
     "huggingface": {
       "name": {{ .ai.providers.huggingface.name | quote }},
       "npm": {{ .ai.providers.huggingface.npm | quote }},

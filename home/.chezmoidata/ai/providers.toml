@@ -221,6 +221,28 @@ apiKey  = "$GMICLOUD_TOKEN"
   input     = ["text"]
 
 ################################################################################
+# Requesty
+################################################################################
+[ai.providers.requesty]
+name    = "Requesty"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https://router.requesty.ai/v1"
+apiKey  = "$REQUESTY_API_KEY"
+
+  [[ai.providers.requesty.models]]
+  id        = "nvidia/nemotron-3-ultra-550b-a55b"
+  name      = "NVIDIA Nemotron 3 Ultra"
+  reasoning = true
+  input     = ["text"]
+
+  [[ai.providers.requesty.models]]
+  id        = "nvidia/nemotron-3-super-120b-a12b"
+  name      = "NVIDIA Nemotron 3 Super"
+  reasoning = true
+  input     = ["text"]
+
+################################################################################
 # HuggingFace
 ################################################################################
 [ai.providers.huggingface]
