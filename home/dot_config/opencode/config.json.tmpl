@@ -102,6 +102,20 @@
       {{- range .ai.providers.vercel.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
       "models": {{ $models | toPrettyJson | indent 6 | trim }},
     },
+    "gmicloud": {
+      "name": {{ .ai.providers.gmicloud.name | quote }},
+      "npm": {{ .ai.providers.gmicloud.npm | quote }},
+      "options": {
+        "baseURL": {{ .ai.providers.gmicloud.baseUrl | quote }},
+        "apiKey": "{env:{{ substr 1 -1 .ai.providers.gmicloud.apiKey }}}"
+      },
+      {{- $whitelist := list -}}
+      {{- range .ai.providers.gmicloud.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
+      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
+      {{- $models := dict }}
+      {{- range .ai.providers.gmicloud.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+      "models": {{ $models | toPrettyJson | indent 6 | trim }},
+    },
     "huggingface": {
       "name": {{ .ai.providers.huggingface.name | quote }},
       "npm": {{ .ai.providers.huggingface.npm | quote }},

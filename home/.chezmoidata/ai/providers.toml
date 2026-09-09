@@ -199,6 +199,28 @@ apiKey  = "$AI_GATEWAY_API_KEY"
   maxTokens     = 196608
 
 ################################################################################
+# GMI Cloud
+################################################################################
+[ai.providers.gmicloud]
+name    = "GMI Cloud"
+api     = "openai-completions"
+npm     = "@ai-sdk/openai-compatible"
+baseUrl = "https://api.gmi-serving.com/v1"
+apiKey  = "$GMICLOUD_TOKEN"
+
+  [[ai.providers.gmicloud.models]]
+  id        = "MiniMaxAI/MiniMax-M3"
+  name      = "MiniMax M3"
+  reasoning = true
+  input     = ["text"]
+
+  [[ai.providers.gmicloud.models]]
+  id        = "MiniMaxAI/MiniMax-M2.7"
+  name      = "MiniMax M2.7"
+  reasoning = true
+  input     = ["text"]
+
+################################################################################
 # HuggingFace
 ################################################################################
 [ai.providers.huggingface]
