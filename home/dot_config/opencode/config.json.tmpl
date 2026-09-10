@@ -45,78 +45,21 @@
   },
   {{/* Global AI Provider config */ -}}
   "enabled_providers": {{ .opencode.providers.enabled | toPrettyJson | indent 2 | trim }},
-  "provider": {
-    "opencode": {
-      "name": {{ .ai.providers.opencode.name | quote }},
-      "npm": {{ .ai.providers.opencode.npm | quote }},
-      "options": {
-        "baseURL": {{ .ai.providers.opencode.baseUrl | quote }},
-        "apiKey": "{env:{{ substr 1 -1 .ai.providers.opencode.apiKey }}}"
-      },
-      {{- $whitelist := list -}}
-      {{- range .ai.providers.opencode.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
-      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
-      {{- $models := dict }}
-      {{- range .ai.providers.opencode.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
-      "models": {{ $models | toPrettyJson | indent 6 | trim }},
-    },
-    "openrouter": {
-      "name": {{ .ai.providers.openrouter.name | quote }},
-      "npm": {{ .ai.providers.openrouter.npm | quote }},
-      "options": {
-        "baseURL": {{ .ai.providers.openrouter.baseUrl | quote }},
-        "apiKey": "{env:{{ substr 1 -1 .ai.providers.openrouter.apiKey }}}"
-      },
-      {{- $whitelist := list -}}
-      {{- range .ai.providers.openrouter.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
-      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
-      {{- $models := dict }}
-      {{- range .ai.providers.openrouter.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
-      "models": {{ $models | toPrettyJson | indent 6 | trim }},
-    },
-    "ollama-cloud": {
-      "name": {{ .ai.providers.ollama.name | quote }},
-      "npm": {{ .ai.providers.ollama.npm | quote }},
-      "options": {
-        "baseURL": {{ .ai.providers.ollama.baseUrl | quote }},
-        "apiKey": "{env:{{ substr 1 -1 .ai.providers.ollama.apiKey }}}"
-      },
-      {{- $whitelist := list -}}
-      {{- range .ai.providers.ollama.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
-      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
-      {{- $models := dict }}
-      {{- range .ai.providers.ollama.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
-      "models": {{ $models | toPrettyJson | indent 6 | trim }},
-    },
-    "huggingface": {
-      "name": {{ .ai.providers.huggingface.name | quote }},
-      "npm": {{ .ai.providers.huggingface.npm | quote }},
-      "options": {
-        "baseURL": {{ .ai.providers.huggingface.baseUrl | quote }},
-        "apiKey": "{env:{{ substr 1 -1 .ai.providers.huggingface.apiKey }}}"
-      },
-      {{- $whitelist := list -}}
-      {{- range .ai.providers.huggingface.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
-      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
-      {{- $models := dict }}
-      {{- range .ai.providers.huggingface.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
-      "models": {{ $models | toPrettyJson | indent 6 | trim }},
-    },
-    "cerebras": {
-      "name": {{ .ai.providers.cerebras.name | quote }},
-      "npm": {{ .ai.providers.cerebras.npm | quote }},
-      "options": {
-        "baseURL": {{ .ai.providers.cerebras.baseUrl | quote }},
-        "apiKey": "{env:{{ substr 1 -1 .ai.providers.cerebras.apiKey }}}"
-      },
-      {{- $whitelist := list -}}
-      {{- range .ai.providers.cerebras.models -}}{{ $whitelist = append $whitelist .id }}{{- end }}
-      "whitelist": {{ $whitelist | toPrettyJson | indent 6 | trim }},
-      {{- $models := dict }}
-      {{- range .ai.providers.cerebras.models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
-      "models": {{ $models | toPrettyJson | indent 6 | trim }},
-    }
-  },
+  {{ $providers := dict }}
+  {{- range $key, $value := .ai.providers -}}
+    {{- $config := dict }}
+    {{- $config = set $config "name" .name }}
+    {{- $config = set $config "npm" .npm }}
+    {{- $config = set $config "options" (dict "baseURL" .baseUrl "apiKey" (printf "{env:%s}" (substr 1 -1 .apiKey))) }}
+    {{- $whitelist := list }}
+    {{- range .models }}{{ $whitelist = append $whitelist .id }}{{- end }}
+    {{- $config = set $config "whitelist" $whitelist }}
+    {{- $models := dict }}
+    {{- range .models }}{{- $models = set $models .id (dict "name" .name) -}}{{- end }}
+    {{- $config = set $config "models" $models }}
+    {{- $_ := set $providers $key $config }}
+  {{- end -}}
+  "provider": {{ $providers | toPrettyJson | indent 2 | trim }},
   {{/* Agent Configurations */ -}}
   "default_agent": "build",
   "agent": {
