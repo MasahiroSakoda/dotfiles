@@ -35,7 +35,7 @@
   archive     = ["suspicious-package"]
   launcher    = ["raycast"]
   browser     = ["google-chrome", "brave-browser", "firefox"]
-  previewer   = []
+  previewer   = ["skim"]
   terminal    = ["wezterm", "ghostty"]
   agent       = ["antigravity"]
   ide         = ["zed"]
