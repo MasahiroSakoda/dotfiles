@@ -41,14 +41,6 @@ apiKey  = "$OPENCODE_API_KEY"
   maxTokens     = 32768
 
   [[ai.providers.opencode.models]]
-  id            = "muse-spark-1.2-contributor-free"
-  name          = "Muse Spark 1.2 Contributor"
-  reasoning     = true
-  input         = ["text", "image"]
-  contextWindow = 1048576
-  maxTokens     = 131072
-
-  [[ai.providers.opencode.models]]
   id            = "muse-spark-1.3-contributor-free"
   name          = "Muse Spark 1.3 Contributor"
   reasoning     = true
@@ -97,6 +89,22 @@ apiKey  = "$OPENROUTER_API_KEY"
   input         = ["text"]
   contextWindow = 256000
   maxTokens     = 230400
+
+  [[ai.providers.openrouter.models]]
+  id            = "nex-agi/nex-n2.5-pro:free"
+  name          = "Nex AGI: Nex N2.5 Pro"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 262144
+  maxTokens     = 235929
+
+  [[ai.providers.openrouter.models]]
+  id            = "nex-agi/nex-n2.5-mini:free"
+  name          = "Nex AGI: Nex N2.5 Mini"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 262144
+  maxTokens     = 235929
 
   [[ai.providers.openrouter.models]]
   id            = "nvidia/nemotron-3.5-lightning:free"
