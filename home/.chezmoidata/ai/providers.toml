@@ -91,6 +91,22 @@ apiKey  = "$OPENROUTER_API_KEY"
   maxTokens     = 230400
 
   [[ai.providers.openrouter.models]]
+  id            = "nex-agi/nex-n2.5-pro:free"
+  name          = "Nex AGI: Nex N2.5 Pro"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 262144
+  maxTokens     = 235929
+
+  [[ai.providers.openrouter.models]]
+  id            = "nex-agi/nex-n2.5-mini:free"
+  name          = "Nex AGI: Nex N2.5 Mini"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 262144
+  maxTokens     = 235929
+
+  [[ai.providers.openrouter.models]]
   id            = "nvidia/nemotron-3.5-lightning:free"
   name          = "NVIDIA Nemotron 3.5 Super"
   reasoning     = true
