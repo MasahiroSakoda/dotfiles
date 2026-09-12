@@ -292,7 +292,18 @@
     "texlab": {
       "settings": {
         "texlab": {
-          "build": { "onSave": false, "forwardSearchAfter": true },
+          "build": {
+            "onSave": false,
+            "pdfDirectory": "out",
+            "auxDirectory": "build",
+            "forwardSearchAfter": true,
+            "executable": "latexmk",
+            "args": ["-pdf", "-synctex=1", "-outdir=out", "auxdir=build"]
+          },
+          "forwardSearch": {
+            "executable": "~/Skim.app/Contents/SharedSupport/displayline",
+            "args": ["-g", "-r", "%l", "%p", "%f"]
+          },
           "formatterLineLength": 120,
           "bibtexFormatter": "texlab",
           "latexFormatter": "texlab",
@@ -417,12 +428,14 @@
     },
     "Markdown-Inline": {
       "show_edit_predictions": false
-    {{/*
+    },
+    "BibTex": {
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "texlab" } }
     },
     "LaTex": {
       "format_on_save": "on",
-      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
-    */ -}}
+      "formatter": { "language_server": { "name": "texlab" } }
     }
   },
   {{/*
