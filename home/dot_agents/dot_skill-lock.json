@@ -82,6 +82,15 @@
       "installedAt": "2026-07-29T16:45:19Z",
       "updatedAt": "2026-07-29T16:45:19Z"
     },
+    "hunk-review": {
+      "source": "modem-dev/hunk",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/modem-dev/hunk.git",
+      "skillPath": "packages/hunk/skills/hunk-review/SKILL.md",
+      "skillFolderHash": "e4d154cec8bca19c256a3894c254f449aaedcf62",
+      "installedAt": "2026-09-11T00:06:40Z",
+      "updatedAt": "2026-09-11T00:06:40Z"
+    },
     "i-have-adhd": {
       "source": "ayghri/i-have-adhd",
       "sourceType": "github",
