@@ -1,0 +1,48 @@
+[metadata]
+name         = "nvim-plugins"
+description  = "Browse NeoVim plugins"
+requirements = ["eza"]
+
+[source]
+ansi   = true
+output = "{strip_ansi|split: :0}"
+
+  [[source.command]]
+  name = "Plugin Repositories"
+  run  = "eza --oneline $XDG_DATA_HOME/nvim/lazy"
+
+[ui]
+layout = "landscape"
+
+  [ui.input_bar]
+  position = "top"
+  prompt   = "  "
+
+  [ui.preview_panel]
+  header    = " {strip_ansi|split: :0}"
+  footer    = "⏎: Browse | ⌃ + y: yank URL"
+  scrollbar = true
+
+[preview]
+command = [
+  "bat --style=header-filename,grid --language=md --color=always $XDG_DATA_HOME/nvim/lazy/{}/README.md || echo 'No README'",
+  "cd '{}'; eza -a -T -L 2 --icons always --color always --group-directories-first --git-ignore; echo; git log -n 200 --pretty=medium --all --graph --color",
+]
+
+[keybindings]
+"enter"  = "actions:move"
+"ctrl-y" = "actions:yank"
+
+[actions.move]
+description = "Move to plugin repository"
+command     = "cd $XDG_DATA_HOME/nvim/lazy/{}; nvim"
+mode        = "execute"
+
+[actions.yank]
+description = "Yank remote URL"
+command     = "cd $XDG_DATA_HOME/nvim/lazy/{}; git remote get-url origin | sed 's/\\.git//g' | {{ .cmd.copy }}"
+mode        = "fork"
+
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}

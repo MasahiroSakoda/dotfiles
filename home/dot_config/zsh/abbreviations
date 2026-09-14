@@ -1,6 +1,7 @@
 # -*-mode:zsh-*- vim:ft=zsh
 # Abbreviations
 
+abbr h="tv zsh-history"
 abbr tl="tv tldr"
 abbr cl="clear"
 abbr x="exit"
@@ -31,7 +32,9 @@ abbr .5="cd ../../../../../"
 ## VCS
 #
 ### Git
-abbr g="tv git-repos"
+abbr g="git"
+abbr gr="tv git-repos"
+abbr gn="tv nvim-plugins"
 abbr gs="git status"
 abbr gl="git log --all --graph"
 abbr gmv="git mv --verbose"

@@ -61,6 +61,7 @@ set -x __done_min_cmd_duration 60000  # default: 5000 ms
 bind ctrl-c cancel-commandline
 
 # Fish abbreviations
+abbr -a -- h  "tv fish-history"
 abbr -a -- tl "tv tldr"
 abbr -a -- cl "clear"
 abbr -a -- x  "exit"
@@ -91,7 +92,9 @@ abbr -a -- .5 "cd ../../../../../"
 ## VCS
 #
 ### Git: g*
-abbr -a -- g   "tv git-repos"
+abbr -a -- g   "git"
+abbr -a -- gr  "tv git-repos"
+abbr -a -- gn  "tv nvim-plugins"
 abbr -a -- gs  "git status"
 abbr -a -- gl  "tv git-log"
 abbr -a -- gmv "git mv --verbose"
