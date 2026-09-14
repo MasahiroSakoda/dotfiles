@@ -4,7 +4,7 @@ description  = "Browse and manage mise tools"
 requirements = ["mise", "jq"]
 
 [source]
-output = "{split:\t:..}"
+output = "{strip_ansi|split:\t:..}"
 ansi   = true
 
   [[source.command]]
