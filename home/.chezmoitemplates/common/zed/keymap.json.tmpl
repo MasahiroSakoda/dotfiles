@@ -1,241 +1,102 @@
-{{- /*
-// Zed keybinds
-// documentation: https://zed.dev/docs/key-bindings
-*/ -}}
+// Zed keybinds: https://zed.dev/docs/key-bindings
 [
-  {
-    "context": "Pane || EmptyPane",
-    "bindings": {
-      "cmd-1": "project_panel::ToggleFocus",
-      "cmd-2": "project_search::ToggleFocus",
-      "cmd-3": "git_panel::ToggleFocus",
-      "cmd-4": "collab_panel::ToggleFocus",
-      "cmd-5": "pane::DeploySearch",
-      "cmd-6": "diagnostics::Deploy",
-      "cmd-7": "terminal_panel::Toggle",
-      "cmd-8": "debug_panel::ToggleFocus",
-      "cmd-9": "outline_panel::ToggleFocus",
-      "cmd-0": "agent::ToggleFocus",
-      "cmd-[": "window::ShowPreviousWindowTab",
-      "cmd-]": "window::ShowNextWindowTab",
-      "cmd-shift-o": "projects::OpenRecent",
-    }
-  },
-
-  {{/*
-  // ===========================================================================
-  // Workspace
-  // ===========================================================================
-  */ -}}
-  {
-    "context": "Workspace && !Editor",
-    "bindings": {"ctrl-shift-p": "command_palette::Toggle"}
-  },
-  {{/*
-  // ===========================================================================
-  // Navigation
-  // ===========================================================================
-  */ -}}
-  {
-    "context": "EmptyPane || SharedScreen",
-    "bindings": {
-      "space space": "file_finder::Toggle",
-      "space f": "file_finder::Toggle",
-      "space n": "workspace::NewFile",
-      "space p": "projects::OpenRecent",
-      "space q": "zed::Quit"
-    }
-  },
-  {
-    "context": "Dock || Terminal || Editor",
-    "bindings": {
-      "ctrl-w h": "workspace::ActivatePaneLeft",
-      "ctrl-w l": "workspace::ActivatePaneRight",
-      "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown"
-    }
-  },
-  {
-    "context": "(Editor && VimControl && !VimWaiting && !menu) || ProjectPanel || GitPanel || CollabPanel || Diagnostics",
-    "bindings": {"space e": "workspace::ToggleLeftDock"}
-  },
-  {
-    "context": "ProjectPanel && not_editing",
-    "bindings": {
-      "cmd-1": "workspace::ToggleLeftDock",
-      ":": "command_palette::Toggle",
-      "/": "project_panel::NewSearchInDirectory",
-      "escape": "project_panel::ToggleFocus",
-      "enter": "project_panel::OpenPermanent",
-      "j": "menu::SelectNext",
-      "k": "menu::SelectPrevious",
-      "l": "project_panel::ExpandSelectedEntry",
-      "g g": "menu::SelectFirst",
-      "shift-g": "menu::SelectLast"
-    }
-  },
-  {
-    "context": "GitPanel && ChangesList",
-    "bindings": {
-      "cmd-2": "workspace::ToggleLeftDock",
-      "q": "workspace::CloseActiveDock",
-      "tab": "git_panel::FocusChanges",
-      "space g g": "git_panel::Close"
-    }
-  },
-  {
-    "context": "CollabPanel",
-    "bindings": {"cmd-3": "workspace::ToggleLeftDock"}
-  },
-  {{/* FIXME: Refine project search keymaps */}}
-  {
-    "context": "ProjectSearch",
-    "bindings": {"cmd-4": "pane::CloseActiveItem"}
-  },
-  {
-    "context": "Diagnostics",
-    "bindings": {"cmd-5": "pane::CloseActiveItem", "q": "pane::CloseActiveItem"}
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "cmd-6": "workspace::ToggleBottomDock",
-      "shift-enter": [ "terminal::SendText", "\u001b\r" ]
-    }
-  },
-  {
-    "context": "Terminal && screen==normal",
-    "bindings": {"escape": "terminal_panel::Toggle"}
-  },
-  {
-    "context": "DebugPanel",
-    "bindings": {
-      "ctrl-t": "debugger::ToggleThreadPicker",
-      "ctrl-i": "debugger::ToggleSessionPicker",
-      "shift-alt-escape": "debugger::ToggleExpandItem",
-      "cmd-7": "workspace::ToggleBottomDock"
-    }
-  },
-  {
-    "context": "VariableList",
-    "bindings": {
-      "left": "variable_list::CollapseSelectedEntry",
-      "right": "variable_list::ExpandSelectedEntry",
-      "enter": "variable_list::EditVariable",
-      "ctrl-c": "variable_list::CopyVariableValue",
-      "ctrl-alt-c": "variable_list::CopyVariableName",
-      "delete": "variable_list::RemoveWatch",
-      "backspace": "variable_list::RemoveWatch"
-    }
-  },
-  {
-    "context": "BreakpointList",
-    "bindings": {
-      "space": "debugger::ToggleEnableBreakpoint",
-      "backspace": "debugger::UnsetBreakpoint",
-      "left": "debugger::PreviousBreakpointProperty",
-      "right": "debugger::NextBreakpointProperty"
-    }
-  },
-  {
-    "context": "AgentPanel",
-    "bindings": {"cmd-8": "workspace::ToggleRightDock"}
-  },
-  {
-    "context": "AgentPanel && !(vim_mode==insert)",
-    "bindings": {
-      "q": "workspace::CloseActiveDock",
-      "tab": "agent::ToggleFocus"
-    }
-  },
-  {
-    "context": "AgentPanel > Editor && VimControl",
-    "bindings": {
-      "q": "workspace::CloseActiveDock",
-      "ctrl-.": "workspace::ToggleRightDock",
-      "ctrl-n": "agent::NewThread",
-    }
-  },
-  {
-    "context": "OutlinePanel",
-    "bindings": {
-      "cmd-9": "workspace::ToggleRightDock"
-    }
-  },
-  {
-    "context": "NotificationPanel",
-    "bindings": {
-      "cmd-0": "workspace::CloseActiveDock"
-    }
-  },
-  {
-    "context": "FileFinder || TabSwitcher",
-    "bindings": {
-      "ctrl-p": "menu::SelectPrevious",
-      "ctrl-n": "menu::SelectNext",
-      "ctrl-s": "pane::SplitDown",
-      "ctrl-v": "pane::SplitRight"
-    }
-  },
-  {{/*
-  // ===========================================================================
-  // Vim mode
-  // ===========================================================================
-  */ -}}
-  {
-    "context": "vim_mode == normal",
-    "bindings": {
-    }
-  },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "j k": "vim::NormalBefore",
-      "super-b": "workspace::ToggleLeftDock",
-      "space w q": "workspace::CloseWindow",
-      "space w s": "pane::SplitDown",
-      "space w v": "pane::SplitRight",
+      // Find
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space f b": "tab_switcher::Toggle",
+
+      // Grep
+      "space /": "pane::DeploySearch",
+      "space s o": "outline::Toggle",
+      "space s s": "project_symbols::Toggle",
+      "space s d": "diagnostics::Deploy",
+      "space :": "command_palette::Toggle",
+      "space ?": "dev::OpenKeyContextView",
+
+      // Goto
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g v": "editor::GoToDefinitionSplit",
+      "g y": "editor::GoToTypeDefinition",
+      "g I": "editor::GoToImplementation",
+      "shift-k": "editor::Hover",
+      "g r": "editor::FindAllReferences",
+      "g a": "editor::ToggleCodeActions",
+      "g c c": "editor::ToggleComments",
+
+      // Window
+      "cmd-[": "window::ShowPreviousWindowTab",
+      "cmd-]": "window::ShowNextWindowTab",
+
+      // Dock
+      "": "ToggleLeftDock",
+      "": "ToggleRightDock",
+
+      // Pane
       "space -": "pane::SplitDown",
       "space |": "pane::SplitRight",
-      "space l": "lsp_tool::ToggleMenu",
-      "space L": "language_selector::Toggle",
+      "space <": "pane::SwapItemLeft",
+      "space >": "pane::SwapItemRight",
+      "space u": "pane::ReopenClosedItem",
       "[ b": "pane::ActivatePreviousItem",
       "] b": "pane::ActivateNextItem",
-      "[ g": "editor::GoToPreviousHunk",
-      "] g": "editor::GoToHunk",
-      "[ d": "editor::GoToPreviousDiagnostic",
-      "] d": "editor::GoToDiagnostic",
       "[ w": "workspace::ActivatePaneLeft",
       "] w": "workspace::ActivatePaneRight",
-      // "space /": "pane::DeploySearch",
-      "space ?": "dev::OpenKeyContextView",
+
+      // Buffer
+      "space q": "pane::CloseActiveItem",
+
+      // Diff
+      "[ g": "editor::GoToPreviousHunk",
+      "] g": "editor::GoToHunk",
+
+      // Diagnostics
+      "[ d": "editor::GoToPreviousDiagnostic",
+      "] d": "editor::GoToDiagnostic",
+
+      // Git
       "space g g": "git_panel::ToggleFocus",
-      "space g b": "git::Blame",
-      "space g d": "git::FileHistory",
-      "space space": "file_finder::Toggle",
-      "space f r": "projects::OpenRecent",
-      "space f w": "workspace::Open",
-      "space f f": "file_finder::Toggle",
-      "space f g": ["task::Spawn", { "task_name": "tv:text_finder", "reveal_target": "center" }],
-      "space f /": ["task::Spawn", { "task_name": "tv:find_text_in_files", "reveal_target": "center" }],
-      "space z": "workspace::ToggleCenteredLayout",
-      "space e": "workspace::ToggleLeftDock",
-      "-": "workspace::ToggleLeftDock",
-      "g d": "editor::GoToDefinitionSplit",
-      "g D": "editor::ToggleInlineDiagnostics",
-      "g i": "editor::GoToImplementation",
-      "g n": "editor::Rename",
-      "g a": "editor::ToggleCodeActions",
-      "g r": "editor::FindAllReferences",
-      "K": "editor::Hover",
-      // "space a n": [ "agent::NewExternalAgentThread", {"agent": "native_agent"} ],
-      // "space a c": [ "agent::NewExternalAgentThread", {"agent": "claude_code"} ],
-      // "space a x": [ "agent::NewExternalAgentThread", {"agent": "codex"} ],
-      // "space a g": [ "agent::NewExternalAgentThread", {"agent": "gemini"} ],
-      "ctrl-.": "assistant::ToggleFocus",
-      "space a i": "assistant::InlineAssist",
+      "g b": "git::Blame",
+      "g h": "git::FileHistory",
+
+      // Language / LSP
+      "space l": "lsp_tool::ToggleMenu",
+      "space L": "language_selector::Toggle",
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+
+      // Zed Ai
+      "space a": "agent::ToggleFocus",
+      "space A": "assistant::ToggleFocus",
+      "space ;": "assistant::InlineAssist"
     }
   },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "enter": "editor::ConfirmCompletion",
+     "shift-tab": "editor::ContextMenuPrevious",
+      "tab": "editor::ContextMenuNext",
+      "up": "editor::ContextMenuPrevious",
+      "down": "editor::ContextMenuNext",
+      "pageup": "editor::ContextMenuFirst",
+      "pagedown": "editor::ContextMenuLast"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-p": "command_palette::Toggle",
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown",
+      "cmd-j": "terminal_panel::Toggle"
+    }
+  }
 ]
 {{- /*
 // -*-mode:jsonc-*- vim:ft=jsonc.gotexttmpl
