@@ -87,6 +87,20 @@
       "pagedown": "editor::ContextMenuLast"
     }
   },
+  // Panel Navigations
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a f": "project_panel::NewFile",
+      "a d": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "x": "project_panel::Cut",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Trash",
+      "y": "project_panel::Copy",
+      "enter": "editor::OpenSelectedFilename"
+    }
+  },
   {
     "bindings": {
       "ctrl-shift-p": "command_palette::Toggle",
