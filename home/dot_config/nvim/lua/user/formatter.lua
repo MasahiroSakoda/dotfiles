@@ -23,22 +23,8 @@ conform.setup({
     cpp    = { "clang-format" },
     rust   = { "rustfmt" },
 
-    json     = { "biome" },
-    jsonc    = { "biome" },
-    yaml     = { "yamlfmt" },
-    toml     = { "tombi" },
     sql      = { "sqruff" },
     tex      = { "typos" },
-
-    css             = { "biome" },
-    javascript      = { "biome" },
-    javascriptreact = { "biome" },
-    typescript      = { "biome" },
-    typescriptreact = { "biome" },
-    graphql         = { "biome" },
-    svelte          = { "biome" },
-    vue             = { "biome" },
-    astro           = { "biome" },
 
     dockerfile = { "hadolint" },
   },
