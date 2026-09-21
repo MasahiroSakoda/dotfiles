@@ -58,9 +58,13 @@ exts = [ ".go", ".mod", ".sum" ]
 cmd  = [ "lua-language-server" ]
 exts = [ ".lua " ]
 
-[lsp.servers.biome]
-cmd  = [ "pnpm", "biome", "lsp-proxy" ]
-exts = [ ".js", ".jsx", "ts", ".tsx", ".json", ".jsonc", ".json5", ".html", ".css", ".vue", ".svelte", ".astro" ]
+[lsp.servers.oxlint]
+cmd  = [ "oxlint", "--lsp" ]
+exts = [ ".js", ".jsx", "ts", ".tsx", ".vue", ".svelte", ".astro" ]
+
+[lsp.servers.oxfmt]
+cmd  = [ "oxfmt", "--lsp" ]
+exts = [ ".js", ".jsx", "ts", ".tsx", ".json", ".jsonc", ".yml", "yaml", ".html", ".css", ".vue", ".svelte", ".astro" ]
 
 [lsp.servers.denols]
 cmd  = [ "deno", "lsp" ]
