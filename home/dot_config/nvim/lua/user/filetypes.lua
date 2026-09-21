@@ -3,6 +3,12 @@ local Filetypes = {}
 Filetypes.log  = { "log", "txt", "text" }
 Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
 Filetypes.markdown = { "markdown", "md", "vimwiki" }
+Filetypes.oxlint   = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
+Filetypes.oxfmt = {
+  "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro",
+  "json", "jsonc",
+  "yaml", "css"
+}
 Filetypes.yaml     = { "yml", "yaml" }
 
 Filetypes.lang = {
@@ -99,7 +105,8 @@ Filetypes.lsp = {
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
   deno         = { "deno.json", "deno.jsonc" },
-  biome        = { "biome.json", "biome.jsonc" },
+  oxlint       = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" },
+  oxfmt        = { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" },
   tailwindcss  = {
     "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.mjs", "tailwind.config.ts",
     "postcss.config.js", "postcss.config.cjs", "postcss.config.mjs", "postcss.config.ts",

@@ -77,11 +77,9 @@
   {{/* Formatter Configurations */ -}}
   "formatter": {
     "rumdl": { "command": [ "rumdl", "fmt", "--fix", "$FILE" ], "extensions": [ ".md", ".mdx" ] },
-    "biome": { "command": [ "biome", "format", "$FILE" ], "extensions": [".js", "jsx", ".ts", ".tsx"] },
     "shfmt": { "command": ["shfmt", "$FILE"], "extensions": [".sh", ".bash", ".zsh"] },
     "ruff": { "command": [ "ruff", "format", "$FILE" ], "extensions": [".py", ".pyi"] },
     "stylua": { "command": [ "stylua", "$FILE" ], "extensions": [".lua"] },
-    "yamlfmt": { "command": ["yamlfmt", "-formatter", "$FILE"], "extensions": [".yml", ".yaml"] },
     "rustfmt": { "command": ["rustfmt", "$FILE"], "extensions": [".rs"] },
     "gofmt": { "command": ["golangci-lint", "format", "$FILE"], "extensions": [".go"] }
   },
@@ -146,10 +144,15 @@
       "disabled": false,
       "extensions": [".py"]
     },
-    "biome": {
-      "command": ["biome", "lsp-proxy"],
+    "oxlint": {
+      "command": ["oxlint", "--lsp"],
       "disabled": false,
-      "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".jsonc", ".json5", ".html", ".css", ".vue", ".svelte", ".astro"]
+      "extensions": [".js", "jsx", ".ts", ".tsx", ".vue", ".svelte", ".astro"]
+    },
+    "oxfmt": {
+      "command": ["oxfmt", "--lsp"],
+      "disabled": false,
+      "extensions": [".js", "jsx", ".ts", ".tsx", ".json", ".jsonc", ".vue", ".svelte", ".astro", ".yml", "yaml"]
     },
     "vtsls": {
       "command": ["vtsls", "--stdio"],

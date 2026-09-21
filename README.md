@@ -236,7 +236,8 @@ Runtime version management tool
 | Tools | Description |
 | :---- | :---------- |
 | [shfmt](https://github.com/mvdan/sh) | Shell Formatter |
-| [biome](https://github.com/biomejs/biome) | ESLint & Prettier replacement |
+| [oxfmt](https://github.com/oxc-project/oxc) | Formatter for the JavaScript ecosystem |
+| [oxlint](https://github.com/oxc-project/oxc) | Linter for JS / TS |
 | [ruff](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
 | [tombi](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
 | [yamlfmt](https://github.com/google/yamlfmt) | YAML Formatter |
