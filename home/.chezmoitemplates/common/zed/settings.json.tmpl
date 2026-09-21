@@ -260,12 +260,6 @@
         "arguments": ["lsp"]
       }
     },
-    "biome": {
-      "settings": {
-        "require_config_file": true,
-        "config_path": "./biome.json"
-      }
-    },
     "oxfmt": {
       "initialization_options": {
         "settings": {
@@ -280,7 +274,7 @@
           "configPath": "oxlint.config.ts",
           "run": "onType",
           "disableNestedConfig": false,
-          "fixKind": "safe_fix",
+          "fixKind": "safe_fix_or_suggestion",
           "typeAware": true,
           "unusedDisableDirectives": "deny"
         }
@@ -365,38 +359,56 @@
     "JavaScript": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!!biome", "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!biome", "!prettier", "!eslint", "..."]
     },
     "TypeScript": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "biome",  "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!biome",  "!prettier", "!eslint", "..."]
     },
     "TSX": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!!biome", "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": [ "vtsls", "!typescript-language-server", "oxlint", "oxfmt", "!tsgo", "!biome", "!prettier", "!eslint", "..."]
     },
     "JSON": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": ["oxlint", "!biome", "!prettier", "!eslint", "..."]
     },
     "JSONC": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
-      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": ["oxlint", "!biome", "!prettier", "!eslint", "..."]
     },
     "YAML": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "external": { "command": "yamlfmt", "arguments": [ "--filename", "{buffer_path}" ] } },
-      "language_servers": ["!!biome", "!prettier", "!eslint", "..."]
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
+      "language_servers": ["oxlint", "!biome", "!prettier", "!eslint", "..."]
     },
     "TOML": {
       "format_on_save": "on",
@@ -417,7 +429,10 @@
     "CSS": {
       "format_on_save": "on",
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "oxfmt" } },
+      "formatter": [
+        { "language_server": { "name": "oxfmt" } },
+        { "code_action": "source.fixAll.oxc" }
+      ],
       "language_servers": ["!biome", "!prettier", "!eslint", "..."]
     },
     "Markdown": {
