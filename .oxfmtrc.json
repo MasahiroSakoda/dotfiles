@@ -6,7 +6,7 @@
     ".agents/skills/**",
     "docs/**",
     "karabiner/karabiner.json",
-    "raycast/snippets/*.json",
+    "raycast/snippets/*.json"
   ],
   "trailingComma": "all",
   "arrowParens": "always"
