@@ -3,7 +3,7 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "rumdl", "server" },
-  filetypes    = { "markdown", "markdown.mdx", "vimwiki" },
+  filetypes    = { "markdown" },
   root_markers = { ".rumdl.toml", "rumdl.toml", ".markdownlint.json", ".markdownlint.yaml" },
   single_file_support = true,
 }
