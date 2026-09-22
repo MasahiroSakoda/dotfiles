@@ -8,6 +8,6 @@
     "karabiner/karabiner.json",
     "raycast/snippets/*.json"
   ],
-  "trailingComma": "all",
+  "trailingComma": "none",
   "arrowParens": "always"
 }
