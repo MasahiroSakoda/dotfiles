@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/refs/heads/main/npm/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "ignorePatterns": [".agents/skills/**"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+  },
+  "env": {
+    "builtin": true
+  }
+}
