@@ -30,6 +30,10 @@ pre-commit:
             run: rumdl check --diff {staged_files}
             glob: ["*.{md,mdx}"]
             exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+          - name: oxfmt
+            run: oxfmt --no-error-on-unmatched-pattern {staged_files}
+            glob: ["*.{js,jsx,ts,tsx,vue,svelte,astro,json,jsonc,yml,yaml}"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
           - name: tombi
             run: tombi lint --quiet {staged_files}
             glob: ["*.toml"]
