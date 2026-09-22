@@ -4,16 +4,15 @@ description  = "List and manage Docker containers"
 requirements = ["docker", "jq"]
 
 [source]
-command = [
-  {
-    name = "Running",
-    run  = "docker ps --format '{{.Names}}\\t{{.Image}}\\t{{.Status}}'"
-  },
-  {
-    name = "All",
-    run  = "docker ps -a --format '{{.Names}}\\t{{.Image}}\\t{{.Status}}'"
-  },
-]
+
+  [[source.command]]
+  name = "Running"
+  run  = "docker ps --format '{{.Names}}\\t{{.Image}}\\t{{.Status}}'"
+
+  [[source.command]]
+  name = "All"
+  run = "docker ps -a --format '{{.Names}}\\t{{.Image}}\\t{{.Status}}'"
+
 display = "{split:\\t:0} ({split:\\t:2})"
 output  = "{split:\\t:0}"
 
