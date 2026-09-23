@@ -4,18 +4,17 @@ description  = "A channel to find and select text from files"
 requirements = ["rg", "bat"]
 
 [source]
-command = [
-  {
-    name = "Default",
-    run  = "rg . --no-heading --line-number --colors 'match:fg:white' --colors 'path:fg:blue' --color=always"
-  },
-  {
-    name = "Hidden",
-    run  = "rg . --no-heading --line-number --hidden --colors 'match:fg:white' --colors 'path:fg:blue' --color=always"
-  },
-]
 ansi    = true
 output  = "{strip_ansi|split:\\::..2}"
+
+  [[source.command]]
+  name = "Default"
+  run  = "rg . --no-heading --line-number --colors 'match:fg:white' --colors 'path:fg:blue' --color=always"
+
+  [[source.command]]
+  name = "Hidden"
+  run  = "rg . --no-heading --line-number --hidden --colors 'match:fg:white' --colors 'path:fg:blue' --color=always"
+
 
 [preview]
 command = "bat -n --color=always '{strip_ansi|split:\\::0}'"

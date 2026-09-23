@@ -1,0 +1,49 @@
+[metadata]
+name = "obsidian-vaults"
+description = "Browse and move Obsidian Vault"
+requirements = ["jq"]
+
+[source]
+ansi   = true
+output = "{strip_ansi|split:  :..}"
+
+  [[source.command]]
+  name = " Vault"
+  {{- $json := "" }}
+  {{- if eq .chezmoi.os "darwin" }}
+  {{- $json = "~/Library/Application\\\\ Support/obsidian/obsidian.json" }}
+  {{- else if eq .chezmoi.os "linux" }}
+  {{- $json = "~/config/obsidian/obsidian.json" }}
+  {{- end }}
+  run  = """
+    cat {{ $json }} |
+    jq -r '.vaults | to_entries[] | [(.value.path | split("/") | last), .value.path | @sh] | @tsv' |
+    column -t -s \\$'\t'
+  """
+
+[ui]
+layout = "landscape"
+
+[ui.input_bar]
+position = "top"
+prompt = "  "
+
+[ui.preview_panel]
+header = "{strip_ansi|split: :..2}"
+footer = "⏎ : move"
+
+[preview]
+command = [
+  "eza --all --tree --icons --header --color=always --group-directories-first --git-ignore {strip_ansi|split:  :1..}",
+]
+
+[keybindings]
+enter = "actions:move"
+
+[actions.move]
+description = ""
+command     = "cd {strip_ansi|split:  :1..} && $SHELL"
+mode        = "execute"
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
