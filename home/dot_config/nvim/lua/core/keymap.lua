@@ -35,14 +35,25 @@ wk.add({
   { "]",  group = "Next",        icon = "󰒭 ", desc = " Next" },
   { "g",  group = "Go to",       icon = " ", desc = " Go to" },
   { "gr", group = "LSP Actions", icon = " ", desc = " LSP Actions" },
-  { "gs", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
-  { "gS", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
   { "j",  group = "Jump",        icon = " ", desc = " Jump to" },
   { "z",  group = "Fold",        icon = " ", desc = " Fold / Cursor" },
   { "\\", group = "Toggle",      icon = " ", desc = " Toggle keymaps" },
 
   { "<Leader>c", group = "Call Hierarchy", icon = " ", desc = " Call Hierarchy" },
 })
+
+---------------------------------------------------------------------------
+-- Surround
+---------------------------------------------------------------------------
+
+wk.add({
+  -- Normal mode
+  { "ys",  "<Plug>(nvim-surround-normal)",      mode = "n", icon = " ", desc = "Add a surrounding pair (motion)" },
+  { "yss", "<Plug>(nvim-surround-normal-cur)",  mode = "n", icon = " ", desc = "Add a surrounding pair (cursor)" },
+  { "yS",  "<Plug>(nvim-surround-normal-line)", mode = "n", icon = " ", desc = "Add a surrounding pair (line)" },
+  { "cs",  "<Plug>(nvim-surround-change)",      mode = "n", icon = " ", desc = "Change a surrounding pair" },
+  { "ds",  "<Plug>(nvim-surround-delete)",      mode = "n", icon = " ", desc = "Delete a surrounding pair" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- which-key: <Leader> + w

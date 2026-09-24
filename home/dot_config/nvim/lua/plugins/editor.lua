@@ -43,7 +43,9 @@ return {
     "kylechui/nvim-surround",
     version = "^4",
     event   = { "BufReadPost", "BufNewFile" },
-    config  = function() require("user.surround") end,
+    config = function()
+      vim.g.nvim_surround_no_normal_mappings = true
+    end,
   },
   {
     "wansmer/treesj",
