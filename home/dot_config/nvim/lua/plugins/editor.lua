@@ -46,10 +46,9 @@ return {
     config  = function() require("user.surround") end,
   },
   {
-    "nvim-mini/mini.splitjoin",
-    version = "*",
+    "wansmer/treesj",
     event = "VeryLazy",
-    opts = { mappings = { toggle = "J" } },
+    config = function() require("user.treesj") end,
   },
   {
     "folke/trouble.nvim",
