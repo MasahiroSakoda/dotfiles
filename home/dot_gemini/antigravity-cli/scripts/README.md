@@ -21,5 +21,5 @@
 ### Output Preview
 
 ```text
-🟢 • 🤖 3.5-Flash • 🛡️ sandbox • 📁 ~/.l/s/chezmoi • 💬 [░░░░░░░░] 0% • 📋 0 • 📦 0
+🟢 • 🤖 3.8-Flash • 🛡️ sandbox • 📁 ~/.l/s/chezmoi • 💬 [░░░░░░░░] 0% • 📋 0 • 📦 0
 ```

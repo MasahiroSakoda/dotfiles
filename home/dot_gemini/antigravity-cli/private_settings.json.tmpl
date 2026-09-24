@@ -2,10 +2,7 @@
   "allowNonWorkspaceAccess": true,
   "artifactReviewPolicy": "agent-decides",
   "colorScheme": "tokyo night",
-  "editor": "auto",
-  "enableTelemetry": false,
-  "enableTerminalSandbox": false,
-  "model": "Gemini 3.8 Flash (High)",
+  "model": {{ index .agy.models.ultra 1 | quote }},
   "notifications": true,
   "permissions": {
     {{- $allow := list -}}
@@ -21,26 +18,24 @@
     {{- range .agents.permissions.write.deny -}}{{- $deny = append $deny (printf "write_file(%s)" .) -}}{{- end }}
     {{- range .agents.permissions.bash.deny -}}{{- $deny = append $deny (printf "command(%s)" .) -}}{{- end }}
     "allow": {{ $allow | toPrettyJson | indent 4 | trim }},
-    "ask": {{ $ask | toPrettyJson | indent 4 | trim }},
-    "deny": {{ $deny | toPrettyJson | indent 4 | trim }}
+    "deny": {{ $deny | toPrettyJson | indent 4 | trim }},
+    "ask": {{ $ask | toPrettyJson | indent 4 | trim }}
   },
   "runningLightSpeed": "fast",
   "showFeedbackSurvey": false,
-  "showTips": true,
   "statusLine": {
     "type": "command",
-    "command": "bun run --silent -i ~/.gemini/antigravity-cli/scripts/statusline.ts",
+    "command": "~/.gemini/antigravity-cli/scripts/statusline.sh",
     "enabled": true
   },
   "title": {
     "type": "command",
-    "command": "bun run --silent -i ~/.gemini/antigravity-cli/scripts/title.ts",
+    "command": "~/.gemini/antigravity-cli/scripts/title.sh",
     "enabled": true
   },
-  "toolPermission": "request-review",
   "trustedWorkspaces": [
-    {{ .chezmoi.workingTree | replace .chezmoi.homeDir "~" | quote }},
-    {{ joinPath .git.ghq_root .git.user | replace .chezmoi.homeDir "~" | quote }}
+    {{ .chezmoi.workingTree | quote }},
+    {{ joinPath .git.ghq_root .git.user | quote }}
   ],
   "verbosity": "low"
 }
