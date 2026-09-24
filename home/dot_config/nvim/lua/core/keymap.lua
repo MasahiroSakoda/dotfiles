@@ -35,14 +35,25 @@ wk.add({
   { "]",  group = "Next",        icon = "󰒭 ", desc = " Next" },
   { "g",  group = "Go to",       icon = " ", desc = " Go to" },
   { "gr", group = "LSP Actions", icon = " ", desc = " LSP Actions" },
-  { "gs", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
-  { "gS", group = "Surround",    icon = "󰅪 ", desc = " Surround" },
   { "j",  group = "Jump",        icon = " ", desc = " Jump to" },
   { "z",  group = "Fold",        icon = " ", desc = " Fold / Cursor" },
   { "\\", group = "Toggle",      icon = " ", desc = " Toggle keymaps" },
 
   { "<Leader>c", group = "Call Hierarchy", icon = " ", desc = " Call Hierarchy" },
 })
+
+---------------------------------------------------------------------------
+-- Surround
+---------------------------------------------------------------------------
+
+wk.add({
+  -- Normal mode
+  { "ys",  "<Plug>(nvim-surround-normal)",      mode = "n", icon = " ", desc = "Add a surrounding pair (motion)" },
+  { "yss", "<Plug>(nvim-surround-normal-cur)",  mode = "n", icon = " ", desc = "Add a surrounding pair (cursor)" },
+  { "yS",  "<Plug>(nvim-surround-normal-line)", mode = "n", icon = " ", desc = "Add a surrounding pair (line)" },
+  { "cs",  "<Plug>(nvim-surround-change)",      mode = "n", icon = " ", desc = "Change a surrounding pair" },
+  { "ds",  "<Plug>(nvim-surround-delete)",      mode = "n", icon = " ", desc = "Delete a surrounding pair" },
+}, opts)
 
 ---------------------------------------------------------------------------
 -- which-key: <Leader> + w
@@ -406,21 +417,6 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- HTTP Client: <Leader> + k
----------------------------------------------------------------------------
-wk.add({
-  mode = "n",
-  { "<Leader>k", group = "kulala.nvim", icon = "🛜 " },
-  { "<Leader>ks", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = " Open scratchpad" },
-  { "<Leader>kS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = " Search" },
-  { "<Leader>ke", "<CMD>lua require'kulala'.show_env()<CR>",    icon = "󰫧 ", desc = " Show Environment" },
-  { "<Leader>kc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = " Copy as cURL" },
-  { "<Leader>kp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = " Paste from cURL" },
-  { "<Leader>ka", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = " Run all requests" },
-  { "<Leader>kr", "<CMD>lua require'kulala'.replay()<CR>",      icon = " ", desc = " Replay Previous Run" },
-})
-
----------------------------------------------------------------------------
 -- Feed: <Leader> + n
 ---------------------------------------------------------------------------
 if not is_vscode then
@@ -446,6 +442,7 @@ if not is_vscode then
     { "\\z", "<CMD>lua Snacks.toggle.zen():toggle()<CR>", icon = " ", desc = " Zen Mode" },
     { "<Leader>/", "<CMD>HlSearchLensToggle<CR>",               icon = " ", desc = " Hlsearch lens" },
     { "\\c",       "<CMD>ColorizerToggle<CR>",                  icon = " ", desc = " Colorizer" },
+    { "J",         "<CMD>TSJToggle<CR>",                        icon = " ", desc = " Toggle split/join" },
     { "<C-,>",     "<CMD>lua Snacks.terminal()<CR>", mode = nt, icon = " ", desc = " Terminal" },
   }, opts)
 end

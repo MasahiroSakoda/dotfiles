@@ -41,37 +41,21 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    version = "^3.0.0",
+    version = "^4",
     event   = { "BufReadPost", "BufNewFile" },
-    config  = function() require("user.surround") end,
+    config = function()
+      vim.g.nvim_surround_no_normal_mappings = true
+    end,
   },
   {
-    "nvim-mini/mini.splitjoin",
-    version = "*",
+    "wansmer/treesj",
     event = "VeryLazy",
-    opts = { mappings = { toggle = "J" } },
-  },
-  {
-    "nvim-mini/mini.align",
-    version = "*",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.align") end,
+    config = function() require("user.treesj") end,
   },
   {
     "folke/trouble.nvim",
     cmd = { "Trouble" },
     config = function() require("lsp.config.trouble") end,
-  },
-  {
-    "stevearc/conform.nvim",
-    event  = { "BufWritePre" },
-    cmd    = { "ConformInfo" },
-    config = function() require("user.formatter") end,
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.linter") end,
   },
   -- Tex
   {
