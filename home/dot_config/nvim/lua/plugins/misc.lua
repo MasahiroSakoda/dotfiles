@@ -15,11 +15,6 @@ return {
     config = function() require("user.overseer") end,
   },
   {
-    "mistweaverco/kulala.nvim",
-    ft     = { "http", "rest" },
-    config = function() require("user.kulala") end,
-  },
-  {
     "neo451/feed.nvim",
     cmd    = { "Feed" },
     cond   = not vim.g.vscode,

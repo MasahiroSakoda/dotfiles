@@ -13,5 +13,4 @@ return {
     dependencies = { "mfussenegger/nvim-dap" },
     cmd = { "DapViewToggle", "DapViewWatch", "DapViewJump", "DapViewShow", "DapViewNavigate" },
   },
-  { "jbyuki/one-small-step-for-vimkind", ft = "lua" },
 }

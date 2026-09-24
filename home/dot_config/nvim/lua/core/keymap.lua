@@ -406,21 +406,6 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- HTTP Client: <Leader> + k
----------------------------------------------------------------------------
-wk.add({
-  mode = "n",
-  { "<Leader>k", group = "kulala.nvim", icon = "🛜 " },
-  { "<Leader>ks", "<CMD>lua require'kulala'.scratchpad()<CR>",  icon = "󰌘 ", desc = " Open scratchpad" },
-  { "<Leader>kS", "<CMD>lua require'kulala'.search()<CR>",      icon = " ", desc = " Search" },
-  { "<Leader>ke", "<CMD>lua require'kulala'.show_env()<CR>",    icon = "󰫧 ", desc = " Show Environment" },
-  { "<Leader>kc", "<CMD>lua require'kulala'.copy()<CR>",        icon = " ", desc = " Copy as cURL" },
-  { "<Leader>kp", "<CMD>lua require'kulala'.from_curl()<CR>",   icon = " ", desc = " Paste from cURL" },
-  { "<Leader>ka", "<CMD>lua require'kulala'.run_all()<CR>",     icon = " ", desc = " Run all requests" },
-  { "<Leader>kr", "<CMD>lua require'kulala'.replay()<CR>",      icon = " ", desc = " Replay Previous Run" },
-})
-
----------------------------------------------------------------------------
 -- Feed: <Leader> + n
 ---------------------------------------------------------------------------
 if not is_vscode then
