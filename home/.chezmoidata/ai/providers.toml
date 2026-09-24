@@ -248,7 +248,7 @@ name    = "GMI Cloud"
 api     = "openai-completions"
 npm     = "@ai-sdk/openai-compatible"
 baseUrl = "https://api.gmi-serving.com/v1"
-apiKey  = "$GMICLOUD_TOKEN"
+apiKey  = "$GMICLOUD_API_KEY"
 
   [[ai.providers.gmicloud.models]]
   id        = "MiniMaxAI/MiniMax-M3"
