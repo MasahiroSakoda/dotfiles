@@ -1,0 +1,93 @@
+name: dotfiles-harness
+version: 1.0.0
+description: APM project for chezmoi
+author: MasahiroSakoda
+targets:
+  - opencode
+dependencies:
+  apm:
+    - github/awesome-copilot/skills/github-actions-hardening#6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+    - github/awesome-copilot/skills/github-actions-efficiency#6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+    - anthropics/skills/skills/skill-creator#33375500bcea98d610eb30ce10ac4e59b89c390d
+    - mattpocock/skills/skills/engineering/domain-modeling#v1.2.3
+    - mattpocock/skills/skills/engineering/grill-with-docs#v1.2.3
+    - mattpocock/skills/skills/engineering/to-spec#v1.2.3
+    - mattpocock/skills/skills/engineering/to-tickets#v1.2.3
+    - mattpocock/skills/skills/engineering/wayfinder#v1.2.3
+    - mattpocock/skills/skills/productivity/grilling#v1.2.3
+    - mattpocock/skills/skills/productivity/grill-me#v1.2.3
+    - mattpocock/skills/skills/productivity/handoff#v1.2.3
+    - mattpocock/skills/skills/productivity/writing-for-agents#v1.2.3
+    - vercel-labs/skills/skills/find-skills#7407f3893ad4dceab546ac002c3ef806e4000c73
+    - ayghri/i-have-adhd/skills/i-have-adhd#839872f9d1cd634fed642b4589ce7226199cc15f
+    - MasahiroSakoda/skills/skills/chezmoi#v1.0.0
+    - MasahiroSakoda/skills/skills/git-commit#v1.0.0
+    - MasahiroSakoda/skills/skills/git-changelog#v1.0.0
+    - softaworks/agent-toolkit/skills/crafting-effective-readmes#3027f20f3181758385a1bb8c022d4041dfb4de84
+    - modem-dev/hunk/packages/hunk/skills/hunk-review#v0.22.0
+  mcp:
+    - name: grep.app
+      registry: false
+      transport: http
+      url: https://mcp.grep.app
+    - name: context7
+      registry: false
+      transport: http
+      url: https://mcp.context7.com/mcp
+  # lsp:
+  #   - name: rumdl
+  #     command: rumdl
+  #     args: ["server"]
+  #     extensionToLanguage:
+  #       .md: markdown
+  #     transport: stdio
+  #   - name: jsonls
+  #     command: vscode-json-languageserver
+  #     args: ["--stdio"]
+  #     extensionToLanguage:
+  #       .json: json
+  #       .jsonc: json
+  #   - name: yaml-language-server
+  #     command: yaml-language-server
+  #     args: ["--stdio"]
+  #     extensionToLanguage:
+  #       .yml: yaml
+  #       .yaml: yaml
+  #   - name: tombi
+  #     command: tombi
+  #     args: ["lsp"]
+  #     extensionToLanguage:
+  #       .toml: toml
+  #   - name: bash-language-server
+  #     command: bash-language-server
+  #     args: ["server"]
+  #     extensionToLanguage:
+  #       .sh: shellscript
+  #       .bash: shellscript
+  #   - name: fish-lsp
+  #     command: fish-lsp
+  #     args: ["start"]
+  #     extensionToLanguage:
+  #       .fish: fish
+  #   - name: oxlint
+  #     command: oxlint
+  #     args: ["--lsp"]
+  #     extensionToLanguage:
+  #       .js: javascript
+  #       .ts: typescript
+  #   - name: oxfmt
+  #     command: oxfmt
+  #     args: ["--lsp"]
+  #     extensionToLanguage:
+  #       .js: javascript
+  #       .ts: typescript
+  #       .json: json
+  #       .jsonc: json
+  #       .yml: yaml
+  #       .yaml: yaml
+  #   - name: lua-language-server
+  #     command: lua-language-server
+  #     extensionToLanguage:
+  #       .lua: lua
+includes: auto
+scripts: {}

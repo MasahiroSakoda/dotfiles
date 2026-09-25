@@ -14,8 +14,6 @@
     "./plugins/limits.ts",
     "./plugins/rtk.ts"
   ],
-  {{/* Global Instructions */ -}}
-  "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
   "permission": {
     "todoread": "allow",
@@ -41,7 +39,7 @@
   "compaction": { "auto": true, "prune": true },
   {{/* File Watcher Configurations */ -}}
   "watcher": {
-    "ignore": [".git/**", ".jj/**", "**/*.log", "node_modules/**", "dist/**"]
+    "ignore": [".git/**", "**/*.log", "node_modules/**", "dist/**"]
   },
   {{/* Global AI Provider config */ -}}
   "enabled_providers": {{ .opencode.providers.enabled | toPrettyJson | indent 2 | trim }},
@@ -65,124 +63,7 @@
   "agent": {
     {{/* Builtin Primary Agents */ -}}
     "plan": { "disable": false },
-    "build": { "disable": false },
-    {{/* Builtin Subagents */ -}}
-    "general": { "disable": true },
-    "explore": { "disable": true },
-    "scout": { "disable": true },
-    {{/* Custom Agents */ -}}
-    "auditor": { "disable": false },
-    "translator": { "disable": false }
-  },
-  {{/* Formatter Configurations */ -}}
-  "formatter": {
-    "shfmt": { "command": ["shfmt", "$FILE"], "extensions": [".sh", ".bash", ".zsh"] },
-    "ruff": { "command": [ "ruff", "format", "$FILE" ], "extensions": [".py", ".pyi"] },
-    "stylua": { "command": [ "stylua", "$FILE" ], "extensions": [".lua"] },
-    "rustfmt": { "command": ["rustfmt", "$FILE"], "extensions": [".rs"] },
-    "gofmt": { "command": ["golangci-lint", "format", "$FILE"], "extensions": [".go"] }
-  },
-  {{/* Language Server Configurations */ -}}
-  "lsp": {
-    "rumdl": {
-      "command": ["rumdl", "server"],
-      "disabled": false,
-      "extensions": [".md", ".markdown", ".mdx"]
-    },
-    "jsonls": {
-      "command": ["vscode-json-languageserver", "--stdio"],
-      "disabled": false,
-      "extensions": [".json", ".jsonc"]
-    },
-    "yamlls": {
-      "command": ["yaml-language-server", "--stdio"],
-      "disabled": false,
-      "extensions": [".yml", ".yaml"],
-      "initialization": {
-        "redhat": {"telemetry": { "enabled": true }},
-        "yaml": {"schemas": { "https://www.schemastore.org/github-workflow.json": "/.github/workflows/*" }}
-      }
-    },
-    "tombi": {
-      "command": ["tombi", "lsp"],
-      "disabled": false,
-      "extensions": [".toml"]
-    },
-    "texlab": {
-      "command": ["texlab"],
-      "disabled": false,
-      "extensions": [".tex", ".bib"]
-    },
-    "bashls": {
-      "command": ["bash-language-server", "server"],
-      "disabled": false,
-      "extensions": [".sh", "bash"]
-    },
-    "fish-lsp": {
-      "command": ["fish-lsp", "start"],
-      "disabled": false,
-      "extensions": [".fish"]
-    },
-    "clangd": {
-      "command": ["clangd"],
-      "disabled": false,
-      "extensions": [".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".cxx", ".hxx", ".hcc"]
-    },
-    "rust_analyzer": {
-      "command": ["rust_analyzer"],
-      "disabled": false,
-      "extensions": [".rs"]
-    },
-    "gopls": {
-      "command": ["gopls", "serve"],
-      "disabled": false,
-      "extensions": [".go", ".mod", ".sum"]
-    },
-    "ty": {
-      "command": ["ty", "server"],
-      "disabled": false,
-      "extensions": [".py"]
-    },
-    "oxlint": {
-      "command": ["oxlint", "--lsp"],
-      "disabled": false,
-      "extensions": [".js", "jsx", ".ts", ".tsx", ".vue", ".svelte", ".astro"]
-    },
-    "oxfmt": {
-      "command": ["oxfmt", "--lsp"],
-      "disabled": false,
-      "extensions": [".js", "jsx", ".ts", ".tsx", ".json", ".jsonc", ".vue", ".svelte", ".astro", ".yml", "yaml"]
-    },
-    "vtsls": {
-      "command": ["vtsls", "--stdio"],
-      "disabled": false,
-      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"]
-    },
-    "denols": {
-      "command": ["deno", "lsp"],
-      "disabled": false,
-      "extensions": [".js", ".jsx", ".ts", ".tsx", ".vue", ".svelte", ".astro"]
-    },
-    "lua_ls": {
-      "command": ["lua-language-server"],
-      "disabled": false,
-      "extensions": [".lua"]
-    },
-    "sqls": {
-      "command": ["sqls"],
-      "disabled": false,
-      "extensions": [".sql"]
-    },
-    "dockerls": {
-      "command": ["docker-langserver", "start", "--stdio"],
-      "disabled": false,
-      "extensions": ["Dockerfile", "Dockerfile.runtime"]
-    },
-    "terraform-ls": {
-      "command": ["terraform-ls", "serve"],
-      "disabled": false,
-      "extensions": [".tf", ".hcl"]
-    }
+    "build": { "disable": false }
   }
 }
 {{- /*

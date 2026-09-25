@@ -1,12 +1,8 @@
 ---
-description: Interacts with live Hunk diff review sessions via CLI. Inspects review focus, navigates files, hunks, and exact lines, reloads session contents, adds inline review comments, and paints attention marks on character ranges. Use when the user has a Hunk session running or wants to review diffs interactively.
-metadata:
-    github-path: packages/hunk/skills/hunk-review
-    github-ref: refs/tags/v0.22.0
-    github-repo: https://github.com/modem-dev/hunk
-    github-tree-sha: e4d154cec8bca19c256a3894c254f449aaedcf62
 name: hunk-review
+description: Interacts with live Hunk diff review sessions via CLI. Inspects review focus, navigates files, hunks, and exact lines, reloads session contents, adds inline review comments, and paints attention marks on character ranges. Use when the user has a Hunk session running or wants to review diffs interactively.
 ---
+
 # Hunk Review
 
 Hunk is an interactive terminal diff viewer. The TUI is for the user -- do NOT run `hunk diff`, `hunk show`, or other interactive commands directly. Use `hunk session *` CLI commands to inspect and control live sessions through the local daemon.

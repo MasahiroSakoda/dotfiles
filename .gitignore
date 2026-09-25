@@ -122,3 +122,6 @@ luac.out
 # Others
 ##################################################
 .rumdl_cache
+
+# APM dependencies
+apm_modules/
