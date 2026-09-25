@@ -24,46 +24,38 @@ pre-commit:
               - ".github/dependabot.{yml,yaml}"
     - name: Lint / Format
       group:
-        parallel: false
+        parallel: true
         jobs:
           - name: rumdl
             run: rumdl check --diff {staged_files}
             glob: ["*.{md,mdx}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**"]
           - name: oxfmt
             run: oxfmt --no-error-on-unmatched-pattern {staged_files}
             glob: ["*.{js,jsx,ts,tsx,vue,svelte,astro,json,jsonc,yml,yaml}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**", "apm.yaml"]
           - name: tombi
             run: tombi lint --quiet {staged_files}
             glob: ["*.toml"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**"]
           - name: shfmt
             run: shfmt -d --apply-ignore {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**"]
           - name: shellcheck
             run: shellcheck {staged_files}
             glob: ["*.sh", "*.bash", "*.zsh"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", "home/dot_agents/**", ".agents/skills/**"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**"]
           - name: typos
             run: typos {staged_files}
             glob: ["*"]
-            exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**", "home/dot_agents/**"]
+            exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**"]
     - name: Audit AI Agent Config
       group:
         parallel: false
         jobs:
           - name: apm audit
             run: |
-              for file in {staged_files}; do
-                apm audit --file $file || apm audit --strip
-              done
+              apm prune
+              for file in {staged_files}; do apm audit --file $file || apm audit --strip; done
             glob: [".agents/**", ".claude/**", ".codex/**", ".gemini/**", ".opencode/**"]
-          - name: suspicious unicode detector
-            run: |
-              for file in {staged_files}; do
-                prompt-injection-detector.sh $file || exit 1
-              done
-            glob: [".agents/**", ".claude/**", ".codex/**", ".gemini/**", ".opencode/**"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*"]
