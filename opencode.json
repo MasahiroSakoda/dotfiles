@@ -34,234 +34,104 @@
       "*": "ask"
     }
   },
-  "instructions": [
-    "AGENTS.md"
-  ],
+  "instructions": ["AGENTS.md"],
   "default_agent": "build",
   "agent": {
-    "plan": {
-      "disable": true
-    },
+    "plan": { "disable": true },
     "build": {
       "disable": false,
-      "permission": {
-        "memory_*": "allow",
-        "context7_*": "allow",
-        "gh_grep_*": "allow"
-      }
+      "permission": { "memory_*": "allow", "context7_*": "allow", "gh_grep_*": "allow" }
     },
     "general": {
       "disable": false,
-      "permission": {
-        "memory_*": "allow",
-        "context7_*": "allow",
-        "gh_grep_*": "allow"
-      }
+      "permission": { "memory_*": "allow", "context7_*": "allow", "gh_grep_*": "allow" }
     },
     "explore": {
       "disable": false,
-      "permission": {
-        "edit": "deny",
-        "gh_grep_*": "allow"
-      }
+      "permission": { "edit": "deny", "gh_grep_*": "allow" }
     },
-    "scout": {
-      "disable": true
-    },
+    "scout": { "disable": true },
     "auditor": {
       "disable": false,
-      "permission": {
-        "edit": "deny",
-        "gh_grep_*": "allow"
-      }
+      "permission": { "edit": "deny", "gh_grep_*": "allow" }
     },
-    "translator": {
-      "disable": false
-    }
+    "translator": { "disable": false }
   },
   "formatter": {
     "shfmt": {
-      "command": [
-        "shfmt",
-        "$FILE"
-      ],
-      "extensions": [
-        ".sh",
-        ".bash",
-        ".zsh"
-      ]
+      "command": ["shfmt", "$FILE"],
+      "extensions": [".sh", ".bash", ".zsh"]
     },
     "stylua": {
-      "command": [
-        "stylua",
-        "$FILE"
-      ],
-      "extensions": [
-        ".lua"
-      ]
+      "command": ["stylua", "$FILE"],
+      "extensions": [".lua"]
     }
   },
   "lsp": {
     "rumdl": {
-      "command": [
-        "rumdl",
-        "server"
-      ],
+      "command": ["rumdl", "server"],
       "disabled": false,
-      "extensions": [
-        ".md",
-        ".markdown",
-        ".mdx"
-      ]
+      "extensions": [".md", ".markdown", ".mdx"]
     },
     "jsonls": {
-      "command": [
-        "vscode-json-languageserver",
-        "--stdio"
-      ],
+      "command": ["vscode-json-languageserver", "--stdio"],
       "disabled": false,
-      "extensions": [
-        ".json",
-        ".jsonc"
-      ]
+      "extensions": [".json", ".jsonc"]
     },
     "yamlls": {
-      "command": [
-        "yaml-language-server",
-        "--stdio"
-      ],
+      "command": ["yaml-language-server", "--stdio"],
       "disabled": false,
-      "extensions": [
-        ".yml",
-        ".yaml"
-      ],
+      "extensions": [".yml", ".yaml"],
       "initialization": {
-        "redhat": {
-          "telemetry": {
-            "enabled": true
-          }
-        },
+        "redhat": { "telemetry": { "enabled": true } },
         "yaml": {
-          "schemas": {
-            "https://www.schemastore.org/github-workflow.json": "/.github/workflows/*"
-          }
+          "schemas": { "https://www.schemastore.org/github-workflow.json": "/.github/workflows/*" }
         }
       }
     },
     "tombi": {
-      "command": [
-        "tombi",
-        "lsp"
-      ],
+      "command": ["tombi", "lsp"],
       "disabled": false,
-      "extensions": [
-        ".toml"
-      ]
+      "extensions": [".toml"]
     },
     "bashls": {
-      "command": [
-        "bash-language-server",
-        "server"
-      ],
+      "command": ["bash-language-server", "server"],
       "disabled": false,
-      "extensions": [
-        ".sh",
-        "bash"
-      ]
+      "extensions": [".sh", "bash"]
     },
     "fish-lsp": {
-      "command": [
-        "fish-lsp",
-        "start"
-      ],
+      "command": ["fish-lsp", "start"],
       "disabled": false,
-      "extensions": [
-        ".fish"
-      ]
+      "extensions": [".fish"]
     },
     "ty": {
-      "command": [
-        "ty",
-        "server"
-      ],
+      "command": ["ty", "server"],
       "disabled": false,
-      "extensions": [
-        ".py"
-      ]
+      "extensions": [".py"]
     },
     "oxlint": {
-      "command": [
-        "oxlint",
-        "--lsp"
-      ],
+      "command": ["oxlint", "--lsp"],
       "disabled": false,
-      "extensions": [
-        ".js",
-        "jsx",
-        ".ts",
-        ".tsx",
-        ".vue",
-        ".svelte",
-        ".astro"
-      ]
+      "extensions": [".js", "jsx", ".ts", ".tsx", ".vue", ".svelte", ".astro"]
     },
     "oxfmt": {
-      "command": [
-        "oxfmt",
-        "--lsp"
-      ],
+      "command": ["oxfmt", "--lsp"],
       "disabled": false,
-      "extensions": [
-        ".js",
-        "jsx",
-        ".ts",
-        ".tsx",
-        ".json",
-        ".jsonc",
-        ".vue",
-        ".svelte",
-        ".astro",
-        ".yml",
-        "yaml"
-      ]
+      "extensions": [".js", "jsx", ".ts", ".tsx", ".json", ".jsonc", ".vue", ".svelte", ".astro", ".yml", "yaml"]
     },
     "vtsls": {
-      "command": [
-        "vtsls",
-        "--stdio"
-      ],
+      "command": ["vtsls", "--stdio"],
       "disabled": false,
-      "extensions": [
-        ".ts",
-        ".tsx",
-        ".js",
-        ".jsx",
-        ".mjs",
-        ".cjs",
-        ".mts",
-        ".cts"
-      ]
+      "extensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts"]
     },
     "lua_ls": {
-      "command": [
-        "lua-language-server"
-      ],
+      "command": ["lua-language-server"],
       "disabled": false,
-      "extensions": [
-        ".lua"
-      ]
+      "extensions": [".lua"]
     }
   },
   "mcp": {
-    "grep.app": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.grep.app"
-    },
-    "context7": {
-      "type": "remote",
-      "enabled": true,
-      "url": "https://mcp.context7.com/mcp"
-    }
+    "grep.app": { "type": "remote", "enabled": true, "url": "https://mcp.grep.app" },
+    "context7": { "type": "remote", "enabled": true, "url": "https://mcp.context7.com/mcp" }
   }
 }
