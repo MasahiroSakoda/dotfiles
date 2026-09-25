@@ -1,12 +1,8 @@
 ---
-description: Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.
-metadata:
-    github-path: skills/engineering/domain-modeling
-    github-ref: refs/tags/v1.2.3
-    github-repo: https://github.com/mattpocock/skills
-    github-tree-sha: 959e63161ff78b4b1cd553b2c0e09e0c68418e5f
 name: domain-modeling
+description: Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.
 ---
+
 # Domain Modeling
 
 Actively build and sharpen the project's domain model as you design. This is the *active* discipline — challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `CONTEXT.md` for vocabulary is not this skill — that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)

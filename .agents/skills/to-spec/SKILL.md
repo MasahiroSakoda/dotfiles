@@ -1,13 +1,9 @@
 ---
+name: to-spec
 description: Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.
 disable-model-invocation: true
-metadata:
-    github-path: skills/engineering/to-spec
-    github-ref: refs/tags/v1.2.3
-    github-repo: https://github.com/mattpocock/skills
-    github-tree-sha: dc32a36159f99c854cb470f371106cd38513a15f
-name: to-spec
 ---
+
 This skill takes the current conversation context and codebase understanding and produces a spec. Do NOT interview the user — just synthesize what you already know.
 
 The issue tracker and triage label vocabulary should have been provided to you — run `/setup-matt-pocock-skills` if not.

@@ -1,12 +1,8 @@
 ---
-description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
-metadata:
-    github-path: skills/productivity/grilling
-    github-ref: refs/tags/v1.2.3
-    github-repo: https://github.com/mattpocock/skills
-    github-tree-sha: fd99bcbb818f7ef766b83656fb5fac0b58e223ad
 name: grilling
+description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.
 ---
+
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 
 Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled — the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.

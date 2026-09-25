@@ -1,12 +1,8 @@
 ---
-description: Use when writing or improving README files. Not all READMEs are the same — provides templates and guidance matched to your audience and project type.
-metadata:
-    github-path: skills/crafting-effective-readmes
-    github-ref: refs/heads/main
-    github-repo: https://github.com/softaworks/agent-toolkit
-    github-tree-sha: 72e2a4d89c5a14b762cfc58e3bbd7fd63e9642b0
 name: crafting-effective-readmes
+description: Use when writing or improving README files. Not all READMEs are the same — provides templates and guidance matched to your audience and project type.
 ---
+
 # Crafting Effective READMEs
 
 ## Overview

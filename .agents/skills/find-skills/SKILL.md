@@ -1,12 +1,8 @@
 ---
-description: Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.
-metadata:
-    github-path: skills/find-skills
-    github-ref: refs/tags/v1.5.20
-    github-repo: https://github.com/vercel-labs/skills
-    github-tree-sha: 76a98a285cb0434f3d39e1a873823556330e398b
 name: find-skills
+description: Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.
 ---
+
 # Find Skills
 
 This skill helps you discover and install skills from the open agent skills ecosystem.
