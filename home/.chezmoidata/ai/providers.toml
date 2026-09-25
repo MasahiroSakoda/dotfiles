@@ -9,12 +9,20 @@ baseUrl = "https:/opencode.ai/zen/v1"
 apiKey  = "$OPENCODE_API_KEY"
 
   [[ai.providers.opencode.models]]
-  id            = "mimo-v2.5-free"
-  name          = "Mimo v2.5"
+  id            = "mimo-v2.6-free"
+  name          = "Mimo v2.6"
   reasoning     = true
-  input         = ["text"]
+  input         = ["text", "image"]
   contextWindow = 200000
   maxTokens     = 32000
+
+  [[ai.providers.opencode.models]]
+  id            = "space-bunny-free"
+  name          = "Space Bunny"
+  reasoning     = true
+  input         = ["text"]
+  contextWindow = 1048576
+  maxTokens     = 524288
 
   [[ai.providers.opencode.models]]
   id            = "nemotron-3-ultra-free"
@@ -49,6 +57,14 @@ apiKey  = "$OPENCODE_API_KEY"
   maxTokens     = 131072
 
   [[ai.providers.opencode.models]]
+  id            = "muse-spark-1.2-contributor-free"
+  name          = "Muse Spark 1.2 Contributor"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 1048576
+  maxTokens     = 131072
+
+  [[ai.providers.opencode.models]]
   id            = "jev-1.13-free"
   name          = "Jev 1.13"
   reasoning     = true
@@ -75,28 +91,20 @@ baseUrl = "https:/openrouter.ai/api/v1"
 apiKey  = "$OPENROUTER_API_KEY"
 
   [[ai.providers.openrouter.models]]
+  id            = "stealth/space-bunny-alpha"
+  name          = "Space Bunny Alpha"
+  reasoning     = true
+  input         = ["text", "image"]
+  contextWindow = 1000000
+  maxTokens     = 524288
+
+  [[ai.providers.openrouter.models]]
   id            = "qwen/qwen3.8-27b:free"
   name          = "Qwen3.8 27B"
   reasoning     = true
   input         = ["text"]
-  contextWindow = 1000000
-  maxTokens     = 65556
-
-  [[ai.providers.openrouter.models]]
-  id            = "nex-agi/nex-n2.5-pro:free"
-  name          = "Nex AGI: Nex N2.5 Pro"
-  reasoning     = true
-  input         = ["text", "image"]
   contextWindow = 262144
-  maxTokens     = 235929
-
-  [[ai.providers.openrouter.models]]
-  id            = "nex-agi/nex-n2.5-mini:free"
-  name          = "Nex AGI: Nex N2.5 Mini"
-  reasoning     = true
-  input         = ["text", "image"]
-  contextWindow = 262144
-  maxTokens     = 235929
+  maxTokens     = 235292
 
   [[ai.providers.openrouter.models]]
   id            = "nvidia/nemotron-3.5-lightning:free"
