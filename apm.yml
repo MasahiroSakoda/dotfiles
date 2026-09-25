@@ -9,6 +9,8 @@ targets:
   - opencode
 dependencies:
   apm:
+    - github/awesome-copilot/skills/github-actions-hardening#6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+    - github/awesome-copilot/skills/github-actions-efficiency#6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
     - anthropics/skills/skills/skill-creator#33375500bcea98d610eb30ce10ac4e59b89c390d
     - mattpocock/skills/skills/engineering/domain-modeling#v1.2.3
     - mattpocock/skills/skills/engineering/grill-with-docs#v1.2.3

@@ -69,6 +69,54 @@ dependencies:
     .agents/skills/i-have-adhd/agents/gemini.toml: sha256:5108a6123beb9df24846e0dd3f902c652d18522dfbc56e5762032ea383041c62
     .agents/skills/i-have-adhd/agents/openai.yaml: sha256:2c51291283dcefdca43ca6b0c08172f225c7c26a9783ec444d6bdfa51ca96f8f
   content_hash: sha256:27e3b1d7339b6898419c6df77e1339bbd8362e5926e86bb991417c60af390b81
+- repo_url: github/awesome-copilot
+  name: github-actions-efficiency
+  host: github.com
+  resolved_commit: 6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+  resolved_ref: 6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+  version: unknown
+  virtual_path: skills/github-actions-efficiency
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/github-actions-efficiency
+  - .agents/skills/github-actions-efficiency/SKILL.md
+  - .agents/skills/github-actions-efficiency/references/actions.md
+  - .agents/skills/github-actions-efficiency/references/patterns.md
+  - .agents/skills/github-actions-efficiency/references/reporting.md
+  - .agents/skills/github-actions-efficiency/references/review-rubric.md
+  deployed_file_hashes:
+    .agents/skills/github-actions-efficiency/SKILL.md: sha256:9c41e860468e5c88d83ab6eec70c585b0f122facec2632ea65497b3389139e43
+    .agents/skills/github-actions-efficiency/references/actions.md: sha256:9f24153e0b743a978ec84e08bc64047616d18504965708cc7507437203689fdb
+    .agents/skills/github-actions-efficiency/references/patterns.md: sha256:a9fb61ee95b5f2f4cb372064f5de9d04ca749da1b78d050e42e909e9e97228dd
+    .agents/skills/github-actions-efficiency/references/reporting.md: sha256:18eec5acd0d9e52b450f86b8232e9994c5c5b7760240bcb2e97417f8a847508c
+    .agents/skills/github-actions-efficiency/references/review-rubric.md: sha256:f2fd2bbd34f15f68664e30ea62468f8a5b19bc9b49929dcd082a4c87316b3ce2
+  content_hash: sha256:cb1a6b7a2d06465b26f1245a0f617317032d40f0e63f3237ac67f996ad5eeea3
+- repo_url: github/awesome-copilot
+  name: github-actions-hardening
+  host: github.com
+  resolved_commit: 6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+  resolved_ref: 6c4d33b9cfca967a28bb2962ef4d55e4a384c88c
+  version: unknown
+  virtual_path: skills/github-actions-hardening
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/github-actions-hardening
+  - .agents/skills/github-actions-hardening/SKILL.md
+  - .agents/skills/github-actions-hardening/references/injection.md
+  - .agents/skills/github-actions-hardening/references/permissions-and-tokens.md
+  - .agents/skills/github-actions-hardening/references/report-format.md
+  - .agents/skills/github-actions-hardening/references/supply-chain.md
+  - .agents/skills/github-actions-hardening/references/triggers-and-privilege.md
+  deployed_file_hashes:
+    .agents/skills/github-actions-hardening/SKILL.md: sha256:31a8e7483d978e6267941edefebbe42aaa946bb3d43c9095aa3db343d4a8ff06
+    .agents/skills/github-actions-hardening/references/injection.md: sha256:ebd6ef8d39ba6f1cd3dc13051e6ed4163d1d2ba36518cf0f7393836a211e58ff
+    .agents/skills/github-actions-hardening/references/permissions-and-tokens.md: sha256:7272d00b20cf99c6fcbf34346f76730907c00701aef44bb9cfb7ab3eecac336b
+    .agents/skills/github-actions-hardening/references/report-format.md: sha256:3ecd2442e173bc001f858747873349be7c6c77050470b87ae516647908b1e86e
+    .agents/skills/github-actions-hardening/references/supply-chain.md: sha256:f66f613dbd732ce87c1e76b88208efde8feae3ffe5a3ab405cde4ce3df66f605
+    .agents/skills/github-actions-hardening/references/triggers-and-privilege.md: sha256:465f3f76517e9f5374a73e30f46cb47e1fe62ce9fd81f782808a3abbb2df2756
+  content_hash: sha256:d826005e7e1f7792531836c747c78df9e9caac534dd027b8ad872725340e5df2
 - repo_url: masahirosakoda/skills
   materialization_repo_url: MasahiroSakoda/skills
   name: chezmoi
@@ -677,6 +725,123 @@ deployments:
   - masahirosakoda/skills/skills/git-commit
   active_owner: masahirosakoda/skills/skills/git-commit
   content_hash: sha256:56cbc293a359511462315b5ae7d55cf54d49349fa8d2e78d26e118517c7efad2
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: sha256:9c41e860468e5c88d83ab6eec70c585b0f122facec2632ea65497b3389139e43
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency/references/actions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: sha256:9f24153e0b743a978ec84e08bc64047616d18504965708cc7507437203689fdb
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency/references/patterns.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: sha256:a9fb61ee95b5f2f4cb372064f5de9d04ca749da1b78d050e42e909e9e97228dd
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency/references/reporting.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: sha256:18eec5acd0d9e52b450f86b8232e9994c5c5b7760240bcb2e97417f8a847508c
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-efficiency/references/review-rubric.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-efficiency
+  active_owner: github/awesome-copilot/skills/github-actions-efficiency
+  content_hash: sha256:f2fd2bbd34f15f68664e30ea62468f8a5b19bc9b49929dcd082a4c87316b3ce2
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:31a8e7483d978e6267941edefebbe42aaa946bb3d43c9095aa3db343d4a8ff06
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/references/injection.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:ebd6ef8d39ba6f1cd3dc13051e6ed4163d1d2ba36518cf0f7393836a211e58ff
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/references/permissions-and-tokens.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:7272d00b20cf99c6fcbf34346f76730907c00701aef44bb9cfb7ab3eecac336b
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/references/report-format.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:3ecd2442e173bc001f858747873349be7c6c77050470b87ae516647908b1e86e
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/references/supply-chain.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:f66f613dbd732ce87c1e76b88208efde8feae3ffe5a3ab405cde4ce3df66f605
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/github-actions-hardening/references/triggers-and-privilege.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/github-actions-hardening
+  active_owner: github/awesome-copilot/skills/github-actions-hardening
+  content_hash: sha256:465f3f76517e9f5374a73e30f46cb47e1fe62ce9fd81f782808a3abbb2df2756
 - kind: project-relative
   target: opencode
   value: .agents/skills/grill-me
