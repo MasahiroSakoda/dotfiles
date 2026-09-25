@@ -14,8 +14,6 @@
     "./plugins/limits.ts",
     "./plugins/rtk.ts"
   ],
-  {{/* Global Instructions */ -}}
-  "instructions": ["AGENTS.md", "CLAUDE.md"],
   {{/* Global Permissions */ -}}
   "permission": {
     "todoread": "allow",
@@ -41,7 +39,7 @@
   "compaction": { "auto": true, "prune": true },
   {{/* File Watcher Configurations */ -}}
   "watcher": {
-    "ignore": [".git/**", ".jj/**", "**/*.log", "node_modules/**", "dist/**"]
+    "ignore": [".git/**", "**/*.log", "node_modules/**", "dist/**"]
   },
   {{/* Global AI Provider config */ -}}
   "enabled_providers": {{ .opencode.providers.enabled | toPrettyJson | indent 2 | trim }},
