@@ -5,14 +5,9 @@ on:
       - main
 jobs:
   linter:
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: read
       statuses: write # To report GitHub Actions status checks
     continue-on-error: true
     timeout-minutes: 30
@@ -22,22 +17,40 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Super-linter
-        uses: super-linter/super-linter/slim@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8.7.0
+      - name: Setup mise
+        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        with:
+          mise_toml: .github/mise.toml
+          install: true
+      - name: Collect changed files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: main
-          LOG_LEVEL: WARN
-          LINTER_RULES_PATH: /
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_CHECKOV: true
-          VALIDATE_GITLEAKS: true
-          VALIDATE_RENOVATE: true
-          VALIDATE_JSON: true
-          VALIDATE_YAML: true
-          VALIDATE_BASH: true
-          SHELLCHECK_OPTS: -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083
-          VALIDATE_LUA: true
-          LUACHECK_CONFIG: .luacheckrc
-          VALIDATE_JAVASCRIPT_ES: true
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git diff --name-only -z --diff-filter=ACMR "$BASE_SHA" HEAD > "$RUNNER_TEMP/changed.z"
+          grep -zE '\.(js|jsx|ts|tsx|vue|svelte|astro)$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/js.z" || true
+          grep -zE '\.(sh|bash|zsh)$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/sh.z" || true
+          grep -zE '\.lua$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/lua.z" || true
+          for kind in changed js sh lua; do
+            printf '%-8s %s file(s)\n' "$kind" \
+              "$(tr -cd '\0' < "$RUNNER_TEMP/$kind.z" | wc -c | tr -d ' ')"
+          done
+      - name: Betterleaks
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: betterleaks git --redact --no-banner --log-opts="$BASE_SHA..HEAD" .
+      - name: Oxlint
+        run: xargs -0 -r oxlint < "$RUNNER_TEMP/js.z"
+      - name: Oxfmt
+        run: |
+          xargs -0 -r oxfmt --check --no-error-on-unmatched-pattern \
+            < "$RUNNER_TEMP/changed.z"
+      - name: Shellcheck
+        run: |
+          xargs -0 -r shellcheck \
+            -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083 \
+            < "$RUNNER_TEMP/sh.z"
+      - name: Selene
+        run: xargs -0 -r selene --config .github/selene.toml < "$RUNNER_TEMP/lua.z"

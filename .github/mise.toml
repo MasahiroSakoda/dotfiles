@@ -1,0 +1,13 @@
+# Tool manifest for GitHub Actions.
+# Referenced explicitly via the mise_toml input; not auto-discovered by mise.
+# Kept separate from home/dot_config/mise/config.toml.tmpl, which is a chezmoi
+# template and therefore not valid TOML until rendered.
+# Versions are pinned exactly so CI runs are reproducible.
+[tools]
+"aqua:koalaman/shellcheck"       = "0.11.0"
+"aqua:betterleaks/betterleaks"   = "1.8.1"
+"aqua:oxc-project/oxc/oxfmt"      = "1.84.0"
+"aqua:oxc-project/oxc/oxlint"     = "1.84.0"
+# selene 0.31.0 bundles only the lua51 and roblox standard libraries, so
+# .github/nvim.toml supplies the Neovim and Hammerspoon host globals.
+"aqua:Kampfkarren/selene"         = "0.31.0"

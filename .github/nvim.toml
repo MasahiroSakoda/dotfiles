@@ -1,0 +1,10 @@
+[selene]
+base = "lua51"
+name = "nvim"
+description = "Host globals injected by Neovim and Hammerspoon at runtime"
+
+[vim]
+property = true
+
+[hs]
+property = true
