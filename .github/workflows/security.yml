@@ -8,6 +8,10 @@ on:
       - synchronize
       - reopened
 permissions: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  # synchronize fires on every push, so drop superseded runs.
+  cancel-in-progress: true
 jobs:
   actionlint:
     name: Actionlint actions static checks
