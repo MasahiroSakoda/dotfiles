@@ -4,7 +4,7 @@ on:
     types:
       - opened
       - reopened
-
+permissions: {}
 jobs:
   pr-labeler:
     name: PR Labeler
