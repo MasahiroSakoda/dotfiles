@@ -17,9 +17,6 @@
   - changed-files:
       - any-glob-to-any-file:
           - "**/*.md"
-          - "README.md"
-          - "CONTRIBUTING.md"
-          - "SECURITY.md"
 "Security 🛡️":
   - changed-files:
       - any-glob-to-any-file:
