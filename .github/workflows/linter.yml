@@ -62,15 +62,10 @@ jobs:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: betterleaks git --redact --no-banner --log-opts="$BASE_SHA..HEAD" .
       - name: Oxlint
-        run: xargs -0 -r oxlint < "$RUNNER_TEMP/js.z"
+        run: xargs -0 -r oxlint -- < "$RUNNER_TEMP/js.z"
       - name: Oxfmt
-        run: |
-          xargs -0 -r oxfmt --check --no-error-on-unmatched-pattern \
-            < "$RUNNER_TEMP/changed.z"
+        run: xargs -0 -r oxfmt --check --no-error-on-unmatched-pattern -- < "$RUNNER_TEMP/changed.z"
       - name: Shellcheck
-        run: |
-          xargs -0 -r shellcheck \
-            -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083 \
-            < "$RUNNER_TEMP/sh.z"
+        run: xargs -0 -r shellcheck -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083 -- < "$RUNNER_TEMP/sh.z"
       - name: Selene
-        run: xargs -0 -r selene --config .github/selene.toml < "$RUNNER_TEMP/lua.z"
+        run: xargs -0 -r selene --config .github/selene.toml -- < "$RUNNER_TEMP/lua.z"
