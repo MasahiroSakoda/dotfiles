@@ -68,4 +68,48 @@ jobs:
       - name: Shellcheck
         run: xargs -0 -r shellcheck -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083 -- < "$RUNNER_TEMP/sh.z"
       - name: Selene
-        run: xargs -0 -r selene --config .github/selene.toml -- < "$RUNNER_TEMP/lua.z"
+        run: |
+          # Inline so a config change shows up in the workflow diff.
+          #
+          # This is NOT a trust boundary. `pull_request` runs the workflow from
+          # the merge commit, so a fork can edit this block just as it can edit
+          # a checked-in config. The reviewed manifest is the point.
+          #
+          # selene resolves a custom `std` relative to the config file's own
+          # directory, so nvim.toml has to be written beside selene.toml.
+          cat > "$RUNNER_TEMP/selene.toml" <<'EOF'
+          std = "nvim"
+
+          # home/dot_config/nvim/lua/lsp/config/init.lua uses `goto`, a Lua 5.2
+          # feature. selene 0.31.0 bundles only the lua51 and roblox std
+          # libraries, so this file cannot be parsed. The path is relative to
+          # the working directory, not to this config.
+          exclude = ["home/dot_config/nvim/lua/lsp/config/init.lua"]
+
+          # Allowed because selene's lua51 std misjudges LuaJIT code: it rejects
+          # the `unpack = unpack or table.unpack` compat shim, and wrongly
+          # claims `assert` requires two arguments. The rest mirror the codes
+          # .luacheckrc suppressed.
+          [lints]
+          mixed_table = "allow"
+          unscoped_variables = "allow"
+          multiple_statements = "allow"
+          must_use = "allow"
+          bad_string_escape = "allow"
+          parenthese_conditions = "allow"
+          incorrect_standard_library_use = "allow"
+          EOF
+          cat > "$RUNNER_TEMP/nvim.toml" <<'EOF'
+          [selene]
+          base = "lua51"
+          name = "nvim"
+          description = "Host globals injected by Neovim and Hammerspoon at runtime"
+
+          [vim]
+          property = true
+
+          [hs]
+          property = true
+          EOF
+          xargs -0 -r selene --config "$RUNNER_TEMP/selene.toml" -- \
+            < "$RUNNER_TEMP/lua.z"
