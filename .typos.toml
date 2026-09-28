@@ -33,6 +33,8 @@ extend-ignore-re = [
   dotenv    = "dotenv"
   invokable = "invokable"
   labelled  = "labelled"
+  # selene upstream misspells this lint name; the correct spelling is ignored silently
+  parenthese = "parenthese"
 
 [files]
 ignore-hidden = true

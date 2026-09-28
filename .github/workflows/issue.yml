@@ -3,6 +3,11 @@ on:
   issues:
     types:
       - opened
+permissions: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  # Labels must not be dropped mid-apply, so queue instead of cancel.
+  cancel-in-progress: false
 jobs:
   issue-labeler:
     name: Issue Labeler

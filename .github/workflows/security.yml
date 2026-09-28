@@ -1,5 +1,4 @@
 name: Security
-
 on:
   pull_request:
     branches:
@@ -8,7 +7,11 @@ on:
       - opened
       - synchronize
       - reopened
-
+permissions: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  # synchronize fires on every push, so drop superseded runs.
+  cancel-in-progress: true
 jobs:
   actionlint:
     name: Actionlint actions static checks
@@ -21,8 +24,14 @@ jobs:
         with:
           persist-credentials: false
       - name: Run actionlint
+        env:
+          # renovate: datasource=github-releases depName=rhysd/actionlint
+          ACTIONLINT_VERSION: 1.7.12
+          ACTIONLINT_SHA256: 8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8
         run: |
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          curl -fsSL --proto '=https' --tlsv1.2 "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz" -o actionlint.tar.gz
+          echo "${ACTIONLINT_SHA256}  actionlint.tar.gz" | sha256sum -c -
+          tar -xzf actionlint.tar.gz actionlint
           ./actionlint -color
         shell: bash
   zizmor:

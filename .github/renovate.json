@@ -47,6 +47,13 @@
   "customManagers": [
     {
       "customType": "regex",
+      "description": ["Update mise tool versions in the linter workflow"],
+      "managerFilePatterns": ["^\\.github/workflows/linter\\.yml$"],
+      "matchStrings": ["\"aqua:(?<depName>[^\"/]+/[^\"/]+)(?:/[^\"]+)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
       "description": ["Update Chezmoi version"],
       "managerFilePatterns": ["home/\\.chezmoiversion$"],
       "matchStrings": ["^(?<currentValue>.*)\\s$"],

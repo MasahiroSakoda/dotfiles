@@ -3,18 +3,16 @@ on:
   pull_request:
     branches:
       - main
+permissions: {}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   linter:
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: read
       statuses: write # To report GitHub Actions status checks
-    continue-on-error: true
     timeout-minutes: 30
     steps:
       - name: Checkout
@@ -22,22 +20,101 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Super-linter
-        uses: super-linter/super-linter/slim@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8.7.0
+      - name: Setup mise
+        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        with:
+          # Inline so a manifest change shows up in the workflow diff.
+          #
+          # This is NOT a trust boundary. `pull_request` runs the workflow from
+          # the merge commit, so a fork can edit this block and install any
+          # aqua package it names. GitHub downgrades the token to read-only
+          # and withholds secrets for fork PRs, which is what actually bounds
+          # the damage. Never add a secret to this job — doing so turns fork
+          # PRs into arbitrary code execution with that secret.
+          mise_toml: |
+            [settings]
+            minimum_release_age = "3d"
+            gpg_verify          = true
+            [tools]
+            "aqua:koalaman/shellcheck"     = "0.11.0"
+            "aqua:betterleaks/betterleaks" = "1.8.1"
+            "aqua:oxc-project/oxc/oxfmt"   = "1.84.0"
+            "aqua:oxc-project/oxc/oxlint"  = "1.84.0"
+            "aqua:Kampfkarren/selene"      = "0.31.0"
+          install: true
+      - name: Collect changed files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: main
-          LOG_LEVEL: WARN
-          LINTER_RULES_PATH: /
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_CHECKOV: true
-          VALIDATE_GITLEAKS: true
-          VALIDATE_RENOVATE: true
-          VALIDATE_JSON: true
-          VALIDATE_YAML: true
-          VALIDATE_BASH: true
-          SHELLCHECK_OPTS: -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083
-          VALIDATE_LUA: true
-          LUACHECK_CONFIG: .luacheckrc
-          VALIDATE_JAVASCRIPT_ES: true
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git diff --name-only -z --diff-filter=ACMR "$BASE_SHA" HEAD > "$RUNNER_TEMP/changed.z"
+          grep -zE '\.(js|jsx|ts|tsx|vue|svelte|astro)$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/js.z" || true
+          grep -zE '\.(sh|bash|zsh)$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/sh.z" || true
+          grep -zE '\.lua$' "$RUNNER_TEMP/changed.z" \
+            > "$RUNNER_TEMP/lua.z" || true
+          for kind in changed js sh lua; do
+            printf '%-8s %s file(s)\n' "$kind" \
+              "$(tr -cd '\0' < "$RUNNER_TEMP/$kind.z" | wc -c | tr -d ' ')"
+          done
+      - name: Betterleaks
+        continue-on-error: false
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: betterleaks git --redact --no-banner --log-opts="$BASE_SHA..HEAD" .
+      - name: Oxlint
+        continue-on-error: true
+        run: xargs -0 -r oxlint -- < "$RUNNER_TEMP/js.z"
+      - name: Oxfmt
+        continue-on-error: true
+        run: xargs -0 -r oxfmt --check --no-error-on-unmatched-pattern -- < "$RUNNER_TEMP/changed.z"
+      - name: Shellcheck
+        continue-on-error: true
+        run: xargs -0 -r shellcheck -e 1009 -e SC1054 -e SC1056 -e SC1072 -e SC1073 -e 1083 -- < "$RUNNER_TEMP/sh.z"
+      - name: Selene
+        continue-on-error: true
+        run: |
+          # Inline so a config change shows up in the workflow diff.
+          #
+          # This is NOT a trust boundary. `pull_request` runs the workflow from
+          # the merge commit, so a fork can edit this block just as it can edit
+          # a checked-in config. The reviewed manifest is the point.
+          #
+          # selene resolves a custom `std` relative to the config file's own
+          # directory, so nvim.toml has to be written beside selene.toml.
+          cat > "$RUNNER_TEMP/selene.toml" <<'EOF'
+          std = "nvim"
+
+          # home/dot_config/nvim/lua/lsp/config/init.lua uses `goto`, a Lua 5.2
+          # feature. selene 0.31.0 bundles only the lua51 and roblox std
+          # libraries, so this file cannot be parsed. The path is relative to
+          # the working directory, not to this config.
+          exclude = ["home/dot_config/nvim/lua/lsp/config/init.lua"]
+
+          # Allowed because selene's lua51 std misjudges LuaJIT code: it rejects
+          # the `unpack = unpack or table.unpack` compat shim, and wrongly
+          # claims `assert` requires two arguments. The rest mirror the codes
+          # .luacheckrc suppressed.
+          [lints]
+          mixed_table = "allow"
+          unscoped_variables = "allow"
+          multiple_statements = "allow"
+          must_use = "allow"
+          bad_string_escape = "allow"
+          parenthese_conditions = "allow"
+          incorrect_standard_library_use = "allow"
+          EOF
+          cat > "$RUNNER_TEMP/nvim.toml" <<'EOF'
+          [selene]
+          base = "lua51"
+          name = "nvim"
+          description = "Host globals injected by Neovim and Hammerspoon at runtime"
+
+          [vim]
+          property = true
+
+          [hs]
+          property = true
+          EOF
+          xargs -0 -r selene --config "$RUNNER_TEMP/selene.toml" -- \
+            < "$RUNNER_TEMP/lua.z"

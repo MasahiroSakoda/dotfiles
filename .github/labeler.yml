@@ -17,13 +17,10 @@
   - changed-files:
       - any-glob-to-any-file:
           - "**/*.md"
-          - "README.md"
-          - 'CONTRIBUTING.md'
-          - "SECURITY.md"
 "Security 🛡️":
   - changed-files:
       - any-glob-to-any-file:
-          - "SECURITY.md"
+          - ".github/SECURITY.md"
           - "home/private_dot_ssh/*"
           - "home/private_dot_gnupg/*"
           - "*.age"
