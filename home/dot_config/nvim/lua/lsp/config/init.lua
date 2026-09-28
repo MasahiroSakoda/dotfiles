@@ -37,10 +37,6 @@ local servers     = require("lsp.servers")
 local server_opts = { on_attach = on_attach, capabilities = require("lsp.config.capabilities") }
 
 for server, config in pairs(servers) do
-  -- Skip packages executing via `none-ls.nvim`
-  if vim.tbl_isempty(config) then goto continue end
-
   vim.lsp.config(server, vim.tbl_deep_extend("keep", server_opts, config or {}))
   vim.lsp.enable(server)
-  ::continue::
 end
