@@ -2,7 +2,9 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd          = { "fish-lsp", "start" },
-  filetypes    = { "fish" },
-  root_markers = { ".git", "config.fish" },
+  cmd       = { "fish-lsp", "start" },
+  filetypes = { "fish" },
+  on_attach = function(client, _)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
 }
