@@ -11,8 +11,8 @@
 
 ### Features
 
-- **Agent State**: Displays the current operational state (Ready, Thinking, Working, Tool Use) with intuitive emojis.
-- **Model Identification**: Shows a condensed name of the active LLM (e.g., 3.5-Flash, Sonnet 4.6).
+- **Agent State**: Displays the current operational state (Ready: 🟢, Thinking: 🤔, Working: 🚧, Tool Use: 🛠️).
+- **Model Identification**: Shows a condensed name of the active LLM (e.g., `Gemini 3.8-Flash (High)`, `Claude Sonnet 4.6 (Thinking)`).
 - **Sandbox Security Badge**: Clearly indicates whether the script is running in a secure sandbox environment.
 - **Context Usage Progress Bar**: Visualizes context window consumption using an 8-segment Unicode bar with color-coded alerts.
 - **Live Counter Tracking**: Real-time display of active task counts and generated artifacts.
@@ -21,5 +21,5 @@
 ### Output Preview
 
 ```text
-🟢 • 🤖 3.8-Flash • 🛡️ sandbox • 📁 ~/.l/s/chezmoi • 💬 [░░░░░░░░] 0% • 📋 0 • 📦 0
+🟢 • 🤖 Gemini 3.8-Flash (High) • 🛡️ sandbox • 📁 ~/.l/s/chezmoi • 💬 [░░░░░░░░] 0% • 📋 0 • 📦 0
 ```
