@@ -427,3 +427,10 @@ agents.permissions.domain.allow = [
 ]
 agents.permissions.domain.ask   = []
 agents.permissions.domain.deny  = []
+
+agents.permissions.mcp.allow = [
+  "mcp__context7__*",
+  "mcp__grep__*",
+]
+agents.permissions.mcp.ask   = []
+agents.permissions.mcp.deny  = []
