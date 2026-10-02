@@ -291,6 +291,7 @@ agents.permissions.bash.deny = [
   "git clean -d*",
   "git commit --no-verify *",
   "git commit -n *",
+  "git symbolic-ref refs/remotes/origin/HEAD",
   "gh issue pin*",
   "gh issue unpin*",
   "gh issue lock*",
