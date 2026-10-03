@@ -4,5 +4,5 @@
 return {
   cmd          = { "tombi", "lsp" },
   filetypes    = { "toml" },
-  root_markers = require("config.filetypes").lsp.tombi,
+  root_markers = require("config.editor.filetypes").lsp.tombi,
 }

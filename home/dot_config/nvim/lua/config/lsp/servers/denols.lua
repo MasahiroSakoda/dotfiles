@@ -47,7 +47,7 @@ local function denols_handler(err, result, ctx, config)
   vim.lsp.handlers[ctx.method](err, result, ctx, config)
 end
 
-local ft = require("config.filetypes")
+local ft = require("config.editor.filetypes")
 
 ---@type vim.lsp.Config
 return {

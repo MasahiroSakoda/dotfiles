@@ -1,8 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, rm = pcall(require, "render-markdown")
-if not ok then return end
-
-rm.setup({
+require("render-markdown").setup({
   file_types   = { "markdown", "vimwiki" },
   render_modes = { "n", "c", "t" },
   code         = { border = "thick" },

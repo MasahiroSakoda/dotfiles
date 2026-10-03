@@ -1,7 +1,4 @@
-local ok, trouble = pcall(require, "trouble")
-if not ok then return end
-
-trouble.setup({
+require("trouble").setup({
   debug        = false,
   focus        = false,
   follow       = false,

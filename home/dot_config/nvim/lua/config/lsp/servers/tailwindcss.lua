@@ -7,7 +7,7 @@ return {
     "html", "css", "scss",
     "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte",
   },
-  root_markers = require("config.filetypes").lsp.tailwindcss,
+  root_markers = require("config.editor.filetypes").lsp.tailwindcss,
 
   settings = {
     tailwindCSS = {

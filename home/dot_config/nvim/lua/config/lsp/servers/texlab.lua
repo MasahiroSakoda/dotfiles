@@ -1,5 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ft = require("config.filetypes")
+local ft = require("config.editor.filetypes")
 
 ---@type vim.lsp.Config
 return {

@@ -5,15 +5,15 @@ return {
     "folke/noice.nvim",
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
-    config = function() require("ui.noice") end,
+    config = function() require("config.editor.noice") end,
   },
 
   {
     "folke/which-key.nvim", -- Shortcut / Keymap
     event  = "VeryLazy",
     config = function()
-      require("user.which-key")
-      require("core.keymap")
+      require("config.editor.which-key")
+      require("config.core.keymap")
     end,
   },
   {
@@ -26,18 +26,17 @@ return {
   {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
-    init   = function() require("ui.flash") end,
-    config = function() require("user.flash") end,
+    config = function() require("config.editor.flash") end,
   },
   {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
-    config = function() require("user.dial") end,
+    config = function() require("config.editor.dial") end,
   },
   {
     "windwp/nvim-autopairs", -- autopair: like if/end
     cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("lsp.cmp.autopairs") end
+    config = function() require("config.editor.autopairs") end
   },
   {
     "kylechui/nvim-surround",
@@ -50,17 +49,17 @@ return {
   {
     "wansmer/treesj",
     event = "VeryLazy",
-    config = function() require("user.treesj") end,
+    config = function() require("config.editor.treesj") end,
   },
   {
     "folke/trouble.nvim",
     cmd = { "Trouble" },
-    config = function() require("lsp.config.trouble") end,
+    config = function() require("config.editor.trouble") end,
   },
   -- Tex
   {
     "lervag/vimtex",
-    ft     = require("config.filetypes").lang.latex,
-    config = function() require("user.latex") end,
+    ft     = require("config.editor.filetypes").lang.latex,
+    config = function() require("config.editor.latex") end,
   },
 }

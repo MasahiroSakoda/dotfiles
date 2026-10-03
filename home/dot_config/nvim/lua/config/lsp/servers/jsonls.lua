@@ -3,7 +3,7 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "vscode-json-languageserver", "--stdio" },
-  filetypes    = require("config.filetypes").lang.json,
+  filetypes    = require("config.editor.filetypes").lang.json,
   root_markers = { ".git" },
   init_options = { provideFormatter = false, documentRangeFormattingProvide = false },
   single_file_support = true,

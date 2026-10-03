@@ -1,7 +1,4 @@
-local ok, noice = pcall(require, "noice")
-if not ok then return end
-
-noice.setup({
+require("noice").setup({
   debug        = false,
   log          = vim.fn.stdpath "state" .. "/noice.log",
   log_max_size = 1024 * 1024 * 2,

@@ -4,7 +4,7 @@
 return {
   cmd          = { "pyright-langserver", "--stdio" },
   filetypes    = { "python" },
-  root_markers = require("config.filetypes").lsp.pyright,
+  root_markers = require("config.editor.filetypes").lsp.pyright,
   single_file_support = true,
   settings = {
     pyright = {

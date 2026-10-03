@@ -1,4 +1,4 @@
-local ft = require("config.editor.filetype")
+local ft = require("config.editor.filetypes")
 
 ---@class snacks.image.Config
 return {

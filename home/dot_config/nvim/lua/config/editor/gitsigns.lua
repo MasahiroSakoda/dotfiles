@@ -1,8 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, gitsigns = pcall(require, "gitsigns")
-if not ok then return end
-
-gitsigns.setup({
+require("gitsigns").setup({
   current_line_blame = true,
   signs = {
     add          = { text = "┃" },

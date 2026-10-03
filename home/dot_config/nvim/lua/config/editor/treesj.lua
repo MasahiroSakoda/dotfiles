@@ -1,8 +1,4 @@
-local ok, treesj = pcall(require, "treesj")
-if not ok then return end
-
--- https://github.com/Wansmer/treesj#settings
-treesj.setup({
+require("treesj").setup({
   -- Use default keymaps
   -- (<space>m - toggle, <space>j - join, <space>s - split)
   use_default_keymaps = false,

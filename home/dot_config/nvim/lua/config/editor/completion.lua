@@ -1,12 +1,8 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, blink = pcall(require, "blink.cmp")
-if not ok then return end
-
 local ls = require("luasnip")
 
 ---@module "blink.cmp"
 ---@type blink.cmp.Config
-blink.setup({
+require("blink").setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
     preset = "default", ---@type "default"|"super-tab"|"enter"|"none"
@@ -16,7 +12,7 @@ blink.setup({
     ["<C-b>"] = { "scroll_documentation_up", "fallback" },
     ["<C-f>"] = { "scroll_documentation_down", "fallback" },
     ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
-    ["<S-k>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
+    ["<C-q>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 
     ["<Tab>"]   = { "snippet_forward", "select_next", "fallback" },
     ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },

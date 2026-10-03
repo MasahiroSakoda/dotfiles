@@ -1,17 +1,17 @@
-local Filetypes = {}
+local M = {}
 
-Filetypes.log  = { "log", "txt", "text" }
-Filetypes.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
-Filetypes.markdown = { "markdown", "md", "vimwiki" }
-Filetypes.oxlint   = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
-Filetypes.oxfmt = {
+M.log  = { "log", "txt", "text" }
+M.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
+M.markdown = { "markdown", "md", "vimwiki" }
+M.oxlint   = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
+M.oxfmt = {
   "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro",
   "json", "jsonc",
   "yaml", "css"
 }
-Filetypes.yaml     = { "yml", "yaml" }
+M.yaml     = { "yml", "yaml" }
 
-Filetypes.lang = {
+M.lang = {
   shell = { "sh",  "bash", "zsh" },
   go    = { "go", "gomod" },
   json  = { "json",  "jsonc" },
@@ -21,7 +21,7 @@ Filetypes.lang = {
   latex = { "tex", "plaintex", "bib" },
 }
 
-Filetypes.treesitter = {
+M.treesitter = {
   -- Compiled Languages
   "c", "cpp", "objc", "arduino", "swift", "llvm",
   "c_sharp", "java", "scala", "kotlin", "clojure",
@@ -67,23 +67,23 @@ Filetypes.treesitter = {
   "ini", "comment", "editorconfig",
 }
 
-Filetypes.endwise = { "bash", "zsh", "fish", "lua", "luau", "elixir", "ruby", "vim" }
+M.endwise = { "bash", "zsh", "fish", "lua", "luau", "elixir", "ruby", "vim" }
 
-Filetypes.actions = { "yaml.github" }
+M.actions = { "yaml.github" }
 
-Filetypes.colorizer = {
+M.colorizer = {
   "vim", "lua",
   "html", "eruby", "css", "markdown",
   "javascript", "typescript", "javascriptreact", "typescriptreact",
 }
 
-Filetypes.autotag = {
+M.autotag = {
   "html", "xhtml", "xml",
   "javascript", "typescript",
   "javascriptreact", "typescriptreact", "markdown",
 }
 
-Filetypes.matchup = {
+M.matchup = {
   "sh", "bash", "csh", "zsh",
   "vim", "lua",
   "make", "cmake",
@@ -94,7 +94,7 @@ Filetypes.matchup = {
   "html", "xhtml", "xml", "haml",
 }
 
-Filetypes.lsp = {
+M.lsp = {
   clang_format = { ".clang_format" },
   rust         = { "Cargo.toml", "rust-project.json" },
   golangci     = { ".golangci.yml", ".golangci.yaml", ".golangci.toml", ".golangci.json" },
@@ -119,14 +119,14 @@ Filetypes.lsp = {
   sqruff       = { ".sqruff" },
 }
 
-Filetypes.snacks = {
+M.snacks = {
   image = {
     triggers = { "markdown" },
     formats  = { "png", "jpg", "jpeg", "gif", "webp", "pdf", "icns" },
   },
 }
 
-Filetypes.ignore = {
+M.ignore = {
   archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
   vcs     = { "^.git/", "^.svn/", "^.hg/" },
   build   = { "build/", "dist/", "%.o$", "%.obj$", "%.so$", "%.a$", "%.out$", "%.whl$", "%.bin$" },
@@ -146,4 +146,4 @@ Filetypes.ignore = {
   office  = { "%.doc$", "%.xls$", "%.ppt$", "%.pdf$", "%.epub$" },
 }
 
-return Filetypes
+return M

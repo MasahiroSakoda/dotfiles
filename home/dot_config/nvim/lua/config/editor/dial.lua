@@ -1,6 +1,4 @@
-local dial_ok, dial     = pcall(require, "dial.config")
-local augend_ok, augend = pcall(require, "dial.augend")
-if not (dial_ok or augend_ok) then return end
+local dial, augend = require("dial.config"), require("dial.augend")
 
 local default_augends = {
   -- dial.nvim primitives
@@ -60,6 +58,7 @@ local default_augends = {
   augend.constant.new({ elements = { "collapse", "expand" },       word = true, preserve_case = true }),
   augend.constant.new({ elements = { "positive", "negative" },     word = true, preserve_case = true }),
   augend.constant.new({ elements = { "passive", "active" },        word = true, preserve_case = true }),
+  augend.constant.new({ elements = { "allow", "ask", "deny" },     word = true, preserve_case = true }),
 
   -- Programming symbols
   augend.constant.new({ elements = { "&&", "||" }, word = false }),
@@ -164,6 +163,6 @@ local js_augends = vim.list_extend(default_augends, {
   augend.constant.new({ elements = { "private", "public", "protected" }, word = true }),
 })
 
-vim.iter(require("user.filetypes").lang.js):each(function(ft)
+vim.iter(require("config.editor.filetypes").lang.js):each(function(ft)
   dial.augends:on_filetype({ [ft] = js_augends })
 end)
