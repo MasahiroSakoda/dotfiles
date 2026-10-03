@@ -1,28 +1,30 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 local function reload_workspace(bufnr)
-  local clients = vim.lsp.get_clients { bufnr = bufnr, name = "rust_analyzer" }
+  local clients = vim.lsp.get_clients({ bufnr = bufnr, name = "rust_analyzer" })
   for _, client in ipairs(clients) do
-    vim.notify "Reloading Cargo Workspace"
+    vim.notify("Reloading Cargo Workspace")
     client:request("rust-analyzer/reloadWorkspace", nil, function(err, _, _, _)
-      if err then error(tostring(err)) end
-      vim.notify "Cargo workspace reloaded"
+      if err then
+        error(tostring(err))
+      end
+      vim.notify("Cargo workspace reloaded")
     end, 0)
   end
 end
 
 local function is_library(fname)
-  local user_home    = vim.fs.normalize(vim.env.HOME)
-  local cargo_home   = os.getenv "CARGO_HOME" or user_home .. "/.cargo"
-  local registry     = cargo_home .. "/registry/src"
+  local user_home = vim.fs.normalize(vim.env.HOME)
+  local cargo_home = os.getenv("CARGO_HOME") or user_home .. "/.cargo"
+  local registry = cargo_home .. "/registry/src"
   local git_registry = cargo_home .. "/git/checkouts"
 
-  local rustup_home = os.getenv "RUSTUP_HOME" or user_home .. "/.rustup"
-  local toolchains  = rustup_home .. "/toolchains"
+  local rustup_home = os.getenv("RUSTUP_HOME") or user_home .. "/.rustup"
+  local toolchains = rustup_home .. "/toolchains"
 
-  for _, item in ipairs { toolchains, registry, git_registry } do
+  for _, item in ipairs({ toolchains, registry, git_registry }) do
     if vim.fs.relpath(item, fname) then
-      local clients = vim.lsp.get_clients { name = "rust_analyzer" }
+      local clients = vim.lsp.get_clients({ name = "rust_analyzer" })
       return #clients > 0 and clients[#clients].config.root_dir or nil
     end
   end
@@ -30,9 +32,9 @@ end
 
 ---@type vim.lsp.Config
 return {
-  cmd       = { "rust-analyzer" },
+  cmd = { "rust-analyzer" },
   filetypes = { "rust" },
-  root_dir  = function(bufnr, on_dir)
+  root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
     local reused_dir = is_library(fname)
     if reused_dir then
@@ -46,7 +48,7 @@ return {
     if cargo_crate_dir == nil then
       on_dir(
         vim.fs.root(fname, { "rust-project.json" })
-        or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+          or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
       )
       return
     end
@@ -80,13 +82,13 @@ return {
   end,
   capabilities = {
     experimental = {
-      serverStatusNotificaiton = true,
+      serverStatusNotification = true,
       commands = {
-        commands = { "rust-analzer.showReferences", "rust-analzer.runSingle", "rust-analzer.debugSingle" },
+        commands = { "rust-analyzer.showReferences", "rust-analyzer.runSingle", "rust-analyzer.debugSingle" },
       },
     },
   },
-  settings  = {
+  settings = {
     -- Refer to all available options here: https://rust-analyzer.github.io/manual.html
     ["rust-analyzer"] = {
       cargo = { { buildScripts = { enable = true } } },
@@ -94,7 +96,7 @@ return {
       procMacro = { enable = true },
       completion = {
         autoimport = { enable = true },
-        postfix    = { enable = true },
+        postfix = { enable = true },
         fullFunctionSignatures = { enable = true },
       },
       assist = {
@@ -103,8 +105,8 @@ return {
       },
       checkOnSave = {
         allFeatures = true,
-        command     = "clippy",
-        extraArgs   = { "--no-deps" },
+        command = "clippy",
+        extraArgs = { "--no-deps" },
       },
       diagnostics = {
         experimental = { enable = true },
@@ -114,16 +116,16 @@ return {
         actions = { references = { enable = true } },
       },
       lens = {
-        enable        = true,
-        debug         = { enable = true },
-        implementions = { enable = true},
-        run           = { enabled = true },
-        updateTest    = { enable = true },
+        enable = true,
+        debug = { enable = true },
+        implementations = { enable = true },
+        run = { enabled = true },
+        updateTest = { enable = true },
         references = {
-          adt         = { enable = true },
+          adt = { enable = true },
           enumVariant = { enable = true },
-          method      = { enable = true },
-          trait       = { enable = true },
+          method = { enable = true },
+          trait = { enable = true },
         },
       },
       inlayHints = {
@@ -133,7 +135,7 @@ return {
           useParameterNames = true,
         },
       },
-    }
+    },
   },
   before_init = function(init_params, config)
     if config.settings and config.settings["rust-analyzer"] then
@@ -141,13 +143,13 @@ return {
     end
     ---@param command table{ title: string, command: string, arguments: any[] }
     vim.lsp.commands["rust-analyzer.runSingle"] = function(command)
-      local r   = command.arguments[1]
+      local r = command.arguments[1]
       local cmd = { "cargo", unpack(r.args.cargoArgs) }
       if r.args.executableArgs and #r.args.executableArgs > 0 then
         vim.list_extend(cmd, { "--", unpack(r.args.executableArgs) })
       end
 
-      local proc   = vim.system(cmd, { cwd = r.args.cwd })
+      local proc = vim.system(cmd, { cwd = r.args.cwd })
       local result = proc:wait()
 
       if result.code == 0 then

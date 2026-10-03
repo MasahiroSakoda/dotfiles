@@ -1,24 +1,30 @@
 -- -*-mode:lua-*- vim:ft=lua
-require("lsp.config.diagnostics")
-require("lsp.config.handlers")
+require("config.lsp.config.diagnostics")
+require("config.lsp.config.handlers")
 
 local on_attach = function(client, bufnr)
   local caps = client.server_capabilities
 
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
-  if caps.completionProvider then vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc" end
+  if caps.completionProvider then
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+  end
 
   -- Use LSP as the handler for formatexpr.
   -- See `:help formatexpr` for more information.
-  if caps.documentFormattingProvider then vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()" end
+  if caps.documentFormattingProvider then
+    vim.bo[bufnr].formatexpr = "v:lua.vim.lsp.formatexpr()"
+  end
 
   -- tagfunc
   -- See `:help tag-function` for more information.
-  if caps.definitionProvider then vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc" end
+  if caps.definitionProvider then
+    vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
+  end
 
-  caps.document_formatting        = true
-  caps.document_range_formatting  = true
+  caps.document_formatting = true
+  caps.document_range_formatting = true
   caps.documentFormattingProvider = true
   caps.offsetEncoding = { "utf-16" }
 
@@ -33,8 +39,8 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local servers     = require("lsp.servers")
-local server_opts = { on_attach = on_attach, capabilities = require("lsp.config.capabilities") }
+local servers = require("config.lsp.servers")
+local server_opts = { on_attach = on_attach, capabilities = require("config.lsp.config.capabilities") }
 
 for server, config in pairs(servers) do
   vim.lsp.config(server, vim.tbl_deep_extend("keep", server_opts, config or {}))

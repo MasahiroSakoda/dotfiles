@@ -1,6 +1,6 @@
 -- -*-mode:lua-*- vim:ft=lua
 
--- Supress "No Information Available" notifications
+-- Suppress "No Information Available" notifications
 vim.lsp.handlers[vim.lsp.protocol.Methods.textDocument_hover] = function(_, result, _, config)
   config = config or {}
   if not (result and result.contents) then
