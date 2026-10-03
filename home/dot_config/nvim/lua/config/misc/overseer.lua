@@ -1,6 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, overseer = pcall(require, "overseer")
-if not ok then return end
+local overseer = require("overseer")
 
 overseer.setup({
   -- DO NOT add chezmoi attributed prefix (e.g. "run_*")

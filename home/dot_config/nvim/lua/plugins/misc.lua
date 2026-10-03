@@ -7,17 +7,17 @@ return {
     config = require("user.render-markdown"),
   },
   -- chezmoi integration
-  { "xvzc/chezmoi.nvim", dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require("user.chezmoi") end },
+  { "xvzc/chezmoi.nvim", dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require("config.misc.chezmoi") end },
   {
     "stevearc/overseer.nvim",
     version = "v2.*",
     cmd = { "Grep", "Make", "OverseerToggle", "OverseerRun" },
-    config = function() require("user.overseer") end,
+    config = function() require("config.misc.overseer") end,
   },
   {
     "neo451/feed.nvim",
     cmd    = { "Feed" },
     cond   = not vim.g.vscode,
-    config = function() require("user.feed") end,
+    config = function() require("config.misc.feed") end,
   },
 }

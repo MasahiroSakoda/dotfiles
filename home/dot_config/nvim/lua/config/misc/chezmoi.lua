@@ -1,8 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, chezmoi = pcall(require, "chezmoi")
-if not ok then return end
-
-chezmoi.setup({
+require("chezmoi").setup({
   edit = {
     watch = false,
     force = false,
