@@ -217,7 +217,6 @@ Runtime version management tool
 | [ghq](https://github.com/x-motemen/ghq) | Git secret detector                       |
 | [pinact](https://github.com/suzuki-shunsuke/pinact) | Version pinner for GitHub Actions         |
 | [glow](https://github.com/charmbracelet/glow) | Markdown renderer on the CLI              |
-| [mdserve](https://github.com/jfernandez/mdserve) | Markdown previewer                        |
 | [netwatch](https://github.com/matthart1983/netwatch) | Realtime network TUI                      |
 | [rainfrog](https://github.com/achristmascarl/rainfrog) | Database TUI                              |
 | [xan](https://github.com/medialab/xan) | CSV visualization toolkit                 |
@@ -228,7 +227,6 @@ Runtime version management tool
 | [docker](https://github.com/docker/cli) | Docker CLI                                |
 | [buildx](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
 | [compose](https://github.com/docker/compose) | multi-container interface with Docker     |
-| [dive](https://github.com/wagoodman/dive) | Exploring each layer in a docker image    |
 | [ollama](https://github.com/ollama/ollama) | llama.cpp frontend                        |
 
 ##### Linter / Formatter
@@ -256,7 +254,6 @@ Runtime version management tool
 | Tool | Description |
 | :----------- | :-------------- |
 | [pandoc](https://github.com/jgm/pandoc) | Universal markup converter                |
-| [mddr](https://github.com/1jehuang/mermaid-rs-renderer) | # faster Mermaid renderer |
 | [pylatexenc](https://github.com/phfaist/pylatexenc) | LaTeX parser to use `render-markdown.nvim` |
 
 #### Security Tools
@@ -265,8 +262,6 @@ Runtime version management tool
 | :---- | :--------- |
 | [age](https://github.com/FiloSottile/age) | Simple encrypt / decrypt tool             |
 | [betterleaks](https://github.com/betterleaks/betterleaks) | A Better Secrets Scanner built for configurability and speed |
-| [safe-chain](https://github.com/AikidoSec/safe-chain) | Protect against malicious code installed via npm, yarn, pnpm, npx, pnpx, pip, uv, and poetry |
-| [cve-lite-cli](https://github.com/OWASP/cve-lite-cli) | Vulnerability scanning that belongs in your terminal |
 
 #### AI Tools
 
