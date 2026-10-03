@@ -1,7 +1,7 @@
 ---@type vim.lsp.Config
 return {
   cmd = { "harper-ls", "--stdio" },
-  filetypes = require("user.filetypes").lsp.happer,
+  filetypes = require("config.filetypes").lsp.happer,
   single_file_support = true,
   capabilities = {
     semanticTokens = { multilineTokenSupport = true },

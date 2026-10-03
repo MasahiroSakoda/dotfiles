@@ -60,7 +60,7 @@ return {
   -- Tex
   {
     "lervag/vimtex",
-    ft     = require("user.filetypes").lang.latex,
+    ft     = require("config.filetypes").lang.latex,
     config = function() require("user.latex") end,
   },
 }

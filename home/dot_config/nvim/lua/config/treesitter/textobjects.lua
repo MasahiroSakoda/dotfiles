@@ -1,8 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, textobjects = pcall(require, "nvim-treesitter-textobjects")
-if not ok then return end
-
-textobjects.setup({
+require("nvim-treesitter-textobjects").setup({
   move   = { set_jumps = true },
   select = {
     lookahead = true,

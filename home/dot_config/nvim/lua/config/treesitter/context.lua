@@ -1,7 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, context = pcall(require, "treesitter-context")
-if not ok then return end
-
+local context = require("treesitter-context")
 context.setup({
   enable      = true,
   multiwindow = false,

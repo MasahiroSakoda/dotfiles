@@ -15,7 +15,7 @@ end
 return {
   cmd = cmd,
   filetypes    = { "ruby" },
-  root_markers = require("user.filetypes").lsp.ruby,
+  root_markers = require("config.filetypes").lsp.ruby,
   init_options = {
     enabledFeatures = {
       "documentHighlights",

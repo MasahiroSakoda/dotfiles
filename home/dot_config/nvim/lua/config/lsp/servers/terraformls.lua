@@ -3,7 +3,7 @@
 ---@type vim.lsp.Config
 return {
   cmd          = { "terraform-ls", "serve" },
-  filetypes    = require("user.filetypes").lsp.terraform,
+  filetypes    = require("config.filetypes").lsp.terraform,
   root_markers = { ".terraform" },
   settings     = {
   },

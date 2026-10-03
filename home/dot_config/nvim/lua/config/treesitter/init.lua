@@ -1,11 +1,8 @@
--- -*-mode:lua-*- vim:ft=lua
-local ok, ts = pcall(require, "nvim-treesitter")
-if not ok then return end
-
+local ts = require("nvim-treesitter")
 ts.setup({ install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "/site") })
 
 -- Install unregistered treesitter parser
-local fts     = require("user.filetypes").treesitter
+local fts     = require("config.filetypes").treesitter
 local parsers = vim.iter(fts):filter(function(p) return not vim.tbl_contains(ts.get_installed(), p) end):totable()
 ts.install(parsers):await(function(err)
   if err then
