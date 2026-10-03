@@ -219,7 +219,7 @@ Runtime version management tool
 | [pinact](https://github.com/suzuki-shunsuke/pinact) | Version pinner for GitHub Actions         |
 | [glow](https://github.com/charmbracelet/glow) | Markdown renderer on the CLI              |
 | [netwatch](https://github.com/matthart1983/netwatch) | Realtime network TUI                      |
-| [rainfrog](https://github.com/achristmascarl/rainfrog) | Database TUI                              |
+| [lazysql](https://github.com/jorgerojas26/lazysql) | Database TUI                              |
 | [xan](https://github.com/medialab/xan) | CSV visualization toolkit                 |
 | [lnav](https://github.com/tstack/lnav) | Log file navigator |
 | [chezmoi](https://github.com/twpayne/chezmoi) | Dotfiles manager                          |
