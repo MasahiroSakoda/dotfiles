@@ -6,7 +6,7 @@ return {
     dependencies = {
     },
     cmd    = { "DapToggleBreakpoint", "DapContinue", "DapTerminate", "DapStepOver", "DapStepInto", "DapStepOut" },
-    config = function() require("debugger.setup") end,
+    config = function() require("config.dap.setup") end,
   },
   {
     "igorlfs/nvim-dap-view",

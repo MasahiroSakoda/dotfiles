@@ -36,12 +36,12 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
     cmd    = { "Oil" },
-    config = function() require("ui.oil") end,
+    config = function() require("config.editor.oil") end,
   },
   {
     "lewis6991/gitsigns.nvim", -- Git integration
     cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
-    -- config = function() require("user.gitsigns") end,
+    config = function() require("config.editor.gitsigns") end,
   },
 }

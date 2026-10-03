@@ -4,7 +4,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event  = { "BufReadPre", "BufNewFile" },
-    config = function() require("lsp.config") end,
+    config = function() require("config.lsp.config") end,
   },
   { "folke/lazydev.nvim", ft = "lua", opts = {} },
   { "b0o/schemastore.nvim" },

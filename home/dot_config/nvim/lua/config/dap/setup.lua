@@ -25,13 +25,13 @@ vim.fn.sign_define("DapBreakpoint",         bp.breakpoint)
 vim.fn.sign_define("DapBreakpointRejected", bp.rejected)
 vim.fn.sign_define("DapStopped",            bp.stopped)
 
-for name, adapter in pairs(require("debugger.adapters")) do
+for name, adapter in pairs(require("config.dap.adapters")) do
   if not dap.adapters[name] then
     dap.adapters[name] = adapter
   end
 end
 
-for filetype, configs in pairs(require("debugger.config")) do
+for filetype, configs in pairs(require("config.dap.config")) do
   if not dap.configurations[filetype] then
     dap.configurations[filetype] = configs
   end

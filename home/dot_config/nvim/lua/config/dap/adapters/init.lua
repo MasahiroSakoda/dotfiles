@@ -1,9 +1,9 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 return {
-  ["codelldb"]   = require("debugger.adapters.codelldb"),
-  ["delve"]      = require("debugger.adapters.delve"),
-  ["debugpy"]    = require("debugger.adapters.debugpy"),
-  ["ruby"]       = require("debugger.adapters.ruby"),
-  ["nlua"]       = require("debugger.adapters.nlua"),
+  ["codelldb"]   = require("config.dap.adapters.codelldb"),
+  ["delve"]      = require("config.dap.adapters.delve"),
+  ["debugpy"]    = require("config.dap.adapters.debugpy"),
+  ["ruby"]       = require("config.dap.adapters.ruby"),
+  ["nlua"]       = require("config.dap.adapters.nlua"),
 }

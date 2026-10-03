@@ -7,7 +7,7 @@ dap.configurations.swift = {
     type    = "codelldb",
     request = "attach",
     -- this will wait until the app is launched
-    pid = require("xcodebuild.dap").wait_for_pid,
+    pid = require("config.dap.xcodebuild").wait_for_pid,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
   },
