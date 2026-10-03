@@ -1,0 +1,20 @@
+name: global agent skills
+version: 0.1.0
+description: Agent Skills for global environment
+targets:
+  - agent-skills
+dependencies:
+  apm:
+    - git: anthropics/skills
+      ref: 8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4
+      skills:
+        - skill-creator
+    - git: vercel-labs/skills
+      ref: v1.7.0
+      skills:
+        - find-skills
+    - git: github/awesome-copilot
+      ref: 143a3d976b3c1603cc8932984d5e1f28501cb5fc
+      skills:
+        - github-actions-efficiency
+        - github-actions-hardening
