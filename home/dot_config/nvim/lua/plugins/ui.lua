@@ -1,6 +1,7 @@
 return {
   {
     "navarasu/onedark.nvim",
+    priority = 1000,
     config = function() require("config.ui.onedark") end,
   },
   {

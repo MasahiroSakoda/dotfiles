@@ -1,8 +1,9 @@
 require("bufferline").setup({
+  options = {
     mode        = "tabs",     ---@type "tabs"|"buffers"
     diagnostics = "nvim_lsp", ---@type "nvim_lsp"|"coc"
 
-  ---@param opts table<string, any>
+    ---@param opts table<string, any>
     numbers = function(opts) return string.format("%s: ", opts.ordinal) end,
 
     tab_size          = 21,
@@ -26,4 +27,5 @@ require("bufferline").setup({
 
     indicator = { icon  = "| ", style = "underline" },
     hover     = { enabled = true, delay   = 150, reveal  = { "close" } },
+  },
 })

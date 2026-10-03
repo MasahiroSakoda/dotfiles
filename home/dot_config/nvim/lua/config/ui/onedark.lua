@@ -1,4 +1,5 @@
-require("onedark").setup({
+local onedark = require("onedark")
+onedark.setup({
   style = vim.g.themestyle,
   transparent = true,
   toggle_style_key = "<NOP>",
@@ -10,3 +11,4 @@ require("onedark").setup({
     types     = "italic,bold",
   },
 })
+onedark.load()
