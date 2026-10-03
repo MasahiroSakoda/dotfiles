@@ -2,7 +2,7 @@ local ls = require("luasnip")
 
 ---@module "blink.cmp"
 ---@type blink.cmp.Config
-require("blink").setup({
+require("blink.cmp").setup({
   ---@see https://cmp.saghen.dev/configuration/keymap.html
   keymap = {
     preset = "default", ---@type "default"|"super-tab"|"enter"|"none"

@@ -2,12 +2,11 @@
 local plugins = {}
 local list = {
   "plugins.dependencies",
-  "plugins.appearance",
   "plugins.editor",
-  "plugins.lsp",
-  "plugins.cmp",
-  "plugins.dap",
   "plugins.treesitter",
+  "plugins.ui",
+  "plugins.lsp",
+  "plugins.dap",
   "plugins.ai",
   "plugins.misc",
 }
