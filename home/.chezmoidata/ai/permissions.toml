@@ -202,7 +202,12 @@ agents.permissions.bash.allow = [
   "rumdl*",
   "actionlint*",
   "hadolint*",
-  "apm *",
+  "apm list *",
+  "apm search *",
+  "apm deps *",
+  "apm audit*",
+  "apm --help",
+  "apm --version",
   "pnpm run *",
   "bun run *",
 ]
@@ -235,6 +240,13 @@ agents.permissions.bash.ask = [
   "gh skill update*",
   "gh skill publish*",
   "mcp__*",
+  "apm config *",
+  "apm install *",
+  "apm uninstall *",
+  "apm update *",
+  "apm prune *",
+  "apm mcp install*",
+  "apm run*",
   "brew install*",
   "brew uninstall*",
   "brew upgrade*",
@@ -291,6 +303,7 @@ agents.permissions.bash.deny = [
   "git clean -d*",
   "git commit --no-verify *",
   "git commit -n *",
+  "git symbolic-ref refs/remotes/origin/HEAD",
   "gh issue pin*",
   "gh issue unpin*",
   "gh issue lock*",
@@ -427,3 +440,10 @@ agents.permissions.domain.allow = [
 ]
 agents.permissions.domain.ask   = []
 agents.permissions.domain.deny  = []
+
+agents.permissions.mcp.allow = [
+  "mcp__context7__*",
+  "mcp__grep__*",
+]
+agents.permissions.mcp.ask   = []
+agents.permissions.mcp.deny  = []
