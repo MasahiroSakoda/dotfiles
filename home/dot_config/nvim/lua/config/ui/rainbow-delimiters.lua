@@ -1,7 +1,4 @@
-local ok, rd = pcall(require, "rainbow-delimiters.setup")
-if not ok then return end
-
-rd.setup({
+require("rainbow-delimiters.setup").setup({
   strategy = {
     [""] = "rainbow-delimiters.strategy.global",
     vim  = "rainbow-delimiters.strategy.local",

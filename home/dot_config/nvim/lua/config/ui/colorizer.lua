@@ -1,10 +1,7 @@
-local ok, colorizer = pcall(require, "colorizer")
-if not ok then return end
-
 -- Use the `default_options` as the second parameter, which uses
 -- `foreground` for every mode. This is the inverse of the previous
 -- setup configuration.
-colorizer.setup({
+require("colorizer").setup({
   filetypes = {
     "*",
     "!lazy",

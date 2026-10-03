@@ -26,7 +26,7 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("ui.rainbow-delimiters") end,
+    config = function() require("config.ui.rainbow-delimiters") end,
   },
   { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("config.treesitter.autotag") end },
   { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("config.treesitter.matchup") end },

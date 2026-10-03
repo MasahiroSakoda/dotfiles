@@ -3,33 +3,33 @@
 return {
   -- colorscheme
   -- { "EdenEast/nightfox.nvim", config = function() require("ui.nightfox") end },
-  { "navarasu/onedark.nvim",  config = function() require("ui.onedark") end },
+  { "navarasu/onedark.nvim",  config = function() require("config.ui.onedark") end },
 
   {
     "catgoose/nvim-colorizer.lua",-- Color code viewer
     cmd = { "ColorizerToggle" },
-    config = function() require("ui.colorizer") end,
+    config = function() require("config.ui.colorizer") end,
   },
 
   {
-    "kevinhwang91/nvim-hlslens", -- Seamlessly saerch & jump
+    "kevinhwang91/nvim-hlslens", -- Seamlessly search & jump
     cond   = not vim.g.vscode,
     event  = { "CmdlineEnter" },
-    config = function() require("ui.hlslens") end,
+    config = function() require("config.ui.hlslens") end,
   },
   {
     "akinsho/bufferline.nvim", -- Tab page integration
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("ui.bufferline") end,
+    config = function() require("config.ui.bufferline") end,
   },
   {
     "nvim-lualine/lualine.nvim", -- Status Line
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cond   = not vim.g.vscode,
     event  = { "VeryLazy" },
-    config = function() require("ui.lualine") end,
+    config = function() require("config.ui.lualine") end,
   },
   {
     "stevearc/oil.nvim", -- File Explorer like buffer
