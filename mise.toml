@@ -1,0 +1,19 @@
+[settings]
+minimum_release_age  = "3d"
+trusted_config_paths = ["."]
+
+gpg_verify = true  # Use gpg to verify all tool signatures
+lockfile   = true
+pin        = true
+
+[tools]
+## Security
+"aqua:betterleaks/betterleaks" = "latest" # A Better Secrets Scanner built for configurability and speed
+
+## GitHub Actions
+"aqua:suzuki-shunsuke/pinact" = "latest" # Version Pinner for GitHub Actions
+"aqua:rhysd/actionlint"       = "latest" # YAML Linter for GitHub Actions workflows
+"aqua:zizmorcore/zizmor"      = "latest" # Static analysis for GitHub Actions
+
+## Git
+"aqua:evilmartians/lefthook" = "latest" # Fast and powerful Git hooks manager for any type of projects.
