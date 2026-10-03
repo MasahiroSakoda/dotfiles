@@ -1,0 +1,74 @@
+local oil = require("oil")
+local detailed_columns = true
+local columns          = detailed_columns and { "icon", "permissions", "size", "mtime" } or { "icon", "size" }
+local width, height    = vim.api.nvim_get_option_value("columns", {}), vim.api.nvim_get_option_value("lines", {})
+
+oil.setup({
+  default_file_explorer = true,
+
+  columns = columns,
+
+  win_options = {
+    wrap = true,
+    winblend = 15,
+  },
+
+    -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
+  skip_confirm_for_simple_edits = true,
+
+  view_options = {
+    show_hidden   = true,
+    natural_order = true,
+    is_always_hidden = function(name, _)
+      return vim.tbl_contains(require("config.core.ignore").oil, name)
+    end
+  },
+
+  float = {
+    border     = "rounded",
+    max_width  = math.floor(width * 0.85),
+    max_height = math.floor(height * 0.8),
+  },
+
+  use_default_keymaps = true,
+  keymap = {
+    ["g?"]    = { "actions.show_help",   mode = "n" },
+    ["gs"]    = { "actions.change_sort", mode = "n" },
+    ["<C-c>"] = { "actions.close",       mode = "n" },
+    ["gd"] = {
+      desc = "Go to directory (cd)",
+      mode = "n",
+      callback = function()
+        local path = vim.fn.input("Change directory to: ", "", "file")
+        if path ~= "" then
+          oil.open(vim.fn.expand(path))
+        end
+      end,
+    },
+    ["<CR>"] = {
+      function()
+        local entry, dir = oil.get_cursor_entry(), oil.get_current_dir()
+        if entry and entry.type == "file" and dir then
+          vim.fn.jobstart({ "zeditor", dir .. entry.name }, { detach = true })
+          vim.cmd("qa!")
+        else
+          require("oil.actions").select.callback()
+        end
+      end,
+    },
+    -- ["<CR>"]  = { "actions.enter", mode = "n" },
+    ["<C-l>"] =   "actions.refresh",
+    ["<C-p>"] =   "actions.preview",
+    ["<C-u>"] =   "actions.preview_scroll_up",
+    ["<C-d>"] =   "actions.preview_scroll_down",
+    ["<C-s>"] = { "actions.select", opts = { vertical = true } },
+    ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+    ["<C-t>"] = { "actions.select", opts = { tab = true } },
+    ["-"]     = { "actions.parent", mode = "n" },
+    ["_"]     = { "actions.open_cwd", mode = "n" },
+    ["`"]     = { "actions.cd", mode = "n" },
+    ["~"]     = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+    ["g."]    = { "actions.toggle_hidden", mode = "n" },
+    ["g,"]    =   "actions.open_external",
+  },
+})

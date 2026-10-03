@@ -1,0 +1,41 @@
+local ignore = require("config.core.ignore")
+
+local show_macro_recording = function()
+  local register = vim.fn.reg_recording()
+  return register ~= "" and "Recording @" .. register or ""
+end
+
+require("lualine").setup({
+  options = {
+    theme = require("lualine.themes.onedark"),
+    icons_enabled = true,
+
+    component_separators = { left = "", right = "" },
+    section_separators   = { left = "", right = "" },
+    disabled_filetypes   = { statusline = ignore.lualine.statusline, winbar = ignore.lualine.winbar },
+    ignore_focus         = {},
+    always_divide_middle = true,
+    globalstatus         = true,
+
+    refresh = { statusline = 500, tabline = 1000, winbar = 1000 },
+  },
+
+  sections = {
+    lualine_a = { "mode" },
+    lualine_b = { "branch", "diff" },
+    lualine_c = {
+      { "diagnostics" },
+      { "smartpath", parent_num = 2, abbrev_dot = true },
+    },
+    lualine_x = {
+      { "macro-recording", fmt = show_macro_recording },
+      { "overseer" },
+    },
+    lualine_y = { "fileformat", "encoding", "filetype" },
+    lualine_z = { "location", "progress" },
+  },
+  tabline = {},
+  winbar  = {},
+
+  extensions = { "quickfix", "oil", "trouble" },
+})

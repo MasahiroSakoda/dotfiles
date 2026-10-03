@@ -1,0 +1,291 @@
+local augroup = function(name) return vim.api.nvim_create_augroup(name, { clear = true }) end
+
+-- Dynamic colorcolumn references `max_line_width` from .editorconfig
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  callback = function(ev)
+    local columns = {}
+    table.insert(columns, tostring(vim.bo[ev.buf].textwidth))
+    vim.opt_local.colorcolumn = columns
+  end,
+})
+
+-- Strip trailing new lines at the end of file on save
+vim.api.nvim_create_autocmd("BufWritePre", { group = augroup("TrailStripper"), command = ":%s/\\n\\+\\%$//e" })
+
+-- Check if we need to reload the file when it changed
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  group    = augroup("ReloadBufferGroup"),
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
+-- Highlight URL
+vim.api.nvim_create_autocmd({ "VimEnter", "FileType", "BufEnter", "WinEnter" }, {
+  group    = augroup("HighlightURL"),
+  callback = function(_)
+    local lines = vim.api.nvim_buf_line_count(vim.api.nvim_get_current_buf())
+    local fsize = vim.fn.getfsize(vim.fn.expand "%")
+    if lines > 5000 or fsize > 2 * 1024 * 1024 then return end
+    require("utils.highlight").set_url_match()
+  end,
+})
+
+-- Highlight on yanked range
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group    = augroup("HighlightOnYank"),
+  callback = function() vim.hl.on_yank({ higroup = "IncSearch", timeout = 100 }) end,
+})
+
+-- Warn Unicode invisible characters
+local palette = require("onedark.palette")[vim.g.themestyle]
+vim.api.nvim_set_hl(0, "SuspiciousUnicodeWarn", { fg = palette.grey, bg = palette.red, bold = true })
+
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+  group = augroup("SuspiciousUnicodeGroup"),
+  callback = function()
+    -- Tag Characters: U+E0001–E007F
+    -- vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0001}-\u{e007f}]", 10)
+
+    -- Bidi Override: U+202A–F, U+2060, U+2066–9
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{00A0}]", 10)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2000}-\u{200A}\u{202F}]", 10)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2060}-\u{2069}]", 10)
+
+    -- Variation Selectors: U+E0100–E01EF
+    -- vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0100}-\u{e01ef}]", 10)
+
+    -- Zero-Width Characters: U+200B–D
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2000}-\u{200A}\u{202F}\u{feff}]", 10, -1)
+    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{200b}\u{3000}]", 10)
+  end,
+})
+
+-- Close specific filetype with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  group    = augroup("CustomClose"),
+  pattern  = { "help", "man", "qf", "lspinfo", "notify", "trouble", "dap-view", "dap-view-term", "dap-view-repl" },
+  callback = function (ev)
+    vim.bo[ev.buf].buflisted = false
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = ev.buf, silent = true })
+  end,
+})
+
+-- Terminal buffer keymap
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group    = vim.api.nvim_create_augroup("TerminalCustomGroup", { clear = true }),
+  pattern  = { "sidekick_terminal" },
+  callback = function(ev)
+    -- Defer to ensure overriding default keymaps
+    vim.schedule(function()
+      require("which-key").add({
+        { "jj", "<C-\\><C-n>",       mode = "t", icon = "󰈆 ", desc = " Exit Terminal",  buffer = ev.buf },
+        { "kk", "<C-\\><C-n>",       mode = "t", icon = "󰈆 ", desc = " Exit Terminal",  buffer = ev.buf },
+        { "kj", "<C-\\><C-n><C-w>h", mode = "t", icon = " ", desc = " Move to editor", buffer = ev.buf },
+      })
+    end)
+  end,
+})
+
+-- Restore cursor to file position in previous editing session
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  callback = function(ev)
+    local mark = vim.api.nvim_buf_get_mark(ev.buf, '"')
+    if mark[1] > 0 and mark[1] <= vim.api.nvim_buf_line_count(ev.buf) then
+      vim.cmd('normal! g`"zz')
+    end
+  end,
+})
+
+local cursor_grp = augroup("CustomCursor")
+-- Enable cursorcolumn automatically
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  group    = cursor_grp,
+  callback = function()
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+      vim.opt.cursorcolumn = true
+    end
+  end,
+})
+
+-- Disable cursorcolumn automatically
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  group    = cursor_grp,
+  callback = function()
+    if vim.o.nu then
+      vim.opt.cursorcolumn = false
+      vim.cmd("redraw")
+    end
+  end,
+})
+
+-- Surveillance chezmoi target files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern  = { vim.env.HOME .. "/.local/share/chezmoi/*" },
+  callback = function(ev)
+    vim.schedule(function() require("chezmoi.commands.__edit").watch(ev.buf) end)
+  end,
+})
+
+-- Automatically resize windows when the host window size changes.
+vim.api.nvim_create_autocmd({ "VimResized" }, { group = augroup("WinResize"), command = "wincmd =" })
+
+local qf_group = augroup("QuickfixGroup")
+-- Open qflist window automatically
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
+  group   = qf_group,
+  pattern = { "[^l]*" },
+  command = "cwindow",
+  nested  = true,
+})
+
+-- Open loclist window automatically
+vim.api.nvim_create_autocmd({ "QuickFixCmdPost" }, {
+  group   = qf_group,
+  pattern = { "l*" },
+  command = "lwindow",
+  nested  = true,
+})
+
+local lsp_group = augroup("LspCustomGroup")
+
+-- Keymaps related LSP
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  group    = lsp_group,
+  callback = function(ev)
+    local extend, opts = vim.tbl_extend, { buffer = ev.buf, noremap = true, silent = true }
+    vim.keymap.set("n", "K",          vim.lsp.buf.hover,           extend("keep", opts, { desc = " Hover Docs" }))
+    vim.keymap.set("n", "gk",         vim.lsp.buf.signature_help,  extend("keep", opts, { desc = " Signature Help" }))
+    vim.keymap.set("n", "gd",         vim.lsp.buf.definition,      extend("keep", opts, { desc = " Definition" }))
+    vim.keymap.set("n", "gD",         vim.lsp.buf.declaration,     extend("keep", opts, { desc = " Declaration" }))
+    vim.keymap.set("n", "grt",        vim.lsp.buf.type_definition, extend("keep", opts, { desc = " Type Def" }))
+    vim.keymap.set("n", "gri",        vim.lsp.buf.implementation,  extend("keep", opts, { desc = " Implementation" }))
+    vim.keymap.set("n", "gw",         vim.lsp.buf.document_symbol, extend("keep", opts, { desc = " Doc Symbols" }))
+    vim.keymap.set("n", "gW",         vim.lsp.buf.workspace_symbol,extend("keep", opts, { desc = " WS Symbols" }))
+    vim.keymap.set("n", "grn",        vim.lsp.buf.rename,          extend("keep", opts, { desc = " Rename" }))
+    vim.keymap.set("n", "grr",        vim.lsp.buf.references,      extend("keep", opts, { desc = " References" }))
+    vim.keymap.set("n", "<Leader>ci", vim.lsp.buf.incoming_calls,  extend("keep", opts, { desc = " incoming hrchy" }))
+    vim.keymap.set("n", "<Leader>co", vim.lsp.buf.incoming_calls,  extend("keep", opts, { desc = " outcoming hrchy" }))
+    vim.keymap.set("n", "grx",        vim.lsp.codelens.run,        extend("keep", opts, { desc = " Code Lens" }))
+    vim.keymap.set({"n", "v"}, "gra", vim.lsp.buf.code_action,     extend("keep", opts, { desc = " Code Action" }))
+  end
+})
+
+-- Enable completion via LSP
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  group    = lsp_group,
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_completion, ev.buf) then
+      --Enable completion triggered by <c-x><c-o>
+      vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    end
+  end
+})
+
+-- Disable completion via LSP
+vim.api.nvim_create_autocmd({ "LspDetach" }, {
+  callback = function(ev) vim.lsp.completion.enable(false, ev.data.client_id, ev.buf) end
+})
+
+-- Format on save automatically via LSP
+vim.api.nvim_create_autocmd({ "LspAttach" }, {
+  group    = lsp_group,
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+    local format_group = vim.api.nvim_create_augroup("LspFormatting", { clear = false })
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_formatting, ev.buf) then
+      vim.api.nvim_clear_autocmds({ group = format_group, buffer = ev.buf })
+      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+        group    = format_group,
+        buffer   = ev.buf,
+        callback = require("config.lsp.config.format"),
+      })
+    end
+  end
+})
+
+local snip_grp = augroup("LuaSnipCustomGroup")
+local ls = require("luasnip")
+-- Disable diagnostics in snippet
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+  group    = snip_grp,
+  pattern  = { "n:i", "n:s", "n:v" },
+  callback = function(ev)
+    if ls.in_snippet() then
+      vim.diagnostic.enable(false, { bufnr = ev.buf })
+    end
+  end,
+})
+
+-- Enable diagnostics after leaving snippet
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+  group    = snip_grp,
+  pattern  = { "i:n", "s:n", "v:n" },
+  callback = function(ev)
+    if ls.in_snippet() then
+      vim.diagnostic.enable(true, { bufnr = ev.buf })
+    end
+  end,
+})
+
+-- Automatic toggle relative number with mode
+-- Enable relative number in insert mode
+local line_number_group = augroup("CustomLineNumber")
+vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+  group = line_number_group,
+  callback = function(_)
+    if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, "i") then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+
+-- Disable relative number in insert mode
+vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
+  group = line_number_group,
+  callback = function(ev)
+    if vim.wo.nu then
+      vim.wo.relativenumber = false
+    end
+    if ev.event == 'CmdlineEnter' then
+      if not vim.tbl_contains({ "@", "-" }, vim.v.event.cmdtype) then
+        vim.cmd.redraw()
+      end
+    end
+  end,
+})
+
+-- Filetype detection
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern  = { "*.log" },
+  group    = vim.api.nvim_create_augroup("CustomLogGroup", { clear = true }),
+  callback = function()
+    vim.bo.filetype = "log"
+  end,
+})
+
+local md_group = vim.api.nvim_create_augroup("CustomMarkdownGroup", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern  = { "*.mdx" },
+  group    = md_group,
+  callback = function(ev)
+    vim.api.nvim_set_option_value("FileType", { "markdown", "mdx" }, { buf = ev.buf })
+    vim.bo.filetype = "markdown"
+    -- Use TSX syntax highlighting for MDX since MDX parser isn't available
+    vim.treesitter.language.register("tsx", "mdx")
+  end,
+})
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern  = "mdx",
+  group    = md_group,
+  callback = function()
+    vim.bo.syntax        = "markdown"
+    vim.wo.foldmethod    = "syntax"
+    vim.bo.commentstring = "{/* %s */}"
+  end,
+})

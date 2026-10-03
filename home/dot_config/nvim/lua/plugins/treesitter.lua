@@ -1,5 +1,5 @@
 -- -*-mode:lua-*- vim:ft=lua
-local ft = require("user.filetypes")
+local ft = require("config.editor.filetypes")
 
 return {
   {
@@ -8,26 +8,26 @@ return {
       {
         "nvim-treesitter/nvim-treesitter-textobjects",
         branch = "main",
-        config = function() require"user.treesitter.textobjects" end,
+        config = function() require"config.treesitter.textobjects" end,
       },
     },
     branch = "main",
     build  = ":TSUpdate",
     event  = "VeryLazy",
     cmd    = { "TSInstall", "TSUpdate", "TSUninstall", "TSLog" },
-    config = function() require("user.treesitter") end,
+    config = function() require("config.treesitter") end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("user.treesitter.context") end,
+    config = function() require("config.treesitter.context") end,
   },
   { "RRethy/nvim-treesitter-endwise", ft = ft.endwise },
   {
     "hiphish/rainbow-delimiters.nvim",
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("ui.rainbow-delimiters") end,
+    config = function() require("config.ui.rainbow-delimiters") end,
   },
-  { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("user.treesitter.autotag") end },
-  { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("user.treesitter.matchup") end },
+  { "windwp/nvim-ts-autotag", ft = ft.autotag, config = function() require("config.treesitter.autotag") end },
+  { "andymass/vim-matchup",   ft = ft.matchup, config = function() require("config.treesitter.matchup") end },
 }

@@ -1,0 +1,8 @@
+require("config.core.encoding")
+require("config.core.base")
+require("config.core.ui")
+require("config.core.font")
+require("config.core.search")
+require("config.core.keymap")
+require("config.core.autocmds")
+require("config.core.lang")

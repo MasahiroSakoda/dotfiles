@@ -7,40 +7,42 @@ if not vim.uv.fs_stat(lazypath) then
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
       { out, "WarningMsg" },
       { "\nPress any key to exit..." },
-      }, true, {})
+    }, true, {})
     vim.fn.getchar()
     os.exit(1)
   end
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader      = [[ ]]
+vim.g.mapleader = [[ ]]
 vim.g.maplocalleader = [[\]]
 vim.g.colorscheme = "onedark" ---@type "nightfox"|"dayfox"|"dawnfox"|"duskfox"|"nordfox"|"carbonfox"|"onedark"
-vim.g.themestyle  = "deep"  ---@type "dark"|"darker"|"cool"|"deep"|"warm"|"warmer"|"light"
+vim.g.themestyle = "deep" ---@type "dark"|"darker"|"cool"|"deep"|"warm"|"warmer"|"light"
 
 local lazy_ok, lazy = pcall(require, "lazy")
-if not lazy_ok then return end
+if not lazy_ok then
+  return
+end
 
 lazy.setup("plugins", {
-  defaults = { lazy   = true },
-  checker  = { enable = true },
+  defaults = { lazy = true },
+  checker = { enable = true },
   change_detection = {
     enable = true,
     notify = true,
   },
   git = {
-    log = { '--since=5 days ago' },
-    timeout = 1200,  -- seconds
-    url_format = 'https://github.com/%s.git',
+    log = { "--since=5 days ago" },
+    timeout = 1200, -- seconds
+    url_format = "https://github.com/%s.git",
     filter = true,
   },
-  install  = {
+  install = {
     missing = true,
     colorscheme = { vim.g.colorscheme },
   },
   performance = {
-    cache= {
+    cache = {
       enabled = true,
       path = vim.fn.stdpath("cache") .. "/lazy/cache",
       disable_events = { "UIEnter", "BufReadPre" },
@@ -51,39 +53,52 @@ lazy.setup("plugins", {
       reset = true, -- reset the runtime path to $VIMRUNTIME and the config directory
       -- paths = {}, -- add any custom paths here that you want to include in the rtp
       disabled_plugins = {
-        "bugreport", "compiler",
-        "getscript", "getscriptPlugin", "optwin",
-        "zip", "zipPlugin", "gzip",
-        "tar", "tarPlugin",
-        "getscript", "getscriptPlugin",
-        "vimball", "vimballPlugin",
-        "matchit", "matchparen",
-        "netrw", "netrwPlugin",
-        "netrwSettings", "netrwFileHandlers",
-        "rplugin", "rrhelper", -- "spellfile_plugin",
-        "synmenu", "tohtml",
+        "bugreport",
+        "compiler",
+        "getscript",
+        "getscriptPlugin",
+        "optwin",
+        "zip",
+        "zipPlugin",
+        "gzip",
+        "tar",
+        "tarPlugin",
+        "getscript",
+        "getscriptPlugin",
+        "vimball",
+        "vimballPlugin",
+        "matchit",
+        "matchparen",
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "rplugin",
+        "rrhelper", -- "spellfile_plugin",
+        "synmenu",
+        "tohtml",
         "logipat",
         "tutor",
-      }
-    }
+      },
+    },
   },
   ui = {
     border = "rounded",
-    size  = { width = 0.7, height = 0.8 },
+    size = { width = 0.7, height = 0.8 },
     icons = {
-      cmd     = "⌘",
-      config  = "🛠",
-      event   = "📅",
-      ft      = "📂",
-      init    = "⚙",
-      keys    = "🗝",
-      plugin  = "🔌",
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
       runtime = "💻",
-      source  = "📄",
-      start   = "🚀",
-      task    = "📌",
-      lazy    = "💤 ",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
     },
-  }
+  },
 })
-require "core"
+require("config.core")

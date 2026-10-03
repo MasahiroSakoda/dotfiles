@@ -1,0 +1,64 @@
+vim.g.sidekick_nes = false
+
+---@class sidekick.Config
+require("sidekick").setup({
+  nes = {
+    -- TODO: Enable inline completion when NeoVim 0.12.x stable releases
+    enabled = false,
+    debounce = 500,
+  },
+  cli = {
+    watch = true,
+
+    ---@class sidekick.win.Opts
+    win = {
+      layout = "right",
+      split = { width = 120, height = 25 },
+
+      ---@type table<string, sidekick.cli.Keymap|false>
+      keys = {
+        buffers = { "<c-\\>", "buffers", mode = "nt", desc = "open buffer picker" },
+        files = { "<c-'>", "files", mode = "nt", desc = "open file picker" },
+        hide_n = { "q", "hide", mode = "n", desc = "hide the terminal window" },
+        hide_ctrl_q = { "<c-q>", "hide", mode = "n", desc = "hide the terminal window" },
+        hide_ctrl_dot = { "<c-.>", "hide", mode = "nt", desc = "hide the terminal window" },
+        hide_ctrl_z = { "<c-z>", "hide", mode = "nt", desc = "hide the terminal window" },
+        prompt = { "<c-,>", "prompt", mode = "t", desc = "insert prompt or context" },
+        stopinsert = { "<c-q>", "stopinsert", mode = "t", desc = "enter normal mode" },
+        -- Navigate windows in terminal mode. Only active when:
+        -- * layout is not "float"
+        -- * there is another window in the direction
+        -- With the default layout of "right", only `<c-h>` will be mapped
+        nav_left = { "<c-h>", "nav_left", expr = true, desc = "navigate to the left window" },
+        nav_down = { "<c-j>", "nav_down", expr = true, desc = "navigate to the below window" },
+        nav_up = { "<c-k>", "nav_up", expr = true, desc = "navigate to the above window" },
+        nav_right = { "<c-l>", "nav_right", expr = true, desc = "navigate to the right window" },
+      },
+    },
+
+    ---@type table<string, sidekick.cli.Config|{}>
+    tools = {
+      opencode = {
+        cmd = { "caveman", "opencode" },
+        -- cmd = { "opencode" },
+        ---@see https://opencode.ai/docs/themes/#built-in-themes
+        env = { OPENCODE_THEME = "tokyonight" },
+      },
+      antigravity = {
+        cmd = { "agy" },
+      },
+      pi = {
+        cmd = { "pi", "-c" },
+      },
+      omp = {
+        cmd = { "omp" },
+      },
+    },
+  },
+
+  ---@class sidekick.cli.Mux
+  mux = {
+    backend = "zellij",
+    enabled = true,
+  },
+})

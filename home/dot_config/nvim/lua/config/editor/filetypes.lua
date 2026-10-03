@@ -1,0 +1,149 @@
+local M = {}
+
+M.log  = { "log", "txt", "text" }
+M.makefile = { "Makefile", "MAKEFILE", "makefile", "make" }
+M.markdown = { "markdown", "md", "vimwiki" }
+M.oxlint   = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" }
+M.oxfmt = {
+  "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro",
+  "json", "jsonc",
+  "yaml", "css"
+}
+M.yaml     = { "yml", "yaml" }
+
+M.lang = {
+  shell = { "sh",  "bash", "zsh" },
+  go    = { "go", "gomod" },
+  json  = { "json",  "jsonc" },
+  js    = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte", "astro" },
+  html  = { "html", "templ", "htmldjango", "eruby" },
+  glsl  = { "glsl", "vert", "tesc", "tese", "frag", "geom", "comp" },
+  latex = { "tex", "plaintex", "bib" },
+}
+
+M.treesitter = {
+  -- Compiled Languages
+  "c", "cpp", "objc", "arduino", "swift", "llvm",
+  "c_sharp", "java", "scala", "kotlin", "clojure",
+  "erlang", "elixir",
+  "go", "gomod", "gosum", "gowork", "gotmpl", "templ",
+  "haskell", "rust", "zig", "nasm", "cuda",
+  -- Script Languages
+  "perl", "php", "python", "requirements", "ruby", "lua", "luadoc", "vim", "r", "matlab",
+  -- Javascript
+  "javascript", "typescript", "tsx", "vue", "svelte",
+  "json", "json5", "jsonc", "jsdoc", "jq",
+  -- Markup Languages
+  "html", "css", "scss",
+  "xml", "yaml", "toml", "kdl", "markdown", "markdown_inline", "latex", "rst", "mermaid",
+  "glimmer", "ron",
+  -- Shader Languages
+  "glsl", "hlsl", "wgsl",
+  -- Shell
+  "awk", "bash", "fish", "nu",
+  -- Command
+  "vimdoc", "diff", "regex",
+  -- Security
+  "ssh_config", "gpg",
+  -- Git
+  "git_config", "gitattributes", "gitignore", "gitcommit", "git_rebase",
+  -- Build
+  "make", "cmake", "just",
+  -- Terminal Multiplexer
+  "tmux",
+  -- DevOps
+  "dockerfile", "terraform",
+  -- Protocol
+  "http",
+  -- Query Languages
+  "sql", "graphql",
+  -- ORM
+  "prisma",
+  -- saparated value
+  "csv", "tsv",
+  -- Package manager
+  "nix",
+  -- Others
+  "ini", "comment", "editorconfig",
+}
+
+M.endwise = { "bash", "zsh", "fish", "lua", "luau", "elixir", "ruby", "vim" }
+
+M.actions = { "yaml.github" }
+
+M.colorizer = {
+  "vim", "lua",
+  "html", "eruby", "css", "markdown",
+  "javascript", "typescript", "javascriptreact", "typescriptreact",
+}
+
+M.autotag = {
+  "html", "xhtml", "xml",
+  "javascript", "typescript",
+  "javascriptreact", "typescriptreact", "markdown",
+}
+
+M.matchup = {
+  "sh", "bash", "csh", "zsh",
+  "vim", "lua",
+  "make", "cmake",
+  "c", "cpp",
+  "ruby", "eruby",
+  "perl", "php",
+  "javascript", "javascriptreact", "typescriptreact",
+  "html", "xhtml", "xml", "haml",
+}
+
+M.lsp = {
+  clang_format = { ".clang_format" },
+  rust         = { "Cargo.toml", "rust-project.json" },
+  golangci     = { ".golangci.yml", ".golangci.yaml", ".golangci.toml", ".golangci.json" },
+  pyright      = { ".venv", "venv", "setup.py", "setup.cfg", "requirements.txt", "pyproject.toml" },
+  ruff         = { "pyproject.toml", "ruff.toml", ".ruff.toml" },
+  ruby         = { ".git", "Gemfile" },
+  tsserver     = { "jsconfig.json", "tsconfig.json" },
+  prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
+  eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
+  deno         = { "deno.json", "deno.jsonc" },
+  oxlint       = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" },
+  oxfmt        = { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" },
+  tailwindcss  = {
+    "tailwind.config.js", "tailwind.config.cjs", "tailwind.config.mjs", "tailwind.config.ts",
+    "postcss.config.js", "postcss.config.cjs", "postcss.config.mjs", "postcss.config.ts",
+    "app/assets/stylesheets/application.tailwind.css", "app/assets/tailwind/application.css",
+  },
+  terraform    = { "terraform", "tf", "terraform-vars", "hcl" },
+  tombi        = { "tombi.toml", "pyprojet.toml", ".git" },
+  texlab       = { ".latexmkrc", "latexmkrc", ".textlabroot", "textlabroot", "Tectonic.toml" },
+  harper       = { "markdown", "markdown.mdx", "typst", "tex", "plaintex", "text", "gitcommit" },
+  sqruff       = { ".sqruff" },
+}
+
+M.snacks = {
+  image = {
+    triggers = { "markdown" },
+    formats  = { "png", "jpg", "jpeg", "gif", "webp", "pdf", "icns" },
+  },
+}
+
+M.ignore = {
+  archive = { "%.tar$", "%.tar.gz$", "%.tar.xz$", "%.zip$", "%.rar$", "%.7z$", "%.bz2$" },
+  vcs     = { "^.git/", "^.svn/", "^.hg/" },
+  build   = { "build/", "dist/", "%.o$", "%.obj$", "%.so$", "%.a$", "%.out$", "%.whl$", "%.bin$" },
+  ide     = { "^.idea/", "^.vscode/", "^.project/" },
+  node    = { "node_modules/", "^.yarn/", "^.pnpm/", "^.npm", "%-lock.json$" },
+  js      = { "%.min.js$", "%.min.gzip.js$" },
+  java    = { "^.gradle/", "^.classpath/", "^.factorypath/", "%.class$", "%.jar$", "%.war$" },
+  python  = { "^.venv/", "%.pyc$", "__pycache__", "%.ipynb$" },
+  ruby    = { "vendor/", "deps/" },
+  db      = { "%.sqlite$", "%.sqlite3$", "%.db$" },
+  win     = { "%.exe$", "Thumb.db$", "desktop.ini$$$", "%.dll$", "%.pdb$" },
+  mac     = { "^.DS_Store", "%.dylib$", "^.Trashs/" },
+  font    = { "%.otf$", "%.ttf$", "%.woff$" },
+  image   = { "%.png$", "%.jpg$", "%.jpeg$", "%.webp$", "%.gif$" },
+  video   = { "%.mp4$", "%.mkv$", "%.m4v$", "%.avi$", "%.flv$" },
+  audio   = { "%.wav$", "%.flac$", "%.ttf$", "%.mp3$", "%.m4a$", "%.ogg$" },
+  office  = { "%.doc$", "%.xls$", "%.ppt$", "%.pdf$", "%.epub$" },
+}
+
+return M

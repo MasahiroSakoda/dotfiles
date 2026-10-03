@@ -5,39 +5,38 @@ return {
     "folke/noice.nvim",
     cond   = not vim.g.vscode,
     event  = "VeryLazy",
-    config = function() require("ui.noice") end,
+    config = function() require("config.editor.noice") end,
   },
 
   {
     "folke/which-key.nvim", -- Shortcut / Keymap
     event  = "VeryLazy",
     config = function()
-      require("user.which-key")
-      require("core.keymap")
+      require("config.editor.which-key")
+      require("config.core.keymap")
     end,
   },
   {
     "folke/snacks.nvim",
     priority = 1000,
     lazy     = false,
-    config   = function() require("user.snacks") end,
+    config   = function() require("config.snacks") end,
   },
   -- Enhanced character motion
   {
     "folke/flash.nvim",
     cond   = not vim.g.vscode,
-    init   = function() require("ui.flash") end,
-    config = function() require("user.flash") end,
+    config = function() require("config.editor.flash") end,
   },
   {
     "monaqa/dial.nvim", -- Toggle / Serialize plugin
-    config = function() require("user.dial") end,
+    config = function() require("config.editor.dial") end,
   },
   {
     "windwp/nvim-autopairs", -- autopair: like if/end
     cond   = not vim.g.vscode,
     event  = { "BufReadPost", "BufNewFile" },
-    config = function() require("lsp.cmp.autopairs") end
+    config = function() require("config.editor.autopairs") end
   },
   {
     "kylechui/nvim-surround",
@@ -50,17 +49,51 @@ return {
   {
     "wansmer/treesj",
     event = "VeryLazy",
-    config = function() require("user.treesj") end,
+    config = function() require("config.editor.treesj") end,
   },
   {
     "folke/trouble.nvim",
     cmd = { "Trouble" },
-    config = function() require("lsp.config.trouble") end,
+    config = function() require("config.editor.trouble") end,
+  },
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd    = { "Oil" },
+    config = function() require("config.editor.oil") end,
+  },
+  {
+    "saghen/blink.cmp",
+    version = "1.*",
+    dependencies = { "onsails/lspkind.nvim" },
+    cond         = not vim.g.vscode,
+    event        = { "InsertEnter", "CmdlineEnter" },
+    opts_extend  = { "sources.default", "sources.completion.enabled_providers" },
+    config       = function() require("config.editor.completion") end,
+  },
+  {
+    "L3MON4D3/LuaSnip", -- Snippet completion sources
+    dependencies = { "rafamadriz/friendly-snippets" },
+    build   = "make install_jsregexp",
+    version = "v2.*",
+    event   = "InsertEnter",
+    config  = function () require("config.editor.snippets") end,
+  },
+  {
+    "lewis6991/gitsigns.nvim", -- Git integration
+    cond   = not vim.g.vscode,
+    event  = { "BufReadPost", "BufNewFile" },
+    config = function() require("config.editor.gitsigns") end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "markdown.mdc", "markdown.mdx", "vimwiki" },
+    config = function() require("config.editor.render-markdown") end,
   },
   -- Tex
   {
     "lervag/vimtex",
-    ft     = require("user.filetypes").lang.latex,
-    config = function() require("user.latex") end,
+    ft     = require("config.editor.filetypes").lang.latex,
+    config = function() require("config.editor.latex") end,
   },
 }

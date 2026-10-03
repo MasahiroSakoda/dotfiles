@@ -1,9 +1,0 @@
-[default]
-format = "{{.LineNumber}}:{{.Rule}}:{{.Violation}}"
-
-[maxbodylength]
-maxBodyLength = 50
-
-[phonydeclared]
-disabled = true
-GOPATH   = false

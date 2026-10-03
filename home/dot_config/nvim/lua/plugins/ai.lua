@@ -3,8 +3,10 @@
 return {
   {
     "folke/sidekick.nvim",
-    cmd    = "Sidekick",
-    cond   = not vim.g.vscode,
-    config = function() require("ai.sidekick") end,
+    cmd = "Sidekick",
+    cond = not vim.g.vscode,
+    config = function()
+      require("config.ai.sidekick")
+    end,
   },
 }
