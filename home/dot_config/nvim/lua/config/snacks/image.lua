@@ -1,5 +1,4 @@
--- -*-mode:lua-*- vim:ft=lua
-local ft = require("config.filetypes")
+local ft = require("config.editor.filetype")
 
 ---@class snacks.image.Config
 return {

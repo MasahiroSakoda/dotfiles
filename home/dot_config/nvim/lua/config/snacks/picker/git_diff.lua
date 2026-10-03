@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@type snacks.picker.Config
 return {
   focus = "list",

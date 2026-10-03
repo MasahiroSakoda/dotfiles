@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@class snacks.terminal.Config
 return {
   enabled = true,

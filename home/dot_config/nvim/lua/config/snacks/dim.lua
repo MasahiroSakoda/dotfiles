@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@class snacks.dim.Config
 return {
   enabled = true,

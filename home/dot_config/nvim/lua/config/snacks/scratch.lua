@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@type snacks.scratch.Config
 return {
   enabled = true,

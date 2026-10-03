@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@type snacks.words.Config
 return {
   enabled     = true,

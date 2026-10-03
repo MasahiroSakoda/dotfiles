@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@class snacks.scroll.Config
 return {
   enabled = false,

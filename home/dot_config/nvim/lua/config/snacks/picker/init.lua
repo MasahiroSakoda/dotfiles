@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@class snacks.picker.Config
 return {
   enabled = true,
@@ -42,11 +40,11 @@ return {
     files = { hidden = true },
     smart = { hidden = true, filter = { cwd = true } },
     grep  = { hidden = true },
-    markdown   = require("user.snacks.picker.markdown"),
-    snippets   = require("user.snacks.picker.snippets"),
-    git_status = require("user.snacks.picker.git_status"),
-    git_diff   = require("user.snacks.picker.git_diff"),
-    git_log    = require("user.snacks.picker.git_log"),
+    markdown   = require("config.snacks.picker.markdown"),
+    snippets   = require("config.snacks.picker.snippets"),
+    git_status = require("config.snacks.picker.git_status"),
+    git_diff   = require("config.snacks.picker.git_diff"),
+    git_log    = require("config.snacks.picker.git_log"),
     gh_issue   = {},
     gh_pr      = {},
   },

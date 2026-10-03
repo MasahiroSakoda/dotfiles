@@ -1,4 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
 local ls = require("luasnip")
 
 ---@type snacks.Config

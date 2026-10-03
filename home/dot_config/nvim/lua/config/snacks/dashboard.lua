@@ -1,5 +1,3 @@
--- -*-mode:lua-*- vim:ft=lua
-
 ---@class snacks.dashboard.Config
 return {
   row = nil, -- dashboard position. nil for center
@@ -45,7 +43,7 @@ return {
     { icon = " ", title = "Shortcuts",      section = "keys",         indent = 4, gap = 0, padding = 1 },
     { icon = " ", title = "Recent Files",   section = "recent_files", indent = 4, gap = 0, padding = 1 },
     { icon = " ", title = "Projects",       section = "projects",     indent = 4, gap = 0, padding = 1 },
-    { icon = " ", title = "Resore Session", section = "session",      indent = 4, gap = 0, padding = 1 },
+    { icon = " ", title = "Restore Session", section = "session",      indent = 4, gap = 0, padding = 1 },
     { section = "startup", padding = 1 },
   },
 }
