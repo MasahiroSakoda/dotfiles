@@ -1,6 +1,5 @@
 [settings]
 minimum_release_age  = "3d"
-trusted_config_paths = ["."]
 
 gpg_verify = true  # Use gpg to verify all tool signatures
 lockfile   = true
