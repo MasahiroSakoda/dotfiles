@@ -53,7 +53,7 @@ compile = false
 
 [tools]
 # Backends
-aqua = "latest"
+aqua = "2.63.0"
 
 # Runtime & Languages
 rust    = "1"
@@ -65,153 +65,153 @@ python  = ["3.14"]
 ruby    = "4"
 
 # Package Manager
-"aqua:pnpm/pnpm"    = { version = "12",     minimum_release_age = "1d" } # Fast, disk space efficient package manager
-"aqua:astral-sh/uv" = { version = "latest", minimum_release_age = "1d" } # Python package and project manager, written in Rust
+"aqua:pnpm/pnpm"    = { version = "12.8.1",  minimum_release_age = "1d" } # Fast, disk space efficient package manager
+"aqua:astral-sh/uv" = { version = "0.12.20", minimum_release_age = "1d" } # Python package and project manager, written in Rust
 
 # CLI tools
 
 {{- if eq .chezmoi.os "darwin" }}
-"aqua:mas-cli/mas" = "latest" # App Store
+"aqua:mas-cli/mas" = "7.0.0" # App Store
 {{- end }}
 
 ## Terminal
-"aqua:zellij-org/zellij" = "latest" # Terminal Multiplexer
+"aqua:zellij-org/zellij" = "0.45.1" # Terminal Multiplexer
 
 ## Shell
-"aqua:starship/starship"     = "latest" # Shell prompt
-"aqua:rossmacarthur/sheldon" = "latest" # Shell plugin manager
+"aqua:starship/starship"     = "1.26.0" # Shell prompt
+"aqua:rossmacarthur/sheldon" = "0.8.5"  # Shell plugin manager
 
 ## Editor
-"aqua:neovim/neovim"           = "latest" # Hyper extensive editor
-"aqua:tree-sitter/tree-sitter" = "latest" # language parser
+"aqua:neovim/neovim"           = "0.12.5" # Hyper extensive editor
+"aqua:tree-sitter/tree-sitter" = "0.27.0" # language parser
 
 ## Alternative CLI
-"aqua:fish-shell/fish-shell"     = "latest" # The user-friendly command line shell.
-"aqua:ajeetdsouza/zoxide"        = "latest" # Smarter cd command
-"aqua:sharkdp/bat"               = "latest" # cat alternative
-"aqua:sharkdp/fd"                = "latest" # find alternative
-"aqua:BurntSushi/ripgrep"        = "latest" # grep alternative
-"aqua:phiresky/ripgrep-all"      = "latest" # extended ripgrep for pdf, docs, archives, img, movies, etc
-"aqua:junegunn/fzf"              = "latest" # Fuzzy finder
-"aqua:alexpasmantier/television" = "latest" # A very fast, portable and hackable fuzzy finder.
-"aqua:ClementTsang/bottom"       = "latest" # Process monitor
-"aqua:watchexec/watchexec"       = "latest" # Modify detector
-"aqua:Byron/dua-cli"             = "latest" # Disk usage
-"aqua:fastfetch-cli/fastfetch"   = "latest" # System information
-"aqua:svenstaro/genact"          = "latest" # nonsense activity generator
-"aqua:tealdeer-rs/tealdeer"      = "latest" # Too long don't read
-"aqua:tstack/lnav"               = "latest" # Log file navigator
-"aqua:ducaale/xh"                = "latest" # Friendly and fast tool for sending HTTP requests
+"aqua:fish-shell/fish-shell"     = "4.9.3"   # The user-friendly command line shell.
+"aqua:ajeetdsouza/zoxide"        = "0.10.0"  # Smarter cd command
+"aqua:sharkdp/bat"               = "0.26.1"  # cat alternative
+"aqua:sharkdp/fd"                = "10.5.0"  # find alternative
+"aqua:BurntSushi/ripgrep"        = "15.2.0"  # grep alternative
+"aqua:phiresky/ripgrep-all"      = "0.10.10" # extended ripgrep for pdf, docs, archives, img, movies, etc
+"aqua:junegunn/fzf"              = "0.74.4"  # Fuzzy finder
+"aqua:alexpasmantier/television" = "0.15.9"  # A very fast, portable and hackable fuzzy finder.
+"aqua:ClementTsang/bottom"       = "0.14.9"  # Process monitor
+"aqua:watchexec/watchexec"       = "2.7.3"   # Modify detector
+"aqua:Byron/dua-cli"             = "2.45.0"  # Disk usage
+"aqua:fastfetch-cli/fastfetch"   = "2.69.0"  # System information
+"aqua:svenstaro/genact"          = "1.5.1"   # nonsense activity generator
+"aqua:tealdeer-rs/tealdeer"      = "1.9.0"   # Too long don't read
+"aqua:tstack/lnav"               = "0.14.1"  # Log file navigator
+"aqua:ducaale/xh"                = "0.26.2"  # Friendly and fast tool for sending HTTP requests
 
 ## Downloader
-"github:yt-dlp/yt-dlp"    = { version = "latest", bin = "yt-dlp" }
-"forgejo:mikf/gallery-dl" = { version = "latest", asset_pattern = "gallery-dl.bin", bin = "gallery-dl" }
+"github:yt-dlp/yt-dlp"    = { version = "2026.08.19", bin = "yt-dlp" }
+"forgejo:mikf/gallery-dl" = { version = "1.32.14", asset_pattern = "gallery-dl.bin", bin = "gallery-dl" }
 
 # Storage
-"aqua:rclone/rclone" = "latest" # rsync for cloud storage
+"aqua:rclone/rclone" = "1.75.1" # rsync for cloud storage
 
 ### Git
-"aqua:simonwhitaker/gibo" = "latest" # .gitignore boilerplates
-"aqua:dandavison/delta"   = "latest" # A syntax-highlighting pager for git, diff, grep, rg --json, and blame output
-"aqua:modem-dev/hunk"     = "latest" # Review-first terminal diff viewer for agentic coders
+"aqua:simonwhitaker/gibo" = "3.0.22" # .gitignore boilerplates
+"aqua:dandavison/delta"   = "0.19.2" # A syntax-highlighting pager for git, diff, grep, rg --json, and blame output
+"aqua:modem-dev/hunk"     = "0.22.0" # Review-first terminal diff viewer for agentic coders
 
 ### Jujutsu
-"aqua:jj-vcs/jj"        = "latest" # A Git-compatible VCS that is both simple and powerful
+"aqua:jj-vcs/jj" = "0.45.1" # A Git-compatible VCS that is both simple and powerful
 
 ### GitHub
-"aqua:cli/cli"       = "latest" # gh command: GitHub CLI
-"aqua:x-motemen/ghq" = "latest" # Remote repository manager
+"aqua:cli/cli"       = "2.102.0" # gh command: GitHub CLI
+"aqua:x-motemen/ghq" = "1.10.1"  # Remote repository manager
 
 ## Dotfiles
-"aqua:twpayne/chezmoi" = "latest" # Dotfiles manager
+"aqua:twpayne/chezmoi" = "2.72.2" # Dotfiles manager
 
 ## Language Server
-"npm:bash-language-server"             = "latest" # Bash, Zsh
-"npm:fish-lsp"                         = "latest" # Fish
-"npm:vscode-json-languageserver"       = "latest" # JSON
-"npm:vscode-css-languageservice"       = "latest" # CSS
-"npm:yaml-language-server"             = "latest" # YAML
-"npm:@vtsls/language-server"           = "latest" # TypeScript
-"npm:@tailwindcss/language-server"     = "latest" # TailWind CSS
-"aqua:LuaLS/lua-language-server"       = "latest" # Lua
-"aqua:tombi-toml/tombi"                = "latest" # TOML
-"aqua:hashicorp/terraform-ls"          = "latest" # Terraform
-"go:golang.org/x/tools/gopls"          = "latest" # Go
-"github:clangd/clangd"                 = "latest" # C/C++
-"github:latex-lsp/texlab"              = "latest" # LaTex
-"github:docker/docker-language-server" = "latest" # Dockerfile, compose.yml
-"github:sqls-server/sqls"              = "latest" # SQL
+"npm:bash-language-server"             = "5.8.1"  # Bash, Zsh
+"npm:fish-lsp"                         = "1.1.4"  # Fish
+"npm:vscode-json-languageserver"       = "1.3.4"  # JSON
+"npm:vscode-css-languageservice"       = "6.3.10" # CSS
+"npm:yaml-language-server"             = "1.24.0" # YAML
+"npm:@vtsls/language-server"           = "0.3.0"  # TypeScript
+"npm:@tailwindcss/language-server"     = "0.16.0" # TailWind CSS
+"aqua:LuaLS/lua-language-server"       = "3.19.1" # Lua
+"aqua:tombi-toml/tombi"                = "1.5.5"  # TOML
+"aqua:hashicorp/terraform-ls"          = "0.39.0" # Terraform
+"go:golang.org/x/tools/gopls"          = "0.23.0" # Go
+"github:clangd/clangd"                 = "23.1.0" # C/C++
+"github:latex-lsp/texlab"              = "5.26.0" # LaTex
+"github:docker/docker-language-server" = "0.20.1" # Dockerfile, compose.yml
+"github:sqls-server/sqls"              = "0.2.48" # SQL
 
 ## Debugger
-"github:vadimcn/vscode-lldb"           = "latest" # C/C++, Rust, Zig, Swift
-"go:github.com/go-delve/delve/cmd/dlv" = "latest" # Go
+"github:vadimcn/vscode-lldb"           = "1.12.3" # C/C++, Rust, Zig, Swift
+"go:github.com/go-delve/delve/cmd/dlv" = "1.27.2" # Go
 
 ## Formatter / Linter
-"aqua:mvdan/sh"               = "latest" # Shell formatter
-"aqua:koalaman/shellcheck"    = "latest" # ShellCheck, a static analysis tool for shell scripts
-"aqua:astral-sh/ruff"         = "latest" # Python linter and code formatter, written in Rust
-"aqua:astral-sh/ty"           = "latest" # Python type checker and language server, written in Rust
-"aqua:golangci/golangci-lint" = "latest" # Go linter aggregator
-"aqua:hadolint/hadolint"      = "latest" # Dockerfile Linter
-"aqua:Kampfkarren/selene"     = "latest" # Lua linter
-"aqua:JohnnyMorganz/StyLua"   = "latest" # Lua Linter
-"aqua:quarylabs/sqruff"       = "latest" # Fast SQL formatter/linter
-"aqua:crate-ci/typos"         = "latest" # Typo
-"aqua:rvben/rumdl"            = "latest" # Fast Markdown linter and formatter written in Rust
-"aqua:oxc-project/oxc/oxlint" = "latest" # high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack
-"aqua:oxc-project/oxc/oxfmt"  = "latest" # high-performance formatter for the JavaScript ecosystem
+"aqua:mvdan/sh"               = "3.14.1" # Shell formatter
+"aqua:koalaman/shellcheck"    = "0.11.0" # ShellCheck, a static analysis tool for shell scripts
+"aqua:astral-sh/ruff"         = "0.16.9" # Python linter and code formatter, written in Rust
+"aqua:astral-sh/ty"           = "0.0.84" # Python type checker and language server, written in Rust
+"aqua:golangci/golangci-lint" = "2.14.0" # Go linter aggregator
+"aqua:hadolint/hadolint"      = "2.15.1" # Dockerfile Linter
+"aqua:Kampfkarren/selene"     = "0.31.0" # Lua linter
+"aqua:JohnnyMorganz/StyLua"   = "2.5.2"  # Lua Linter
+"aqua:quarylabs/sqruff"       = "0.40.0" # Fast SQL formatter/linter
+"aqua:crate-ci/typos"         = "1.50.3" # Typo
+"aqua:rvben/rumdl"            = "0.2.77" # Fast Markdown linter and formatter written in Rust
+"aqua:oxc-project/oxc/oxlint" = "1.84.0" # high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack
+"aqua:oxc-project/oxc/oxfmt"  = "1.84.0" # high-performance formatter for the JavaScript ecosystem
 
 ## Network
-"github:domcyrus/rustnet" = "latest" # Per-process network monitoring for your terminal
+"github:domcyrus/rustnet" = "1.6.0" # Per-process network monitoring for your terminal
 
 ## Daatbase / Data Analysis
-"github:jorgerojas26/lazysql" = "latest" # A cross-platform TUI database management tool written in Go.
-"github:medialab/xan"         = "latest" # CSV visualization toolkit
+"github:jorgerojas26/lazysql" = "0.5.9"  # A cross-platform TUI database management tool written in Go.
+"github:medialab/xan"         = "0.61.0" # CSV visualization toolkit
 
 ## Documents
-"github:jgm/pandoc"                   = "latest" # Universal markup converter
-"pipx:pylatexenc"                     = "latest" # LaTeX parser to use `render-markdown.nvim`
+"github:jgm/pandoc" = "3.11" # Universal markup converter
+"pipx:pylatexenc"   = "2.11" # LaTeX parser to use `render-markdown.nvim`
 
 ## JSON / YAML / Markdown
-"aqua:jqlang/jq"            = "latest" # CLI processor for JSON
-"aqua:mikefarah/yq"         = "latest" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
-"aqua:ynqa/jnv"             = "latest" # Interactive JSON filter using jq
-"aqua:charmbracelet/glow"   = "latest" # Render markdown on the CLI
+"aqua:jqlang/jq"          = "1.8.2"  # CLI processor for JSON
+"aqua:mikefarah/yq"       = "4.53.6" # CLI processor for YAML, JSON, XML, CSV, TSV, TOML, HCL, base64
+"aqua:ynqa/jnv"           = "0.7.1"  # Interactive JSON filter using jq
+"aqua:charmbracelet/glow" = "3.0.0"  # Render markdown on the CLI
 
 ## Security
-"aqua:FiloSottile/age"        = "latest" # Simple encrypt / decrypt tool
+"aqua:FiloSottile/age" = "1.3.2" # Simple encrypt / decrypt tool
 
 ## Utility
-"github:ksdme/ut"     = "latest" # A Rust based utility toolbox for developers
-"github:exercism/cli" = "latest" # A Go based command line tool for exercism.org.
+"github:ksdme/ut"     = "0.7.0" # A Rust based utility toolbox for developers
+"github:exercism/cli" = "3.5.8" # A Go based command line tool for exercism.org.
 
 ## Container
-"aqua:lima-vm/lima"      = "latest" # Linux virtual machines, with a focus on running containers
-"aqua:abiosoft/colima"   = "latest" # Container runtimes on macOS (and Linux) with minimal setup
-"aqua:docker/cli"        = "latest" # Docker CLI
-"aqua:docker/buildx"     = "latest" # Docker CLI plugin for extended build capabilities with BuildKit
-"aqua:docker/compose"    = "latest" # Define and run multi-container applications with Docker
-"npm:@devcontainers/cli" = "latest" # Dev Container CLI
+"aqua:lima-vm/lima"      = "2.2.0"  # Linux virtual machines, with a focus on running containers
+"aqua:abiosoft/colima"   = "0.10.3" # Container runtimes on macOS (and Linux) with minimal setup
+"aqua:docker/cli"        = "29.8.1" # Docker CLI
+"aqua:docker/buildx"     = "0.37.1" # Docker CLI plugin for extended build capabilities with BuildKit
+"aqua:docker/compose"    = "5.5.1"  # Define and run multi-container applications with Docker
+"npm:@devcontainers/cli" = "0.89.0" # Dev Container CLI
 
 ## AI Tools
 ### AI Agents
-"aqua:google-antigravity/antigravity-cli" = "latest"
-"aqua:anomalyco/opencode"                 = "latest"
+"aqua:google-antigravity/antigravity-cli" = "1.2.12"
+"aqua:anomalyco/opencode"                 = "1.18.32"
 
 ### AI Utility
-"github:microsoft/apm"     = "latest" # Agent Package Manager
-"aqua:herdrdev/herdr"      = "latest" # the runtime your coding agents live on
-"github:AlexsJones/llmfit" = "latest" # One command to find what runs on your hardware.
-"npm:@fission-ai/openspec" = "latest" # Spec-driven development (SDD) for AI coding assistants.
+"github:microsoft/apm"     = "0.32.0" # Agent Package Manager
+"aqua:herdrdev/herdr"      = "0.9.1"  # the runtime your coding agents live on
+"github:AlexsJones/llmfit" = "1.1.16" # One command to find what runs on your hardware.
+"npm:@fission-ai/openspec" = "1.13.2" # Spec-driven development (SDD) for AI coding assistants.
 
 ### Token Optimize
-"aqua:rtk-ai/rtk"     = "latest" # High-performance CLI proxy that reduces LLM token consumption by 60-90%
-"npm:@caveman-ai/cli" = "latest" # Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman
+"aqua:rtk-ai/rtk"     = "0.50.0" # High-performance CLI proxy that reduces LLM token consumption by 60-90%
+"npm:@caveman-ai/cli" = "1.3.4"  # Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman
 
 ### MCP servers
-"pipx:mcp-server-time"  = "latest" # MCP server for time and timezone conversion capabilities
-"pipx:mcp-server-git"   = "latest" # MCP server for Git interaction and automation
-"pipx:mcp-server-fetch" = "latest" # MCP server for Web contents fetching
+"pipx:mcp-server-time"  = "2026.8.18" # MCP server for time and timezone conversion capabilities
+"pipx:mcp-server-git"   = "2026.8.18" # MCP server for Git interaction and automation
+"pipx:mcp-server-fetch" = "2026.8.18" # MCP server for Web contents fetching
 
 {{- /*
 # TODO: Enable after experimental flag has been removed
