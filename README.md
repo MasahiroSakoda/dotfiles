@@ -211,6 +211,7 @@ Runtime version management tool
 | [tealdeer](https://github.com/tealdeer-rs/tealdeer) | TL; DR                                    |
 | [xh](https://github.com/ducaale/xh) | HTTP client                               |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Downloader                                |
+| [gallery-dl](https://github.com/mikf/gallery-dl) | Image and gallery downloader              |
 | [hunk](https://github.com/modem-dev/hunk) | Review-first terminal diff viewer for agentic coders |
 | [gibo](https://github.com/simonwhitaker/gibo) | `.gitignore` boilerplates                 |
 | [gh](https://github.com/cli/cli) | GitHub CLI                                |
@@ -228,6 +229,7 @@ Runtime version management tool
 | [buildx](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
 | [compose](https://github.com/docker/compose) | multi-container interface with Docker     |
 | [ollama](https://github.com/ollama/ollama) | llama.cpp frontend                        |
+| [exercism](https://github.com/exercism/cli) | CLI for exercism.org                      |
 
 ##### Linter / Formatter
 
