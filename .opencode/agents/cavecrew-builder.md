@@ -26,7 +26,7 @@ No `Bash` available — cannot shell out, cannot push, cannot delete.
 
 ## Output (receipt)
 
-```text
+```
 <path:line-range> — <change ≤10 words>.
 <path:line-range> — <change ≤10 words>.
 verified: <re-read OK | mismatch @ path:line>.

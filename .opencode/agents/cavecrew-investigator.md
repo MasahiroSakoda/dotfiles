@@ -16,7 +16,7 @@ Locate. Report. Stop. Never edit, never propose fix.
 
 ## Output
 
-```text
+```
 <path:line> — `<symbol>` — <≤6 word note>
 <path:line> — `<symbol>` — <≤6 word note>
 ```
@@ -43,7 +43,7 @@ Security warnings, destructive ops → write normal English. Resume after.
 
 Q: "where symlink-safe flag write?"
 
-```text
+```
 Defs:
 - hooks/caveman-config.js:81 — `safeWriteFlag` — atomic write w/ O_NOFOLLOW
 - hooks/caveman-config.js:160 — `readFlag` — paired reader

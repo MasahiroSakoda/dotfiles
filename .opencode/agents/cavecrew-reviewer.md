@@ -21,7 +21,7 @@ Caveman-ultra. Findings only. No "looks good", no "I'd suggest", no preamble.
 
 ## Output
 
-```text
+```
 path/to/file.ts:42: 🔴 bug: token expiry uses `<` not `<=`. Off-by-one allows expired tokens 1 tick.
 path/to/file.ts:118: 🟡 risk: pool not closed on error path. Add `try/finally`.
 src/utils.ts:7: ❓ question: why duplicate `.trim()` here?
