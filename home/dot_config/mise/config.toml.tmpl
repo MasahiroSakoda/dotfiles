@@ -213,20 +213,6 @@ ruby    = "4"
 "pipx:mcp-server-git"   = "2026.8.18" # MCP server for Git interaction and automation
 "pipx:mcp-server-fetch" = "2026.8.18" # MCP server for Web contents fetching
 
-{{- /*
-# TODO: Enable after experimental flag has been removed
-[bootstrap.mise_shell_activate]
-# Bash
-bash_profile = "shims"
-bashrc       = "activate"
-
-# Zsh
-zprofile = "shims"
-zshrc    = "activate"
-
-# Fish
-fish = "activate"
-
 [bootstrap.packages]
 {{ if eq .chezmoi.os "darwin" -}}
 ## Homebrew
@@ -264,4 +250,3 @@ fish = "activate"
 ## Unknown Linux distro: {{ .chezmoi.osRelease.id | default "?" }} — add a branch.
 {{   end -}}
 {{ end -}}
-*/ -}}
