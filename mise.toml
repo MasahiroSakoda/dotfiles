@@ -8,12 +8,12 @@ pin        = true
 
 [tools]
 ## Security
-"aqua:betterleaks/betterleaks" = "latest" # A Better Secrets Scanner built for configurability and speed
+"aqua:betterleaks/betterleaks" = "1.8.1" # A Better Secrets Scanner built for configurability and speed
 
 ## GitHub Actions
-"aqua:suzuki-shunsuke/pinact" = "latest" # Version Pinner for GitHub Actions
-"aqua:rhysd/actionlint"       = "latest" # YAML Linter for GitHub Actions workflows
-"aqua:zizmorcore/zizmor"      = "latest" # Static analysis for GitHub Actions
+"aqua:suzuki-shunsuke/pinact" = "5.0.0"  # Version Pinner for GitHub Actions
+"aqua:rhysd/actionlint"       = "1.7.12" # YAML Linter for GitHub Actions workflows
+"aqua:zizmorcore/zizmor"      = "1.30.1" # Static analysis for GitHub Actions
 
 ## Git
-"aqua:evilmartians/lefthook" = "latest" # Fast and powerful Git hooks manager for any type of projects.
+"aqua:evilmartians/lefthook" = "2.1.14" # Fast and powerful Git hooks manager for any type of projects.
