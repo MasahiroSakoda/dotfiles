@@ -1,7 +1,7 @@
 -- -*-mode:lua-*- vim:ft=lua
 
 local files = {}
-for _, categories in pairs(require("config.filetypes").ignore) do
+for _, categories in pairs(require("config.editor.filetypes").ignore) do
   for _, filetype in pairs(categories) do
     table.insert(files, filetype)
   end

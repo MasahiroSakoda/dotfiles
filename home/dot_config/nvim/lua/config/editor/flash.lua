@@ -22,7 +22,7 @@ require("flash").setup({
   },
   prompt = {},
   remote_op = {},
-  exclude = require("core.ignore").flash,
+  exclude = require("config.core.ignore").flash,
 })
 
 

@@ -20,7 +20,7 @@ oil.setup({
     show_hidden   = true,
     natural_order = true,
     is_always_hidden = function(name, _)
-      return vim.tbl_contains(require("core.ignore").oil, name)
+      return vim.tbl_contains(require("config.core.ignore").oil, name)
     end
   },
 

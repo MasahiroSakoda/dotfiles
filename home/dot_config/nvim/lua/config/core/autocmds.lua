@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2060}-\u{2069}]", 10)
 
     -- Variation Selectors: U+E0100–E01EF
-    vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0100}-\u{e01ef}]", 10)
+    -- vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{e0100}-\u{e01ef}]", 10)
 
     -- Zero-Width Characters: U+200B–D
     vim.fn.matchadd("SuspiciousUnicodeWarn", "[\u{2000}-\u{200A}\u{202F}\u{feff}]", 10, -1)
@@ -202,7 +202,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
       vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         group    = format_group,
         buffer   = ev.buf,
-        callback = require("lsp.config.format"),
+        callback = require("config.lsp.config.format"),
       })
     end
   end
