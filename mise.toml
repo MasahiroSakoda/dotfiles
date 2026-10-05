@@ -16,3 +16,6 @@ pin        = true
 
 ## Git
 "aqua:evilmartians/lefthook" = "2.1.14" # Fast and powerful Git hooks manager for any type of projects.
+
+## Test
+"aqua:bats-core/bats-core" = "1.14.0" # Bash Automated Testing System
