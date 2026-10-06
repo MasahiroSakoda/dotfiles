@@ -229,6 +229,7 @@ Runtime version management tool
 | [buildx](https://github.com/docker/buildx) | Extended build capabilities with BuildKit |
 | [compose](https://github.com/docker/compose) | multi-container interface with Docker     |
 | [ollama](https://github.com/ollama/ollama) | llama.cpp frontend                        |
+| [bats-core](https://github.com/bat-core/bats-core) | Bash Automated Testing System |
 | [exercism](https://github.com/exercism/cli) | CLI for exercism.org                      |
 
 ##### Linter / Formatter
