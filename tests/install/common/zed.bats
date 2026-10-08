@@ -2,7 +2,6 @@
 
 load "../../helpers/test_helper.sh"
 load "../../helpers/validate_shell.sh"
-load "../../helpers/validate_toml.sh"
 
 setup() {
   bats_require_minimum_version 1.7.0
