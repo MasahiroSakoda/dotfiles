@@ -11,6 +11,10 @@ setup() {
   [ -f "$PROJECT_ROOT/.gitignore" ]
 }
 
+@test ".gitmodules exists" {
+  [ -f "$PROJECT_ROOT/.gitmodules" ]
+}
+
 @test ".lefthook.yaml exists" {
   [ -f "$PROJECT_ROOT/.lefthook.yaml" ]
 }
