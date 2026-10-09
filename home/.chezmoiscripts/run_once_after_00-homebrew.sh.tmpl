@@ -9,13 +9,9 @@ set -eo pipefail
 
 {{- if not .headless }}
 # Install Homebrew
-BREW_DIR="$HOME/.config/homebrew"
-if ! command_exists brew && [ -f "$BREW_DIR/Brewfile" ]; then
+if ! command_exists brew; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
-
-# Install Homebrew packages
-brew bundle -v --file="$BREW_DIR/Brewfile"
 
 ## Reinstall custom w3m
 # W3M_PATH=`brew info w3m | rg "Cellar" | sed -e "s/ (.*//"1`
@@ -24,8 +20,7 @@ brew bundle -v --file="$BREW_DIR/Brewfile"
 # brew reinstall --build-from-source --formula ./w3m.rb
 # rm ./w3m.rb
 
-brew bundle -v --file="$BREW_DIR/Caskfile"
-brew bundle -v --file="$BREW_DIR/Masfile"
+# Packages are installed by `mise bootstrap` from ~/.config/mise/config.toml
 {{- end }}
 
 brew list

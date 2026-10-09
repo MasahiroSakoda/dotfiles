@@ -36,6 +36,17 @@ disable_tools    = ["java"]                          # ignore specified tools in
 legacy_version_file = false
 idiomatic_version_file_enable_tools = []
 
+[settings.system_packages]
+{{ if eq .chezmoi.os "darwin" -}}
+managers = ["brew", "brew-cask", "mas"]
+{{ else if eq .chezmoi.os "linux" }}
+{{-   if eq (.chezmoi.osRelease.id | default "") "debian" -}}
+managers = ["apt"]
+{{-   else if eq (.chezmoi.osRelease.id | default "") "arch" -}}
+managers = ["pacman"]
+{{-   end }}
+{{- end }}
+
 [settings.npm]
 # default_packages_file = "~/.config/mise/default-npm-packages"
 package_manager = "pnpm"
@@ -321,42 +332,159 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 ## Packages
 [bootstrap.packages]
 {{ if eq .chezmoi.os "darwin" -}}
-## Homebrew
-{{- range $key, $value := .packages.brew }}
-### {{ $key }}
-{{- range $value }}
-"brew:{{ . }}" = "latest"
-{{- end }}
-{{ end }}
-## Homebrew Cask
-{{ range $key, $value := .packages.cask }}
-### {{ $key }}
-{{- range $value }}
-"brew-cask:{{ . }}" = "latest"
-{{- end }}
-{{ end }}
-## Mac App Store
-{{ range .packages.mas -}}
-"mas:{{ .id }}" = "latest" # {{ .name }}
-{{ end }}
+### Core
+"brew:gnutls"    = "latest"
+"brew:coreutils" = "latest"
+"brew:eza"       = "latest"
+
+### Disk
+"brew:diskonaut" = "latest"
+
+### Security
+"brew:pinentry-mac" = "latest"
+"brew:openssl"      = "latest"
+"brew:gnupg"        = "latest"
+
+### Terminal
+"brew:tmux" = "latest"
+
+### VCS
+"brew:git" = "latest"
+
+### Reader
+"brew:w3m"      = "latest"
+"brew:newsboat" = "latest"
+
+### Downloader
+"brew:wget"  = "latest"
+"brew:curl"  = "latest"
+"brew:aria2" = "latest"
+
+### Lua
+"brew:luarocks" = "latest"
+
+### Media
+"brew:ffmpeg-full"      = "latest"
+"brew:imagemagick-full" = "latest"
+"brew:exiv2"            = "latest"
+
+### AI
+"brew:ollama" = "latest"
+
+### Maintenance
+"brew-cask:onyx"       = "latest"
+"brew-cask:appcleaner" = "latest"
+
+"brew-cask:symboliclinker"     = "latest"
+"brew-cask:karabiner-elements" = "latest"
+
+### Language / IME
+"brew-cask:monolingual"         = "latest"
+"brew-cask:google-japanese-ime" = "latest"
+
+### Fonts
+"brew-cask:font-codicon"                  = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:font-udev-gothic-nf"           = "latest"
+
+### Launcher
+"brew-cask:raycast" = "latest"
+
+### Browser
+"brew-cask:suspicious-package" = "latest"
+"brew-cask:brave-browser"      = "latest"
+"brew-cask:firefox"            = "latest"
+
+### Reader
+"brew-cask:skim" = "latest"
+
+### Terminal
+"brew-cask:wezterm" = "latest"
+"brew-cask:ghostty" = "latest"
+
+### AI
+"brew-cask:google-gemini" = "latest"
+"brew-cask:antigravity" = "latest"
+
+### IDE
+"brew-cask:zed" = "latest"
+"brew-cask:basictex" = "latest"
+
+### Media
+"brew-cask:drawio"  = "latest"
+"brew-cask:blender" = "latest"
+"brew-cask:iina"    = "latest"
+"brew-cask:vlc"     = "latest"
+"brew-cask:spotify" = "latest"
+
+### Audio
+"brew-cask:blackhole-2ch" = "latest"
+"brew-cask:typeless"      = "latest"
+
+### Storage
+"brew-cask:dropbox" = "latest"
+
+### Chat
+"brew-cask:beeper" = "latest"
+
+"mas:470158793"  = "latest" # Keka
+"mas:1024640650" = "latest" # CotEditor
+"mas:539883307"  = "latest" # LINE
+"mas:409201541"  = "latest" # Pages
+"mas:409203825"  = "latest" # Numbers
+"mas:1480933944" = "latest" # Vimari
+
 {{ else if eq .chezmoi.os "linux" }}
 {{   if eq (.chezmoi.osRelease.id | default "") "debian" -}}
-## Debian based OS
-{{-    range $key, $value := .packages.apt }}
-### {{ $key }}
-{{-      range $value }}
-"apt:{{ . }}" = "latest"
-{{-      end }}
-{{-    end }}
+"apt:build-essential" = "latest"
+
+### Shell
+"apt:zsh"  = "latest"
+"apt:fish" = "latest"
+
+### Alternative CLI
+"apt:eza" = "latest"
+
+### VCS
+"apt:git" = "latest"
+
+### Terminal
+"apt:ghostty" = "latest"
+"apt:tmux"    = "latest"
+
+### Download
+"apt:wget"  = "latest"
+"apt:curl"  = "latest"
+"apt:aria2" = "latest"
+
+### Security
+"apt:gnupg"           = "latest"
+"apt:pinentry-tty"    = "latest"
+"apt:ca-certificates" = "latest"
+
 {{   else if eq (.chezmoi.osRelease.id | default "") "arch" -}}
-{{-    range $key, $value := .packages.pacman }}
-### {{ $key }}
-{{-      range $value }}
-"pacman:{{ . }}" = "latest"
-{{-      end }}
-{{-    end }}
-## Arch based OS
-{{   else -}}
-## Unknown Linux distro: {{ .chezmoi.osRelease.id | default "?" }} — add a branch.
+"pacman:base-devel" = "latest"
+
+### Shell
+"pacman:zsh"  = "latest"
+"pacman:fish" = "latest"
+
+### Alternative CLI
+"pacman:eza" = "latest"
+
+### VCS
+"pacman:git" = "latest"
+
+### Terminal
+"pacman:ghostty" = "latest"
+"pacman:tmux"    = "latest"
+
+### Security
+"pacman:gnupg"           = "latest"
+"pacman:pinentry"        = "latest"
+"pacman:ca-certificates" = "latest"
+
+### AI
+"pacman:ollama" = "latest"
 {{   end -}}
 {{ end -}}

@@ -25,12 +25,9 @@ bootstrap_packages() {
   yq -p toml -o=json '."bootstrap"."packages" | keys | .[]' "$rendered_config" | tr -d '"'
 }
 
-# Prints declared packages that mise bootstrap would never install.
-missing_packages() {
-  local prefix="$1" filter="$2"
-  comm -23 \
-    <(chezmoi data --format=json | jq -r "$filter" | sed "s/^/${prefix}/" | sort -u) \
-    <(bootstrap_packages | sort -u)
+# System package managers mise is told to use, e.g. brew.
+system_package_managers() {
+  yq -p toml -o=json '."settings"."system_packages"."managers" | .[]' "$rendered_config" | tr -d '"'
 }
 
 # Settings-only global config, so the real one cannot leak preferences into the
@@ -60,22 +57,14 @@ macos_default_domains() {
   refute_output ""
 }
 
-@test "mise bootstrap declares every Homebrew formula" {
-  run missing_packages "brew:" ".packages.brew[][]"
+@test "mise bootstrap enables the Homebrew package managers" {
+  run system_package_managers
   assert_success
-  assert_output ""
-}
 
-@test "mise bootstrap declares every Homebrew cask" {
-  run missing_packages "brew-cask:" ".packages.cask[][]"
-  assert_success
-  assert_output ""
-}
-
-@test "mise bootstrap declares every Mac App Store app" {
-  run missing_packages "mas:" ".packages.mas[] | .id"
-  assert_success
-  assert_output ""
+  local manager
+  for manager in brew brew-cask mas; do
+    assert_line "$manager"
+  done
 }
 
 @test "mise bootstrap pins every package to latest" {
