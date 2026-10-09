@@ -45,4 +45,30 @@ assert_valid_json() {
   fi
 }
 
+# JSONC is a superset of JSON that also allows comments and trailing commas,
+# so jq and check-jsonschema cannot read it. Bun's module loader can, which is
+# why this takes no schema argument: check-jsonschema has no jsonc filetype.
+assert_valid_jsonc() {
+  local file="${1:-}"
+  local status output
+
+  if [ -z "$file" ]; then
+    echo "assert_valid_jsonc: file path is required" >&2
+    return 2
+  fi
+
+  if [ ! -f "$file" ]; then
+    echo "assert_valid_jsonc: no such file: $file" >&2
+    return 1
+  fi
+
+  skip_if_no_command bun
+
+  run bun -e 'await import(process.argv[1])' "$file"
+  if [ "$status" -ne 0 ]; then
+    echo "assert_valid_jsonc: $file is not valid JSONC: $output" >&2
+    return 1
+  fi
+}
+
 # -*-mode:sh-*- vim:ft=sh
