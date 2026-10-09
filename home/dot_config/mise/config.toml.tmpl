@@ -36,6 +36,9 @@ disable_tools    = ["java"]                          # ignore specified tools in
 legacy_version_file = false
 idiomatic_version_file_enable_tools = []
 
+[settings.github]
+credential_command = "gh auth token"
+
 [settings.system_packages]
 {{ if eq .chezmoi.os "darwin" -}}
 managers = ["brew", "brew-cask", "mas"]
