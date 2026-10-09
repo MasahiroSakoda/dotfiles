@@ -213,6 +213,112 @@ ruby    = "4"
 "pipx:mcp-server-git"   = "2026.8.18" # MCP server for Git interaction and automation
 "pipx:mcp-server-fetch" = "2026.8.18" # MCP server for Web contents fetching
 
+{{ if eq .chezmoi.os "darwin" -}}
+## MacOS
+# https://mise.jdx.dev/configuration.html#bootstrap-macos
+[bootstrap.macos.keyboard]
+key_repeat         = 1
+initial_key_repeat = 12
+
+[bootstrap.macos.trackpad]
+three_finger_drag = true
+
+[bootstrap.macos.finder]
+show_all_files     = true
+show_pathbar       = false
+show_status_bar    = true
+sort_folders_first = true
+
+[bootstrap.macos.dock]
+orientation    = "bottom"
+autohide       = true
+autohide_delay = 0.0
+show_recents   = false
+
+[bootstrap.macos.defaults]
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleKeyboardUIMode                = 3
+AppleShowAllExtensions             = true
+NSAutomaticWindowAnimationsEnabled = false
+NSWindowResizeTime                 = 0.001
+WebKitDeveloperExtras              = true
+
+"com.apple.mouse.tapBehavior" = 1
+"com.apple.springing.delay"   = 0.0
+"com.apple.springing.enabled" = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+_FXShowPosixPathInTitle         = true
+ShowHardDrivesOnDesktop         = false
+ShowExternalHardDrivesOnDesktop = false
+ShowRemovableMediaOnDesktop     = false
+ShowMountedServersOnDesktop     = true
+ShowRecentTags                  = false
+NewWindowTarget                 = "PfHm"
+QLEnableTextSelection           = true
+
+[bootstrap.macos.defaults."com.apple.dock"]
+no-glass    = true
+launchanim  = false
+no-bouncing = true
+showhidden  = true
+
+[bootstrap.macos.defaults."com.apple.desktopservices"]
+DSDontWriteNetworkStores = true
+
+[bootstrap.macos.defaults."com.apple.menuextra.clock"]
+DateFormat = "d HH:mm"
+
+[bootstrap.macos.defaults."com.apple.menuextra.battery"]
+ShowPercent = "YES"
+
+[bootstrap.macos.defaults."com.apple.screencapture"]
+disable-shadow = true
+type           = "png"
+
+[bootstrap.macos.defaults."com.apple.DiskUtility"]
+DUDebugMenuEnabled     = true
+advanced-image-options = true
+
+[bootstrap.macos.defaults."com.apple.Safari"]
+ShowFullURLInSmartSearchField = true
+ShowStatusBar                 = true
+ShowFavoritesBar              = false
+AutoOpenSafeDownloads         = false
+IncludeDevelopMenu            = true
+IncludeInternalDebugMenu      = true
+
+[bootstrap.macos.defaults."com.apple.AdLib"]
+allowApplePersonalizedAdvertising = false
+allowIdentifierForAdvertising     = false
+
+[bootstrap.macos.defaults."com.google.Chrome"]
+AppleEnableSwipeNavigateWithScrolls = false
+AppleEnableMouseSwipeNavigateWithScrolls = false
+DisablePrintPreview              = true
+PMPrintingExpandedStateForPrint2 = true
+
+[bootstrap.macos.defaults."com.brave.Browser"]
+AppleEnableSwipeNavigateWithScrolls      = false
+AppleEnableMouseSwipeNavigateWithScrolls = false
+DisablePrintPreview                      = true
+PMPrintingExpandedStateForPrint2         = true
+
+# `defaults -currentHost` preferences have no named section.
+[[bootstrap.macos.defaults_entries]]
+domain = "com.apple.ImageCapture"
+key = "disableHotPlug"
+value = true
+host = "current"
+
+[bootstrap.hooks.pre-defaults]
+run = "osascript -e 'tell application \"System Preferences\" to quit'"
+
+[bootstrap.hooks.post-defaults]
+run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null || true; done"
+{{ end }}
+## Packages
 [bootstrap.packages]
 {{ if eq .chezmoi.os "darwin" -}}
 ## Homebrew

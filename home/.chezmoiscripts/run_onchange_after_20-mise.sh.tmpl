@@ -7,4 +7,7 @@ set -eo pipefail
 mise trust $HOME/.config/mise/config.toml
 mise install
 mise current
+{{- if eq .chezmoi.os "darwin" }}
+mise bootstrap --only macos-defaults --yes
+{{- end }}
 {{- end }}

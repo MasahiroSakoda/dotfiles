@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# -*-mode:sh-*- vim:ft=sh.gotexttmpl
+# System tweaks mise cannot express declaratively.
+# Preferences themselves live in ~/.config/mise/config.toml ([bootstrap.macos]),
+# applied by `mise bootstrap --only macos-defaults`.
+
+set -eo pipefail
+
+{{ template "darwin/script_darwin_only" . }}
+{{ template "common/script_sudo" . }}
+
+chflags nohidden "$HOME/Library"
+sudo chflags nohidden /Volumes
+sudo nvram SystemAudioVolume=" "

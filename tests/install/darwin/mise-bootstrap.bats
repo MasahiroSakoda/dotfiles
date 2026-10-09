@@ -33,6 +33,27 @@ missing_packages() {
     <(bootstrap_packages | sort -u)
 }
 
+# Settings-only global config, so the real one cannot leak preferences into the
+# status below.
+isolated_mise_config() {
+  printf '[settings]\n' >"$BATS_TEST_TMPDIR/global.toml"
+}
+
+# The [bootstrap.macos] preferences mise resolves, one per line, as
+# "<domain> <host> <key>".
+macos_defaults() {
+  isolated_mise_config
+  MISE_TRUSTED_CONFIG_PATHS="$BATS_TEST_TMPDIR" \
+    MISE_GLOBAL_CONFIG_FILE="$BATS_TEST_TMPDIR/global.toml" \
+    mise -C "$BATS_TEST_TMPDIR" bootstrap macos defaults status --json |
+    jq -r '.macos_defaults.entries[] | "\(.domain) \(.host) \(.key)"'
+}
+
+# Domains declared under [bootstrap.macos.defaults], e.g. com.apple.finder.
+macos_default_domains() {
+  yq -p toml -o=json '."bootstrap"."macos"."defaults" | keys | .[]' "$rendered_config" | tr -d '"'
+}
+
 @test "mise bootstrap declares a non-empty package set" {
   run bootstrap_packages
   assert_success
@@ -61,6 +82,65 @@ missing_packages() {
   run yq -p toml -o=json '."bootstrap"."packages" | to_entries | .[] | select(.value != "latest") | .key' "$rendered_config"
   assert_success
   assert_output ""
+}
+
+@test "mise bootstrap manages every declared macOS preference domain" {
+  skip_if_no_command mise
+
+  local -a domains
+  run macos_default_domains
+  assert_success
+  refute_output ""
+  domains=("${lines[@]}")
+
+  run macos_defaults
+  assert_success
+
+  local domain
+  for domain in "${domains[@]}"; do
+    assert_line --partial "${domain} "
+  done
+}
+
+# A misspelled key in a named section is silently ignored by mise, so assert
+# each one expands to the preference it is supposed to.
+@test "mise bootstrap maps the named macOS sections to their defaults keys" {
+  skip_if_no_command mise
+
+  run macos_defaults
+  assert_success
+
+  assert_line "NSGlobalDomain any KeyRepeat"
+  assert_line "NSGlobalDomain any InitialKeyRepeat"
+  assert_line "com.apple.AppleMultitouchTrackpad any TrackpadThreeFingerDrag"
+  assert_line "com.apple.driver.AppleBluetoothMultitouch.trackpad any TrackpadThreeFingerDrag"
+  assert_line "com.apple.finder any AppleShowAllFiles"
+  assert_line "com.apple.finder any ShowPathbar"
+  assert_line "com.apple.finder any ShowStatusBar"
+  assert_line "com.apple.finder any _FXSortFoldersFirst"
+  assert_line "com.apple.dock any orientation"
+  assert_line "com.apple.dock any autohide"
+  assert_line "com.apple.dock any autohide-delay"
+  assert_line "com.apple.dock any show-recents"
+}
+
+@test "mise bootstrap targets the current host for -currentHost preferences" {
+  skip_if_no_command mise
+
+  run macos_defaults
+  assert_success
+  assert_line "com.apple.ImageCapture current disableHotPlug"
+}
+
+@test "mise bootstrap restarts the apps that cache preferences" {
+  run yq -p toml -o=json '."bootstrap"."hooks"."post-defaults"."run"' "$rendered_config"
+  assert_success
+  assert_output --partial "killall"
+
+  local app
+  for app in Finder Dock SystemUIServer; do
+    assert_output --partial "$app"
+  done
 }
 
 # -*-mode:sh-*- vim:ft=sh
