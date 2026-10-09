@@ -110,6 +110,9 @@ export AGY_CLI_HIDE_LOGO=1
 export SERENA_HOME="$XDG_DATA_HOME/serena"
 export OPENSPEC_TELEMETRY=0
 
+# bats-core
+export BATS_LIB_PATH="{{ dir .chezmoi.sourceDir }}/.bats-libs"
+
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}
 export GITHUB_MCP_PAT=$(security find-generic-password -s "MCP Server for GitHub" -w)

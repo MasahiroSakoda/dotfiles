@@ -1,10 +1,14 @@
-# Copilot Instructions for dotfiles
+# AI agents instruction
+
+> [!NOTE]
+> After reading this `AGENTS.md`, say: `🤖 I read the project-level AGENTS.md.`
 
 ## Project Overview
 
 - **Repository Type**: Dotfiles managed by [chezmoi](https://www.chezmoi.io/)
   - **Template Engine**: [`text/template`](https://pkg.go.dev/text/template)
 - **Primary Language**: Bash, Fish, JSON, YAML, TOML (with `go` text/template)
+- **Test Framework**: [`bats-core`](https://bats-core.readthedocs.io/en/stable)
 - **Shells**:
   - Fish (Primary), with `fisher` plugin management
   - Zsh with `sheldon` plugin management
@@ -23,7 +27,7 @@
   - Age for encryption (not 1Password)
 
 ## Tool Management Strategy
-- **mise**: Primary tool manager in `dot_config/mise/config.toml.tmpl`
+- **mise**: Primary tool manager in `dot_config/mise/config.toml.tmpl` , `mise.toml`
   - **Languages**: Bash, TypeScript, Python 3.14, Ruby 4
   - **JavaScript Runtime**: Bun
   - **Development**: onefetch, gh, ghq, pinact

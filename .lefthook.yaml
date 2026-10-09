@@ -41,7 +41,7 @@ pre-commit:
           - name: oxfmt
             run: oxfmt --no-error-on-unmatched-pattern {staged_files}
             glob: ["*.{js,jsx,ts,tsx,vue,svelte,astro,json,jsonc,yml,yaml}"]
-            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**", "apm.yaml"]
+            exclude: ["**/symlink_*", "**/modify_*", "**/remove_*", ".agents/skills/**", "apm.yml", "apm.lock.yaml"]
           - name: tombi
             run: tombi lint --quiet {staged_files}
             glob: ["*.toml"]
@@ -58,6 +58,13 @@ pre-commit:
             run: typos {staged_files}
             glob: ["*"]
             exclude: ["**/*.age", "**/symlink_*", "**/modify_*", "**/remove_*", ".agents/**"]
+          - name: test
+            # The bats-assert/bats-support suites are vendored outside tests/
+            # so `bats --recursive tests/` does not collect them, but any test
+            # that loads them still needs BATS_LIB_PATH. Lefthook runs commands
+            # in a non-interactive sh, which reads neither conf.d/env.fish nor
+            # zshenv, so it is set here.
+            run: BATS_LIB_PATH="$PWD/.bats-libs" bats --pretty --jobs 4 --parallel-binary-name rush --recursive tests/
     - name: Audit AI Agent Config
       group:
         parallel: false
