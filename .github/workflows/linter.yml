@@ -36,11 +36,11 @@ jobs:
             minimum_release_age = "3d"
             gpg_verify          = true
             [tools]
-            "aqua:koalaman/shellcheck"     = "0.11.0"
-            "aqua:betterleaks/betterleaks" = "1.8.1"
-            "aqua:oxc-project/oxc/oxfmt"   = "1.84.0"
-            "aqua:oxc-project/oxc/oxlint"  = "1.84.0"
-            "aqua:Kampfkarren/selene"      = "0.31.0"
+            "aqua:koalaman/shellcheck"     = "latest"
+            "aqua:betterleaks/betterleaks" = "latest"
+            "aqua:oxc-project/oxc/oxfmt"   = "latest"
+            "aqua:oxc-project/oxc/oxlint"  = "latest"
+            "aqua:Kampfkarren/selene"      = "latest"
           install: true
       - name: Collect changed files
         env:
