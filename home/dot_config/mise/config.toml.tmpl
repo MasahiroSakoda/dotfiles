@@ -238,12 +238,16 @@ ruby    = "4"
 ## Debian based OS
 {{-    range $key, $value := .packages.apt }}
 ### {{ $key }}
+{{-      range $value }}
 "apt:{{ . }}" = "latest"
+{{-      end }}
 {{-    end }}
 {{   else if eq (.chezmoi.osRelease.id | default "") "arch" -}}
 {{-    range $key, $value := .packages.pacman }}
 ### {{ $key }}
+{{-      range $value }}
 "pacman:{{ . }}" = "latest"
+{{-      end }}
 {{-    end }}
 ## Arch based OS
 {{   else -}}
