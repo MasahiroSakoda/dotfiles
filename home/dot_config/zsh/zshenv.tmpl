@@ -111,7 +111,7 @@ export SERENA_HOME="$XDG_DATA_HOME/serena"
 export OPENSPEC_TELEMETRY=0
 
 # bats-core
-export BATS_LIB_PATH="{{ dir .chezmoi.sourceDir }}/tests/libs"
+export BATS_LIB_PATH="{{ dir .chezmoi.sourceDir }}/.bats-libs"
 
 # API Keys
 {{ if eq .chezmoi.os "darwin" }}
