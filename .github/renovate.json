@@ -72,6 +72,39 @@
     },
     {
       "customType": "regex",
+      "description": ["Update aqua or github backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"(aqua|github):(?<depName>[^/\"]+/[^/\"]+)(?:/[^\"]*)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^(?:v|jq-)?(?<version>\\d.*)$"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update npm-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update pypi-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"pipx:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "pypi",
+      "versioningTemplate": "pep440"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update go-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": [
+        "\"go:(?<depName>[^\"/]+/[^\"/]+/[^\"/]+(?:/v\\d+)?)(?:/[^\"]*)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "go",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
       "description": ["Update commit SHA pinned packages via APM"],
       "managerFilePatterns": ["/^(home/dot_apm/)?apm\\.ya?ml$/"],
       "matchStrings": [
@@ -95,7 +128,7 @@
     }
   ],
   "mise": {
-    "managerFilePatterns": ["home/dot_config/mise/config.toml.tmpl", "mise.toml"],
+    "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/", "/^mise\\.toml$/"],
     "pinDigests": false
   }
 }
