@@ -31,6 +31,7 @@
   browser     = ["brave-browser", "firefox"]
   previewer   = ["skim"]
   terminal    = ["wezterm", "ghostty"]
+  ai          = ["google-gemini"]
   agent       = ["antigravity"]
   ide         = ["zed"]
   diagram     = ["drawio"]
