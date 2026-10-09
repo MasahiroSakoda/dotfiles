@@ -15,7 +15,6 @@
   lua      = ["luarocks"]
   media    = ["ffmpeg-full"]
   image    = ["imagemagick", "exiftool"]
-  update   = ["topgrade"]
   ai       = ["ollama"]
 
   [packages.cask]
@@ -26,15 +25,10 @@
   keyboard    = ["karabiner-elements"]
   ime         = ["google-japanese-ime"]
   editor      = []
-  font        = [
-    "font-codicon",
-    "font-jetbrains-mono-nerd-font",
-    "font-plemol-jp-nf",
-    "font-udev-gothic-nf"
-  ]
+  font        = ["font-codicon", "font-jetbrains-mono-nerd-font", "font-udev-gothic-nf"]
   archive     = ["suspicious-package"]
   launcher    = ["raycast"]
-  browser     = ["google-chrome", "brave-browser", "firefox"]
+  browser     = ["brave-browser", "firefox"]
   previewer   = ["skim"]
   terminal    = ["wezterm", "ghostty"]
   agent       = ["antigravity"]
