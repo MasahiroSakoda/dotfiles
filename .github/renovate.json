@@ -15,7 +15,7 @@
   "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁", "Deps 📦️"],
 
-  "enabledManagers": ["github-actions", "custom.regex"],
+  "enabledManagers": ["github-actions", "mise", "apm", "custom.regex"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
@@ -29,7 +29,14 @@
     {
       "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["actions/checkout", "actions/labeler"]
+      "matchManagers": ["actions/checkout", "actions/labeler"],
+      "addLabels": ["CI/CD 🔁"]
+    },
+    {
+      "groupName": "mise",
+      "description": "Group mise tools updates",
+      "matchPackageNames": ["jdx/mise"],
+      "addLabels": ["mise ⚙️"]
     },
     {
       "groupName": "Security",
@@ -62,5 +69,9 @@
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
     }
-  ]
+  ],
+  "mise":{
+    "managerFilePatterns": ["home/dot_config/mise/config.toml.tmpl", "mise.toml"],
+    "pinDigests": false
+  }
 }
