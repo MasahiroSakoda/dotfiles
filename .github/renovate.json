@@ -12,6 +12,7 @@
   "prHourlyLimit": 5,
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
+  "minimumReleaseAge": "7 days",
   "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁", "Deps 📦️"],
 
