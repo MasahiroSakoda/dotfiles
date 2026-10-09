@@ -19,8 +19,9 @@ dependencies:
       ref: v0.23.0
       path: packages/hunk/skills/hunk-review
     - git: mattpocock/skills
-      ref: v1.2.3
+      ref: v1.3.1
       skills:
+        - setup-matt-pocock-skills
         - grill-me
         - grill-with-docs
         - grilling
