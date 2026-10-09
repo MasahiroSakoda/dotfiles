@@ -69,6 +69,29 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update commit SHA pinned packages via APM"],
+      "managerFilePatterns": ["apm/apm.yml"],
+      "matchStrings": [
+        "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#(?<currentDigest>[0-9a-f]{40})",
+        "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s(?<currentDigest>[0-9a-f]{40})"
+      ],
+      "packageNameTemplate": "https://github.com/{{{depName}}}",
+      "currentValueTemplate": "main",
+      "datasourceTemplate": "git-refs"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update version pinned packages via APM"],
+      "managerFilePatterns": ["apm/apm.yml"],
+      "matchStrings": [
+        "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#v?(?<currentValue>[^\\s]+)",
+        "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s+v?(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ],
   "mise": {
