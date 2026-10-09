@@ -17,7 +17,7 @@ gpg_verify = true  # Use gpg to verify all tool signatures
 always_keep_download = false        # deleted after install by default
 always_keep_install  = false        # deleted on failure by default
 
-minimum_release_age = "3d" # To limit supply chain risk
+# minimum_release_age = "3d" # To limit supply chain risk
 
 trusted_config_paths = [
   {{ .chezmoi.workingTree | quote }},
