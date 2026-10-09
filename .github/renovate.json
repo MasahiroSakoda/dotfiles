@@ -12,15 +12,16 @@
   "prHourlyLimit": 5,
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
+  "minimumReleaseAge": "3 days",
   "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁", "Deps 📦️"],
 
-  "enabledManagers": ["github-actions", "custom.regex"],
+  "enabledManagers": ["github-actions", "mise", "apm", "custom.regex"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
       "automerge": false,
-      "minimumReleaseAge": "2 weeks"
+      "minimumReleaseAge": "7 days"
     },
     {
       "matchUpdateTypes": ["minor", "patch", "digest"],
@@ -29,7 +30,14 @@
     {
       "groupName": "GitHub Actions",
       "description": "Group GitHub Actions updates",
-      "matchManagers": ["actions/checkout", "actions/labeler"]
+      "matchManagers": ["actions/checkout", "actions/labeler"],
+      "addLabels": ["CI/CD 🔁"]
+    },
+    {
+      "groupName": "mise",
+      "description": "Group mise tools updates",
+      "matchPackageNames": ["jdx/mise"],
+      "addLabels": ["mise ⚙️"]
     },
     {
       "groupName": "Security",
@@ -61,6 +69,33 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update commit SHA pinned packages via APM"],
+      "managerFilePatterns": ["apm/apm.yml"],
+      "matchStrings": [
+        "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#(?<currentDigest>[0-9a-f]{40})",
+        "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s(?<currentDigest>[0-9a-f]{40})"
+      ],
+      "packageNameTemplate": "https://github.com/{{{depName}}}",
+      "currentValueTemplate": "main",
+      "datasourceTemplate": "git-refs"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update version pinned packages via APM"],
+      "managerFilePatterns": ["apm/apm.yml"],
+      "matchStrings": [
+        "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#v?(?<currentValue>[^\\s]+)",
+        "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s+v?(?<currentValue>[^\\s]+)"
+      ],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
-  ]
+  ],
+  "mise": {
+    "managerFilePatterns": ["home/dot_config/mise/config.toml.tmpl", "mise.toml"],
+    "pinDigests": false
+  }
 }
