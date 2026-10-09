@@ -14,7 +14,7 @@
   runtime  = ["mise"]
   lua      = ["luarocks"]
   media    = ["ffmpeg-full"]
-  image    = ["imagemagick", "exiftool"]
+  image    = ["imagemagick-full", "exiv2"]
   ai       = ["ollama"]
 
   [packages.cask]
