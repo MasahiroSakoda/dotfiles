@@ -12,7 +12,7 @@
   "prHourlyLimit": 5,
   "prConcurrentLimit": 10,
   "assigneesFromCodeOwners": true,
-  "minimumReleaseAge": "7 days",
+  "minimumReleaseAge": "3 days",
   "vulnerabilityAlerts": { "enabled": true },
   "labels": ["CI/CD 🔁", "Deps 📦️"],
 
@@ -21,7 +21,7 @@
     {
       "matchUpdateTypes": ["major"],
       "automerge": false,
-      "minimumReleaseAge": "2 weeks"
+      "minimumReleaseAge": "7 days"
     },
     {
       "matchUpdateTypes": ["minor", "patch", "digest"],
@@ -71,7 +71,7 @@
       "versioningTemplate": "semver"
     }
   ],
-  "mise":{
+  "mise": {
     "managerFilePatterns": ["home/dot_config/mise/config.toml.tmpl", "mise.toml"],
     "pinDigests": false
   }
