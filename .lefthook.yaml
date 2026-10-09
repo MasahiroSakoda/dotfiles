@@ -64,7 +64,7 @@ pre-commit:
             # that loads them still needs BATS_LIB_PATH. Lefthook runs commands
             # in a non-interactive sh, which reads neither conf.d/env.fish nor
             # zshenv, so it is set here.
-            run: BATS_LIB_PATH="$PWD/.bats-libs" bats --pretty --recursive tests/
+            run: BATS_LIB_PATH="$PWD/.bats-libs" bats --pretty --jobs 4 --parallel-binary-name rush --recursive tests/
     - name: Audit AI Agent Config
       group:
         parallel: false
