@@ -73,7 +73,7 @@
     {
       "customType": "regex",
       "description": ["Update commit SHA pinned packages via APM"],
-      "managerFilePatterns": ["apm/apm.yml"],
+      "managerFilePatterns": ["/^(home/dot_apm/)?apm\\.ya?ml$/"],
       "matchStrings": [
         "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#(?<currentDigest>[0-9a-f]{40})",
         "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s(?<currentDigest>[0-9a-f]{40})"
@@ -85,7 +85,7 @@
     {
       "customType": "regex",
       "description": ["Update version pinned packages via APM"],
-      "managerFilePatterns": ["apm/apm.yml"],
+      "managerFilePatterns": ["/^(home/dot_apm/)?apm\\.ya?ml$/"],
       "matchStrings": [
         "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#v?(?<currentValue>[^\\s]+)",
         "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s+v?(?<currentValue>[^\\s]+)"
