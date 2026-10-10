@@ -10,7 +10,7 @@ dependencies:
       skills:
         - skill-creator
     - git: vercel-labs/skills
-      ref: v1.7.0
+      ref: v1.7.1
       skills:
         - find-skills
     - git: github/awesome-copilot
