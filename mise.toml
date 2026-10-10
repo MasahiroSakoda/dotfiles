@@ -22,3 +22,10 @@ pin        = true
 
 ## Test
 "aqua:bats-core/bats-core" = "1.14.0" # Bash Automated Testing System
+
+## Formatter / Linter
+"aqua:mvdan/sh"               = "3.14.1" # Shell formatter
+"aqua:Kampfkarren/selene"     = "0.32.0" # Lua linter
+"aqua:oxc-project/oxc/oxlint" = "1.84.0" # high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack
+"aqua:oxc-project/oxc/oxfmt"  = "1.84.0" # high-performance formatter for the JavaScript ecosystem
+"aqua:crate-ci/typos"         = "1.51.1" # Typo
