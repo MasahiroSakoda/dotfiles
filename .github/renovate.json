@@ -19,51 +19,47 @@
   "enabledManagers": ["github-actions", "mise", "apm", "custom.regex"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "GitHub Actions",
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "addLabels": ["CI/CD 🔁"],
       "automerge": true
     },
     {
-      "groupName": "GitHub Actions",
-      "description": "Group GitHub Actions updates",
-      "matchManagers": ["actions/checkout", "actions/labeler"],
-      "addLabels": ["CI/CD 🔁"]
+      "groupName": "mise tools - non-major updates",
+      "description": "Group mise tools updates",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["mise ⚙️"],
+      "automerge": true
     },
     {
-      "groupName": "mise",
+      "groupName": "mise tools - major updates",
       "description": "Group mise tools updates",
-      "matchPackageNames": ["jdx/mise"],
-      "addLabels": ["mise ⚙️"]
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["mise ⚙️"],
+      "automerge": false
     },
     {
       "groupName": "Security",
       "matchPackageNames": ["zizmorcore/zizmor-action"],
-      "addLabels": ["Security 🛡️"]
+      "addLabels": ["Security 🛡️"],
+      "automerge": true
     },
     {
       "groupName": "chezmoi",
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
-      "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
+      "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
       "addLabels": ["chezmoi 🏘️"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": ["Update mise tool versions in the linter workflow"],
-      "managerFilePatterns": ["^\\.github/workflows/linter\\.yml$"],
-      "matchStrings": ["\"aqua:(?<depName>[^\"/]+/[^\"/]+)(?:/[^\"]+)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["home/\\.chezmoiversion$"],
+      "managerFilePatterns": ["/^home/\\.chezmoiversion$/"],
       "matchStrings": ["^(?<currentValue>.*)\\s$"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
@@ -72,8 +68,41 @@
     },
     {
       "customType": "regex",
+      "description": ["Update aqua or github backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"(aqua|github):(?<depName>[^/\"]+/[^/\"]+)(?:/[^\"]*)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^(?:v|jq-)?(?<version>\\d.*)$"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update npm-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"npm:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update pypi-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": ["\"pipx:(?<depName>[^\"]+)\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "pypi",
+      "versioningTemplate": "pep440"
+    },
+    {
+      "customType": "regex",
+      "description": ["Update go-backend packages pinned version via mise"],
+      "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
+      "matchStrings": [
+        "\"go:(?<depName>[^\"/]+/[^\"/]+/[^\"/]+(?:/v\\d+)?)(?:/[^\"]*)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "go",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
       "description": ["Update commit SHA pinned packages via APM"],
-      "managerFilePatterns": ["apm/apm.yml"],
+      "managerFilePatterns": ["/^(home/dot_apm/)?apm\\.ya?ml$/"],
       "matchStrings": [
         "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#(?<currentDigest>[0-9a-f]{40})",
         "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s(?<currentDigest>[0-9a-f]{40})"
@@ -85,7 +114,7 @@
     {
       "customType": "regex",
       "description": ["Update version pinned packages via APM"],
-      "managerFilePatterns": ["apm/apm.yml"],
+      "managerFilePatterns": ["/^(home/dot_apm/)?apm\\.ya?ml$/"],
       "matchStrings": [
         "-\\s(?<depName>[^/\\s]+/[^/\\s]+)/\\S*?#v?(?<currentValue>[^\\s]+)",
         "git:\\s(?<depName>[^/\\s]+/[^/\\s]+)(?:\\s+(?:path|alias):[^\\n]*)*\\s+ref:\\s+v?(?<currentValue>[^\\s]+)"
@@ -95,7 +124,7 @@
     }
   ],
   "mise": {
-    "managerFilePatterns": ["home/dot_config/mise/config.toml.tmpl", "mise.toml"],
+    "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/", "/^mise\\.toml$/"],
     "pinDigests": false
   }
 }
