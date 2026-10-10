@@ -273,6 +273,7 @@ Runtime version management tool
 | [`OpenCode`](https://opencode.ai/) | Open Source AI Agent |
 | [`Antigravity 2.0`](https://antigravity.google/docs/overview) | a standalone desktop application tailored for managing AI agents that execute complex knowledge and coding tasks. |
 | [**Antigravity CLI**](https://antigravity.google/docs/cli-overview) | the lightweight Terminal User Interface (TUI) surface of Antigravity |
+| [`zerostack`](https://github.com/gi-dellav/zerostack) | Lightweight coding agent written in Rus |
 
 ### Homebrew cask packages
 
@@ -287,7 +288,6 @@ Runtime version management tool
 | Package | Notes |
 | :------ | :---- |
 | [font-jetbrains-mono-nerd-font](https://www.jetbrains.com/ja-jp/mono/) | Open Source Font |
-| [font-plemol-jp-nf](https://github.com/yuru7/PlemolJP) | IBM Plex Mono + IBM Plex Sans JP |
 | [font-udev-gothic-nf](https://github.com/yuru7/udev-gothic) | BIZ UD Gothic + JetBrains Mono |
 
 #### Dev packages
