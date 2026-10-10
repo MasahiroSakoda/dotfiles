@@ -1,0 +1,97 @@
+provider = "openrouter"
+model    = "nvidia/nemotron-3-ultra-550b-a55b:free"
+
+edit_system             = "similarity"
+default_prompt          = "code"
+default_permission_mode = "standard"
+permission-modes        = ["guarded", "standard", "yolo"]
+
+compact_enabled            = true
+mid_turn_compact_threshold = 0.80
+show_tool_details          = 3
+
+[custom_providers.openrouter]
+provider_type = "openai"
+base_url      = "https://openrouter.ai/api/v1"
+api_key_env   = "OPENROUTER_API_KEY"
+
+[custom_providers.opencode]
+provider_type = "openai"
+base_url      = "https://opencode.ai/zen/v1"
+api_style     = "completions"
+api_key_env   = "OPENCODE_API_KEY"
+
+[custom_providers.ollama-local]
+provider_type = "openai"
+base_url      = "http://localhost:11434/v1/"
+api_style     = "completions"
+api_key_env   = "TERM"
+
+[custom_providers.ollama-cloud]
+provider_type = "openai"
+base_url      = "https://ollama.com/v1"
+api_style     = "completions"
+api_key_env   = "OLLAMA_API_KEY"
+
+[quick_models.fast]
+provider = "openrouter"
+model    = "nvidia/nemotron-3-ultra-550b-a55b:free"
+
+# [prompt_to_model]
+# plan       = ""
+# code       = ""
+# review     = ""
+# brainstorm = ""
+
+[permission]
+"*" = "ask"
+read = "allow"
+
+[permission.write]
+"**" = "ask"
+
+[permission.bash]
+
+[permission.external_directory]
+"/**"     = "ask"
+"/tmp/**" = "allow"
+
+permission.doom_loop = "ask"
+
+[chain]
+brainstorm-to-plan = true
+plan-to-code       = true
+code-to-review     = false
+
+# Line 1
+[[statusline.lines]]
+segments = [
+  { item = "cwd", color = "blue" },
+  { item = "separator", text = " " },
+  { item = "git_branch", color = "magenta" },
+  { item = "git_changes", color = "yellow" },
+  { item = "flex_separator" },          # fills the row, pushing the rest right
+  { item = "context_used", color = "green" },
+  { item = "separator", text = "/" },
+  { item = "context_max", color = "green" },
+  { item = "separator", text = " " },
+  { item = "context_percentage", color = "green" },
+]
+
+# # Line 2 (optional)
+[[statusline.lines]]
+segments = [
+  { item = "session_name" },
+  { item = "separator", text = "  " },
+  { item = "session_id", color = "dark_grey" },
+  { item = "flex_separator" },
+  { item = "tokens_input", color = "cyan" },
+  { item = "separator", text = " " },
+  { item = "tokens_output", color = "cyan" },
+  { item = "separator", text = " " },
+  { item = "cost", color = "green" },
+]
+
+# # Line 3 (optional)
+[[statusline.lines]]
+segments = [{ item = "prompt", color = "white", bg = "#202020" }]
