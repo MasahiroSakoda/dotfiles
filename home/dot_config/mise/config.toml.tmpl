@@ -66,21 +66,19 @@ compile = false
 # default_packages_file = "~/.config/mise/default-gems"
 
 [tools]
-# Backends
-aqua = "2.63.0"
-
 # Runtime & Languages
-rust    = "1"
-node    = "26"
-deno    = "2"
-bun     = "1"
-go      = "1"
-python  = "3.14"
-ruby    = "4"
+"core:rust"    = "1"
+"core:node"    = "26"
+"core:deno"    = "2"
+"core:bun"     = "1"
+"core:go"      = "1"
+"core:python"  = "3.14"
+"core:ruby"    = "4"
 
 # Package Manager
-"aqua:pnpm/pnpm"    = "12.10.1"  # Fast, disk space efficient package manager
-"aqua:astral-sh/uv" = "0.12.23" # Python package and project manager, written in Rust
+"github:aquaproj/aqua" = "2.63.0"   # Declarative CLI Version Manager written in Go
+"aqua:pnpm/pnpm"       = "12.10.1"  # Fast, disk space efficient package manager
+"aqua:astral-sh/uv"    = "0.12.23"  # Python package and project manager, written in Rust
 
 # CLI tools
 
@@ -346,7 +344,7 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 
 ### Security
 "brew:pinentry-mac" = "latest"
-"brew:openssl"      = "latest"
+"brew:openssl@4"    = "latest"
 "brew:gnupg"        = "latest"
 
 ### Terminal
