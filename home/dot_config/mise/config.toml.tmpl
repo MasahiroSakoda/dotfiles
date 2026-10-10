@@ -117,7 +117,9 @@ compile = false
 
 ## Downloader
 "github:yt-dlp/yt-dlp"    = { version = "2026.08.19", bin = "yt-dlp" }
-"forgejo:mikf/gallery-dl" = { version = "1.32.14", asset_pattern = "gallery-dl.bin", bin = "gallery-dl" }
+{{- if eq .chezmoi.os "linux" }}
+"forgejo:mikf/gallery-dl" = { version = "1.32.14", os = ["linux"] }
+{{- end }}
 
 # Storage
 "aqua:rclone/rclone" = "1.75.1" # rsync for cloud storage
@@ -361,6 +363,7 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 "brew:wget"  = "latest"
 "brew:curl"  = "latest"
 "brew:aria2" = "latest"
+"brew:gallery-dl" = "latest"
 
 ### Lua
 "brew:luarocks" = "latest"
