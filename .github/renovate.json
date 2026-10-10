@@ -19,51 +19,47 @@
   "enabledManagers": ["github-actions", "mise", "apm", "custom.regex"],
   "packageRules": [
     {
-      "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "minimumReleaseAge": "7 days"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "GitHub Actions",
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "addLabels": ["CI/CD 🔁"],
       "automerge": true
     },
     {
-      "groupName": "GitHub Actions",
-      "description": "Group GitHub Actions updates",
-      "matchManagers": ["actions/checkout", "actions/labeler"],
-      "addLabels": ["CI/CD 🔁"]
+      "groupName": "mise tools - non-major updates",
+      "description": "Group mise tools updates",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["mise ⚙️"],
+      "automerge": true
     },
     {
-      "groupName": "mise",
+      "groupName": "mise tools - major updates",
       "description": "Group mise tools updates",
-      "matchPackageNames": ["jdx/mise"],
-      "addLabels": ["mise ⚙️"]
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["mise ⚙️"],
+      "automerge": false
     },
     {
       "groupName": "Security",
       "matchPackageNames": ["zizmorcore/zizmor-action"],
-      "addLabels": ["Security 🛡️"]
+      "addLabels": ["Security 🛡️"],
+      "automerge": true
     },
     {
       "groupName": "chezmoi",
       "description": "Group chezmoi updates",
       "matchManagers": ["custom.regex"],
-      "matchFileNames": ["home/\\.chezmoiversion$", "home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
+      "matchFileNames": ["/^home/\\.chezmoiversion$/", "/^home/\\.chezmoiexternals/*\\.toml\\.tmpl$"],
       "addLabels": ["chezmoi 🏘️"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": ["Update mise tool versions in the linter workflow"],
-      "managerFilePatterns": ["^\\.github/workflows/linter\\.yml$"],
-      "matchStrings": ["\"aqua:(?<depName>[^\"/]+/[^\"/]+)(?:/[^\"]+)?\"\\s*=\\s*\"(?<currentValue>[^\"]+)\""],
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "regex",
       "description": ["Update Chezmoi version"],
-      "managerFilePatterns": ["home/\\.chezmoiversion$"],
+      "managerFilePatterns": ["/^home/\\.chezmoiversion$/"],
       "matchStrings": ["^(?<currentValue>.*)\\s$"],
       "depNameTemplate": "twpayne/chezmoi",
       "datasourceTemplate": "github-releases",
