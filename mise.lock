@@ -173,6 +173,46 @@ url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_
 url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924919"
 provenance = "github-attestations"
 
+[[tools."aqua:shenwei356/rush"]]
+version = "0.11.0"
+backend = "aqua:shenwei356/rush"
+specifiers = ["0.11.0"]
+
+[tools."aqua:shenwei356/rush"."platforms.linux-arm64"]
+checksum = "sha256:466931db70732296b98bfe1a1aec4a6a79c226e4aa5bc690283bb39560e708de"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579426242"
+
+[tools."aqua:shenwei356/rush"."platforms.linux-arm64-musl"]
+checksum = "sha256:466931db70732296b98bfe1a1aec4a6a79c226e4aa5bc690283bb39560e708de"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579426242"
+
+[tools."aqua:shenwei356/rush"."platforms.linux-x64"]
+checksum = "sha256:7a22bbc7122acd5bd23e2dfde49f84bb856944a1860057bc89921b3dce45d056"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579426098"
+
+[tools."aqua:shenwei356/rush"."platforms.linux-x64-musl"]
+checksum = "sha256:7a22bbc7122acd5bd23e2dfde49f84bb856944a1860057bc89921b3dce45d056"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579426098"
+
+[tools."aqua:shenwei356/rush"."platforms.macos-arm64"]
+checksum = "sha256:87f811032b727806158111856b77be076d2c923cc013de20d744405eb4dfe455"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579424349"
+
+[tools."aqua:shenwei356/rush"."platforms.macos-x64"]
+checksum = "sha256:3d5c24ea9947c84b19ef1f0992470e255e296efbbda5fad0ccf5cc870d088433"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579420523"
+
+[tools."aqua:shenwei356/rush"."platforms.windows-x64"]
+checksum = "sha256:47dd38a1d527c8e00714623351379dfa2f617cf9f8f399586233c5ca29482a45"
+url = "https://github.com/shenwei356/rush/releases/download/v0.11.0/rush_windows_amd64.exe.tar.gz"
+url_api = "https://api.github.com/repos/shenwei356/rush/releases/assets/579426784"
+
 [[tools."aqua:suzuki-shunsuke/pinact"]]
 version = "5.0.0"
 backend = "aqua:suzuki-shunsuke/pinact"
@@ -232,6 +272,9 @@ url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/552067
 provenance = "github-attestations"
 
 [tools."aqua:zizmorcore/zizmor"."platforms.linux-arm64-musl"]
+checksum = "sha256:7ff1dce33bdd18fd2a4affe63bdd47efcccca97b2cec1c1863ec26e9e2647540"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.30.1/zizmor-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/552067643"
 provenance = "github-attestations"
 
 [tools."aqua:zizmorcore/zizmor"."platforms.linux-x64"]
@@ -241,6 +284,9 @@ url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/552067
 provenance = "github-attestations"
 
 [tools."aqua:zizmorcore/zizmor"."platforms.linux-x64-musl"]
+checksum = "sha256:e65324f4430c2717591937edcec90ccbefaf14c174f8ec9415e03ca875b46e1a"
+url = "https://github.com/zizmorcore/zizmor/releases/download/v1.30.1/zizmor-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/552067642"
 provenance = "github-attestations"
 
 [tools."aqua:zizmorcore/zizmor"."platforms.macos-arm64"]
@@ -260,3 +306,8 @@ checksum = "sha256:b183b1e996eddfab9659f1e9b46e059f1ef1cf984a1f14e5da09f7876a4b3
 url = "https://github.com/zizmorcore/zizmor/releases/download/v1.30.1/zizmor-x86_64-pc-windows-msvc.zip"
 url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/552067645"
 provenance = "github-attestations"
+
+[[tools."npm:renovate"]]
+version = "44.149.0"
+backend = "npm:renovate"
+specifiers = ["44.149.0"]

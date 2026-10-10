@@ -66,21 +66,19 @@ compile = false
 # default_packages_file = "~/.config/mise/default-gems"
 
 [tools]
-# Backends
-aqua = "2.63.0"
-
 # Runtime & Languages
-rust    = "1"
-node    = "26"
-deno    = "2"
-bun     = "1"
-go      = "1"
-python  = "3.14"
-ruby    = "4"
+"core:rust"    = "1"
+"core:node"    = "26"
+"core:deno"    = "2"
+"core:bun"     = "1"
+"core:go"      = "1"
+"core:python"  = "3.14"
+"core:ruby"    = "4"
 
 # Package Manager
-"aqua:pnpm/pnpm"    = "12.10.1"  # Fast, disk space efficient package manager
-"aqua:astral-sh/uv" = "0.12.23" # Python package and project manager, written in Rust
+"github:aquaproj/aqua" = "2.63.0"   # Declarative CLI Version Manager written in Go
+"aqua:pnpm/pnpm"       = "12.10.1"  # Fast, disk space efficient package manager
+"aqua:astral-sh/uv"    = "0.12.23"  # Python package and project manager, written in Rust
 
 # CLI tools
 
@@ -119,7 +117,9 @@ ruby    = "4"
 
 ## Downloader
 "github:yt-dlp/yt-dlp"    = { version = "2026.08.19", bin = "yt-dlp" }
-"forgejo:mikf/gallery-dl" = { version = "1.32.14", asset_pattern = "gallery-dl.bin", bin = "gallery-dl" }
+{{- if eq .chezmoi.os "linux" }}
+"forgejo:mikf/gallery-dl" = { version = "1.32.14", os = ["linux"] }
+{{- end }}
 
 # Storage
 "aqua:rclone/rclone" = "1.75.1" # rsync for cloud storage
@@ -346,7 +346,7 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 
 ### Security
 "brew:pinentry-mac" = "latest"
-"brew:openssl"      = "latest"
+"brew:openssl@4"    = "latest"
 "brew:gnupg"        = "latest"
 
 ### Terminal
@@ -363,6 +363,7 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 "brew:wget"  = "latest"
 "brew:curl"  = "latest"
 "brew:aria2" = "latest"
+"brew:gallery-dl" = "latest"
 
 ### Lua
 "brew:luarocks" = "latest"
@@ -434,8 +435,8 @@ run = "for app in Finder Dock SystemUIServer; do killall \"$app\" &> /dev/null |
 "mas:470158793"  = "latest" # Keka
 "mas:1024640650" = "latest" # CotEditor
 "mas:539883307"  = "latest" # LINE
-"mas:409201541"  = "latest" # Pages
-"mas:409203825"  = "latest" # Numbers
+"mas:361309726"  = "latest" # Pages
+"mas:361304891"  = "latest" # Numbers
 "mas:1480933944" = "latest" # Vimari
 
 {{ else if eq .chezmoi.os "linux" }}
