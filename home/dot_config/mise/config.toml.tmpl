@@ -24,9 +24,10 @@ trusted_config_paths = [
   {{ joinPath .git.ghq_root .git.user | quote }},
 ]
 
-experimental = true
-lockfile     = true
-pin          = true
+experimental       = true
+lockfile           = true
+lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
+pin                = true
 
 env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
 
