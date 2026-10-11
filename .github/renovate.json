@@ -94,7 +94,7 @@
       "description": ["Update go-backend packages pinned version via mise"],
       "managerFilePatterns": ["/^home/dot_config/mise/config\\.toml\\.tmpl$/"],
       "matchStrings": [
-        "\"go:(?<depName>[^\"/]+/[^\"/]+/[^\"/]+(?:/v\\d+)?)(?:/[^\"]*)?\"\\s*=\\s*({.*version\\s*=\\s*)?\"(?<currentValue>[^\"]+)\""
+        "\"go:(?<depName>[^\"/]+(?:/[^\"/]+)+)\"\\s*=\\s*({.*version\\s*=\\s*)?\"(?<currentValue>[^\"]+)\""
       ],
       "datasourceTemplate": "go",
       "extractVersionTemplate": "^v(?<version>.*)$"

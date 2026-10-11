@@ -1610,9 +1610,9 @@ backend = "go:github.com/go-delve/delve/cmd/dlv"
 specifiers = ["1.27.2"]
 
 [[tools."go:golang.org/x/tools/gopls"]]
-version = "0.51.0"
+version = "0.23.0"
 backend = "go:golang.org/x/tools/gopls"
-specifiers = ["0.51.0"]
+specifiers = ["0.23.0"]
 
 [[tools.node]]
 version = "26.11.1"
