@@ -104,8 +104,6 @@ export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"
 
 # AI Agent
 ## OpenCode
-export OPENCODE_CONFIG_DIR="$XDG_CONFIG_HOME/opencode"
-export OPENCODE_CONFIG="$OPENCODE_CONFIG_DIR/config.json"
 export OPENCODE_DISABLE_AUTOUPDATE=1
 export OPENCODE_DISABLE_CLAUDE_CODE_PROMPT=1
 export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=1
@@ -129,7 +127,7 @@ export GEMINI_API_KEY=$(security find-generic-password -s "Gemini API Key" -w)
 export AZURE_OPENAI_API_KEY=$(security find-generic-password -s "Azure API Key" -w)
 export GROQ_API_KEY=$(security find-generic-password -s "Groq API Key" -w)
 export DEEPL_API_KEY=$(security find-generic-password -s "DeepL API Key" -w)
-export OPENCODE_API_KEY=$(security find-generic-password -s "OpenCode Zen API Key" -w)
+export OPENCODE_API_KEY=$(security find-generic-password -s "OpenCode v1 API Key" -w)
 export OPENROUTER_API_KEY=$(security find-generic-password -s "OpenRouter API Key" -w)
 export HUGGINGFACE_TOKEN=$(security find-generic-password -s "HuggingFace Access Token" -w)
 export CEREBRAS_API_KEY=$(security find-generic-password -s "Cerebras API Key" -w)
@@ -143,7 +141,7 @@ export GEMINI_API_KEY=$(secret-tool lookup username $USER key_name "Gemini API K
 export AZURE_OPENAI_API_KEY=$(secret-tool lookup username $USER key_name "Azure API Key")
 export GROQ_API_KEY=$(secret-tool lookup username $USER key_name "Groq API Key")
 export DEEPL_API_KEY=$(secret-tool lookup username $USER key_name "DeepL API Key")
-export OPENCODE_API_KEY=$(security-tool lookup username $USER key_name "OpenCode Zen API Key")
+export OPENCODE_API_KEY=$(security-tool lookup username $USER key_name "OpenCode v1 API Key")
 export OPENROUTER_API_KEY=$(security-tool lookup username $USER key_name "OpenRouter API Key")
 export HUGGINGFACE_TOKEN=$(security-tool lookup username $USER key_name "HuggingFace Access Token")
 export CEREBRAS_API_KEY=$(security-tool lookup username $USER key_name "Cerebras API Key")

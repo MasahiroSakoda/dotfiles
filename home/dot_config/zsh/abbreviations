@@ -131,8 +131,9 @@ abbr pc="pnpm ci"
 abbr pC="pnpm audit signatures"
 
 # AI tools
+
+## AI agents
 abbr oc="opencode"
-abbr ocw="opencode web"
-abbr ocs="tv opencode-sessions"
+abbr ocm="opencode mini"
 
 abbr ov="tv obsidian-vaults"
