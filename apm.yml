@@ -6,9 +6,8 @@ targets:
   - opencode
 dependencies:
   apm:
-    # TODO: Activate after update to OpenCode v2
-    # - git: DietrichGebert/ponytail
-    #   ref: v4.10.3
+    - git: DietrichGebert/ponytail
+      ref: v5.1.0
     - git: ayghri/i-have-adhd
       ref: 839872f9d1cd634fed642b4589ce7226199cc15f
       skills:
