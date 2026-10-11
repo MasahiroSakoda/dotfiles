@@ -9,8 +9,6 @@ dependencies:
     # TODO: Activate after update to OpenCode v2
     # - git: DietrichGebert/ponytail
     #   ref: v4.10.3
-    - git: JuliusBrussee/caveman
-      ref: v3.2.0
     - git: ayghri/i-have-adhd
       ref: 839872f9d1cd634fed642b4589ce7226199cc15f
       skills:
