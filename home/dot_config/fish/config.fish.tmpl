@@ -198,9 +198,10 @@ abbr -a -- pc "pnpm ci"
 abbr -a -- pC "pnpm audit signatures"
 
 # AI tools
+
+## AI agents
 abbr -a -- oc  "opencode"
-abbr -a -- ocw "opencode web"
-abbr -a -- ocs "tv opencode-sessions"
+abbr -a -- ocm "opencode mini"
 
 # Obsidian
 abbr -a -- ov "tv obsidian-vaults"
@@ -216,7 +217,7 @@ set -gx GEMINI_API_KEY        (security find-generic-password -s "Gemini API Key
 set -gx AZURE_OPENAPI_API_KEY (security find-generic-password -s "Azure API Key" -w)
 set -gx GROQ_API_KEY          (security find-generic-password -s "Groq API Key" -w)
 set -gx DEEPL_API_KEY         (security find-generic-password -s "DeepL API Key" -w)
-set -gx OPENCODE_API_KEY      (security find-generic-password -s "OpenCode Zen API Key" -w)
+set -gx OPENCODE_API_KEY      (security find-generic-password -s "OpenCode v1 API Key" -w)
 set -gx OPENROUTER_API_KEY    (security find-generic-password -s "OpenRouter API Key" -w)
 set -gx AI_GATEWAY_API_KEY    (security find-generic-password -s "Vercel AI Gateway API Key" -w)
 set -gx GMICLOUD_API_KEY      (security find-generic-password -s "GMI Cloud API Key" -w)
@@ -233,7 +234,7 @@ set -gx GEMINI_API_KEY        (secret-tool lookup username $USER key_name "Gemin
 set -gx AZURE_OPENAPI_API_KEY (secret-tool lookup username $USER key_name "Azure API Key")
 set -gx GROQ_API_KEY          (secret-tool lookup username $USER key_name "Groq API Key")
 set -gx DEEPL_API_KEY         (secret-tool lookup username $USER key_name "DeepL API Key")
-set -gx OPENCODE_API_KEY      (secret-tool lookup username $USER key_name "OpenCode Zen API Key")
+set -gx OPENCODE_API_KEY      (secret-tool lookup username $USER key_name "OpenCode v1 API Key")
 set -gx OPENROUTER_API_KEY    (secret-tool lookup username $USER key_name "OpenRouter API Key")
 set -gx AI_GATEWAY_API_KEY    (secret-tool lookup username $USER key_name "Vercel AI Gateway API Key")
 set -gx GMICLOUD_API_KEY      (secret-tool lookup username $USER key_name "GMI Cloud API Key")

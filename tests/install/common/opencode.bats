@@ -15,15 +15,15 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
-@test ".config/opencode/config.json is valid" {
-  [ -f "${HOME_SRC}/dot_config/opencode/config.json.tmpl" ]
-  run chezmoi execute-template <"${HOME_SRC}/dot_config/opencode/config.json.tmpl"
+@test ".config/opencode/opencode.json is valid" {
+  [ -f "${HOME_SRC}/dot_config/opencode/opencode.json.tmpl" ]
+  run chezmoi execute-template <"${HOME_SRC}/dot_config/opencode/opencode.json.tmpl"
   [ "$status" -eq 0 ]
 }
 
-@test ".config/opencode/tui.json is valid" {
-  [ -f "${HOME_SRC}/dot_config/opencode/tui.json.tmpl" ]
-  run chezmoi execute-template <"${HOME_SRC}/dot_config/opencode/tui.json.tmpl"
+@test ".config/opencode/cli.jsonc is valid" {
+  [ -f "${HOME_SRC}/dot_config/opencode/cli.jsonc.tmpl" ]
+  run chezmoi execute-template <"${HOME_SRC}/dot_config/opencode/cli.jsonc.tmpl"
   [ "$status" -eq 0 ]
 }
 

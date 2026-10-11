@@ -2,6 +2,14 @@
 
 opencode.theme             = "github"
 opencode.providers.enabled = ["opencode", "openrouter", "ollama-cloud", "google", "huggingface", "vercel", "gmicloud", "requesty"]
+opencode.plugins           = [
+  "@mohak34/opencode-notifier@latest",
+  "@tarquinen/opencode-dcp@latest",
+  # "./plugins/damage-control.ts",
+  # "./plugins/limits.ts",
+  # "./plugins/notification.ts",
+  # "./plugins/rtk.ts"
+]
 
 [opencode.models]
 ultra   = [

@@ -1,0 +1,103 @@
+{
+  // https://opencode.ai/v2/docs/config/
+  "$schema": "https://opencode.ai/config.json",
+  "update": "disable",
+  "share": "disabled",
+  "snapshots":  false,
+  "shell": {{ .shell | quote }},
+  "plugins": {{ .opencode.plugins | toPrettyJson | indent 2 | trim }},
+  "compaction": {
+    "auto": true,
+    "keep": { "tokens": 15000 },
+    "buffer": 20000
+  },
+  "providers": {
+    "opencode": {
+      "name": "OpenCode",
+      "package": "@opencode/ai/providers/openai-compatible"
+    },
+    "anthropic": {
+      "name": "Anthropic model API",
+      "package": "@opencode/ai/providers/anthropic"
+    },
+    "meta": {
+      "name": "Meta model API",
+      "package": "@opencode/ai/providers/openai-compatible"
+    },
+    "systemone": {
+      "name": "Jev"
+    },
+    "openrouter": {
+      "name": "OpenRouter",
+      "env": [ "OPENROUTER_API_KEY" ],
+      "package": "@opencode/ai/providers/openrouter",
+      "settings": { "baseURL": "https://openrouter.ai/api/v1" }
+    },
+    "ollama": {
+      "name": "Ollama Cloud",
+      "env": [ "OLLAMA_API_KEY" ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://ollama.com/v1" }
+    },
+    "google": {
+      "name": "Google AI Studio",
+      "env": [ "GEMINI_API_KEY" ],
+      "package": "@opencode/ai/providers/google",
+      "settings": { "baseURL": "https://generativelanguage.googleapis.com/v1beta" }
+    },
+    "cloudflare": {
+      "name": "Cloudflare",
+      "env": ["CLOUDFLARE_API_KEY"],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://api.cloudflare.com/client/v4/accounts/{env:CLOUDFLARE_ACCOUNT_ID}/ai/v1" }
+    },
+    "vercel": {
+      "name": "Vercel AI Gateway",
+      "env": [ "AI_GATEWAY_API_KEY" ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://ai-gateway.vercel.sh" }
+    },
+    "gmicloud": {
+      "name": "GMI Cloud",
+      "env": [ "GMICLOUD_API_KEY" ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://api.gemi-serving.com/v1" }
+    },
+    "requesty": {
+      "name": "Requesty",
+      "env": [ "REQUESTY_API_KEY" ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://router.requesty.ai/v1" }
+    },
+    "huggingface": {
+      "name": "HuggingFace",
+      "env": [ "HUGGINGFACE_TOKEN" ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "https://router.huggingface.co/v1" }
+    }
+  },
+  {{- /* Global Permissions: order is significant, last matching rule wins */ -}}
+  {{- $perms := list
+        (dict "action" "external_directory" "resource" "~/.agents/skills/*" "effect" "allow")
+        (dict "action" "webfetch" "resource" "*" "effect" "allow")
+        (dict "action" "websearch" "resource" "*" "effect" "allow")
+        (dict "action" "grep" "resource" "*" "effect" "allow")
+        (dict "action" "glob" "resource" "*" "effect" "allow") -}}
+  {{- range $pair := list (list "read" "read") (list "write" "edit") (list "bash" "shell") -}}
+    {{- $rules := index $.agents.permissions (index $pair 0) -}}
+    {{- range $effect := list "allow" "ask" "deny" -}}
+      {{- range index $rules $effect -}}
+        {{- $perms = append $perms (dict "action" (index $pair 1) "resource" . "effect" $effect) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  "permissions": {{ $perms | toPrettyJson | indent 4 | trim }},
+  "default_agent": "build",
+  "agents": {
+    "plan": { "disabled": true },
+    "build": { "disabled": false }
+  }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}

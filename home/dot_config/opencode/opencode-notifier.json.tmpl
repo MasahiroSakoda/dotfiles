@@ -1,0 +1,53 @@
+{
+  "sound": true,
+  "notification": true,
+  "bell": false,
+  "timeout": 5,
+  "notificationTitle": null,
+  "showProjectName": true,
+  "showFullPath": false,
+  "showSessionTitle": false,
+  "showIcon": true,
+  "customIconPath": null,
+  "suppressWhenFocused": true,
+  "focusOnClick": true,
+  "enableOnDesktop": false,
+  "notificationSystem": "ghostty",
+  "suppressGhosttySound": false,
+  "sounds": {
+    {{- if eq .chezmoi.os "darwin" }}
+    "permission": {{ .ai.notify.sounds.mac.request | quote }},
+    "complete": {{ .ai.notify.sounds.mac.complete | quote }},
+    "subagent_complete": {{ .ai.notify.sounds.mac.complete | quote }},
+    "error": {{ .ai.notify.sounds.mac.error | quote }},
+    "question": {{ .ai.notify.sounds.mac.request | quote }},
+    "user_cancelled": {{ .ai.notify.sounds.mac.idle | quote }},
+    {{- else if eq .chezmoi.os "linux" }}
+    "permission": {{ .ai.notify.sounds.linux.request | quote }},
+    "complete": {{ .ai.notify.sounds.linux.complete | quote }},
+    "subagent_complete": {{ .ai.notify.sounds.linux.complete | quote }},
+    "error": {{ .ai.notify.sounds.linux.error | quote }},
+    "question": {{ .ai.notify.sounds.linux.request | quote }},
+    "user_cancelled": {{ .ai.notify.sounds.linux.idle | quote }},
+    {{- end }}
+    "plan_exit": null,
+    "session_started": null,
+    "user_message": null,
+    "client_connected": null
+  },
+  "volumes": {
+    "permission": 1,
+    "complete": 1,
+    "subagent_complete": 1,
+    "error": 1,
+    "question": 1,
+    "user_cancelled": 1,
+    "plan_exit": 1,
+    "session_started": 1,
+    "user_message": 1,
+    "client_connected": 1
+  }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
