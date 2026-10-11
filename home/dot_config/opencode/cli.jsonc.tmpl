@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "plugins": [],
+  // Appearance
+  "animations": true,
+  "theme": { "name": "tokyonight", "mode": "dark" },
+  "tabs": { "enable": true },
+  // Keybindings
+  "keybinds": {
+    "leader": {{ index .ai.keybinds.app.leader 0 | quote }},
+    "app.exit": {{ index .ai.keybinds.app.exit 0 | quote }},
+    "command.palette.show": {{ index .ai.keybinds.command.list 0 | quote }},
+    "prompt.history.previous": {{ index .ai.keybinds.history.prev 0 | quote  }},
+    "prompt.history.next": {{ index .ai.keybinds.history.next 0 | quote }},
+    "prompt.clear": {{ index .ai.keybinds.edit.clear 0 | quote }},
+    "prompt.paste": {{ index .ai.keybinds.edit.paste 0 | quote }},
+    "prompt.editor": {{ index .ai.keybinds.edit.open_editor 0 | quote }},
+    // Input / Edit
+    "input.submit": {{ index .ai.keybinds.edit.submit 0 | quote }},
+    "input.newline": {{ index .ai.keybinds.edit.newline 0 | quote }},
+    "input.move.up": {{ index .ai.keybinds.navigate.up 0 | quote }},
+    "input.move.down": {{ index .ai.keybinds.navigate.down 0 | quote }},
+    "input.move.left": {{ index .ai.keybinds.navigate.left 0 | quote }},
+    "input.move.right": {{ index .ai.keybinds.navigate.right 0 | quote }},
+    // Session
+    "session.new": {{ index .ai.keybinds.session.new 0 | quote }},
+    "session.undo": {{ index .ai.keybinds.edit.undo 0 | quote }},
+    "session.redo": {{ index .ai.keybinds.edit.redo 0 | quote }},
+    "session.page.up": {{ index .ai.keybinds.navigate.page_up 0 | quote }},
+    "session.page.down": {{ index .ai.keybinds.navigate.page_down 0 | quote }},
+    "session.half.page.up": {{ index .ai.keybinds.navigate.page_half_up 0 | quote }},
+    "session.half.page.down": {{ index .ai.keybinds.navigate.page_half_down 0 | quote }},
+    // Model
+    "model.list": {{ index .ai.keybinds.model.list 0 | quote }},
+    "model.cycle_recent": {{ index .ai.keybinds.model.next_recent 0 | quote }},
+    "model.cycle_recent_reverse": {{ index .ai.keybinds.model.prev_recent 0 | quote }},
+    "model.cycle_favorite": {{ index .ai.keybinds.model.next_fav 0 | quote }},
+    "model.cycle_favorite_reverse": {{ index .ai.keybinds.model.prev_fav 0 | quote }},
+    // Agent
+    "agent.list": {{ index .ai.keybinds.agent.list 0 | quote }},
+    "agent.cycle": {{ index .ai.keybinds.agent.next 0 | quote }},
+    "agent.cycle.reverse": {{ index .ai.keybinds.agent.prev 0 | quote }}
+  },
+  "leader": { "timeout": 1500 },
+  "scroll": { "speed": 2, "acceleration": true },
+  "attention": { "notifications": true, "sound": true, "volume": 0.4 },
+  // Diff
+  "diffs": { "view": "auto", "wrap": "word" }
+}
+{{- /*
+// -*-mode:json-*- vim:ft=json.gotexttmpl
+*/ -}}
