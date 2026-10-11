@@ -32,6 +32,8 @@
   "project_panel": { "dock": "left" },
   "collaboration_panel": { "dock": "left" },
   "outline_panel": { "dock": "right" },
+  "pane_split_direction_vertical": "right",
+  "pane_split_direction_horizontal": "down",
   "git_panel": {
     "dock": "left",
     "button": true,
@@ -48,6 +50,7 @@
   // ===========================================================================
   */ -}}
   "file_finder": {
+    "modal_max_width": "xlarge",
     "file_icons": true
   },
   "preview_tabs": {
@@ -69,7 +72,10 @@
   },
   "toolbar": {
     "breadcrumbs": false,
-    "quick_actions": true
+    "quick_actions": true,
+    "selections_menu": true,
+    "agent_review": true,
+    "code_actions": false
   },
   "scrollbar": {
     "show": "auto",
@@ -117,7 +123,7 @@
   "terminal": {
     "shell": { "program": {{ .shell | quote }} },
     "font_family": {{ .font.family.combined | quote }},
-    "font_size": {{ .font.size.large }},
+    "font_size": {{ .font.size.small }},
     "working_directory": "current_project_directory",
     "copy_on_select": false
   },
