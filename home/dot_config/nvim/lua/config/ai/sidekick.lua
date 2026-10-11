@@ -39,7 +39,7 @@ require("sidekick").setup({
     ---@type table<string, sidekick.cli.Config|{}>
     tools = {
       opencode = {
-        cmd = { "caveman", "opencode" },
+        cmd = { "opencode" },
         -- cmd = { "opencode" },
         ---@see https://opencode.ai/docs/themes/#built-in-themes
         env = { OPENCODE_THEME = "tokyonight" },
