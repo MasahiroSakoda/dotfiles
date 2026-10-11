@@ -6,6 +6,7 @@ opencode.plugins           = [
   "@mohak34/opencode-notifier@latest",
   "@tarquinen/opencode-dcp@latest",
   "apm_modules/DietrichGebert/ponytail/.opencode/plugins/ponytail.mjs",
+  "apm_modules/ayghri/i-have-adhd/.opencode/plugins/i-have-adhd.mjs",
   # "./plugins/damage-control.ts",
   # "./plugins/limits.ts",
   # "./plugins/notification.ts",

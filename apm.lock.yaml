@@ -4,22 +4,20 @@ dependencies:
 - repo_url: ayghri/i-have-adhd
   name: i-have-adhd
   host: github.com
-  resolved_commit: 839872f9d1cd634fed642b4589ce7226199cc15f
-  resolved_ref: 839872f9d1cd634fed642b4589ce7226199cc15f
-  version: 839872f
-  package_type: skill_bundle
+  resolved_commit: 1ecea1993b7fce257ffbd686c070948b5e07eda6
+  resolved_ref: 1ecea1993b7fce257ffbd686c070948b5e07eda6
+  version: 1ecea19
+  package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/i-have-adhd
   - .agents/skills/i-have-adhd/SKILL.md
   - .agents/skills/i-have-adhd/agents/gemini.toml
   - .agents/skills/i-have-adhd/agents/openai.yaml
   deployed_file_hashes:
-    .agents/skills/i-have-adhd/SKILL.md: sha256:3170b16ace00aecb0dd7feb54c0b5aa642e7502acda06ecd24fd89a11c7127e9
+    .agents/skills/i-have-adhd/SKILL.md: sha256:88955c019bbb1419ff4b49dbb1f80a867467de6233d7865af2e06a7d7b76c7d3
     .agents/skills/i-have-adhd/agents/gemini.toml: sha256:5108a6123beb9df24846e0dd3f902c652d18522dfbc56e5762032ea383041c62
     .agents/skills/i-have-adhd/agents/openai.yaml: sha256:2c51291283dcefdca43ca6b0c08172f225c7c26a9783ec444d6bdfa51ca96f8f
-  content_hash: sha256:b1b3f2ba4f586795ccffcc5d35662ed8e8121f93bc50d85296427d17a4df2be1
-  skill_subset:
-  - i-have-adhd
+  content_hash: sha256:ad001ae7ed425f6df1308da66011a24b0888da0db0fafe42a5ddab7b5748c419
 - repo_url: dietrichgebert/ponytail
   materialization_repo_url: DietrichGebert/ponytail
   name: ponytail
@@ -522,7 +520,7 @@ deployments:
   owners:
   - ayghri/i-have-adhd
   active_owner: ayghri/i-have-adhd
-  content_hash: sha256:3170b16ace00aecb0dd7feb54c0b5aa642e7502acda06ecd24fd89a11c7127e9
+  content_hash: sha256:88955c019bbb1419ff4b49dbb1f80a867467de6233d7865af2e06a7d7b76c7d3
 - kind: project-relative
   target: opencode
   value: .agents/skills/i-have-adhd/agents/gemini.toml

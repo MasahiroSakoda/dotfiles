@@ -9,9 +9,7 @@ dependencies:
     - git: DietrichGebert/ponytail
       ref: v5.1.0
     - git: ayghri/i-have-adhd
-      ref: 839872f9d1cd634fed642b4589ce7226199cc15f
-      skills:
-        - i-have-adhd
+      ref: 1ecea1993b7fce257ffbd686c070948b5e07eda6
     - git: modem-dev/hunk
       ref: v0.23.0
       path: packages/hunk/skills/hunk-review
