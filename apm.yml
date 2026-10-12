@@ -6,15 +6,10 @@ targets:
   - opencode
 dependencies:
   apm:
-    # TODO: Activate after update to OpenCode v2
-    # - git: DietrichGebert/ponytail
-    #   ref: v4.10.3
-    - git: JuliusBrussee/caveman
-      ref: v3.2.0
+    - git: DietrichGebert/ponytail
+      ref: v5.1.0
     - git: ayghri/i-have-adhd
-      ref: 839872f9d1cd634fed642b4589ce7226199cc15f
-      skills:
-        - i-have-adhd
+      ref: 1ecea1993b7fce257ffbd686c070948b5e07eda6
     - git: modem-dev/hunk
       ref: v0.23.0
       path: packages/hunk/skills/hunk-review
@@ -47,60 +42,45 @@ dependencies:
       registry: false
       transport: http
       url: https://mcp.context7.com/mcp
-  # lsp:
-  #   - name: rumdl
-  #     command: rumdl
-  #     args: ["server"]
-  #     extensionToLanguage:
-  #       .md: markdown
-  #     transport: stdio
-  #   - name: jsonls
-  #     command: vscode-json-languageserver
-  #     args: ["--stdio"]
-  #     extensionToLanguage:
-  #       .json: json
-  #       .jsonc: json
-  #   - name: yaml-language-server
-  #     command: yaml-language-server
-  #     args: ["--stdio"]
-  #     extensionToLanguage:
-  #       .yml: yaml
-  #       .yaml: yaml
-  #   - name: tombi
-  #     command: tombi
-  #     args: ["lsp"]
-  #     extensionToLanguage:
-  #       .toml: toml
-  #   - name: bash-language-server
-  #     command: bash-language-server
-  #     args: ["server"]
-  #     extensionToLanguage:
-  #       .sh: shellscript
-  #       .bash: shellscript
-  #   - name: fish-lsp
-  #     command: fish-lsp
-  #     args: ["start"]
-  #     extensionToLanguage:
-  #       .fish: fish
-  #   - name: oxlint
-  #     command: oxlint
-  #     args: ["--lsp"]
-  #     extensionToLanguage:
-  #       .js: javascript
-  #       .ts: typescript
-  #   - name: oxfmt
-  #     command: oxfmt
-  #     args: ["--lsp"]
-  #     extensionToLanguage:
-  #       .js: javascript
-  #       .ts: typescript
-  #       .json: json
-  #       .jsonc: json
-  #       .yml: yaml
-  #       .yaml: yaml
-  #   - name: lua-language-server
-  #     command: lua-language-server
-  #     extensionToLanguage:
-  #       .lua: lua
+  lsp:
+    - name: rumdl
+      command: rumdl
+      args: ["server"]
+      extensionToLanguage:
+        .md: markdown
+        .mdx: markdown
+      transport: stdio
+    - name: jsonls
+      command: vscode-json-languageserver
+      args: ["--stdio"]
+      extensionToLanguage:
+        .json: json
+        .jsonc: json
+    - name: yamlls
+      command: yaml-language-server
+      args: ["--stdio"]
+      extensionToLanguage:
+        .yml: yaml
+        .yaml: yaml
+    - name: tombi
+      command: tombi
+      args: ["lsp"]
+      extensionToLanguage:
+        .toml: toml
+    - name: bash-language-server
+      command: bash-language-server
+      args: ["server"]
+      extensionToLanguage:
+        .sh: shellscript
+        .bash: shellscript
+    - name: fish-lsp
+      command: fish-lsp
+      args: ["start"]
+      extensionToLanguage:
+        .fish: fish
+    - name: lua-language-server
+      command: lua-language-server
+      extensionToLanguage:
+        .lua: lua
 includes: auto
 scripts: {}
