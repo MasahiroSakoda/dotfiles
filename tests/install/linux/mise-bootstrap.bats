@@ -12,25 +12,46 @@ setup() {
   skip_if_no_command yq
 
   MISE_CONFIG="${HOME_SRC}/dot_config/mise/config.toml.tmpl"
+  LINUX_PACKAGES="${HOME_SRC}/.chezmoitemplates/linux/mise-packages.toml.tmpl"
   rendered_config="${BATS_TEST_TMPDIR}/bootstrap.toml"
+  rendered_packages="${BATS_TEST_TMPDIR}/packages.toml"
 }
 
 # chezmoi has no flag to render for another OS, so rewrite the OS guards in the
 # template and render the whole file. Rendering everything rather than just
-# [bootstrap.packages] is deliberate: a guard that swallows a newline breaks
-# TOML validity, and the yq calls below are what catch it.
-render_bootstrap() {
-  local os="$1" os_release="$2"
+# [settings.system_packages] is deliberate: a guard that swallows a newline
+# breaks TOML validity, and the yq calls below are what catch it.
+rewrite_os_guards() {
+  local os="$1" os_release="$2" file="$3"
 
   sed -e "s/\\.chezmoi\\.osRelease\\.id/\"${os_release}\"/g" \
     -e "s/\\.chezmoi\\.os/\"${os}\"/g" \
-    "$MISE_CONFIG" |
+    "$file"
+}
+
+render_bootstrap() {
+  local os="$1" os_release="$2"
+
+  rewrite_os_guards "$os" "$os_release" "$MISE_CONFIG" |
     chezmoi execute-template >"$rendered_config"
 }
 
-# Keys under [bootstrap.packages] of the rendered config, e.g. apt:wget.
+# [bootstrap.packages] is pulled in by includeTemplate, which chezmoi renders
+# with the real host values, so the guards in the partial have to be rewritten
+# before rendering as well. Otherwise the darwin packages leak into every
+# simulated Linux render.
+render_packages() {
+  local os="$1" os_release="$2"
+
+  {
+    printf '[bootstrap.packages]\n'
+    rewrite_os_guards "$os" "$os_release" "$LINUX_PACKAGES"
+  } | chezmoi execute-template >"$rendered_packages"
+}
+
+# Keys under [bootstrap.packages] of the rendered packages, e.g. apt:wget.
 bootstrap_packages() {
-  yq -p toml -o=json '."bootstrap"."packages" | keys | .[]' "$rendered_config" | tr -d '"'
+  yq -p toml -o=json '."bootstrap"."packages" | keys | .[]' "$rendered_packages" | tr -d '"'
 }
 
 # System package managers mise is told to use, e.g. apt. Empty when the branch
@@ -43,11 +64,11 @@ system_package_managers() {
 unpinned_packages() {
   yq -p toml -o=json \
     '."bootstrap"."packages" | to_entries | .[] | select(.value != "latest") | .key' \
-    "$rendered_config"
+    "$rendered_packages"
 }
 
 @test "apt branch pins every package to latest" {
-  render_bootstrap linux debian
+  render_packages linux debian
 
   run unpinned_packages
   assert_success
@@ -55,7 +76,7 @@ unpinned_packages() {
 }
 
 @test "pacman branch pins every package to latest" {
-  render_bootstrap linux arch
+  render_packages linux arch
 
   run unpinned_packages
   assert_success
@@ -80,6 +101,7 @@ unpinned_packages() {
 
 @test "unknown Linux distro declares no packages and no system package managers" {
   render_bootstrap linux fedora
+  render_packages linux fedora
 
   run bootstrap_packages
   assert_success

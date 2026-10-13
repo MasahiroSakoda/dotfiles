@@ -35,6 +35,10 @@
 --write-auto-subs
 --sub-langs "en,ja"
 
+--check-formats
+--no-video-multistreams
+--audio-multistreams
+
 # ------------------------------------------------------------------------------
 # Chapters
 # ------------------------------------------------------------------------------
@@ -47,10 +51,21 @@
 -S vcodec:h264,res:720,acodec:m4a
 
 # Quality
-# --format 'bestvideo[ext=mp4][height<=1080][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080][fps<=30]/best'
+# --format 'bestvideo[ext=mp4][height<=720][fps<=30]+bestaudio[ext=m4a]/best[ext=mp4][height<=720][fps<=30]/best'
+--format
+  "(bv[ext=mp4][height<=720][fps<=30]) +
+    (
+      (
+        (ba[acodec ~= 'mp?4a?'][language ~= ja]?) +
+        (ba[acodec ~= 'mp?4a?'][language ~= en-US]?)
+      )
+      / (ba[acodec ~= 'mp?4a?'])
+    )
+    / best*[ext=mp4][height<=720][fps<=30]"
 
 # Output format
 --output "%(title)s.%(ext)s"
+--restrict-filenames
 
 # ------------------------------------------------------------------------------
 # Fragments
