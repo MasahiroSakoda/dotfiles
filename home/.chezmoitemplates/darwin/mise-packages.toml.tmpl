@@ -1,0 +1,109 @@
+{{ if eq .chezmoi.os "darwin" -}}
+### Core
+"brew:gnutls"    = "latest"
+"brew:coreutils" = "latest"
+"brew:eza"       = "latest"
+
+### Disk
+"brew:diskonaut" = "latest"
+
+### Security
+"brew:pinentry-mac" = "latest"
+"brew:openssl@4"    = "latest"
+"brew:gnupg"        = "latest"
+
+### Terminal
+"brew:tmux" = "latest"
+
+### VCS
+"brew:git" = "latest"
+
+### Reader
+"brew:w3m"      = "latest"
+"brew:newsboat" = "latest"
+
+### Downloader
+"brew:wget"  = "latest"
+"brew:curl"  = "latest"
+"brew:aria2" = "latest"
+"brew:gallery-dl" = "latest"
+
+### Lua
+"brew:luarocks" = "latest"
+
+### Media
+"brew:ffmpeg-full"      = "latest"
+"brew:imagemagick-full" = "latest"
+"brew:exiv2"            = "latest"
+
+### AI
+"brew:ollama" = "latest"
+
+### Maintenance
+"brew-cask:onyx"       = "latest"
+"brew-cask:appcleaner" = "latest"
+
+"brew-cask:symboliclinker"     = "latest"
+"brew-cask:karabiner-elements" = "latest"
+
+### Language / IME
+"brew-cask:monolingual"         = "latest"
+"brew-cask:google-japanese-ime" = "latest"
+
+### Fonts
+"brew-cask:font-codicon"                  = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:font-udev-gothic-nf"           = "latest"
+
+### Launcher
+"brew-cask:raycast" = "latest"
+
+### Browser
+"brew-cask:suspicious-package" = "latest"
+"brew-cask:brave-browser"      = "latest"
+"brew-cask:firefox"            = "latest"
+
+### Reader
+"brew-cask:skim" = "latest"
+
+### Terminal
+"brew-cask:wezterm" = "latest"
+"brew-cask:ghostty" = "latest"
+
+### AI
+"brew-cask:google-gemini" = "latest"
+"brew-cask:antigravity"   = "latest"
+
+### IDE
+"brew-cask:zed" = "latest"
+
+### Tex
+"brew-cask:basictex" = "latest"
+
+### Media
+"brew-cask:drawio"  = "latest"
+"brew-cask:blender" = "latest"
+"brew-cask:iina"    = "latest"
+"brew-cask:vlc"     = "latest"
+"brew-cask:spotify" = "latest"
+
+### Audio
+"brew-cask:blackhole-2ch" = "latest"
+"brew-cask:typeless"      = "latest"
+
+### Storage
+"brew-cask:dropbox" = "latest"
+
+### Chat
+"brew-cask:beeper" = "latest"
+
+"mas:470158793"  = "latest" # Keka
+"mas:1024640650" = "latest" # CotEditor
+"mas:539883307"  = "latest" # LINE
+"mas:361309726"  = "latest" # Pages
+"mas:361304891"  = "latest" # Numbers
+"mas:1480933944" = "latest" # Vimari
+{{ end }}
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
