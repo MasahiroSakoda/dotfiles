@@ -1,0 +1,56 @@
+{{ if eq .chezmoi.os "linux" }}
+{{   if eq (.chezmoi.osRelease.id | default "") "debian" -}}
+"apt:build-essential" = "latest"
+### Shell
+"apt:zsh"  = "latest"
+"apt:fish" = "latest"
+
+### Alternative CLI
+"apt:eza" = "latest"
+
+### VCS
+"apt:git" = "latest"
+
+### Terminal
+"apt:ghostty" = "latest"
+"apt:tmux"    = "latest"
+
+### Download
+"apt:wget"  = "latest"
+"apt:curl"  = "latest"
+"apt:aria2" = "latest"
+
+### Security
+"apt:gnupg"           = "latest"
+"apt:pinentry-tty"    = "latest"
+"apt:ca-certificates" = "latest"
+
+{{   else if eq (.chezmoi.osRelease.id | default "") "arch" -}}
+"pacman:base-devel" = "latest"
+
+### Shell
+"pacman:zsh"  = "latest"
+"pacman:fish" = "latest"
+
+### Alternative CLI
+"pacman:eza" = "latest"
+
+### VCS
+"pacman:git" = "latest"
+
+### Terminal
+"pacman:ghostty" = "latest"
+"pacman:tmux"    = "latest"
+
+### Security
+"pacman:gnupg"           = "latest"
+"pacman:pinentry"        = "latest"
+"pacman:ca-certificates" = "latest"
+
+### AI
+"pacman:ollama" = "latest"
+{{   end -}}
+{{ end -}}
+{{- /*
+# -*-mode:toml-*- vim:ft=toml.gotexttmpl
+*/ -}}
