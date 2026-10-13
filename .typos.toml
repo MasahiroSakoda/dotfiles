@@ -35,6 +35,8 @@ extend-ignore-re = [
   labelled  = "labelled"
   # selene upstream misspells this lint name; the correct spelling is ignored silently
   parenthese = "parenthese"
+  # yt-dlp format selector shorthand for bestaudio
+  ba = "ba"
 
 [files]
 ignore-hidden = true
