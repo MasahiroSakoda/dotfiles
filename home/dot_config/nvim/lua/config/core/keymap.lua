@@ -417,18 +417,37 @@ if not is_vscode then
 end
 
 ---------------------------------------------------------------------------
--- Feed: <Leader> + n
+-- Obsidian: <Leader> + n
 ---------------------------------------------------------------------------
 if not is_vscode then
   wk.add({
     mode = "n",
-    { "<Leader>n", group = "feed.nvim", icon = "📰 " },
-    { "<Leader>nm", "<CMD>Feed<CR>",        icon = " ", desc = " Feed menu" },
-    { "<Leader>ni", "<CMD>Feed index<CR>",  icon = " ", desc = " Feed index" },
-    { "<Leader>nu", "<CMD>Feed update<CR>", icon = "󰚰 ", desc = " Update Feed" },
-    { "<Leader>nl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = " Feed list" },
-    { "<Leader>ng", "<CMD>Feed grep<CR>",   icon = "󰚰 ", desc = " Grep search" },
-    { "<Leader>ns", "<CMD>Feed sync<CR>",   icon = "󰚰 ", desc = " Sync feed" },
+    { "<Leader>n", group = "Obsidian", icon = "📰 " },
+    { "<Leader>nn", "<CMD>Obsidian new<CR>",          icon = " ", desc = " Create note" },
+    { "<Leader>no", "<CMD>Obsidian open<CR>",         icon = " ", desc = " Open note in App" },
+    { "<Leader>ns", "<CMD>Obsidian search<CR>",       icon = " ", desc = " Search notes" },
+    { "<Leader>nq", "<CMD>Obsidian quick_switch<CR>", icon = " ", desc = " Quick Switch" },
+    { "<Leader>nl", "<CMD>Obsidian links<CR>",        icon = " ", desc = " Links in note" },
+    { "<Leader>nb", "<CMD>Obsidian backlinks<CR>",    icon = " ", desc = " Backlinks" },
+    { "<Leader>nt", "<CMD>Obsidian tags<CR>",         icon = " ", desc = " Tags" },
+    { "<Leader>ni", "<CMD>Obsidian today<CR>",        icon = "󰃶 ", desc = " Today's daily note" },
+    { "<Leader>nd", "<CMD>Obsidian dailies<CR>",      icon = " ", desc = " List daily notes" },
+  })
+end
+
+---------------------------------------------------------------------------
+-- Feed: <Leader> + r
+---------------------------------------------------------------------------
+if not is_vscode then
+  wk.add({
+    mode = "n",
+    { "<Leader>r", group = "feed.nvim", icon = "📰 " },
+    { "<Leader>rm", "<CMD>Feed<CR>",        icon = " ", desc = " Feed menu" },
+    { "<Leader>ri", "<CMD>Feed index<CR>",  icon = " ", desc = " Feed index" },
+    { "<Leader>ru", "<CMD>Feed update<CR>", icon = "󰚰 ", desc = " Update Feed" },
+    { "<Leader>rl", "<CMD>Feed list<CR>",   icon = "󰚰 ", desc = " Feed list" },
+    { "<Leader>rg", "<CMD>Feed grep<CR>",   icon = "󰚰 ", desc = " Grep search" },
+    { "<Leader>rs", "<CMD>Feed sync<CR>",   icon = "󰚰 ", desc = " Sync feed" },
   })
 end
 

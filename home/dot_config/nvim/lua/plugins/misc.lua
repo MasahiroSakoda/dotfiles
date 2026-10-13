@@ -14,6 +14,10 @@ return {
     config = function() require("config.misc.overseer") end,
   },
   {
+    "obsidian-nvim/obsidian.nvim",
+    config = function() require("config.misc.obsidian") end,
+  },
+  {
     "neo451/feed.nvim",
     cmd    = { "Feed" },
     cond   = not vim.g.vscode,
