@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "agent-common",
+    "nolabs-ai/opencode"
+  ],
+  "meta": {
+    "name": "opencode",
+    "description": "Daily development in working directory"
+  },
+  "groups": {
+    "include": ["bun_runtime"],
+    "exclude": []
+  },
+  "workdir": {
+    "access": "readwrite"
+  },
+  "filesystem": {
+    "allow": [
+      "$HOME/Dev/repos"
+    ],
+    "read": [
+    ],
+    "write": [],
+    "allow_file": [],
+    "read_file": [],
+    "write_file": [],
+    "deny": [],
+    "suppress_save_prompt": [],
+    "bypass_protection": []
+  },
+  "network": {
+  }
+}

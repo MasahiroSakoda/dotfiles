@@ -1,0 +1,66 @@
+{
+  "extends": [
+    "default"
+  ],
+  "meta": {
+    "name": "agent-common",
+    "version": "1.0.0",
+    "description": "Shared AI agent common sandbox grants"
+  },
+  "groups": {
+    "include": ["mise_manager", "user_tools"],
+    "exclude": []
+  },
+  "workdir": {
+    "access": "none"
+  },
+  "commands": {
+    "allow": [],
+    "deny": []
+  },
+  "filesystem": {
+    "allow": [
+      "$WORKDIR",
+      "$XDG_DATA_HOME/chezmoi"
+    ],
+    "read": [
+      "$XDG_CONFIG_HOME/gh",
+      "$XDG_DATA_HOME/uv/python",
+      "$XDG_DATA_HOME/uv/tools"
+    ],
+    "write": [],
+    "allow_file": [],
+    "read_file": [],
+    "write_file": [],
+    "deny": [
+      "$HOME/Library/CloudStorage",
+      "$HOME/Documents",
+      "$HOME/Downloads",
+      "$HOME/Desktop",
+      "$WORKDIR/.netrc",
+      "$WORKDIR/.npmrc",
+      "$WORKDIR/.pypirc",
+      "$WORKDIR/.direnv",
+      "$XDG_STATE_HOME/bash/history",
+      "$XDG_STATE_HOME/zsh/history",
+      "$XDG_DATA_HOME/fish/fish_history",
+      "$XDG_CONFIG_HOME/nono"
+    ],
+    "suppress_save_prompt": ["$HOME"],
+    "bypass_protection": []
+  },
+  "network": {
+    "network_profile": "developer",
+    "allow_domain": [
+      "openrouter.ai",
+      "ollama.com",
+      "generativelanguage.googleapis.com",
+      "ai-gateway.vercel.sh",
+      "agent-plugins.org",
+      "agentskills.io",
+      "*modelcontextprotocol.io",
+      "context7.com",
+      "*grep.app"
+    ]
+  }
+}
