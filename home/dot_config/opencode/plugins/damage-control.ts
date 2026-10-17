@@ -1,4 +1,7 @@
-import type { Plugin } from "@opencode-ai/plugin";
+import { Plugin } from "@opencode/plugin";
+
+// V2 keeps separate edit tools but maps all of them to the `edit` permission action.
+const EDIT_TOOLS = new Set(["edit", "write", "patch"]);
 
 // ─── Category 1: Dangerous Bash Commands ─────────────────────────────────────
 const DANGEROUS_BASH_PATTERNS: RegExp[] = [
@@ -148,9 +151,7 @@ const OUTBOUND_INDICATORS: RegExp[] = [
   /\btelnet\b/,
 ];
 
-// TODO: permission.ask hook may be dead code due to OpenCode bug #7006.
-// Remove this workaround if/when the hook starts firing reliably.
-// ─── Safe Patterns for permission.ask auto-approval ──────────────────────────
+// ─── Safe Patterns for permission auto-approval ──────────────────────────────
 const SAFE_BASH_PATTERNS: RegExp[] = [
   /^(ls|ls\s)/,
   /^(git\s+(status|diff|log|show|branch|remote|stash\s+list|ls-files|grep))/,
@@ -177,12 +178,17 @@ function hasExfiltrationRisk(cmd: string): boolean {
   return hasSensitivePath && hasOutbound;
 }
 
-export const EnvProtectionPlugin: Plugin = async () => {
-  return {
-    "tool.execute.before": async (input, output) => {
+type ToolInput = { command?: string; filePath?: string };
+
+export default Plugin.define({
+  id: "damage-control",
+  async setup(ctx) {
+    await ctx.tool.hook("execute.before", (event) => {
       try {
-        if (input.tool === "bash" && typeof output.args?.command === "string") {
-          const cmd = output.args.command;
+        const input = event.input as ToolInput;
+
+        if (event.tool === "shell" && typeof input.command === "string") {
+          const cmd = input.command;
 
           const dangerousMatch = testPatterns(cmd, DANGEROUS_BASH_PATTERNS);
           if (dangerousMatch) {
@@ -222,8 +228,8 @@ export const EnvProtectionPlugin: Plugin = async () => {
         }
 
         // ── Read tool checks (Category 2: secrets) ──
-        if (input.tool === "read" && typeof output.args?.filePath === "string") {
-          const filePath = output.args.filePath;
+        if (event.tool === "read" && typeof input.filePath === "string") {
+          const filePath = input.filePath;
 
           const secretPathMatch = testPatterns(filePath, SECRET_PATH_PATTERNS);
           if (secretPathMatch) {
@@ -231,8 +237,8 @@ export const EnvProtectionPlugin: Plugin = async () => {
           }
         }
         // ── Edit/Write tool checks (Categories 2, 3) ──
-        if ((input.tool === "edit" || input.tool === "write") && typeof output.args?.filePath === "string") {
-          const filePath = output.args.filePath;
+        if (EDIT_TOOLS.has(event.tool) && typeof input.filePath === "string") {
+          const filePath = input.filePath;
 
           const secretPathMatch = testPatterns(filePath, SECRET_PATH_PATTERNS);
           if (secretPathMatch) {
@@ -248,25 +254,21 @@ export const EnvProtectionPlugin: Plugin = async () => {
         if (err instanceof Error && err.message.startsWith("[damage-control] BLOCKED")) {
           throw err;
         }
-        console.error("[damage-control] tool.execute.before error:", err);
+        console.error("[damage-control] execute.before error:", err);
       }
-    },
-    "permission.ask": async (input, output) => {
+    });
+
+    // V2 hook runs for `allow` and `ask` only. A configured `deny` never reaches it.
+    await ctx.permission.hook("evaluate", (event) => {
       try {
-        // Auto-approve safe bash patterns
-        if (input.type === "bash" && input.metadata) {
-          const command = input.metadata.command;
-          if (typeof command === "string") {
-            const safeMatch = testPatterns(command, SAFE_BASH_PATTERNS);
-            if (safeMatch) {
-              output.status = "allow";
-            }
-          }
+        if (event.action !== "shell") return;
+        if (event.resources.some((resource) => testPatterns(resource, SAFE_BASH_PATTERNS))) {
+          event.effect = "allow";
         }
       } catch (err) {
         // Fail-open — don't block permission flow on unexpected errors
-        console.error("[damage-control] permission.ask error:", err);
+        console.error("[damage-control] permission.evaluate error:", err);
       }
-    },
-  };
-};
+    });
+  },
+});
