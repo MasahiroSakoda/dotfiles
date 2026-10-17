@@ -12,10 +12,25 @@ checksum = "sha256:d3773393578580074386e69337d35b7acddfbaa9fc38964c07fa3e28436ad
 url = "https://github.com/Kampfkarren/selene/releases/download/0.32.0/selene-0.32.0-linux.zip"
 url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/604285118"
 
+[tools."aqua:Kampfkarren/selene"."platforms.linux-x64-musl"]
+checksum = "sha256:d3773393578580074386e69337d35b7acddfbaa9fc38964c07fa3e28436ade9b"
+url = "https://github.com/Kampfkarren/selene/releases/download/0.32.0/selene-0.32.0-linux.zip"
+url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/604285118"
+
 [tools."aqua:Kampfkarren/selene"."platforms.macos-arm64"]
 checksum = "sha256:d8aa4701530a81334836f9c5e3bf38b91f633d9ad88f4d15cf29f63fe8589dc0"
 url = "https://github.com/Kampfkarren/selene/releases/download/0.32.0/selene-0.32.0-macos.zip"
 url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/604285189"
+
+[tools."aqua:Kampfkarren/selene"."platforms.macos-x64"]
+checksum = "sha256:d8aa4701530a81334836f9c5e3bf38b91f633d9ad88f4d15cf29f63fe8589dc0"
+url = "https://github.com/Kampfkarren/selene/releases/download/0.32.0/selene-0.32.0-macos.zip"
+url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/604285189"
+
+[tools."aqua:Kampfkarren/selene"."platforms.windows-x64"]
+checksum = "sha256:c8b693de81d0ddc11490d8e1170dd98d775c2b21431144bd8286f738ef416109"
+url = "https://github.com/Kampfkarren/selene/releases/download/0.32.0/selene-0.32.0-windows.zip"
+url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/604285158"
 
 [[tools."aqua:bats-core/bats-core"]]
 version = "1.14.0"
@@ -104,7 +119,17 @@ checksum = "sha256:2ac5e37b3236b3c07dec5cdf1527acf143aec4674a6089b0bf424d021b35e
 url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-aarch64-unknown-linux-musl.tar.gz"
 url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616652747"
 
+[tools."aqua:crate-ci/typos"."platforms.linux-arm64-musl"]
+checksum = "sha256:2ac5e37b3236b3c07dec5cdf1527acf143aec4674a6089b0bf424d021b35e099"
+url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616652747"
+
 [tools."aqua:crate-ci/typos"."platforms.linux-x64"]
+checksum = "sha256:93c301fd4120ff076e2cc2a6d6a61cab4a4bdb81899287c0938b452e56d1f454"
+url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616653682"
+
+[tools."aqua:crate-ci/typos"."platforms.linux-x64-musl"]
 checksum = "sha256:93c301fd4120ff076e2cc2a6d6a61cab4a4bdb81899287c0938b452e56d1f454"
 url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-x86_64-unknown-linux-musl.tar.gz"
 url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616653682"
@@ -113,6 +138,16 @@ url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616653682
 checksum = "sha256:316d50a32c3726a80ab39c6d12141b70080498973c5e8a9b068b12cde78b10c1"
 url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616656668"
+
+[tools."aqua:crate-ci/typos"."platforms.macos-x64"]
+checksum = "sha256:f3451079971633a7f769fb958fe06b0d64b5f1dc46df0854aa1ddb9a6f4031d6"
+url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616660774"
+
+[tools."aqua:crate-ci/typos"."platforms.windows-x64"]
+checksum = "sha256:518f759fba43205f17a717656054c1d25bc883455a6296989e9d021c6edb7c59"
+url = "https://github.com/crate-ci/typos/releases/download/v1.51.1/typos-v1.51.1-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/616657506"
 
 [[tools."aqua:evilmartians/lefthook"]]
 version = "2.2.2"
@@ -171,7 +206,17 @@ checksum = "sha256:5f2db09dae91fca848f7adbdd014632e921a383863a2ad7e0450ad3aba0c6
 url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_arm64"
 url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320869"
 
+[tools."aqua:mvdan/sh"."platforms.linux-arm64-musl"]
+checksum = "sha256:5f2db09dae91fca848f7adbdd014632e921a383863a2ad7e0450ad3aba0c6489"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_arm64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320869"
+
 [tools."aqua:mvdan/sh"."platforms.linux-x64"]
+checksum = "sha256:76e77641faa025814b77f153b29796b8e6fa2fca03e0c76a691608b86c7ea7bf"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_amd64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320883"
+
+[tools."aqua:mvdan/sh"."platforms.linux-x64-musl"]
 checksum = "sha256:76e77641faa025814b77f153b29796b8e6fa2fca03e0c76a691608b86c7ea7bf"
 url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_linux_amd64"
 url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320883"
@@ -180,6 +225,16 @@ url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320883"
 checksum = "sha256:b7c872db63553ccffc7253aba3ed7d4885a27d83f1ba567b1138c6315a5847e5"
 url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_darwin_arm64"
 url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320930"
+
+[tools."aqua:mvdan/sh"."platforms.macos-x64"]
+checksum = "sha256:d33eee0da0f92835b3562e9767a05cee7e4eaeef47daa03bfd09da17b4b590a6"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_darwin_amd64"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320946"
+
+[tools."aqua:mvdan/sh"."platforms.windows-x64"]
+checksum = "sha256:13629ce28442ca80b6b5a819f7574ab39e1c28c6e26734ca816c9714e04851df"
+url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_windows_amd64.exe"
+url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320827"
 
 [[tools."aqua:oxc-project/oxc/oxfmt"]]
 version = "1.84.0"
@@ -211,15 +266,35 @@ checksum = "sha256:f0c68dab774f32e0a3f7225ecf18bbe28c112a8e57fc88f30e80211503532
 url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-unknown-linux-gnu.tar.gz"
 url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056545"
 
+[tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-arm64-musl"]
+checksum = "sha256:4323bbb98dcf532c01c64d3af2d5ba27298a7a602d5c8ea16d5a70c1557256e3"
+url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056550"
+
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64"]
 checksum = "sha256:1839650aa43c7aafcd077134c1b3ad033893649a85a9a4cd1993c1a49c93468d"
 url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-unknown-linux-gnu.tar.gz"
 url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056598"
 
+[tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64-musl"]
+checksum = "sha256:b7a4b7e322cc5d4ecba1f17ce67a2eba3a911e421c65ea2d0d1a1752e402b293"
+url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056600"
+
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-arm64"]
 checksum = "sha256:e45d663c25b14ce0c85a56802ec868610d17b0e3311a1f39fc7f2b6f31efda94"
 url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-apple-darwin.tar.gz"
 url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056542"
+
+[tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-x64"]
+checksum = "sha256:fcf84ccd6cba88e714c644f2c61efc6349a0b4a40a48d72b117d9aba9812117a"
+url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056585"
+
+[tools."aqua:oxc-project/oxc/oxlint"."platforms.windows-x64"]
+checksum = "sha256:f3672f9ac9b33e1b7f66588f4401e463886f1667aa0a7a6686967754638064da"
+url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056588"
 
 [[tools."aqua:rhysd/actionlint"]]
 version = "1.7.12"
