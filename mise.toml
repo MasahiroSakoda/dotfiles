@@ -12,7 +12,7 @@ pin        = true
 ## GitHub Actions
 "aqua:suzuki-shunsuke/pinact" = "5.0.0"  # Version Pinner for GitHub Actions
 "aqua:rhysd/actionlint"       = "1.7.12" # YAML Linter for GitHub Actions workflows
-"aqua:zizmorcore/zizmor"      = "1.30.1" # Static analysis for GitHub Actions
+"aqua:zizmorcore/zizmor"      = "1.31.0" # Static analysis for GitHub Actions
 
 ## Git
 "aqua:evilmartians/lefthook" = "2.2.2" # Fast and powerful Git hooks manager for any type of projects.
