@@ -119,12 +119,6 @@ icon    = " "
 color   = "#eddc49"
 
 [[starship.langs]]
-name    = "deno"
-display = "Deno"
-icon    = " "
-color   = "#2762ba"
-
-[[starship.langs]]
 name    = "bun"
 display = "Bun"
 icon    = " "
