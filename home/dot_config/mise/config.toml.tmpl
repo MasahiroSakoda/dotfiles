@@ -26,7 +26,6 @@ trusted_config_paths = [
 
 experimental       = true
 lockfile           = true
-lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 pin                = true
 
 env_file        = ".env" # load env vars from a dotenv file, see `MISE_ENV_FILE`
@@ -71,7 +70,7 @@ compile = false
 "core:rust"    = "1"
 "core:node"    = "26"
 "core:bun"     = "1"
-"core:go"      = "1"
+"core:go"      = "1.27.3"
 "core:python"  = "3.14"
 "core:ruby"    = "4"
 
@@ -116,7 +115,7 @@ compile = false
 "aqua:ducaale/xh"                = "0.26.2"  # Friendly and fast tool for sending HTTP requests
 
 ## Downloader
-"github:yt-dlp/yt-dlp"    = { version = "2026.08.19", bin = "yt-dlp" }
+"github:yt-dlp/yt-dlp"    = { version = "2026.10.21", bin = "yt-dlp" }
 {{- if eq .chezmoi.os "linux" }}
 "forgejo:mikf/gallery-dl" = { version = "1.32.14", os = ["linux"] }
 {{- end }}
@@ -137,7 +136,7 @@ compile = false
 "aqua:x-motemen/ghq" = "1.11.2"  # Remote repository manager
 
 ## Dotfiles
-"aqua:twpayne/chezmoi" = "2.73.1" # Dotfiles manager
+"aqua:twpayne/chezmoi" = "2.73.3" # Dotfiles manager
 
 ## Language Server
 "npm:bash-language-server"             = "5.8.1"  # Bash, Zsh
