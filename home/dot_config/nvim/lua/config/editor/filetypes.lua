@@ -104,7 +104,6 @@ M.lsp = {
   tsserver     = { "jsconfig.json", "tsconfig.json" },
   prettier     = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
   eslint       = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
-  deno         = { "deno.json", "deno.jsonc" },
   oxlint       = { ".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts" },
   oxfmt        = { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" },
   tailwindcss  = {

@@ -13,7 +13,6 @@ return {
   ruby_lsp      = require("config.lsp.servers.ruby_ls"),       -- Ruby
   lua_ls        = require("config.lsp.servers.lua_ls"),        -- Lua
   vtsls         = require("config.lsp.servers.vtsls"),         -- TypeScript
-  denols        = require("config.lsp.servers.denols"),        -- Deno
   -- oxlint        = require("config.lsp.servers.oxlint"),        -- JavaScript / TypeScript
   -- oxfmt         = require("config.lsp.servers.oxfmt"),         -- JavaScript / TypeScript
   cssls         = require("config.lsp.servers.cssls"),         -- CSS

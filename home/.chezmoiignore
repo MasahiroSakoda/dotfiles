@@ -145,11 +145,7 @@ key.txt.age
 .config/nvim/lua/lsp/servers/tsserver.lua
 {{- end }}
 
-{{- if not .mise.deno.enabled }}
-.config/nvim/lua/lsp/servers/denols.lua
-{{- end }}
-
-{{- if and (not .mise.node.enabled) (not .mise.deno.enabled) (not .mise.bun.enabled) }}
+{{- if and (not .mise.node.enabled) (not .mise.bun.enabled) }}
 .config/nvim/lua/dap/adapters/javascript.lua
 .config/nvim/lua/dap/adapters/typescript.lua
 {{- end }}

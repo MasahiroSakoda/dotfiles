@@ -66,10 +66,6 @@ exts = [ ".js", ".jsx", "ts", ".tsx", ".vue", ".svelte", ".astro" ]
 cmd  = [ "oxfmt", "--lsp" ]
 exts = [ ".js", ".jsx", "ts", ".tsx", ".json", ".jsonc", ".yml", "yaml", ".html", ".css", ".vue", ".svelte", ".astro" ]
 
-[lsp.servers.denols]
-cmd  = [ "deno", "lsp" ]
-exts = [ ".js", ".jsx", "ts", ".tsx", ".vue", ".svelte", ".astro" ]
-
 [lsp.servers.ts_ls]
 cmd  = [ "typescript-language-server", "--stdio" ]
 exts = [ ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".mts", ".cts" ]
