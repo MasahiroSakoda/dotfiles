@@ -133,12 +133,12 @@ hunk session comment add --repo . --reply-to user:123 --summary "Addressed in th
 printf '%s\n' '{"comments":[{"filePath":"README.md","newLine":103,"summary":"Tighten this wording"}]}' | hunk session comment apply --repo . --stdin
 ```
 
-- `comment list --type user` shows human-authored inline notes; without `--type`, `comment list` preserves the legacy live-agent-comment view
+- Agent notes start hidden: the user sees them only after pressing `a` or setting `agent_notes = true`. `--focus` jumps to the new note (or the first note in a batch) and turns agent notes on, so pass it on the first note you leave in a session, or tell the user to press `a`
+- `comment list` shows the comments added through `hunk session comment` by default; `--type user` lists notes the user wrote with `c`, `--type ai` lists notes loaded from an `--agent-context` sidecar, `--type agent` lists agent-authored notes, and `--type all` lists every note
 - `comment add` is best for one note; `comment apply` is best when an agent already has several notes ready
 - Root `comment add` notes require `--file`, `--summary`, and exactly one of `--old-line` or `--new-line`; replies use `--reply-to <note-id>` with `--summary` and inherit the parent's anchor
 - `comment apply` items require `summary` plus either `replyTo` by itself or `filePath` with exactly one target such as `hunk`, `hunkNumber`, `oldLine`, or `newLine`
 - `comment apply` reads a JSON batch from stdin and validates the full batch before mutating the live session
-- Pass `--focus` when you want to jump to the new note or the first note in a batch
 - `comment list` and `comment clear` accept optional `--file`
 - Quote `--summary` and `--rationale` defensively in the shell
 
@@ -202,7 +202,7 @@ Guidelines:
 - Navigate before commenting so the user sees the code you're discussing
 - Use `highlight add --focus` to steer the user's eyes to the exact expression while you explain it, and `highlight clear` before moving to the next topic
 - Use `comment apply` for agent-generated batches and `comment add` for one-off notes
-- Use `--focus` sparingly when the note itself should actively steer the review
+- Use `--focus` on your first note so agent notes become visible, then sparingly when a note should actively steer the review
 - Keep comments focused: intent, structure, risks, or follow-ups
 - Don't comment on every hunk -- highlight what the user wouldn't spot themselves
 
