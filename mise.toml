@@ -10,7 +10,7 @@ pin        = true
 "aqua:betterleaks/betterleaks" = "1.9.0" # A Better Secrets Scanner built for configurability and speed
 
 ## GitHub Actions
-"aqua:suzuki-shunsuke/pinact" = "5.0.0"  # Version Pinner for GitHub Actions
+"aqua:suzuki-shunsuke/pinact" = "5.0.1"  # Version Pinner for GitHub Actions
 "aqua:rhysd/actionlint"       = "1.7.12" # YAML Linter for GitHub Actions workflows
 "aqua:zizmorcore/zizmor"      = "1.31.1" # Static analysis for GitHub Actions
 
