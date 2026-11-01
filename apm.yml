@@ -7,7 +7,7 @@ targets:
 dependencies:
   apm:
     - git: DietrichGebert/ponytail
-      ref: v5.3.2
+      ref: v5.3.3
     - git: ayghri/i-have-adhd
       ref: 1ecea1993b7fce257ffbd686c070948b5e07eda6
     - git: modem-dev/hunk
