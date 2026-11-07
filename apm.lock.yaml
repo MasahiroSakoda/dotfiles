@@ -1,5 +1,5 @@
 lockfile_version: '1'
-apm_version: 0.33.0
+apm_version: 0.35.0
 dependencies:
 - repo_url: ayghri/i-have-adhd
   name: i-have-adhd
@@ -22,9 +22,9 @@ dependencies:
   materialization_repo_url: DietrichGebert/ponytail
   name: ponytail
   host: github.com
-  resolved_commit: 2961b52fc1fe6a5a87c7a959a79512e5c2f3ffe5
-  resolved_ref: v5.2.0
-  version: 2961b52
+  resolved_commit: 7801d061243d7b753bad0e0b3c057cd250b11755
+  resolved_ref: v5.3.3
+  version: 16352ac
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/ponytail
@@ -41,12 +41,12 @@ dependencies:
   - .agents/skills/ponytail/SKILL.md
   deployed_file_hashes:
     .agents/skills/ponytail-audit/SKILL.md: sha256:2b3223a02c386d1263e1b08343cb8eb3a53e444cdafb1d79e26c8ec2a8fcad28
-    .agents/skills/ponytail-debt/SKILL.md: sha256:c82bb352bab21e081e71b70430af451b91750760fa776a4a807c8cfa52d4c85f
-    .agents/skills/ponytail-gain/SKILL.md: sha256:60e05eaf65e8e404c8975a944eda9d3ed4ae3345478b3550b0e74570982c187e
-    .agents/skills/ponytail-help/SKILL.md: sha256:2927276bc9c10221ce8bcf80adb798db130cd70eb33a95db91ab3a0d105f5109
+    .agents/skills/ponytail-debt/SKILL.md: sha256:b5ec2762f6ba8c4af9ea7173aa6c9f91b88655a25e43f9de0264f6ce8722b25f
+    .agents/skills/ponytail-gain/SKILL.md: sha256:231034a896d6762e4b5c8468287083422c56b499119976ec9f76821f7d083090
+    .agents/skills/ponytail-help/SKILL.md: sha256:86ab0ce0af70cbeeeef499d5c884873b393f87f86401dcc45553662ce2c1eff9
     .agents/skills/ponytail-review/SKILL.md: sha256:33fe4ebe22a460924e5d4a261e223df22e409cc94ab76182bee9fb91a3ef022e
-    .agents/skills/ponytail/SKILL.md: sha256:ba68ff26239c3c3b05b2a9a47ee0d9a6b93a69639a2555ec87a5d44bffaf2f0c
-  content_hash: sha256:0c6e81cea88fe3c8b4a1d87d498c7363a91ef734e5973ffec9c5b3ebf376ad45
+    .agents/skills/ponytail/SKILL.md: sha256:9badd22a32e19cb884e46dfa8d3aae82bb81dfa5484105b8b4f0262df823a509
+  content_hash: sha256:9d4a2cd2b41c680ce4a8da855847022bafe86a30e26854814f1129aed3726200
 - repo_url: masahirosakoda/skills
   materialization_repo_url: MasahiroSakoda/skills
   name: skills
@@ -88,8 +88,8 @@ dependencies:
 - repo_url: mattpocock/skills
   name: mattpocock-skills
   host: github.com
-  resolved_commit: 24fe0ef7737efae15c87225755e9f6f5965e4888
-  resolved_ref: v1.3.1
+  resolved_commit: d1478fcb140db0b93c0c8df17bcfd311844749d0
+  resolved_ref: v1.3.2
   version: 1.3.1
   package_type: marketplace_plugin
   deployed_files:
@@ -144,30 +144,30 @@ dependencies:
     .agents/skills/grill-me/agents/openai.yaml: sha256:c061e39c3e0f9d865fb1b97556d485704af2a8a58f4b8221a8917a5c2074a32b
     .agents/skills/grill-with-docs/SKILL.md: sha256:7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe
     .agents/skills/grill-with-docs/agents/openai.yaml: sha256:94cd0ab161fb468a836349f5ed482ba58ce8e709a05c57ce533d739dbd35cca9
-    .agents/skills/grilling/SKILL.md: sha256:10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2
+    .agents/skills/grilling/SKILL.md: sha256:a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2
     .agents/skills/grilling/agents/openai.yaml: sha256:1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b
-    .agents/skills/handoff/SKILL.md: sha256:7c62de979fdc7ac32fb5ddb2146156c917f80ee070d30fadc9d40343c4b6ed25
+    .agents/skills/handoff/SKILL.md: sha256:4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3
     .agents/skills/handoff/agents/openai.yaml: sha256:5c479fd562c691851690e8b18c8501045bef0943c10743d636b2fae26add1d28
-    .agents/skills/setup-matt-pocock-skills/SKILL.md: sha256:9a0c21694be19fa3eefc39343355d3af7414716ba364882c7432c2f821eac3e9
+    .agents/skills/setup-matt-pocock-skills/SKILL.md: sha256:b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed
     .agents/skills/setup-matt-pocock-skills/agents/openai.yaml: sha256:9527de0110541c45712319025155aeab8dc7d77c6ed6e5e83271bab1851ab939
     .agents/skills/setup-matt-pocock-skills/domain.md: sha256:593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9
-    .agents/skills/setup-matt-pocock-skills/issue-tracker-github.md: sha256:afd6852a80185217bd28aa5cbe456bef1e85be25be7bd1fba382d5b8ee428325
-    .agents/skills/setup-matt-pocock-skills/issue-tracker-gitlab.md: sha256:ea175f73d193b3f55819c0ed9bbccf6ee0e70ad8f928e3d7607596c53380acd6
+    .agents/skills/setup-matt-pocock-skills/issue-tracker-github.md: sha256:6fdb3e9b00b7b0b115ecac3b1c00e3790f637f190abf598815368722c0a94692
+    .agents/skills/setup-matt-pocock-skills/issue-tracker-gitlab.md: sha256:947602d33a80f98f939fb990995b8f95a3459b114b919c4221d08bd75d7cffe0
     .agents/skills/setup-matt-pocock-skills/issue-tracker-local.md: sha256:7dcda20a2eb4bdc89b95d1143423c0691309921cadae3132e6424f371030506e
-    .agents/skills/setup-matt-pocock-skills/triage-labels.md: sha256:4f53c9b40ce2651e3611aa090eaedbd6dbc9b71ef8c5f7e65eac0d8263190d0d
+    .agents/skills/setup-matt-pocock-skills/triage-labels.md: sha256:ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa
     .agents/skills/to-spec/SKILL.md: sha256:43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088
     .agents/skills/to-spec/agents/openai.yaml: sha256:1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb
-    .agents/skills/to-tickets/SKILL.md: sha256:5c9fba69845c2519b9b35b9af42ae5142c21f8ca15ac2123dc2722002c8058ae
+    .agents/skills/to-tickets/SKILL.md: sha256:56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995
     .agents/skills/to-tickets/agents/openai.yaml: sha256:21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090
-    .agents/skills/wayfinder/SKILL.md: sha256:fee6e1d0c50f0e736b4ef8a599060c959afae904c9a97d82c97f049fcc3aa0f1
+    .agents/skills/wayfinder/SKILL.md: sha256:0c9fa96791aebf3b7d654cf35c6aadde97d81f57c17b07d13b27c14d9c46561f
     .agents/skills/wayfinder/agents/openai.yaml: sha256:88bc81a11a6d52ac67aeaa76b8b619e387020d47c5133a4dd4927fd15c4ad073
     .agents/skills/wizard/SKILL.md: sha256:bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1
     .agents/skills/wizard/agents/openai.yaml: sha256:98f44d682d58e262f160dc59a8befc365e0aa65820dd0261864af26aa8e59d83
-    .agents/skills/wizard/template.sh: sha256:33cbe9dfb1d0e9185b60248a52aabed14bc64785a00cac695e302e739dd6c153
+    .agents/skills/wizard/template.sh: sha256:6566f147299bc6f1d941e64591ed04385416d543e11f96f564c7228f5018d0ed
     .agents/skills/writing-for-agents/SKILL-MECHANICS.md: sha256:c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059
     .agents/skills/writing-for-agents/SKILL.md: sha256:551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a
     .agents/skills/writing-for-agents/agents/openai.yaml: sha256:eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b
-  content_hash: sha256:127ccf2bbbf1442907b12581be5aba13ed034344e290714172f0a4a1b72942f8
+  content_hash: sha256:bb5eaad6f2503e5dcba7003ec61867c0bc3c1b55715c672fbd14f7b65fc049eb
   skill_subset:
   - domain-modeling
   - grill-me
@@ -184,8 +184,8 @@ dependencies:
 - repo_url: modem-dev/hunk
   name: hunk-review
   host: github.com
-  resolved_commit: 7991d3034af1d2116e9c77db31265e409a73bd9f
-  resolved_ref: v0.23.0
+  resolved_commit: 9cca76fbf700217b574dfcdd4fe56c5b4388240b
+  resolved_ref: v0.24.1
   version: unknown
   virtual_path: packages/hunk/skills/hunk-review
   is_virtual: true
@@ -194,8 +194,8 @@ dependencies:
   - .agents/skills/hunk-review
   - .agents/skills/hunk-review/SKILL.md
   deployed_file_hashes:
-    .agents/skills/hunk-review/SKILL.md: sha256:fcb0e25875a419176b139763161f76ac00c93b156c9336ba50b00d3c3663bc3e
-  content_hash: sha256:45ab66c42e9586bc6b43a66a04a812c1520a1328a279c9f88660ca525c52f47a
+    .agents/skills/hunk-review/SKILL.md: sha256:a330d7a3a093dcd8b997f6d7cc90f291676a64133de60ea80d0999c86b19865c
+  content_hash: sha256:a21818376de6c7c73d722115bf70a04cb8cf518fc836dee1b7d1646fce73c00e
 deployments:
 - kind: uri
   target: mcp
@@ -448,7 +448,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:10ff989e7498b23b5acb49d5048f11dcd906757d2f79c5cdf8a00001381296f2
+  content_hash: sha256:a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2
 - kind: project-relative
   target: opencode
   value: .agents/skills/grilling/agents/openai.yaml
@@ -475,7 +475,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:7c62de979fdc7ac32fb5ddb2146156c917f80ee070d30fadc9d40343c4b6ed25
+  content_hash: sha256:4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3
 - kind: project-relative
   target: opencode
   value: .agents/skills/handoff/agents/openai.yaml
@@ -502,7 +502,7 @@ deployments:
   owners:
   - modem-dev/hunk/packages/hunk/skills/hunk-review
   active_owner: modem-dev/hunk/packages/hunk/skills/hunk-review
-  content_hash: sha256:fcb0e25875a419176b139763161f76ac00c93b156c9336ba50b00d3c3663bc3e
+  content_hash: sha256:a330d7a3a093dcd8b997f6d7cc90f291676a64133de60ea80d0999c86b19865c
 - kind: project-relative
   target: opencode
   value: .agents/skills/i-have-adhd
@@ -583,7 +583,7 @@ deployments:
   owners:
   - dietrichgebert/ponytail
   active_owner: dietrichgebert/ponytail
-  content_hash: sha256:c82bb352bab21e081e71b70430af451b91750760fa776a4a807c8cfa52d4c85f
+  content_hash: sha256:b5ec2762f6ba8c4af9ea7173aa6c9f91b88655a25e43f9de0264f6ce8722b25f
 - kind: project-relative
   target: opencode
   value: .agents/skills/ponytail-gain
@@ -601,7 +601,7 @@ deployments:
   owners:
   - dietrichgebert/ponytail
   active_owner: dietrichgebert/ponytail
-  content_hash: sha256:60e05eaf65e8e404c8975a944eda9d3ed4ae3345478b3550b0e74570982c187e
+  content_hash: sha256:231034a896d6762e4b5c8468287083422c56b499119976ec9f76821f7d083090
 - kind: project-relative
   target: opencode
   value: .agents/skills/ponytail-help
@@ -619,7 +619,7 @@ deployments:
   owners:
   - dietrichgebert/ponytail
   active_owner: dietrichgebert/ponytail
-  content_hash: sha256:2927276bc9c10221ce8bcf80adb798db130cd70eb33a95db91ab3a0d105f5109
+  content_hash: sha256:86ab0ce0af70cbeeeef499d5c884873b393f87f86401dcc45553662ce2c1eff9
 - kind: project-relative
   target: opencode
   value: .agents/skills/ponytail-review
@@ -646,7 +646,7 @@ deployments:
   owners:
   - dietrichgebert/ponytail
   active_owner: dietrichgebert/ponytail
-  content_hash: sha256:ba68ff26239c3c3b05b2a9a47ee0d9a6b93a69639a2555ec87a5d44bffaf2f0c
+  content_hash: sha256:9badd22a32e19cb884e46dfa8d3aae82bb81dfa5484105b8b4f0262df823a509
 - kind: project-relative
   target: opencode
   value: .agents/skills/setup-matt-pocock-skills
@@ -664,7 +664,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:9a0c21694be19fa3eefc39343355d3af7414716ba364882c7432c2f821eac3e9
+  content_hash: sha256:b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed
 - kind: project-relative
   target: opencode
   value: .agents/skills/setup-matt-pocock-skills/agents/openai.yaml
@@ -691,7 +691,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:afd6852a80185217bd28aa5cbe456bef1e85be25be7bd1fba382d5b8ee428325
+  content_hash: sha256:6fdb3e9b00b7b0b115ecac3b1c00e3790f637f190abf598815368722c0a94692
 - kind: project-relative
   target: opencode
   value: .agents/skills/setup-matt-pocock-skills/issue-tracker-gitlab.md
@@ -700,7 +700,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:ea175f73d193b3f55819c0ed9bbccf6ee0e70ad8f928e3d7607596c53380acd6
+  content_hash: sha256:947602d33a80f98f939fb990995b8f95a3459b114b919c4221d08bd75d7cffe0
 - kind: project-relative
   target: opencode
   value: .agents/skills/setup-matt-pocock-skills/issue-tracker-local.md
@@ -718,7 +718,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:4f53c9b40ce2651e3611aa090eaedbd6dbc9b71ef8c5f7e65eac0d8263190d0d
+  content_hash: sha256:ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa
 - kind: project-relative
   target: opencode
   value: .agents/skills/to-spec
@@ -763,7 +763,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:5c9fba69845c2519b9b35b9af42ae5142c21f8ca15ac2123dc2722002c8058ae
+  content_hash: sha256:56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995
 - kind: project-relative
   target: opencode
   value: .agents/skills/to-tickets/agents/openai.yaml
@@ -790,7 +790,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:fee6e1d0c50f0e736b4ef8a599060c959afae904c9a97d82c97f049fcc3aa0f1
+  content_hash: sha256:0c9fa96791aebf3b7d654cf35c6aadde97d81f57c17b07d13b27c14d9c46561f
 - kind: project-relative
   target: opencode
   value: .agents/skills/wayfinder/agents/openai.yaml
@@ -835,7 +835,7 @@ deployments:
   owners:
   - mattpocock/skills
   active_owner: mattpocock/skills
-  content_hash: sha256:33cbe9dfb1d0e9185b60248a52aabed14bc64785a00cac695e302e739dd6c153
+  content_hash: sha256:6566f147299bc6f1d941e64591ed04385416d543e11f96f564c7228f5018d0ed
 - kind: project-relative
   target: opencode
   value: .agents/skills/writing-for-agents
