@@ -7,7 +7,7 @@ pin        = true
 
 [tools]
 ## Security
-"aqua:betterleaks/betterleaks" = "1.9.0" # A Better Secrets Scanner built for configurability and speed
+"aqua:betterleaks/betterleaks" = "1.10.0" # A Better Secrets Scanner built for configurability and speed
 
 ## GitHub Actions
 "aqua:suzuki-shunsuke/pinact" = "5.0.2"  # Version Pinner for GitHub Actions
