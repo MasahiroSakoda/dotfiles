@@ -140,7 +140,6 @@ compile = false
 
 ## Language Server
 "npm:bash-language-server"             = "5.8.1"  # Bash, Zsh
-"npm:fish-lsp"                         = "1.1.5"  # Fish
 "npm:vscode-json-languageserver"       = "1.3.4"  # JSON
 "npm:vscode-css-languageservice"       = "6.3.10" # CSS
 "npm:yaml-language-server"             = "2.0.0" # YAML
@@ -150,6 +149,7 @@ compile = false
 "aqua:tombi-toml/tombi"                = "1.10.0"  # TOML
 "aqua:hashicorp/terraform-ls"          = "0.39.1" # Terraform
 "go:golang.org/x/tools/gopls"          = "0.24.0" # Go
+"github:ndonfris/fish-lsp"             = { version = "1.1.5", asset_pattern = "fish-lsp.standalone", bin = "fish-lsp" } # Fish
 "github:clangd/clangd"                 = "23.1.0" # C/C++
 "github:latex-lsp/texlab"              = "5.26.0" # LaTex
 "github:docker/docker-language-server" = "0.20.1" # Dockerfile, compose.yml
@@ -204,15 +204,15 @@ compile = false
 ## AI Tools
 ### AI Agents
 "aqua:google-antigravity/antigravity-cli" = "1.5.3"
-"npm:@opencode/cli"                       = { version = "2.2.6", allow_low_downloads = true, allow_builds = ["@opencode/cli"] }
+"aqua:anomalyco/opencode"                 = "2.2.7"
 "github:gi-dellav/zerostack"              = "1.8.5"
 
 ### AI Utility
-"github:nolabs-ai/nono"    = "0.81.0" # agent runtime security - zero trust, zero setup, zero latency agent sandbox
-"github:microsoft/apm"     = "0.35.0" # Agent Package Manager
-"aqua:herdrdev/herdr"      = "0.9.5"  # the runtime your coding agents live on
-"github:AlexsJones/llmfit" = "1.1.20" # One command to find what runs on your hardware.
-"npm:@fission-ai/openspec" = "1.16.1" # Spec-driven development (SDD) for AI coding assistants.
+"github:nolabs-ai/nono"      = "0.81.0" # agent runtime security - zero trust, zero setup, zero latency agent sandbox
+"github:microsoft/apm"       = "0.35.0" # Agent Package Manager
+"aqua:herdrdev/herdr"        = "0.9.5"  # the runtime your coding agents live on
+"github:AlexsJones/llmfit"   = "1.1.20" # One command to find what runs on your hardware.
+"github:fission-ai/openspec" = "1.17.0" # Spec-driven development (SDD) for AI coding assistants.
 
 ### Token Optimize
 "aqua:rtk-ai/rtk"     = "1.1.0" # High-performance CLI proxy that reduces LLM token consumption by 60-90%
