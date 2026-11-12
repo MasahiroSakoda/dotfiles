@@ -150,9 +150,17 @@ structural guard: `.chezmoiroot == home`, the config template exists, and every
 outside `tests/` so `--recursive` does not collect them.
 
 CI (`.github/workflows/`) runs labelers, `validate-title`, linters, and
-actionlint/zizmor — **it does not run bats and does not run `chezmoi apply`**.
+`jactionlint` — **it does not run bats and does not run `chezmoi apply`**.
 Behavioural verification is local-only; a change that breaks apply shows up in
 the pre-commit suite or on the next real machine.
+
+`jactionlint` is the single Actions static checker: mise installs it, the
+pre-commit hook lints staged workflows and `.github/**/action.*` (and stages its
+own safe fixes), and CI runs it as the `security` workflow's only job. The
+config in `.github/jactionlint.yml` sets `profile: pedantic`, so rules such as
+`missing-timeout`, `require-shell`, and `anonymous-definition` fail the build.
+Every job therefore names itself, pins `runs-on: ubuntu-24.04`, sets
+`timeout-minutes`, and comments the permission scopes it needs.
 
 `.lefthook.yaml` excludes `**/symlink_*`, `**/modify_*`, `**/remove_*`, and
 `.agents/skills/**` from linters, since template files are not valid in the
