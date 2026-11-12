@@ -135,7 +135,6 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | Rust        | [rust-analyzer](https://github.com/rust-lang/rust-analyzer)                             |
 | Go          | [gopls](https://pkg.gol.dev/golang.org/x/tools/gopls)                                   |
 | Python      | [bash](https://github.com/astral-sh/ty)                                                 |
-| TypeScript  | [deno](https://deno.land/)                                                              |
 | TypeScript  | [vtsls](https://github.com/yioneko/vtsls)       |
 | Lua         | [lua_ls](https://github.com/LuaLS/lua-language-server)                                  |
 | JSON        | [json-lsp](https://github.com/microsoft/vscode-json-languageservice)                    |
@@ -179,7 +178,6 @@ Runtime version management tool
 | [**`Python`**](https://mise.jdx.dev/lang/python.html) | 3.14.x |
 | [**`Ruby`**](https://mise.jdx.dev/lang/ruby.html) | 3.4.x |
 | [**`Node.js`**](https://mise.jdx.dev/lang/node.html) | 24.x |
-| [**`Deno`**](https://mise.jdx.dev/lang/deno.html) | 2.x |
 | [**`Bun`**](https://mise.jdx.dev/lang/bun.html) | 1.x |
 
 ##### Package Managers
@@ -241,7 +239,7 @@ Runtime version management tool
 | [oxlint](https://github.com/oxc-project/oxc) | Linter for JS / TS |
 | [ruff](https://github.com/astral-sh/ruff) | Python Linter / Formatter |
 | [tombi](https://github.com/tombi-toml/tombi) | TOML Linter / Formatter / Language Server |
-| [actionlint](https://github.com/rhysd/actionlint) | YAML Linter for GitHub Actions workflows |
+| [jactionlint](https://github.com/jdx/jactionlint) | Static checker for GitHub Actions workflow files |
 | [hadolint](https://github.com/hadolint/hadolint) | Dockerfile Linter |
 | [golangci-lint](https://github.com/golangci/golangci-lint) | Go Linter aggregator |
 | [checkmake](https://github.com/mrtazz/checkmake) | Makefile Linter |
