@@ -17,7 +17,6 @@ pre-commit:
             glob:
               - ".github/workflows/*.{yml,yaml}"
               - ".github/**/action.{yml,yaml}"
-              - ".github/jactionlint.yml"
     - name: Lint / Format
       group:
         parallel: true
