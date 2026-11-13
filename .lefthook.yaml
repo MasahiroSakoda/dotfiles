@@ -11,17 +11,12 @@ pre-commit:
       group:
         parallel: false
         jobs:
-          - name: actionlint
-            run: actionlint {staged_files}
+          - name: jactionlint
+            run: jactionlint {staged_files}
+            stage_fixed: true
             glob:
               - ".github/workflows/*.{yml,yaml}"
               - ".github/**/action.{yml,yaml}"
-          - name: zizmor
-            run: zizmor --no-progress {staged_files}
-            glob:
-              - ".github/workflows/*.{yml,yaml}"
-              - ".github/**/action.{yml,yaml}"
-              - ".github/dependabot.{yml,yaml}"
     - name: Lint / Format
       group:
         parallel: true

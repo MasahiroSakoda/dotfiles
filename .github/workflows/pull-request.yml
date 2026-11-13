@@ -11,12 +11,13 @@ concurrency:
 jobs:
   pr-labeler:
     name: PR Labeler
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
       contents: read
-      pull-requests: write
+      pull-requests: write # To apply labels to the pull request
     steps:
-      - uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7
+      - uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           # workaround for sync-labels bug:
@@ -26,17 +27,19 @@ jobs:
   pr-assigner:
     name: Assign author to PR
     if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
-      pull-requests: write
+      pull-requests: write # To assign the pull request author
     steps:
       - name: Assign author to PR
         uses: technote-space/assign-author@9558557c5c4816f38bd06176fbc324ba14bb3160 # v1.6.2
   validate-title:
     name: Validate PR title
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
-      pull-requests: read
+      pull-requests: read # To read the pull request title
     steps:
       - uses: amannn/action-semantic-pull-request@2252a14e810aa9b85c2d560bd7070c802206ecf6 # v6.1.2
         env:

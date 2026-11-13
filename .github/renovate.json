@@ -58,6 +58,14 @@
   "customManagers": [
     {
       "customType": "regex",
+      "managerFilePatterns": ["/^\\.github/workflows/.*\\.ya?ml$/"],
+      "matchStrings": ["runs-on:\\s*ubuntu-(?<currentValue>\\d{2}\\.\\d{2})"],
+      "depNameTemplate": "ubuntu",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "ubuntu"
+    },
+    {
+      "customType": "regex",
       "description": ["Update Chezmoi version"],
       "managerFilePatterns": ["/^home/\\.chezmoiversion$/"],
       "matchStrings": ["^(?<currentValue>.*)\\s$"],
