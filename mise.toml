@@ -28,4 +28,4 @@ pin        = true
 "aqua:Kampfkarren/selene"     = "0.32.0" # Lua linter
 "aqua:oxc-project/oxc/oxlint" = "1.84.0" # high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack
 "aqua:oxc-project/oxc/oxfmt"  = "1.84.0" # high-performance formatter for the JavaScript ecosystem
-"aqua:crate-ci/typos"         = "1.52.0" # Typo
+"aqua:crate-ci/typos"         = "1.52.1" # Typo
