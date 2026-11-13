@@ -11,7 +11,7 @@ concurrency:
 jobs:
   pr-labeler:
     name: PR Labeler
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       contents: read
@@ -27,7 +27,7 @@ jobs:
   pr-assigner:
     name: Assign author to PR
     if: ${{ ! contains(fromJson('["renovate[bot]", "dependabot[bot]"]'), github.actor) }}
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       pull-requests: write # To assign the pull request author
@@ -36,7 +36,7 @@ jobs:
         uses: technote-space/assign-author@9558557c5c4816f38bd06176fbc324ba14bb3160 # v1.6.2
   validate-title:
     name: Validate PR title
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
     permissions:
       pull-requests: read # To read the pull request title
