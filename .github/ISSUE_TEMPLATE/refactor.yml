@@ -1,0 +1,38 @@
+name: Refactor
+description: Improve internal code structure without changing external behavior.
+title: "[Refactor]: "
+labels: ["Refactor ♻️"]
+type: Refactor
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to request a refactor to be added to the project.
+        Please fill in the following information to help us understand your request.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What maintenance work is needed and why?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: >-
+        Please provide a clear and concise description of why this refactoring is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: >-
+        Please provide a clear and concise description of any alternative solutions or refactoring you've considered.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: >-
+        Please provide any other context or screenshots about the refactoring request here.

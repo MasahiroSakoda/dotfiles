@@ -1,0 +1,38 @@
+name: Chore / Maintenance
+description: Perform routine maintenance, dependency updates, or build configuration tasks.
+title: "[Chore]: "
+labels: ["Chore 🏠"]
+type: Chore
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to request a chore to be added to the project.
+        Please fill in the following information to help us understand your request.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What maintenance work is needed and why?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: >-
+        Please provide a clear and concise description of why this chore is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: >-
+        Please provide a clear and concise description of any alternative solutions or chores you've considered.
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: >-
+        Please provide any other context or screenshots about the chore request here.
