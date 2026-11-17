@@ -1,5 +1,5 @@
 lockfile_version: '1'
-apm_version: 0.35.0
+apm_version: 0.35.1
 dependencies:
 - repo_url: ayghri/i-have-adhd
   name: i-have-adhd
@@ -24,7 +24,7 @@ dependencies:
   host: github.com
   resolved_commit: 7801d061243d7b753bad0e0b3c057cd250b11755
   resolved_ref: v5.3.3
-  version: 16352ac
+  version: 7801d06
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/ponytail
@@ -90,9 +90,13 @@ dependencies:
   host: github.com
   resolved_commit: d1478fcb140db0b93c0c8df17bcfd311844749d0
   resolved_ref: v1.3.2
-  version: 1.3.1
+  version: 1.3.2
   package_type: marketplace_plugin
   deployed_files:
+  - .agents/skills/ask-matt
+  - .agents/skills/ask-matt/PHASE-BOUNDARIES.md
+  - .agents/skills/ask-matt/SKILL.md
+  - .agents/skills/ask-matt/agents/openai.yaml
   - .agents/skills/domain-modeling
   - .agents/skills/domain-modeling/ADR-FORMAT.md
   - .agents/skills/domain-modeling/GLOSSARY-FORMAT.md
@@ -136,6 +140,9 @@ dependencies:
   - .agents/skills/writing-for-agents/SKILL.md
   - .agents/skills/writing-for-agents/agents/openai.yaml
   deployed_file_hashes:
+    .agents/skills/ask-matt/PHASE-BOUNDARIES.md: sha256:a8aa20158609ef39e2b308b6ba0660c91066838d07a867202e63a7744a88a3ed
+    .agents/skills/ask-matt/SKILL.md: sha256:1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c
+    .agents/skills/ask-matt/agents/openai.yaml: sha256:bdffbc5a0a99ed1b6ef3253d251d755fd18162b9845972e380007f844b09b05c
     .agents/skills/domain-modeling/ADR-FORMAT.md: sha256:944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0
     .agents/skills/domain-modeling/GLOSSARY-FORMAT.md: sha256:21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801
     .agents/skills/domain-modeling/SKILL.md: sha256:7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3
@@ -169,6 +176,7 @@ dependencies:
     .agents/skills/writing-for-agents/agents/openai.yaml: sha256:eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b
   content_hash: sha256:bb5eaad6f2503e5dcba7003ec61867c0bc3c1b55715c672fbd14f7b65fc049eb
   skill_subset:
+  - ask-matt
   - domain-modeling
   - grill-me
   - grill-with-docs
@@ -184,8 +192,8 @@ dependencies:
 - repo_url: modem-dev/hunk
   name: hunk-review
   host: github.com
-  resolved_commit: 9cca76fbf700217b574dfcdd4fe56c5b4388240b
-  resolved_ref: v0.24.1
+  resolved_commit: 03f7ea41946da29e6e814165af70247fdca03912
+  resolved_ref: v0.25.0
   version: unknown
   virtual_path: packages/hunk/skills/hunk-review
   is_virtual: true
@@ -194,8 +202,8 @@ dependencies:
   - .agents/skills/hunk-review
   - .agents/skills/hunk-review/SKILL.md
   deployed_file_hashes:
-    .agents/skills/hunk-review/SKILL.md: sha256:a330d7a3a093dcd8b997f6d7cc90f291676a64133de60ea80d0999c86b19865c
-  content_hash: sha256:a21818376de6c7c73d722115bf70a04cb8cf518fc836dee1b7d1646fce73c00e
+    .agents/skills/hunk-review/SKILL.md: sha256:b193a828f295569b3bcfbaf23b0bd5c4b87f7d0252641b868f033a91d6df884e
+  content_hash: sha256:c33d74a2afe8860bca65f3ac1180fea9f4a0eb0930e6ee5864dc39a1778241f9
 deployments:
 - kind: uri
   target: mcp
@@ -215,6 +223,42 @@ deployments:
   - .
   active_owner: .
   content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/ask-matt
+  runtime: null
+  scope: project
+  owners:
+  - mattpocock/skills
+  active_owner: mattpocock/skills
+  content_hash: null
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/ask-matt/PHASE-BOUNDARIES.md
+  runtime: null
+  scope: project
+  owners:
+  - mattpocock/skills
+  active_owner: mattpocock/skills
+  content_hash: sha256:a8aa20158609ef39e2b308b6ba0660c91066838d07a867202e63a7744a88a3ed
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/ask-matt/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mattpocock/skills
+  active_owner: mattpocock/skills
+  content_hash: sha256:1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c
+- kind: project-relative
+  target: opencode
+  value: .agents/skills/ask-matt/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - mattpocock/skills
+  active_owner: mattpocock/skills
+  content_hash: sha256:bdffbc5a0a99ed1b6ef3253d251d755fd18162b9845972e380007f844b09b05c
 - kind: project-relative
   target: opencode
   value: .agents/skills/chezmoi
@@ -502,7 +546,7 @@ deployments:
   owners:
   - modem-dev/hunk/packages/hunk/skills/hunk-review
   active_owner: modem-dev/hunk/packages/hunk/skills/hunk-review
-  content_hash: sha256:a330d7a3a093dcd8b997f6d7cc90f291676a64133de60ea80d0999c86b19865c
+  content_hash: sha256:b193a828f295569b3bcfbaf23b0bd5c4b87f7d0252641b868f033a91d6df884e
 - kind: project-relative
   target: opencode
   value: .agents/skills/i-have-adhd
