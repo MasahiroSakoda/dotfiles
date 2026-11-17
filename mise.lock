@@ -38,18 +38,22 @@ backend = "aqua:bats-core/bats-core"
 specifiers = ["1.14.0"]
 
 [tools."aqua:bats-core/bats-core"."platforms.linux-arm64"]
+checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
 url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
 [tools."aqua:bats-core/bats-core"."platforms.linux-arm64-musl"]
+checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
 url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
 [tools."aqua:bats-core/bats-core"."platforms.linux-x64"]
+checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
 url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
 [tools."aqua:bats-core/bats-core"."platforms.linux-x64-musl"]
+checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
 url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
@@ -59,6 +63,7 @@ url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
 [tools."aqua:bats-core/bats-core"."platforms.macos-x64"]
+checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
 url = "https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz"
 url_api = "https://api.github.com/repos/bats-core/bats-core/tarball/v1.14.0"
 
@@ -244,111 +249,96 @@ url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_windo
 url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320827"
 
 [[tools."aqua:oxc-project/oxc/oxfmt"]]
-version = "1.84.0"
+version = "0.78.0"
 backend = "aqua:oxc-project/oxc/oxfmt"
-specifiers = ["1.84.0"]
+specifiers = ["latest"]
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-arm64"]
-checksum = "sha256:48f5fc710ebb565446253c02ed8ecfa88a506570e928df560788dd32937bf5e0"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxfmt-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056485"
+checksum = "sha256:7f90c13c29ff9f8c5f6955bfff9623909cc80ddb2704007249c2532676bd5266"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291684"
+
+[tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-arm64-musl"]
+checksum = "sha256:0ae1fc604a1eff31da6fd4c053ad7530cf57e272ab37bd0fdd32cd62e76a0646"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291683"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-x64"]
-checksum = "sha256:85b1d6563e9f3988cd5120c8920e32a6ee953eec3dbfc60e6d38d4a159a5210a"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxfmt-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056533"
+checksum = "sha256:ed43ec296f699a5bcbb1c1947e2aeb4271c3674e43dc6db463f8c1da4c9bf15f"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291793"
+
+[tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-x64-musl"]
+checksum = "sha256:4806dec6c75f201c594ff68542ea127cd204cbc52da5f6f112397211cedfd46f"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291819"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.macos-arm64"]
-checksum = "sha256:b529ba6a1a832e1fbf5395eb0f93d23a6a9b57cb5c8c3bb83ef4fc74ee2658d4"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxfmt-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056486"
+checksum = "sha256:ba7e010e627377d12fa3ea0d40433d6cbaea66abfb0ea22f998f544cbd1dea90"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291686"
+
+[tools."aqua:oxc-project/oxc/oxfmt"."platforms.macos-x64"]
+checksum = "sha256:14e6798a0bce301e4a71db54d669a176544f066c7e00ce1f6d620549520f7ad2"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291779"
+
+[tools."aqua:oxc-project/oxc/oxfmt"."platforms.windows-x64"]
+checksum = "sha256:79f999cbcadb28c3cac9e6ec5801513c87e8d01aabeb6bbb348c01f1ccb469a8"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.78.0/oxfmt-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291785"
 
 [[tools."aqua:oxc-project/oxc/oxlint"]]
-version = "1.84.0"
+version = "1.93.0"
 backend = "aqua:oxc-project/oxc/oxlint"
-specifiers = ["1.84.0"]
+specifiers = ["latest"]
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-arm64"]
-checksum = "sha256:f0c68dab774f32e0a3f7225ecf18bbe28c112a8e57fc88f30e802115035321f7"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056545"
+checksum = "sha256:378a8d7fbaa7cfb32cd9e3bd7a2874e0ede20416ec8dbe1e4fe890176f0e966b"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291972"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-arm64-musl"]
-checksum = "sha256:4323bbb98dcf532c01c64d3af2d5ba27298a7a602d5c8ea16d5a70c1557256e3"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056550"
+checksum = "sha256:77a10d84eed929ca07d06d9cfdd98e30aa1d9ef088539f294b81b4a1c46b3a29"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291967"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64"]
-checksum = "sha256:1839650aa43c7aafcd077134c1b3ad033893649a85a9a4cd1993c1a49c93468d"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056598"
+checksum = "sha256:6d0d37cb51d01449714f04e2dff0d87dca66c39a72544f667b29808899d2db39"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727292090"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64-musl"]
-checksum = "sha256:b7a4b7e322cc5d4ecba1f17ce67a2eba3a911e421c65ea2d0d1a1752e402b293"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056600"
+checksum = "sha256:9c8b7ebee3b3fd8b069e3e9b66d59b294ead4d306863600babfbc7bb1bd566ec"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727292120"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-arm64"]
-checksum = "sha256:e45d663c25b14ce0c85a56802ec868610d17b0e3311a1f39fc7f2b6f31efda94"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056542"
+checksum = "sha256:a622a29b36262b9d05683d28dbc5d8fb61601a6901ab371c9930c31c377b79b5"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727291968"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-x64"]
-checksum = "sha256:fcf84ccd6cba88e714c644f2c61efc6349a0b4a40a48d72b117d9aba9812117a"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056585"
+checksum = "sha256:227d828a94c9ad831c4bc627fdb636a026a695f3adf2118d134c240308ee11c5"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727292069"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.windows-x64"]
-checksum = "sha256:f3672f9ac9b33e1b7f66588f4401e463886f1667aa0a7a6686967754638064da"
-url = "https://github.com/oxc-project/oxc/releases/download/apps_v1.84.0/oxlint-x86_64-pc-windows-msvc.zip"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/579056588"
-
-[[tools."aqua:rhysd/actionlint"]]
-version = "1.7.12"
-backend = "aqua:rhysd/actionlint"
-specifiers = ["1.7.12"]
-
-[tools."aqua:rhysd/actionlint"."platforms.linux-arm64"]
-checksum = "sha256:325e971b6ba9bfa504672e29be93c24981eeb1c07576d730e9f7c8805afff0c6"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924897"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.linux-arm64-musl"]
-checksum = "sha256:325e971b6ba9bfa504672e29be93c24981eeb1c07576d730e9f7c8805afff0c6"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924897"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.linux-x64"]
-checksum = "sha256:8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924896"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.linux-x64-musl"]
-checksum = "sha256:8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924896"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.macos-arm64"]
-checksum = "sha256:aba9ced2dee8d27fecca3dc7feb1a7f9a52caefa1eb46f3271ea66b6e0e6953f"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924893"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.macos-x64"]
-checksum = "sha256:5b44c3bc2255115c9b69e30efc0fecdf498fdb63c5d58e17084fd5f16324c644"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924880"
-provenance = "github-attestations"
-
-[tools."aqua:rhysd/actionlint"."platforms.windows-x64"]
-checksum = "sha256:6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9"
-url = "https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_windows_amd64.zip"
-url_api = "https://api.github.com/repos/rhysd/actionlint/releases/assets/384924919"
-provenance = "github-attestations"
+checksum = "sha256:075ce1f3baae778da2a37a0bae8c31040f31f9ca3e1b89c60775f82f09661724"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.93.0/oxlint-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/727292073"
 
 [[tools."aqua:shenwei356/rush"]]
 version = "0.11.1"
@@ -442,53 +432,6 @@ provenance = "github-attestations"
 checksum = "sha256:abda382f54a28994e6c7aa220229d5077309def0666bffe0d8d35852bba54b14"
 url = "https://github.com/suzuki-shunsuke/pinact/releases/download/v5.0.2/pinact_windows_amd64.zip"
 url_api = "https://api.github.com/repos/suzuki-shunsuke/pinact/releases/assets/675205667"
-provenance = "github-attestations"
-
-[[tools."aqua:zizmorcore/zizmor"]]
-version = "1.32.0"
-backend = "aqua:zizmorcore/zizmor"
-specifiers = ["1.32.0"]
-
-[tools."aqua:zizmorcore/zizmor"."platforms.linux-arm64"]
-checksum = "sha256:cb152b207f815116d7fa1c1ee4614f61578803351395052908095e79adfd9fd0"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541931"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.linux-arm64-musl"]
-checksum = "sha256:cb152b207f815116d7fa1c1ee4614f61578803351395052908095e79adfd9fd0"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541931"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.linux-x64"]
-checksum = "sha256:bb110cc765eca9cd7efb2e284a956be5974c60027b0970f16397d86208a9957b"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541932"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.linux-x64-musl"]
-checksum = "sha256:bb110cc765eca9cd7efb2e284a956be5974c60027b0970f16397d86208a9957b"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541932"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.macos-arm64"]
-checksum = "sha256:6efed18c4539a663fd3c851a2be9533fd8456c4e646d9416206da059154a0d3c"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541933"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.macos-x64"]
-checksum = "sha256:6983143c719ada6845a69cc4dd2bacc215f971662fecd8bbd2678388e5ce5969"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541930"
-provenance = "github-attestations"
-
-[tools."aqua:zizmorcore/zizmor"."platforms.windows-x64"]
-checksum = "sha256:d284a16e09d9df4ce2c000357e7b59bd531be093bea5718a1ce225b449b59d49"
-url = "https://github.com/zizmorcore/zizmor/releases/download/v1.32.0/zizmor-x86_64-pc-windows-msvc.zip"
-url_api = "https://api.github.com/repos/zizmorcore/zizmor/releases/assets/703541929"
 provenance = "github-attestations"
 
 [[tools."github:jdx/jactionlint"]]
