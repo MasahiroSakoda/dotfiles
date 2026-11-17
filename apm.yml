@@ -17,6 +17,7 @@ dependencies:
       ref: v1.3.2
       skills:
         - setup-matt-pocock-skills
+        - ask-matt
         - grill-me
         - grill-with-docs
         - grilling
