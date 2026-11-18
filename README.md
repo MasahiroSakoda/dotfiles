@@ -143,6 +143,7 @@ See also: [Plugin list](https://github.com/MasahiroSakoda/dotfiles/blob/main/hom
 | SQL         | [sqls](https://github.com/sqls-server/sqls)                                             |
 | Dockerfile  | [dockerfile-language-server](https://github.com/rcjsuen/dockerfile-language-server)     |
 | Terraform   | [terraform-ls](https://github.com/hashicorp/terraform-ls)                               |
+| Arduino     | [arduino-language-server](https://github.com/arduino/arduino-language-server)           |
 | Markdown    | [marksman](https://github.com/artempyanykh/marksman)                                    |
 | LaTex       | [texlab](https://github.com/latex-lsp/texlab)                                           |
 
@@ -295,6 +296,7 @@ Runtime version management tool
 | [wezterm](https://github.com/wez/wezterm) | Terminal |
 | [Ghostty](https://github.com/ghostty-org/ghostty) | Terminal |
 | [Zed](https://zed.dev/) | IDE |
+| [Arduino IDE](https://docs.arduino.cc/software/ide/) | IDE |
 | [Docker](https://www.docker.com/) | Container |
 | [drawio](https://www.drawio.com/) | Diagram |
 
