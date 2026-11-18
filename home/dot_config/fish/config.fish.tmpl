@@ -16,6 +16,7 @@ set -gx RUNEWIDTH_EASTASIAN 0
 fish_add_path {{ .brew_prefix }}/bin
 fish_add_path {{ .brew_prefix }}/sbin
 fish_add_path $HOME/.local/bin
+fish_add_path "$HOME/Applications/Arduino IDE.app/Contents/Resources/app/lib/backend/resources"
 
 {{- if eq .chezmoi.arch "arm64" }}
 set -gx ARCHFLAGS '-arch arm64'

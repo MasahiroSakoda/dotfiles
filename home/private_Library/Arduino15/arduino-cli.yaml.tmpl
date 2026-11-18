@@ -1,0 +1,38 @@
+{{- $dataDir := joinPath .chezmoi.homeDir ".arduino15" -}}
+{{- $userDir := joinPath .chezmoi.homeDir "Arduino" -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-     $dataDir = joinPath .chezmoi.homeDir "Library" "Arduino15" -}}
+{{-     $userDir = joinPath .chezmoi.homeDir "Documents" "Arduino" -}}
+{{- else if eq .chezmoi.os "windows" -}}
+{{-     $dataDir = joinPath .chezmoi.homeDir "AppData" "Local" "Arduino15" -}}
+{{-     $userDir = joinPath .chezmoi.homeDir "Documents" "Arduino" -}}
+{{- end -}}
+board_manager:
+  additional_urls:
+    - https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+    - https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    - https://raw.githubusercontent.com/YuukiUmeta-UIAP/board_manager_files/main/package_uiap.jp_index.json
+daemon:
+  port: "50051"
+directories:
+  data: {{ $dataDir }}
+  downloads: {{ joinPath $dataDir "staging" }}
+  user: {{ $userDir }}
+library:
+  enable_unsafe_install: false
+logging:
+  file: ""
+  format: text
+  level: info
+metrics:
+  addr: :9090
+  enabled: true
+output:
+  no_color: false
+sketch:
+  always_export_binaries: true
+updater:
+  enable_notification: true
+{{- /*
+# -*-mode:yaml-*- vim:ft=yaml.gotexttmpl
+*/ -}}

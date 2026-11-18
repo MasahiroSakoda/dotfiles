@@ -23,6 +23,7 @@ return {
   rumdl         = require("config.lsp.servers.rumdl"),         -- Markdown
   dockerls      = require("config.lsp.servers.dockerls"),      -- Docker
   terraformls   = require("config.lsp.servers.terraformls"),   -- Terraform
+  arduino       = require("config.lsp.servers.arduino"),       -- Arduino
   zizmor        = require("config.lsp.servers.zizmor"),        -- GitHub Actions
   sqls          = require("config.lsp.servers.sqls"),          -- SQL
   texlab        = require("config.lsp.servers.texlab"),        -- LaTex
