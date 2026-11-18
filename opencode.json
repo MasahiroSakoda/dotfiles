@@ -57,5 +57,17 @@
     "translator": {
       "disable": false
     }
+  },
+  "mcp": {
+    "grep.app": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.grep.app"
+    },
+    "context7": {
+      "type": "remote",
+      "enabled": true,
+      "url": "https://mcp.context7.com/mcp"
+    }
   }
 }
