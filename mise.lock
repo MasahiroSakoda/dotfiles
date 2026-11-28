@@ -6,6 +6,10 @@ lockfile_version = 3
 version = "0.32.0"
 backend = "aqua:Kampfkarren/selene"
 specifiers = ["0.32.0"]
+unsupported_platforms = [
+    "linux-arm64",
+    "linux-arm64-musl",
+]
 
 [tools."aqua:Kampfkarren/selene"."platforms.linux-x64"]
 checksum = "sha256:d3773393578580074386e69337d35b7acddfbaa9fc38964c07fa3e28436ade9b"
@@ -36,6 +40,7 @@ url_api = "https://api.github.com/repos/Kampfkarren/selene/releases/assets/60428
 version = "1.14.0"
 backend = "aqua:bats-core/bats-core"
 specifiers = ["1.14.0"]
+unsupported_platforms = ["windows-x64"]
 
 [tools."aqua:bats-core/bats-core"."platforms.linux-arm64"]
 checksum = "sha256:bb537b70b15b732f6d8827dd6578e3d8ce166636ce1f18ea9a074184fcce9177"
@@ -249,96 +254,98 @@ url = "https://github.com/mvdan/sh/releases/download/v3.14.1/shfmt_v3.14.1_windo
 url_api = "https://api.github.com/repos/mvdan/sh/releases/assets/547320827"
 
 [[tools."aqua:oxc-project/oxc/oxfmt"]]
-version = "0.79.0"
+version = "0.80.0"
 backend = "aqua:oxc-project/oxc/oxfmt"
 specifiers = ["latest"]
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-arm64"]
-checksum = "sha256:2d550f171f2464df1fc7dd63154c6c77d795a9c6d54f99a3366cb45d2ff9e46d"
+checksum = "sha256:5170d9c9072c1e2da6970524306aeccd107aa1d237f81cff5e2a6011844fb483"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764756"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612277"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-arm64-musl"]
-checksum = "sha256:b2711331ca9205c24ebcf9c445b33043c5f7d2ef6a004340389c95d8fa4b4263"
+checksum = "sha256:1e04c9086d9b2f461f84d4075d6deb5e75c5fd82928e4fa7a6f0fead95b0c3ac"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764753"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612279"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-x64"]
-checksum = "sha256:458ba526dd692baad90c5cf164341257e339da2a6e0f585dea6eae6644df5608"
+checksum = "sha256:e393d1d65cff7f051cc5eb21fca7e29691dd4e9fdbb9bde09f73cd50cd8ec22d"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764891"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612416"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.linux-x64-musl"]
-checksum = "sha256:74b210fb31bce6f933cb5de70fae91a3a28923cbd93f4848307681b7ff05f6b3"
+checksum = "sha256:bb7e851925c06806fbc33e7d0f2d64b69621b064cd739e0ed7a7ee5607e4914b"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764898"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612455"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.macos-arm64"]
-checksum = "sha256:c75859a53ec3a57a78d3e9752d2e9604badfca97dda65366c310ed2f5bf28534"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764750"
+checksum = "sha256:32a03838f50d2417b55eae71226c940da9d7964b77e49648a51957795527b479"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612273"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.macos-x64"]
-checksum = "sha256:99a82f2d30345af8b9fdb3858ef7a05e57822037ab035ff435827505e43f3e51"
+checksum = "sha256:6ce15df70bea1ac256cd958df6aa8c9480bb1ccd5e86e11e89d02a8c60fa86e7"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764855"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612403"
 
 [tools."aqua:oxc-project/oxc/oxfmt"."platforms.windows-x64"]
-checksum = "sha256:e78cabb2b5018f38da650b05d693d054c84fd5bba4853aecb5243834d3985577"
+checksum = "sha256:47c7e231c91239eaebd73a58ce9a916a61a9356b51791d7d2022169b1f90650f"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.79.0/oxfmt-x86_64-pc-windows-msvc.zip"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754764862"
+url = "https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.80.0/oxfmt-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612406"
 
 [[tools."aqua:oxc-project/oxc/oxlint"]]
-version = "1.94.0"
+version = "1.95.0"
 backend = "aqua:oxc-project/oxc/oxlint"
 specifiers = ["latest"]
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-arm64"]
-checksum = "sha256:ae4f0f826d3a96f529e197e460c9e4ffb4450528f55f4c688f6f6936f4660159"
+checksum = "sha256:8cb1fa1ac7ab4a6caae3003ffa1d6b2cf1b939fda977dddc971234ee6fccb8c7"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-aarch64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765060"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-aarch64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612649"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-arm64-musl"]
-checksum = "sha256:7f30b4869f4280683a94928945079a36a6fe97c369f3521ba64268d0896db6f8"
+checksum = "sha256:8358d8a2edfa7b38c37750af037c870afcec6f5fb2f6ae63283727e24a52ff7e"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-aarch64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765056"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-aarch64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612651"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64"]
-checksum = "sha256:fc1a189a35417ebda77cac83b8bfe9e9d10a7eb27e0d2fe005d222fa01261e64"
+checksum = "sha256:180d51ffd469995f394ba379a4b6f73c55ddb98443df442e3e456951d874a5f1"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765229"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612803"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.linux-x64-musl"]
-checksum = "sha256:f280aa702f87ebb59719626cfb27a4ed3fc4da63c094a9a9a6d0433bafa5433d"
+checksum = "sha256:7354b50c48a98c9f64efb55adf50e81ab7f0a477f2c5f95b92222dc2db5d213c"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765235"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612808"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-arm64"]
-checksum = "sha256:d31a59e3b11511075c13173f3c0b63fc0baa51477d73276dded7c308f4c26dc0"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-aarch64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765057"
+checksum = "sha256:a08b6a75a95ef77ee6d7bd9e74f903539fb78e856ce58f4f39b6ea2353a4599f"
+checksum_source = "mise-versions"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-aarch64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612648"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.macos-x64"]
-checksum = "sha256:7fe811a85916436e786836b84f9b976b824cdc050c54f9359dbc31f16cfc5f44"
+checksum = "sha256:1863cd8fca56e958fc5ecdc3468b4f30562e0bd677701b3b0a2922b4305986e8"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-x86_64-apple-darwin.tar.gz"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765196"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-x86_64-apple-darwin.tar.gz"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612757"
 
 [tools."aqua:oxc-project/oxc/oxlint"."platforms.windows-x64"]
-checksum = "sha256:31fb7f706d6cd0ff9c3c734b3a38746477144cc84863d49ed82ac30a9639a96d"
+checksum = "sha256:8a0e8384ee8ff23892ff878dead150c8632fb447ca905e95aed2c5e6684ab921"
 checksum_source = "mise-versions"
-url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.94.0/oxlint-x86_64-pc-windows-msvc.zip"
-url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/754765200"
+url = "https://github.com/oxc-project/oxc/releases/download/oxlint_v1.95.0/oxlint-x86_64-pc-windows-msvc.zip"
+url_api = "https://api.github.com/repos/oxc-project/oxc/releases/assets/783612762"
 
 [[tools."aqua:shenwei356/rush"]]
 version = "0.11.1"
